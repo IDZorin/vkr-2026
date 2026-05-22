@@ -1,0 +1,467 @@
+{
+  "module": "source_to_ir_fidelity",
+  "module_version": "v1",
+  "description": "Source-text-to-IR fidelity metrics: covers epistemic vs deontic lowering, modality/temporal/quantifier preservation, fact recall, multi-judge consensus, counterexample agreement, family coverage, and lowering smells. These rules complement (not replace) the legacy 689-rule diagnostic stack.",
+  "rule_count": 18,
+  "metric_count": 14,
+  "check_count": 4,
+  "module_metric_files": {
+    "B5_fact_extraction": "metrics_fact_extraction_compare_v1.json",
+    "B6_modal_temporal": "metrics_modal_temporal_preservation_v1.json",
+    "B8_phrase_coverage": "metrics_source_phrase_coverage_v1.json",
+    "A_targeted_probes": "metrics_targeted_probes_v1.json",
+    "B2_multi_judge": "metrics_multi_judge_consensus_v1.json",
+    "B3_counterexample": "metrics_counterexample_probing_v1.json",
+    "family_coverage": "metrics_family_coverage_v1.json",
+    "lowering_audit": "lowering_audit_v1.json"
+  },
+  "rules": [
+    {
+      "type": "metric",
+      "name": "fact_recall_to_source",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_warning`",
+      "what_it_counts": "fraction of source-extracted atomic facts that have a corresponding fact in the IR-render (B5 LLM fact-pair alignment).",
+      "how_to_compute": "B5 LLM extracts <=20 facts from source and from render-back, aligns them; recall = matched_source / total_source.",
+      "value_paths": [
+        "metrics_fact_extraction_compare_v1.json::summary.recall"
+      ],
+      "evidence_paths": [
+        "metrics_fact_extraction_compare_v1.json::summary.missing_source_facts"
+      ],
+      "thresholds": {
+        "ok": ">= 0.9",
+        "warning": "< 0.9",
+        "fail": "< 0.7"
+      },
+      "diagnostic_output_must_include": [
+        "actual recall",
+        "list of missing source facts",
+        "model used"
+      ],
+      "bad_value_means": "render-back lost some claims from source — possible information loss in IR.",
+      "repair_target": "L5 body assembly: ensure each source claim has a representing constraint/decl."
+    },
+    {
+      "type": "metric",
+      "name": "fact_precision_to_source",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_warning`",
+      "what_it_counts": "fraction of render-back facts that have a corresponding source fact (i.e. NOT hallucinated).",
+      "how_to_compute": "B5: precision = matched_render / total_render.",
+      "value_paths": [
+        "metrics_fact_extraction_compare_v1.json::summary.precision"
+      ],
+      "evidence_paths": [
+        "metrics_fact_extraction_compare_v1.json::summary.render_only_facts"
+      ],
+      "thresholds": {
+        "ok": ">= 0.85",
+        "warning": "< 0.85",
+        "fail": "< 0.7"
+      },
+      "diagnostic_output_must_include": [
+        "actual precision",
+        "list of hallucinated render facts"
+      ],
+      "bad_value_means": "render-back invented facts not in source — IR contains over-strengthened claims.",
+      "repair_target": "L5 body assembly: drop or guard claims that don't trace to source."
+    },
+    {
+      "type": "metric",
+      "name": "modality_quantifier_loss_in_render",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_warning`",
+      "what_it_counts": "count of modal verbs / quantifiers / temporal markers that exist in source but disappear in render-back (B6 surface drift).",
+      "how_to_compute": "B6 tokenizes source and render-back, computes per-category set differences (modals, negated_modals, quantifiers, temporal, numeric_literals).",
+      "value_paths": [
+        "metrics_modal_temporal_preservation_v1.json::drifts.source_to_render.modals.removed_count",
+        "metrics_modal_temporal_preservation_v1.json::drifts.source_to_render.quantifiers.removed_count",
+        "metrics_modal_temporal_preservation_v1.json::drifts.source_to_render.temporal.removed_count"
+      ],
+      "evidence_paths": [
+        "metrics_modal_temporal_preservation_v1.json::drifts.source_to_render"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "which categories lost which tokens",
+        "category counts"
+      ],
+      "bad_value_means": "modal/quantifier/temporal token disappears in render — possible deontic/temporal lowering smell or critic prompt slack.",
+      "repair_target": "L4: use DeonticDecl/TemporalDecl families instead of plain rels for these signals."
+    },
+    {
+      "type": "metric",
+      "name": "source_phrase_coverage_rate",
+      "module": "source_to_ir_fidelity",
+      "kind": "`continuous`",
+      "what_it_counts": "fraction of noun-ish phrases extracted from source that have ≥50% token overlap with some IR-symbol's content tokens.",
+      "how_to_compute": "B8 extracts capitalized/hyphenated/quoted phrases from source, stems them, checks against IR token universe.",
+      "value_paths": [
+        "metrics_source_phrase_coverage_v1.json::coverage_rate"
+      ],
+      "evidence_paths": [
+        "metrics_source_phrase_coverage_v1.json::uncovered"
+      ],
+      "thresholds": {
+        "ok": ">= 0.9",
+        "warning": "< 0.9",
+        "fail": "< 0.7"
+      },
+      "diagnostic_output_must_include": [
+        "coverage rate",
+        "list of uncovered phrases",
+        "matched tokens per phrase"
+      ],
+      "bad_value_means": "some source noun-phrases never reach the IR — concept dropped silently.",
+      "repair_target": "L3/L4: ensure each named source concept has a sort/entity/symbol that mentions it."
+    },
+    {
+      "type": "metric",
+      "name": "targeted_probe_preservation_rate",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_warning`",
+      "what_it_counts": "fraction of 9 targeted probes (negation/scope/temporal/responsibility/...) where render preserves the aspect (yes / no / n_a — rate counts only yes vs no).",
+      "how_to_compute": "A targeted_probes_v1 LLM call returns probe_<name> ∈ {yes, no, n_a}; preservation_rate = yes / (yes+no).",
+      "value_paths": [
+        "metrics_targeted_probes_v1.json::summary.preservation_rate"
+      ],
+      "evidence_paths": [
+        "metrics_targeted_probes_v1.json::drifts"
+      ],
+      "thresholds": {
+        "ok": ">= 0.85",
+        "warning": "< 0.85",
+        "fail": "< 0.7"
+      },
+      "diagnostic_output_must_include": [
+        "preservation rate",
+        "drift list with probe + drift explanation"
+      ],
+      "bad_value_means": "specific aspects (scope/responsibility/etc.) are lost during the round-trip.",
+      "repair_target": "L4/L5 by drift category: scope → forall in scope; responsibility → DeonticDecl agent; temporal_order → TemporalDecl."
+    },
+    {
+      "type": "metric",
+      "name": "multi_judge_unanimous",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_warning`",
+      "what_it_counts": "whether the N-model judge panel unanimously returned the same verdict.",
+      "how_to_compute": "B2 runs panel = [gpt-5.4-mini, claude-haiku-4.5, gemini-2.5-flash] with same prompt; unanimous iff all judges agree.",
+      "value_paths": [
+        "metrics_multi_judge_consensus_v1.json::summary.unanimous"
+      ],
+      "evidence_paths": [
+        "metrics_multi_judge_consensus_v1.json::judges"
+      ],
+      "thresholds": {
+        "ok": "true",
+        "warning": "false"
+      },
+      "diagnostic_output_must_include": [
+        "per-model verdicts and reasons",
+        "agreement rate"
+      ],
+      "bad_value_means": "judges disagree — IR is borderline or has subtle drifts.",
+      "repair_target": "Inspect dissenting judge reasons; address the specific drift."
+    },
+    {
+      "type": "metric",
+      "name": "multi_judge_mode_corresponds",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_fail`",
+      "what_it_counts": "whether the panel's mode verdict is `corresponds` (vs `partially_corresponds` or `does_not_correspond`).",
+      "how_to_compute": "majority vote over panel verdicts.",
+      "value_paths": [
+        "metrics_multi_judge_consensus_v1.json::summary.mode_verdict"
+      ],
+      "evidence_paths": [
+        "metrics_multi_judge_consensus_v1.json::judges"
+      ],
+      "thresholds": {
+        "ok": "= corresponds",
+        "fail": "!= corresponds"
+      },
+      "diagnostic_output_must_include": [
+        "mode verdict",
+        "verdict distribution",
+        "judge rationales"
+      ],
+      "bad_value_means": "majority of judges think IR is not faithful to source.",
+      "repair_target": "L5 retry with concrete drifts as feedback."
+    },
+    {
+      "type": "metric",
+      "name": "counterexample_source_ir_agreement_rate",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_warning`",
+      "what_it_counts": "fraction of generated counterexample scenarios where source and IR agree on the verdict (accept/reject/ambiguous).",
+      "how_to_compute": "B3 generates 4 scenarios; for each, source_verdict and ir_verdict are independently judged; agreement = matches/total.",
+      "value_paths": [
+        "metrics_counterexample_probing_v1.json::summary.agreement_rate"
+      ],
+      "evidence_paths": [
+        "metrics_counterexample_probing_v1.json::summary.drifts"
+      ],
+      "thresholds": {
+        "ok": ">= 0.75",
+        "warning": "< 0.75",
+        "fail": "< 0.5"
+      },
+      "diagnostic_output_must_include": [
+        "agreement rate",
+        "scenarios with mismatched verdicts and explanations"
+      ],
+      "bad_value_means": "IR and source disagree on hypothetical instances — IR may have lost scope, modality, or actor.",
+      "repair_target": "Inspect drift scenarios; fix scope_edge → forall, modality_edge → DeonticDecl/TemporalDecl, etc."
+    },
+    {
+      "type": "check",
+      "name": "expected_family_present",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_fail`",
+      "what_it_counts": "for each source signal that requires a first-class a4v3 family under the minimal-IR policy, whether that family is actually used in the IR.",
+      "how_to_compute": "family_coverage_v1: count only `required_gaps`; advisory gaps are allowed when a simpler faithful local lowering is acceptable.",
+      "value_paths": [
+        "metrics_family_coverage_v1.json::n_required_gaps"
+      ],
+      "evidence_paths": [
+        "metrics_family_coverage_v1.json::required_gaps"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "fail": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "per-gap signal name",
+        "expected family",
+        "evidence quotes"
+      ],
+      "bad_value_means": "source contains a signal that still requires a first-class family even after applying the minimal-IR policy, but the IR lowered it away.",
+      "repair_target": "L4/L5: use the required family, or reclassify the signal as advisory only if simpler faithful lowering is explicitly allowed by policy."
+    },
+    {
+      "type": "check",
+      "name": "lowering_smell_count",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_warning`",
+      "what_it_counts": "rel/fun/entity/val names containing modal/temporal/deontic tokens that should be lowered as DeonticDecl/TemporalDecl/ActionDecl.",
+      "how_to_compute": "lowering_audit_v1 tokenizes each symbol name and matches against modality/temporal/action lexicons.",
+      "value_paths": [
+        "lowering_audit_v1.json::n_smells"
+      ],
+      "evidence_paths": [
+        "lowering_audit_v1.json::smells"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "smell list with symbol, matched token, candidate target family"
+      ],
+      "bad_value_means": "modality/temporal semantics is buried in identifier names instead of using first-class families.",
+      "repair_target": "Refactor each smell to its candidate family; see refactor cookbook in lowering_audit_corpus_report."
+    },
+    {
+      "type": "metric",
+      "name": "uncovered_source_phrases",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_warning`",
+      "what_it_counts": "absolute count of phrases extracted from source.md that have <50% token overlap with any IR symbol.",
+      "how_to_compute": "B8 phrase coverage; uncovered = phrases with token_coverage < 0.5.",
+      "value_paths": [
+        "metrics_source_phrase_coverage_v1.json::uncovered_count"
+      ],
+      "evidence_paths": [
+        "metrics_source_phrase_coverage_v1.json::uncovered"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": ">= 1"
+      },
+      "diagnostic_output_must_include": [
+        "uncovered phrase list",
+        "phrase tokens per phrase"
+      ],
+      "bad_value_means": "source has named concepts (capitalized, quoted) that the IR never references.",
+      "repair_target": "L3: extract these as sorts or entities; L4: declare a symbol that mentions them."
+    },
+    {
+      "type": "metric",
+      "name": "missing_source_fact_count",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_fail`",
+      "what_it_counts": "absolute count of source-fact items that B5 marked as 'missing' (no aligned render fact).",
+      "how_to_compute": "B5 source_to_render alignment with match=missing.",
+      "value_paths": [
+        "metrics_fact_extraction_compare_v1.json::summary.missing_source"
+      ],
+      "evidence_paths": [
+        "metrics_fact_extraction_compare_v1.json::summary.missing_source_facts"
+      ],
+      "thresholds": {
+        "ok": "<= 1",
+        "warning": "= 2",
+        "fail": ">= 3"
+      },
+      "diagnostic_output_must_include": [
+        "missing fact list",
+        "source fact text"
+      ],
+      "bad_value_means": "more than one atomic source claim is unrepresented in IR — significant information loss.",
+      "repair_target": "L5: add constraints/facts/decls for each missing source fact."
+    },
+    {
+      "type": "metric",
+      "name": "render_hallucinated_fact_count",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_warning`",
+      "what_it_counts": "absolute count of render-only fact items (B5 render_only list).",
+      "how_to_compute": "B5: render facts not aligned with any source fact.",
+      "value_paths": [
+        "metrics_fact_extraction_compare_v1.json::summary.render_only"
+      ],
+      "evidence_paths": [
+        "metrics_fact_extraction_compare_v1.json::summary.render_only_facts"
+      ],
+      "thresholds": {
+        "ok": "<= 1",
+        "warning": ">= 2"
+      },
+      "diagnostic_output_must_include": [
+        "hallucinated fact list"
+      ],
+      "bad_value_means": "render-back invented claims that aren't in source — IR or render produced over-strengthening.",
+      "repair_target": "L5: drop unsupported claims; ensure declarations only encode source-attested content."
+    },
+    {
+      "type": "metric",
+      "name": "stronger_pair_count",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_warning`",
+      "what_it_counts": "B5 alignment pairs marked match=stronger — render claim is strictly stronger than source (over-strengthening).",
+      "how_to_compute": "B5 source_to_render alignment with match=stronger.",
+      "value_paths": [
+        "metrics_fact_extraction_compare_v1.json::summary.stronger_in_render"
+      ],
+      "evidence_paths": [
+        "metrics_fact_extraction_compare_v1.json::summary.stronger_pairs"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": ">= 1"
+      },
+      "diagnostic_output_must_include": [
+        "stronger pair list with src + render"
+      ],
+      "bad_value_means": "IR makes a stronger claim than source supports — possible quantifier scope error or modality drift.",
+      "repair_target": "Weaken the claim in IR; check scope and modality."
+    },
+    {
+      "type": "metric",
+      "name": "weaker_pair_count",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_warning`",
+      "what_it_counts": "B5 alignment pairs marked match=weaker — render claim is strictly weaker than source.",
+      "how_to_compute": "B5 source_to_render alignment with match=weaker.",
+      "value_paths": [
+        "metrics_fact_extraction_compare_v1.json::summary.weaker_in_render"
+      ],
+      "evidence_paths": [
+        "metrics_fact_extraction_compare_v1.json::summary.weaker_pairs"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": ">= 1"
+      },
+      "diagnostic_output_must_include": [
+        "weaker pair list with src + render"
+      ],
+      "bad_value_means": "IR is weaker than source — modality or scope was generalized away.",
+      "repair_target": "Strengthen claim, check modality; ensure DeonticDecl matches source modality strictly."
+    },
+    {
+      "type": "metric",
+      "name": "innf_family_diversity",
+      "module": "source_to_ir_fidelity",
+      "kind": "`continuous`",
+      "what_it_counts": "how many of the 12 INNF families are used in the IR (TypeDecl/SymbolDecl/AssertDecl/.../DeonticDecl/TemporalDecl/...).",
+      "how_to_compute": "family_coverage_v1 counts distinct INNF families per entry.",
+      "value_paths": [
+        "metrics_family_coverage_v1.json::ir_innf_families_used"
+      ],
+      "evidence_paths": [
+        "metrics_family_coverage_v1.json::ir_family_counts"
+      ],
+      "thresholds": {
+        "inspect": "compare against source signal expectations from family_coverage gaps"
+      },
+      "diagnostic_output_must_include": [
+        "families used",
+        "fine-grained family counts"
+      ],
+      "bad_value_means": "low diversity often correlates with everything-as-rel (lowering smell).",
+      "repair_target": "Use first-class families when source has matching signals."
+    },
+    {
+      "type": "check",
+      "name": "deontic_lowering_correct",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_warning`",
+      "what_it_counts": "inspect deontic-looking source signals and decide whether missing DeonticDecl is a real loss or an acceptable minimal-IR absorption into ordinary constraints.",
+      "how_to_compute": "family_coverage_v1 gaps plus source_signals; obligation-only gaps may be advisory, while permission/prohibition gaps are usually stronger evidence of missed deontic lowering.",
+      "value_paths": [
+        "metrics_family_coverage_v1.json::gaps"
+      ],
+      "evidence_paths": [
+        "metrics_family_coverage_v1.json::source_signals"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "per-signal evidence quotes",
+        "expected family kind",
+        "whether the gap is required or advisory"
+      ],
+      "bad_value_means": "deontic wording may have been buried or lost; some obligation-only cases can still be acceptable if faithfully represented as local constraints.",
+      "repair_target": "L4: emit obligation/permission/prohibition when source makes modality first-class; otherwise confirm the simpler constraint-form preserves the claim."
+      "_original_thresholds": {
+        "ok": "no deontic gaps",
+        "warning": "any deontic gap present"
+      }
+    },
+    {
+      "type": "check",
+      "name": "temporal_lowering_correct",
+      "module": "source_to_ir_fidelity",
+      "kind": "`hard_warning`",
+      "what_it_counts": "inspect temporal-looking source signals and decide whether missing TemporalDecl is a real trace-semantics loss or an acceptable minimal-IR absorption.",
+      "how_to_compute": "family_coverage_v1 gaps plus source_signals; plain `until` used only for procedure termination may be advisory rather than mandatory TemporalDecl.",
+      "value_paths": [
+        "metrics_family_coverage_v1.json::gaps"
+      ],
+      "evidence_paths": [
+        "metrics_family_coverage_v1.json::source_signals"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "per-signal evidence",
+        "expected prop kind",
+        "whether the gap is required or advisory"
+      ],
+      "bad_value_means": "temporal wording may have been buried or lost; some termination-style `until` cases can still be acceptable in minimal IR.",
+      "repair_target": "L4: emit TemporalDecl when the source asserts real trace/state semantics; otherwise confirm the simpler static lowering preserves the final claim.",
+      "_original_thresholds": {
+        "ok": "no temporal gaps",
+        "warning": "any temporal gap present"
+      }
+    }
+  ]
+}

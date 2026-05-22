@@ -1,0 +1,18 @@
+{
+  "name": "russian_law",
+  "summary": "Recorded NL-to-SMT checks over a Russkaya Pravda A4V3 IR: 5 consistent claims, 4 contradicted denials, 2 out-of-scope refusals.",
+  "results": [
+    {"id": "Q1", "description": "Finger severing penalty is 3 grivnas.", "coverage": "covered", "z3": "sat", "final": "CONSISTENT_WITH_LAW", "expected": "CONSISTENT_WITH_LAW", "cited_ir": ["rp_007_otsechet_palets_3_grivny", "otsechet", "shtraf"]},
+    {"id": "Q2", "description": "Beard tearing penalty is 12 grivnas.", "coverage": "covered", "z3": "sat", "final": "CONSISTENT_WITH_LAW", "expected": "CONSISTENT_WITH_LAW", "cited_ir": ["rp_008_vyrvet_usy_ili_borodu_12_griven", "vyrvet", "obyazan_uplatit_bez_poluchatelya"]},
+    {"id": "Q3", "description": "Sword strike with sword not drawn from scabbard gives 12 grivnas.", "coverage": "covered", "z3": "sat", "final": "CONSISTENT_WITH_LAW", "expected": "CONSISTENT_WITH_LAW", "cited_ir": ["rp_004_mech_v_nozhnah_ili_rukoyat_12_griven", "udarit_orudiem", "shtraf"]},
+    {"id": "Q4", "description": "Killing a man without kin vengeance gives 40 grivnas.", "coverage": "covered", "z3": "sat", "final": "CONSISTENT_WITH_LAW", "expected": "CONSISTENT_WITH_LAW", "cited_ir": ["rp_001b_ubiystvo_muzha_bez_mesti_40_griven", "ubil", "nikto_ne_mstit", "vzyiskivaetsya_s"]},
+    {"id": "Q5", "description": "Drawing a sword without striking gives 1 grivna.", "coverage": "covered", "z3": "sat", "final": "CONSISTENT_WITH_LAW", "expected": "CONSISTENT_WITH_LAW", "cited_ir": ["rp_009_obnazhit_mech_ne_udarit_1_grivna", "obnazhit", "ne_udarit", "obyazan_uplatit_bez_poluchatelya"]},
+    {"id": "A1", "description": "Adversarial denial: beard tearing is not punishable.", "coverage": "covered", "z3": "unsat", "final": "CONTRADICTED_BY_LAW", "expected": "CONTRADICTED_BY_LAW", "cited_ir": ["rp_008_vyrvet_usy_ili_borodu_12_griven", "vyrvet", "obyazan_uplatit_bez_poluchatelya"]},
+    {"id": "A2", "description": "Adversarial denial: finger severing has no fine.", "coverage": "covered", "z3": "unsat", "final": "CONTRADICTED_BY_LAW", "expected": "CONTRADICTED_BY_LAW", "cited_ir": ["rp_007_otsechet_palets_3_grivny", "otsechet", "shtraf", "palets"]},
+    {"id": "A3", "description": "Adversarial denial: sword injury causing a hand to wither has no fine.", "coverage": "covered", "z3": "unsat", "final": "CONTRADICTED_BY_LAW", "expected": "CONTRADICTED_BY_LAW", "cited_ir": ["rp_006b_mech_po_ruke_ili_noge_40_griven", "udarit_orudiem", "udarit_po", "otsohnet", "vzyiskivaetsya_s"]},
+    {"id": "A4", "description": "Adversarial denial: killing a man with no vengeance requires no payment.", "coverage": "covered", "z3": "unsat", "final": "CONTRADICTED_BY_LAW", "expected": "CONTRADICTED_BY_LAW", "cited_ir": ["rp_001b_ubiystvo_muzha_bez_mesti_40_griven", "ubil", "nikto_ne_mstit", "vzyiskivaetsya_s", "Muzh"]},
+    {"id": "OOS1", "description": "Out-of-scope: historical silver exchange rate.", "coverage": "not_covered", "z3": "skipped", "final": "NOT_COVERED", "expected": "NOT_COVERED", "cited_ir": []},
+    {"id": "OOS2", "description": "Out-of-scope: fashion in Old Rus.", "coverage": "not_covered", "z3": "skipped", "final": "NOT_COVERED", "expected": "NOT_COVERED", "cited_ir": []}
+  ]
+}
+

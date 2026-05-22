@@ -1,0 +1,71 @@
+section: "rules_core"
+source_file: "source.md"
+schema_version: "v2"
+review_status: "draft_ir_to_text_user_review"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims: {}
+
+vocabulary_notes:
+  BoardSquare:
+    source_phrase: "dark squares of the board"
+    note: >
+      Local playable-square sort. The full board cardinality is represented
+      separately by total_square_count(Board) = 64, active_square_count(Board) = 32,
+      and concrete coordinate facts read from Diagram 1.
+  BoardColumn:
+    source_phrase: "a b c d e f g h"
+    note: >
+      Column enum extracted from the board diagrams. Column names are normalized
+      as ColumnA through ColumnH.
+  SquareE3:
+    source_phrase: "e3"
+    note: >
+      Example concrete playable square entity. All 32 dark coordinates from
+      Diagram 1 are represented with the same Square<column><row> naming pattern.
+  light_square_coordinate:
+    source_phrase: "non-dark coordinates shown by '-' in the board diagram"
+    note: >
+      Records the 32 non-playable light coordinates without reifying them as
+      BoardSquare instances.
+  same_diagonal:
+    source_phrase: "squares on the same diagonal"
+    note: >
+      Square-to-square carrier relation derived from shared square-to-diagonal
+      membership.
+  forward_next_row:
+    source_phrase: "man moves forwards"
+    note: >
+      Color-relative row successor. White advances toward row 8; black advances
+      toward row 1.
+  initial_man:
+    source_phrase: "At the start of the game, the 12 white men ... and the 12 black men"
+    note: >
+      Initial setup is scoped to starting men, not all future Piece instances.
+      Diagram 2 is represented by concrete InitialWhiteMan* and InitialBlackMan*
+      entities.
+  initial_empty_square:
+    source_phrase: "empty middle rows in the initial-position diagram"
+    note: >
+      Concrete active squares in rows 4 and 5 that are empty at the initial
+      position shown in Diagram 2.
+  diagram_1_active_square_geometry:
+    source_phrase: "Diagram 1"
+    note: >
+      Formalizes the playable dark-square geometry from the board diagram,
+      including rows, columns, dark-square status, diagonals, and adjacency.
+  diagram_2_initial_position_catalog:
+    source_phrase: "Diagram 2"
+    note: >
+      Formalizes the initial placement of 12 white men and 12 black men shown
+      in the initial-position diagram.
+  board_placed_between:
+    source_phrase: "the board has to be placed between the two players"
+    note: >
+      Ternary relation with roles board, player_one, player_two.
+  all_squares_between_empty:
+    source_phrase: "passing over free squares"
+    note: >
+      Ternary geometric relation with roles from_square, to_square, diagonal.

@@ -1,0 +1,66 @@
+{
+  "domain_prelude_version": "domain_prelude_financial_values_v1",
+  "description": "Reusable financial-value primitives for typed monetary amounts.",
+  "domain": "financial_values",
+  "sorts": [
+    {
+      "name": "MonetaryAmount",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "Currency",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "MonetaryAmountValue",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "MonetaryAmountScale",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "Percent",
+      "witness_policy": "nonempty"
+    }
+  ],
+  "entities": [],
+  "functions": [
+    {
+      "name": "currency",
+      "args": [
+        "MonetaryAmount"
+      ],
+      "result_sort": "Currency"
+    },
+    {
+      "name": "monetary_amount_value",
+      "args": [
+        "MonetaryAmount"
+      ],
+      "result_sort": "MonetaryAmountValue"
+    },
+    {
+      "name": "monetary_amount_scale",
+      "args": [
+        "MonetaryAmount"
+      ],
+      "result_sort": "MonetaryAmountScale"
+    }
+  ],
+  "relations": [],
+  "policies": {
+    "allowed_ir_sources": [
+      "Domain prelude symbols",
+      "methodology-licensed amount literals such as USD 5 million"
+    ],
+    "notes": [
+      "Currency is a sort: the type of locally grounded currency entities such as USD, EUR, or another source-mentioned currency.",
+      "currency is a function: an accessor from a MonetaryAmount to its Currency.",
+      "MonetaryAmountValue carries the numeric value part of a stated amount.",
+      "MonetaryAmountScale is the type of locally grounded scale entities such as Million when the source uses scaled monetary wording.",
+      "Percent is the reusable value sort for source-grounded percentage quantities; concrete percentages such as 50% and 5% should remain formula literals.",
+      "This domain prelude should not be used to invent monetary facts not warranted by the source."
+    ]
+  }
+}

@@ -1,0 +1,1439 @@
+// ============================================================
+// IDF Official Rules of Draughts-64 — rules_core (FINAL v2, judge-feedback applied)
+// Sections 2 (The material), 3 (Movement), 4 (Capture)
+// Source URL: https://idf64.org/rules-of-the-game/
+// Diagram rows are formal source data for board geometry and initial setup;
+// legend rows explain diagram symbols and are represented through coordinate facts.
+//
+// v1 → v2 (judge panel feedback, 3/5 partial → applying fixes):
+//   - [deepseek-v4-pro] `jump_own_piece`: was unconditional, now ONLY bans
+//     jumping over OWN pieces (was banning ALL pieces — bug)
+//   - [deepseek-v4-pro] `touch_opponent_pieces` renamed to
+//     `touch_when_not_on_turn`, broadened to ALL pieces (source 3.13:
+//     "touches or adjusts one or more of his men or of his opponent")
+//   - [gpt-5.4-mini] `move_hand_used` fact strengthened to match
+//     obligation: OneHand only (removed tension with `one_hand_per_move`)
+//   - [gpt-5.4] Added 2.1.1 board-partition fact: 64 squares = 32 dark
+//     (modeled) + 32 light (excluded by sort definition)
+//   - [gpt-5.4] Added 2.1.4 first-left-dark consequence as explicit fact
+//
+// v0 → v1 (manual cleanup based on critic_swarm + source coverage):
+//   - Added missing source clauses (3.3, 3.8, 4.1, 4.9, 4.11, 4.12)
+//   - Fixed 4.16.1 Brazilian: permission → obligation (source: "REQUIRED")
+//   - Dropped invented `sort MoveExecution` (critic-flagged over-engineering)
+//   - Dropped 30 vacuous `forall x. P(x) or not P(x)` tautology facts
+//   - Grounded BoardRow enum + is_starting_row/is_empty_row/last_row_of facts
+//
+// All deontic decls reference source clause IDs in comments.
+//
+// ============================================================
+
+// --- SORTS ---
+
+sort BoardSquare
+sort BoardRow = Row1 | Row2 | Row3 | Row4 | Row5 | Row6 | Row7 | Row8
+sort BoardColumn = ColumnA | ColumnB | ColumnC | ColumnD | ColumnE | ColumnF | ColumnG | ColumnH
+sort Diagonal
+sort Board
+
+// --- BOARD COORDINATE ENTITIES FROM DIAGRAMS 1-2 ---
+entity SquareA1 : BoardSquare
+entity SquareC1 : BoardSquare
+entity SquareE1 : BoardSquare
+entity SquareG1 : BoardSquare
+entity SquareB2 : BoardSquare
+entity SquareD2 : BoardSquare
+entity SquareF2 : BoardSquare
+entity SquareH2 : BoardSquare
+entity SquareA3 : BoardSquare
+entity SquareC3 : BoardSquare
+entity SquareE3 : BoardSquare
+entity SquareG3 : BoardSquare
+entity SquareB4 : BoardSquare
+entity SquareD4 : BoardSquare
+entity SquareF4 : BoardSquare
+entity SquareH4 : BoardSquare
+entity SquareA5 : BoardSquare
+entity SquareC5 : BoardSquare
+entity SquareE5 : BoardSquare
+entity SquareG5 : BoardSquare
+entity SquareB6 : BoardSquare
+entity SquareD6 : BoardSquare
+entity SquareF6 : BoardSquare
+entity SquareH6 : BoardSquare
+entity SquareA7 : BoardSquare
+entity SquareC7 : BoardSquare
+entity SquareE7 : BoardSquare
+entity SquareG7 : BoardSquare
+entity SquareB8 : BoardSquare
+entity SquareD8 : BoardSquare
+entity SquareF8 : BoardSquare
+entity SquareH8 : BoardSquare
+
+entity DiagonalA1H8 : Diagonal
+entity DiagonalA3F8 : Diagonal
+entity DiagonalA5D8 : Diagonal
+entity DiagonalA7B8 : Diagonal
+entity DiagonalC1A3 : Diagonal
+entity DiagonalC1H6 : Diagonal
+entity DiagonalE1A5 : Diagonal
+entity DiagonalE1H4 : Diagonal
+entity DiagonalG1A7 : Diagonal
+entity DiagonalG1H2 : Diagonal
+entity DiagonalH2B8 : Diagonal
+entity DiagonalH4D8 : Diagonal
+entity DiagonalH6F8 : Diagonal
+
+
+sort Piece
+sort Man < Piece
+sort King < Piece
+sort PieceColor = White | Black
+
+// Initial position entities from Diagram 2.
+entity InitialWhiteManA1 : Man
+entity InitialWhiteManC1 : Man
+entity InitialWhiteManE1 : Man
+entity InitialWhiteManG1 : Man
+entity InitialWhiteManB2 : Man
+entity InitialWhiteManD2 : Man
+entity InitialWhiteManF2 : Man
+entity InitialWhiteManH2 : Man
+entity InitialWhiteManA3 : Man
+entity InitialWhiteManC3 : Man
+entity InitialWhiteManE3 : Man
+entity InitialWhiteManG3 : Man
+entity InitialBlackManB6 : Man
+entity InitialBlackManD6 : Man
+entity InitialBlackManF6 : Man
+entity InitialBlackManH6 : Man
+entity InitialBlackManA7 : Man
+entity InitialBlackManC7 : Man
+entity InitialBlackManE7 : Man
+entity InitialBlackManG7 : Man
+entity InitialBlackManB8 : Man
+entity InitialBlackManD8 : Man
+entity InitialBlackManF8 : Man
+entity InitialBlackManH8 : Man
+
+sort Move
+sort Capture < Move
+sort MultipleCapture < Capture
+
+sort MoveDirection = Forward | Backward
+
+sort Player
+sort Hand = OneHand | TwoHands
+sort CaptureChoiceCriterion = NumberOfPieces | QualityOfPieces
+
+// --- RELATIONS ---
+
+rel square_row : BoardSquare, BoardRow
+rel square_column : BoardSquare, BoardColumn
+rel square_is_dark : BoardSquare
+rel square_diagonal : BoardSquare, Diagonal
+rel same_diagonal : BoardSquare, BoardSquare
+rel light_square_coordinate : BoardColumn, BoardRow
+
+rel piece_color : Piece, PieceColor
+rel piece_square : Piece, BoardSquare
+rel piece_owner : Piece, Player
+
+rel move_piece : Move, Piece
+rel move_player : Move, Player
+rel move_direction : Move, MoveDirection
+rel move_hand : Move, Hand
+rel move_is_complete : Move
+
+rel initial_man : Man
+rel initial_piece_square : Man, BoardSquare
+rel initial_empty_square : BoardSquare
+rel capture_victim : Capture, Piece
+rel capture_chain : MultipleCapture, Capture
+rel capture_hand : Capture, Hand
+rel capture_player : Capture, Player
+rel clear_indication : Capture
+rel absence_of_clear_indication : Capture
+rel incorrect_capture : Capture
+rel rectification_request_available : Player, Capture
+rel capture_move_hand : Capture, Hand
+rel captured_piece_lift_hand : Capture, Hand
+rel using_two_hands : Capture
+
+rel game_turn : Player
+rel touches : Player, Piece
+rel is_playable : Piece, Player
+rel is_legal_move : Move
+rel is_legal_capture : Capture
+rel is_empty : BoardSquare
+rel reaches_last_row : Piece
+rel stops_on_square : Piece, BoardSquare
+rel stops_on_last_row : Piece
+rel crowned : Piece
+rel promoted_from : King, Man
+rel crowning_piece : Man, Man
+rel promotion_move : Move, Man
+rel irregular_move : Move
+rel can_move_direction : Piece, MoveDirection
+rel meets_diagonally : Piece, Piece
+rel adjacent_diagonal_squares : BoardSquare, BoardSquare
+rel has_further_capture : Piece
+rel is_capturing : Piece
+rel announce : Player, String
+rel competition_regulations_permit : String
+rel is_captured_in_current_move : Piece
+fun[required] count_initial_men_of_color : PieceColor -> Integer
+rel diagonal_length : Diagonal, Integer
+rel board_placed_between : Board, Player, Player
+rel long_diagonal_starts_at_left : Board, Player
+rel board_has_bases : Board
+rel board_has_sides : Board
+rel board_has_rows : Board
+rel board_has_columns : Board
+fun[required] forward_next_row : BoardRow, PieceColor -> BoardRow
+rel is_legal_square_for : Piece, BoardSquare
+fun[required] opponent_of : Player -> Player
+rel first_player : Player
+fun[required] capture_move : Piece -> Capture
+fun[required] behind : Piece -> BoardSquare
+rel exists_empty_behind : Piece
+rel reaches_last_row_during_capture : Piece
+rel has_opportunity_to_continue : Piece
+rel can_capture_as_king : Piece
+rel remains_man_during_capture : Man
+rel capture_only_on_next_move : Piece
+rel released : Player, Piece
+fun[required] count_captured_pieces : Capture -> Integer
+fun[required] capture_of : Piece -> Capture
+rel is_starting_row : BoardRow, PieceColor
+rel is_empty_row : BoardRow
+rel horizontal_row : BoardRow
+rel was_jumped_in_current_chain : Piece, MultipleCapture
+
+// 3.3 — Move ordering for turn alternation
+rel move_after : Move, Move
+// 3.8 — King distance movement
+rel all_squares_between_empty : BoardSquare, BoardSquare, Diagonal
+rel perpendicular_diagonal : Diagonal, Diagonal
+// 4.11 — Capture step ordering and lifting state
+rel capture_step_order : Capture, Capture
+rel lifted_after : Piece, Capture
+rel piece_on_board : Piece
+// 4.12 — Lift-completion marker
+rel lift_complete : MultipleCapture
+rel all_captured_pieces_taken : MultipleCapture
+rel clearly_stopped_taking : Player, MultipleCapture
+rel taking_pieces_finished : MultipleCapture
+// Last-row predicate for promotion (replaces use of Row8/Row1 as constants).
+rel last_row_of : BoardRow, PieceColor
+rel capture_choice_ignores_criterion : Player, CaptureChoiceCriterion
+
+// --- GROUNDING FACTS (newly added: enumerate constants used by rules) ---
+
+// 2.2.2: White's starting rows are 1, 2, 3.
+fact starting_rows_white :
+  is_starting_row(Row1, White) and
+  is_starting_row(Row2, White) and
+  is_starting_row(Row3, White)
+
+// 2.2.2: Black's starting rows are 6, 7, 8.
+fact starting_rows_black :
+  is_starting_row(Row6, Black) and
+  is_starting_row(Row7, Black) and
+  is_starting_row(Row8, Black)
+
+// 2.2.2: Rows 4 and 5 are initially empty.
+fact empty_starting_rows :
+  is_empty_row(Row4) and is_empty_row(Row5)
+
+fact all_board_rows_are_horizontal :
+  horizontal_row(Row1) and horizontal_row(Row2) and horizontal_row(Row3) and
+  horizontal_row(Row4) and horizontal_row(Row5) and horizontal_row(Row6) and
+  horizontal_row(Row7) and horizontal_row(Row8)
+
+// 3.5, 4.14: Last row for promotion. From white's perspective: row 8.
+// From black's perspective: row 1.
+fact last_row_white :
+  last_row_of(Row8, White)
+fact last_row_black :
+  last_row_of(Row1, Black)
+
+// Diagram 1 is rule content: it fixes the coordinate geometry of the 32 playable dark squares.
+
+fact diagram_1_active_square_geometry :
+  square_row(SquareA1, Row1) and
+  square_column(SquareA1, ColumnA) and
+  square_is_dark(SquareA1) and
+  square_row(SquareC1, Row1) and
+  square_column(SquareC1, ColumnC) and
+  square_is_dark(SquareC1) and
+  square_row(SquareE1, Row1) and
+  square_column(SquareE1, ColumnE) and
+  square_is_dark(SquareE1) and
+  square_row(SquareG1, Row1) and
+  square_column(SquareG1, ColumnG) and
+  square_is_dark(SquareG1) and
+  square_row(SquareB2, Row2) and
+  square_column(SquareB2, ColumnB) and
+  square_is_dark(SquareB2) and
+  square_row(SquareD2, Row2) and
+  square_column(SquareD2, ColumnD) and
+  square_is_dark(SquareD2) and
+  square_row(SquareF2, Row2) and
+  square_column(SquareF2, ColumnF) and
+  square_is_dark(SquareF2) and
+  square_row(SquareH2, Row2) and
+  square_column(SquareH2, ColumnH) and
+  square_is_dark(SquareH2) and
+  square_row(SquareA3, Row3) and
+  square_column(SquareA3, ColumnA) and
+  square_is_dark(SquareA3) and
+  square_row(SquareC3, Row3) and
+  square_column(SquareC3, ColumnC) and
+  square_is_dark(SquareC3) and
+  square_row(SquareE3, Row3) and
+  square_column(SquareE3, ColumnE) and
+  square_is_dark(SquareE3) and
+  square_row(SquareG3, Row3) and
+  square_column(SquareG3, ColumnG) and
+  square_is_dark(SquareG3) and
+  square_row(SquareB4, Row4) and
+  square_column(SquareB4, ColumnB) and
+  square_is_dark(SquareB4) and
+  square_row(SquareD4, Row4) and
+  square_column(SquareD4, ColumnD) and
+  square_is_dark(SquareD4) and
+  square_row(SquareF4, Row4) and
+  square_column(SquareF4, ColumnF) and
+  square_is_dark(SquareF4) and
+  square_row(SquareH4, Row4) and
+  square_column(SquareH4, ColumnH) and
+  square_is_dark(SquareH4) and
+  square_row(SquareA5, Row5) and
+  square_column(SquareA5, ColumnA) and
+  square_is_dark(SquareA5) and
+  square_row(SquareC5, Row5) and
+  square_column(SquareC5, ColumnC) and
+  square_is_dark(SquareC5) and
+  square_row(SquareE5, Row5) and
+  square_column(SquareE5, ColumnE) and
+  square_is_dark(SquareE5) and
+  square_row(SquareG5, Row5) and
+  square_column(SquareG5, ColumnG) and
+  square_is_dark(SquareG5) and
+  square_row(SquareB6, Row6) and
+  square_column(SquareB6, ColumnB) and
+  square_is_dark(SquareB6) and
+  square_row(SquareD6, Row6) and
+  square_column(SquareD6, ColumnD) and
+  square_is_dark(SquareD6) and
+  square_row(SquareF6, Row6) and
+  square_column(SquareF6, ColumnF) and
+  square_is_dark(SquareF6) and
+  square_row(SquareH6, Row6) and
+  square_column(SquareH6, ColumnH) and
+  square_is_dark(SquareH6) and
+  square_row(SquareA7, Row7) and
+  square_column(SquareA7, ColumnA) and
+  square_is_dark(SquareA7) and
+  square_row(SquareC7, Row7) and
+  square_column(SquareC7, ColumnC) and
+  square_is_dark(SquareC7) and
+  square_row(SquareE7, Row7) and
+  square_column(SquareE7, ColumnE) and
+  square_is_dark(SquareE7) and
+  square_row(SquareG7, Row7) and
+  square_column(SquareG7, ColumnG) and
+  square_is_dark(SquareG7) and
+  square_row(SquareB8, Row8) and
+  square_column(SquareB8, ColumnB) and
+  square_is_dark(SquareB8) and
+  square_row(SquareD8, Row8) and
+  square_column(SquareD8, ColumnD) and
+  square_is_dark(SquareD8) and
+  square_row(SquareF8, Row8) and
+  square_column(SquareF8, ColumnF) and
+  square_is_dark(SquareF8) and
+  square_row(SquareH8, Row8) and
+  square_column(SquareH8, ColumnH) and
+  square_is_dark(SquareH8)
+
+fact diagram_1_light_square_coordinates :
+  light_square_coordinate(ColumnB, Row1) and
+  light_square_coordinate(ColumnD, Row1) and
+  light_square_coordinate(ColumnF, Row1) and
+  light_square_coordinate(ColumnH, Row1) and
+  light_square_coordinate(ColumnA, Row2) and
+  light_square_coordinate(ColumnC, Row2) and
+  light_square_coordinate(ColumnE, Row2) and
+  light_square_coordinate(ColumnG, Row2) and
+  light_square_coordinate(ColumnB, Row3) and
+  light_square_coordinate(ColumnD, Row3) and
+  light_square_coordinate(ColumnF, Row3) and
+  light_square_coordinate(ColumnH, Row3) and
+  light_square_coordinate(ColumnA, Row4) and
+  light_square_coordinate(ColumnC, Row4) and
+  light_square_coordinate(ColumnE, Row4) and
+  light_square_coordinate(ColumnG, Row4) and
+  light_square_coordinate(ColumnB, Row5) and
+  light_square_coordinate(ColumnD, Row5) and
+  light_square_coordinate(ColumnF, Row5) and
+  light_square_coordinate(ColumnH, Row5) and
+  light_square_coordinate(ColumnA, Row6) and
+  light_square_coordinate(ColumnC, Row6) and
+  light_square_coordinate(ColumnE, Row6) and
+  light_square_coordinate(ColumnG, Row6) and
+  light_square_coordinate(ColumnB, Row7) and
+  light_square_coordinate(ColumnD, Row7) and
+  light_square_coordinate(ColumnF, Row7) and
+  light_square_coordinate(ColumnH, Row7) and
+  light_square_coordinate(ColumnA, Row8) and
+  light_square_coordinate(ColumnC, Row8) and
+  light_square_coordinate(ColumnE, Row8) and
+  light_square_coordinate(ColumnG, Row8)
+
+fact diagram_1_diagonal_membership :
+  diagonal_length(DiagonalA1H8, 8) and
+  square_diagonal(SquareA1, DiagonalA1H8) and
+  square_diagonal(SquareB2, DiagonalA1H8) and
+  square_diagonal(SquareC3, DiagonalA1H8) and
+  square_diagonal(SquareD4, DiagonalA1H8) and
+  square_diagonal(SquareE5, DiagonalA1H8) and
+  square_diagonal(SquareF6, DiagonalA1H8) and
+  square_diagonal(SquareG7, DiagonalA1H8) and
+  square_diagonal(SquareH8, DiagonalA1H8) and
+  diagonal_length(DiagonalA3F8, 6) and
+  square_diagonal(SquareA3, DiagonalA3F8) and
+  square_diagonal(SquareB4, DiagonalA3F8) and
+  square_diagonal(SquareC5, DiagonalA3F8) and
+  square_diagonal(SquareD6, DiagonalA3F8) and
+  square_diagonal(SquareE7, DiagonalA3F8) and
+  square_diagonal(SquareF8, DiagonalA3F8) and
+  diagonal_length(DiagonalA5D8, 4) and
+  square_diagonal(SquareA5, DiagonalA5D8) and
+  square_diagonal(SquareB6, DiagonalA5D8) and
+  square_diagonal(SquareC7, DiagonalA5D8) and
+  square_diagonal(SquareD8, DiagonalA5D8) and
+  diagonal_length(DiagonalA7B8, 2) and
+  square_diagonal(SquareA7, DiagonalA7B8) and
+  square_diagonal(SquareB8, DiagonalA7B8) and
+  diagonal_length(DiagonalC1A3, 3) and
+  square_diagonal(SquareC1, DiagonalC1A3) and
+  square_diagonal(SquareB2, DiagonalC1A3) and
+  square_diagonal(SquareA3, DiagonalC1A3) and
+  diagonal_length(DiagonalC1H6, 6) and
+  square_diagonal(SquareC1, DiagonalC1H6) and
+  square_diagonal(SquareD2, DiagonalC1H6) and
+  square_diagonal(SquareE3, DiagonalC1H6) and
+  square_diagonal(SquareF4, DiagonalC1H6) and
+  square_diagonal(SquareG5, DiagonalC1H6) and
+  square_diagonal(SquareH6, DiagonalC1H6) and
+  diagonal_length(DiagonalE1A5, 5) and
+  square_diagonal(SquareE1, DiagonalE1A5) and
+  square_diagonal(SquareD2, DiagonalE1A5) and
+  square_diagonal(SquareC3, DiagonalE1A5) and
+  square_diagonal(SquareB4, DiagonalE1A5) and
+  square_diagonal(SquareA5, DiagonalE1A5) and
+  diagonal_length(DiagonalE1H4, 4) and
+  square_diagonal(SquareE1, DiagonalE1H4) and
+  square_diagonal(SquareF2, DiagonalE1H4) and
+  square_diagonal(SquareG3, DiagonalE1H4) and
+  square_diagonal(SquareH4, DiagonalE1H4) and
+  diagonal_length(DiagonalG1A7, 7) and
+  square_diagonal(SquareG1, DiagonalG1A7) and
+  square_diagonal(SquareF2, DiagonalG1A7) and
+  square_diagonal(SquareE3, DiagonalG1A7) and
+  square_diagonal(SquareD4, DiagonalG1A7) and
+  square_diagonal(SquareC5, DiagonalG1A7) and
+  square_diagonal(SquareB6, DiagonalG1A7) and
+  square_diagonal(SquareA7, DiagonalG1A7) and
+  diagonal_length(DiagonalG1H2, 2) and
+  square_diagonal(SquareG1, DiagonalG1H2) and
+  square_diagonal(SquareH2, DiagonalG1H2) and
+  diagonal_length(DiagonalH2B8, 7) and
+  square_diagonal(SquareH2, DiagonalH2B8) and
+  square_diagonal(SquareG3, DiagonalH2B8) and
+  square_diagonal(SquareF4, DiagonalH2B8) and
+  square_diagonal(SquareE5, DiagonalH2B8) and
+  square_diagonal(SquareD6, DiagonalH2B8) and
+  square_diagonal(SquareC7, DiagonalH2B8) and
+  square_diagonal(SquareB8, DiagonalH2B8) and
+  diagonal_length(DiagonalH4D8, 5) and
+  square_diagonal(SquareH4, DiagonalH4D8) and
+  square_diagonal(SquareG5, DiagonalH4D8) and
+  square_diagonal(SquareF6, DiagonalH4D8) and
+  square_diagonal(SquareE7, DiagonalH4D8) and
+  square_diagonal(SquareD8, DiagonalH4D8) and
+  diagonal_length(DiagonalH6F8, 3) and
+  square_diagonal(SquareH6, DiagonalH6F8) and
+  square_diagonal(SquareG7, DiagonalH6F8) and
+  square_diagonal(SquareF8, DiagonalH6F8)
+
+fact diagram_1_adjacent_diagonal_squares :
+  adjacent_diagonal_squares(SquareA1, SquareB2) and
+  adjacent_diagonal_squares(SquareC1, SquareB2) and
+  adjacent_diagonal_squares(SquareC1, SquareD2) and
+  adjacent_diagonal_squares(SquareE1, SquareD2) and
+  adjacent_diagonal_squares(SquareE1, SquareF2) and
+  adjacent_diagonal_squares(SquareG1, SquareF2) and
+  adjacent_diagonal_squares(SquareG1, SquareH2) and
+  adjacent_diagonal_squares(SquareB2, SquareA1) and
+  adjacent_diagonal_squares(SquareB2, SquareC1) and
+  adjacent_diagonal_squares(SquareB2, SquareA3) and
+  adjacent_diagonal_squares(SquareB2, SquareC3) and
+  adjacent_diagonal_squares(SquareD2, SquareC1) and
+  adjacent_diagonal_squares(SquareD2, SquareE1) and
+  adjacent_diagonal_squares(SquareD2, SquareC3) and
+  adjacent_diagonal_squares(SquareD2, SquareE3) and
+  adjacent_diagonal_squares(SquareF2, SquareE1) and
+  adjacent_diagonal_squares(SquareF2, SquareG1) and
+  adjacent_diagonal_squares(SquareF2, SquareE3) and
+  adjacent_diagonal_squares(SquareF2, SquareG3) and
+  adjacent_diagonal_squares(SquareH2, SquareG1) and
+  adjacent_diagonal_squares(SquareH2, SquareG3) and
+  adjacent_diagonal_squares(SquareA3, SquareB2) and
+  adjacent_diagonal_squares(SquareA3, SquareB4) and
+  adjacent_diagonal_squares(SquareC3, SquareB2) and
+  adjacent_diagonal_squares(SquareC3, SquareD2) and
+  adjacent_diagonal_squares(SquareC3, SquareB4) and
+  adjacent_diagonal_squares(SquareC3, SquareD4) and
+  adjacent_diagonal_squares(SquareE3, SquareD2) and
+  adjacent_diagonal_squares(SquareE3, SquareF2) and
+  adjacent_diagonal_squares(SquareE3, SquareD4) and
+  adjacent_diagonal_squares(SquareE3, SquareF4) and
+  adjacent_diagonal_squares(SquareG3, SquareF2) and
+  adjacent_diagonal_squares(SquareG3, SquareH2) and
+  adjacent_diagonal_squares(SquareG3, SquareF4) and
+  adjacent_diagonal_squares(SquareG3, SquareH4) and
+  adjacent_diagonal_squares(SquareB4, SquareA3) and
+  adjacent_diagonal_squares(SquareB4, SquareC3) and
+  adjacent_diagonal_squares(SquareB4, SquareA5) and
+  adjacent_diagonal_squares(SquareB4, SquareC5) and
+  adjacent_diagonal_squares(SquareD4, SquareC3) and
+  adjacent_diagonal_squares(SquareD4, SquareE3) and
+  adjacent_diagonal_squares(SquareD4, SquareC5) and
+  adjacent_diagonal_squares(SquareD4, SquareE5) and
+  adjacent_diagonal_squares(SquareF4, SquareE3) and
+  adjacent_diagonal_squares(SquareF4, SquareG3) and
+  adjacent_diagonal_squares(SquareF4, SquareE5) and
+  adjacent_diagonal_squares(SquareF4, SquareG5) and
+  adjacent_diagonal_squares(SquareH4, SquareG3) and
+  adjacent_diagonal_squares(SquareH4, SquareG5) and
+  adjacent_diagonal_squares(SquareA5, SquareB4) and
+  adjacent_diagonal_squares(SquareA5, SquareB6) and
+  adjacent_diagonal_squares(SquareC5, SquareB4) and
+  adjacent_diagonal_squares(SquareC5, SquareD4) and
+  adjacent_diagonal_squares(SquareC5, SquareB6) and
+  adjacent_diagonal_squares(SquareC5, SquareD6) and
+  adjacent_diagonal_squares(SquareE5, SquareD4) and
+  adjacent_diagonal_squares(SquareE5, SquareF4) and
+  adjacent_diagonal_squares(SquareE5, SquareD6) and
+  adjacent_diagonal_squares(SquareE5, SquareF6) and
+  adjacent_diagonal_squares(SquareG5, SquareF4) and
+  adjacent_diagonal_squares(SquareG5, SquareH4) and
+  adjacent_diagonal_squares(SquareG5, SquareF6) and
+  adjacent_diagonal_squares(SquareG5, SquareH6) and
+  adjacent_diagonal_squares(SquareB6, SquareA5) and
+  adjacent_diagonal_squares(SquareB6, SquareC5) and
+  adjacent_diagonal_squares(SquareB6, SquareA7) and
+  adjacent_diagonal_squares(SquareB6, SquareC7) and
+  adjacent_diagonal_squares(SquareD6, SquareC5) and
+  adjacent_diagonal_squares(SquareD6, SquareE5) and
+  adjacent_diagonal_squares(SquareD6, SquareC7) and
+  adjacent_diagonal_squares(SquareD6, SquareE7) and
+  adjacent_diagonal_squares(SquareF6, SquareE5) and
+  adjacent_diagonal_squares(SquareF6, SquareG5) and
+  adjacent_diagonal_squares(SquareF6, SquareE7) and
+  adjacent_diagonal_squares(SquareF6, SquareG7) and
+  adjacent_diagonal_squares(SquareH6, SquareG5) and
+  adjacent_diagonal_squares(SquareH6, SquareG7) and
+  adjacent_diagonal_squares(SquareA7, SquareB6) and
+  adjacent_diagonal_squares(SquareA7, SquareB8) and
+  adjacent_diagonal_squares(SquareC7, SquareB6) and
+  adjacent_diagonal_squares(SquareC7, SquareD6) and
+  adjacent_diagonal_squares(SquareC7, SquareB8) and
+  adjacent_diagonal_squares(SquareC7, SquareD8) and
+  adjacent_diagonal_squares(SquareE7, SquareD6) and
+  adjacent_diagonal_squares(SquareE7, SquareF6) and
+  adjacent_diagonal_squares(SquareE7, SquareD8) and
+  adjacent_diagonal_squares(SquareE7, SquareF8) and
+  adjacent_diagonal_squares(SquareG7, SquareF6) and
+  adjacent_diagonal_squares(SquareG7, SquareH6) and
+  adjacent_diagonal_squares(SquareG7, SquareF8) and
+  adjacent_diagonal_squares(SquareG7, SquareH8) and
+  adjacent_diagonal_squares(SquareB8, SquareA7) and
+  adjacent_diagonal_squares(SquareB8, SquareC7) and
+  adjacent_diagonal_squares(SquareD8, SquareC7) and
+  adjacent_diagonal_squares(SquareD8, SquareE7) and
+  adjacent_diagonal_squares(SquareF8, SquareE7) and
+  adjacent_diagonal_squares(SquareF8, SquareG7) and
+  adjacent_diagonal_squares(SquareH8, SquareG7)
+
+fact forward_next_row_by_color :
+  forward_next_row(Row1, White) = Row2 and
+  forward_next_row(Row2, White) = Row3 and
+  forward_next_row(Row3, White) = Row4 and
+  forward_next_row(Row4, White) = Row5 and
+  forward_next_row(Row5, White) = Row6 and
+  forward_next_row(Row6, White) = Row7 and
+  forward_next_row(Row7, White) = Row8 and
+  forward_next_row(Row8, Black) = Row7 and
+  forward_next_row(Row7, Black) = Row6 and
+  forward_next_row(Row6, Black) = Row5 and
+  forward_next_row(Row5, Black) = Row4 and
+  forward_next_row(Row4, Black) = Row3 and
+  forward_next_row(Row3, Black) = Row2 and
+  forward_next_row(Row2, Black) = Row1
+
+fact same_diagonal_from_diagram_diagonal_membership :
+  forall s1 : BoardSquare, s2 : BoardSquare, d : Diagonal .
+    (s1 != s2 and square_diagonal(s1, d) and square_diagonal(s2, d)) implies
+    same_diagonal(s1, s2)
+
+fact adjacent_diagonal_squares_share_diagonal :
+  forall s1 : BoardSquare, s2 : BoardSquare .
+    adjacent_diagonal_squares(s1, s2) implies same_diagonal(s1, s2)
+
+// Diagram 2 is rule content: it fixes the concrete initial men and their starting squares.
+
+fact diagram_2_initial_position_catalog :
+  initial_man(InitialWhiteManA1) and
+  piece_color(InitialWhiteManA1, White) and
+  initial_piece_square(InitialWhiteManA1, SquareA1) and
+  initial_man(InitialWhiteManC1) and
+  piece_color(InitialWhiteManC1, White) and
+  initial_piece_square(InitialWhiteManC1, SquareC1) and
+  initial_man(InitialWhiteManE1) and
+  piece_color(InitialWhiteManE1, White) and
+  initial_piece_square(InitialWhiteManE1, SquareE1) and
+  initial_man(InitialWhiteManG1) and
+  piece_color(InitialWhiteManG1, White) and
+  initial_piece_square(InitialWhiteManG1, SquareG1) and
+  initial_man(InitialWhiteManB2) and
+  piece_color(InitialWhiteManB2, White) and
+  initial_piece_square(InitialWhiteManB2, SquareB2) and
+  initial_man(InitialWhiteManD2) and
+  piece_color(InitialWhiteManD2, White) and
+  initial_piece_square(InitialWhiteManD2, SquareD2) and
+  initial_man(InitialWhiteManF2) and
+  piece_color(InitialWhiteManF2, White) and
+  initial_piece_square(InitialWhiteManF2, SquareF2) and
+  initial_man(InitialWhiteManH2) and
+  piece_color(InitialWhiteManH2, White) and
+  initial_piece_square(InitialWhiteManH2, SquareH2) and
+  initial_man(InitialWhiteManA3) and
+  piece_color(InitialWhiteManA3, White) and
+  initial_piece_square(InitialWhiteManA3, SquareA3) and
+  initial_man(InitialWhiteManC3) and
+  piece_color(InitialWhiteManC3, White) and
+  initial_piece_square(InitialWhiteManC3, SquareC3) and
+  initial_man(InitialWhiteManE3) and
+  piece_color(InitialWhiteManE3, White) and
+  initial_piece_square(InitialWhiteManE3, SquareE3) and
+  initial_man(InitialWhiteManG3) and
+  piece_color(InitialWhiteManG3, White) and
+  initial_piece_square(InitialWhiteManG3, SquareG3) and
+  initial_man(InitialBlackManB6) and
+  piece_color(InitialBlackManB6, Black) and
+  initial_piece_square(InitialBlackManB6, SquareB6) and
+  initial_man(InitialBlackManD6) and
+  piece_color(InitialBlackManD6, Black) and
+  initial_piece_square(InitialBlackManD6, SquareD6) and
+  initial_man(InitialBlackManF6) and
+  piece_color(InitialBlackManF6, Black) and
+  initial_piece_square(InitialBlackManF6, SquareF6) and
+  initial_man(InitialBlackManH6) and
+  piece_color(InitialBlackManH6, Black) and
+  initial_piece_square(InitialBlackManH6, SquareH6) and
+  initial_man(InitialBlackManA7) and
+  piece_color(InitialBlackManA7, Black) and
+  initial_piece_square(InitialBlackManA7, SquareA7) and
+  initial_man(InitialBlackManC7) and
+  piece_color(InitialBlackManC7, Black) and
+  initial_piece_square(InitialBlackManC7, SquareC7) and
+  initial_man(InitialBlackManE7) and
+  piece_color(InitialBlackManE7, Black) and
+  initial_piece_square(InitialBlackManE7, SquareE7) and
+  initial_man(InitialBlackManG7) and
+  piece_color(InitialBlackManG7, Black) and
+  initial_piece_square(InitialBlackManG7, SquareG7) and
+  initial_man(InitialBlackManB8) and
+  piece_color(InitialBlackManB8, Black) and
+  initial_piece_square(InitialBlackManB8, SquareB8) and
+  initial_man(InitialBlackManD8) and
+  piece_color(InitialBlackManD8, Black) and
+  initial_piece_square(InitialBlackManD8, SquareD8) and
+  initial_man(InitialBlackManF8) and
+  piece_color(InitialBlackManF8, Black) and
+  initial_piece_square(InitialBlackManF8, SquareF8) and
+  initial_man(InitialBlackManH8) and
+  piece_color(InitialBlackManH8, Black) and
+  initial_piece_square(InitialBlackManH8, SquareH8)
+
+fact diagram_2_initial_empty_active_squares :
+  initial_empty_square(SquareB4) and
+  initial_empty_square(SquareD4) and
+  initial_empty_square(SquareF4) and
+  initial_empty_square(SquareH4) and
+  initial_empty_square(SquareA5) and
+  initial_empty_square(SquareC5) and
+  initial_empty_square(SquareE5) and
+  initial_empty_square(SquareG5)
+
+// --- ASSERTDECL FACTS (descriptive/definitional) ---
+
+// 2.1.1: Board is partitioned into 64 squares alternating black and white.
+// (v2: added per judge feedback to explicitly capture full board partition.)
+// We model only the 32 active dark squares in the BoardSquare sort
+// (the 32 light squares are non-playable per 2.1.2 and excluded).
+fun[required] total_square_count : Board -> Integer
+fun[required] active_square_count : Board -> Integer
+
+fact board_has_64_squares :
+  forall b : Board . total_square_count(b) = 64
+
+fact board_has_32_active_squares :
+  forall b : Board . active_square_count(b) = 32
+
+// 2.1.2: "32 squares are active" — modeled by treating BoardSquare as the
+// sort of active (dark) squares only.
+fact all_modeled_squares_are_dark :
+  forall s : BoardSquare . square_is_dark(s)
+
+// 2.1.4: Consequence of long-diagonal placement — the first square at
+// each player's left hand is a dark (active) square.
+// (v2: added per judge feedback.)
+fun[required] first_left_square : Board, Player -> BoardSquare
+
+fact first_left_square_is_dark :
+  forall b : Board, p : Player .
+    long_diagonal_starts_at_left(b, p) implies
+    square_is_dark(first_left_square(b, p))
+
+// 2.1.3: Squares on the same diagonal have different rows and columns.
+fact diagonals_are_skewed :
+  forall s1 : BoardSquare, s2 : BoardSquare, d : Diagonal .
+    (s1 != s2 and square_diagonal(s1, d) and square_diagonal(s2, d)) implies
+    exists r1 : BoardRow, r2 : BoardRow, c1 : BoardColumn, c2 : BoardColumn .
+      square_row(s1, r1) and square_row(s2, r2) and
+      square_column(s1, c1) and square_column(s2, c2) and
+      r1 != r2 and c1 != c2
+
+// 2.1.3: The long diagonal comprises 8 squares.
+fact long_diagonal_has_eight :
+  exists d : Diagonal . diagonal_length(d, 8)
+
+// 2.1.5: Board features bases, sides, rows, columns.
+fact board_features :
+  forall b : Board .
+    board_has_bases(b) and board_has_sides(b) and board_has_rows(b) and board_has_columns(b)
+
+// 2.2.1-2.2.2: The initial position has 12 white men and 12 black men.
+fact twelve_initial_white_men :
+  count_initial_men_of_color(White) = 12
+
+fact twelve_initial_black_men :
+  count_initial_men_of_color(Black) = 12
+
+// 2.2.2: Initial white men start on dark squares of rows 1, 2, 3.
+fact initial_white_men_on_starting_rows :
+  forall m : Man .
+    (initial_man(m) and piece_color(m, White)) implies
+    (exists r : BoardRow, s : BoardSquare .
+       is_starting_row(r, White) and initial_piece_square(m, s) and square_row(s, r))
+
+// 2.2.2: Initial black men start on dark squares of rows 6, 7, 8.
+fact initial_black_men_on_starting_rows :
+  forall m : Man .
+    (initial_man(m) and piece_color(m, Black)) implies
+    (exists r : BoardRow, s : BoardSquare .
+       is_starting_row(r, Black) and initial_piece_square(m, s) and square_row(s, r))
+
+fact initial_men_on_dark_squares :
+  forall m : Man, s : BoardSquare .
+    (initial_man(m) and initial_piece_square(m, s)) implies square_is_dark(s)
+
+// 2.2.2: Rows 4-5 are empty at start.
+fact empty_rows_at_start :
+  forall s : BoardSquare, r : BoardRow .
+    (square_row(s, r) and is_empty_row(r)) implies
+    not exists m : Man . initial_piece_square(m, s)
+
+// 2.2.1: Every piece is a man or a king.
+fact piece_is_man_or_king :
+  forall p : Piece .
+    (p isa Man) or (p isa King)
+
+// 3.1: A piece is either a man or a king (echoes 2.2.1, source-trace).
+fact piece_kind_disjoint :
+  forall p : Piece .
+    not ((p isa Man) and (p isa King))
+
+// 3.3: First move belongs to the player owning the white pieces.
+fact first_move_white :
+  forall pl : Player .
+    first_player(pl) implies
+    exists p : Piece . piece_owner(p, pl) and piece_color(p, White)
+
+// 3.3: Players alternate turns — the player of mv2 is the opponent of
+// the player of mv1, whenever mv2 immediately follows mv1.
+// (Added in FINAL — was missing in earlier IR.)
+fact alternating_turns :
+  forall mv1 : Move, mv2 : Move, pl1 : Player, pl2 : Player .
+    (move_after(mv2, mv1) and move_player(mv1, pl1) and move_player(mv2, pl2)) implies
+    pl2 = opponent_of(pl1)
+
+// 3.3: Players move with their own pieces.
+fact moves_use_own_pieces :
+  forall mv : Move, p : Piece, pl : Player .
+    (move_piece(mv, p) and move_player(mv, pl)) implies piece_owner(p, pl)
+
+// 3.6: A king is a man crowned upon reaching the last row.
+fact king_is_crowned_man :
+  forall m : Man, k : King .
+    (reaches_last_row(m) and crowned(m)) implies
+    (k isa King and promoted_from(k, m))
+
+fact king_crowned_with_same_color_man :
+  forall m : Man, crown : Man, color : PieceColor .
+    (crowning_piece(m, crown) and piece_color(m, color)) implies piece_color(crown, color)
+
+// 3.6: Crowning condition references the last row (per color).
+fact reaches_last_row_definition :
+  forall p : Piece, c : PieceColor .
+    (piece_color(p, c) and exists s : BoardSquare, r : BoardRow .
+       piece_square(p, s) and square_row(s, r) and last_row_of(r, c))
+    implies reaches_last_row(p)
+
+fact man_reaching_last_row_stops_there :
+  forall m : Man, s : BoardSquare, r : BoardRow, color : PieceColor .
+    (piece_color(m, color) and piece_square(m, s) and square_row(s, r) and last_row_of(r, color)) implies
+    (stops_on_square(m, s) and stops_on_last_row(m))
+
+fact not_crowning_promoted_man_is_irregular :
+  forall m : Man, mv : Move .
+    (promotion_move(mv, m) and reaches_last_row(m) and not crowned(m)) implies irregular_move(mv)
+
+// 3.6, 3.8: A king can move both directions.
+fact king_moves_both :
+  forall k : King .
+    can_move_direction(k, Forward) and can_move_direction(k, Backward)
+
+// 3.9: A move finishes when the player releases the piece.
+fact move_finished_on_release :
+  forall mv : Move .
+    move_is_complete(mv) implies
+    (exists pl : Player, p : Piece .
+      move_player(mv, pl) and move_piece(mv, p) and released(pl, p))
+
+// 4.1: A capture is a kind of move.
+fact capture_is_move :
+  forall c : Capture .
+    c isa Move
+
+// 4.1: Capture may proceed forwards or backwards.
+// (Added in FINAL — covers source 4.1 "both forwards and backwards".)
+fact capture_any_direction :
+  forall c : Capture .
+    move_direction(c, Forward) or move_direction(c, Backward)
+
+// 4.1: A capture counts as one complete move.
+fact capture_is_complete_move :
+  forall c : Capture .
+    is_legal_capture(c) implies (c isa Move)
+
+// 2.2.1: Every piece has exactly one owner.
+fact piece_owner_exists :
+  forall p : Piece .
+    exists pl : Player . piece_owner(p, pl)
+
+// 3.4: Every move uses one of the two directions.
+fact move_directions_exist :
+  forall mv : Move .
+    move_direction(mv, Forward) or move_direction(mv, Backward)
+
+// 3.4: Every legal move must be performed with exactly one hand.
+// (v2: tightened from disjunction OneHand|TwoHands to OneHand-only,
+// matching obligation `one_hand_per_move`. The Hand sort retains both
+// options for completeness, but legal moves only ever use OneHand.)
+fact move_hand_used :
+  forall mv : Move .
+    is_legal_move(mv) implies move_hand(mv, OneHand)
+
+// 4.1: A capture has at least one victim.
+fact capture_victims :
+  forall c : Capture .
+    exists p : Piece . capture_victim(c, p)
+
+// 4.5: Multi-capture consists of at least one capture step.
+fact capture_chains :
+  forall mc : MultipleCapture .
+    exists c : Capture . capture_chain(mc, c)
+
+// 4.4: Capture executed with one or two hands (obligation restricts to one).
+fact capture_hands :
+  forall c : Capture .
+    capture_hand(c, OneHand) or capture_hand(c, TwoHands)
+
+fact capture_move_and_lifting_use_same_hand :
+  forall c : Capture, move_hand_used : Hand, lift_hand_used : Hand .
+    (capture_move_hand(c, move_hand_used) and captured_piece_lift_hand(c, lift_hand_used)) implies
+    move_hand_used = lift_hand_used
+
+fact unclear_capture_is_incorrect_and_rectifiable :
+  forall c : Capture, pl : Player .
+    (capture_player(c, pl) and absence_of_clear_indication(c)) implies
+    (incorrect_capture(c) and rectification_request_available(opponent_of(pl), c))
+
+fact absence_of_clear_indication_bridge :
+  forall c : Capture .
+    not clear_indication(c) implies absence_of_clear_indication(c)
+
+fact using_two_hands_bridge :
+  forall c : Capture .
+    capture_hand(c, TwoHands) implies using_two_hands(c)
+
+// Opponent relation is antisymmetric on players.
+fact opponent_of_self_distinct :
+  forall pl : Player .
+    opponent_of(pl) != pl
+
+// Opponent of opponent is self (involutive).
+fact opponent_involutive :
+  forall pl : Player .
+    opponent_of(opponent_of(pl)) = pl
+
+// 4.5: Capturing piece has a defined capture-move reference.
+fact capture_move_exists :
+  forall p : Piece .
+    is_capturing(p) implies exists c : Capture . capture_move(p) = c
+
+// "Behind" relation is geometric: every piece has a behind-square (may
+// or may not be on-board, but the symbol is defined).
+fact behind_exists :
+  forall p : Piece .
+    exists s : BoardSquare . behind(p) = s
+
+// 4.11: Capture count is non-negative.
+fact count_captured_non_negative :
+  forall c : Capture .
+    count_captured_pieces(c) >= 0
+
+// 4.5: A captured piece is associated with the capture that captured it.
+fact capture_of_exists :
+  forall p : Piece .
+    is_captured_in_current_move(p) implies
+    exists c : Capture . capture_of(p) = c
+
+// 4.12: After lifting completes, no captured piece remains on the board.
+// (Added in FINAL — covers source 4.12.)
+fact lift_complete_definition :
+  forall mc : MultipleCapture .
+    lift_complete(mc) implies
+    (all_captured_pieces_taken(mc) and forall p : Piece .
+      (is_captured_in_current_move(p) and exists c : Capture .
+         capture_chain(mc, c) and capture_victim(c, p))
+      implies not piece_on_board(p))
+
+// 4.10: During a multiple capture, release of the capturing piece completes
+// the move.
+fact multiple_capture_finished_on_release :
+  forall mc : MultipleCapture, pl : Player, p : Piece .
+    (move_player(mc, pl) and move_piece(mc, p) and released(pl, p)) implies move_is_complete(mc)
+
+// 4.12: Taking pieces is finished either after all captured pieces are taken
+// or after the player clearly stops during that operation.
+fact taking_pieces_finished_definition :
+  forall mc : MultipleCapture, pl : Player .
+    (all_captured_pieces_taken(mc) or clearly_stopped_taking(pl, mc)) implies
+    taking_pieces_finished(mc)
+
+// 4.13: Choice of capture is independent of captured-piece number or quality.
+fact capture_choice_regardless_of_number_or_quality :
+  forall pl : Player .
+    capture_choice_ignores_criterion(pl, NumberOfPieces) and
+    capture_choice_ignores_criterion(pl, QualityOfPieces)
+
+// 4.15: Non-capturing promotion stops on the last row and any capture is only
+// available on the next move.
+fact non_capture_promotion_stops_and_waits :
+  forall m : Man .
+    (reaches_last_row(m) and not is_capturing(m)) implies
+    (stops_on_last_row(m) and capture_only_on_next_move(m))
+
+fact brazilian_mid_capture_man_remains_man :
+  forall m : Man .
+    (reaches_last_row_during_capture(m) and has_opportunity_to_continue(m)) implies
+    remains_man_during_capture(m)
+
+fact brazilian_king_promotion_stops_and_waits :
+  forall m : Man .
+    (reaches_last_row_during_capture(m) and can_capture_as_king(m)) implies
+    (stops_on_last_row(m) and capture_only_on_next_move(m))
+
+// 4.11: Capture step ordering — capture_step_order is irreflexive.
+fact capture_step_order_irreflexive :
+  forall c : Capture . not capture_step_order(c, c)
+
+// --- DEONTICDECL OBLIGATIONS ---
+
+// 2.1.4: Board placed with long diagonal at left for each player.
+obligation board_placement :
+  forall p1 : Player, p2 : Player, b : Board .
+    action: place_board(b)
+    condition:
+      board_placed_between(b, p1, p2) implies
+      (long_diagonal_starts_at_left(b, p1) and long_diagonal_starts_at_left(b, p2))
+
+// 3.4: Each move with only one hand.
+obligation one_hand_per_move :
+  forall mv : Move .
+    action: execute_move(mv)
+    condition: move_hand(mv, OneHand)
+
+// 3.5: Man moves forwards diagonally to an empty square of the next row.
+obligation man_move_forward :
+  forall m : Man, mv : Move .
+    action: move_piece(mv, m)
+    condition:
+      move_direction(mv, Forward) and
+      exists color : PieceColor, s_to : BoardSquare, r_from : BoardRow, r_to : BoardRow .
+        is_empty(s_to) and
+        exists s_from : BoardSquare .
+          piece_square(m, s_from) and
+          adjacent_diagonal_squares(s_from, s_to) and
+          piece_color(m, color) and
+          square_row(s_from, r_from) and
+          square_row(s_to, r_to) and
+          r_to = forward_next_row(r_from, color)
+
+// 3.7: When a man reaches the last row, it must be crowned.
+obligation crown_promoted_man :
+  forall m : Man .
+    action: crown(m)
+    condition: reaches_last_row(m) and not crowned(m)
+
+// 3.10: Touch-move rule.
+obligation touch_move :
+  forall pl : Player, p : Piece, mv : Move .
+    action: play_piece(p)
+    condition:
+      game_turn(pl) and touches(pl, p) and is_playable(p, pl) and
+      is_legal_move(mv) and move_piece(mv, p)
+    implies
+      move_player(mv, pl)
+
+// 3.12: Player must announce piece-adjustment beforehand.
+obligation announce_adjustment :
+  forall pl : Player .
+    action: adjust_pieces(pl)
+    condition: announce(pl, "I adjust") or announce(pl, "corrected")
+
+// 4.2: Mandatory man capture.
+obligation man_capture :
+  forall m : Man, opp : Piece .
+    action: capture_piece(m, opp)
+    condition:
+      exists pl : Player .
+        piece_owner(m, pl) and piece_owner(opp, opponent_of(pl)) and
+      meets_diagonally(m, opp) and
+      exists s_behind : BoardSquare .
+        is_empty(s_behind) and
+        exists s_from : BoardSquare, s_opp : BoardSquare .
+          piece_square(m, s_from) and piece_square(opp, s_opp) and
+          same_diagonal(s_from, s_opp) and
+          same_diagonal(s_opp, s_behind)
+
+// 4.3: Mandatory king capture (long-range diagonal).
+obligation king_capture :
+  forall k : King, opp : Piece .
+    action: capture_piece(k, opp)
+    condition:
+      exists pl : Player .
+        piece_owner(k, pl) and piece_owner(opp, opponent_of(pl)) and
+      exists d : Diagonal .
+        exists s_k : BoardSquare, s_opp : BoardSquare .
+          piece_square(k, s_k) and piece_square(opp, s_opp) and
+          square_diagonal(s_k, d) and square_diagonal(s_opp, d) and
+          exists_empty_behind(opp)
+
+// 4.4: Capture must be clearly indicated.
+obligation capture_indication :
+  forall c : Capture .
+    action: indicate_capture(c)
+    condition: true
+
+// 4.4: Capture executed with one hand.
+obligation capture_one_hand :
+  forall c : Capture .
+    action: execute_capture(c)
+    condition: capture_hand(c, OneHand)
+
+// 4.5: Multi-capture by man must continue while opportunity persists.
+obligation man_multiple_capture :
+  forall m : Man, mc : MultipleCapture, opp : Piece .
+    action: continue_capture(mc)
+    condition:
+      meets_diagonally(m, opp) and is_empty(behind(opp))
+    implies
+      capture_chain(mc, capture_of(opp))
+
+// 4.6: Multi-capture by king must continue on the same diagonal or after
+// turning onto a perpendicular diagonal.
+obligation king_multiple_capture :
+  forall k : King, mc : MultipleCapture, opp : Piece .
+    action: continue_capture(mc)
+    condition:
+      exists d_current : Diagonal, d_next : Diagonal .
+        exists s_k : BoardSquare, s_opp : BoardSquare .
+          piece_square(k, s_k) and piece_square(opp, s_opp) and
+          square_diagonal(s_k, d_current) and square_diagonal(s_opp, d_next) and
+          (d_current = d_next or perpendicular_diagonal(d_current, d_next)) and
+          exists_empty_behind(opp)
+    implies
+      capture_chain(mc, capture_of(opp))
+
+// 4.9: Each step of a multi-capture must be indicated by putting the
+// piece down on the empty square after each jump.
+// (Added in FINAL — covers source 4.9.)
+obligation multi_capture_step_indication :
+  forall mc : MultipleCapture, c : Capture .
+    action: indicate_capture_step(c)
+    condition: capture_chain(mc, c)
+
+// 4.11: Captured pieces must be lifted only AFTER the multi-capture is
+// complete. (Added in FINAL — covers source 4.11.)
+obligation lift_pieces_after_completion :
+  forall mc : MultipleCapture, p : Piece, c : Capture .
+    action: lift_piece(p)
+    condition:
+      capture_chain(mc, c) and capture_victim(c, p)
+    implies
+      move_is_complete(mc)
+
+// 4.11: Pieces must be lifted in the ascending or descending order of
+// the capture (not in random order). (Added in FINAL.)
+obligation lift_pieces_in_order :
+  forall mc : MultipleCapture, p1 : Piece, p2 : Piece, c1 : Capture, c2 : Capture .
+    action: lift_piece(p2)
+    condition:
+      capture_chain(mc, c1) and capture_chain(mc, c2) and
+      capture_victim(c1, p1) and capture_victim(c2, p2) and
+      capture_step_order(c1, c2)
+    implies
+      lifted_after(p2, c1)
+
+// 4.14: A man captured to the last row mid-chain continues as king.
+obligation continue_promoted_capture :
+  forall m : Man, mc : MultipleCapture .
+    action: continue_capture_as_king(mc)
+    condition:
+      reaches_last_row_during_capture(m) and has_further_capture(m)
+
+// 4.15: A man reaching the last row (no capture) becomes a king.
+obligation man_becomes_king :
+  forall m : Man .
+    action: crown(m)
+    condition: reaches_last_row(m) and not is_capturing(m)
+
+// 4.16.1 Brazilian: capture of the greatest number of pieces is REQUIRED.
+// (FIXED in FINAL: was `permission`, source says "is required".)
+obligation brazilian_max_capture :
+  forall pl : Player, c_chosen : Capture .
+    action: execute_capture(c_chosen)
+    condition:
+      is_legal_capture(c_chosen) and game_turn(pl)
+    implies
+      not (exists c_other : Capture .
+        is_legal_capture(c_other) and
+        count_captured_pieces(c_other) > count_captured_pieces(c_chosen))
+
+// 4.16.2 Brazilian: if a man reaches the last row during a capture and can
+// continue, it is obliged to continue the same course while remaining a man.
+obligation brazilian_continue_capture_as_man :
+  forall m : Man, mc : MultipleCapture .
+    action: continue_capture_as_man(mc)
+    condition:
+      reaches_last_row_during_capture(m) and
+      has_opportunity_to_continue(m) and
+      remains_man_during_capture(m)
+
+// 4.16.3 Brazilian: if continuation is available as a king, the man becomes a
+// king and stops on the last row; any further capture is next-move-only.
+obligation brazilian_crown_and_stop_on_last_row :
+  forall m : Man .
+    action: crown(m)
+    condition:
+      reaches_last_row_during_capture(m) and
+      can_capture_as_king(m) and
+      stops_on_last_row(m) and
+      capture_only_on_next_move(m)
+
+// --- DEONTICDECL PROHIBITIONS ---
+
+// 4.1: A player cannot capture their own pieces.
+prohibition self_capture :
+  forall pl : Player, p : Piece .
+    action: capture(p)
+    condition: piece_owner(p, pl)
+
+// 4.7: Cannot jump over OWN pieces during multi-capture.
+// (v2: was unconditional, now ONLY bans own pieces per judge feedback.)
+prohibition jump_own_piece :
+  forall pl : Player, p : Piece, mc : MultipleCapture .
+    action: jump_over(p)
+    condition: piece_owner(p, pl) and game_turn(pl)
+
+// 4.8: Cannot jump the same opponent piece twice in one multi-capture.
+prohibition jump_same_opponent_twice :
+  forall opp : Piece, mc : MultipleCapture .
+    action: jump_over(opp)
+    condition: was_jumped_in_current_chain(opp, mc)
+
+// 3.13: A player not on turn cannot touch or adjust ANY pieces — neither
+// their own nor the opponent's. (v2: broadened from opponent-only per
+// judge feedback; source 3.13: "touches or adjusts one or more of his
+// men or of his opponent".)
+prohibition touch_when_not_on_turn :
+  forall pl : Player, p : Piece .
+    action: touch(p)
+    condition: not game_turn(pl)
+
+// 4.4: Capture cannot be executed with two hands.
+prohibition two_hands_capture :
+  forall c : Capture .
+    action: execute_capture(c)
+    condition: capture_hand(c, TwoHands)
+
+// --- DEONTICDECL PERMISSIONS ---
+
+// 3.7: Either player may crown a man that has stopped on the last row.
+permission either_player_crown_promoted_man :
+  forall pl : Player, m : Man .
+    action: crown(m)
+    condition: reaches_last_row(m) and stops_on_last_row(m)
+
+// 3.7: King may be denoted by inverting a man, subject to competition rules.
+permission king_denotation :
+  forall k : King .
+    action: denote_king(k)
+    condition: competition_regulations_permit("inversion_of_man")
+
+// 3.8: A king may rest on any free square along its diagonal, provided
+// all squares between source and target are empty.
+// (Added in FINAL — covers source 3.8 "distant rest".)
+permission king_distance_move :
+  forall k : King, mv : Move .
+    action: move_piece(mv, k)
+    condition:
+      exists s_from : BoardSquare, s_to : BoardSquare, d : Diagonal .
+        piece_square(k, s_from) and
+        square_diagonal(s_from, d) and square_diagonal(s_to, d) and
+        is_empty(s_to) and
+        all_squares_between_empty(s_from, s_to, d)
+
+// 3.11: Player may adjust their piece BEFORE releasing it.
+permission adjust_before_release :
+  forall pl : Player, p : Piece, mv : Move .
+    action: change_square(p)
+    condition:
+      not move_is_complete(mv) and
+      move_piece(mv, p) and
+      exists s : BoardSquare . is_empty(s) and is_legal_square_for(p, s)
+
+// 4.3: A capturing king may land on any empty square on the relevant
+// diagonal beyond the captured piece.
+permission king_choice_square :
+  forall k : King, s : BoardSquare .
+    action: occupy(s)
+    condition:
+      is_empty(s) and
+      exists opp : Piece .
+        is_captured_in_current_move(opp) and
+        exists d : Diagonal .
+          square_diagonal(s, d) and
+          exists s_k : BoardSquare .
+            piece_square(k, s_k) and square_diagonal(s_k, d)
+
+// 4.8: A multi-capture chain may pass over the same empty square more
+// than once.
+permission repeat_empty_square :
+  forall s : BoardSquare, mc : MultipleCapture .
+    action: pass_over(s)
+    condition: is_empty(s)
+
+// 4.13: When two or more captures with different directions exist,
+// the player may choose.
+permission choice_capture :
+  forall pl : Player .
+    action: choose_capture_direction
+    condition:
+      exists c1 : Capture, c2 : Capture .
+        is_legal_capture(c1) and is_legal_capture(c2) and
+        c1 != c2 and
+        move_direction(c1) != move_direction(c2)
+
+// 4.16.3 Brazilian: once the man has become a king and stopped, any further
+// capture is allowed only on the next move and only if still possible.
+permission brazilian_next_move_capture_if_still_possible :
+  forall m : Man .
+    action: capture_at_next_move(m)
+    condition: capture_only_on_next_move(m) and can_capture_as_king(m)
+
+// ============================================================
+// SECTION: operational legality layer
+// ============================================================
+// Three-layer architecture for deontic-to-SMT bridge:
+//   1. legal_* predicates — positive constructors (what makes a move
+//      a valid instance of its kind)
+//   2. illegal_due_to_* predicates — blocking conditions (specific
+//      ways a move can be ruled out)
+//   3. is_legal_move closure — legality = (some positive form fires)
+//      AND (no blocker fires)
+// See: IR/docs/draughts_smt_bridge_design.md
+
+// --- Layer 1: positive legality classifiers ---
+rel legal_man_simple_move : Move
+rel legal_man_capture_move : Move
+rel legal_king_simple_move : Move
+rel legal_king_capture_move : Move
+
+// --- Layer 1: blocking conditions ---
+rel illegal_due_to_mandatory_capture : Move
+rel illegal_due_to_own_piece_capture : Move
+rel illegal_due_to_wrong_turn : Move
+rel illegal_due_to_man_backward : Move
+
+// --- Layer 2: positive bridges ---
+
+// Man simple move: a man steps diagonally to adjacent empty square of
+// the next row forward; not a capture. (Source 3.5)
+fact bridge_legal_man_simple :
+  forall mv : Move .
+    legal_man_simple_move(mv) iff
+      (exists pl : Player, wm : Piece,
+              s_from : BoardSquare, s_to : BoardSquare,
+              r_from : BoardRow, r_to : BoardRow, c : PieceColor .
+         move_player(mv, pl) and game_turn(pl) and
+         move_piece(mv, wm) and (wm isa Man) and piece_owner(wm, pl) and
+         piece_color(wm, c) and
+         piece_square(wm, s_from) and stops_on_square(wm, s_to) and
+         square_row(s_from, r_from) and square_row(s_to, r_to) and
+         forward_next_row(r_from, c) = r_to and
+         adjacent_diagonal_squares(s_from, s_to) and
+         is_empty(s_to) and
+         not (mv isa Capture))
+
+// Man capture: a man jumps over an opponent diagonally onto the empty
+// landing square beyond on the same diagonal. (Source 4.2)
+fact bridge_legal_man_capture :
+  forall mv : Move .
+    legal_man_capture_move(mv) iff
+      (exists pl : Player, wm : Piece, opp : Piece,
+              s_from : BoardSquare, s_opp : BoardSquare, s_to : BoardSquare .
+         move_player(mv, pl) and game_turn(pl) and
+         move_piece(mv, wm) and (wm isa Man) and piece_owner(wm, pl) and
+         piece_square(wm, s_from) and stops_on_square(wm, s_to) and
+         piece_owner(opp, opponent_of(pl)) and piece_square(opp, s_opp) and
+         adjacent_diagonal_squares(s_from, s_opp) and
+         adjacent_diagonal_squares(s_opp, s_to) and
+         same_diagonal(s_from, s_to) and
+         is_empty(s_to) and
+         capture_victim(mv, opp) and
+         (mv isa Capture))
+
+// King simple move: king moves along a diagonal to any empty square,
+// provided all intervening squares on that diagonal are empty.
+// (Source 3.8)
+fact bridge_legal_king_simple :
+  forall mv : Move .
+    legal_king_simple_move(mv) iff
+      (exists pl : Player, k : Piece,
+              s_from : BoardSquare, s_to : BoardSquare, d : Diagonal .
+         move_player(mv, pl) and game_turn(pl) and
+         move_piece(mv, k) and (k isa King) and piece_owner(k, pl) and
+         piece_square(k, s_from) and stops_on_square(k, s_to) and
+         square_diagonal(s_from, d) and square_diagonal(s_to, d) and
+         is_empty(s_to) and
+         all_squares_between_empty(s_from, s_to, d) and
+         not (mv isa Capture))
+
+// King capture: king jumps an opponent on the diagonal and lands on an
+// empty square beyond, on the same diagonal. (Source 4.3)
+fact bridge_legal_king_capture :
+  forall mv : Move .
+    legal_king_capture_move(mv) iff
+      (exists pl : Player, k : Piece, opp : Piece,
+              s_from : BoardSquare, s_opp : BoardSquare, s_to : BoardSquare,
+              d : Diagonal .
+         move_player(mv, pl) and game_turn(pl) and
+         move_piece(mv, k) and (k isa King) and piece_owner(k, pl) and
+         piece_square(k, s_from) and stops_on_square(k, s_to) and
+         piece_owner(opp, opponent_of(pl)) and piece_square(opp, s_opp) and
+         square_diagonal(s_from, d) and square_diagonal(s_opp, d) and
+         square_diagonal(s_to, d) and
+         is_empty(s_to) and
+         capture_victim(mv, opp) and
+         (mv isa Capture))
+
+// --- Layer 2: blocker bridges ---
+
+// Mandatory capture: a man could jump but the move is simple -> block.
+// (Source 4.2)
+fact bridge_illegal_mandatory_capture :
+  forall mv : Move .
+    illegal_due_to_mandatory_capture(mv) iff
+      (exists pl : Player, wm : Piece, opp : Piece,
+              s_opp : BoardSquare, s_behind : BoardSquare .
+         move_player(mv, pl) and game_turn(pl) and
+         move_piece(mv, wm) and (wm isa Man) and piece_owner(wm, pl) and
+         piece_owner(opp, opponent_of(pl)) and
+         piece_square(opp, s_opp) and
+         meets_diagonally(wm, opp) and
+         is_empty(s_behind) and
+         same_diagonal(s_opp, s_behind) and
+         not (mv isa Capture))
+
+// Own-piece capture: cannot capture own piece. (Source 4.1)
+fact bridge_illegal_own_piece_capture :
+  forall mv : Move .
+    illegal_due_to_own_piece_capture(mv) iff
+      (exists pl : Player, wm : Piece, victim : Piece .
+         move_player(mv, pl) and move_piece(mv, wm) and piece_owner(wm, pl) and
+         (mv isa Capture) and capture_victim(mv, victim) and
+         piece_owner(victim, pl))
+
+// Wrong turn: a player not on turn cannot move. (Source 3.13)
+fact bridge_illegal_wrong_turn :
+  forall mv : Move .
+    illegal_due_to_wrong_turn(mv) iff
+      (exists pl : Player, wm : Piece .
+         move_piece(mv, wm) and piece_owner(wm, pl) and
+         move_player(mv, pl) and not game_turn(pl))
+
+// Man moving backward: a Man making a simple step in the wrong row
+// direction is illegal. (Source 3.5)
+fact bridge_illegal_man_backward :
+  forall mv : Move .
+    illegal_due_to_man_backward(mv) iff
+      (exists pl : Player, wm : Piece,
+              s_from : BoardSquare, s_to : BoardSquare,
+              r_from : BoardRow, r_to : BoardRow, c : PieceColor .
+         move_player(mv, pl) and move_piece(mv, wm) and (wm isa Man) and
+         piece_owner(wm, pl) and piece_color(wm, c) and
+         piece_square(wm, s_from) and stops_on_square(wm, s_to) and
+         adjacent_diagonal_squares(s_from, s_to) and
+         square_row(s_from, r_from) and square_row(s_to, r_to) and
+         forward_next_row(r_from, c) != r_to and
+         not (mv isa Capture))
+
+// --- Layer 3: closure (definition of is_legal_move) ---
+fact legal_move_closure :
+  forall mv : Move .
+    is_legal_move(mv) iff
+      ((legal_man_simple_move(mv) or legal_man_capture_move(mv)
+        or legal_king_simple_move(mv) or legal_king_capture_move(mv))
+       and not illegal_due_to_mandatory_capture(mv)
+       and not illegal_due_to_own_piece_capture(mv)
+       and not illegal_due_to_wrong_turn(mv)
+       and not illegal_due_to_man_backward(mv))

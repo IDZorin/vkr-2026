@@ -1,0 +1,16 @@
+{
+  "name": "draughts_64",
+  "summary": "Recorded NL query checks over a Draughts-64 A4V3 IR with board geometry and move-legality rules.",
+  "results": [
+    {"id": "Q1", "description": "White man e3 to d4 with no capture available.", "coverage": "covered", "final": "LEGAL", "expected": "LEGAL", "rule": "man_move_forward"},
+    {"id": "Q2", "description": "White man e3 to d2 backward.", "coverage": "covered", "final": "ILLEGAL", "expected": "ILLEGAL", "rule": "man_move_forward"},
+    {"id": "Q3", "description": "White man e3 to f4 while capture over d4 is available.", "coverage": "covered", "final": "ILLEGAL", "expected": "ILLEGAL", "rule": "man_capture"},
+    {"id": "Q4", "description": "White man captures from e3 to c5 over d4.", "coverage": "covered", "final": "LEGAL", "expected": "LEGAL", "rule": "man_capture"},
+    {"id": "Q5", "description": "White king e3 to h6.", "coverage": "covered", "final": "LEGAL", "expected": "LEGAL", "rule": "king_distance_move"},
+    {"id": "Q6", "description": "White king e3 to d2.", "coverage": "covered", "final": "LEGAL", "expected": "LEGAL", "rule": "king_distance_move"},
+    {"id": "Q7", "description": "White king b2 captures over d4 and lands on g7.", "coverage": "covered", "final": "LEGAL", "expected": "LEGAL", "rule": "king_capture"},
+    {"id": "Q8", "description": "White man e7 to d8, reaching the last row.", "coverage": "covered", "final": "LEGAL", "expected": "LEGAL", "rule": "man_move_forward"},
+    {"id": "Q9", "description": "White king c3 captures over e5 and lands on g7.", "coverage": "covered", "final": "LEGAL", "expected": "LEGAL", "rule": "king_capture"}
+  ]
+}
+

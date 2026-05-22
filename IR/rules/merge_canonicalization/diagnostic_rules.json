@@ -1,0 +1,2044 @@
+{
+  "module": "merge_canonicalization",
+  "rule_count": 71,
+  "metric_count": 63,
+  "check_count": 15,
+  "rules": [
+    {
+      "type": "metric",
+      "name": "explicit_link_violation_count",
+      "module": "merge_canonicalization",
+      "kind": "`hard_warning`",
+      "what_it_counts": "cases where a symbol name embeds another concept that the formula body never links explicitly.",
+      "how_to_compute": "count checklist violations of `keep_links_explicit`.",
+      "value_paths": [
+        "semantic_preservation.explicit_link_violation_count"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "render_bertscore_f1_to_normalized_per_formula_repeat_overuse_mass",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "normalized-text similarity per unit of repetition inflation inside formal IR.",
+      "how_to_compute": "`render_bertscore_f1_to_normalized / formula_repeat_overuse_mass`.",
+      "value_paths": [
+        "tradeoff.render_bertscore_f1_to_normalized_per_formula_repeat_overuse_mass"
+      ],
+      "evidence_paths": [
+        "render_back.render_back_text",
+        "render_back.render_nli_text_implies_ir",
+        "render_back.render_nli_ir_implies_text",
+        "render_back.render_contradiction_score"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Rendered IR does not preserve entailment/equivalence; report render text and entailment/contradiction values.",
+      "repair_target": "Repair IR until render-back and entailment preserve normalized meaning."
+    },
+    {
+      "type": "metric",
+      "name": "render_bertscore_f1_to_normalized_per_parameter_slot_mass",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "normalized-text similarity divided by parameter mass.",
+      "how_to_compute": "`render_bertscore_f1_to_normalized / total_parameter_slot_mass`.",
+      "value_paths": [
+        "tradeoff.render_bertscore_f1_to_normalized_per_parameter_slot_mass"
+      ],
+      "evidence_paths": [
+        "render_back.render_back_text",
+        "render_back.render_nli_text_implies_ir",
+        "render_back.render_nli_ir_implies_text",
+        "render_back.render_contradiction_score"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Rendered IR does not preserve entailment/equivalence; report render text and entailment/contradiction values.",
+      "repair_target": "Repair IR until render-back and entailment preserve normalized meaning."
+    },
+    {
+      "type": "metric",
+      "name": "render_nli_ir_implies_text_per_parameter_slot_mass",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "entailment from IR render-back to normalized text per unit of parameter mass.",
+      "how_to_compute": "`render_nli_ir_implies_text / total_parameter_slot_mass`.",
+      "value_paths": [
+        "tradeoff.render_nli_ir_implies_text_per_parameter_slot_mass"
+      ],
+      "evidence_paths": [
+        "render_back.render_back_text",
+        "render_back.render_nli_text_implies_ir",
+        "render_back.render_nli_ir_implies_text",
+        "render_back.render_contradiction_score"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Rendered IR does not preserve entailment/equivalence; report render text and entailment/contradiction values.",
+      "repair_target": "Repair IR until render-back and entailment preserve normalized meaning."
+    },
+    {
+      "type": "metric",
+      "name": "render_nli_text_implies_ir_per_formula_repeat_overuse_mass",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "semantic adequacy per unit of formal repetition inflation.",
+      "how_to_compute": "`render_nli_text_implies_ir / formula_repeat_overuse_mass`.",
+      "value_paths": [
+        "tradeoff.render_nli_text_implies_ir_per_formula_repeat_overuse_mass"
+      ],
+      "evidence_paths": [
+        "render_back.render_back_text",
+        "render_back.render_nli_text_implies_ir",
+        "render_back.render_nli_ir_implies_text",
+        "render_back.render_contradiction_score"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Rendered IR does not preserve entailment/equivalence; report render text and entailment/contradiction values.",
+      "repair_target": "Repair IR until render-back and entailment preserve normalized meaning."
+    },
+    {
+      "type": "metric",
+      "name": "render_nli_text_implies_ir_per_full_surface_repeat_overuse_mass",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "semantic adequacy per unit of repetition inflation across IR plus prose.",
+      "how_to_compute": "`render_nli_text_implies_ir / full_surface_repeat_overuse_mass`.",
+      "value_paths": [
+        "tradeoff.render_nli_text_implies_ir_per_full_surface_repeat_overuse_mass"
+      ],
+      "evidence_paths": [
+        "render_back.render_back_text",
+        "render_back.render_nli_text_implies_ir",
+        "render_back.render_nli_ir_implies_text",
+        "render_back.render_contradiction_score"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Rendered IR does not preserve entailment/equivalence; report render text and entailment/contradiction values.",
+      "repair_target": "Repair IR until render-back and entailment preserve normalized meaning."
+    },
+    {
+      "type": "metric",
+      "name": "render_nli_text_implies_ir_per_parameter_slot_mass",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "entailment from normalized text back to IR render-back per unit of parameter mass.",
+      "how_to_compute": "`render_nli_text_implies_ir / total_parameter_slot_mass`.",
+      "value_paths": [
+        "tradeoff.render_nli_text_implies_ir_per_parameter_slot_mass"
+      ],
+      "evidence_paths": [
+        "render_back.render_back_text",
+        "render_back.render_nli_text_implies_ir",
+        "render_back.render_nli_ir_implies_text",
+        "render_back.render_contradiction_score"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Rendered IR does not preserve entailment/equivalence; report render text and entailment/contradiction values.",
+      "repair_target": "Repair IR until render-back and entailment preserve normalized meaning."
+    },
+    {
+      "type": "metric",
+      "name": "callable_symbol_count",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "number of declared callable local symbols.",
+      "how_to_compute": "count local `fun` and `rel` declarations.",
+      "value_paths": [
+        "parameterization.callable_symbol_count"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "callable_symbol_with_args_count",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "number of callable local symbols that actually take arguments.",
+      "how_to_compute": "count local `fun` and `rel` declarations whose arity is greater than zero.",
+      "value_paths": [
+        "parameterization.callable_symbol_with_args_count"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "candidate_reading_count",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "number of advisory candidate readings proposed.",
+      "how_to_compute": "`len(candidate_readings)`.",
+      "value_paths": [
+        "variants.candidate_reading_count"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "draft_variant_count",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "number of concrete IR variants drafted.",
+      "how_to_compute": "`len(drafter_variants)`.",
+      "value_paths": [
+        "variants.draft_variant_count"
+      ],
+      "evidence_paths": [
+        "variants",
+        "variability"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest."
+    },
+    {
+      "type": "metric",
+      "name": "factorization_count",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "how many separate callable factors carry argument structure.",
+      "how_to_compute": "count local callable symbols whose arity is greater than zero.",
+      "value_paths": [
+        "parameterization.factorization_count"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "focus_signature_unique_count",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "how many different focus-symbol signatures appear across variants or reruns.",
+      "how_to_compute": "extract the declared signature of the focus term, for example `rel(IndexComponent,Day)` vs `rel(Day,Exchange)`, and count unique values.",
+      "value_paths": [
+        "variability.focus_signature_unique_count"
+      ],
+      "evidence_paths": [
+        "variants",
+        "variability"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "quantifier_parameter_slot_count",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "total bound-variable slots introduced by quantifiers.",
+      "how_to_compute": "recursively count variables introduced by `forall` and `exists` nodes in assertions.",
+      "value_paths": [
+        "parameterization.quantifier_parameter_slot_count"
+      ],
+      "evidence_paths": [
+        "assertion_complexity.top_complex_assertions",
+        "assertion_complexity.max_assertion_depth",
+        "assertion_complexity.total_quantifier_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "same_parameter_mass_different_structure_pair_count",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "how often two artifacts have the same total parameter mass but different structure.",
+      "how_to_compute": "among all pairs, count those with equal `total_parameter_slot_mass` but non-identical structural signature.",
+      "value_paths": [
+        "variability.same_parameter_mass_different_structure_pair_count"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "semantic_coverage_retry_count",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "how many times semantic coverage hints forced a retry.",
+      "how_to_compute": "count semantic-coverage-triggered repair rounds.",
+      "value_paths": [
+        "validity.semantic_coverage_retry_count"
+      ],
+      "evidence_paths": [
+        "coverage.normalized_clause_count",
+        "coverage.formula_bearing_item_count",
+        "coverage.missing_fragment_count",
+        "coverage.prose_leak_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "top_level_parameter_slot_count",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "total argument slots declared at symbol level.",
+      "how_to_compute": "sum the arities of all local `fun` and `rel` declarations.",
+      "value_paths": [
+        "parameterization.top_level_parameter_slot_count"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "total_parameter_slot_mass",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "total parameter burden of the artifact, independent of how it is factorized.",
+      "how_to_compute": "`top_level_parameter_slot_count + quantifier_parameter_slot_count`.",
+      "value_paths": [
+        "parameterization.total_parameter_slot_mass"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "unique_ir_variant_count",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "number of materially distinct IR variants.",
+      "how_to_compute": "cluster variants by normalized carrier, focus symbol signature, and formula skeleton; count clusters.",
+      "value_paths": [
+        "variants.unique_ir_variant_count"
+      ],
+      "evidence_paths": [
+        "variants",
+        "variability"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest."
+    },
+    {
+      "type": "metric",
+      "name": "unique_variant_signature_count",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "how many materially distinct IR outputs appear inside one run.",
+      "how_to_compute": "normalize rendered IR strings and count distinct values, or cluster by structural signature.",
+      "value_paths": [
+        "variability.unique_variant_signature_count"
+      ],
+      "evidence_paths": [
+        "variants",
+        "variability"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest."
+    },
+    {
+      "type": "metric",
+      "name": "usable_variant_count",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "number of drafted variants that are actually usable for comparison.",
+      "how_to_compute": "count variants with `status = ok`, canonical AST, and non-empty rendered IR.",
+      "value_paths": [
+        "variability.usable_variant_count"
+      ],
+      "evidence_paths": [
+        "variants",
+        "variability"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest."
+    },
+    {
+      "type": "metric",
+      "name": "artifact_signature_entropy",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "how evenly the artifact space is spread across distinct signatures rather than collapsing to one dominant form.",
+      "how_to_compute": "Shannon entropy over normalized artifact signatures or focus signatures.",
+      "value_paths": [
+        "variability.artifact_signature_entropy"
+      ],
+      "evidence_paths": [
+        "variants",
+        "variability"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "critic_merge_recommended",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "whether the critic thinks no single variant is fully adequate.",
+      "how_to_compute": "boolean flag from critic output.",
+      "value_paths": [
+        "variants.critic_merge_recommended"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest."
+    },
+    {
+      "type": "metric",
+      "name": "factorization_index",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "how fragmented the argument structure is.",
+      "how_to_compute": "`factorization_count / max(1, top_level_parameter_slot_count)`.",
+      "value_paths": [
+        "parameterization.factorization_index"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "focus_symbol_signature",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "the effective carrier signature chosen for the focus term.",
+      "how_to_compute": "inspect the declaration for the focus term and serialize it as a normalized signature, for example `rel(IndexComponent,Day)` or `fun(IndexComponent)->Exchange`.",
+      "value_paths": [
+        "parameterization.focus_symbol_signature"
+      ],
+      "evidence_paths": [
+        "variants",
+        "variability"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "llm_bertscore",
+      "module": "merge_canonicalization",
+      "kind": "not_documented",
+      "what_it_counts": "not documented in catalog",
+      "how_to_compute": "not documented in catalog",
+      "value_paths": [
+        "<search recursive metrics JSON for key `llm_bertscore`>"
+      ],
+      "evidence_paths": [
+        "render_back.render_back_text",
+        "render_back.render_nli_text_implies_ir",
+        "render_back.render_nli_ir_implies_text",
+        "render_back.render_contradiction_score"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "llm_contradiction",
+      "module": "merge_canonicalization",
+      "kind": "not_documented",
+      "what_it_counts": "not documented in catalog",
+      "how_to_compute": "not documented in catalog",
+      "value_paths": [
+        "<search recursive metrics JSON for key `llm_contradiction`>"
+      ],
+      "evidence_paths": [
+        "render_back.render_back_text",
+        "render_back.render_nli_text_implies_ir",
+        "render_back.render_nli_ir_implies_text",
+        "render_back.render_contradiction_score"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Rendered IR does not preserve entailment/equivalence; report render text and entailment/contradiction values.",
+      "repair_target": "Repair IR until render-back and entailment preserve normalized meaning."
+    },
+    {
+      "type": "metric",
+      "name": "llm_ir_to_text",
+      "module": "merge_canonicalization",
+      "kind": "not_documented",
+      "what_it_counts": "not documented in catalog",
+      "how_to_compute": "not documented in catalog",
+      "value_paths": [
+        "<search recursive metrics JSON for key `llm_ir_to_text`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "llm_text_to_ir",
+      "module": "merge_canonicalization",
+      "kind": "not_documented",
+      "what_it_counts": "not documented in catalog",
+      "how_to_compute": "not documented in catalog",
+      "value_paths": [
+        "<search recursive metrics JSON for key `llm_text_to_ir`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "parameter_slots_per_factor",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "average argument mass per factor.",
+      "how_to_compute": "`top_level_parameter_slot_count / max(1, factorization_count)`.",
+      "value_paths": [
+        "parameterization.parameter_slots_per_factor"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "relation_type",
+      "module": "merge_canonicalization",
+      "kind": "not_documented",
+      "what_it_counts": "not documented in catalog",
+      "how_to_compute": "not documented in catalog",
+      "value_paths": [
+        "<search recursive metrics JSON for key `relation_type`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "semantic_verdict",
+      "module": "merge_canonicalization",
+      "kind": "not_documented",
+      "what_it_counts": "not documented in catalog",
+      "how_to_compute": "not documented in catalog",
+      "value_paths": [
+        "<search recursive metrics JSON for key `semantic_verdict`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "critic_confidence",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "confidence reported by the critic for the selected variant.",
+      "how_to_compute": "normalized critic confidence field or calibrated mapping from critic output.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `critic_confidence`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "critic_margin",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "gap between best and second-best variant according to critic ranking.",
+      "how_to_compute": "if critic provides scores, subtract rank-2 score from rank-1 score; otherwise derive an ordinal margin from ranking evidence.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `critic_margin`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "cross_reference_dropout_count",
+      "module": "merge_canonicalization",
+      "kind": "`hard_warning`",
+      "what_it_counts": "cross-referenced concepts discussed upstream but omitted from final IR.",
+      "how_to_compute": "`expected cross-reference count - used cross-reference count`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `cross_reference_dropout_count`>"
+      ],
+      "evidence_paths": [
+        "evidence.source_cross_references",
+        "evidence.ir_cross_references"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "cross_reference_usage_count",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "number of related entries or cross-referenced concepts actually used in final IR.",
+      "how_to_compute": "count cross-reference ids from advisory that survive into formula or accepted annotation.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `cross_reference_usage_count`>"
+      ],
+      "evidence_paths": [
+        "evidence.ir_cross_references"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "dependency_link_count",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "number of explicit dependency symbols or cross-entry concepts actually used in formula.",
+      "how_to_compute": "count distinct dependency symbols referenced in declarations or assertions.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `dependency_link_count`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "dependency_link_recall",
+      "module": "merge_canonicalization",
+      "kind": "`continuous`",
+      "what_it_counts": "share of expected dependency concepts that are explicitly linked in formula.",
+      "how_to_compute": "`explicitly linked dependency count / expected dependency count`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `dependency_link_recall`>"
+      ],
+      "evidence_paths": [
+        "lexical_coverage.source_content_tokens_missing_from_formula",
+        "lexical_coverage.source_content_tokens_missing_from_full_surface",
+        "lexical_coverage.formula_repeat_underuse_mass",
+        "coverage.missing_fragment_count"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Some source/normalized content is absent from the target representation; report the missing token/fragment list.",
+      "repair_target": "Add the missing concepts as explicit formula structure, or document why they are intentionally excluded."
+    },
+    {
+      "type": "metric",
+      "name": "embedded_concept_without_formula_link_count",
+      "module": "merge_canonicalization",
+      "kind": "`hard_warning`",
+      "what_it_counts": "symbol names with compositional tokens such as `ExchangeOf`, `IndexUniverseRequirements`, or similar that never appear as explicit linked concepts in formula.",
+      "how_to_compute": "inspect multi-token symbol names and count cases where one embedded concept is absent from the expression graph.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `embedded_concept_without_formula_link_count`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "focus_symbol_arity",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "the arity chosen for the focus term itself.",
+      "how_to_compute": "read the declared argument count of the focus symbol.",
+      "value_paths": [
+        "normalized_alignment.focus_symbol_arity",
+        "parameterization.focus_symbol_arity"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "gold_clause_alignment",
+      "module": "merge_canonicalization",
+      "kind": "`gold_only`",
+      "what_it_counts": "fraction of gold semantic blocks aligned by the candidate IR.",
+      "how_to_compute": "align candidate clause coverage map against gold clause inventory.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `gold_clause_alignment`>"
+      ],
+      "evidence_paths": [
+        "coverage.normalized_clause_count",
+        "coverage.formula_bearing_item_count",
+        "coverage.missing_fragment_count",
+        "coverage.prose_leak_count"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest."
+    },
+    {
+      "type": "metric",
+      "name": "gold_counterfactual_recall",
+      "module": "merge_canonicalization",
+      "kind": "`gold_only`",
+      "what_it_counts": "share of gold counterfactual semantics preserved.",
+      "how_to_compute": "`matched gold counterfactual fragments / total gold counterfactual fragments`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `gold_counterfactual_recall`>"
+      ],
+      "evidence_paths": [
+        "lexical_coverage.source_content_tokens_missing_from_formula",
+        "lexical_coverage.source_content_tokens_missing_from_full_surface",
+        "lexical_coverage.formula_repeat_underuse_mass",
+        "coverage.missing_fragment_count"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Some source/normalized content is absent from the target representation; report the missing token/fragment list.",
+      "repair_target": "Add the missing concepts as explicit formula structure, or document why they are intentionally excluded."
+    },
+    {
+      "type": "metric",
+      "name": "gold_dependency_recall",
+      "module": "merge_canonicalization",
+      "kind": "`gold_only`",
+      "what_it_counts": "share of explicit concept links in gold that are preserved in the candidate.",
+      "how_to_compute": "`matched gold dependency links / total gold dependency links`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `gold_dependency_recall`>"
+      ],
+      "evidence_paths": [
+        "lexical_coverage.source_content_tokens_missing_from_formula",
+        "lexical_coverage.source_content_tokens_missing_from_full_surface",
+        "lexical_coverage.formula_repeat_underuse_mass",
+        "coverage.missing_fragment_count"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Some source/normalized content is absent from the target representation; report the missing token/fragment list.",
+      "repair_target": "Add the missing concepts as explicit formula structure, or document why they are intentionally excluded."
+    },
+    {
+      "type": "metric",
+      "name": "gold_exception_recall",
+      "module": "merge_canonicalization",
+      "kind": "`gold_only`",
+      "what_it_counts": "share of gold exclusion semantics preserved.",
+      "how_to_compute": "`matched gold exception fragments / total gold exception fragments`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `gold_exception_recall`>"
+      ],
+      "evidence_paths": [
+        "lexical_coverage.source_content_tokens_missing_from_formula",
+        "lexical_coverage.source_content_tokens_missing_from_full_surface",
+        "lexical_coverage.formula_repeat_underuse_mass",
+        "coverage.missing_fragment_count"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Some source/normalized content is absent from the target representation; report the missing token/fragment list.",
+      "repair_target": "Add the missing concepts as explicit formula structure, or document why they are intentionally excluded."
+    },
+    {
+      "type": "metric",
+      "name": "gold_helper_overuse_delta",
+      "module": "merge_canonicalization",
+      "kind": "`gold_only`",
+      "what_it_counts": "how much more helper machinery the candidate introduces than the gold.",
+      "how_to_compute": "`candidate helper count - gold helper count`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `gold_helper_overuse_delta`>"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "gold_modulo_renaming_match",
+      "module": "merge_canonicalization",
+      "kind": "`gold_only`",
+      "what_it_counts": "whether candidate and gold are equivalent up to safe renaming and trivial formatting differences.",
+      "how_to_compute": "canonicalize names and compare normalized structure.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `gold_modulo_renaming_match`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest."
+    },
+    {
+      "type": "metric",
+      "name": "gold_render_similarity",
+      "module": "merge_canonicalization",
+      "kind": "`gold_only`",
+      "what_it_counts": "semantic similarity between candidate render-back and gold render-back.",
+      "how_to_compute": "BERTScore, NLI, or clause-aligned similarity on verbalized forms.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `gold_render_similarity`>"
+      ],
+      "evidence_paths": [
+        "render_back.render_back_text",
+        "render_back.render_nli_text_implies_ir",
+        "render_back.render_nli_ir_implies_text",
+        "render_back.render_contradiction_score"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Rendered IR does not preserve entailment/equivalence; report render text and entailment/contradiction values.",
+      "repair_target": "Repair IR until render-back and entailment preserve normalized meaning."
+    },
+    {
+      "type": "metric",
+      "name": "gold_scope_recall",
+      "module": "merge_canonicalization",
+      "kind": "`gold_only`",
+      "what_it_counts": "share of gold scope semantics preserved.",
+      "how_to_compute": "`matched gold scope fragments / total gold scope fragments`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `gold_scope_recall`>"
+      ],
+      "evidence_paths": [
+        "lexical_coverage.source_content_tokens_missing_from_formula",
+        "lexical_coverage.source_content_tokens_missing_from_full_surface",
+        "lexical_coverage.formula_repeat_underuse_mass",
+        "coverage.missing_fragment_count"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Some source/normalized content is absent from the target representation; report the missing token/fragment list.",
+      "repair_target": "Add the missing concepts as explicit formula structure, or document why they are intentionally excluded."
+    },
+    {
+      "type": "metric",
+      "name": "gold_structure_similarity",
+      "module": "merge_canonicalization",
+      "kind": "`gold_only`",
+      "what_it_counts": "structural similarity modulo renaming between candidate IR and gold IR.",
+      "how_to_compute": "compare declaration graph, assertion skeleton, and operator shapes after normalization of names.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `gold_structure_similarity`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest."
+    },
+    {
+      "type": "metric",
+      "name": "pairwise_structure_distance_mean",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "mean structural drift between all pairs of variants or reruns.",
+      "how_to_compute": "`1 - pairwise_structure_similarity_mean`.",
+      "value_paths": [
+        "variability.pairwise_structure_distance_mean"
+      ],
+      "evidence_paths": [
+        "variants",
+        "variability"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "pairwise_structure_similarity_mean",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "mean structural similarity between all pairs of variants or reruns.",
+      "how_to_compute": "compare declaration mix, logical-operator mix, and arity profile pairwise; average the pairwise cosine similarities.",
+      "value_paths": [
+        "variability.pairwise_structure_similarity_mean"
+      ],
+      "evidence_paths": [
+        "variants",
+        "variability"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "pairwise_structure_similarity_mean_per_parameter_slot_mass",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "structural stability bought per unit of parameter mass.",
+      "how_to_compute": "`pairwise_structure_similarity_mean / total_parameter_slot_mass`.",
+      "value_paths": [
+        "tradeoff.pairwise_structure_similarity_mean_per_parameter_slot_mass"
+      ],
+      "evidence_paths": [
+        "variants",
+        "variability"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "pairwise_token_jaccard_mean",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "average lexical overlap between rendered IR artifacts.",
+      "how_to_compute": "compute content-token Jaccard for every pair, then average.",
+      "value_paths": [
+        "variability.pairwise_token_jaccard_mean"
+      ],
+      "evidence_paths": [
+        "variants",
+        "variability"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "same_parameter_mass_different_structure_pair_ratio",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "rate of decomposition drift after controlling for parameter mass.",
+      "how_to_compute": "`same_parameter_mass_different_structure_pair_count / total_pair_count`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `same_parameter_mass_different_structure_pair_ratio`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "sort_choice_stability",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "whether different variants agree on sorts for the same argument positions.",
+      "how_to_compute": "compare argument-sort tuples across variants; report agreement ratio.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `sort_choice_stability`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "variant_diversity_score",
+      "module": "merge_canonicalization",
+      "kind": "`comparative`",
+      "what_it_counts": "how different the variants really are.",
+      "how_to_compute": "average pairwise structural distance across variants.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `variant_diversity_score`>"
+      ],
+      "evidence_paths": [
+        "variants",
+        "variability"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest."
+    },
+    {
+      "type": "check",
+      "name": "bridge_family",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "overlay row",
+        "local symbol rows",
+        "backtest metrics"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "bridge_supertype",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "overlay row",
+        "local symbol rows",
+        "backtest metrics"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "codomain_split_value_families",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "conflict_split",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "overlay row",
+        "local symbol rows",
+        "backtest metrics"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "enum_value_mapping_candidates",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "exact_merge_overlay",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "overlay row",
+        "local symbol rows",
+        "backtest metrics"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "identifier_structural_anchor_gap",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "symbol",
+        "kind",
+        "signature",
+        "identifier pieces",
+        "line_no",
+        "matched_source_phrases"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "keep_separate_with_link",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "numeric_window_fusion_forbidden",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "ontology_level_mixing",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "opaque_helper_predicates",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "symbol",
+        "kind",
+        "signature",
+        "identifier pieces",
+        "line_no",
+        "matched_source_phrases"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "overlay_consistency_drift",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "overlay row",
+        "local symbol rows",
+        "backtest metrics"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "role_link",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "same_symbol_different_codomains",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "semantic_load_in_name",
+      "module": "merge_canonicalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "symbol",
+        "kind",
+        "signature",
+        "identifier pieces",
+        "line_no",
+        "matched_source_phrases"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    }
+  ]
+}

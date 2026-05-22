@@ -1,0 +1,1026 @@
+// Source URLs:
+// https://nnov.hse.ru/ba/law/igpr/ruspravda
+// https://hist.msu.ru/ER/Etext/RP/krp_t.htm
+// Entry note: source text is Cyrillic; identifiers use ASCII transliteration.
+
+sort Delo
+
+sort SubjektPrava
+sort Chelovek extends SubjektPrava
+sort GruppaChelovek extends SubjektPrava
+sort Lyudi extends GruppaChelovek
+sort Verv extends GruppaChelovek
+sort Desyatina extends SubjektPrava
+
+sort Muzh extends Chelovek
+sort Rusin extends Chelovek
+sort Gridin extends Chelovek
+sort Kupets extends Chelovek
+sort Yabednik extends Chelovek
+sort Mechnik extends Chelovek
+sort Izgoy extends Chelovek
+sort Slovenin extends Chelovek
+sort Varyag extends Chelovek
+sort Kolbyag extends Chelovek
+sort Chelyadin extends Chelovek
+sort Gospodin extends Chelovek
+sort Holop extends Chelovek
+sort SvobodnyyMuzh extends Chelovek
+sort Ognishchanin extends Chelovek
+sort Tiun extends Chelovek
+sort KnyazheskiyTiun extends Tiun
+sort Smerd extends Chelovek
+sort Rab extends Chelovek
+sort Rabynya extends Chelovek
+sort Kormilitsa extends Chelovek
+sort Lekar extends Chelovek
+sort Virnik extends Chelovek
+sort Mostnik extends Chelovek
+sort Knyaz extends Chelovek
+sort Podezdnoy extends Chelovek
+sort StarshiyKonyukh extends Chelovek
+sort SelskiyStarosta extends Chelovek
+sort Smotritel extends Chelovek
+sort Ryadovich extends Chelovek
+
+sort Vesh
+
+sort Zhivotnoe extends Vesh
+sort Skotina extends Zhivotnoe
+sort Ptitsa extends Zhivotnoe
+sort ChastZhivotnogo extends Vesh
+sort Pishcha extends Vesh
+sort Korm extends Vesh
+
+sort Kon extends Skotina
+sort Kobyla extends Skotina
+sort Vol extends Skotina
+sort Korova extends Skotina
+sort Trehletka extends Skotina
+sort GodovalayaSkotina extends Skotina
+sort Telenok extends Skotina
+sort Yagnenok extends Skotina
+sort Baran extends Skotina
+sort Ovtsa extends Skotina
+sort Koza extends Skotina
+sort Svinya extends Skotina
+
+sort Pes extends Zhivotnoe
+sort Pchely extends Zhivotnoe
+sort Ryba extends Zhivotnoe
+
+sort Golub extends Ptitsa
+sort Kuritsa extends Ptitsa
+sort Utka extends Ptitsa
+sort Gus extends Ptitsa
+sort Zhuravl extends Ptitsa
+sort Lebed extends Ptitsa
+sort Yastreb extends Ptitsa
+sort Sokol extends Ptitsa
+
+sort Myaso extends Pishcha
+sort PoltushaMyasa extends ChastZhivotnogo
+sort Hleb extends Pishcha
+sort Psheno extends Pishcha
+sort Syr extends Pishcha
+sort Solod extends Pishcha
+sort Seno extends Korm
+sort Drova extends Vesh
+
+sort Oruzhie extends Vesh
+sort Odezhda extends Vesh
+sort Kopie extends Oruzhie
+sort Shchit extends Vesh
+sort Ladya extends Vesh
+sort Bort extends Vesh
+sort PolevayaMezha extends Vesh
+sort MezhevoyStolb extends Vesh
+
+sort Plata
+sort Kolichestvo
+sort Dney
+sort Svideteley
+sort Vorov
+sort Dosok
+sort Ustoy
+
+sort DenezhnayaEdinitsa =
+grivna
+| rezan
+| kuna
+| nogata
+| veveritsa
+
+sort Rodstvo =
+brat
+| sestra
+| syn
+
+sort StoronaRodstva =
+so_storony_brata
+| so_storony_sestry
+
+sort ChastCheloveka =
+ruka
+| noga
+| palets
+| usy
+| boroda
+
+sort Orudie =
+palka
+| zherd
+| ruka_kak_orudie
+| chasha
+| rog
+| mech
+| mech_v_nozhnah
+| rukoyat_mecha
+
+sort Mesto =
+dvor
+| klet
+| hlev
+| horomy
+| knyazheskiy_dvor
+| mesto_kon
+| stado
+
+rel chelovek_v_lyudyah : Chelovek, Lyudi
+rel chelovek_v_vervi : Chelovek, Verv
+rel chast_zhivotnogo : ChastZhivotnogo, Zhivotnoe
+rel chast_myasa : PoltushaMyasa, Myaso
+
+rel rodstvennik : Chelovek, Chelovek, Rodstvo
+rel plemyannik_so_storony : Chelovek, Chelovek, StoronaRodstva
+
+rel knyazheskiy_chelovek : Delo, Chelovek
+rel knyazheskaya_vesh : Delo, Vesh
+rel bez_knyazheskogo_poveleniya : Delo
+
+rel vinovnyy : Delo, Chelovek
+rel otvetstvennyy : Delo, SubjektPrava
+rel poterpevshiy : Delo, Chelovek
+rel vor : Delo, Chelovek
+rel dolzhnik : Delo, Chelovek
+rel khozyain : Delo, Chelovek, Vesh
+rel sobstvennik : Delo, Chelovek, Vesh
+rel knyaz_dela : Delo, Knyaz
+rel mechnik_dela : Delo, Mechnik
+rel virnik_dela : Delo, Virnik
+rel mostnik_dela : Delo, Mostnik
+rel lekar_dela : Delo, Lekar
+rel desyatina_dela : Delo, Desyatina
+rel lyudi_dela : Delo, Lyudi
+
+rel ubil : Delo, Chelovek, Chelovek
+rel ubit : Delo, Chelovek
+rel umyshlenno : Delo
+rel bez_korystnyh_namereniy : Delo
+rel po_razboynicheski : Delo
+rel s_tselyu_grabezha : Delo
+rel nayden_v_vervi : Delo, Chelovek, Verv
+rel lyudi_ishchut : Delo, Lyudi, Chelovek
+rel lyudi_pomogayut_v_uplate : Delo, Lyudi, Chelovek
+rel mstit_za_protiv : Delo, Chelovek, Chelovek, Chelovek
+rel nikto_ne_mstit : Delo
+rel ne_mozhet_mstit_za_sebya : Delo, Chelovek
+
+rel pridet_na_sud : Delo, Chelovek
+rel izbit_do_krovi : Delo, Chelovek
+rel v_krovi : Delo, Chelovek
+rel v_sinyakah : Delo, Chelovek
+rel sledy_poboev : Delo, Chelovek
+rel obyazan_iskat_svidetelya : Delo, Chelovek
+rel obyazan_privesti_svidetelya : Delo, Chelovek
+rel privedeno_svideteley : Delo, Chelovek, Svideteley
+rel idet_k_prisyage : Delo, Chelovek
+rel delo_konets : Delo
+rel delo_konchaetsya : Delo
+
+rel udarit : Delo, Chelovek, Chelovek
+rel udarit_orudiem : Delo, Chelovek, Chelovek, Orudie
+rel udarit_po : Delo, Chelovek, Chelovek, ChastCheloveka
+rel otvalitsya : Delo, ChastCheloveka
+rel otsohnet : Delo, ChastCheloveka
+rel otsechet : Delo, Chelovek, Chelovek, ChastCheloveka
+rel tsela : Delo, ChastCheloveka
+rel hromaet : Delo, ChastCheloveka
+rel vyrvet : Delo, Chelovek, Chelovek, ChastCheloveka
+rel obnazhit : Delo, Chelovek, Orudie
+rel ne_udarit : Delo, Chelovek
+rel pihnet_ot_sebya : Delo, Chelovek, Chelovek
+rel pihnet_k_sebe : Delo, Chelovek, Chelovek
+rel nastignet : Delo, Chelovek, Chelovek
+
+rel bezhal : Delo, Chelovek
+rel skroetsya_u : Delo, Chelovek, Chelovek
+rel vernet_v_techenie_dney : Delo, Chelovek, Chelovek, Dney
+rel opoznal_na_tretiy_den : Delo, Chelovek, Chelovek
+rel razresheno_otobrat_cheloveka : Delo, Chelovek, Chelovek
+
+rel poedet_na : Delo, Chelovek, Vesh
+rel bez_sprosu : Delo, Chelovek, Vesh
+rel chuzhaya_vesh : Delo, Vesh
+rel vesh_v_dele : Delo, Vesh
+rel chuzhoy_chelovek : Delo, Chelovek
+rel ukradet : Delo, Chelovek, Vesh
+rel uvesti : Delo, Chelovek, Chelovek
+rel opoznal_propavshee_v_svoem_miru : Delo, Chelovek, Vesh
+rel beret_svoe : Delo, Chelovek, Vesh
+rel opoznal_u_kogo_libo : Delo, Chelovek, Vesh
+rel propavshaya_vesh : Delo, Vesh
+rel zapresheno_otobrat_vesh : Delo, Chelovek, Vesh
+rel zapresheno_govorit_eto_moe : Delo, Chelovek, Vesh
+rel poydet_na_svod : Delo, Chelovek
+rel ukazhet_gde_vzyal : Delo, Chelovek, Vesh
+rel predstavit_poruchitelya : Delo, Chelovek
+rel yavitsya_na_svod_ne_pozdnee : Delo, Chelovek, Dney
+
+rel isk_ob_uplate_zayma : Delo, Chelovek
+rel sudebnoe_razbiratelstvo : Delo, Chelovek
+rel zloumyshlenno_ne_otdaval_dengi : Delo, Chelovek
+rel po_usloviyu : Delo
+
+rel uznaet_propavshego_chelyadina : Delo, Gospodin, Chelyadin
+rel hochet_otnyat : Delo, Gospodin, Chelyadin
+rel byl_kuplen_u : Delo, Chelyadin, Chelovek
+rel vedet_k : Delo, Chelovek, Chelovek
+rel predydushchiy_prodavets : Delo, Chelovek
+rel doshli_do_tretego : Delo
+rel otday_chelyadina : Delo, Chelovek, Chelyadin
+rel ishchi_svoih_deneg_pri_svidetele : Delo, Chelovek
+
+rel ubezhit_v_horomy_gospodina : Delo, Holop, Gospodin
+rel vydaet : Delo, Gospodin, Holop
+rel razresheno_uderzhat_cheloveka : Delo, Gospodin, Chelovek
+rel razresheno_pobit_gde_zastanet : Delo, Chelovek, Chelovek
+
+rel slomaet : Delo, Chelovek, Vesh
+rel isportit : Delo, Chelovek, Vesh
+rel hochet_uderzhat_u_sebya : Delo, Chelovek, Vesh
+rel poluchaet_doplatu_za_porchu : Delo, Chelovek, Vesh
+rel otkazyvaetsya_ot_slomannoy_veshi : Delo, Chelovek, Vesh
+rel zaplacheno_skolko_dal_pri_pokupke : Delo, Chelovek, Vesh
+
+rel mesto_deystviya : Delo, Mesto
+rel vo_vremya_krazhi_korovy : Delo
+rel ubit_kak_psa : Delo, Chelovek
+rel tot_zhe_zakon : Delo, Chelovek
+rel s_pyatnom : Delo, Vesh
+
+rel sozhet : Delo, Chelovek, Vesh
+rel vykadet : Delo, Chelovek, Vesh
+rel samovolnoe_istyazanie : Delo, Chelovek, Chelovek
+rel istiazanie : Delo, Chelovek, Chelovek
+rel raspashut : Delo, Chelovek, Vesh
+rel srubyat : Delo, Chelovek, Vesh
+
+rel odin_vor : Delo
+rel chislo_vorov : Delo, Vorov
+rel krazha_iz_mesta : Delo, Mesto
+rel privedet_vora : Delo, Chelovek, Chelovek
+
+rel ubili_vora_na : Delo, Chelovek, Mesto
+rel otvechaet_kak_za_ubiystvo : Delo, Chelovek
+rel derzhali_vora_do_rassveta : Delo, Chelovek
+rel privesti_na_knyazheskiy_dvor_na_sud : Delo, Chelovek
+rel videli_svyazannym : Delo, Chelovek
+
+rel obyazan_uplatit : Delo, SubjektPrava, SubjektPrava, DenezhnayaEdinitsa, Plata
+rel obyazan_uplatit_bez_poluchatelya : Delo, SubjektPrava, DenezhnayaEdinitsa, Plata
+rel vzyiskivaetsya_s : Delo, SubjektPrava, DenezhnayaEdinitsa, Plata
+rel vzyiskivaetsya_za_vesh : Delo, Vesh, DenezhnayaEdinitsa, Plata
+rel shtraf : Delo, SubjektPrava, DenezhnayaEdinitsa, Plata
+rel plata_za_ubitogo : Delo, Chelovek, DenezhnayaEdinitsa, Plata
+rel plata_lekaryu : Delo, SubjektPrava, Lekar
+rel verv_platit_viru : Delo, Verv
+
+rel podlezhit_vydache_vesh : Delo, SubjektPrava, Vesh
+rel podlezhit_vydache_denezhnoy_sumy : Delo, SubjektPrava, DenezhnayaEdinitsa, Plata
+rel kolichestvo_veshi : Delo, Vesh, Kolichestvo
+rel hleba_i_pshena_skolko_smogut_sest : Delo, Virnik
+rel korma_skolko_smogut_sest : Delo
+rel postavit_koney : Delo, Kolichestvo
+rel sostavit_v_nedelyu : Delo, DenezhnayaEdinitsa, Plata
+rel sobrat_vir : Delo
+rel ustav_yaroslava : Delo
+
+rel postroili_most : Delo
+rel pochinka_vethogo_mosta : Delo
+rel dosok : Delo, Dosok
+rel plata_mostnikam : Delo, Mostnik, DenezhnayaEdinitsa, Plata
+rel plata_ot_kazhdogo_ustoya : Delo, Mostnik, Ustoy, DenezhnayaEdinitsa, Plata
+
+constraint ontology_lyudi_sostoit_iz_chelovek :
+forall l: Lyudi,
+exists x: Chelovek,
+chelovek_v_lyudyah(x, l)
+
+constraint ontology_verv_sostoit_iz_chelovek :
+forall v: Verv,
+exists x: Chelovek,
+chelovek_v_vervi(x, v)
+
+constraint ontology_plemyannik_so_storony_brata :
+forall p: Chelovek, forall u: Chelovek,
+plemyannik_so_storony(p, u, so_storony_brata)
+implies
+exists b: Chelovek,
+rodstvennik(b, u, brat)
+and rodstvennik(p, b, syn)
+
+constraint ontology_plemyannik_so_storony_sestry :
+forall p: Chelovek, forall u: Chelovek,
+plemyannik_so_storony(p, u, so_storony_sestry)
+implies
+exists s: Chelovek,
+rodstvennik(s, u, sestra)
+and rodstvennik(p, s, syn)
+
+constraint ontology_poltusha_myasa_chast_myasa :
+forall p: PoltushaMyasa,
+exists m: Myaso,
+chast_myasa(p, m)
+
+constraint ontology_poltusha_myasa_chast_zhivotnogo :
+forall p: PoltushaMyasa,
+exists z: Zhivotnoe,
+chast_zhivotnogo(p, z)
+
+constraint rp_001a_ubiystvo_muzha_mest_rodstvennikov :
+forall d: Delo, forall killer: Muzh, forall victim: Muzh,
+ubil(d, killer, victim)
+and not nikto_ne_mstit(d)
+implies
+exists r: Chelovek,
+(rodstvennik(r, victim, brat)
+or rodstvennik(r, victim, syn)
+or plemyannik_so_storony(r, victim, so_storony_brata)
+or plemyannik_so_storony(r, victim, so_storony_sestry))
+and mstit_za_protiv(d, r, victim, killer)
+
+constraint rp_001b_ubiystvo_muzha_bez_mesti_40_griven :
+forall d: Delo, forall killer: Muzh, forall victim: Muzh,
+ubil(d, killer, victim)
+and nikto_ne_mstit(d)
+implies vzyiskivaetsya_s(d, killer, grivna, 40)
+
+constraint rp_001c_status_ubitogo_40_griven :
+forall d: Delo, forall victim: Chelovek,
+ubit(d, victim)
+and (exists x: Rusin, x = victim
+or exists x: Gridin, x = victim
+or exists x: Kupets, x = victim
+or exists x: Yabednik, x = victim
+or exists x: Mechnik, x = victim
+or exists x: Izgoy, x = victim
+or exists x: Slovenin, x = victim)
+implies plata_za_ubitogo(d, victim, grivna, 40)
+
+constraint rp_002a_krov_ili_sinyaki_bez_svidetelya :
+forall d: Delo, forall x: Chelovek,
+pridet_na_sud(d, x)
+and (izbit_do_krovi(d, x) or v_sinyakah(d, x))
+implies not obyazan_iskat_svidetelya(d, x)
+
+constraint rp_002b_net_sledov_privesti_svidetelya :
+forall d: Delo, forall x: Chelovek,
+pridet_na_sud(d, x)
+and not sledy_poboev(d, x)
+implies obyazan_privesti_svidetelya(d, x)
+
+constraint rp_002c_ne_mozhet_privesti_delu_konets :
+forall d: Delo, forall x: Chelovek,
+pridet_na_sud(d, x)
+and not sledy_poboev(d, x)
+and not obyazan_privesti_svidetelya(d, x)
+implies delo_konets(d)
+
+constraint rp_002d_poterpevshiy_ne_mstit_3_grivny_i_lekar :
+forall d: Delo, forall p: Chelovek, forall v: Chelovek, forall l: Lekar,
+poterpevshiy(d, p)
+and vinovnyy(d, v)
+and lekar_dela(d, l)
+and ne_mozhet_mstit_za_sebya(d, p)
+implies
+obyazan_uplatit_bez_poluchatelya(d, v, grivna, 3)
+and plata_lekaryu(d, v, l)
+
+constraint rp_003a_udar_orudiem_12_griven :
+forall d: Delo, forall x: Chelovek, forall y: Chelovek, forall o: Orudie,
+udarit_orudiem(d, x, y, o)
+and (o = palka
+or o = zherd
+or o = ruka_kak_orudie
+or o = chasha
+or o = rog
+or o = mech)
+implies obyazan_uplatit_bez_poluchatelya(d, x, grivna, 12)
+
+constraint rp_003b_ne_nastignet_ne_otomstit_shtraf_i_konets :
+forall d: Delo, forall p: Chelovek, forall v: Chelovek,
+poterpevshiy(d, p)
+and vinovnyy(d, v)
+and not nastignet(d, p, v)
+and not mstit_za_protiv(d, p, p, v)
+implies
+shtraf(d, v, grivna, 12)
+and delo_konchaetsya(d)
+
+constraint rp_004_mech_v_nozhnah_ili_rukoyat_12_griven :
+forall d: Delo, forall x: Chelovek, forall y: Chelovek, forall o: Orudie,
+udarit_orudiem(d, x, y, o)
+and (o = mech_v_nozhnah or o = rukoyat_mecha)
+implies shtraf(d, x, grivna, 12)
+
+constraint rp_005_udar_po_ruke_otvalitsya_ili_otsohnet_40_griven :
+forall d: Delo, forall x: Chelovek, forall y: Chelovek,
+udarit_po(d, x, y, ruka)
+and (otvalitsya(d, ruka) or otsohnet(d, ruka))
+implies obyazan_uplatit_bez_poluchatelya(d, x, grivna, 40)
+
+constraint rp_006a_mech_po_ruke_ili_noge_mest_detey :
+forall d: Delo, forall x: Chelovek, forall y: Chelovek,
+udarit_orudiem(d, x, y, mech)
+and (udarit_po(d, x, y, ruka) or udarit_po(d, x, y, noga))
+and (otsechet(d, x, y, ruka)
+or otsohnet(d, ruka)
+or (tsela(d, noga) and hromaet(d, noga)))
+implies
+exists child: Chelovek,
+rodstvennik(child, y, syn)
+and mstit_za_protiv(d, child, y, x)
+
+constraint rp_006b_mech_po_ruke_ili_noge_40_griven :
+forall d: Delo, forall x: Chelovek, forall y: Chelovek,
+udarit_orudiem(d, x, y, mech)
+and (udarit_po(d, x, y, ruka) or udarit_po(d, x, y, noga))
+and (otsechet(d, x, y, ruka)
+or otsohnet(d, ruka)
+or (tsela(d, noga) and hromaet(d, noga)))
+implies vzyiskivaetsya_s(d, x, grivna, 40)
+
+constraint rp_007_otsechet_palets_3_grivny :
+forall d: Delo, forall x: Chelovek, forall y: Chelovek,
+otsechet(d, x, y, palets)
+implies shtraf(d, x, grivna, 3)
+
+constraint rp_008_vyrvet_usy_ili_borodu_12_griven :
+forall d: Delo, forall x: Chelovek, forall y: Chelovek, forall p: ChastCheloveka,
+vyrvet(d, x, y, p)
+and (p = usy or p = boroda)
+implies obyazan_uplatit_bez_poluchatelya(d, x, grivna, 12)
+
+constraint rp_009_obnazhit_mech_ne_udarit_1_grivna :
+forall d: Delo, forall x: Chelovek,
+obnazhit(d, x, mech)
+and ne_udarit(d, x)
+implies obyazan_uplatit_bez_poluchatelya(d, x, grivna, 1)
+
+constraint rp_010a_pihnet_muzh_muzha_pri_dvuh_svidetelyah_3_grivny :
+forall d: Delo, forall x: Muzh, forall y: Muzh,
+(pihnet_ot_sebya(d, x, y) or pihnet_k_sebe(d, x, y))
+and privedeno_svideteley(d, x, 2)
+implies obyazan_uplatit_bez_poluchatelya(d, x, grivna, 3)
+
+constraint rp_010b_varyag_ili_kolbyag_prisyaga_bez_svideteley :
+forall d: Delo, forall x: Chelovek,
+(exists v: Varyag, v = x or exists k: Kolbyag, k = x)
+implies
+not obyazan_privesti_svidetelya(d, x)
+and idet_k_prisyage(d, x)
+
+constraint rp_011_chelyadin_u_varyaga_ili_kolbyaga_3_grivny :
+forall d: Delo, forall c: Chelyadin, forall g: Chelovek, forall h: Gospodin,
+bezhal(d, c)
+and (exists v: Varyag, v = g or exists k: Kolbyag, k = g)
+and skroetsya_u(d, c, g)
+and not vernet_v_techenie_dney(d, g, c, 3)
+and opoznal_na_tretiy_den(d, h, c)
+implies
+razresheno_otobrat_cheloveka(d, h, c)
+and shtraf(d, g, grivna, 3)
+
+constraint rp_012_poedet_na_chuzhom_kone_bez_sprosu_3_grivny :
+forall d: Delo, forall x: Chelovek, forall k: Kon,
+poedet_na(d, x, k)
+and chuzhaya_vesh(d, k)
+and bez_sprosu(d, x, k)
+implies obyazan_uplatit_bez_poluchatelya(d, x, grivna, 3)
+
+constraint rp_013_ukradet_kon_oruzhie_odezhdu_3_grivny :
+forall d: Delo, forall x: Chelovek, forall h: Chelovek, forall v: Vesh,
+ukradet(d, x, v)
+and chuzhaya_vesh(d, v)
+and ((exists k: Kon, k = v)
+or (exists o: Oruzhie, o = v)
+or (exists od: Odezhda, od = v))
+and khozyain(d, h, v)
+and opoznal_propavshee_v_svoem_miru(d, h, v)
+implies
+beret_svoe(d, h, v)
+and shtraf(d, x, grivna, 3)
+
+constraint rp_014a_propavshaya_vesh_nelzya_otobrat_i_govorit_moe :
+forall d: Delo, forall x: Chelovek, forall v: Vesh,
+opoznal_u_kogo_libo(d, x, v)
+and propavshaya_vesh(d, v)
+implies
+zapresheno_otobrat_vesh(d, x, v)
+and zapresheno_govorit_eto_moe(d, x, v)
+
+constraint rp_014b_propavshaya_vesh_svod_i_gde_vzyal :
+forall d: Delo, forall x: Chelovek, forall v: Vesh,
+opoznal_u_kogo_libo(d, x, v)
+and propavshaya_vesh(d, v)
+implies
+poydet_na_svod(d, x)
+and ukazhet_gde_vzyal(d, x, v)
+
+constraint rp_014c_ne_poydet_na_svod_poruchitel_i_5_dney :
+forall d: Delo, forall x: Chelovek, forall v: Vesh,
+opoznal_u_kogo_libo(d, x, v)
+and propavshaya_vesh(d, v)
+and not poydet_na_svod(d, x)
+implies
+predstavit_poruchitelya(d, x)
+and yavitsya_na_svod_ne_pozdnee(d, x, 5)
+
+constraint rp_015a_isk_zayma_razbiratelstvo_pri_12_svidetelyah :
+forall d: Delo, forall x: Chelovek,
+isk_ob_uplate_zayma(d, x)
+implies
+sudebnoe_razbiratelstvo(d, x)
+and privedeno_svideteley(d, x, 12)
+
+constraint rp_015b_dolzhnik_zloumyshlenno_ne_otdaval_3_grivny :
+forall d: Delo, forall x: Chelovek,
+dolzhnik(d, x)
+and zloumyshlenno_ne_otdaval_dengi(d, x)
+and po_usloviyu(d)
+implies vzyiskivaetsya_s(d, x, grivna, 3)
+
+constraint rp_016a_gospodin_uznaet_chelyadina_vedet_k_prodavtsu :
+forall d: Delo, forall g: Gospodin, forall c: Chelyadin, forall p: Chelovek,
+uznaet_propavshego_chelyadina(d, g, c)
+and hochet_otnyat(d, g, c)
+and byl_kuplen_u(d, c, p)
+implies vedet_k(d, g, p)
+
+constraint rp_016b_predydushchiy_prodavets_vedet_dalshe :
+forall d: Delo, forall p: Chelovek, forall q: Chelovek, forall c: Chelyadin,
+predydushchiy_prodavets(d, p)
+and byl_kuplen_u(d, c, q)
+implies vedet_k(d, p, q)
+
+constraint rp_016c_do_tretego_otday_chelyadina_i_ishchi_dengi :
+forall d: Delo, forall t: Chelovek, forall c: Chelyadin,
+doshli_do_tretego(d)
+implies
+otday_chelyadina(d, t, c)
+and ishchi_svoih_deneg_pri_svidetele(d, t)
+
+constraint rp_017_holop_udarit_svobodnogo_12_i_pobit :
+forall d: Delo, forall h: Holop, forall s: SvobodnyyMuzh, forall g: Gospodin,
+udarit(d, h, s)
+and ubezhit_v_horomy_gospodina(d, h, g)
+and not vydaet(d, g, h)
+implies
+razresheno_uderzhat_cheloveka(d, g, h)
+and obyazan_uplatit_bez_poluchatelya(d, g, grivna, 12)
+and razresheno_pobit_gde_zastanet(d, s, h)
+
+constraint rp_018a_slomaet_ili_isportit_i_khozyain_uderzhit_doplata :
+forall d: Delo, forall x: Chelovek, forall h: Chelovek, forall v: Vesh,
+(slomaet(d, x, v) or isportit(d, x, v))
+and khozyain(d, h, v)
+and hochet_uderzhat_u_sebya(d, h, v)
+implies poluchaet_doplatu_za_porchu(d, h, v)
+
+constraint rp_018b_sobstvennik_otkazyvaetsya_ot_slomannoy_veshi_pokupka :
+forall d: Delo, forall s: Chelovek, forall v: Vesh,
+sobstvennik(d, s, v)
+and otkazyvaetsya_ot_slomannoy_veshi(d, s, v)
+implies zaplacheno_skolko_dal_pri_pokupke(d, s, v)
+
+constraint rp_019a_ognishchanin_umyshlenno_bez_korysti_80_griven :
+forall d: Delo, forall killer: Chelovek, forall victim: Ognishchanin, forall people: Lyudi,
+ubil(d, killer, victim)
+and lyudi_dela(d, people)
+and umyshlenno(d)
+and bez_korystnyh_namereniy(d)
+implies
+vzyiskivaetsya_s(d, killer, grivna, 80)
+and not lyudi_pomogayut_v_uplate(d, people, killer)
+
+constraint rp_019b_knyazheskiy_podezdnoy_80_griven :
+forall d: Delo, forall payer: SubjektPrava, forall victim: Podezdnoy,
+otvetstvennyy(d, payer)
+and ubit(d, victim)
+and knyazheskiy_chelovek(d, victim)
+implies obyazan_uplatit_bez_poluchatelya(d, payer, grivna, 80)
+
+constraint rp_020_ognishchanin_razboy_verv_platit_viru :
+forall d: Delo, forall killer: Chelovek, forall victim: Ognishchanin, forall people: Lyudi, forall v: Verv,
+ubil(d, killer, victim)
+and lyudi_dela(d, people)
+and po_razboynicheski(d)
+and umyshlenno(d)
+and s_tselyu_grabezha(d)
+and not lyudi_ishchut(d, people, killer)
+and nayden_v_vervi(d, victim, v)
+implies verv_platit_viru(d, v)
+
+constraint rp_021a_ognishchanin_u_kleti_konya_stada_ili_korovy_kak_pes :
+forall d: Delo, forall killer: Chelovek, forall victim: Ognishchanin,
+ubil(d, killer, victim)
+and (mesto_deystviya(d, klet)
+or mesto_deystviya(d, mesto_kon)
+or mesto_deystviya(d, stado)
+or vo_vremya_krazhi_korovy(d))
+implies ubit_kak_psa(d, victim)
+
+constraint rp_021b_tiun_tot_zhe_zakon :
+forall d: Delo, forall killer: Chelovek, forall victim: Tiun,
+ubil(d, killer, victim)
+implies tot_zhe_zakon(d, victim)
+
+constraint rp_022_knyazheskiy_tiun_80_griven :
+forall d: Delo, forall killer: Chelovek, forall victim: Tiun,
+ubil(d, killer, victim)
+and knyazheskiy_chelovek(d, victim)
+implies vzyiskivaetsya_s(d, killer, grivna, 80)
+
+constraint rp_023_starshiy_konyukh_80_griven :
+forall d: Delo, forall payer: SubjektPrava, forall victim: StarshiyKonyukh,
+otvetstvennyy(d, payer)
+and ubit(d, victim)
+implies obyazan_uplatit_bez_poluchatelya(d, payer, grivna, 80)
+
+constraint rp_024_knyazheskiy_selskiy_starosta_ili_smotritel_12_griven :
+forall d: Delo, forall payer: SubjektPrava, forall victim: Chelovek,
+otvetstvennyy(d, payer)
+and ubit(d, victim)
+and knyazheskiy_chelovek(d, victim)
+and (exists x: SelskiyStarosta, x = victim or exists y: Smotritel, y = victim)
+implies obyazan_uplatit_bez_poluchatelya(d, payer, grivna, 12)
+
+constraint rp_025_knyazheskiy_ryadovich_5_griven :
+forall d: Delo, forall payer: SubjektPrava, forall victim: Ryadovich,
+otvetstvennyy(d, payer)
+and ubit(d, victim)
+and knyazheskiy_chelovek(d, victim)
+implies obyazan_uplatit_bez_poluchatelya(d, payer, grivna, 5)
+
+constraint rp_026_smerd_ili_holop_5_griven :
+forall d: Delo, forall payer: SubjektPrava, forall victim: Chelovek,
+otvetstvennyy(d, payer)
+and ubit(d, victim)
+and (exists s: Smerd, s = victim or exists h: Holop, h = victim)
+implies obyazan_uplatit_bez_poluchatelya(d, payer, grivna, 5)
+
+constraint rp_027_rabynya_kormilitsa_12_griven :
+forall d: Delo, forall payer: SubjektPrava, forall victim: Rabynya,
+otvetstvennyy(d, payer)
+and ubit(d, victim)
+and exists k: Kormilitsa, k = victim
+implies obyazan_uplatit_bez_poluchatelya(d, payer, grivna, 12)
+
+constraint rp_028a_knyazheskiy_kon_s_pyatnom_3_grivny :
+forall d: Delo, forall v: Kon,
+knyazheskaya_vesh(d, v)
+and s_pyatnom(d, v)
+implies vzyiskivaetsya_za_vesh(d, v, grivna, 3)
+
+constraint rp_028b_kon_smerda_2_grivny :
+forall d: Delo, forall v: Kon, forall s: Smerd,
+khozyain(d, s, v)
+implies vzyiskivaetsya_za_vesh(d, v, grivna, 2)
+
+constraint rp_028c_kobyla_60_rezan :
+forall d: Delo, forall v: Kobyla,
+vesh_v_dele(d, v)
+implies
+vzyiskivaetsya_za_vesh(d, v, rezan, 60)
+
+constraint rp_028d_vol_1_grivna :
+forall d: Delo, forall v: Vol,
+vesh_v_dele(d, v)
+implies
+vzyiskivaetsya_za_vesh(d, v, grivna, 1)
+
+constraint rp_028e_korova_40_rezan :
+forall d: Delo, forall v: Korova,
+vesh_v_dele(d, v)
+implies
+vzyiskivaetsya_za_vesh(d, v, rezan, 40)
+
+constraint rp_028f_trehletka_15_kun :
+forall d: Delo, forall v: Trehletka,
+vesh_v_dele(d, v)
+implies
+vzyiskivaetsya_za_vesh(d, v, kuna, 15)
+
+constraint rp_028g_godovalaya_skotina_polgrivny :
+forall d: Delo, forall v: GodovalayaSkotina,
+vesh_v_dele(d, v)
+implies
+vzyiskivaetsya_za_vesh(d, v, grivna, 0.5)
+
+constraint rp_028h_telenok_5_rezan :
+forall d: Delo, forall v: Telenok,
+vesh_v_dele(d, v)
+implies
+vzyiskivaetsya_za_vesh(d, v, rezan, 5)
+
+constraint rp_028i_yagnenok_po_nogate :
+forall d: Delo, forall v: Yagnenok,
+vesh_v_dele(d, v)
+implies
+vzyiskivaetsya_za_vesh(d, v, nogata, 1)
+
+constraint rp_028j_baran_po_nogate :
+forall d: Delo, forall v: Baran,
+vesh_v_dele(d, v)
+implies
+vzyiskivaetsya_za_vesh(d, v, nogata, 1)
+
+constraint rp_029_uvedut_chuzhogo_raba_ili_rabynyu_12_griven :
+forall d: Delo, forall x: Chelovek, forall y: Chelovek,
+uvesti(d, x, y)
+and chuzhoy_chelovek(d, y)
+and (exists r: Rab, r = y or exists rb: Rabynya, rb = y)
+implies shtraf(d, x, grivna, 12)
+
+constraint rp_030_muzh_v_krovi_ili_sinyakah_bez_svidetelya :
+forall d: Delo, forall x: Muzh,
+pridet_na_sud(d, x)
+and (v_krovi(d, x) or v_sinyakah(d, x))
+implies not obyazan_iskat_svidetelya(d, x)
+
+constraint rp_031a_krazha_konya_vola_ili_iz_kleti_odin_vor :
+forall d: Delo, forall x: Chelovek, forall v: Vesh,
+ukradet(d, x, v)
+and ((exists k: Kon, k = v) or (exists vol: Vol, vol = v) or krazha_iz_mesta(d, klet))
+and vor(d, x)
+and odin_vor(d)
+implies
+obyazan_uplatit_bez_poluchatelya(d, x, grivna, 1)
+and obyazan_uplatit_bez_poluchatelya(d, x, rezan, 30)
+
+constraint rp_031b_krazha_konya_vola_ili_iz_kleti_10_vorov :
+forall d: Delo, forall x: Chelovek, forall v: Vesh,
+ukradet(d, x, v)
+and ((exists k: Kon, k = v) or (exists vol: Vol, vol = v) or krazha_iz_mesta(d, klet))
+and vor(d, x)
+and chislo_vorov(d, 10)
+implies
+obyazan_uplatit_bez_poluchatelya(d, x, grivna, 3)
+and obyazan_uplatit_bez_poluchatelya(d, x, rezan, 30)
+
+constraint rp_032_sozhet_knyazheskuyu_bort_ili_vykadet_pchely_3_grivny :
+forall d: Delo, forall x: Chelovek, forall v: Vesh,
+((exists b: Bort,
+b = v and sozhet(d, x, b) and knyazheskaya_vesh(d, b))
+or (exists p: Pchely,
+p = v and vykadet(d, x, p)))
+implies obyazan_uplatit_bez_poluchatelya(d, x, grivna, 3)
+
+constraint rp_033a_samovolnoe_istyazanie_smerda_3_grivny :
+forall d: Delo, forall x: Chelovek, forall y: Smerd,
+samovolnoe_istyazanie(d, x, y)
+and bez_knyazheskogo_poveleniya(d)
+implies shtraf(d, x, grivna, 3)
+
+constraint rp_033b_istyazanie_ognishchanina_tiuna_ili_mechnika_12_griven :
+forall d: Delo, forall x: Chelovek, forall y: Chelovek,
+istiazanie(d, x, y)
+and (exists o: Ognishchanin, o = y
+or exists t: Tiun, t = y
+or exists m: Mechnik, m = y)
+implies obyazan_uplatit_bez_poluchatelya(d, x, grivna, 12)
+
+constraint rp_034_mezha_ili_mezhevoy_stolb_12_griven :
+forall d: Delo, forall x: Chelovek, forall v: Vesh,
+((exists m: PolevayaMezha,
+m = v and raspashut(d, x, m))
+or (exists s: MezhevoyStolb,
+s = v and srubyat(d, x, s)))
+implies shtraf(d, x, grivna, 12)
+
+constraint rp_035_ukradet_ladyu_30_khozyainu_60_knyazyu :
+forall d: Delo, forall x: Chelovek, forall v: Ladya, forall h: Chelovek, forall k: Knyaz,
+ukradet(d, x, v)
+and khozyain(d, h, v)
+and knyaz_dela(d, k)
+implies
+obyazan_uplatit(d, x, h, rezan, 30)
+and obyazan_uplatit(d, x, k, rezan, 60)
+
+constraint rp_036a_golub_ili_kuritsa_9_kun :
+forall d: Delo, forall payer: SubjektPrava, forall v: Vesh,
+otvetstvennyy(d, payer)
+and ((exists g: Golub, g = v) or (exists k: Kuritsa, k = v))
+implies obyazan_uplatit_bez_poluchatelya(d, payer, kuna, 9)
+
+constraint rp_036b_utka_gus_zhuravl_lebed_30_khozyainu_60_knyazyu :
+forall d: Delo, forall payer: SubjektPrava, forall v: Vesh, forall h: Chelovek, forall k: Knyaz,
+otvetstvennyy(d, payer)
+and khozyain(d, h, v)
+and knyaz_dela(d, k)
+and ((exists u: Utka, u = v)
+or (exists g: Gus, g = v)
+or (exists z: Zhuravl, z = v)
+or (exists l: Lebed, l = v))
+implies
+obyazan_uplatit(d, payer, h, rezan, 30)
+and obyazan_uplatit(d, payer, k, rezan, 60)
+
+constraint rp_037_ukradet_chuzhogo_psa_yastreba_ili_sokola_3_grivny :
+forall d: Delo, forall x: Chelovek, forall v: Vesh,
+ukradet(d, x, v)
+and chuzhaya_vesh(d, v)
+and ((exists p: Pes, p = v)
+or (exists y: Yastreb, y = v)
+or (exists s: Sokol, s = v))
+implies shtraf(d, x, grivna, 3)
+
+constraint rp_038a_ubili_vora_na_dvore_kleti_ili_hlevu_ne_otvechayut :
+forall d: Delo, forall x: Chelovek, forall thief: Chelovek, forall m: Mesto,
+vor(d, thief)
+and ubili_vora_na(d, thief, m)
+and (m = dvor or m = klet or m = hlev)
+implies not otvechaet_kak_za_ubiystvo(d, x)
+
+constraint rp_038b_derzhali_vora_do_rassveta_sud :
+forall d: Delo, forall thief: Chelovek,
+vor(d, thief)
+and derzhali_vora_do_rassveta(d, thief)
+implies privesti_na_knyazheskiy_dvor_na_sud(d, thief)
+
+constraint rp_038c_ubili_svyazannogo_vora_platit_za_nego :
+forall d: Delo, forall x: Chelovek, forall thief: Chelovek,
+vor(d, thief)
+and ubil(d, x, thief)
+and videli_svyazannym(d, thief)
+implies obyazan_uplatit_bez_poluchatelya(d, x, grivna, 40)
+
+constraint rp_039_seno_ili_drova_9_kun :
+forall d: Delo, forall x: Chelovek, forall v: Vesh,
+ukradet(d, x, v)
+and ((exists s: Seno, s = v) or (exists dr: Drova, dr = v))
+implies obyazan_uplatit_bez_poluchatelya(d, x, kuna, 9)
+
+constraint rp_040a_ovtsa_koza_svinya_10_vorov_po_60_rezan :
+forall d: Delo, forall x: Chelovek, forall v: Vesh,
+ukradet(d, x, v)
+and ((exists o: Ovtsa, o = v)
+or (exists k: Koza, k = v)
+or (exists s: Svinya, s = v))
+and vor(d, x)
+and chislo_vorov(d, 10)
+implies shtraf(d, x, rezan, 60)
+
+constraint rp_040b_kto_privel_vora_10_rezan :
+forall d: Delo, forall x: Chelovek, forall thief: Chelovek,
+privedet_vora(d, x, thief)
+and vor(d, thief)
+implies obyazan_uplatit(d, thief, x, rezan, 10)
+
+constraint rp_041a_pri_shtrafe_3_dopolnitelnye_platy :
+forall d: Delo, forall payer: SubjektPrava, forall m: Mechnik, forall dz: Desyatina, forall k: Knyaz,
+shtraf(d, payer, grivna, 3)
+and mechnik_dela(d, m)
+and desyatina_dela(d, dz)
+and knyaz_dela(d, k)
+implies
+obyazan_uplatit(d, payer, m, kuna, 15)
+and obyazan_uplatit(d, payer, dz, kuna, 15)
+and obyazan_uplatit(d, payer, k, grivna, 3)
+
+constraint rp_041b_pri_shtrafe_12_dopolnitelnye_platy :
+forall d: Delo, forall payer: SubjektPrava, forall p: Chelovek, forall dz: Desyatina, forall k: Knyaz,
+shtraf(d, payer, grivna, 12)
+and privedet_vora(d, p, payer)
+and desyatina_dela(d, dz)
+and knyaz_dela(d, k)
+implies
+obyazan_uplatit(d, payer, p, kuna, 70)
+and obyazan_uplatit(d, payer, dz, grivna, 2)
+and obyazan_uplatit(d, payer, k, grivna, 10)
+
+constraint rp_042a_virniku_solod_na_nedelyu :
+forall d: Delo, forall v: Virnik,
+sobrat_vir(d)
+and virnik_dela(d, v)
+implies
+exists s: Solod,
+podlezhit_vydache_vesh(d, v, s)
+and kolichestvo_veshi(d, s, 7)
+
+constraint rp_042b_virniku_baran_ili_poltusha_myasa_ili_2_nogaty :
+forall d: Delo, forall v: Virnik,
+sobrat_vir(d)
+and virnik_dela(d, v)
+implies
+(exists b: Baran,
+podlezhit_vydache_vesh(d, v, b))
+or
+(exists m: PoltushaMyasa,
+podlezhit_vydache_vesh(d, v, m))
+or
+podlezhit_vydache_denezhnoy_sumy(d, v, nogata, 2)
+
+constraint rp_042c_virniku_sreda_rezana_i_tri_syra :
+forall d: Delo, forall v: Virnik,
+sobrat_vir(d)
+and virnik_dela(d, v)
+implies
+podlezhit_vydache_denezhnoy_sumy(d, v, rezan, 1)
+and exists s: Syr,
+podlezhit_vydache_vesh(d, v, s)
+and kolichestvo_veshi(d, s, 3)
+
+constraint rp_042d_virniku_pyatnitsa_stolko_zhe :
+forall d: Delo, forall v: Virnik,
+sobrat_vir(d)
+and virnik_dela(d, v)
+implies
+podlezhit_vydache_denezhnoy_sumy(d, v, rezan, 1)
+and exists s: Syr,
+podlezhit_vydache_vesh(d, v, s)
+and kolichestvo_veshi(d, s, 3)
+
+constraint rp_042e_virniku_hleb_i_psheno_skolko_smogut_sest :
+forall d: Delo, forall v: Virnik,
+sobrat_vir(d)
+and virnik_dela(d, v)
+implies hleba_i_pshena_skolko_smogut_sest(d, v)
+
+constraint rp_042f_skoromnye_dni_dve_kuritsy_na_den :
+forall d: Delo, forall v: Virnik,
+sobrat_vir(d)
+and virnik_dela(d, v)
+implies
+exists k: Kuritsa,
+podlezhit_vydache_vesh(d, v, k)
+and kolichestvo_veshi(d, k, 2)
+
+constraint rp_042g_postavit_4_koney_i_korm :
+forall d: Delo,
+sobrat_vir(d)
+implies
+postavit_koney(d, 4)
+and korma_skolko_smogut_sest(d)
+
+constraint rp_042h_virniku_16_griven_10_rezan_12_veverits :
+forall d: Delo, forall v: Virnik,
+sobrat_vir(d)
+and virnik_dela(d, v)
+implies
+podlezhit_vydache_denezhnoy_sumy(d, v, grivna, 16)
+and podlezhit_vydache_denezhnoy_sumy(d, v, rezan, 10)
+and podlezhit_vydache_denezhnoy_sumy(d, v, veveritsa, 12)
+
+constraint rp_042i_vezd_v_okrug_grivna :
+forall d: Delo, forall v: Virnik,
+sobrat_vir(d)
+and virnik_dela(d, v)
+implies podlezhit_vydache_denezhnoy_sumy(d, v, grivna, 1)
+
+constraint rp_042j_post_ryba_ili_7_rezan :
+forall d: Delo, forall v: Virnik,
+sobrat_vir(d)
+and virnik_dela(d, v)
+implies
+(exists r: Ryba,
+podlezhit_vydache_vesh(d, v, r))
+or
+podlezhit_vydache_denezhnoy_sumy(d, v, rezan, 7)
+
+constraint rp_042k_sostavit_15_kun_v_nedelyu_i_ustav_yaroslava :
+forall d: Delo,
+sobrat_vir(d)
+implies
+sostavit_v_nedelyu(d, kuna, 15)
+and ustav_yaroslava(d)
+
+constraint rp_043a_plata_mostnikam_po_okonchanii_raboty :
+forall d: Delo, forall m: Mostnik,
+postroili_most(d)
+and mostnik_dela(d, m)
+implies plata_mostnikam(d, m, nogata, 1)
+
+constraint rp_043b_plata_mostnikam_ot_kazhdogo_ustoya :
+forall d: Delo, forall m: Mostnik, forall u: Ustoy,
+postroili_most(d)
+and mostnik_dela(d, m)
+implies plata_ot_kazhdogo_ustoya(d, m, u, nogata, 1)
+
+constraint rp_043c_pochinka_vethogo_mosta_3_4_ili_5_dosok :
+forall d: Delo, forall m: Mostnik,
+pochinka_vethogo_mosta(d)
+and mostnik_dela(d, m)
+and (dosok(d, 3) or dosok(d, 4) or dosok(d, 5))
+implies plata_mostnikam(d, m, nogata, 1)

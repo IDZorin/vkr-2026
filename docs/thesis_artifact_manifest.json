@@ -1,0 +1,28 @@
+{
+  "schema": "thesis_artifact_manifest_v1",
+  "mapping_document": "docs/thesis_artifact_mapping.md",
+  "public_demo_roots": [
+    "demos/russian_law",
+    "demos/draughts_64"
+  ],
+  "artifact_roots": [
+    "thesis_artifacts",
+    "figures",
+    "IR/src",
+    "IR/index",
+    "IR/rules"
+  ],
+  "neutralized_private_names": {
+    "methodology_seed_workspace": "seed methodology corpus",
+    "mutation_benchmark": "mutation_benchmark_v2",
+    "pilot_report": "pilot_40_full_machine_report_sanitized.md"
+  },
+  "default_reproducibility_commands": [
+    "python tools/check_entry.py examples/section_2_3_weighting",
+    "python tools/check_entry.py demos/russian_law/data",
+    "python tools/check_entry.py demos/draughts_64/data",
+    "python demos/run_recorded_demo.py",
+    "python -m unittest discover -s tests"
+  ]
+}
+

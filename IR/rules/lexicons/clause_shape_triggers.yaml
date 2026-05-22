@@ -1,0 +1,83 @@
+# Clause-shape triggers — слова-маркеры внутри идентификатора, которые означают
+# что в имя пытаются впихнуть предложение/условие/связь, а не имя сущности.
+#
+# Используется лайнтером `identifier_structural_anchor_gap` (см.
+# rules/ontology_planning/, rules/formula_ir_drafting/, rules/merge_canonicalization/).
+#
+# Источник: index/identifier_shape_and_anchor_policy_v1.md (policy spec).
+#
+# Минимальное правило срабатывания (из policy):
+#   "If a symbol name has four or more semantic content tokens AND at least
+#    one trigger from any category, the symbol is a gap unless the extra
+#    tokens are structurally anchored."
+#
+# Категории и триггеры — закрытый curated список английских structural
+# vocabulary. Это НЕ методологические термины (free_float, closing_price и
+# т.п. сюда не входят). Это language-level маркеры, общие для любого домена.
+
+negation:
+  description: |
+    Отрицание — это операция в формуле, не имя предиката.
+    Должно быть `not(...)`, а не предикат `not_published_X`.
+  triggers:
+    - not
+    - "no"
+    - without
+    - missing
+    - unavailable
+
+condition:
+  description: |
+    Условие — это guard в формуле (`if A then B`), не имя.
+    Должно быть `if eligible(x) then ...`, а не `weight_if_eligible(x)`.
+  triggers:
+    - if
+    - when
+    - unless
+    - where
+    - provided
+
+authority_or_source:
+  description: |
+    Связь "X согласно Y" — отдельное отношение между X и Y.
+    Должно быть `rel published_by_exchange(price, exchange)`, а не
+    `closing_price_published_by_exchange` всё в имени.
+  triggers:
+    - published_by
+    - according_to
+    - in_accordance_with
+
+compliance:
+  description: |
+    "По правилам биржи" — отдельное отношение, носитель должен быть
+    аргументом, а не словом в имени.
+  triggers:
+    - rules
+    - regulations
+    - compliant
+    - eligible_under
+
+fallback:
+  description: |
+    Запасной вариант — это `ite(condition, primary, fallback)` в формуле,
+    не имя предиката.
+  triggers:
+    - otherwise
+    - fallback
+    - used_if
+    - last_when
+
+buried_carrier:
+  description: |
+    Носитель должен быть аргументом функции/отношения, а не словом внутри
+    имени. Если в имени `_for_an_index_component`, значит `IndexComponent`
+    не вынесен в сигнатуру.
+  triggers:
+    - for_an_index_component
+    - with_respect_to
+
+# Минимальный порог по policy:
+#   - 4 или более semantic content tokens в имени
+#   - И хотя бы один триггер из любой категории
+#   - Без structural anchor для лишних токенов → identifier_structural_anchor_gap
+min_content_token_threshold: 4

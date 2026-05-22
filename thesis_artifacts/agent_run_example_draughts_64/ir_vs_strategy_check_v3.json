@@ -1,0 +1,177 @@
+{
+  "matches": [
+    {
+      "item": "Player sort (prelude type) used as agent",
+      "where_in_strategy": "section 2",
+      "where_in_ir": "sort Player"
+    },
+    {
+      "item": "Hand sort with enum subtypes OneHand and TwoHands",
+      "where_in_strategy": "section 2",
+      "where_in_ir": "sort Hand = OneHand | TwoHands"
+    },
+    {
+      "item": "Move sort declared",
+      "where_in_strategy": "section 2",
+      "where_in_ir": "sort Move"
+    },
+    {
+      "item": "MoveExecution sort declared as event_class",
+      "where_in_strategy": "section 2",
+      "where_in_ir": "sort MoveExecution"
+    },
+    {
+      "item": "Relation move_execution_agent(MoveExecution, Player)",
+      "where_in_strategy": "section 3",
+      "where_in_ir": "rel move_execution_agent : MoveExecution, Player"
+    },
+    {
+      "item": "Relation move_execution_hand(MoveExecution, Hand)",
+      "where_in_strategy": "section 3",
+      "where_in_ir": "rel move_execution_hand : MoveExecution, Hand"
+    },
+    {
+      "item": "Relation move_execution_move(MoveExecution, Move)",
+      "where_in_strategy": "section 3",
+      "where_in_ir": "rel move_execution_move : MoveExecution, Move"
+    },
+    {
+      "item": "Obligation for move_one_hand (c10) with scope MoveExecution",
+      "where_in_strategy": "section 4 (c10)",
+      "where_in_ir": "obligation one_hand_per_move ... scope: MoveExecutionClass"
+    },
+    {
+      "item": "Obligation for board_placement (c4) with scope BoardPlacement",
+      "where_in_strategy": "section 4 (c4)",
+      "where_in_ir": "obligation board_placement ... scope: BoardPlacementClass"
+    },
+    {
+      "item": "BoardPlacement sort declared as event_class",
+      "where_in_strategy": "section 4 (c4)",
+      "where_in_ir": "sort BoardPlacement"
+    },
+    {
+      "item": "Board sort declared",
+      "where_in_strategy": "section 4 (c4)",
+      "where_in_ir": "sort Board"
+    },
+    {
+      "item": "Singleton entity MoveExecutionClass : MoveExecution",
+      "where_in_strategy": "section 4 (c10)",
+      "where_in_ir": "entity MoveExecutionClass : MoveExecution"
+    },
+    {
+      "item": "Singleton entity BoardPlacementClass : BoardPlacement",
+      "where_in_strategy": "section 4 (c4)",
+      "where_in_ir": "entity BoardPlacementClass : BoardPlacement"
+    },
+    {
+      "item": "Fact board_composition (c1) - board features",
+      "where_in_strategy": "section 4 (c1)",
+      "where_in_ir": "fact board_features ... board_has_bases ..."
+    },
+    {
+      "item": "Fact dark_squares_are_active (c2)",
+      "where_in_strategy": "section 4 (c2)",
+      "where_in_ir": "fact dark_squares_are_active"
+    },
+    {
+      "item": "Fact diagonals_are_skewed (c3)",
+      "where_in_strategy": "section 4 (c3)",
+      "where_in_ir": "fact diagonals_are_skewed"
+    },
+    {
+      "item": "Fact twelve_white and twelve_black (c5)",
+      "where_in_strategy": "section 4 (c5)",
+      "where_in_ir": "fact twelve_white ... fact twelve_black"
+    },
+    {
+      "item": "Fact white_on_rows_1_to_3 and black_on_rows_6_to_8 (c6)",
+      "where_in_strategy": "section 4 (c6)",
+      "where_in_ir": "fact white_on_rows_1_to_3 ... fact black_on_rows_6_to_8"
+    },
+    {
+      "item": "Fact piece_is_man_or_king (c7)",
+      "where_in_strategy": "section 4 (c7)",
+      "where_in_ir": "fact piece_is_man_or_king"
+    }
+  ],
+  "missing_from_ir": [
+    {
+      "item": "Relation move_execution_instrument(MoveExecution, Hand) as per parts inventory role_instrument_one_hand",
+      "where_in_strategy": "section 3 (parts inventory)",
+      "severity": "soft",
+      "fix": "Rename move_execution_hand to move_execution_instrument or add an alias relation"
+    },
+    {
+      "item": "Explicit fact for board_has_squares(Board, 64) as per c1 sketch",
+      "where_in_strategy": "section 4 (c1)",
+      "severity": "soft",
+      "fix": "Add fact: board_has_squares(Board, 64)"
+    },
+    {
+      "item": "Explicit fact for board_has_colors(Board, AlternatingBlackWhite) as per c1 sketch",
+      "where_in_strategy": "section 4 (c1)",
+      "severity": "soft",
+      "fix": "Add fact: board_has_colors(Board, AlternatingBlackWhite)"
+    },
+    {
+      "item": "Claim c8 (movement rules) not represented as fact",
+      "where_in_strategy": "section 4 (c8)",
+      "severity": "strong",
+      "fix": "Add fact for man moves forward diagonally one square"
+    },
+    {
+      "item": "Claim c9 (capture rules) not represented as fact",
+      "where_in_strategy": "section 4 (c9)",
+      "severity": "strong",
+      "fix": "Add fact for mandatory capture and multiple capture rules"
+    }
+  ],
+  "extra_in_ir": [
+    {
+      "item": "Multiple obligation declarations beyond c4 and c10 (e.g., man_move_forward, crown_promoted_man, touch_move, man_capture, king_capture, etc.)",
+      "where_in_ir": "obligation blocks after board_placement",
+      "severity": "soft",
+      "rationale": "These implement c8/c9 which are missing from strategy but are necessary for completeness; may be acceptable if they align with claims ledger"
+    },
+    {
+      "item": "Multiple prohibition declarations (self_capture, jump_own_piece, etc.)",
+      "where_in_ir": "prohibition blocks",
+      "severity": "soft",
+      "rationale": "Not mentioned in strategy but may be derived from claims ledger; acceptable if consistent"
+    },
+    {
+      "item": "Multiple permission declarations (choice_capture, repeat_empty_square, etc.)",
+      "where_in_ir": "permission blocks",
+      "severity": "soft",
+      "rationale": "Not mentioned in strategy but may be derived from claims ledger; acceptable if consistent"
+    },
+    {
+      "item": "Many additional sorts (BoardSquare, BoardRow, BoardColumn, Diagonal, Piece, Man, King, PieceColor, Capture, MultipleCapture, MoveDirection, String, Integer)",
+      "where_in_ir": "sort declarations",
+      "severity": "soft",
+      "rationale": "Necessary for implementing the rules; not explicitly in strategy but required for completeness"
+    },
+    {
+      "item": "Many additional relations (square_row, square_column, piece_color, piece_square, etc.)",
+      "where_in_ir": "rel declarations",
+      "severity": "soft",
+      "rationale": "Necessary for implementing the rules; not explicitly in strategy but required for completeness"
+    },
+    {
+      "item": "Fact move_execution_class_wiring with existential quantifier",
+      "where_in_ir": "fact move_execution_class_wiring",
+      "severity": "soft",
+      "rationale": "Wires the singleton entity; acceptable pattern"
+    },
+    {
+      "item": "Fact board_placement_class_wiring with existential quantifier",
+      "where_in_ir": "fact board_placement_class_wiring",
+      "severity": "soft",
+      "rationale": "Wires the singleton entity; acceptable pattern"
+    }
+  ],
+  "verdict": "minor_drift",
+  "summary": "The IR implements the core strategy (entities, relations, obligations for c4 and c10) correctly with singleton carriers and proper role wiring. It adds many additional sorts, relations, and deontic declarations to cover the full ruleset (c8, c9, prohibitions, permissions) which are not in the strategy but are necessary for completeness. Missing explicit facts for c1 board dimensions/colors and c8/c9 rules, but these are covered implicitly by other facts and obligations."
+}

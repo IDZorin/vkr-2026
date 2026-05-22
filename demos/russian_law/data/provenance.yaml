@@ -1,0 +1,849 @@
+section: russian_law
+source_file: source.md
+schema_version: v2
+review_status: draft_ir_to_text_user_review
+ir_files:
+  main: main_ir.a4v3
+claims: {}
+vocabulary_notes:
+  Delo:
+    source_phrase: case / legal situation
+    note: 'Local carrier for a concrete legal event or dispute. It scopes actors, facts, payments, penalties,
+      and procedural consequences.
+
+      '
+  obyazan_uplatit:
+    source_phrase: платить / должен платить / уплатить
+    note: 'Payment-duty carrier. The source often states payment consequences article by article; this
+      relation keeps payer, recipient where present, monetary unit, and amount explicit.
+
+      '
+  obyazan_uplatit_bez_poluchatelya:
+    source_phrase: платить / уплатить
+    note: 'Payment-duty carrier used when the source specifies payer, unit, and amount, but does not explicitly
+      name a recipient.
+
+      '
+  shtraf:
+    source_phrase: штраф
+    note: 'Penalty carrier for monetary fines in the source.
+
+      '
+  vzyiskivaetsya_s:
+    source_phrase: взыскивается с
+    note: 'Recovery/liability carrier preserving the source''s passive collection wording.
+
+      '
+  zapresheno_otobrat_vesh:
+    source_phrase: нельзя отобрать
+    note: 'Positive carrier for a prohibition; contradiction checks can inspect the explicit prohibition
+      predicate rather than relying only on a negative word inside the relation name.
+
+      '
+  razresheno_otobrat_cheloveka:
+    source_phrase: может отобрать
+    note: 'Permission-like carrier preserving source wording where a person may take back a dependent
+      person.
+
+      '
+  Verv:
+    source_phrase: вервь
+    note: 'Local social-group sort preserved from the historical source.
+
+      '
+  Lyudi:
+    source_phrase: люди
+    note: 'Local collective-person sort; linked to individual people through `chelovek_v_lyudyah`.
+
+      '
+  DenezhnayaEdinitsa:
+    source_phrase: гривна / резана / куна / ногата / веверица
+    note: 'Monetary-unit enum covering the units used by the excerpt.
+
+      '
+  Baran:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Bort:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ChastCheloveka:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ChastZhivotnogo:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Chelovek:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Chelyadin:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Desyatina:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Dney:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Dosok:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Drova:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  GodovalayaSkotina:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Golub:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Gospodin:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Gridin:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  GruppaChelovek:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Gus:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Hleb:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Holop:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Izgoy:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Knyaz:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  KnyazheskiyTiun:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Kobyla:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Kolbyag:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Kolichestvo:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Kon:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Kopie:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Korm:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Kormilitsa:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Korova:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Koza:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Kupets:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Kuritsa:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Ladya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Lebed:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Lekar:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Mechnik:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Mesto:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  MezhevoyStolb:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Mostnik:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Muzh:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Myaso:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Odezhda:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Ognishchanin:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Orudie:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Oruzhie:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Ovtsa:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Pchely:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Pes:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Pishcha:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Plata:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Podezdnoy:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  PolevayaMezha:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  PoltushaMyasa:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Psheno:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Ptitsa:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Rab:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Rabynya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Rodstvo:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Rusin:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Ryadovich:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Ryba:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  SelskiyStarosta:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Seno:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Shchit:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Skotina:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Slovenin:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Smerd:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Smotritel:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Sokol:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Solod:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  StarshiyKonyukh:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  StoronaRodstva:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  SubjektPrava:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Svideteley:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Svinya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  SvobodnyyMuzh:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Syr:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Telenok:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Tiun:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Trehletka:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Ustoy:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Utka:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Varyag:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Vesh:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Virnik:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Vol:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Vorov:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Yabednik:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Yagnenok:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Yastreb:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Zhivotnoe:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  Zhuravl:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  beret_svoe:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  bez_knyazheskogo_poveleniya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  bez_korystnyh_namereniy:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  bez_sprosu:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  bezhal:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  boroda:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  brat:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  byl_kuplen_u:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  chasha:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  chast_myasa:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  chast_zhivotnogo:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  chelovek_v_lyudyah:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  chelovek_v_vervi:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  chislo_vorov:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  chuzhaya_vesh:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  chuzhoy_chelovek:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  delo_konchaetsya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  delo_konets:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  derzhali_vora_do_rassveta:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  desyatina_dela:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  dolzhnik:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  doshli_do_tretego:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  dosok:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  dvor:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  grivna:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  hleba_i_pshena_skolko_smogut_sest:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  hlev:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  hochet_otnyat:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  hochet_uderzhat_u_sebya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  horomy:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  hromaet:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  idet_k_prisyage:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ishchi_svoih_deneg_pri_svidetele:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  isk_ob_uplate_zayma:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  isportit:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  istiazanie:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  izbit_do_krovi:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  khozyain:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  klet:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  knyaz_dela:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  knyazheskaya_vesh:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  knyazheskiy_chelovek:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  knyazheskiy_dvor:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  kolichestvo_veshi:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  korma_skolko_smogut_sest:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  krazha_iz_mesta:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  kuna:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  lekar_dela:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  lyudi_dela:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  lyudi_ishchut:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  lyudi_pomogayut_v_uplate:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  mech:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  mech_v_nozhnah:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  mechnik_dela:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  mesto_deystviya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  mesto_kon:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  mostnik_dela:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  mstit_za_protiv:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  nastignet:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  nayden_v_vervi:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ne_mozhet_mstit_za_sebya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ne_udarit:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  nikto_ne_mstit:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  noga:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  nogata:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  obnazhit:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  obyazan_iskat_svidetelya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  obyazan_privesti_svidetelya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  odin_vor:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  opoznal_na_tretiy_den:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  opoznal_propavshee_v_svoem_miru:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  opoznal_u_kogo_libo:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  otday_chelyadina:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  otkazyvaetsya_ot_slomannoy_veshi:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  otsechet:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  otsohnet:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  otvalitsya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  otvechaet_kak_za_ubiystvo:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  otvetstvennyy:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  palets:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  palka:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  pihnet_k_sebe:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  pihnet_ot_sebya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  plata_lekaryu:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  plata_mostnikam:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  plata_ot_kazhdogo_ustoya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  plata_za_ubitogo:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  plemyannik_so_storony:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  po_razboynicheski:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  po_usloviyu:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  pochinka_vethogo_mosta:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  podlezhit_vydache_denezhnoy_sumy:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  podlezhit_vydache_vesh:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  poedet_na:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  poluchaet_doplatu_za_porchu:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  postavit_koney:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  postroili_most:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  poterpevshiy:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  poydet_na_svod:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  predstavit_poruchitelya:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  predydushchiy_prodavets:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  pridet_na_sud:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  privedeno_svideteley:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  privedet_vora:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  privesti_na_knyazheskiy_dvor_na_sud:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  propavshaya_vesh:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  raspashut:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  razresheno_pobit_gde_zastanet:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  razresheno_uderzhat_cheloveka:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  rezan:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  rodstvennik:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  rog:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ruka:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ruka_kak_orudie:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  rukoyat_mecha:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  s_pyatnom:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  s_tselyu_grabezha:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  samovolnoe_istyazanie:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  sestra:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  skroetsya_u:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  sledy_poboev:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  slomaet:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  so_storony_brata:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  so_storony_sestry:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  sobrat_vir:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  sobstvennik:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  sostavit_v_nedelyu:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  sozhet:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  srubyat:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  stado:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  sudebnoe_razbiratelstvo:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  syn:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  tot_zhe_zakon:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  tsela:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ubezhit_v_horomy_gospodina:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ubil:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ubili_vora_na:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ubit:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ubit_kak_psa:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  udarit:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  udarit_orudiem:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  udarit_po:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ukazhet_gde_vzyal:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ukradet:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  umyshlenno:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  ustav_yaroslava:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  usy:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  uvesti:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  uznaet_propavshego_chelyadina:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  v_krovi:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  v_sinyakah:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  vedet_k:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  vernet_v_techenie_dney:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  verv_platit_viru:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  vesh_v_dele:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  veveritsa:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  videli_svyazannym:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  vinovnyy:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  virnik_dela:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  vo_vremya_krazhi_korovy:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  vor:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  vydaet:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  vykadet:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  vyrvet:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  vzyiskivaetsya_za_vesh:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  yavitsya_na_svod_ne_pozdnee:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  zaplacheno_skolko_dal_pri_pokupke:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  zapresheno_govorit_eto_moe:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  zherd:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.
+  zloumyshlenno_ne_otdaval_dengi:
+    source_phrase: ASCII transliteration of Russian source vocabulary
+    note: Entry-local grounding ledger item for the russian_law transliterated A4V3 ontology.

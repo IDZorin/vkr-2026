@@ -1,0 +1,1086 @@
+﻿{
+  "module": "source_normalization",
+  "rule_count": 37,
+  "metric_count": 26,
+  "check_count": 11,
+  "rules": [
+    {
+      "type": "metric",
+      "name": "normalized_content_token_jaccard",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "set-overlap between source content tokens and normalized content tokens.",
+      "how_to_compute": "`|intersection| / |union|`.",
+      "value_paths": [
+        "source_vs_normalized.normalized_content_token_jaccard"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "normalized_content_token_multiset_precision_to_source",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "how much of normalized token mass is licensed directly by source wording.",
+      "how_to_compute": "multiset overlap between normalized and source token counters divided by normalized token mass.",
+      "value_paths": [
+        "source_vs_normalized.normalized_content_token_multiset_precision_to_source"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "normalized_content_token_multiset_recall_from_source",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "how much of the source token mass survives into normalization.",
+      "how_to_compute": "multiset overlap between normalized and source token counters divided by source token mass.",
+      "value_paths": [
+        "source_vs_normalized.normalized_content_token_multiset_recall_from_source"
+      ],
+      "evidence_paths": [
+        "lexical_coverage.source_content_tokens_missing_from_formula",
+        "lexical_coverage.source_content_tokens_missing_from_full_surface",
+        "lexical_coverage.formula_repeat_underuse_mass",
+        "coverage.missing_fragment_count"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Some source/normalized content is absent from the target representation; report the missing token/fragment list.",
+      "repair_target": "Add the missing concepts as explicit formula structure, or document why they are intentionally excluded."
+    },
+    {
+      "type": "metric",
+      "name": "normalized_content_token_precision_to_source",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "how source-grounded the normalized token inventory is.",
+      "how_to_compute": "`matched normalized/source content token types / normalized content token types`.",
+      "value_paths": [
+        "source_vs_normalized.normalized_content_token_precision_to_source"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "normalized_content_token_recall_from_source",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "how much of the original source token inventory survives into normalization.",
+      "how_to_compute": "`matched normalized/source content token types / source content token types`.",
+      "value_paths": [
+        "source_vs_normalized.normalized_content_token_recall_from_source"
+      ],
+      "evidence_paths": [
+        "lexical_coverage.source_content_tokens_missing_from_formula",
+        "lexical_coverage.source_content_tokens_missing_from_full_surface",
+        "lexical_coverage.formula_repeat_underuse_mass",
+        "coverage.missing_fragment_count"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Some source/normalized content is absent from the target representation; report the missing token/fragment list.",
+      "repair_target": "Add the missing concepts as explicit formula structure, or document why they are intentionally excluded."
+    },
+    {
+      "type": "metric",
+      "name": "normalized_implies_source_entailment",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "whether normalization semantically entails the source.",
+      "how_to_compute": "NLI entailment score with `premise = normalized`, `hypothesis = source`.",
+      "value_paths": [
+        "source_vs_normalized.normalized_implies_source_entailment"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "source_implies_normalized_entailment",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "whether the source semantically entails the normalization.",
+      "how_to_compute": "NLI entailment score with `premise = source`, `hypothesis = normalized`.",
+      "value_paths": [
+        "source_vs_normalized.source_implies_normalized_entailment"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "source_normalized_bertscore_f1",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "semantic similarity between original source excerpt and normalized clauses.",
+      "how_to_compute": "BERTScore F1 between concatenated normalized clauses and source excerpt.",
+      "value_paths": [
+        "source_vs_normalized.source_normalized_bertscore_f1"
+      ],
+      "evidence_paths": [
+        "render_back.render_back_text",
+        "render_back.render_nli_text_implies_ir",
+        "render_back.render_nli_ir_implies_text",
+        "render_back.render_contradiction_score"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "normalized_content_mass_per_clause",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "average content-token mass per normalized clause.",
+      "how_to_compute": "`normalized_content_token_mass / normalized_clause_count`.",
+      "value_paths": [
+        "source_vs_normalized.normalized_content_mass_per_clause"
+      ],
+      "evidence_paths": [
+        "coverage.normalized_clause_count",
+        "coverage.formula_bearing_item_count",
+        "coverage.missing_fragment_count",
+        "coverage.prose_leak_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "normalized_content_token_count",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "distinct content tokens in normalized clauses.",
+      "how_to_compute": "tokenize concatenated normalized clauses into content tokens and count unique types.",
+      "value_paths": [
+        "source_vs_normalized.normalized_content_token_count"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "normalized_content_token_mass",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "total multiplicity of content tokens in normalized clauses.",
+      "how_to_compute": "tokenize concatenated normalized clauses into content tokens and count all occurrences.",
+      "value_paths": [
+        "source_vs_normalized.normalized_content_token_mass"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "normalized_length_ratio_vs_source_mass",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "how much normalization expands or compresses source token mass.",
+      "how_to_compute": "`normalized_content_token_mass / source_excerpt_content_token_mass`.",
+      "value_paths": [
+        "source_vs_normalized.normalized_length_ratio_vs_source_mass"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "normalized_repeat_overuse_examples",
+      "module": "source_normalization",
+      "kind": "`comparative`",
+      "what_it_counts": "top examples of normalization inflating token repetition.",
+      "how_to_compute": "rank tokens by `normalized_count - source_count` and keep top examples.",
+      "value_paths": [
+        "source_vs_normalized.normalized_repeat_overuse_examples",
+        "source_vs_normalized.normalized_repeat_overuse_examples[0]",
+        "source_vs_normalized.normalized_repeat_overuse_examples[1]",
+        "source_vs_normalized.normalized_repeat_overuse_examples[2]",
+        "source_vs_normalized.normalized_repeat_overuse_examples[3]",
+        "source_vs_normalized.normalized_repeat_overuse_examples[4]"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "normalized_repeat_overuse_mass",
+      "module": "source_normalization",
+      "kind": "`hard_warning`",
+      "what_it_counts": "total excess repetition introduced by normalization.",
+      "how_to_compute": "sum `max(0, normalized_count - source_count)` over all content tokens.",
+      "value_paths": [
+        "source_vs_normalized.normalized_repeat_overuse_mass"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "normalized_repeat_overuse_token_count",
+      "module": "source_normalization",
+      "kind": "`hard_warning`",
+      "what_it_counts": "number of source-licensed content tokens repeated more often in normalization than in source.",
+      "how_to_compute": "compare normalized token counter with source token counter and count tokens where `normalized_count > source_count`.",
+      "value_paths": [
+        "source_vs_normalized.normalized_repeat_overuse_token_count"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "normalized_to_source_new_token_count",
+      "module": "source_normalization",
+      "kind": "`hard_warning`",
+      "what_it_counts": "distinct content tokens introduced by normalization that were not present in source.",
+      "how_to_compute": "count `normalized_token_set - source_token_set`.",
+      "value_paths": [
+        "source_vs_normalized.normalized_to_source_new_token_count"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "source_excerpt_content_token_count",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "distinct source-side content tokens in the original source excerpt.",
+      "how_to_compute": "tokenize source excerpt into content tokens and count unique types.",
+      "value_paths": [
+        "source_vs_normalized.source_excerpt_content_token_count"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "source_excerpt_content_token_mass",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "total multiplicity of content tokens in the original source excerpt.",
+      "how_to_compute": "tokenize source excerpt into content tokens and count all occurrences.",
+      "value_paths": [
+        "source_vs_normalized.source_excerpt_content_token_mass"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "source_to_normalized_token_gap_count",
+      "module": "source_normalization",
+      "kind": "`hard_warning`",
+      "what_it_counts": "distinct source content tokens that normalization dropped completely.",
+      "how_to_compute": "count `source_token_set - normalized_token_set`.",
+      "value_paths": [
+        "source_vs_normalized.source_to_normalized_token_gap_count"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "source_vs_normalized_contradiction_score",
+      "module": "source_normalization",
+      "kind": "`hard_warning`",
+      "what_it_counts": "contradiction risk between source and normalization.",
+      "how_to_compute": "take the max contradiction score from the two NLI directions.",
+      "value_paths": [
+        "source_vs_normalized.source_vs_normalized_contradiction_score"
+      ],
+      "evidence_paths": [
+        "render_back.render_back_text",
+        "render_back.render_nli_text_implies_ir",
+        "render_back.render_nli_ir_implies_text",
+        "render_back.render_contradiction_score"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Rendered IR does not preserve entailment/equivalence; report render text and entailment/contradiction values.",
+      "repair_target": "Repair IR until render-back and entailment preserve normalized meaning."
+    },
+    {
+      "type": "metric",
+      "name": "content_token_multiset_precision",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "precision with repeated token occurrences taken seriously.",
+      "how_to_compute": "multiset overlap count divided by total IR content-token multiplicity.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `content_token_multiset_precision`>"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count",
+        "evidence.tokens_in_ir_not_in_source"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "content_token_multiset_recall",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "recall with repeated token occurrences taken seriously.",
+      "how_to_compute": "multiset overlap count divided by total source content-token multiplicity.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `content_token_multiset_recall`>"
+      ],
+      "evidence_paths": [
+        "lexical_coverage.source_content_tokens_missing_from_formula",
+        "lexical_coverage.source_content_tokens_missing_from_full_surface",
+        "lexical_coverage.formula_repeat_underuse_mass",
+        "coverage.missing_fragment_count",
+        "evidence.tokens_in_source_not_in_ir"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Some source/normalized content is absent from the target representation; report the missing token/fragment list.",
+      "repair_target": "Add the missing concepts as explicit formula structure, or document why they are intentionally excluded."
+    },
+    {
+      "type": "metric",
+      "name": "content_token_precision",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "how much of the IR content-token inventory is source-licensed.",
+      "how_to_compute": "`matched IR content tokens / total IR content tokens`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `content_token_precision`>"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count",
+        "evidence.tokens_in_ir_not_in_source"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "content_token_recall",
+      "module": "source_normalization",
+      "kind": "`continuous`",
+      "what_it_counts": "how much of the source content-token inventory appears in IR.",
+      "how_to_compute": "`matched source content tokens / total source content tokens`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `content_token_recall`>"
+      ],
+      "evidence_paths": [
+        "lexical_coverage.source_content_tokens_missing_from_formula",
+        "lexical_coverage.source_content_tokens_missing_from_full_surface",
+        "lexical_coverage.formula_repeat_underuse_mass",
+        "coverage.missing_fragment_count",
+        "evidence.tokens_in_source_not_in_ir"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Some source/normalized content is absent from the target representation; report the missing token/fragment list.",
+      "repair_target": "Add the missing concepts as explicit formula structure, or document why they are intentionally excluded."
+    },
+    {
+      "type": "metric",
+      "name": "duplication_suspected",
+      "module": "source_normalization",
+      "kind": "not_documented",
+      "what_it_counts": "not documented in catalog",
+      "how_to_compute": "not documented in catalog",
+      "value_paths": [
+        "<search recursive metrics JSON for key `duplication_suspected`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "threshold",
+      "module": "source_normalization",
+      "kind": "not_documented",
+      "what_it_counts": "not documented in catalog",
+      "how_to_compute": "not documented in catalog",
+      "value_paths": [
+        "<search recursive metrics JSON for key `threshold`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "check",
+      "name": "preserve_meaning",
+      "module": "source_normalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "make_edits_explicit",
+      "module": "source_normalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "keep_clause_boundaries_honest",
+      "module": "source_normalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "avoid_padding_or_repetition",
+      "module": "source_normalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "keep_unresolved_ambiguity_visible",
+      "module": "source_normalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "silent_deletion",
+      "module": "source_normalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "missing token list",
+        "new token list",
+        "source.md",
+        "normalized.md"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "silent_addition",
+      "module": "source_normalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "missing token list",
+        "new token list",
+        "source.md",
+        "normalized.md"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "lexical_preservation_below_threshold",
+      "module": "source_normalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "missing token list",
+        "new token list",
+        "source.md",
+        "normalized.md"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "invalid_surface_correction",
+      "module": "source_normalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "parse errors",
+        "validation errors",
+        "main_ir.a4v3"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "The artifact is structurally invalid; report parser/schema/combined validation errors.",
+      "repair_target": "Fix A4V3 syntax, declarations, references, signatures, or combined theory conflicts.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "definition_role_alignment_failed",
+      "module": "source_normalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "normalization_duplicate_content_repetition",
+      "module": "source_normalization",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    }
+  ]
+}

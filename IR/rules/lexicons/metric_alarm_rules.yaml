@@ -1,0 +1,35 @@
+# Правила «когда метрика alarming» — переносится из is_alarming() в
+# IR/src/build_diagnostics_v1.py.
+#
+# По дефолту:
+#   - hard_fail с числовым значением: alarming если value > 0
+#   - hard_warning с числовым значением: alarming если value > 0
+#
+# Исключения — метрики формы "1 = ok" (binary где 1 значит "успех"):
+#   alarming если value == 0.
+
+binary_ok_means_one:
+  # hard_fail метрики, где value == 1 это успех, а 0 — провал.
+  - ast_valid
+  - rendering_ok
+  - combined_validation_ok
+  - focus_term_explicitly_modeled
+
+# default_alarm_rules:
+#   hard_fail:    "value > 0 (если не в binary_ok_means_one)"
+#   hard_warning: "value > 0"
+#   остальные:    не alarming (continuous/comparative/gold_only нейтральны)
+#
+# В будущем здесь же стоит держать пороги для hard_warning:
+# например `formula_repeat_overuse_mass: alarm_if_above: 10`.
+# Сейчас порогов в каталоге нет — все hard_warning срабатывают на >0.
+
+# Метрики, чьи пороги стоит задать явно (TODO — заполнить эмпирически):
+threshold_todo:
+  formula_repeat_overuse_mass: null
+  full_surface_repeat_overuse_mass: null
+  source_vs_normalized_contradiction_score: null
+  notes_token_count: null
+  total_assertion_node_count: null
+  mean_assertion_node_count: null
+  new_formula_content_token_count_vs_text_only: null

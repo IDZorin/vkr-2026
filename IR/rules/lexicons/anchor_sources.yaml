@@ -1,0 +1,28 @@
+# Anchor sources — где идентификатор может получить лицензию на свои токены.
+#
+# Используется чеком `identifier_structural_anchor_gap`. Если идентификатор
+# длинный и/или содержит trigger-слова, его токены должны быть привязаны
+# к одному из этих источников; иначе — gap.
+#
+# Источник: index/identifier_shape_and_anchor_policy_v1.md.
+
+sources:
+  methodology:
+    description: токен встречается в исходном тексте методики (source.md)
+    priority: 1
+  ontology:
+    description: токен из общей доменной онтологии или Prelude
+    priority: 2
+  overlay:
+    description: токен закреплён в ontology overlay (canonical_symbol_overlay, alignment_overlay)
+    priority: 3
+  user_clarification:
+    description: |
+      токен оправдан подсказкой пользователя (см. index/user_hints_contract.md);
+      в hint указан scope и use_in
+    priority: 4
+  waiver:
+    description: |
+      явный waiver — оператор зафиксировал, что нарушение допустимо
+      (см. чек `waiver_does_not_hide_real_lint_finding`)
+    priority: 5

@@ -1,0 +1,1017 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "semantic_frame_schema_v3_1",
+  "title": "Semantic Frames v3.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "entry_id",
+    "frames"
+  ],
+  "properties": {
+    "schema": {
+      "const": "semantic_frames_v3_1"
+    },
+    "entry_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_path": {
+      "type": "string"
+    },
+    "frames": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/frame"
+      }
+    }
+  },
+  "$defs": {
+    "slot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "value",
+        "derived"
+      ],
+      "properties": {
+        "role": {
+          "enum": [
+            "agent",
+            "patient",
+            "object",
+            "subject",
+            "defined_term",
+            "value",
+            "basis",
+            "source_value",
+            "target_value",
+            "condition",
+            "exception",
+            "scope",
+            "time",
+            "threshold",
+            "unit",
+            "comparator",
+            "process",
+            "step",
+            "stop_condition",
+            "result",
+            "authority",
+            "beneficiary",
+            "unknown"
+          ]
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "null"
+          ]
+        },
+        "source_span": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "derived": {
+          "type": "boolean"
+        },
+        "derivation_rule": {
+          "enum": [
+            null,
+            "from_section_header",
+            "from_table_header",
+            "from_list_context",
+            "from_domain_ontology",
+            "from_defined_term",
+            "from_implicit_quantification",
+            "from_default_unit",
+            "from_modeling_convention",
+            "from_coreference",
+            "from_abbreviation_expansion",
+            "from_backend_requirement"
+          ]
+        },
+        "derivation_target": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "derivation_source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "derived": {
+                "const": false
+              }
+            },
+            "required": [
+              "derived"
+            ]
+          },
+          "then": {
+            "required": [
+              "source_span"
+            ],
+            "properties": {
+              "source_span": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "derived": {
+                "const": true
+              }
+            },
+            "required": [
+              "derived"
+            ]
+          },
+          "then": {
+            "required": [
+              "derivation_rule"
+            ],
+            "properties": {
+              "derivation_rule": {
+                "not": {
+                  "const": null
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "derivation_rule": {
+                "const": "from_domain_ontology"
+              }
+            },
+            "required": [
+              "derivation_rule"
+            ]
+          },
+          "then": {
+            "required": [
+              "derivation_source"
+            ],
+            "properties": {
+              "derivation_source": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "slot_list": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "$ref": "#/$defs/slot"
+          }
+        ]
+      }
+    },
+    "strict_slot_list": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/slot"
+      }
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frame_id",
+        "lifecycle",
+        "source_span",
+        "type",
+        "coverage",
+        "polarity",
+        "modality",
+        "subject",
+        "predicate",
+        "object",
+        "condition",
+        "consequent",
+        "scope",
+        "quantifier",
+        "connective",
+        "comparator",
+        "aggregate",
+        "temporal_operator",
+        "value",
+        "unit",
+        "time",
+        "reference",
+        "exclusion",
+        "qualifiers",
+        "absorbed_into",
+        "clarifies",
+        "depends_on",
+        "ir_alignment",
+        "unsupported_reason",
+        "notes"
+      ],
+      "properties": {
+        "frame_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_span": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "enum": [
+            "declaration",
+            "definition",
+            "value_definition",
+            "value_dependency",
+            "assertion",
+            "rule",
+            "shared_condition",
+            "exception",
+            "procedure",
+            "action_transition",
+            "temporal",
+            "deontic",
+            "validation",
+            "probabilistic",
+            "game",
+            "graph",
+            "theorem",
+            "reference"
+          ]
+        },
+        "coverage": {
+          "enum": [
+            "exact",
+            "weak",
+            "metadata_only",
+            "absorbed",
+            "omitted_with_waiver",
+            "unsupported",
+            "ambiguous"
+          ]
+        },
+        "polarity": {
+          "enum": [
+            "positive",
+            "negative",
+            "conditional",
+            "exception",
+            "counterfactual",
+            "mixed",
+            "unknown"
+          ]
+        },
+        "modality": {
+          "enum": [
+            "none",
+            "must",
+            "may",
+            "cannot",
+            "should",
+            "responsible",
+            "intended",
+            "possible",
+            "defined_as",
+            "unknown"
+          ]
+        },
+        "subject": {
+          "$ref": "#/$defs/slot_list"
+        },
+        "predicate": {
+          "$ref": "#/$defs/predicate"
+        },
+        "object": {
+          "$ref": "#/$defs/slot_list"
+        },
+        "condition": {
+          "$ref": "#/$defs/slot_list"
+        },
+        "consequent": {
+          "$ref": "#/$defs/slot_list"
+        },
+        "scope": {
+          "$ref": "#/$defs/slot_list"
+        },
+        "quantifier": {
+          "enum": [
+            "none",
+            "forall",
+            "exists",
+            "exactly_one",
+            "at_least",
+            "at_most"
+          ]
+        },
+        "connective": {
+          "enum": [
+            "none",
+            "and",
+            "or",
+            "implies",
+            "iff",
+            "not"
+          ]
+        },
+        "comparator": {
+          "enum": [
+            "none",
+            "=",
+            "!=",
+            "<",
+            "<=",
+            ">",
+            ">=",
+            "in",
+            "not_in"
+          ]
+        },
+        "aggregate": {
+          "enum": [
+            "none",
+            "count",
+            "sum",
+            "min",
+            "max"
+          ]
+        },
+        "temporal_operator": {
+          "enum": [
+            null,
+            "always",
+            "eventually",
+            "once",
+            "next",
+            "until",
+            "since",
+            "before",
+            "after",
+            "within"
+          ]
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "null"
+          ]
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "time": {
+          "$ref": "#/$defs/slot_list"
+        },
+        "reference": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "target"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "internal_section",
+                  "external_source",
+                  "url",
+                  "regulation",
+                  "standard",
+                  "guideline",
+                  "previous_version",
+                  "methodology",
+                  "policy"
+                ]
+              },
+              "target": {
+                "type": "string",
+                "minLength": 1
+              },
+              "relation": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "exclusion": {
+          "$ref": "#/$defs/slot_list"
+        },
+        "qualifiers": {
+          "$ref": "#/$defs/slot_list"
+        },
+        "absorbed_into": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "frame_id this frame is absorbed into"
+        },
+        "clarifies": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "frame_id this frame clarifies"
+        },
+        "depends_on": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "frame_ids this frame depends on"
+        },
+        "ir_alignment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ir_alignment_item"
+          },
+          "default": []
+        },
+        "unsupported_reason": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "lifecycle": {
+          "enum": [
+            "draft",
+            "aligned",
+            "verified"
+          ],
+          "description": "Pipeline stage: draft=extracted; aligned=linked to IR; verified=alignment checked"
+        },
+        "alignment_report": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/alignment_report"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "waiver_reason": {
+          "type": "string"
+        },
+        "field_evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/field_evidence_item"
+          },
+          "default": []
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "lifecycle": {
+                "const": "draft"
+              }
+            }
+          },
+          "then": {
+            "description": "Draft: source-grounded; predicate.ir_ref may be null; ir_alignment may be empty"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "lifecycle": {
+                "const": "aligned"
+              },
+              "coverage": {
+                "enum": [
+                  "exact",
+                  "weak"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "ir_alignment": {
+                "minItems": 1
+              },
+              "predicate": {
+                "properties": {
+                  "ir_ref": {
+                    "$ref": "#/$defs/ir_ref"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "lifecycle": {
+                "const": "verified"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "alignment_report"
+            ],
+            "properties": {
+              "ir_alignment": {
+                "minItems": 1
+              },
+              "alignment_report": {
+                "allOf": [
+                  {
+                    "$ref": "#/$defs/alignment_report"
+                  },
+                  {
+                    "properties": {
+                      "overall": {
+                        "const": "pass"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "coverage": {
+                "const": "unsupported"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "unsupported_reason"
+            ],
+            "properties": {
+              "unsupported_reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "coverage": {
+                "const": "omitted_with_waiver"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "waiver_reason"
+            ],
+            "properties": {
+              "waiver_reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "coverage": {
+                "const": "absorbed"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "absorbed_into"
+            ],
+            "properties": {
+              "absorbed_into": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "coverage": {
+                "not": {
+                  "const": "ambiguous"
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "items": {
+                  "if": {
+                    "type": "object"
+                  },
+                  "then": {
+                    "properties": {
+                      "role": {
+                        "not": {
+                          "const": "unknown"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "object": {
+                "items": {
+                  "if": {
+                    "type": "object"
+                  },
+                  "then": {
+                    "properties": {
+                      "role": {
+                        "not": {
+                          "const": "unknown"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "condition": {
+                "items": {
+                  "if": {
+                    "type": "object"
+                  },
+                  "then": {
+                    "properties": {
+                      "role": {
+                        "not": {
+                          "const": "unknown"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "consequent": {
+                "items": {
+                  "if": {
+                    "type": "object"
+                  },
+                  "then": {
+                    "properties": {
+                      "role": {
+                        "not": {
+                          "const": "unknown"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "coverage": {
+                "enum": [
+                  "exact",
+                  "weak"
+                ]
+              },
+              "lifecycle": {
+                "enum": [
+                  "aligned",
+                  "verified"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "subject": {
+                "$ref": "#/$defs/strict_slot_list"
+              },
+              "object": {
+                "$ref": "#/$defs/strict_slot_list"
+              },
+              "condition": {
+                "$ref": "#/$defs/strict_slot_list"
+              },
+              "consequent": {
+                "$ref": "#/$defs/strict_slot_list"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ir_ref": {
+      "type": "string",
+      "pattern": "^(TypeDecl|SymbolDecl|AssertDecl|PathDecl|ActionDecl|TemporalDecl|DeonticDecl|ValidationDecl|ProbabilisticDecl|GameDecl|GraphDecl|TheoremDecl)\\.[A-Za-z_][A-Za-z0-9_]*$"
+    },
+    "predicate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "source_span",
+        "ir_ref"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+        },
+        "source_span": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ir_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ir_ref"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "ir_alignment_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ir_ref",
+        "kind",
+        "name",
+        "innf_family",
+        "role"
+      ],
+      "properties": {
+        "ir_ref": {
+          "$ref": "#/$defs/ir_ref"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "sort",
+            "entity",
+            "rel",
+            "fun",
+            "pred",
+            "fact",
+            "constraint",
+            "path",
+            "action",
+            "prop",
+            "permission",
+            "obligation",
+            "prohibition",
+            "target",
+            "shape",
+            "graph",
+            "theorem",
+            "checked"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+        },
+        "innf_family": {
+          "type": "string",
+          "enum": [
+            "TypeDecl",
+            "SymbolDecl",
+            "AssertDecl",
+            "PathDecl",
+            "ActionDecl",
+            "TemporalDecl",
+            "DeonticDecl",
+            "ValidationDecl",
+            "ProbabilisticDecl",
+            "GameDecl",
+            "GraphDecl",
+            "TheoremDecl"
+          ]
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "main",
+            "definition_target",
+            "definition_body",
+            "main_formula",
+            "condition_formula",
+            "consequent_formula",
+            "fallback_branch",
+            "exception_branch",
+            "source_symbol",
+            "target_symbol",
+            "method_marker",
+            "provenance_marker",
+            "temporal_formula",
+            "deontic_carrier",
+            "validation_shape",
+            "metadata"
+          ]
+        }
+      }
+    },
+    "alignment_report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role_position_check",
+        "source_evidence_check",
+        "extra_claim_check",
+        "overall"
+      ],
+      "properties": {
+        "role_position_check": {
+          "enum": [
+            "pass",
+            "fail"
+          ]
+        },
+        "source_evidence_check": {
+          "enum": [
+            "pass",
+            "fail"
+          ]
+        },
+        "extra_claim_check": {
+          "enum": [
+            "pass",
+            "fail"
+          ]
+        },
+        "overall": {
+          "enum": [
+            "pass",
+            "fail"
+          ]
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
+      }
+    },
+    "field_evidence_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "field",
+        "value",
+        "derived"
+      ],
+      "properties": {
+        "field": {
+          "enum": [
+            "quantifier",
+            "connective",
+            "comparator",
+            "aggregate",
+            "temporal_operator",
+            "value",
+            "unit",
+            "modality",
+            "polarity"
+          ]
+        },
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "source_span": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "derived": {
+          "type": "boolean"
+        },
+        "derivation_rule": {
+          "enum": [
+            null,
+            "from_section_header",
+            "from_table_header",
+            "from_list_context",
+            "from_domain_ontology",
+            "from_defined_term",
+            "from_implicit_quantification",
+            "from_default_unit",
+            "from_modeling_convention",
+            "from_coreference",
+            "from_abbreviation_expansion",
+            "from_backend_requirement"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "derived": {
+                "const": false
+              }
+            },
+            "required": [
+              "derived"
+            ]
+          },
+          "then": {
+            "required": [
+              "source_span"
+            ],
+            "properties": {
+              "source_span": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "derived": {
+                "const": true
+              }
+            },
+            "required": [
+              "derived"
+            ]
+          },
+          "then": {
+            "required": [
+              "derivation_rule"
+            ],
+            "properties": {
+              "derivation_rule": {
+                "not": {
+                  "const": null
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

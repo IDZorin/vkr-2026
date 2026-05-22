@@ -1,0 +1,39 @@
+# Severity kinds для метрик и чеков.
+#
+# Источник: index/translation_metrics_catalog_v1.md (раздел "Metric Kinds").
+# Каждое правило в IR/rules/<m>/diagnostic_rules.json имеет поле `kind` со
+# значением из этого списка.
+
+kinds:
+  hard_fail:
+    description: |
+      Если метрика не прошла, IR не принимается как валидный результат.
+      Блокирует acceptance gate.
+    blocks_acceptance: true
+    label: hard_fail
+
+  hard_warning:
+    description: |
+      Артефакт может существовать, но run помечен как семантически ненадёжный
+      / неполный.
+    blocks_acceptance: false
+    label: hard_warning
+
+  continuous:
+    description: |
+      Числовая метрика для сравнения runs. Блокирующего поведения нет.
+    blocks_acceptance: false
+    label: continuous
+
+  comparative:
+    description: |
+      Метрика для сравнения нескольких IR-вариантов или нескольких прогонов.
+    blocks_acceptance: false
+    label: comparative
+
+  gold_only:
+    description: |
+      Имеет смысл только при наличии hand-authored gold артефакта.
+      Не используется в cleanroom-режиме.
+    blocks_acceptance: false
+    label: gold_only

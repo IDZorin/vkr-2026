@@ -1,0 +1,1798 @@
+{
+  "module": "ontology_planning",
+  "rule_count": 60,
+  "metric_count": 44,
+  "check_count": 20,
+  "rules": [
+    {
+      "type": "metric",
+      "name": "explicit_link_violation_count",
+      "module": "ontology_planning",
+      "kind": "`hard_warning`",
+      "what_it_counts": "cases where a symbol name embeds another concept that the formula body never links explicitly.",
+      "how_to_compute": "count checklist violations of `keep_links_explicit`.",
+      "value_paths": [
+        "semantic_preservation.explicit_link_violation_count"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "ungrounded_callee_count",
+      "module": "ontology_planning",
+      "kind": "`hard_fail`",
+      "what_it_counts": "callee names used in calls that are not declared, Prelude, or whitelisted A4V3 builtins.",
+      "how_to_compute": "count callee-origin failures from `_validate_expr_symbol_origins(...)`.",
+      "value_paths": [
+        "grounding.ungrounded_callee_count"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "ungrounded_ref_count",
+      "module": "ontology_planning",
+      "kind": "`hard_fail`",
+      "what_it_counts": "expression references that are not locally bound, declared, or grounded.",
+      "how_to_compute": "count ref-origin failures from `_validate_expr_symbol_origins(...)`.",
+      "value_paths": [
+        "grounding.ungrounded_ref_count"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "ungrounded_sort_count",
+      "module": "ontology_planning",
+      "kind": "`hard_fail`",
+      "what_it_counts": "sort names that are neither Prelude, built-in, locally declared, nor text/advisory grounded.",
+      "how_to_compute": "count sort-origin validation failures.",
+      "value_paths": [
+        "grounding.ungrounded_sort_count"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "ungrounded_symbol_count",
+      "module": "ontology_planning",
+      "kind": "`hard_fail`",
+      "what_it_counts": "symbols declared in IR that are not grounded in source, advisory, Prelude, or built-in A4V3 vocabulary.",
+      "how_to_compute": "count `symbol` declaration errors emitted by `_validate_symbol_origins(...)`.",
+      "value_paths": [
+        "grounding.ungrounded_symbol_count"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "compound_identifier_count_content",
+      "module": "ontology_planning",
+      "kind": "`hard_warning`",
+      "what_it_counts": "identifiers with at least 3 non-stopword content pieces.",
+      "how_to_compute": "split each identifier, remove stopwords/syntax pieces, then count identifiers with at least 3 remaining pieces.",
+      "value_paths": [
+        "identifier_glue.compound_identifier_count_content"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "compound_identifier_count_raw",
+      "module": "ontology_planning",
+      "kind": "`hard_warning`",
+      "what_it_counts": "identifiers whose raw split length is already large.",
+      "how_to_compute": "split each identifier at camel/snake boundaries and count those with at least 4 raw pieces.",
+      "value_paths": [
+        "identifier_glue.compound_identifier_count_raw"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "identifier_count",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "number of unique IR identifiers inspected by the glue analysis.",
+      "how_to_compute": "collect unique declaration names, assertion names, and named references/callees from the AST.",
+      "value_paths": [
+        "identifier_glue.identifier_count"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "identifier_glue_excess_mass_content",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "total content-level over-glue mass.",
+      "how_to_compute": "for each identifier, compute `max(0, content_piece_count - 2)` and sum over identifiers.",
+      "value_paths": [
+        "identifier_glue.identifier_glue_excess_mass_content"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "identifier_glue_excess_mass_raw",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "total raw over-glue mass.",
+      "how_to_compute": "for each identifier, compute `max(0, raw_piece_count - 3)` and sum over identifiers.",
+      "value_paths": [
+        "identifier_glue.identifier_glue_excess_mass_raw"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "low_source_grounded_glued_identifier_count",
+      "module": "ontology_planning",
+      "kind": "`hard_warning`",
+      "what_it_counts": "suspicious identifiers that are both long and weakly grounded in the source.",
+      "how_to_compute": "count identifiers with at least 3 content pieces and source-grounded content-piece ratio below `0.67`.",
+      "value_paths": [
+        "identifier_glue.low_source_grounded_glued_identifier_count"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "max_identifier_piece_count_content",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "worst-case content-piece identifier length.",
+      "how_to_compute": "maximum non-stopword content-piece count across identifiers.",
+      "value_paths": [
+        "identifier_glue.max_identifier_piece_count_content"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "max_identifier_piece_count_raw",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "worst-case raw identifier length.",
+      "how_to_compute": "maximum raw split-piece count across identifiers.",
+      "value_paths": [
+        "identifier_glue.max_identifier_piece_count_raw"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "mean_identifier_piece_count_content",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "average content-piece identifier length.",
+      "how_to_compute": "mean non-stopword content-piece count across identifiers.",
+      "value_paths": [
+        "identifier_glue.mean_identifier_piece_count_content"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "mean_identifier_piece_count_raw",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "average raw identifier length.",
+      "how_to_compute": "mean raw split-piece count across identifiers.",
+      "value_paths": [
+        "identifier_glue.mean_identifier_piece_count_raw"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "new_formula_content_token_count_vs_text_only",
+      "module": "ontology_planning",
+      "kind": "`hard_warning`",
+      "what_it_counts": "semantically meaningful new formula tokens relative to source plus normalized text only.",
+      "how_to_compute": "same as above, but remove stopwords and syntax-only tokens before counting.",
+      "value_paths": [
+        "grounding.new_formula_content_token_count_vs_text_only"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "new_formula_token_count_vs_text_only",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "all new formula tokens relative to source plus normalized text only, without forgiving Prelude.",
+      "how_to_compute": "tokenize rendered formula surface; subtract token set from source excerpt, source term, normalized clauses, and A4V3 syntax; count the residue.",
+      "value_paths": [
+        "grounding.new_formula_token_count_vs_text_only"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "new_full_surface_content_token_count_vs_text_only",
+      "module": "ontology_planning",
+      "kind": "`hard_warning`",
+      "what_it_counts": "semantically meaningful new tokens in rendered IR plus prose fields relative to source plus normalized text only.",
+      "how_to_compute": "same as above, but remove stopwords and syntax-only tokens before counting.",
+      "value_paths": [
+        "grounding.new_full_surface_content_token_count_vs_text_only"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "new_full_surface_token_count_vs_text_only",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "all new tokens in rendered IR plus prose fields relative to source plus normalized text only.",
+      "how_to_compute": "tokenize formula plus prose fields; subtract token set from source excerpt, source term, normalized clauses, and A4V3 syntax; count the residue.",
+      "value_paths": [
+        "grounding.new_full_surface_token_count_vs_text_only"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "prelude_redeclaration_count",
+      "module": "ontology_planning",
+      "kind": "`hard_fail`",
+      "what_it_counts": "attempts to redeclare Prelude sorts, entities, or functions.",
+      "how_to_compute": "count redeclaration errors raised by `_validate_symbol_origins(...)`.",
+      "value_paths": [
+        "grounding.prelude_redeclaration_count"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "compound_identifier_rate_content",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "how large the content-level glued-name population is relative to the whole identifier inventory.",
+      "how_to_compute": "`compound_identifier_count_content / identifier_count`.",
+      "value_paths": [
+        "identifier_glue.compound_identifier_rate_content"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "inspect": "compare to policy-specific threshold and concrete evidence list"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "compound_identifier_rate_raw",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "how large the raw glued-name population is relative to the whole identifier inventory.",
+      "how_to_compute": "`compound_identifier_count_raw / identifier_count`.",
+      "value_paths": [
+        "identifier_glue.compound_identifier_rate_raw"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "inspect": "compare to policy-specific threshold and concrete evidence list"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "identifier_glue_excess_rate_content",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "average content-level over-glue burden per identifier.",
+      "how_to_compute": "`identifier_glue_excess_mass_content / identifier_count`.",
+      "value_paths": [
+        "identifier_glue.identifier_glue_excess_rate_content"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "inspect": "compare to policy-specific threshold and concrete evidence list"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "identifier_glue_excess_rate_raw",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "average raw over-glue burden per identifier.",
+      "how_to_compute": "`identifier_glue_excess_mass_raw / identifier_count`.",
+      "value_paths": [
+        "identifier_glue.identifier_glue_excess_rate_raw"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "inspect": "compare to policy-specific threshold and concrete evidence list"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "low_source_grounded_glued_identifier_rate",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "how much of the identifier inventory is simultaneously glued and weakly source-grounded.",
+      "how_to_compute": "`low_source_grounded_glued_identifier_count / identifier_count`.",
+      "value_paths": [
+        "identifier_glue.low_source_grounded_glued_identifier_rate"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "inspect": "compare to policy-specific threshold and concrete evidence list"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "lowest_source_grounded_identifiers",
+      "module": "ontology_planning",
+      "kind": "`comparative`",
+      "what_it_counts": "identifiers whose pieces are least grounded in the source.",
+      "how_to_compute": "rank identifiers by source-grounded content-piece ratio ascending, then by content-piece count descending.",
+      "value_paths": [
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers[0]",
+        "identifier_glue.lowest_source_grounded_identifiers[1]",
+        "identifier_glue.lowest_source_grounded_identifiers[2]",
+        "identifier_glue.lowest_source_grounded_identifiers[3]",
+        "identifier_glue.lowest_source_grounded_identifiers[4]"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "source_grounded_content_piece_ratio_mean",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "how grounded identifier pieces are in source text, normalized text, and Prelude vocabulary.",
+      "how_to_compute": "for each identifier, compute the share of content pieces found in the source-side lexicon; then average across identifiers.",
+      "value_paths": [
+        "identifier_glue.source_grounded_content_piece_ratio_mean"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "compare to policy-specific threshold and concrete evidence list"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "top_glued_identifiers",
+      "module": "ontology_planning",
+      "kind": "`comparative`",
+      "what_it_counts": "the most over-glued identifiers in the artifact.",
+      "how_to_compute": "rank identifiers by content glue excess, then raw glue excess, then low source-groundedness.",
+      "value_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.top_glued_identifiers[0]",
+        "identifier_glue.top_glued_identifiers[1]",
+        "identifier_glue.top_glued_identifiers[2]",
+        "identifier_glue.top_glued_identifiers[3]",
+        "identifier_glue.top_glued_identifiers[4]"
+      ],
+      "evidence_paths": [
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links."
+    },
+    {
+      "type": "metric",
+      "name": "cross_reference_dropout_count",
+      "module": "ontology_planning",
+      "kind": "`hard_warning`",
+      "what_it_counts": "cross-referenced concepts discussed upstream but omitted from final IR.",
+      "how_to_compute": "`expected cross-reference count - used cross-reference count`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `cross_reference_dropout_count`>"
+      ],
+      "evidence_paths": [
+        "evidence.source_cross_references",
+        "evidence.ir_cross_references"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "cross_reference_usage_count",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "number of related entries or cross-referenced concepts actually used in final IR.",
+      "how_to_compute": "count cross-reference ids from advisory that survive into formula or accepted annotation.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `cross_reference_usage_count`>"
+      ],
+      "evidence_paths": [
+        "evidence.ir_cross_references"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "dependency_link_count",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "number of explicit dependency symbols or cross-entry concepts actually used in formula.",
+      "how_to_compute": "count distinct dependency symbols referenced in declarations or assertions.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `dependency_link_count`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "dependency_link_recall",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "share of expected dependency concepts that are explicitly linked in formula.",
+      "how_to_compute": "`explicitly linked dependency count / expected dependency count`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `dependency_link_recall`>"
+      ],
+      "evidence_paths": [
+        "lexical_coverage.source_content_tokens_missing_from_formula",
+        "lexical_coverage.source_content_tokens_missing_from_full_surface",
+        "lexical_coverage.formula_repeat_underuse_mass",
+        "coverage.missing_fragment_count"
+      ],
+      "thresholds": {
+        "fail": "< 0.50",
+        "warning": ">= 0.50 and < 0.80",
+        "ok": ">= 0.80"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Some source/normalized content is absent from the target representation; report the missing token/fragment list.",
+      "repair_target": "Add the missing concepts as explicit formula structure, or document why they are intentionally excluded."
+    },
+    {
+      "type": "metric",
+      "name": "embedded_concept_without_formula_link_count",
+      "module": "ontology_planning",
+      "kind": "`hard_warning`",
+      "what_it_counts": "symbol names with compositional tokens such as `ExchangeOf`, `IndexUniverseRequirements`, or similar that never appear as explicit linked concepts in formula.",
+      "how_to_compute": "inspect multi-token symbol names and count cases where one embedded concept is absent from the expression graph.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `embedded_concept_without_formula_link_count`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "invented_helper_sort_count",
+      "module": "ontology_planning",
+      "kind": "`hard_warning`",
+      "what_it_counts": "helper sorts introduced without strong textual license.",
+      "how_to_compute": "count newly declared sorts that are not direct concept names from source/advisory and are not Prelude or built-in sorts.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `invented_helper_sort_count`>"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count",
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples",
+        "evidence.invented_helper_sorts"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "invented_helper_symbol_count",
+      "module": "ontology_planning",
+      "kind": "`hard_warning`",
+      "what_it_counts": "helper symbols introduced by the IR that are technically grounded by token overlap but are not justified as minimal abstractions.",
+      "how_to_compute": "count declared non-focus symbols that are not in source term inventory, not in Prelude, and not referenced in clause-to-IR mapping as necessary support symbols.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `invented_helper_symbol_count`>"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count",
+        "identifier_glue.top_glued_identifiers",
+        "identifier_glue.lowest_source_grounded_identifiers",
+        "identifier_glue.conditional_relation_name_packing_examples",
+        "identifier_glue.entity_relation_target_fusion_examples",
+        "evidence.invented_helper_sorts"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "new_surface_content_token_count",
+      "module": "ontology_planning",
+      "kind": "`hard_warning`",
+      "what_it_counts": "semantically meaningful new tokens, excluding syntax and stopwords.",
+      "how_to_compute": "same as `new_surface_token_count`, but after removing stopwords and A4V3 syntax tokens.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `new_surface_content_token_count`>"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "new_surface_token_count",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "all lexical tokens appearing in rendered IR or structured prose fields that do not belong to the union of source text, normalized text, advisory text, Prelude, and whitelisted A4V3 syntax.",
+      "how_to_compute": "tokenize rendered IR plus prose fields; subtract token sets from source, advisory, Prelude, and A4V3 whitelist; count the residue.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `new_surface_token_count`>"
+      ],
+      "evidence_paths": [
+        "grounding.new_formula_content_tokens_vs_text_only",
+        "grounding.new_full_surface_content_tokens_vs_text_only",
+        "lexical_coverage.formula_repeat_overuse_examples",
+        "grounding.origin_error_count"
+      ],
+      "thresholds": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance."
+    },
+    {
+      "type": "metric",
+      "name": "prelude_symbol_ratio",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "share of used symbols coming from Prelude or explicit built-ins.",
+      "how_to_compute": "`Prelude or built-in symbol usage count / total symbol usage count`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `prelude_symbol_ratio`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "compare to policy-specific threshold and concrete evidence list"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "sort_choice_stability",
+      "module": "ontology_planning",
+      "kind": "`comparative`",
+      "what_it_counts": "whether different variants agree on sorts for the same argument positions.",
+      "how_to_compute": "compare argument-sort tuples across variants; report agreement ratio.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `sort_choice_stability`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "no universal numeric threshold; interpret with evidence paths and module rules"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "metric",
+      "name": "text_licensed_symbol_ratio",
+      "module": "ontology_planning",
+      "kind": "`continuous`",
+      "what_it_counts": "share of declared local symbols that can be grounded directly in source or normalized text.",
+      "how_to_compute": "`text-grounded local symbol count / total local symbol count`.",
+      "value_paths": [
+        "<search recursive metrics JSON for key `text_licensed_symbol_ratio`>"
+      ],
+      "evidence_paths": [
+        "<same JSON key as metric name when present>",
+        "<related section in metrics JSON>"
+      ],
+      "thresholds": {
+        "inspect": "compare to policy-specific threshold and concrete evidence list"
+      },
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules."
+    },
+    {
+      "type": "check",
+      "name": "identifier_structural_anchor_gap",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "symbol",
+        "kind",
+        "signature",
+        "identifier pieces",
+        "line_no",
+        "matched_source_phrases"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "same_symbol_different_codomains",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "ontology_level_mixing",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "enum_value_mapping_candidates",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "codomain_split_value_families",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "overlay_consistency_drift",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "overlay row",
+        "local symbol rows",
+        "backtest metrics"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "semantic_load_in_name",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "symbol",
+        "kind",
+        "signature",
+        "identifier pieces",
+        "line_no",
+        "matched_source_phrases"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "opaque_helper_predicates",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "symbol",
+        "kind",
+        "signature",
+        "identifier pieces",
+        "line_no",
+        "matched_source_phrases"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "numeric_window_fusion_forbidden",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "identifier_source_lexical_crosslink_gap",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "missing token list",
+        "new token list",
+        "source.md",
+        "normalized.md"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "identifier_source_lexical_crosslink_candidates",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "missing token list",
+        "new token list",
+        "source.md",
+        "normalized.md"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "source_phrase_identifier_crosslink_gap",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "symbol",
+        "kind",
+        "signature",
+        "identifier pieces",
+        "line_no",
+        "matched_source_phrases"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "source_phrase_identifier_crosslink_candidates",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "symbol",
+        "kind",
+        "signature",
+        "identifier pieces",
+        "line_no",
+        "matched_source_phrases"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "composite_identifier_crosslink_gap",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "symbol",
+        "kind",
+        "signature",
+        "identifier pieces",
+        "line_no",
+        "matched_source_phrases"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "composite_identifier_crosslink_candidates",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "symbol",
+        "kind",
+        "signature",
+        "identifier pieces",
+        "line_no",
+        "matched_source_phrases"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "shared_base_phrase_family_candidates",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "canonical_subterm_reuse_gap",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "canonical_subterm_reuse_candidates",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "<check-specific rows in checklist/lint/judge output>"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "decomposition_policy_gap",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "symbol",
+        "kind",
+        "signature",
+        "identifier pieces",
+        "line_no",
+        "matched_source_phrases"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    },
+    {
+      "type": "check",
+      "name": "decomposition_policy_candidates",
+      "module": "ontology_planning",
+      "value_paths": [
+        "<check output, lint report, checklist result, or generated diagnostic finding>"
+      ],
+      "evidence_paths": [
+        "symbol",
+        "kind",
+        "signature",
+        "identifier pieces",
+        "line_no",
+        "matched_source_phrases"
+      ],
+      "thresholds": {
+        "inspect": "manual review (auto-judge not available)"
+      },
+      "diagnostic_output_must_include": [
+        "check name",
+        "severity",
+        "exact row/code that fired",
+        "source path and target path when available",
+        "symbol/token/line number when available"
+      ],
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "_original_thresholds": {
+        "fail_or_warning_when": "check emits a finding, related validator code appears, or required evidence is absent"
+      }
+    }
+  ]
+}

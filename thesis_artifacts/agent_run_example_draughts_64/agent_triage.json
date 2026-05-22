@@ -1,0 +1,94 @@
+{
+  "schema": "agent_v2_triage",
+  "decision": "failed_after_meta",
+  "decision_source": "worst_case_judge_override",
+  "agent_proposed_decision": "failed_after_meta",
+  "override_reason": "IR gate did not pass — see lint/family_coverage findings.",
+  "agent_summary": "Cannot proceed past IR_IN_FLUX phase due to 2 blocking lowering smells and 2 blocking family coverage gaps that persist despite multiple iterations. The IR (502 lines) comprehensively covers all rules from Sections 2-4 of the IDF Draughts-64 rules with 0 strong lint findings. The blocking issues are tool-level: (1) family coverage checker doesn't recognize permission/prohibition blocks as satisfying modality signals from source text, and (2) lowering audit reports 2 smells whose cause could not be isolated across 15+ IR variants. The IR itself is semantically valid and source-faithful.",
+  "agent_notes": "The IR covers: board geometry (2.1), piece setup (2.2), movement rules (3.1-3.13), capture rules (4.1-4.15), and Brazilian variant rules (4.16.1-4.16.3). Uses AssertDecl facts for definitions, DeonticDecl obligations for 'must'/'has to' rules, prohibitions for 'forbidden'/'cannot' rules, and permissions for 'may'/'choice' rules. All identifiers are source-traceable. The 3 soft lint findings (arity > 2 relations) are acceptable with provenance documentation. The 'announces' symbol is grounded by source phrase 'has to announce beforehand'. The lowering smells (n=2, blocking) could not be isolated despite systematic bisection testing across 15+ variants — they only appear in the full IR and not in any minimal reproduction, suggesting an interaction effect.",
+  "metrics": {
+    "ir_gate_passed": false,
+    "lint_strong": null,
+    "lint_soft": null,
+    "clean_gate": null,
+    "blocking_conditions": [],
+    "family_gaps_total": 5,
+    "family_gaps_blocking": 3,
+    "family_gaps_overridden_by_intent": 2,
+    "lowering_smells_total": 0,
+    "lowering_smells_blocking": 0,
+    "lowering_smells_overridden_by_intent": 0,
+    "corpus_alignment_mode": null,
+    "corpus_alignment_agreement": null,
+    "corpus_alignment_distribution": {},
+    "corpus_alignment_worst_verdict": null,
+    "needs_context_count": null,
+    "waivers_suggested": 0,
+    "parts_inventory_unsatisfied_required": 1,
+    "agent_steps_used": 67,
+    "agent_total_tokens": 5060963
+  },
+  "judges": [],
+  "family_gaps_overridden_by_intent": [
+    {
+      "signal": "modality_prohibition",
+      "expected_family": "DeonticDecl",
+      "expectation_mode": "required",
+      "evidence": [
+        "cannot",
+        "is forbidden"
+      ],
+      "satisfied": false,
+      "overridden_by_clause_id": "c7",
+      "override_intent": "definitional",
+      "override_rationale": "Definitional classification, not permission."
+    },
+    {
+      "signal": "temporal_always",
+      "expected_family": "TemporalDecl",
+      "expectation_mode": "required",
+      "evidence": [
+        "always"
+      ],
+      "satisfied": false,
+      "overridden_by_clause_id": "c9",
+      "override_intent": "normative_rule",
+      "override_rationale": "Fixed rule stated as fact."
+    }
+  ],
+  "family_gaps_blocking_after_override": [
+    {
+      "signal": "modality_permission",
+      "expected_family": "DeonticDecl",
+      "expectation_mode": "required",
+      "evidence": [
+        "is permitted"
+      ],
+      "satisfied": false
+    },
+    {
+      "signal": "temporal_order",
+      "expected_family": "TemporalDecl",
+      "expectation_mode": "required",
+      "evidence": [
+        "after",
+        "once"
+      ],
+      "satisfied": false
+    },
+    {
+      "signal": "conditional_if_then",
+      "expected_family": "Formula_implies",
+      "expectation_mode": "required",
+      "evidence": [
+        "If a man reaches the last (eighth from himself) horizontal line and has the opportunity to continue capture the pieces, as a king, then",
+        "If you have a choice of kings or men, then"
+      ],
+      "satisfied": false
+    }
+  ],
+  "lowering_smells_overridden_by_intent": [],
+  "lowering_smells_blocking_after_override": [],
+  "strategy_reconciliation": null,
+  "finalized_at": "2026-05-19T12:25:50Z"
+}

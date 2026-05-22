@@ -1,0 +1,316 @@
+{
+  "module": "a4v3_semantic_lint",
+  "module_version": "v1",
+  "description": "Deterministic A4V3 translator-lint checks for recurring manual DZ mistakes: dead declarations, self-referential deontic scope, completed-event obligation names, double-coded deontic norms, temporal relation smells in deontic files, vacuous responsibility implications, label-only universal constraints, fact-like universal constraints, opaque numeric sorts, weak based-on links, and shared semantic tokens that live only in predicate names.",
+  "rule_count": 12,
+  "metric_count": 12,
+  "check_count": 0,
+  "module_metric_files": {
+    "a4v3_semantic_lint": "a4v3_semantic_lint_v1.json"
+  },
+  "rules": [
+    {
+      "type": "metric",
+      "name": "unused_rel_fun_declaration_count",
+      "module": "a4v3_semantic_lint",
+      "kind": "`hard_warning`",
+      "what_it_counts": "local rel/fun declarations that are never referenced by assertion bodies, deontic fields, or another declaration signature.",
+      "how_to_compute": "Parse top-level A4V3 declarations, collect declared names and all references from fact/constraint/axiom bodies plus deontic fields and signatures; count unused rel/fun declarations.",
+      "value_paths": [
+        "a4v3_semantic_lint_v1.json::summary.unused_rel_fun_count"
+      ],
+      "evidence_paths": [
+        "a4v3_semantic_lint_v1.json::findings"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "unused rel/fun count",
+        "symbol name",
+        "raw declaration"
+      ],
+      "bad_value_means": "The IR likely contains stale helper relations/functions left behind after a refactor.",
+      "repair_target": "Delete the declaration or restore the formula body that uses it."
+    },
+    {
+      "type": "metric",
+      "name": "unused_sort_entity_declaration_count",
+      "module": "a4v3_semantic_lint",
+      "kind": "`soft_warning`",
+      "what_it_counts": "local sort/entity/val declarations that are not referenced by assertion bodies, deontic fields, or signatures.",
+      "how_to_compute": "Same declaration-use graph as unused_rel_fun_declaration_count, but for sort/entity/val declarations.",
+      "value_paths": [
+        "a4v3_semantic_lint_v1.json::summary.unused_sort_entity_count"
+      ],
+      "evidence_paths": [
+        "a4v3_semantic_lint_v1.json::findings"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "unused sort/entity count",
+        "symbol name",
+        "raw declaration"
+      ],
+      "bad_value_means": "The IR may contain support ontology that no current formula uses.",
+      "repair_target": "Inspect whether the declaration is intentionally supporting context; otherwise delete it."
+    },
+    {
+      "type": "metric",
+      "name": "self_referential_deontic_scope_count",
+      "module": "a4v3_semantic_lint",
+      "kind": "`hard_warning`",
+      "what_it_counts": "obligation/permission/prohibition declarations where scope equals one of the declaration parameter sorts.",
+      "how_to_compute": "For each deontic declaration, parse parameter sorts and compare them to the optional scope field.",
+      "value_paths": [
+        "a4v3_semantic_lint_v1.json::summary.self_referential_scope_count"
+      ],
+      "evidence_paths": [
+        "a4v3_semantic_lint_v1.json::findings"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "deontic declaration",
+        "scope",
+        "parameter sorts"
+      ],
+      "bad_value_means": "The deontic scope repeats the argument type and adds no contextual semantics.",
+      "repair_target": "Remove scope or replace it with a real contextual sort such as approval, cessation, deadline, or policy context."
+    },
+    {
+      "type": "metric",
+      "name": "past_participle_obligation_name_count",
+      "module": "a4v3_semantic_lint",
+      "kind": "`style_warning`",
+      "what_it_counts": "obligation names whose first token looks like a past participle rather than an action verb.",
+      "how_to_compute": "Tokenize the obligation name and flag the first token if it ends with -ed/-en or is an irregular completed-event form such as made/taken/done.",
+      "value_paths": [
+        "a4v3_semantic_lint_v1.json::summary.past_participle_obligation_name_count"
+      ],
+      "evidence_paths": [
+        "a4v3_semantic_lint_v1.json::findings"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "obligation name",
+        "first token"
+      ],
+      "bad_value_means": "The obligation reads like an already-completed event rather than a norm requiring an action.",
+      "repair_target": "Rename to an action-style verb form, e.g. submit_... rather than submitted_...."
+    },
+    {
+      "type": "metric",
+      "name": "double_coded_deontic_norm_count",
+      "module": "a4v3_semantic_lint",
+      "kind": "`hard_warning`",
+      "what_it_counts": "possible cases where one norm is encoded both as a deontic declaration and as a hard constraint over the same action/target.",
+      "how_to_compute": "For each obligation/prohibition action+target, search constraints whose body/name contains an action root or nominalization and the same target.",
+      "value_paths": [
+        "a4v3_semantic_lint_v1.json::summary.double_coded_deontic_norm_count"
+      ],
+      "evidence_paths": [
+        "a4v3_semantic_lint_v1.json::findings"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "deontic declaration",
+        "constraint",
+        "action",
+        "target"
+      ],
+      "bad_value_means": "The same normative requirement may be represented as both violable obligation and logically mandatory constraint.",
+      "repair_target": "Choose either a deontic declaration or a hard constraint, unless the two formulas intentionally express distinct claims."
+    },
+    {
+      "type": "metric",
+      "name": "temporal_rel_in_deontic_context_count",
+      "module": "a4v3_semantic_lint",
+      "kind": "`advisory_warning`",
+      "what_it_counts": "declared temporal-looking relations such as prior_to/before/after that are used in assertion bodies while the file also contains deontic declarations.",
+      "how_to_compute": "If the entry has obligation/permission/prohibition, scan used rel names for temporal tokens.",
+      "value_paths": [
+        "a4v3_semantic_lint_v1.json::summary.temporal_rel_in_deontic_context_count"
+      ],
+      "evidence_paths": [
+        "a4v3_semantic_lint_v1.json::findings"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "temporal relation",
+        "matched temporal tokens"
+      ],
+      "bad_value_means": "A deontic/temporal requirement may have been modeled as an ad-hoc ordinary relation.",
+      "repair_target": "Inspect whether the relation should be represented by deontic scope/deadline or a first-class temporal construct."
+    },
+    {
+      "type": "metric",
+      "name": "vacuous_responsibility_implication_count",
+      "module": "a4v3_semantic_lint",
+      "kind": "`hard_warning`",
+      "what_it_counts": "responsibility constraints of the form rel(decision,item) implies responsible_for(actor,decision) under only universal quantifiers.",
+      "how_to_compute": "Detect forall/forall implication patterns where responsible_for is guarded by the existence of a decision relation and no existential decision is introduced.",
+      "value_paths": [
+        "a4v3_semantic_lint_v1.json::summary.vacuous_responsibility_implication_count"
+      ],
+      "evidence_paths": [
+        "a4v3_semantic_lint_v1.json::findings"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "constraint",
+        "decision variable",
+        "subject variable",
+        "antecedent relation"
+      ],
+      "bad_value_means": "The formula can be true when no decision exists; this may be too weak if the source requires a decision for each governed item.",
+      "repair_target": "If source warrants it, rewrite to forall item, exists decision: decision_regarding(decision,item) and responsible_for(actor,decision)."
+    },
+    {
+      "type": "metric",
+      "name": "bare_universal_predicate_constraint_count",
+      "module": "a4v3_semantic_lint",
+      "kind": "`hard_warning`",
+      "what_it_counts": "constraints whose entire body is forall variables, P(variables), with no equality, comparison, implication, aggregate, or value link.",
+      "how_to_compute": "Parse each constraint body after comments/whitespace normalization and match the exact pattern of one or more forall binders followed by a single predicate call.",
+      "value_paths": [
+        "a4v3_semantic_lint_v1.json::summary.bare_universal_predicate_constraint_count"
+      ],
+      "evidence_paths": [
+        "a4v3_semantic_lint_v1.json::findings"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "constraint",
+        "predicate",
+        "quantified variables",
+        "raw body"
+      ],
+      "bad_value_means": "The IR may be hiding semantic content in a predicate name while the formula body only asserts a label universally.",
+      "repair_target": "Replace the label-only predicate with a formula that links the relevant values, or document it as an intentionally weak marker."
+    },
+    {
+      "type": "metric",
+      "name": "fact_like_universal_constraint_count",
+      "module": "a4v3_semantic_lint",
+      "kind": "`soft_warning`",
+      "what_it_counts": "constraints whose body is universal quantifiers followed by descriptive/procedural atom(s), with no equality, comparison, implication, existential witness, aggregate, or temporal operator.",
+      "how_to_compute": "Normalize each constraint body, strip leading forall binders, and flag the remaining formula if it is only one or more positive atom calls joined by and.",
+      "value_paths": [
+        "a4v3_semantic_lint_v1.json::summary.fact_like_universal_constraint_count"
+      ],
+      "evidence_paths": [
+        "a4v3_semantic_lint_v1.json::findings"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "constraint",
+        "quantified variables",
+        "raw body"
+      ],
+      "bad_value_means": "The declaration may be a descriptive source fact written as a hard constraint.",
+      "repair_target": "Use fact for descriptive/procedural assertions, or add explicit limiting structure if the source really gives a hard constraint."
+    },
+    {
+      "type": "metric",
+      "name": "numeric_operation_on_non_numeric_sort_count",
+      "module": "a4v3_semantic_lint",
+      "kind": "`hard_warning`",
+      "what_it_counts": "function calls used in numeric comparisons or sum aggregates where the declared function return sort is not a known numeric/value sort.",
+      "how_to_compute": "Collect fun return sorts, then scan claim bodies for function calls in <=/>=/</> numeric-literal comparisons or as the value term of sum(...).",
+      "value_paths": [
+        "a4v3_semantic_lint_v1.json::summary.numeric_operation_on_non_numeric_sort_count"
+      ],
+      "evidence_paths": [
+        "a4v3_semantic_lint_v1.json::findings"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "constraint",
+        "function",
+        "return sort",
+        "numeric context"
+      ],
+      "bad_value_means": "The IR uses an opaque/entity sort as if it were a numeric value.",
+      "repair_target": "Change the function return sort to a numeric/value sort such as Percent, or add an explicit value-extraction function and use that in arithmetic."
+    },
+    {
+      "type": "metric",
+      "name": "basis_relation_without_value_link_count",
+      "module": "a4v3_semantic_lint",
+      "kind": "`advisory_warning`",
+      "what_it_counts": "constraints whose name says X based_on Y, but whose body does not mention both an X-like dependent value term and a Y-like basis value term.",
+      "how_to_compute": "Tokenize constraint names around based_on/basis, ignore generic tokens, then compare dependent/basis token groups against non-marker function/predicate calls in the body.",
+      "value_paths": [
+        "a4v3_semantic_lint_v1.json::summary.basis_relation_without_value_link_count"
+      ],
+      "evidence_paths": [
+        "a4v3_semantic_lint_v1.json::findings"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "constraint",
+        "dependent terms",
+        "basis terms",
+        "missing side"
+      ],
+      "bad_value_means": "A source dependency may be represented only by a name, not by formula terms that connect the dependent value to its basis.",
+      "repair_target": "Mention both the dependent value and the basis value in the formula body, or document the relation as an intentionally weak provenance marker."
+    },
+    {
+      "type": "metric",
+      "name": "shared_name_token_without_structural_carrier_count",
+      "module": "a4v3_semantic_lint",
+      "kind": "`soft_warning`",
+      "what_it_counts": "claim blocks where the same non-generic semantic token appears in two or more relation/function names but has no structural carrier.",
+      "how_to_compute": "For each fact/constraint/axiom/prop/theorem body, collect declared rel/fun calls, tokenize their names, ignore generic tokens, and flag repeated tokens that are not represented by a sort/entity/val, relation/function signature sort, or formula-body argument.",
+      "value_paths": [
+        "a4v3_semantic_lint_v1.json::summary.shared_name_token_without_structural_carrier_count"
+      ],
+      "evidence_paths": [
+        "a4v3_semantic_lint_v1.json::findings"
+      ],
+      "thresholds": {
+        "ok": "= 0",
+        "warning": "> 0"
+      },
+      "diagnostic_output_must_include": [
+        "claim",
+        "shared token",
+        "relation/function calls"
+      ],
+      "bad_value_means": "A semantic link may be encoded only by repeated words inside predicate names, rather than by an explicit shared entity/sort/argument in formula structure.",
+      "repair_target": "Introduce a structural carrier for the repeated concept, e.g. a sort/entity and relation arguments, or document why the repeated token is intentionally only lexical."
+    }
+  ]
+}

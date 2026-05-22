@@ -1,0 +1,48 @@
+{
+  "domain_prelude_version": "domain_prelude_index_methodology_v1",
+  "description": "Reusable index-methodology primitives for selection, weighting, buffer rules, and starting instrument lists.",
+  "domain": "index_methodology",
+  "sorts": [
+    {
+      "name": "MethodologyRule",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "IndexSelectionRule",
+      "extends": "MethodologyRule",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "IndexWeightingRule",
+      "extends": "MethodologyRule",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "IndexBufferRule",
+      "extends": "IndexSelectionRule",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "StartingListOfFinancialInstruments",
+      "witness_policy": "nonempty"
+    }
+  ],
+  "entities": [],
+  "functions": [],
+  "relations": [],
+  "policies": {
+    "allowed_ir_sources": [
+      "Domain prelude symbols",
+      "methodology-licensed local rule and universe entities"
+    ],
+    "notes": [
+      "MethodologyRule is the generic carrier for named rules in an index methodology.",
+      "IndexSelectionRule covers rules that choose eligible instruments or constituents.",
+      "IndexWeightingRule covers rules that assign or adjust constituent weights.",
+      "IndexBufferRule is a selection rule used to reduce unnecessary turnover or switching when the source text defines such a rule.",
+      "StartingListOfFinancialInstruments is the reusable type for a starting list of instruments before methodology-specific eligibility, selection, buffer, and weighting rules are applied.",
+      "StartingListOfFinancialInstruments may be sourced from another index, a fixed list, a client-provided list, an exchange universe, or another explicit candidate source.",
+      "Concrete universes, concrete rules, and concrete vague terms remain local entities in the methodology IR."
+    ]
+  }
+}

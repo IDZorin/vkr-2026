@@ -1,0 +1,459 @@
+{
+  "schema": "critic_swarm_v1",
+  "critics_run": 5,
+  "errors_count": 0,
+  "elapsed_s": 180.81,
+  "verdict_counts": {
+    "quantifier_ok": 1,
+    "minor_inventions": 1
+  },
+  "strong_issues_count": 3,
+  "soft_issues_count": 6,
+  "strong_issues": [
+    {
+      "critic": "source_fidelity",
+      "severity": "strong",
+      "ir_identifier": "sort MoveExecution",
+      "source_phrase_or_missing": "Missing",
+      "issue": "Invented plumbing abstraction. The source tracks moves directly via 'move', 'player', and 'hand'. No separate 'execution' entity is mentioned.",
+      "suggested_fix": "Drop MoveExecution sort and its three relations. Rely on existing move_player, move_hand, and move_is_complete relations to track move state.",
+      "diff": {
+        "drop": [
+          "sort MoveExecution",
+          "rel move_execution_agent : MoveExecution, Player",
+          "rel move_execution_hand : MoveExecution, Hand",
+          "rel move_execution_move : MoveExecution, Move",
+          "fact move_execution_agent_fact : forall me : MoveExecution, pl : Player . move_execution_agent(me, pl) or not move_execution_agent(me, pl)",
+          "fact move_execution_hand_fact : forall me : MoveExecution, h : Hand . move_execution_hand(me, h) or not move_execution_hand(me, h)",
+          "fact move_execution_move_fact : forall me : MoveExecution, mv : Move . move_execution_move(me, mv) or not move_execution_move(me, mv)"
+        ],
+        "keep": [
+          "sort Move",
+          "rel move_player : Move, Player",
+          "rel move_hand : Move, Hand",
+          "rel move_is_complete : Move"
+        ],
+        "replace": []
+      }
+    },
+    {
+      "critic": "source_fidelity",
+      "severity": "strong",
+      "ir_identifier": "fact first_move_white",
+      "source_phrase_or_missing": "The first move of a game is always for the player with the white men.",
+      "issue": "Uses undefined constant WhitePlayer. Source refers to the player owning white pieces, not a named constant.",
+      "suggested_fix": "Replace with a relational fact linking first_player to the player who owns white pieces: forall pl : Player . first_player(pl) implies exists p : Piece . piece_owner(p, pl) and piece_color(p, White).",
+      "diff": {
+        "drop": [
+          "fact first_move_white : first_player = WhitePlayer"
+        ],
+        "keep": [
+          "rel first_player : Player"
+        ],
+        "replace": [
+          {
+            "from": "fact first_move_white : first_player = WhitePlayer",
+            "to": "fact first_move_white : forall pl : Player . first_player(pl) implies exists p : Piece . piece_owner(p, pl) and piece_color(p, White)"
+          }
+        ]
+      }
+    },
+    {
+      "critic": "source_fidelity",
+      "severity": "strong",
+      "ir_identifier": "fact rows_4_5_empty",
+      "source_phrase_or_missing": "Horizontal rows 4, 5 are free.",
+      "issue": "References undefined constants Row4 and Row5. Source uses ordinal numbers, not named constants.",
+      "suggested_fix": "Introduce a row_number : BoardRow -> Integer relation or use explicit predicates for rows 4 and 5, then update the fact to reference them.",
+      "diff": {
+        "drop": [
+          "fact rows_4_5_empty : forall s : BoardSquare . (square_row(s, Row4) or square_row(s, Row5)) implies not exists p : Piece . piece_square(p, s)"
+        ],
+        "keep": [
+          "sort BoardRow"
+        ],
+        "replace": []
+      }
+    }
+  ],
+  "soft_issues": [
+    {
+      "critic": "quantifier",
+      "severity": "soft",
+      "ir_construct": "permission choice_capture",
+      "issue": "The permission is universally quantified over all players, but the source condition is existential: choice exists only when there are two or more capture possibilities. Universal quantification is acceptable only if tightly conditioned on that existence. As written, the condition also uses move predicates on Capture terms inconsistently, which obscures the intended existential scope.",
+      "suggested_fix": "Keep the permission form, but make the existential choice situation explicit in the condition using capture predicates only, so the universal over players does not overstate availability of choice.",
+      "diff": {
+        "drop": [],
+        "keep": [
+          "permission choice_capture"
+        ],
+        "replace": [
+          {
+            "from": "permission choice_capture :\n  forall pl : Player .\n    action: choose_capture_direction\n    condition:\n      exists c1 : Capture, c2 : Capture .\n        is_legal_move(c1) and is_legal_move(c2) and\n        move_direction(c1) != move_direction(c2)",
+            "to": "permission choice_capture :\n  forall pl : Player .\n    action: choose_capture_direction\n    condition:\n      exists c1 : Capture, c2 : Capture .\n        is_legal_capture(c1) and is_legal_capture(c2) and\n        c1 != c2"
+          }
+        ]
+      }
+    },
+    {
+      "critic": "quantifier",
+      "severity": "soft",
+      "ir_construct": "permission brazilian_choice_capture",
+      "issue": "The source says choice exists if there is a choice among kings or men while respecting maximum capture count. The IR uses a universal permission over players with an existential condition, which is acceptable if the existential condition is the real trigger. However, the current condition only states existence of two captures with equal count and misses that the choice is among alternative captures; the existential scope should be made explicit as alternatives rather than a pseudo-general permission.",
+      "suggested_fix": "Retain the permission but tighten the existential condition to distinct alternative captures with equal maximal count.",
+      "diff": {
+        "drop": [],
+        "keep": [
+          "permission brazilian_choice_capture"
+        ],
+        "replace": [
+          {
+            "from": "permission brazilian_choice_capture :\n  forall pl : Player .\n    action: choose_any_piece_for_max_capture\n    condition:\n      exists c1 : Capture, c2 : Capture .\n        is_legal_capture(c1) and is_legal_capture(c2) and\n        count_captured_pieces(c1) = count_captured_pieces(c2)",
+            "to": "permission brazilian_choice_capture :\n  forall pl : Player .\n    action: choose_any_piece_for_max_capture\n    condition:\n      exists c1 : Capture, c2 : Capture .\n        is_legal_capture(c1) and is_legal_capture(c2) and\n        c1 != c2 and\n        count_captured_pieces(c1) = count_captured_pieces(c2)"
+          }
+        ]
+      }
+    },
+    {
+      "critic": "quantifier",
+      "severity": "soft",
+      "ir_construct": "fact long_diagonal_has_eight",
+      "issue": "This existential quantifier is correct for 'the longest diagonal ... comprises 8 squares' only if the intent is existence of at least one such diagonal. No quantifier error here, but the source is closer to a unique/definitional diagonal than bare existence.",
+      "suggested_fix": "Optional: preserve the existential if minimality is preferred; otherwise strengthen to identify the long diagonal uniquely. This is not a required quantifier correction.",
+      "diff": {}
+    },
+    {
+      "critic": "source_fidelity",
+      "severity": "soft",
+      "ir_identifier": "rel movement_type",
+      "source_phrase_or_missing": "A man and a king have different ways of moving and capturing.",
+      "issue": "Abstracts 'ways of moving' into a string-returning function not present in source. The source describes behavioral differences, not a type property.",
+      "suggested_fix": "Drop movement_type relation and its fact. The distinction is already captured by can_move_direction and the separate capture obligations for men vs kings.",
+      "diff": {
+        "drop": [
+          "rel movement_type : Piece -> String",
+          "fact different_movement : forall m : Man, k : King . movement_type(m) != movement_type(k)"
+        ],
+        "keep": [
+          "rel can_move_direction : Piece, MoveDirection"
+        ],
+        "replace": []
+      }
+    },
+    {
+      "critic": "source_fidelity",
+      "severity": "soft",
+      "ir_identifier": "rel is_part_of",
+      "source_phrase_or_missing": "This total operation is a multiple capture by a man/king.",
+      "issue": "Redundant with capture_chain. Source does not distinguish between 'chain' and 'part of' for multiple captures.",
+      "suggested_fix": "Drop is_part_of and its fact. Use capture_chain exclusively to model the composition of multiple captures.",
+      "diff": {
+        "drop": [
+          "rel is_part_of : MultipleCapture, Capture",
+          "fact is_part_of_fact : forall mc : MultipleCapture, c : Capture . is_part_of(mc, c) or not is_part_of(mc, c)"
+        ],
+        "keep": [
+          "rel capture_chain : MultipleCapture, Capture"
+        ],
+        "replace": []
+      }
+    },
+    {
+      "critic": "source_fidelity",
+      "severity": "soft",
+      "ir_identifier": "rel count_captures_of",
+      "source_phrase_or_missing": "forbidden to pass over the same piece of the opponent more than once",
+      "issue": "Introduces integer counting functions not in source. Source uses qualitative 'more than once' phrasing.",
+      "suggested_fix": "Replace with boolean relations has_passed_over_piece : MultipleCapture, Piece and has_visited_square : MultipleCapture, BoardSquare to stay closer to source phrasing.",
+      "diff": {
+        "drop": [
+          "rel count_captures_of : MultipleCapture, Piece -> Integer",
+          "rel count_passes : MultipleCapture, BoardSquare -> Integer",
+          "fact count_captures : forall mc : MultipleCapture, p : Piece . count_captures_of(mc, p) >= 0",
+          "fact count_passes_fact : forall mc : MultipleCapture, s : BoardSquare . count_passes(mc, s) >= 0"
+        ],
+        "keep": [
+          "sort MultipleCapture"
+        ],
+        "replace": []
+      }
+    }
+  ],
+  "aggregated_diff": {
+    "drop": [
+      "sort MoveExecution",
+      "rel move_execution_agent : MoveExecution, Player",
+      "rel move_execution_hand : MoveExecution, Hand",
+      "rel move_execution_move : MoveExecution, Move",
+      "fact move_execution_agent_fact : forall me : MoveExecution, pl : Player . move_execution_agent(me, pl) or not move_execution_agent(me, pl)",
+      "fact move_execution_hand_fact : forall me : MoveExecution, h : Hand . move_execution_hand(me, h) or not move_execution_hand(me, h)",
+      "fact move_execution_move_fact : forall me : MoveExecution, mv : Move . move_execution_move(me, mv) or not move_execution_move(me, mv)",
+      "fact first_move_white : first_player = WhitePlayer",
+      "fact rows_4_5_empty : forall s : BoardSquare . (square_row(s, Row4) or square_row(s, Row5)) implies not exists p : Piece . piece_square(p, s)",
+      "rel movement_type : Piece -> String",
+      "fact different_movement : forall m : Man, k : King . movement_type(m) != movement_type(k)",
+      "rel is_part_of : MultipleCapture, Capture",
+      "fact is_part_of_fact : forall mc : MultipleCapture, c : Capture . is_part_of(mc, c) or not is_part_of(mc, c)",
+      "rel count_captures_of : MultipleCapture, Piece -> Integer",
+      "rel count_passes : MultipleCapture, BoardSquare -> Integer",
+      "fact count_captures : forall mc : MultipleCapture, p : Piece . count_captures_of(mc, p) >= 0",
+      "fact count_passes_fact : forall mc : MultipleCapture, s : BoardSquare . count_passes(mc, s) >= 0"
+    ],
+    "keep": [
+      "sort Move",
+      "rel move_player : Move, Player",
+      "rel move_hand : Move, Hand",
+      "rel move_is_complete : Move",
+      "rel first_player : Player",
+      "sort BoardRow",
+      "permission choice_capture",
+      "permission brazilian_choice_capture",
+      "rel can_move_direction : Piece, MoveDirection",
+      "rel capture_chain : MultipleCapture, Capture",
+      "sort MultipleCapture"
+    ],
+    "replace": [
+      {
+        "from": "fact first_move_white : first_player = WhitePlayer",
+        "to": "fact first_move_white : forall pl : Player . first_player(pl) implies exists p : Piece . piece_owner(p, pl) and piece_color(p, White)"
+      },
+      {
+        "from": "permission choice_capture :\n  forall pl : Player .\n    action: choose_capture_direction\n    condition:\n      exists c1 : Capture, c2 : Capture .\n        is_legal_move(c1) and is_legal_move(c2) and\n        move_direction(c1) != move_direction(c2)",
+        "to": "permission choice_capture :\n  forall pl : Player .\n    action: choose_capture_direction\n    condition:\n      exists c1 : Capture, c2 : Capture .\n        is_legal_capture(c1) and is_legal_capture(c2) and\n        c1 != c2"
+      },
+      {
+        "from": "permission brazilian_choice_capture :\n  forall pl : Player .\n    action: choose_any_piece_for_max_capture\n    condition:\n      exists c1 : Capture, c2 : Capture .\n        is_legal_capture(c1) and is_legal_capture(c2) and\n        count_captured_pieces(c1) = count_captured_pieces(c2)",
+        "to": "permission brazilian_choice_capture :\n  forall pl : Player .\n    action: choose_any_piece_for_max_capture\n    condition:\n      exists c1 : Capture, c2 : Capture .\n        is_legal_capture(c1) and is_legal_capture(c2) and\n        c1 != c2 and\n        count_captured_pieces(c1) = count_captured_pieces(c2)"
+      }
+    ]
+  },
+  "per_critic": [
+    {
+      "critic": "modality",
+      "model": "deepseek-v4-pro",
+      "focus": "modal preservation per text intent",
+      "elapsed_s": 74.64,
+      "verdict": null,
+      "issues": [],
+      "usage": {
+        "prompt_tokens": 9890,
+        "completion_tokens": 2048,
+        "total_tokens": 11938
+      }
+    },
+    {
+      "critic": "quantifier",
+      "model": "gpt-5.4",
+      "focus": "forall/exists/conditional logical scope",
+      "elapsed_s": 11.25,
+      "verdict": "quantifier_ok",
+      "issues": [
+        {
+          "severity": "soft",
+          "ir_construct": "permission choice_capture",
+          "issue": "The permission is universally quantified over all players, but the source condition is existential: choice exists only when there are two or more capture possibilities. Universal quantification is acceptable only if tightly conditioned on that existence. As written, the condition also uses move predicates on Capture terms inconsistently, which obscures the intended existential scope.",
+          "suggested_fix": "Keep the permission form, but make the existential choice situation explicit in the condition using capture predicates only, so the universal over players does not overstate availability of choice.",
+          "diff": {
+            "drop": [],
+            "keep": [
+              "permission choice_capture"
+            ],
+            "replace": [
+              {
+                "from": "permission choice_capture :\n  forall pl : Player .\n    action: choose_capture_direction\n    condition:\n      exists c1 : Capture, c2 : Capture .\n        is_legal_move(c1) and is_legal_move(c2) and\n        move_direction(c1) != move_direction(c2)",
+                "to": "permission choice_capture :\n  forall pl : Player .\n    action: choose_capture_direction\n    condition:\n      exists c1 : Capture, c2 : Capture .\n        is_legal_capture(c1) and is_legal_capture(c2) and\n        c1 != c2"
+              }
+            ]
+          }
+        },
+        {
+          "severity": "soft",
+          "ir_construct": "permission brazilian_choice_capture",
+          "issue": "The source says choice exists if there is a choice among kings or men while respecting maximum capture count. The IR uses a universal permission over players with an existential condition, which is acceptable if the existential condition is the real trigger. However, the current condition only states existence of two captures with equal count and misses that the choice is among alternative captures; the existential scope should be made explicit as alternatives rather than a pseudo-general permission.",
+          "suggested_fix": "Retain the permission but tighten the existential condition to distinct alternative captures with equal maximal count.",
+          "diff": {
+            "drop": [],
+            "keep": [
+              "permission brazilian_choice_capture"
+            ],
+            "replace": [
+              {
+                "from": "permission brazilian_choice_capture :\n  forall pl : Player .\n    action: choose_any_piece_for_max_capture\n    condition:\n      exists c1 : Capture, c2 : Capture .\n        is_legal_capture(c1) and is_legal_capture(c2) and\n        count_captured_pieces(c1) = count_captured_pieces(c2)",
+                "to": "permission brazilian_choice_capture :\n  forall pl : Player .\n    action: choose_any_piece_for_max_capture\n    condition:\n      exists c1 : Capture, c2 : Capture .\n        is_legal_capture(c1) and is_legal_capture(c2) and\n        c1 != c2 and\n        count_captured_pieces(c1) = count_captured_pieces(c2)"
+              }
+            ]
+          }
+        },
+        {
+          "severity": "soft",
+          "ir_construct": "fact long_diagonal_has_eight",
+          "issue": "This existential quantifier is correct for 'the longest diagonal ... comprises 8 squares' only if the intent is existence of at least one such diagonal. No quantifier error here, but the source is closer to a unique/definitional diagonal than bare existence.",
+          "suggested_fix": "Optional: preserve the existential if minimality is preferred; otherwise strengthen to identify the long diagonal uniquely. This is not a required quantifier correction.",
+          "diff": {}
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 9272,
+        "completion_tokens": 709,
+        "total_tokens": 9981
+      }
+    },
+    {
+      "critic": "ontology",
+      "model": "claude-haiku-4-5",
+      "focus": "sort/entity declaration + subtyping",
+      "elapsed_s": 16.29,
+      "verdict": null,
+      "issues": [],
+      "usage": {
+        "prompt_tokens": 11073,
+        "completion_tokens": 2048,
+        "total_tokens": 13121
+      }
+    },
+    {
+      "critic": "source_fidelity",
+      "model": "qwen/qwen3.6-plus",
+      "focus": "source-strict vocabulary, no IR-internal inventions",
+      "elapsed_s": 180.81,
+      "verdict": "minor_inventions",
+      "issues": [
+        {
+          "severity": "strong",
+          "ir_identifier": "sort MoveExecution",
+          "source_phrase_or_missing": "Missing",
+          "issue": "Invented plumbing abstraction. The source tracks moves directly via 'move', 'player', and 'hand'. No separate 'execution' entity is mentioned.",
+          "suggested_fix": "Drop MoveExecution sort and its three relations. Rely on existing move_player, move_hand, and move_is_complete relations to track move state.",
+          "diff": {
+            "drop": [
+              "sort MoveExecution",
+              "rel move_execution_agent : MoveExecution, Player",
+              "rel move_execution_hand : MoveExecution, Hand",
+              "rel move_execution_move : MoveExecution, Move",
+              "fact move_execution_agent_fact : forall me : MoveExecution, pl : Player . move_execution_agent(me, pl) or not move_execution_agent(me, pl)",
+              "fact move_execution_hand_fact : forall me : MoveExecution, h : Hand . move_execution_hand(me, h) or not move_execution_hand(me, h)",
+              "fact move_execution_move_fact : forall me : MoveExecution, mv : Move . move_execution_move(me, mv) or not move_execution_move(me, mv)"
+            ],
+            "keep": [
+              "sort Move",
+              "rel move_player : Move, Player",
+              "rel move_hand : Move, Hand",
+              "rel move_is_complete : Move"
+            ],
+            "replace": []
+          }
+        },
+        {
+          "severity": "soft",
+          "ir_identifier": "rel movement_type",
+          "source_phrase_or_missing": "A man and a king have different ways of moving and capturing.",
+          "issue": "Abstracts 'ways of moving' into a string-returning function not present in source. The source describes behavioral differences, not a type property.",
+          "suggested_fix": "Drop movement_type relation and its fact. The distinction is already captured by can_move_direction and the separate capture obligations for men vs kings.",
+          "diff": {
+            "drop": [
+              "rel movement_type : Piece -> String",
+              "fact different_movement : forall m : Man, k : King . movement_type(m) != movement_type(k)"
+            ],
+            "keep": [
+              "rel can_move_direction : Piece, MoveDirection"
+            ],
+            "replace": []
+          }
+        },
+        {
+          "severity": "strong",
+          "ir_identifier": "fact first_move_white",
+          "source_phrase_or_missing": "The first move of a game is always for the player with the white men.",
+          "issue": "Uses undefined constant WhitePlayer. Source refers to the player owning white pieces, not a named constant.",
+          "suggested_fix": "Replace with a relational fact linking first_player to the player who owns white pieces: forall pl : Player . first_player(pl) implies exists p : Piece . piece_owner(p, pl) and piece_color(p, White).",
+          "diff": {
+            "drop": [
+              "fact first_move_white : first_player = WhitePlayer"
+            ],
+            "keep": [
+              "rel first_player : Player"
+            ],
+            "replace": [
+              {
+                "from": "fact first_move_white : first_player = WhitePlayer",
+                "to": "fact first_move_white : forall pl : Player . first_player(pl) implies exists p : Piece . piece_owner(p, pl) and piece_color(p, White)"
+              }
+            ]
+          }
+        },
+        {
+          "severity": "strong",
+          "ir_identifier": "fact rows_4_5_empty",
+          "source_phrase_or_missing": "Horizontal rows 4, 5 are free.",
+          "issue": "References undefined constants Row4 and Row5. Source uses ordinal numbers, not named constants.",
+          "suggested_fix": "Introduce a row_number : BoardRow -> Integer relation or use explicit predicates for rows 4 and 5, then update the fact to reference them.",
+          "diff": {
+            "drop": [
+              "fact rows_4_5_empty : forall s : BoardSquare . (square_row(s, Row4) or square_row(s, Row5)) implies not exists p : Piece . piece_square(p, s)"
+            ],
+            "keep": [
+              "sort BoardRow"
+            ],
+            "replace": []
+          }
+        },
+        {
+          "severity": "soft",
+          "ir_identifier": "rel is_part_of",
+          "source_phrase_or_missing": "This total operation is a multiple capture by a man/king.",
+          "issue": "Redundant with capture_chain. Source does not distinguish between 'chain' and 'part of' for multiple captures.",
+          "suggested_fix": "Drop is_part_of and its fact. Use capture_chain exclusively to model the composition of multiple captures.",
+          "diff": {
+            "drop": [
+              "rel is_part_of : MultipleCapture, Capture",
+              "fact is_part_of_fact : forall mc : MultipleCapture, c : Capture . is_part_of(mc, c) or not is_part_of(mc, c)"
+            ],
+            "keep": [
+              "rel capture_chain : MultipleCapture, Capture"
+            ],
+            "replace": []
+          }
+        },
+        {
+          "severity": "soft",
+          "ir_identifier": "rel count_captures_of",
+          "source_phrase_or_missing": "forbidden to pass over the same piece of the opponent more than once",
+          "issue": "Introduces integer counting functions not in source. Source uses qualitative 'more than once' phrasing.",
+          "suggested_fix": "Replace with boolean relations has_passed_over_piece : MultipleCapture, Piece and has_visited_square : MultipleCapture, BoardSquare to stay closer to source phrasing.",
+          "diff": {
+            "drop": [
+              "rel count_captures_of : MultipleCapture, Piece -> Integer",
+              "rel count_passes : MultipleCapture, BoardSquare -> Integer",
+              "fact count_captures : forall mc : MultipleCapture, p : Piece . count_captures_of(mc, p) >= 0",
+              "fact count_passes_fact : forall mc : MultipleCapture, s : BoardSquare . count_passes(mc, s) >= 0"
+            ],
+            "keep": [
+              "sort MultipleCapture"
+            ],
+            "replace": []
+          }
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 9857,
+        "completion_tokens": 9911,
+        "total_tokens": 19768
+      }
+    },
+    {
+      "critic": "precedent_fit",
+      "model": "gpt-5.4-mini",
+      "focus": "alignment with seed methodology corpus patterns",
+      "elapsed_s": 13.04,
+      "verdict": null,
+      "issues": [],
+      "usage": {
+        "prompt_tokens": 9291,
+        "completion_tokens": 2048,
+        "total_tokens": 11339
+      }
+    }
+  ],
+  "actionable_hint": "Strong: 3, Soft: 6. Apply aggregated_diff: drop 17 items, keep 11 items, replace 3 items. The diff is the sculptor model in action — incremental change, not rewrite."
+}

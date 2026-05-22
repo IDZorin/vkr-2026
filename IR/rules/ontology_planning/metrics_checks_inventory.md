@@ -1,0 +1,72 @@
+﻿# Ontology Planning Metrics and Checks
+
+Metric count: 44
+Check count: 20
+
+## Metrics
+- `advisory_grounded_content_piece_ratio_mean`
+- `advisory_only_symbol_count`
+- `arg_arity_stability`
+- `carrier_choice_stability`
+- `compound_identifier_count_content`
+- `compound_identifier_count_raw`
+- `compound_identifier_rate_content`
+- `compound_identifier_rate_raw`
+- `cross_reference_dropout_count`
+- `cross_reference_usage_count`
+- `dependency_link_count`
+- `dependency_link_recall`
+- `embedded_concept_without_formula_link_count`
+- `explicit_link_violation_count`
+- `identifier_count`
+- `identifier_glue_excess_mass_content`
+- `identifier_glue_excess_mass_raw`
+- `identifier_glue_excess_rate_content`
+- `identifier_glue_excess_rate_raw`
+- `invented_helper_sort_count`
+- `invented_helper_symbol_count`
+- `low_source_grounded_glued_identifier_count`
+- `low_source_grounded_glued_identifier_rate`
+- `lowest_source_grounded_identifiers`
+- `max_identifier_piece_count_content`
+- `max_identifier_piece_count_raw`
+- `mean_identifier_piece_count_content`
+- `mean_identifier_piece_count_raw`
+- `new_formula_content_token_count_vs_text_only`
+- `new_formula_token_count_vs_text_only`
+- `new_full_surface_content_token_count_vs_text_only`
+- `new_full_surface_token_count_vs_text_only`
+- `new_surface_content_token_count`
+- `new_surface_token_count`
+- `prelude_redeclaration_count`
+- `prelude_symbol_ratio`
+- `sort_choice_stability`
+- `source_grounded_content_piece_ratio_mean`
+- `text_licensed_symbol_ratio`
+- `top_glued_identifiers`
+- `ungrounded_callee_count`
+- `ungrounded_ref_count`
+- `ungrounded_sort_count`
+- `ungrounded_symbol_count`
+
+## Checks
+- `identifier_structural_anchor_gap`
+- `same_symbol_different_codomains`
+- `ontology_level_mixing`
+- `enum_value_mapping_candidates`
+- `codomain_split_value_families`
+- `overlay_consistency_drift`
+- `semantic_load_in_name`
+- `opaque_helper_predicates`
+- `numeric_window_fusion_forbidden`
+- `identifier_source_lexical_crosslink_gap`
+- `identifier_source_lexical_crosslink_candidates`
+- `source_phrase_identifier_crosslink_gap`
+- `source_phrase_identifier_crosslink_candidates`
+- `composite_identifier_crosslink_gap`
+- `composite_identifier_crosslink_candidates`
+- `shared_base_phrase_family_candidates`
+- `canonical_subterm_reuse_gap`
+- `canonical_subterm_reuse_candidates`
+- `decomposition_policy_gap`
+- `decomposition_policy_candidates`

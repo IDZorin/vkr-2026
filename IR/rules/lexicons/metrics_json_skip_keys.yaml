@@ -1,0 +1,8 @@
+# Top-level ключи в metrics.json, которые НЕ являются метриками (это
+# метаданные прогона). Diagnostic generator их пропускает.
+
+skip_keys:
+  - generated_at
+  - entry_id
+  - artifact_path
+  - catalog_version

@@ -1,0 +1,232 @@
+{
+  "prelude_version": "minimal_prelude_v1",
+  "description": "Minimal shared cross-methodology ontology. Symbols here are allowed in IR without methodology-local redefinition.",
+  "sorts": [
+    {
+      "name": "Day",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "Month",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "Weekday",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "FinancialInstrument",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "Event",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "Organization",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "Document",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "DocumentPart",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "DocumentLocator",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "Period",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "LookbackWindow",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "WebResource",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "Url",
+      "witness_policy": "nonempty"
+    },
+    {
+      "name": "VagueTerm",
+      "witness_policy": "nonempty"
+    }
+  ],
+  "entities": [
+    {
+      "name": "Monday",
+      "sort": "Weekday"
+    },
+    {
+      "name": "Tuesday",
+      "sort": "Weekday"
+    },
+    {
+      "name": "Wednesday",
+      "sort": "Weekday"
+    },
+    {
+      "name": "Thursday",
+      "sort": "Weekday"
+    },
+    {
+      "name": "Friday",
+      "sort": "Weekday"
+    },
+    {
+      "name": "Saturday",
+      "sort": "Weekday"
+    },
+    {
+      "name": "Sunday",
+      "sort": "Weekday"
+    },
+    {
+      "name": "January",
+      "sort": "Month"
+    },
+    {
+      "name": "February",
+      "sort": "Month"
+    },
+    {
+      "name": "March",
+      "sort": "Month"
+    },
+    {
+      "name": "April",
+      "sort": "Month"
+    },
+    {
+      "name": "May",
+      "sort": "Month"
+    },
+    {
+      "name": "June",
+      "sort": "Month"
+    },
+    {
+      "name": "July",
+      "sort": "Month"
+    },
+    {
+      "name": "August",
+      "sort": "Month"
+    },
+    {
+      "name": "September",
+      "sort": "Month"
+    },
+    {
+      "name": "October",
+      "sort": "Month"
+    },
+    {
+      "name": "November",
+      "sort": "Month"
+    },
+    {
+      "name": "December",
+      "sort": "Month"
+    }
+  ],
+  "functions": [
+    {
+      "name": "MonthOf",
+      "args": [
+        "Day"
+      ],
+      "result_sort": "Month"
+    },
+    {
+      "name": "WeekdayOf",
+      "args": [
+        "Day"
+      ],
+      "result_sort": "Weekday"
+    }
+  ],
+  "relations": [
+    {
+      "name": "occurs_on",
+      "args": [
+        "Event",
+        "Day"
+      ]
+    },
+    {
+      "name": "day_before",
+      "args": [
+        "Day",
+        "Day"
+      ]
+    },
+    {
+      "name": "has_url",
+      "args": [
+        "WebResource",
+        "Url"
+      ]
+    },
+    {
+      "name": "document_url",
+      "args": [
+        "Document",
+        "Url"
+      ]
+    },
+    {
+      "name": "part_of_document",
+      "args": [
+        "DocumentPart",
+        "Document"
+      ]
+    },
+    {
+      "name": "document_part_locator",
+      "args": [
+        "DocumentPart",
+        "DocumentLocator"
+      ]
+    },
+    {
+      "name": "document_part_url",
+      "args": [
+        "DocumentPart",
+        "Url"
+      ]
+    }
+  ],
+  "policies": {
+    "allowed_ir_sources": [
+      "A4V3 syntax",
+      "Prelude symbols",
+      "methodology-licensed symbols"
+    ],
+    "forbidden": [
+      "hidden helper concepts invented only for convenience",
+      "methodology-specific symbols added to Prelude ad hoc",
+      "silent redefinition of Prelude symbols inside a methodology"
+    ],
+    "notes": [
+      "Prelude is minimal on purpose.",
+      "Event is a generic cross-methodology carrier for dated occurrences.",
+      "Organization and Document are general because they appear in any methodology that names actors and references texts (legal, regulatory, clinical, financial). Local entries should NOT redeclare them.",
+      "DocumentPart and DocumentLocator are generic provenance carriers for sections, paragraphs, clauses, tables, appendices, and URL fragments. Concrete section names, paragraph numbers, URLs, and document titles remain local.",
+      "Period is the temporal abstraction matching `Day`/`Month`/`Weekday` — duration/range over time, used by any methodology with windowing semantics.",
+      "LookbackWindow is the shared temporal carrier for backward-looking windows anchored by a methodology-local date or event. Local entries should define source-specific windows such as one-month or six-month lookbacks locally.",
+      "WebResource and Url are generic reference carriers. Concrete sites, documents, document parts, locators, and URL values from a methodology should be local entities or provenance/waiver entries, not Prelude entities.",
+      "VagueTerm is a generic carrier for source terms that are semantically relevant but underdefined by the text, such as missing thresholds, unspecified standards, or undefined qualitative predicates. Concrete vague terms remain local entities.",
+      "FinancialInstrument is general because most evaluated pipelines reference financial instruments at some level.",
+      "day_before(Day, Day) is the canonical Day-on-Day temporal ordering. Local entries should NOT declare a generic `before` relation.",
+      "Methodology-specific event types such as RebalanceEvent, SelectionEvent, ExtraordinaryRebalanceEvent, TradingDay, RebalanceDay, SelectionDay, FreeFloat, and IndexUniverse do not belong in Prelude."
+    ]
+  }
+}

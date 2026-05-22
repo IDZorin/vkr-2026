@@ -1,0 +1,214 @@
+{
+  "claims": [
+    {
+      "id": "c1",
+      "text": "Draughts-64 are played on a square board, divided into 64 equal squares, alternately black and white.",
+      "modality": "fact",
+      "event_status": "class_only",
+      "carrier_policy": "none",
+      "roles": {"agent": null, "target": "board", "recipients": [], "scope": null, "instrument": null, "qualifier": null},
+      "explicit_modal": "none",
+      "rationale": "Descriptive fact about board composition."
+    },
+    {
+      "id": "c2",
+      "text": "The game is played on the dark squares of the board. Thus, 32 squares are active.",
+      "modality": "fact",
+      "event_status": "class_only",
+      "carrier_policy": "none",
+      "roles": {"agent": null, "target": "dark squares", "recipients": [], "scope": null, "instrument": null, "qualifier": null},
+      "explicit_modal": "none",
+      "rationale": "Descriptive fact about playable squares."
+    },
+    {
+      "id": "c3",
+      "text": "The skewed lines formed by the dark squares are the diagonals. The longest diagonal, which joins two corners of the board and comprises 8 squares, is called the long diagonal.",
+      "modality": "fact",
+      "event_status": "class_only",
+      "carrier_policy": "none",
+      "roles": {"agent": null, "target": "diagonals", "recipients": [], "scope": null, "instrument": null, "qualifier": null},
+      "explicit_modal": "none",
+      "rationale": "Definition of diagonals."
+    },
+    {
+      "id": "c4",
+      "text": "The board has to be placed between the two players in such a way that the long diagonal starts at the left hand side of each player.",
+      "modality": "obligation",
+      "event_status": "possible_or_authorized",
+      "carrier_policy": "class_or_program",
+      "roles": {"agent": "players", "target": "board", "recipients": [], "scope": "placement", "instrument": null, "qualifier": null},
+      "explicit_modal": "has to",
+      "rationale": "Obligation on players for board orientation."
+    },
+    {
+      "id": "c5",
+      "text": "Draughts-64 is played with 12 white or light colored men, and 12 black or dark colored men.",
+      "modality": "fact",
+      "event_status": "class_only",
+      "carrier_policy": "none",
+      "roles": {"agent": null, "target": "pieces", "recipients": [], "scope": null, "instrument": null, "qualifier": null},
+      "explicit_modal": "none",
+      "rationale": "Fact about piece count and colors."
+    },
+    {
+      "id": "c6",
+      "text": "At the start of the game, the 12 white men are put on the dark squares of the 1, 2, 3 horizontal rows and the 12 black men are put on the dark squares of the 6, 7, 8 horizontal rows.",
+      "modality": "fact",
+      "event_status": "class_only",
+      "carrier_policy": "none",
+      "roles": {"agent": null, "target": "pieces", "recipients": [], "scope": "initial position", "instrument": null, "qualifier": null},
+      "explicit_modal": "none",
+      "rationale": "Fact about initial setup."
+    },
+    {
+      "id": "c7",
+      "text": "A piece can be either a man or a king.",
+      "modality": "fact",
+      "event_status": "class_only",
+      "carrier_policy": "none",
+      "roles": {"agent": null, "target": "piece", "recipients": [], "scope": "classification", "instrument": null, "qualifier": null},
+      "explicit_modal": "can",
+      "rationale": "Definitional classification — 'can' expresses possibility of being, not permission."
+    },
+    {
+      "id": "c8",
+      "text": "A man and a king have different ways of moving and capturing.",
+      "modality": "fact",
+      "event_status": "class_only",
+      "carrier_policy": "none",
+      "roles": {"agent": null, "target": "man and king", "recipients": [], "scope": "movement and capture", "instrument": null, "qualifier": null},
+      "explicit_modal": "none",
+      "rationale": "Fact about piece behavior."
+    },
+    {
+      "id": "c9",
+      "text": "The first move of a game is always for the player with the white men.",
+      "modality": "fact",
+      "event_status": "class_only",
+      "carrier_policy": "none",
+      "roles": {"agent": null, "target": "first move", "recipients": [], "scope": null, "instrument": null, "qualifier": null},
+      "explicit_modal": "none",
+      "rationale": "Fixed rule stated as fact."
+    },
+    {
+      "id": "c10",
+      "text": "Each move must be done with only one hand.",
+      "modality": "obligation",
+      "event_status": "possible_or_authorized",
+      "carrier_policy": "class_or_program",
+      "roles": {"agent": "player", "target": "move", "recipients": [], "scope": "execution", "instrument": "one hand", "qualifier": null},
+      "explicit_modal": "must",
+      "rationale": "Obligation on move execution."
+    },
+    {
+      "id": "c11",
+      "text": "A man has to move, forwards over a diagonal, towards an empty square of the next row.",
+      "modality": "obligation",
+      "event_status": "possible_or_authorized",
+      "carrier_policy": "class_or_program",
+      "roles": {"agent": "man", "target": "move", "recipients": [], "scope": "forward diagonal", "instrument": null, "qualifier": null},
+      "explicit_modal": "has to",
+      "rationale": "Obligation on man movement."
+    },
+    {
+      "id": "c12",
+      "text": "A king is a man, which reaches and stops at one of the squares of the last line nearest to his adversary, and is crowned with a man of the same color.",
+      "modality": "fact",
+      "event_status": "class_only",
+      "carrier_policy": "none",
+      "roles": {"agent": null, "target": "king", "recipients": [], "scope": "promotion", "instrument": null, "qualifier": null},
+      "explicit_modal": "none",
+      "rationale": "Definition of king creation."
+    },
+    {
+      "id": "c13",
+      "text": "A king moves forwards and backwards over the successive free squares of the diagonal he occupies.",
+      "modality": "fact",
+      "event_status": "class_only",
+      "carrier_policy": "none",
+      "roles": {"agent": null, "target": "king", "recipients": [], "scope": "movement", "instrument": null, "qualifier": null},
+      "explicit_modal": "none",
+      "rationale": "Fact about king movement capability."
+    },
+    {
+      "id": "c14",
+      "text": "Whenever a player, who has the move, touches one of his playable pieces, he has to play with that piece, provided a legal move is possible.",
+      "modality": "obligation",
+      "event_status": "possible_or_authorized",
+      "carrier_policy": "class_or_program",
+      "roles": {"agent": "player", "target": "piece", "recipients": [], "scope": "touch-move", "instrument": null, "qualifier": null},
+      "explicit_modal": "has to",
+      "rationale": "Touch-move obligation."
+    },
+    {
+      "id": "c15",
+      "text": "Capturing a piece of the opponent can be done both forwards and backwards.",
+      "modality": "fact",
+      "event_status": "class_only",
+      "carrier_policy": "none",
+      "roles": {"agent": null, "target": "capture", "recipients": [], "scope": "direction", "instrument": null, "qualifier": null},
+      "explicit_modal": "can",
+      "rationale": "Fact about capture capability — 'can' expresses possibility, not permission."
+    },
+    {
+      "id": "c16",
+      "text": "One cannot capture one's own pieces.",
+      "modality": "prohibition",
+      "event_status": "possible_or_authorized",
+      "carrier_policy": "class_or_program",
+      "roles": {"agent": "player", "target": "own pieces", "recipients": [], "scope": "capture", "instrument": null, "qualifier": null},
+      "explicit_modal": "cannot",
+      "rationale": "Prohibition on self-capture."
+    },
+    {
+      "id": "c17",
+      "text": "Whenever a man meets, diagonally, a piece of the opponent behind which is a free square, he is obliged to jump over the opponent's piece and occupy that free square.",
+      "modality": "obligation",
+      "event_status": "possible_or_authorized",
+      "carrier_policy": "class_or_program",
+      "roles": {"agent": "man", "target": "opponent piece", "recipients": [], "scope": "capture", "instrument": null, "qualifier": null},
+      "explicit_modal": "is obliged to",
+      "rationale": "Obligation to capture when possible."
+    },
+    {
+      "id": "c18",
+      "text": "When a king encounters, on the same diagonal, either close or in the distance, a piece of the opponent behind which one or more squares are empty, he is obliged to jump over it and occupy a free square by choice.",
+      "modality": "obligation",
+      "event_status": "possible_or_authorized",
+      "carrier_policy": "class_or_program",
+      "roles": {"agent": "king", "target": "opponent piece", "recipients": [], "scope": "capture", "instrument": null, "qualifier": null},
+      "explicit_modal": "is obliged to",
+      "rationale": "Obligation for king capture."
+    },
+    {
+      "id": "c19",
+      "text": "If there is a possibility of capture on two or more directions of a king or men, a player has a choice capture, regardless of the number or quality of pieces.",
+      "modality": "permission",
+      "event_status": "possible_or_authorized",
+      "carrier_policy": "class_or_program",
+      "roles": {"agent": "player", "target": "capture", "recipients": [], "scope": "choice among directions", "instrument": null, "qualifier": null},
+      "explicit_modal": "has a choice",
+      "rationale": "Permission to choose among capture options."
+    },
+    {
+      "id": "c20",
+      "text": "In the course of a multiple capture, it is forbidden to jump over one's own pieces.",
+      "modality": "prohibition",
+      "event_status": "possible_or_authorized",
+      "carrier_policy": "class_or_program",
+      "roles": {"agent": "player", "target": "own pieces", "recipients": [], "scope": "multiple capture", "instrument": null, "qualifier": null},
+      "explicit_modal": "forbidden",
+      "rationale": "Prohibition during multiple capture."
+    },
+    {
+      "id": "c21",
+      "text": "In the course of a multiple capture, it is permitted to pass over the same empty square more than once, but it is forbidden to pass over the same piece of the opponent more than once.",
+      "modality": "permission_and_prohibition",
+      "event_status": "possible_or_authorized",
+      "carrier_policy": "class_or_program",
+      "roles": {"agent": "player", "target": "empty square / opponent piece", "recipients": [], "scope": "multiple capture", "instrument": null, "qualifier": null},
+      "explicit_modal": "permitted / forbidden",
+      "rationale": "Permission and prohibition in same clause."
+    }
+  ]
+}

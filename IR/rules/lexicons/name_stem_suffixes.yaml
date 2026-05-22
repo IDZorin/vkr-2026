@@ -1,0 +1,18 @@
+# Суффиксы имён метрик, которые нужно отрезать чтобы получить «stem» —
+# общую часть с evidence-полями.
+#
+# Используется в IR/src/build_diagnostics_v1.py для эвристики
+# "find adjacent stem-matched evidence list".
+#
+# Пример: метрика `formula_repeat_overuse_mass`. Стем = `formula_repeat_overuse`.
+# Рядом в той же группе ищется `formula_repeat_overuse_examples` — оно
+# прикрепляется как evidence.
+
+suffixes:
+  - _count
+  - _mass
+  - _ratio
+  - _rate
+  - _share
+  - _score
+  - _flag
