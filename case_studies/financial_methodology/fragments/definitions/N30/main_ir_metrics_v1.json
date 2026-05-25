@@ -1,7 +1,7 @@
-﻿{
+{
   "generated_at": "2026-05-12T22:32:05.798677+02:00",
   "entry_id": "N30",
-  "artifact_path": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N30\\N30_manual_section_workspace_artifact_current_v1.json",
+  "artifact_path": "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\definitions\\N30\\N30_manual_section_workspace_artifact_current_v1.json",
   "catalog_version": "translation_metrics_catalog_v1",
   "validity": {
     "ast_valid": 1,
@@ -2415,7 +2415,7 @@
   "silver_reference": {
     "disabled_for_manual_reference": false,
     "silver_reference_found": true,
-    "silver_reference_path": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\outputs\\runs\\silver_baseline\\definitions_full6_multivariant_critic_v1_with_gold.md",
+    "silver_reference_path": "<PRIVATE_WORKSPACE>\\IR\\outputs\\runs\\silver_baseline\\definitions_full6_multivariant_critic_v1_with_gold.md",
     "silver_reference_ir": "constraint trading_day_requires_exchange_trading_day_or_market_disruption_case : forall s: Security, d: CalendarDate, TradingDay(s, d) implies (TradingDayAtExchange(ExchangeFor(s), d) or WouldBeTradingDayButForMarketDisruption(ExchangeFor(s), d)) constraint trading_day_excludes_early_close : forall s: Security, d: CalendarDate, TradingDay(s, d) implies not TradingCeasedBeforeScheduledClose(ExchangeFor(s), d) constraint trading_day_excludes_scheduled_shortened_period : forall s: Security, d: CalendarDate, TradingDay(s, d) implies not ExchangeOpenForScheduledShortenedPeriod(ExchangeFor(s), d) constraint trading_day_scope_definition : forall s: Security, d: CalendarDate, TradingDay(s, d) implies (exists r: CalendarDate, RebalanceDay(r) and (IndexComponent(s, r) or (exists c: CalendarDate, CalculationDay(c) and ImmediatelyFollowingDate(c, r) and IndexComponent(s, c))))",
     "top_level_cosine": 0.28524895269256473,
     "logic_cosine": 0.6600778505528795,

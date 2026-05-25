@@ -1,7 +1,7 @@
-﻿# Translation Metrics v1 - N26
+# Translation Metrics v1 - N26
 
 - generated_at: `2026-05-20T03:59:02.855112+02:00`
-- artifact_path: `D:\OneDrive\Documents\Study\MIPT\VKR\research_experiments\2026-02_pipeline\case_studies\financial_methodology\definitions\N26\N26_manual_section_workspace_artifact_current_v1.json`
+- artifact_path: `<PRIVATE_WORKSPACE>\case_studies\financial_methodology\definitions\N26\N26_manual_section_workspace_artifact_current_v1.json`
 - catalog_version: `translation_metrics_catalog_v1`
 
 ## validity
@@ -1526,7 +1526,7 @@
 {
   "disabled_for_manual_reference": false,
   "silver_reference_found": true,
-  "silver_reference_path": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\outputs\\runs\\silver_baseline\\definitions_full6_multivariant_critic_v1_with_gold.md",
+  "silver_reference_path": "<PRIVATE_WORKSPACE>\\IR\\outputs\\runs\\silver_baseline\\definitions_full6_multivariant_critic_v1_with_gold.md",
   "silver_reference_ir": "constraint rebalance_day_when_first_wednesday_is_eligible : forall d: CalendarDate, ((MonthOf(d) = May or MonthOf(d) = November) and (WeekdayOf(d) = Wednesday) and not (exists prior: CalendarDate, EarlierInSameMonth(prior, d) and (WeekdayOf(prior) = Wednesday)) and EligibleRebalanceDay(d)) implies RebalanceDay(d) constraint rebalance_day_when_first_wednesday_is_not_eligible : forall d: CalendarDate, ((MonthOf(d) = May or MonthOf(d) = November) and (WeekdayOf(d) = Wednesday) and not (exists prior: CalendarDate, EarlierInSameMonth(prior, d) and (WeekdayOf(prior) = Wednesday)) and not EligibleRebalanceDay(d)) implies RebalanceDay(ImmediatelyFollowingEligibleRebalanceDay(d))",
   "top_level_cosine": 0.3779644730092272,
   "logic_cosine": 0.8128652495959513,

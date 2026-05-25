@@ -1,7 +1,7 @@
-﻿{
+{
   "schema": "entry_checks_v1",
   "entry_id": "section_4_5",
-  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5",
+  "entry_dir": "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5",
   "generated_at": "2026-05-14T16:13:06",
   "with_llm": false,
   "corpus_aware": false,
@@ -16,9 +16,9 @@
       "returncode": 0,
       "duration_s": 2.562,
       "cmd": [
-        "D:\\scoop\\apps\\python310\\current\\python.exe",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\a4v3_parser_v1.py",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5\\main_ir.a4v3",
+        "python",
+        "<PRIVATE_WORKSPACE>\\IR\\src\\a4v3_parser_v1.py",
+        "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5\\main_ir.a4v3",
         "--strict"
       ],
       "stdout_tail": "declarations: 93\nassertions:   10\nwarnings:     0\n\nBy family.kind:\n  SymbolDecl.rel: 31\n  SymbolDecl.entity: 22\n  TypeDecl.opaque: 12\n  TypeDecl.subtype: 8\n  AssertDecl.constraint: 6\n  SymbolDecl.fun: 4\n  AssertDecl.fact: 4\n  TypeDecl.enum: 3\n  DeonticDecl.obligation: 2\n  DeonticDecl.permission: 1\n",
@@ -30,11 +30,11 @@
       "returncode": 0,
       "duration_s": 0.149,
       "cmd": [
-        "D:\\scoop\\apps\\python310\\current\\python.exe",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\a4v3_semantic_lint_v1.py",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5"
+        "python",
+        "<PRIVATE_WORKSPACE>\\IR\\src\\a4v3_semantic_lint_v1.py",
+        "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5"
       ],
-      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5\\a4v3_semantic_lint_v1.json\n  findings: 5\n  by_check: {'relation_or_function_arity_gt_2_without_role_explanation': 5}\n",
+      "stdout_tail": "Wrote <PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5\\a4v3_semantic_lint_v1.json\n  findings: 5\n  by_check: {'relation_or_function_arity_gt_2_without_role_explanation': 5}\n",
       "stderr_tail": ""
     },
     {
@@ -43,11 +43,11 @@
       "returncode": 0,
       "duration_s": 3.007,
       "cmd": [
-        "D:\\scoop\\apps\\python310\\current\\python.exe",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\token_provenance_v1.py",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5"
+        "python",
+        "<PRIVATE_WORKSPACE>\\IR\\src\\token_provenance_v1.py",
+        "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5"
       ],
-      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5\\metrics_token_provenance_v1.json\n  content coverage: 85/95 (0.895)\n  uncovered: 10\n",
+      "stdout_tail": "Wrote <PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5\\metrics_token_provenance_v1.json\n  content coverage: 85/95 (0.895)\n  uncovered: 10\n",
       "stderr_tail": ""
     },
     {
@@ -56,11 +56,11 @@
       "returncode": 0,
       "duration_s": 0.218,
       "cmd": [
-        "D:\\scoop\\apps\\python310\\current\\python.exe",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\provenance_lint_v1.py",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5"
+        "python",
+        "<PRIVATE_WORKSPACE>\\IR\\src\\provenance_lint_v1.py",
+        "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5"
       ],
-      "stdout_tail": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5: findings=0 strong=0\n",
+      "stdout_tail": "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5: findings=0 strong=0\n",
       "stderr_tail": ""
     },
     {
@@ -69,9 +69,9 @@
       "returncode": 0,
       "duration_s": 0.219,
       "cmd": [
-        "D:\\scoop\\apps\\python310\\current\\python.exe",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\provenance_backtranslation_metrics_v1.py",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5"
+        "python",
+        "<PRIVATE_WORKSPACE>\\IR\\src\\provenance_backtranslation_metrics_v1.py",
+        "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5"
       ],
       "stdout_tail": "section_4_5: status=ok claims=13 score=0.831\n",
       "stderr_tail": ""
@@ -82,11 +82,11 @@
       "returncode": 0,
       "duration_s": 1.809,
       "cmd": [
-        "D:\\scoop\\apps\\python310\\current\\python.exe",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\family_coverage_v1.py",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5"
+        "python",
+        "<PRIVATE_WORKSPACE>\\IR\\src\\family_coverage_v1.py",
+        "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5"
       ],
-      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5\\metrics_family_coverage_v1.json\n  INNFs used: ['AssertDecl', 'DeonticDecl', 'SymbolDecl', 'TypeDecl']\n  expr markers: {'forall': 6, 'exists': 7, 'implies': 4, 'iff': 1}\n  gaps: 0, matches: 1\n",
+      "stdout_tail": "Wrote <PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5\\metrics_family_coverage_v1.json\n  INNFs used: ['AssertDecl', 'DeonticDecl', 'SymbolDecl', 'TypeDecl']\n  expr markers: {'forall': 6, 'exists': 7, 'implies': 4, 'iff': 1}\n  gaps: 0, matches: 1\n",
       "stderr_tail": ""
     },
     {
@@ -95,11 +95,11 @@
       "returncode": 0,
       "duration_s": 0.242,
       "cmd": [
-        "D:\\scoop\\apps\\python310\\current\\python.exe",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\source_phrase_coverage_v1.py",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5"
+        "python",
+        "<PRIVATE_WORKSPACE>\\IR\\src\\source_phrase_coverage_v1.py",
+        "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5"
       ],
-      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5\\metrics_source_phrase_coverage_v1.json\n  phrases: 21, coverage: 1.0\n",
+      "stdout_tail": "Wrote <PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5\\metrics_source_phrase_coverage_v1.json\n  phrases: 21, coverage: 1.0\n",
       "stderr_tail": ""
     },
     {
@@ -108,11 +108,11 @@
       "returncode": 0,
       "duration_s": 0.184,
       "cmd": [
-        "D:\\scoop\\apps\\python310\\current\\python.exe",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\lowering_audit_v1.py",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5"
+        "python",
+        "<PRIVATE_WORKSPACE>\\IR\\src\\lowering_audit_v1.py",
+        "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5"
       ],
-      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5\\lowering_audit_v1.json\n  smells: 0\n  by family: {}\n",
+      "stdout_tail": "Wrote <PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5\\lowering_audit_v1.json\n  smells: 0\n  by family: {}\n",
       "stderr_tail": ""
     },
     {
@@ -121,9 +121,9 @@
       "returncode": 0,
       "duration_s": 0.296,
       "cmd": [
-        "D:\\scoop\\apps\\python310\\current\\python.exe",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\role_annotation_lint_v1.py",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5"
+        "python",
+        "<PRIVATE_WORKSPACE>\\IR\\src\\role_annotation_lint_v1.py",
+        "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5"
       ],
       "stdout_tail": "",
       "stderr_tail": ""
@@ -134,11 +134,11 @@
       "returncode": 0,
       "duration_s": 35.701,
       "cmd": [
-        "D:\\scoop\\apps\\python310\\current\\python.exe",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\legacy_metrics_runner_v1.py",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5"
+        "python",
+        "<PRIVATE_WORKSPACE>\\IR\\src\\legacy_metrics_runner_v1.py",
+        "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5"
       ],
-      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5\\main_ir_metrics_v1.json\n",
+      "stdout_tail": "Wrote <PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5\\main_ir_metrics_v1.json\n",
       "stderr_tail": "\nLoading weights:   0%|          | 0/100 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 100/100 [00:00<00:00, 12131.03it/s]\n\u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\nKey                     | Status     |  | \n------------------------+------------+--+-\nvocab_transform.bias    | UNEXPECTED |  | \nvocab_layer_norm.weight | UNEXPECTED |  | \nvocab_transform.weight  | UNEXPECTED |  | \nvocab_projector.bias    | UNEXPECTED |  | \nvocab_layer_norm.bias   | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n\nLoading weights:   0%|          | 0/105 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 105/105 [00:00<00:00, 3881.87it/s]\n\u001b[1mRobertaForSequenceClassification LOAD REPORT\u001b[0m from: cross-encoder/nli-distilroberta-base\nKey                             | Status     |  | \n--------------------------------+------------+--+-\nroberta.embeddings.position_ids | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n\nLoading weights:   0%|          | 0/100 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 100/100 [00:00<00:00, 3616.93it/s]\n\u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\nKey                     | Status     |  | \n------------------------+------------+--+-\nvocab_transform.bias    | UNEXPECTED |  | \nvocab_layer_norm.weight | UNEXPECTED |  | \nvocab_transform.weight  | UNEXPECTED |  | \nvocab_projector.bias    | UNEXPECTED |  | \nvocab_layer_norm.bias   | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n\nLoading weights:   0%|          | 0/100 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 100/100 [00:00<00:00, 2941.10it/s]\n\u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\nKey                     | Status     |  | \n------------------------+------------+--+-\nvocab_transform.bias    | UNEXPECTED |  | \nvocab_layer_norm.weight | UNEXPECTED |  | \nvocab_transform.weight  | UNEXPECTED |  | \nvocab_projector.bias    | UNEXPECTED |  | \nvocab_layer_norm.bias   | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n"
     },
     {
@@ -147,9 +147,9 @@
       "returncode": 0,
       "duration_s": 5.056,
       "cmd": [
-        "D:\\scoop\\apps\\python310\\current\\python.exe",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\run_diagnostic_suite_v1.py",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5",
+        "python",
+        "<PRIVATE_WORKSPACE>\\IR\\src\\run_diagnostic_suite_v1.py",
+        "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5",
         "--skip-llm"
       ],
       "stdout_tail": "=== section_4_5 ===\n  gate=needs_review  fail=0  warn=35  findings=35\n{\n  \"gate\": \"needs_review\",\n  \"n_fail\": 0,\n  \"n_warning\": 35,\n  \"by_module\": {\n    \"a4v3_semantic_lint\": {\n      \"ok\": 12,\n      \"warning\": 0,\n      \"fail\": 0,\n      \"inspect\": 0,\n      \"error_no_value\": 0,\n      \"error_no_threshold\": 0,\n      \"rules\": 12\n    },\n    \"merge_canonicalization\": {\n      \"ok\": 5,\n      \"warning\": 14,\n      \"fail\": 0,\n      \"inspect\": 52,\n      \"error_no_value\": 0,\n      \"error_no_threshold\": 0,\n      \"rules\": 71\n    },\n    \"ontology_planning\": {\n      \"ok\": 7,\n      \"warning\": 21,\n      \"fail\": 0,\n      \"inspect\": 32,\n      \"error_no_value\": 0,\n      \"error_no_threshold\": 0,\n      \"rules\": 60\n    }\n  }\n}\n",
@@ -161,11 +161,11 @@
       "returncode": 0,
       "duration_s": 3.455,
       "cmd": [
-        "D:\\scoop\\apps\\python310\\current\\python.exe",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\quality_snapshot_v1.py",
-        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5"
+        "python",
+        "<PRIVATE_WORKSPACE>\\IR\\src\\quality_snapshot_v1.py",
+        "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5"
       ],
-      "stdout_tail": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5: clean_gate=accepted -> D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5\\quality_snapshot_v1.json\n",
+      "stdout_tail": "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5: clean_gate=accepted -> <PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5\\quality_snapshot_v1.json\n",
       "stderr_tail": ""
     }
   ],

@@ -4,19 +4,205 @@
   "generated_from": "metrics_token_provenance_v1.json",
   "items": [
     {
+      "token": "synthetic",
+      "surface_forms": [
+        "Synthetic",
+        "synthetic"
+      ],
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 1
+        },
+        {
+          "line": 3,
+          "column": 32
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "No direct token-level IR provenance was found. Add a human explanation if this word is intentionally absorbed rather than formalized.",
+      "reviewer": ""
+    },
+    {
+      "token": "example",
+      "surface_forms": [
+        "Example",
+        "example"
+      ],
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 11
+        },
+        {
+          "line": 3,
+          "column": 51
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "No direct token-level IR provenance was found. Add a human explanation if this word is intentionally absorbed rather than formalized.",
+      "reviewer": ""
+    },
+    {
+      "token": "toy",
+      "surface_forms": [
+        "Toy"
+      ],
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 33
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "No direct token-level IR provenance was found. Add a human explanation if this word is intentionally absorbed rather than formalized.",
+      "reviewer": ""
+    },
+    {
+      "token": "public",
+      "surface_forms": [
+        "public"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 6
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "No direct token-level IR provenance was found. Add a human explanation if this word is intentionally absorbed rather than formalized.",
+      "reviewer": ""
+    },
+    {
+      "token": "demo",
+      "surface_forms": [
+        "demo"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 13
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "No direct token-level IR provenance was found. Add a human explanation if this word is intentionally absorbed rather than formalized.",
+      "reviewer": ""
+    },
+    {
+      "token": "fragment",
+      "surface_forms": [
+        "fragment"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 18
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "No direct token-level IR provenance was found. Add a human explanation if this word is intentionally absorbed rather than formalized.",
+      "reviewer": ""
+    },
+    {
+      "token": "teach",
+      "surface_forms": [
+        "teaching"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 42
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "No direct token-level IR provenance was found. Add a human explanation if this word is intentionally absorbed rather than formalized.",
+      "reviewer": ""
+    },
+    {
+      "token": "not",
+      "surface_forms": [
+        "not"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 66
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "No direct token-level IR provenance was found. Add a human explanation if this word is intentionally absorbed rather than formalized.",
+      "reviewer": ""
+    },
+    {
+      "token": "copi",
+      "surface_forms": [
+        "copied"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 70
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "No direct token-level IR provenance was found. Add a human explanation if this word is intentionally absorbed rather than formalized.",
+      "reviewer": ""
+    },
+    {
+      "token": "proprietari",
+      "surface_forms": [
+        "proprietary"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 84
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "No direct token-level IR provenance was found. Add a human explanation if this word is intentionally absorbed rather than formalized.",
+      "reviewer": ""
+    },
+    {
+      "token": "methodologi",
+      "surface_forms": [
+        "methodology"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 96
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "No direct token-level IR provenance was found. Add a human explanation if this word is intentionally absorbed rather than formalized.",
+      "reviewer": ""
+    },
+    {
       "token": "assign",
       "surface_forms": [
         "assigned"
       ],
       "source_locations": [
         {
-          "line": 3,
+          "line": 5,
           "column": 48
         }
       ],
       "status": "waiver_needed",
-      "suggested_category": "needs_human_review",
-      "comment": "Глагол \"assigned\" поглощён результирующей функцией weight(...): IR моделирует назначенный вес как значение, а не отдельное событие назначения.",
+      "suggested_category": "absorbed_event_as_function_value",
+      "comment": "The verb 'assigned' is absorbed by the resulting `weight(...)` function value. The demo models the assigned weight, not a separate assignment event.",
       "reviewer": "human_approved"
     },
     {
@@ -26,13 +212,13 @@
       ],
       "source_locations": [
         {
-          "line": 3,
-          "column": 108
+          "line": 5,
+          "column": 107
         }
       ],
       "status": "waiver_needed",
-      "suggested_category": "needs_human_review",
-      "comment": "Фраза \"subject to\" только вводит последующие ограничения; сами ограничения уже представлены отдельными constraint, поэтому отдельный subject_to-предикат не нужен.",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "The phrase 'subject to' introduces the two following constraints. The constraints themselves are represented as top-level formulas, so no separate subject-to predicate is needed.",
       "reviewer": "human_approved"
     },
     {
@@ -42,13 +228,13 @@
       ],
       "source_locations": [
         {
-          "line": 3,
-          "column": 123
+          "line": 5,
+          "column": 122
         }
       ],
       "status": "waiver_needed",
       "suggested_category": "absorbed_discourse_or_modifier",
-      "comment": "Указатель на список ниже; отдельной семантики не добавляет, список раскрыт двумя formula-bearing constraints.",
+      "comment": "The word 'following' points to the list that is formalized by the two constraints.",
       "reviewer": "human_approved"
     },
     {
@@ -58,17 +244,17 @@
       ],
       "source_locations": [
         {
-          "line": 3,
-          "column": 133
+          "line": 5,
+          "column": 132
         },
         {
-          "line": 8,
+          "line": 10,
           "column": 81
         }
       ],
       "status": "waiver_needed",
-      "suggested_category": "needs_human_review",
-      "comment": "Слово \"constraints\" здесь является упаковкой для двух последующих правил; в IR упаковка поглощена тем, что оба правила записаны как отдельные top-level constraints.",
+      "suggested_category": "covered_by_formula_family",
+      "comment": "The source word 'constraints' is represented structurally by two A4V3 constraint declarations.",
       "reviewer": "human_approved"
     },
     {
@@ -78,13 +264,13 @@
       ],
       "source_locations": [
         {
-          "line": 5,
+          "line": 7,
           "column": 47
         }
       ],
       "status": "waiver_needed",
-      "suggested_category": "absorbed_discourse_or_modifier",
-      "comment": "Модификатор \"total\" поглощён предположением, что региональная доля считается как нормализованная доля всего Index; если это предположение отвергнуть, токен надо моделировать явно через whole-index denominator.",
+      "suggested_category": "absorbed_denominator_context",
+      "comment": "The phrase 'total Index' is absorbed by the normalized regional-sum constraint over all components in a region.",
       "reviewer": "human_approved"
     },
     {
@@ -94,13 +280,13 @@
       ],
       "source_locations": [
         {
-          "line": 8,
+          "line": 10,
           "column": 70
         }
       ],
       "status": "waiver_needed",
-      "suggested_category": "needs_human_review",
-      "comment": "\"until\" трактуется как процедурная фраза завершения, а не как обязательный TemporalDecl: IR явно задаёт redistribution и две конечные constraints, не вводя trace/state semantics.",
+      "suggested_category": "procedural_trace_not_modeled",
+      "comment": "The demo models the final fixed-point constraints but does not model the full iterative trace.",
       "reviewer": "human_approved"
     },
     {
@@ -110,13 +296,13 @@
       ],
       "source_locations": [
         {
-          "line": 8,
+          "line": 10,
           "column": 76
         }
       ],
       "status": "waiver_needed",
-      "suggested_category": "needs_human_review",
-      "comment": "\"both\" поглощено тем, что обе целевые constraints присутствуют как top-level формулы; в A4V3 набор constraints читается совместно, то есть обе должны выполняться одновременно.",
+      "suggested_category": "covered_by_joint_constraints",
+      "comment": "Both target constraints are present as separate top-level formulas and are interpreted jointly.",
       "reviewer": "human_approved"
     },
     {
@@ -126,13 +312,13 @@
       ],
       "source_locations": [
         {
-          "line": 8,
+          "line": 10,
           "column": 97
         }
       ],
       "status": "waiver_needed",
-      "suggested_category": "needs_human_review",
-      "comment": "\"satisfied\" не моделируется отдельным helper-предикатом, потому что состояние удовлетворённости выражено самими двумя target constraints.",
+      "suggested_category": "covered_by_joint_constraints",
+      "comment": "Satisfaction is not modeled as a helper predicate because the target constraints themselves express the satisfied state.",
       "reviewer": "human_approved"
     }
   ],

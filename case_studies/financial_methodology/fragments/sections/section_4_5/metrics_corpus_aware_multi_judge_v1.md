@@ -1,4 +1,4 @@
-﻿# Corpus-Aware Multi Judge: section_4_5
+# Corpus-Aware Multi Judge: section_4_5
 
 - generated_at: `2026-05-10T18:49:35+02:00`
 - skipped: `False`
@@ -13,7 +13,7 @@
 ```json
 {
   "entry": "section_4_5",
-  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_5",
+  "entry_dir": "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\sections\\section_4_5",
   "global_bridge": true,
   "related_sections": [],
   "artifacts": {

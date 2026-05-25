@@ -1,7 +1,7 @@
-﻿# Translation Metrics v1 - section_5_4
+# Translation Metrics v1 - section_5_4
 
 - generated_at: `2026-05-14T21:33:55.439201+02:00`
-- artifact_path: `D:\OneDrive\Documents\Study\MIPT\VKR\research_experiments\2026-02_pipeline\case_studies\financial_methodology\sections\section_5_4\section_5_4_manual_section_workspace_artifact_current_v1.json`
+- artifact_path: `<PRIVATE_WORKSPACE>\case_studies\financial_methodology\sections\section_5_4\section_5_4_manual_section_workspace_artifact_current_v1.json`
 - catalog_version: `translation_metrics_catalog_v1`
 
 ## validity
@@ -2279,7 +2279,7 @@
 {
   "disabled_for_manual_reference": false,
   "silver_reference_found": false,
-  "silver_reference_path": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\outputs\\runs\\silver_baseline\\definitions_full6_multivariant_critic_v1_with_gold.md",
+  "silver_reference_path": "<PRIVATE_WORKSPACE>\\IR\\outputs\\runs\\silver_baseline\\definitions_full6_multivariant_critic_v1_with_gold.md",
   "silver_reference_ir": "",
   "top_level_cosine": null,
   "logic_cosine": null,

@@ -1,4 +1,4 @@
-﻿# Corpus-Aware Multi Judge: N06
+# Corpus-Aware Multi Judge: N06
 
 - generated_at: `2026-05-12T13:16:35+02:00`
 - skipped: `False`
@@ -13,7 +13,7 @@
 ```json
 {
   "entry": "N06",
-  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N06",
+  "entry_dir": "<PRIVATE_WORKSPACE>\\case_studies\\financial_methodology\\definitions\\N06",
   "global_bridge": false,
   "related_sections": [],
   "artifacts": {

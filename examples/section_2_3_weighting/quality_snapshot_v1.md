@@ -1,16 +1,16 @@
 # Quality Snapshot: section_2_3_weighting
 
 - clean_gate: `needs_review`
-- blocking_conditions: `invalid_ast_or_combined_validation, missing_required_artifacts`
+- blocking_conditions: `invalid_ast_or_combined_validation, unapproved_token_waivers, missing_required_artifacts`
 - ast_valid / combined_validation_ok: `None` / `None`
 - effective grounding counts: symbols `None`, sorts `None`, callees `None`
 - raw legacy grounding counts: symbols `None`, sorts `None`, refs `None`, callees `None`, origin `None`
 - required/advisory family gaps: `0` / `2`
 - source phrase coverage: `4/4` (`1.0`)
 - source phrase waiver-adjusted coverage: `4/4` (`1.0`)
-- token direct coverage: `20/28` (`0.714`)
-- token waiver-accounted coverage: `28/28` (`1.0`)
-- human-approved token waivers: `8/8`
+- token direct coverage: `20/39` (`0.513`)
+- token waiver-accounted coverage: `28/39` (`0.718`)
+- human-approved token waivers: `8/19`
 - exact URL preservation: `0/0` (`None`)
 - lowering smells: `0`
 - a4v3 semantic lint findings: `0` (strong `0`, soft `0`, style `0`, advisory `0`)

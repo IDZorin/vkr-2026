@@ -1,4 +1,4 @@
-﻿# Translation Metrics v1 - N08
+# Translation Metrics v1 - N08
 
 - generated_at: `2026-05-20T03:37:40.915339+02:00`
 - artifact_path: `case_studies\financial_methodology\definitions\N08\N08_manual_section_workspace_artifact_current_v1.json`
@@ -1182,7 +1182,7 @@
 {
   "disabled_for_manual_reference": false,
   "silver_reference_found": false,
-  "silver_reference_path": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\outputs\\runs\\silver_baseline\\definitions_full6_multivariant_critic_v1_with_gold.md",
+  "silver_reference_path": "<PRIVATE_WORKSPACE>\\IR\\outputs\\runs\\silver_baseline\\definitions_full6_multivariant_critic_v1_with_gold.md",
   "silver_reference_ir": "",
   "top_level_cosine": null,
   "logic_cosine": null,
