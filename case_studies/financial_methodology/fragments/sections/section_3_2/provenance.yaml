@@ -1,0 +1,48 @@
+section: "3.2 Extraordinary Rebalance"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  index_not_rebalanced_extraordinarily:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The Index is not rebalanced extraordinarily."
+    back_translation: >
+      The Index has no extraordinary rebalance.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source is encoded as a hard negative constraint, not as a deontic
+      prohibition. The positive relation `rebalance_of_index` remains explicit
+      and the negation appears in the formula body, so a later claim asserting
+      an extraordinary rebalance of the Index can be detected as a contradiction.
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  TheIndex:
+    note: >
+      Local entity for the source phrase "The Index". Cross-section identity
+      with published index entities belongs to the bridge layer.
+    source_phrase: "The Index"
+  Rebalance:
+    note: >
+      Event/action carrier for the source verb "rebalanced".
+    source_phrase: "rebalanced"
+  ExtraordinaryRebalance:
+    note: >
+      Subtype for the source phrase "rebalanced extraordinarily".
+    source_phrase: "rebalanced extraordinarily"
+  rebalance_of_index:
+    note: >
+      Positive relation used as the carrier for rebalance events of an index.
+      The negative source claim is represented by `not rebalance_of_index(...)`
+      rather than by hiding "not" in the relation name.
+    source_phrase: "Index is ... rebalanced"

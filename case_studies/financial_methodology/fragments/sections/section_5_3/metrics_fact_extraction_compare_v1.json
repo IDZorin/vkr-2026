@@ -1,0 +1,116 @@
+{
+  "entry_id": "section_5_3",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1895,
+    "completion_tokens": 435,
+    "total_tokens": 2330
+  },
+  "latency_s": 2.7290616035461426,
+  "raw_parsed": {
+    "source_facts": [
+      "The Index Administrator's application of the described method is final and binding.",
+      "The Index Administrator shall apply the described method for Index composition and calculation.",
+      "Market, supervisory, legal, financial, or tax reasons may require method changes.",
+      "The Index Administrator may change Index terms and conditions and the calculation method.",
+      "Such changes may prevent obvious or demonstrable error.",
+      "Such changes may remedy, correct, or supplement incorrect terms and conditions.",
+      "The Index Administrator is not obliged to provide information on modifications or changes.",
+      "The Index Administrator will take appropriate steps to ensure a consistent calculation method."
+    ],
+    "render_facts": [
+      "The Index Administrator applies the described method to the Index.",
+      "The described method is the method for Index composition and calculation.",
+      "The application of the described method by the Index Administrator is final and binding.",
+      "For each Change Reason, the corresponding potential method change relates to the described method.",
+      "A deemed modification or change of the Index is a change to the Index Terms and Conditions or to the calculation method applied to the Index.",
+      "A deemed modification or change is deemed necessary and desirable by the Index Administrator.",
+      "A deemed modification or change prevents an obvious or demonstrable error.",
+      "A deemed modification or change addresses incorrect Index Terms and Conditions by remedying, correcting, or supplementing them.",
+      "The Index Administrator is not obliged to provide information on modifications or changes.",
+      "Appropriate steps ensure consistency between the calculation method applied to the Index and the described method."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 2,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 1,
+        "render_idx": 1,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 2,
+        "render_idx": 3,
+        "match": "weaker"
+      },
+      {
+        "src_idx": 3,
+        "render_idx": 4,
+        "match": "weaker"
+      },
+      {
+        "src_idx": 4,
+        "render_idx": 6,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 5,
+        "render_idx": 7,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 6,
+        "render_idx": 8,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 7,
+        "render_idx": 9,
+        "match": "paraphrase"
+      }
+    ],
+    "render_only": [
+      0,
+      5
+    ]
+  },
+  "summary": {
+    "n_source_facts": 8,
+    "n_render_facts": 10,
+    "matched_source": 8,
+    "matched_render": 8,
+    "render_only": 2,
+    "missing_source": 0,
+    "weaker_in_render": 2,
+    "stronger_in_render": 0,
+    "recall": 1.0,
+    "precision": 0.8,
+    "f1": 0.889,
+    "missing_source_facts": [],
+    "render_only_facts": [
+      {
+        "idx": 0,
+        "fact": "The Index Administrator applies the described method to the Index."
+      },
+      {
+        "idx": 5,
+        "fact": "A deemed modification or change is deemed necessary and desirable by the Index Administrator."
+      }
+    ],
+    "weaker_pairs": [
+      {
+        "src": "Market, supervisory, legal, financial, or tax reasons may require method changes.",
+        "render": "For each Change Reason, the corresponding potential method change relates to the described method."
+      },
+      {
+        "src": "The Index Administrator may change Index terms and conditions and the calculation method.",
+        "render": "A deemed modification or change of the Index is a change to the Index Terms and Conditions or to the calculation method applied to the Index."
+      }
+    ],
+    "stronger_pairs": []
+  }
+}

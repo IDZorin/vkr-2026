@@ -1,4 +1,4 @@
-"""Merge-readiness audit for the DZ corpus.
+﻿"""Merge-readiness audit for the seed methodology corpus.
 
 This check sits between bridge construction and actual merged-IR generation.
 It is deliberately conservative: it cannot prove that the canonical ontology is
@@ -153,10 +153,10 @@ def _split_args(raw: str) -> list[str]:
     return [arg.strip() for arg in raw.split(",") if arg.strip()]
 
 
-def _entry_paths(dz_root: Path) -> list[Path]:
+def _entry_paths(run_root: Path) -> list[Path]:
     out: list[Path] = []
     for sub in ("sections", "definitions", "appendix"):
-        base = dz_root / sub
+        base = run_root / sub
         if not base.exists():
             continue
         for p in sorted(base.glob("*/main_ir.a4v3")):
@@ -166,8 +166,8 @@ def _entry_paths(dz_root: Path) -> list[Path]:
     return out
 
 
-def _entry_id(path: Path, dz_root: Path) -> str:
-    return path.parent.relative_to(dz_root).as_posix()
+def _entry_id(path: Path, run_root: Path) -> str:
+    return path.parent.relative_to(run_root).as_posix()
 
 
 def _entry_label(entry_id: str) -> str:
@@ -320,14 +320,14 @@ def _finding(
     return out
 
 
-def analyze(dz_root: Path) -> dict[str, Any]:
-    bridge_path = dz_root / "bridge" / "main_bridge.a4v3"
-    merge_dir = dz_root / "merge"
+def analyze(run_root: Path) -> dict[str, Any]:
+    bridge_path = run_root / "bridge" / "main_bridge.a4v3"
+    merge_dir = run_root / "merge"
     canonical_path = merge_dir / "canonical_ontology_v1.a4v3"
     decisions_path = merge_dir / "canonical_bridge_decisions_v1.yaml"
     bridge = _parse_bridge(bridge_path)
 
-    candidate_path = dz_root / "bridge" / "bridge_candidate_audit_v1.json"
+    candidate_path = run_root / "bridge" / "bridge_candidate_audit_v1.json"
     candidate_audit: dict[str, Any] = {}
     if candidate_path.exists():
         candidate_audit = json.loads(candidate_path.read_text(encoding="utf-8"))
@@ -337,8 +337,8 @@ def analyze(dz_root: Path) -> dict[str, Any]:
     decl_name_counts: Counter[tuple[str, str]] = Counter()
     parse_warnings: list[dict[str, Any]] = []
 
-    for path in _entry_paths(dz_root):
-        entry_id = _entry_id(path, dz_root)
+    for path in _entry_paths(run_root):
+        entry_id = _entry_id(path, run_root)
         label = _entry_label(entry_id)
         text = path.read_text(encoding="utf-8")
         ast = parse(text, strict=False)
@@ -382,7 +382,7 @@ def analyze(dz_root: Path) -> dict[str, Any]:
             _finding(
                 "entry_parse_warnings",
                 "hard",
-                "Some canonical DZ entries have parser warnings.",
+                "Some canonical seed methodology entries have parser warnings.",
                 data={"parse_warning_count": len(parse_warnings), "parse_warnings": parse_warnings[:20]},
             )
         )
@@ -556,7 +556,7 @@ def analyze(dz_root: Path) -> dict[str, Any]:
 
     return {
         "schema": "merge_readiness_audit_v1",
-        "dz_root": str(dz_root),
+        "run_root": str(run_root),
         "entry_count": len(entries),
         "declaration_count": len(decls),
         "rule_bearing_declaration_count": rule_bearing_decl_count,
@@ -637,14 +637,14 @@ def _write_markdown(report: dict[str, Any], out_path: Path) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dz-root", default="IR/outputs/runs/dz")
+    ap.add_argument("--run-root", default="case_studies/financial_methodology")
     ap.add_argument("--out-dir", default=None)
     args = ap.parse_args()
 
-    dz_root = Path(args.dz_root)
-    out_dir = Path(args.out_dir) if args.out_dir else dz_root / "merge"
+    run_root = Path(args.run_root)
+    out_dir = Path(args.out_dir) if args.out_dir else run_root / "merge"
     out_dir.mkdir(parents=True, exist_ok=True)
-    report = analyze(dz_root)
+    report = analyze(run_root)
     json_path = out_dir / "merge_readiness_audit_v1.json"
     md_path = out_dir / "merge_readiness_audit_v1.md"
     json_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -4,7 +4,7 @@ Small deterministic lint checks for A4V3 drafts.
 
 This module intentionally does not decide whether an IR is semantically
 faithful to the source. It catches translator-workflow smells that repeatedly
-showed up during manual DZ work:
+showed up during manual financial methodology work:
 
 - unused local declarations
 - obligation scope that repeats an obligation parameter sort
@@ -1078,7 +1078,7 @@ def _event_like_sort_names(blocks: list[dict[str, Any]]) -> set[str]:
 def _generic_instance_name(entity_name: str, sort_name: str) -> bool:
     """Detect numbered placeholder instances such as LicenseIssuance1.
 
-    Canonical DZ usually names source/program entities semantically
+    Canonical seed methodology usually names source/program entities semantically
     (`IndexUnderlyingValueLicenseIssuance`). Numbered instances are a useful
     deterministic signal that a drafter may have materialized an event rather
     than modeling its authorized class/program.
@@ -1817,7 +1817,7 @@ def aggregate(run_root: pathlib.Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    target = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "IR/outputs/runs/dz"
+    target = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "case_studies/financial_methodology"
     if (target / "main_ir.a4v3").exists():
         result = analyze_entry(target)
         out = _save_entry(target, result)

@@ -1,0 +1,35 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N10 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:IndexComponent a rdfs:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:IndexComponentShape a sh:NodeShape ; sh:targetClass ex:IndexComponent .
+ex:Exchange a rdfs:Class .
+ex:ExchangeShape a sh:NodeShape ; sh:targetClass ex:Exchange .
+ex:Listing a rdfs:Class .
+ex:ListingShape a sh:NodeShape ; sh:targetClass ex:Listing .
+ex:Rules a rdfs:Class .
+ex:RulesShape a sh:NodeShape ; sh:targetClass ex:Rules .
+
+ex:TheIndex a ex:Index .
+ex:Section2Rules a ex:Rules .
+ex:respective_exchange_for_index_component a rdfs:Class .
+ex:respective_exchange_for_index_componentShape a sh:NodeShape ; sh:targetClass ex:respective_exchange_for_index_component .
+ex:respective_exchange_for_index_componentShape sh:property [ sh:path ex:respective_exchange_for_index_component_arg_0 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:respective_exchange_for_index_componentShape sh:property [ sh:path ex:respective_exchange_for_index_component_arg_1 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:respective_exchange_for_index_componentShape sh:property [ sh:path ex:respective_exchange_for_index_component_result ; sh:class ex:Exchange ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:listing_component a rdf:Property .
+ex:ListingShape sh:property [ sh:path ex:listing_component ; sh:class ex:IndexComponent ] .
+ex:listing_exchange a rdf:Property .
+ex:ListingShape sh:property [ sh:path ex:listing_exchange ; sh:class ex:Exchange ] .
+ex:listing_determined_in_accordance_with_rules a rdf:Property .
+ex:ListingShape sh:property [ sh:path ex:listing_determined_in_accordance_with_rules ; sh:class ex:Rules ] .

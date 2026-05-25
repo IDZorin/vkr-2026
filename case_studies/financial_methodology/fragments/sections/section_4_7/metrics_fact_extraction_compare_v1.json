@@ -1,0 +1,98 @@
+{
+  "entry_id": "section_4_7",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1757,
+    "completion_tokens": 307,
+    "total_tokens": 2064
+  },
+  "latency_s": 3.9351038932800293,
+  "raw_parsed": {
+    "source_facts": [
+      "In periods of market stress, Solactive calculates its indices following predefined and exhaustive arrangements.",
+      "Those arrangements are described in the Solactive Disruption Policy.",
+      "The Solactive Disruption Policy is incorporated by reference and available on the Solactive website.",
+      "Market stress can arise due to a variety of reasons.",
+      "Market stress generally results in inaccurate or delayed prices for one or more Index Components.",
+      "The determination of the Index may be limited or impaired at times of illiquid or fragmented markets and market stress."
+    ],
+    "render_facts": [
+      "Market disruption may arise for a variety of reasons.",
+      "During market stress, Solactive calculates the Index in accordance with the predefined and exhaustive disruption arrangements described in the Solactive Disruption Policy.",
+      "The Solactive Disruption Policy is incorporated by reference into this Guideline and available on the Solactive website.",
+      "Market stress generally results in inaccurate or delayed prices for one or more Index Components.",
+      "At times of market disruption, the determination of the Index may be limited or impaired."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 1,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 1,
+        "render_idx": 1,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 2,
+        "render_idx": 2,
+        "match": "stronger"
+      },
+      {
+        "src_idx": 3,
+        "render_idx": 0,
+        "match": "stronger"
+      },
+      {
+        "src_idx": 4,
+        "render_idx": 3,
+        "match": "exact"
+      },
+      {
+        "src_idx": 5,
+        "render_idx": 4,
+        "match": "stronger"
+      }
+    ],
+    "render_only": [
+      0
+    ]
+  },
+  "summary": {
+    "n_source_facts": 6,
+    "n_render_facts": 5,
+    "matched_source": 6,
+    "matched_render": 5,
+    "render_only": 1,
+    "missing_source": 0,
+    "weaker_in_render": 0,
+    "stronger_in_render": 3,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "missing_source_facts": [],
+    "render_only_facts": [
+      {
+        "idx": 0,
+        "fact": "Market disruption may arise for a variety of reasons."
+      }
+    ],
+    "weaker_pairs": [],
+    "stronger_pairs": [
+      {
+        "src": "The Solactive Disruption Policy is incorporated by reference and available on the Solactive website.",
+        "render": "The Solactive Disruption Policy is incorporated by reference into this Guideline and available on the Solactive website."
+      },
+      {
+        "src": "Market stress can arise due to a variety of reasons.",
+        "render": "Market disruption may arise for a variety of reasons."
+      },
+      {
+        "src": "The determination of the Index may be limited or impaired at times of illiquid or fragmented markets and market stress.",
+        "render": "At times of market disruption, the determination of the Index may be limited or impaired."
+      }
+    ]
+  }
+}

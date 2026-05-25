@@ -1,0 +1,899 @@
+{
+  "entry_id": "section_2_3",
+  "schema": "semantic_claim_alignment_v1",
+  "generated_at": "2026-05-03T18:23:28",
+  "parse_error": null,
+  "summary": {
+    "claim_count": 4,
+    "strong_candidate_count": 2,
+    "partial_candidate_count": 1,
+    "weak_or_missing_candidate_count": 1,
+    "reviewed_count": 0,
+    "approved_count": 0,
+    "needs_revision_count": 0,
+    "average_top3_token_coverage": 0.711,
+    "all_claims_review_approved": false
+  },
+  "claims": [
+    {
+      "claim_id": "C01",
+      "text": "### 2.3 Weighting of the Index Components",
+      "hash": "78792b96893f",
+      "tokens": [
+        {
+          "token": "weight",
+          "surface_forms": [
+            "Weighting"
+          ],
+          "keys": [
+            "weight",
+            "weighting"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "component",
+          "surface_forms": [
+            "Components"
+          ],
+          "keys": [
+            "component",
+            "components"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "declaration:fun:weight",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "weight",
+          "line": 9,
+          "token_recall": 1.0,
+          "token_precision": 0.3,
+          "score": 0.86,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "weight"
+          ],
+          "raw_excerpt": "fun[required] weight : SelectionDay, IndexComponent -> Weight"
+        },
+        {
+          "block_id": "assertion:constraint:single_index_component_weight_capped",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "single_index_component_weight_capped",
+          "line": 22,
+          "token_recall": 1.0,
+          "token_precision": 0.188,
+          "score": 0.838,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "weight"
+          ],
+          "raw_excerpt": "constraint single_index_component_weight_capped : forall d: SelectionDay, forall c: IndexComponent, weight(d, c) <= 5%"
+        },
+        {
+          "block_id": "assertion:constraint:weights_redistributed_proportionally",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "weights_redistributed_proportionally",
+          "line": 26,
+          "token_recall": 1.0,
+          "token_precision": 0.158,
+          "score": 0.832,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "weight"
+          ],
+          "raw_excerpt": "constraint weights_redistributed_proportionally : forall d: SelectionDay, forall c: IndexComponent, redistributed_proportionally(d, c)"
+        },
+        {
+          "block_id": "assertion:constraint:weight_based_on_float_market_capizatlization",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "weight_based_on_float_market_capizatlization",
+          "line": 14,
+          "token_recall": 1.0,
+          "token_precision": 0.143,
+          "score": 0.829,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "weight"
+          ],
+          "raw_excerpt": "constraint weight_based_on_float_market_capizatlization : forall d: SelectionDay, forall c: IndexComponent, based_on_float_market_capizatlization(d, c)"
+        },
+        {
+          "block_id": "assertion:constraint:region_represents_exactly_50_percent",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "region_represents_exactly_50_percent",
+          "line": 18,
+          "token_recall": 1.0,
+          "token_precision": 0.136,
+          "score": 0.827,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "weight"
+          ],
+          "raw_excerpt": "constraint region_represents_exactly_50_percent : forall d: SelectionDay, forall r: Region, sum(c in IndexComponent where region(c) = r, weight(d, c)) = 50%"
+        }
+      ],
+      "candidate_count": 11,
+      "covered_claim_tokens_by_top3": [
+        "component",
+        "index",
+        "weight"
+      ],
+      "uncovered_claim_tokens_by_top3": [],
+      "top3_token_coverage": 1.0,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C02",
+      "text": "On each Selection Day, each Index Component is assigned a weight based on its Float Market Capizatlization subject to the following constraints:",
+      "hash": "5f436a14801a",
+      "tokens": [
+        {
+          "token": "selection",
+          "surface_forms": [
+            "Selection"
+          ],
+          "keys": [
+            "selection"
+          ]
+        },
+        {
+          "token": "day",
+          "surface_forms": [
+            "Day"
+          ],
+          "keys": [
+            "day"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "component",
+          "surface_forms": [
+            "Component"
+          ],
+          "keys": [
+            "component"
+          ]
+        },
+        {
+          "token": "assign",
+          "surface_forms": [
+            "assigned"
+          ],
+          "keys": [
+            "assign",
+            "assigned"
+          ]
+        },
+        {
+          "token": "weight",
+          "surface_forms": [
+            "weight"
+          ],
+          "keys": [
+            "weight"
+          ]
+        },
+        {
+          "token": "bas",
+          "surface_forms": [
+            "based"
+          ],
+          "keys": [
+            "bas",
+            "based"
+          ]
+        },
+        {
+          "token": "float",
+          "surface_forms": [
+            "Float"
+          ],
+          "keys": [
+            "float"
+          ]
+        },
+        {
+          "token": "market",
+          "surface_forms": [
+            "Market"
+          ],
+          "keys": [
+            "market"
+          ]
+        },
+        {
+          "token": "capizatlization",
+          "surface_forms": [
+            "Capizatlization"
+          ],
+          "keys": [
+            "capizatlization",
+            "capizatlize"
+          ]
+        },
+        {
+          "token": "subject",
+          "surface_forms": [
+            "subject"
+          ],
+          "keys": [
+            "subject"
+          ]
+        },
+        {
+          "token": "follow",
+          "surface_forms": [
+            "following"
+          ],
+          "keys": [
+            "follow",
+            "following"
+          ]
+        },
+        {
+          "token": "constraint",
+          "surface_forms": [
+            "constraints"
+          ],
+          "keys": [
+            "constraints"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:weight_based_on_float_market_capizatlization",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "weight_based_on_float_market_capizatlization",
+          "line": 14,
+          "token_recall": 0.692,
+          "token_precision": 0.524,
+          "score": 0.659,
+          "matched_claim_tokens": [
+            "bas",
+            "capizatlization",
+            "component",
+            "day",
+            "float",
+            "index",
+            "market",
+            "selection",
+            "weight"
+          ],
+          "raw_excerpt": "constraint weight_based_on_float_market_capizatlization : forall d: SelectionDay, forall c: IndexComponent, based_on_float_market_capizatlization(d, c)"
+        },
+        {
+          "block_id": "declaration:rel:based_on_float_market_capizatlization",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "based_on_float_market_capizatlization",
+          "line": 11,
+          "token_recall": 0.615,
+          "token_precision": 0.625,
+          "score": 0.617,
+          "matched_claim_tokens": [
+            "bas",
+            "capizatlization",
+            "component",
+            "day",
+            "float",
+            "index",
+            "market",
+            "selection"
+          ],
+          "raw_excerpt": "rel based_on_float_market_capizatlization : SelectionDay, IndexComponent"
+        },
+        {
+          "block_id": "declaration:fun:float_market_capizatlization",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "float_market_capizatlization",
+          "line": 8,
+          "token_recall": 0.538,
+          "token_precision": 0.471,
+          "score": 0.525,
+          "matched_claim_tokens": [
+            "capizatlization",
+            "component",
+            "day",
+            "float",
+            "index",
+            "market",
+            "selection"
+          ],
+          "raw_excerpt": "fun[required] float_market_capizatlization : SelectionDay, IndexComponent -> FloatMarketCapizatlization"
+        },
+        {
+          "block_id": "declaration:fun:weight",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "weight",
+          "line": 9,
+          "token_recall": 0.385,
+          "token_precision": 0.5,
+          "score": 0.408,
+          "matched_claim_tokens": [
+            "component",
+            "day",
+            "index",
+            "selection",
+            "weight"
+          ],
+          "raw_excerpt": "fun[required] weight : SelectionDay, IndexComponent -> Weight"
+        },
+        {
+          "block_id": "assertion:constraint:single_index_component_weight_capped",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "single_index_component_weight_capped",
+          "line": 22,
+          "token_recall": 0.385,
+          "token_precision": 0.312,
+          "score": 0.37,
+          "matched_claim_tokens": [
+            "component",
+            "day",
+            "index",
+            "selection",
+            "weight"
+          ],
+          "raw_excerpt": "constraint single_index_component_weight_capped : forall d: SelectionDay, forall c: IndexComponent, weight(d, c) <= 5%"
+        }
+      ],
+      "candidate_count": 13,
+      "covered_claim_tokens_by_top3": [
+        "bas",
+        "capizatlization",
+        "component",
+        "day",
+        "float",
+        "index",
+        "market",
+        "selection",
+        "weight"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "assign",
+          "surface_forms": [
+            "assigned"
+          ]
+        },
+        {
+          "token": "subject",
+          "surface_forms": [
+            "subject"
+          ]
+        },
+        {
+          "token": "follow",
+          "surface_forms": [
+            "following"
+          ]
+        },
+        {
+          "token": "constraint",
+          "surface_forms": [
+            "constraints"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.692,
+      "auto_status": "partial_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C03",
+      "text": "- Each region must represent exactly 50% of the total Index\n- The weight of any single Index Component is capped at 5%.",
+      "hash": "e08d087689e2",
+      "tokens": [
+        {
+          "token": "region",
+          "surface_forms": [
+            "region"
+          ],
+          "keys": [
+            "region"
+          ]
+        },
+        {
+          "token": "must",
+          "surface_forms": [
+            "must"
+          ],
+          "keys": [
+            "must"
+          ]
+        },
+        {
+          "token": "represent",
+          "surface_forms": [
+            "represent"
+          ],
+          "keys": [
+            "represent"
+          ]
+        },
+        {
+          "token": "exactli",
+          "surface_forms": [
+            "exactly"
+          ],
+          "keys": [
+            "exactli",
+            "exactly"
+          ]
+        },
+        {
+          "token": "50%",
+          "surface_forms": [
+            "50%"
+          ],
+          "keys": [
+            "50%"
+          ]
+        },
+        {
+          "token": "total",
+          "surface_forms": [
+            "total"
+          ],
+          "keys": [
+            "total"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "weight",
+          "surface_forms": [
+            "weight"
+          ],
+          "keys": [
+            "weight"
+          ]
+        },
+        {
+          "token": "single",
+          "surface_forms": [
+            "single"
+          ],
+          "keys": [
+            "single"
+          ]
+        },
+        {
+          "token": "component",
+          "surface_forms": [
+            "Component"
+          ],
+          "keys": [
+            "component"
+          ]
+        },
+        {
+          "token": "capp",
+          "surface_forms": [
+            "capped"
+          ],
+          "keys": [
+            "capp",
+            "capped"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:region_represents_exactly_50_percent",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "region_represents_exactly_50_percent",
+          "line": 18,
+          "token_recall": 0.636,
+          "token_precision": 0.364,
+          "score": 0.582,
+          "matched_claim_tokens": [
+            "50%",
+            "component",
+            "exactli",
+            "index",
+            "region",
+            "represent",
+            "weight"
+          ],
+          "raw_excerpt": "constraint region_represents_exactly_50_percent : forall d: SelectionDay, forall r: Region, sum(c in IndexComponent where region(c) = r, weight(d, c)) = 50%"
+        },
+        {
+          "block_id": "assertion:constraint:single_index_component_weight_capped",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "single_index_component_weight_capped",
+          "line": 22,
+          "token_recall": 0.455,
+          "token_precision": 0.375,
+          "score": 0.439,
+          "matched_claim_tokens": [
+            "capp",
+            "component",
+            "index",
+            "single",
+            "weight"
+          ],
+          "raw_excerpt": "constraint single_index_component_weight_capped : forall d: SelectionDay, forall c: IndexComponent, weight(d, c) <= 5%"
+        },
+        {
+          "block_id": "declaration:fun:region",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "region",
+          "line": 7,
+          "token_recall": 0.273,
+          "token_precision": 0.5,
+          "score": 0.318,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "region"
+          ],
+          "raw_excerpt": "fun[required] region : IndexComponent -> Region"
+        },
+        {
+          "block_id": "declaration:opaque:IndexComponent",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "IndexComponent",
+          "line": 2,
+          "token_recall": 0.182,
+          "token_precision": 0.667,
+          "score": 0.279,
+          "matched_claim_tokens": [
+            "component",
+            "index"
+          ],
+          "raw_excerpt": "sort IndexComponent"
+        },
+        {
+          "block_id": "declaration:fun:weight",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "weight",
+          "line": 9,
+          "token_recall": 0.273,
+          "token_precision": 0.3,
+          "score": 0.278,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "weight"
+          ],
+          "raw_excerpt": "fun[required] weight : SelectionDay, IndexComponent -> Weight"
+        }
+      ],
+      "candidate_count": 12,
+      "covered_claim_tokens_by_top3": [
+        "50%",
+        "capp",
+        "component",
+        "exactli",
+        "index",
+        "region",
+        "represent",
+        "single",
+        "weight"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "must",
+          "surface_forms": [
+            "must"
+          ]
+        },
+        {
+          "token": "total",
+          "surface_forms": [
+            "total"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.818,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C04",
+      "text": "The weights are redistributed proportionally in an iterative process until both constraints are satisfied.",
+      "hash": "6d261b83f83f",
+      "tokens": [
+        {
+          "token": "weight",
+          "surface_forms": [
+            "weights"
+          ],
+          "keys": [
+            "weight",
+            "weights"
+          ]
+        },
+        {
+          "token": "redistribut",
+          "surface_forms": [
+            "redistributed"
+          ],
+          "keys": [
+            "redistribut",
+            "redistributed"
+          ]
+        },
+        {
+          "token": "proportionalli",
+          "surface_forms": [
+            "proportionally"
+          ],
+          "keys": [
+            "proportionalli",
+            "proportionally"
+          ]
+        },
+        {
+          "token": "iterative",
+          "surface_forms": [
+            "iterative"
+          ],
+          "keys": [
+            "iterative"
+          ]
+        },
+        {
+          "token": "proc",
+          "surface_forms": [
+            "process"
+          ],
+          "keys": [
+            "proc",
+            "proce",
+            "proces",
+            "process"
+          ]
+        },
+        {
+          "token": "until",
+          "surface_forms": [
+            "until"
+          ],
+          "keys": [
+            "until"
+          ]
+        },
+        {
+          "token": "both",
+          "surface_forms": [
+            "both"
+          ],
+          "keys": [
+            "both"
+          ]
+        },
+        {
+          "token": "constraint",
+          "surface_forms": [
+            "constraints"
+          ],
+          "keys": [
+            "constraints"
+          ]
+        },
+        {
+          "token": "satisfi",
+          "surface_forms": [
+            "satisfied"
+          ],
+          "keys": [
+            "satisfi",
+            "satisfied",
+            "satisfy"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:weights_redistributed_proportionally",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "weights_redistributed_proportionally",
+          "line": 26,
+          "token_recall": 0.333,
+          "token_precision": 0.316,
+          "score": 0.33,
+          "matched_claim_tokens": [
+            "proportionalli",
+            "redistribut",
+            "weight"
+          ],
+          "raw_excerpt": "constraint weights_redistributed_proportionally : forall d: SelectionDay, forall c: IndexComponent, redistributed_proportionally(d, c)"
+        },
+        {
+          "block_id": "declaration:opaque:Weight",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "Weight",
+          "line": 4,
+          "token_recall": 0.111,
+          "token_precision": 1.0,
+          "score": 0.289,
+          "matched_claim_tokens": [
+            "weight"
+          ],
+          "raw_excerpt": "sort Weight"
+        },
+        {
+          "block_id": "declaration:rel:redistributed_proportionally",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "redistributed_proportionally",
+          "line": 12,
+          "token_recall": 0.222,
+          "token_precision": 0.308,
+          "score": 0.239,
+          "matched_claim_tokens": [
+            "proportionalli",
+            "redistribut"
+          ],
+          "raw_excerpt": "rel redistributed_proportionally : SelectionDay, IndexComponent"
+        },
+        {
+          "block_id": "declaration:fun:weight",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "weight",
+          "line": 9,
+          "token_recall": 0.111,
+          "token_precision": 0.1,
+          "score": 0.109,
+          "matched_claim_tokens": [
+            "weight"
+          ],
+          "raw_excerpt": "fun[required] weight : SelectionDay, IndexComponent -> Weight"
+        },
+        {
+          "block_id": "assertion:constraint:single_index_component_weight_capped",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "single_index_component_weight_capped",
+          "line": 22,
+          "token_recall": 0.111,
+          "token_precision": 0.062,
+          "score": 0.101,
+          "matched_claim_tokens": [
+            "weight"
+          ],
+          "raw_excerpt": "constraint single_index_component_weight_capped : forall d: SelectionDay, forall c: IndexComponent, weight(d, c) <= 5%"
+        }
+      ],
+      "candidate_count": 7,
+      "covered_claim_tokens_by_top3": [
+        "proportionalli",
+        "redistribut",
+        "weight"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "iterative",
+          "surface_forms": [
+            "iterative"
+          ]
+        },
+        {
+          "token": "proc",
+          "surface_forms": [
+            "process"
+          ]
+        },
+        {
+          "token": "until",
+          "surface_forms": [
+            "until"
+          ]
+        },
+        {
+          "token": "both",
+          "surface_forms": [
+            "both"
+          ]
+        },
+        {
+          "token": "constraint",
+          "surface_forms": [
+            "constraints"
+          ]
+        },
+        {
+          "token": "satisfi",
+          "surface_forms": [
+            "satisfied"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.333,
+      "auto_status": "weak_or_missing_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    }
+  ]
+}

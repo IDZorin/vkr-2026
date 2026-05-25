@@ -1,0 +1,480 @@
+{
+  "entry_id": "N18",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 11,
+    "content_token_count": 7,
+    "covered_content_token_count": 7,
+    "uncovered_content_token_count": 0,
+    "ignored_stopword_count": 4,
+    "content_coverage_rate": 1.0
+  },
+  "tokens": [
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexAdministratorTerm",
+          "family": "SymbolDecl.entity",
+          "line": 3,
+          "matched_text": "IndexAdministratorTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_administrator_meaning_defined_in_introduction",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "index_administrator_meaning_defined_in_introduction"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "index_administrator_meaning_defined_in_introduction"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "IndexAdministratorTerm"
+        }
+      ]
+    },
+    {
+      "token": "administrator",
+      "surface_forms": [
+        "Administrator"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 8
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexAdministratorTerm",
+          "family": "SymbolDecl.entity",
+          "line": 3,
+          "matched_text": "IndexAdministratorTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_administrator_meaning_defined_in_introduction",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "index_administrator_meaning_defined_in_introduction"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "index_administrator_meaning_defined_in_introduction"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "IndexAdministratorTerm"
+        }
+      ]
+    },
+    {
+      "token": "shall",
+      "surface_forms": [
+        "shall"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 23
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "have",
+      "surface_forms": [
+        "have"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 29
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 34
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "mean",
+      "surface_forms": [
+        "meaning"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 38
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_administrator_meaning_defined_in_introduction",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "index_administrator_meaning_defined_in_introduction"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "index_administrator_meaning_defined_in_introduction"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "as",
+      "surface_forms": [
+        "as"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 46
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "defin",
+      "surface_forms": [
+        "defined"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 49
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DefinedTerm",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "DefinedTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "IndexAdministratorTerm",
+          "family": "SymbolDecl.entity",
+          "line": 3,
+          "matched_text": "DefinedTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "DefinedTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_administrator_meaning_defined_in_introduction",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "index_administrator_meaning_defined_in_introduction"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "index_administrator_meaning_defined_in_introduction"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 57
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_administrator_meaning_defined_in_introduction",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "index_administrator_meaning_defined_in_introduction"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "index_administrator_meaning_defined_in_introduction"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "section",
+      "surface_forms": [
+        "Section"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 60
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IntroductionSection",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "IntroductionSection"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "IntroductionSection"
+        }
+      ]
+    },
+    {
+      "token": "introduction",
+      "surface_forms": [
+        "Introduction"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 69
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IntroductionSection",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "IntroductionSection"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_administrator_meaning_defined_in_introduction",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "index_administrator_meaning_defined_in_introduction"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "index_administrator_meaning_defined_in_introduction"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_administrator_meaning_defined_in_introduction",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "IntroductionSection"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

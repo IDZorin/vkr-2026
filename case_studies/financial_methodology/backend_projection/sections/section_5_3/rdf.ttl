@@ -1,0 +1,268 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_3 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_5_3/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Method a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CalculationMethod a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CalculationMethod rdfs:subClassOf ex:Method .
+ex:MethodApplication a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:MethodPurpose a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:Composition a ex:MethodPurpose, a4:EnumMember, owl:NamedIndividual .
+ex:MethodPurpose a4:enumMember ex:Composition .
+ex:Calculation a ex:MethodPurpose, a4:EnumMember, owl:NamedIndividual .
+ex:MethodPurpose a4:enumMember ex:Calculation .
+ex:TermsAndConditions a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ModificationOrChange a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:DeemedModificationOrChange a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:DeemedModificationOrChange rdfs:subClassOf ex:ModificationOrChange .
+ex:ChangeReason a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:MarketEnvironment a ex:ChangeReason, a4:EnumMember, owl:NamedIndividual .
+ex:ChangeReason a4:enumMember ex:MarketEnvironment .
+ex:SupervisoryReason a ex:ChangeReason, a4:EnumMember, owl:NamedIndividual .
+ex:ChangeReason a4:enumMember ex:SupervisoryReason .
+ex:LegalReason a ex:ChangeReason, a4:EnumMember, owl:NamedIndividual .
+ex:ChangeReason a4:enumMember ex:LegalReason .
+ex:FinancialReason a ex:ChangeReason, a4:EnumMember, owl:NamedIndividual .
+ex:ChangeReason a4:enumMember ex:FinancialReason .
+ex:TaxReason a ex:ChangeReason, a4:EnumMember, owl:NamedIndividual .
+ex:ChangeReason a4:enumMember ex:TaxReason .
+ex:Error a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Step a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Information a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexAdministrator a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:TheIndexAdministrator a ex:IndexAdministrator, owl:NamedIndividual .
+ex:ThisDocument a ex:Document, owl:NamedIndividual .
+ex:DescribedMethod a ex:Method, owl:NamedIndividual .
+ex:DescribedMethodApplication a ex:MethodApplication, owl:NamedIndividual .
+ex:IndexTermsAndConditions a ex:TermsAndConditions, owl:NamedIndividual .
+ex:Obvious a ex:VagueTerm, owl:NamedIndividual .
+ex:Demonstrable a ex:VagueTerm, owl:NamedIndividual .
+ex:Necessary a ex:VagueTerm, owl:NamedIndividual .
+ex:Desirable a ex:VagueTerm, owl:NamedIndividual .
+ex:AppropriateSteps a ex:Step, owl:NamedIndividual .
+ex:ModificationOrChangeInformation a ex:Information, owl:NamedIndividual .
+ex:calculation_method_applied a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:calculation_method_applied_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:calculation_method_applied a4:argument ex:calculation_method_applied_arg_0 .
+ex:calculation_method_applied a4:resultSort ex:CalculationMethod .
+ex:calculation_method_applied a4:functionFlag "required" .
+ex:index_administrator_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_administrator_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexAdministrator .
+ex:index_administrator_of a4:argument ex:index_administrator_of_arg_0 .
+ex:index_administrator_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:index_administrator_of a4:argument ex:index_administrator_of_arg_1 .
+ex:method_described_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:method_described_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Method .
+ex:method_described_in a4:argument ex:method_described_in_arg_0 .
+ex:method_described_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Document .
+ex:method_described_in a4:argument ex:method_described_in_arg_1 .
+ex:described_above a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:described_above_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Method .
+ex:described_above a4:argument ex:described_above_arg_0 .
+ex:method_for_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:method_for_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Method .
+ex:method_for_index a4:argument ex:method_for_index_arg_0 .
+ex:method_for_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:method_for_index a4:argument ex:method_for_index_arg_1 .
+ex:method_for_purpose a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:method_for_purpose_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Method .
+ex:method_for_purpose a4:argument ex:method_for_purpose_arg_0 .
+ex:method_for_purpose_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:MethodPurpose .
+ex:method_for_purpose a4:argument ex:method_for_purpose_arg_1 .
+ex:application_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:application_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodApplication .
+ex:application_by a4:argument ex:application_by_arg_0 .
+ex:application_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexAdministrator .
+ex:application_by a4:argument ex:application_by_arg_1 .
+ex:application_of_method a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:application_of_method_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodApplication .
+ex:application_of_method a4:argument ex:application_of_method_arg_0 .
+ex:application_of_method_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Method .
+ex:application_of_method a4:argument ex:application_of_method_arg_1 .
+ex:final a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:final_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodApplication .
+ex:final a4:argument ex:final_arg_0 .
+ex:binding a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:binding_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodApplication .
+ex:binding a4:argument ex:binding_arg_0 .
+ex:terms_and_conditions_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:terms_and_conditions_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TermsAndConditions .
+ex:terms_and_conditions_of a4:argument ex:terms_and_conditions_of_arg_0 .
+ex:terms_and_conditions_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:terms_and_conditions_of a4:argument ex:terms_and_conditions_of_arg_1 .
+ex:potentially_requires_change_to_method a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:potentially_requires_change_to_method_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ChangeReason .
+ex:potentially_requires_change_to_method a4:argument ex:potentially_requires_change_to_method_arg_0 .
+ex:potentially_requires_change_to_method_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Method .
+ex:potentially_requires_change_to_method a4:argument ex:potentially_requires_change_to_method_arg_1 .
+ex:modification_or_change_of_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:modification_or_change_of_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ModificationOrChange .
+ex:modification_or_change_of_index a4:argument ex:modification_or_change_of_index_arg_0 .
+ex:modification_or_change_of_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:modification_or_change_of_index a4:argument ex:modification_or_change_of_index_arg_1 .
+ex:change_to_terms_and_conditions a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:change_to_terms_and_conditions_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ModificationOrChange .
+ex:change_to_terms_and_conditions a4:argument ex:change_to_terms_and_conditions_arg_0 .
+ex:change_to_terms_and_conditions_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TermsAndConditions .
+ex:change_to_terms_and_conditions a4:argument ex:change_to_terms_and_conditions_arg_1 .
+ex:change_to_calculation_method a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:change_to_calculation_method_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ModificationOrChange .
+ex:change_to_calculation_method a4:argument ex:change_to_calculation_method_arg_0 .
+ex:change_to_calculation_method_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationMethod .
+ex:change_to_calculation_method a4:argument ex:change_to_calculation_method_arg_1 .
+ex:deemed_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:deemed_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ModificationOrChange .
+ex:deemed_by a4:argument ex:deemed_by_arg_0 .
+ex:deemed_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexAdministrator .
+ex:deemed_by a4:argument ex:deemed_by_arg_1 .
+ex:deemed_by_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:VagueTerm .
+ex:deemed_by a4:argument ex:deemed_by_arg_2 .
+ex:prevents_error a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:prevents_error_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ModificationOrChange .
+ex:prevents_error a4:argument ex:prevents_error_arg_0 .
+ex:prevents_error_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Error .
+ex:prevents_error a4:argument ex:prevents_error_arg_1 .
+ex:error_described_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:error_described_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Error .
+ex:error_described_by a4:argument ex:error_described_by_arg_0 .
+ex:error_described_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:VagueTerm .
+ex:error_described_by a4:argument ex:error_described_by_arg_1 .
+ex:incorrect_terms_and_conditions a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:incorrect_terms_and_conditions_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TermsAndConditions .
+ex:incorrect_terms_and_conditions a4:argument ex:incorrect_terms_and_conditions_arg_0 .
+ex:remedies_terms_and_conditions a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:remedies_terms_and_conditions_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ModificationOrChange .
+ex:remedies_terms_and_conditions a4:argument ex:remedies_terms_and_conditions_arg_0 .
+ex:remedies_terms_and_conditions_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TermsAndConditions .
+ex:remedies_terms_and_conditions a4:argument ex:remedies_terms_and_conditions_arg_1 .
+ex:corrects_terms_and_conditions a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:corrects_terms_and_conditions_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ModificationOrChange .
+ex:corrects_terms_and_conditions a4:argument ex:corrects_terms_and_conditions_arg_0 .
+ex:corrects_terms_and_conditions_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TermsAndConditions .
+ex:corrects_terms_and_conditions a4:argument ex:corrects_terms_and_conditions_arg_1 .
+ex:supplements_terms_and_conditions a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:supplements_terms_and_conditions_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ModificationOrChange .
+ex:supplements_terms_and_conditions a4:argument ex:supplements_terms_and_conditions_arg_0 .
+ex:supplements_terms_and_conditions_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TermsAndConditions .
+ex:supplements_terms_and_conditions a4:argument ex:supplements_terms_and_conditions_arg_1 .
+ex:provide_information_on_modification_or_change a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:provide_information_on_modification_or_change_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexAdministrator .
+ex:provide_information_on_modification_or_change a4:argument ex:provide_information_on_modification_or_change_arg_0 .
+ex:provide_information_on_modification_or_change_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ModificationOrChange .
+ex:provide_information_on_modification_or_change a4:argument ex:provide_information_on_modification_or_change_arg_1 .
+ex:provide_information_on_modification_or_change_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:Information .
+ex:provide_information_on_modification_or_change a4:argument ex:provide_information_on_modification_or_change_arg_2 .
+ex:information_withheld_on_modification_or_change a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:information_withheld_on_modification_or_change_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexAdministrator .
+ex:information_withheld_on_modification_or_change a4:argument ex:information_withheld_on_modification_or_change_arg_0 .
+ex:information_withheld_on_modification_or_change_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ModificationOrChange .
+ex:information_withheld_on_modification_or_change a4:argument ex:information_withheld_on_modification_or_change_arg_1 .
+ex:information_withheld_on_modification_or_change_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:Information .
+ex:information_withheld_on_modification_or_change a4:argument ex:information_withheld_on_modification_or_change_arg_2 .
+ex:appropriate a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:appropriate_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Step .
+ex:appropriate a4:argument ex:appropriate_arg_0 .
+ex:step_ensures_consistency_with a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:step_ensures_consistency_with_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Step .
+ex:step_ensures_consistency_with a4:argument ex:step_ensures_consistency_with_arg_0 .
+ex:step_ensures_consistency_with_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationMethod .
+ex:step_ensures_consistency_with a4:argument ex:step_ensures_consistency_with_arg_1 .
+ex:step_ensures_consistency_with_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:Method .
+ex:step_ensures_consistency_with a4:argument ex:step_ensures_consistency_with_arg_2 .
+
+ex:ASSERT_index_administrator_for_index a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "78"^^xsd:integer ;
+  a4:exprText "index_administrator_of(TheIndexAdministrator, TheIndex)" ;
+  a4:sourceText "fact index_administrator_for_index :\n  index_administrator_of(TheIndexAdministrator, TheIndex)" .
+ex:ASSERT_described_method_reference a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "81"^^xsd:integer ;
+  a4:exprText "(method_described_in(DescribedMethod, ThisDocument)) and (described_above(DescribedMethod))" ;
+  a4:sourceText "fact described_method_reference :\n  method_described_in(DescribedMethod, ThisDocument)\n  and described_above(DescribedMethod)" .
+ex:ASSERT_described_method_for_composition_and_calculation a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "85"^^xsd:integer ;
+  a4:exprText "(method_for_index(DescribedMethod, TheIndex)) and (method_for_purpose(DescribedMethod, Composition)) and (method_for_purpose(DescribedMethod, Calculation))" ;
+  a4:sourceText "fact described_method_for_composition_and_calculation :\n  method_for_index(DescribedMethod, TheIndex)\n  and method_for_purpose(DescribedMethod, Composition)\n  and method_for_purpose(DescribedMethod, Calculation)" .
+ex:ASSERT_described_method_application_final_and_binding a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "90"^^xsd:integer ;
+  a4:exprText "(application_by(DescribedMethodApplication, TheIndexAdministrator)) and (application_of_method(DescribedMethodApplication, DescribedMethod)) and (final(DescribedMethodApplication)) and (binding(DescribedMethodApplication))" ;
+  a4:sourceText "fact described_method_application_final_and_binding :\n  application_by(DescribedMethodApplication, TheIndexAdministrator)\n  and application_of_method(DescribedMethodApplication, DescribedMethod)\n  and final(DescribedMethodApplication)\n  and binding(DescribedMethodApplication)" .
+ex:ASSERT_index_terms_and_conditions a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "96"^^xsd:integer ;
+  a4:exprText "terms_and_conditions_of(IndexTermsAndConditions, TheIndex)" ;
+  a4:sourceText "fact index_terms_and_conditions :\n  terms_and_conditions_of(IndexTermsAndConditions, TheIndex)" .
+ex:ASSERT_potential_method_change_reasons a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "99"^^xsd:integer ;
+  a4:exprText "(potentially_requires_change_to_method(MarketEnvironment, DescribedMethod)) and (potentially_requires_change_to_method(SupervisoryReason, DescribedMethod)) and (potentially_requires_change_to_method(LegalReason, DescribedMethod)) and (potentially_requires_change_to_method(FinancialReason, DescribedMethod)) and (potentially_requires_change_to_method(TaxReason, DescribedMethod))" ;
+  a4:sourceText "fact potential_method_change_reasons :\n  potentially_requires_change_to_method(MarketEnvironment, DescribedMethod)\n  and potentially_requires_change_to_method(SupervisoryReason, DescribedMethod)\n  and potentially_requires_change_to_method(LegalReason, DescribedMethod)\n  and potentially_requires_change_to_method(FinancialReason, DescribedMethod)\n  and potentially_requires_change_to_method(TaxReason, DescribedMethod)" .
+ex:ASSERT_deemed_modification_or_change_scope a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "106"^^xsd:integer ;
+  a4:exprText "forall ch: DeemedModificationOrChange, (modification_or_change_of_index(ch, TheIndex)) and ((change_to_terms_and_conditions(ch, IndexTermsAndConditions)) or (change_to_calculation_method(ch, calculation_method_applied(TheIndex)))) and (deemed_by(ch, TheIndexAdministrator, Necessary)) and (deemed_by(ch, TheIndexAdministrator, Desirable)) and ((exists e: Error, ((error_described_by(e, Obvious)) or (error_described_by(e, Demonstrable))) and (prevents_error(ch, e))) or ((incorrect_terms_and_conditions(IndexTermsAndConditions)) and ((remedies_terms_and_conditions(ch, IndexTermsAndConditions)) or (corrects_terms_and_conditions(ch, IndexTermsAndConditions)) or (supplements_terms_and_conditions(ch, IndexTermsAndConditions)))))" ;
+  a4:sourceText "constraint deemed_modification_or_change_scope :\n  forall ch: DeemedModificationOrChange,\n    modification_or_change_of_index(ch, TheIndex)\n    and\n    (\n      change_to_terms_and_conditions(ch, IndexTermsAndConditions)\n      or\n      change_to_calculation_method(ch, calculation_method_applied(TheIndex))\n    )\n    and deemed_by(ch, TheIndexAdministrator, Necessary)\n    and deemed_by(ch, TheIndexAdministrator, Desirable)\n    and\n    (\n      (\n        exists e: Error,\n          (error_described_by(e, Obvious) or error_described_by(e, Demonstrable))\n          and prevents_error(ch, e)\n      )\n      or\n      (\n        incorrect_terms_and_conditions(IndexTermsAndConditions)\n        and\n        (\n          remedies_terms_and_conditions(ch, IndexTermsAndConditions)\n          or corrects_terms_and_conditions(ch, IndexTermsAndConditions)\n          or supplements_terms_and_conditions(ch, IndexTermsAndConditions)\n        )\n      )\n    )" .
+ex:ASSERT_appropriate_steps_consistency_target a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "136"^^xsd:integer ;
+  a4:exprText "(appropriate(AppropriateSteps)) and (step_ensures_consistency_with(AppropriateSteps, calculation_method_applied(TheIndex), DescribedMethod))" ;
+  a4:sourceText "fact appropriate_steps_consistency_target :\n  appropriate(AppropriateSteps)\n  and step_ensures_consistency_with(\n    AppropriateSteps,\n    calculation_method_applied(TheIndex),\n    DescribedMethod\n  )" .
+ex:ASSERT_information_withheld_means_information_not_provided a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "144"^^xsd:integer ;
+  a4:exprText "forall a: IndexAdministrator, forall ch: ModificationOrChange, (information_withheld_on_modification_or_change(a, ch, ModificationOrChangeInformation)) iff (not (provide_information_on_modification_or_change(a, ch, ModificationOrChangeInformation)))" ;
+  a4:sourceText "constraint information_withheld_means_information_not_provided :\n  forall a: IndexAdministrator, forall ch: ModificationOrChange,\n    information_withheld_on_modification_or_change(a, ch, ModificationOrChangeInformation)\n    iff not provide_information_on_modification_or_change(a, ch, ModificationOrChangeInformation)" .

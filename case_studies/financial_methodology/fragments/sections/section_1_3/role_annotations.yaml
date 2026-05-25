@@ -1,0 +1,44 @@
+schema: role_annotations_v1
+entry_id: section_1_3
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  article_number:
+    kind: fun
+    args:
+      1: {role: reference}
+    returns: {role: same_as_type}
+  historical_value:
+    kind: rel
+    args:
+      1: {role: level}
+      2: {role: subject}
+      3: {role: day}
+  initial_level:
+    kind: fun
+    args:
+      1: {role: subject}
+      2: {role: day}
+    returns: {role: same_as_type}
+  published_level_for_period:
+    kind: rel
+    args:
+      1: {role: level}
+      2: {role: subject}
+      3: {role: time}
+constraints:
+  historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr:
+    frame: historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr
+    variables:
+      i: {role: subject, quantifier: forall}
+      d: {role: day, quantifier: forall}
+      l: {role: level, quantifier: forall}
+  initial_level_default_on_start_date:
+    frame: initial_level_default_on_start_date
+    variables:
+      i: {role: subject, quantifier: forall}
+  levels_published_prior_to_live_date_back_tested:
+    frame: levels_published_prior_to_live_date_back_tested
+    variables:
+      i: {role: subject, quantifier: forall}
+      p: {role: time, quantifier: forall}
+      l: {role: level, quantifier: forall}

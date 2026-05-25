@@ -1,0 +1,30 @@
+(set-logic ALL)
+(set-option :produce-unsat-cores true)
+
+(declare-sort Currency 0)
+(declare-sort DocumentPart 0)
+(declare-sort Index 0)
+(declare-sort IndexCurrencySpecification 0)
+(declare-sort Table 0)
+(declare-sort TableColumn 0)
+
+(declare-const CurrencyColumn TableColumn)
+(declare-const Section1_2 DocumentPart)
+(declare-const Section1_2IndexTable Table)
+
+(declare-fun column_of_table (TableColumn Table) Bool)
+(declare-fun index_currency (Index Currency) Bool)
+(declare-fun specification_column (IndexCurrencySpecification TableColumn) Bool)
+(declare-fun specification_currency (IndexCurrencySpecification Currency) Bool)
+(declare-fun specification_for_index (IndexCurrencySpecification Index) Bool)
+(declare-fun specification_table (IndexCurrencySpecification Table) Bool)
+(declare-fun table_in_section (Table DocumentPart) Bool)
+
+(assert (! (and (table_in_section Section1_2IndexTable Section1_2) (column_of_table CurrencyColumn Section1_2IndexTable)) :named TEXT_currency_column_in_section_1_2_table))
+(assert (! (forall ((i Index)) (forall ((c Currency)) (= (index_currency i c) (exists ((spec IndexCurrencySpecification)) (and (specification_for_index spec i) (specification_currency spec c) (specification_column spec CurrencyColumn) (specification_table spec Section1_2IndexTable)))))) :named TEXT_index_currency_definition))
+; Probe N21__index_currency_definition__iff_lhs_witness__001: iff_lhs_witness
+(check-sat)
+(push 1)
+(assert (! (exists ((i Index) (c Currency)) (index_currency i c)) :named PROBE_N21__index_currency_definition__iff_lhs_witness__001))
+(check-sat)
+(pop 1)

@@ -1,0 +1,78 @@
+{
+  "entry_id": "section_5_3",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 2225,
+    "completion_tokens": 306,
+    "total_tokens": 2531
+  },
+  "latency_s": 2.687159538269043,
+  "scenarios": [
+    {
+      "description": "The Index Administrator applies the described method to the Index for both composition and calculation, and the application is final and binding. No changes are made, and no information disclosure issue arises.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The Index Administrator applies a different method to calculate the Index, not the described method.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A modification is made to the Index’s calculation method, but it is not one that the Index Administrator deems necessary and desirable, and it is not tied to preventing obvious or demonstrable error or to remedying, correcting, or supplementing incorrect terms and conditions.",
+      "category": "scope_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "reject",
+      "agree": false,
+      "drift_explanation": "The source allows that changes may be made for certain reasons and does not clearly state that every modification outside those reasons is forbidden, while the IR imposes a stricter quantified constraint on deemed modifications."
+    },
+    {
+      "description": "The Index Administrator makes a change to the method and takes appropriate steps to ensure consistency, but the steps are taken after the change rather than before it.",
+      "category": "modality_edge",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 3,
+    "agreement_rate": 0.75,
+    "drifts": [
+      {
+        "description": "A modification is made to the Index’s calculation method, but it is not one that the Index Administrator deems necessary and desirable, and it is not tied to preventing obvious or demonstrable error or to remedying, correcting, or supplementing incorrect terms and conditions.",
+        "category": "scope_edge",
+        "source_verdict": "ambiguous",
+        "ir_verdict": "reject",
+        "agree": false,
+        "drift_explanation": "The source allows that changes may be made for certain reasons and does not clearly state that every modification outside those reasons is forbidden, while the IR imposes a stricter quantified constraint on deemed modifications."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 0
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

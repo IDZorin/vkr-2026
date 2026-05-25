@@ -1,0 +1,51 @@
+schema: role_annotations_v1
+entry_id: section_4_4
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  effective_day_specified_in_respective_notice:
+    kind: fun
+    args:
+      1: {role: reference}
+    returns: {role: same_as_type}
+constraints:
+  corporate_action_creates_required_index_adjustment:
+    frame: corporate_action_creates_required_index_adjustment
+    variables:
+      ca: {role: event, quantifier: forall}
+      c: {role: component, quantifier: forall}
+      d: {role: day, quantifier: forall}
+      a: {role: event, quantifier: exists}
+      interval: {role: time, quantifier: exists}
+  index_adjustment_implemented_on_notice_effective_day:
+    frame: index_adjustment_implemented_on_notice_effective_day
+    variables:
+      a: {role: event, quantifier: forall}
+      n: {role: reference, quantifier: forall}
+  index_adjustment_notice_publication:
+    frame: index_adjustment_notice_publication
+    variables:
+      a: {role: event, quantifier: forall}
+      n: {role: reference, quantifier: forall}
+  notice_period_at_least_two_trading_days:
+    frame: notice_period_at_least_two_trading_days
+    variables:
+      a: {role: event, quantifier: forall}
+      n: {role: reference, quantifier: forall}
+      p: {role: time, quantifier: forall}
+      c: {role: component, quantifier: forall}
+  rebalance_interval_order:
+    frame: rebalance_interval_order
+    variables:
+      interval: {role: time, quantifier: forall}
+      r1: {role: day, quantifier: forall}
+      r2: {role: day, quantifier: forall}
+  required_adjustment_effect_scope:
+    frame: required_adjustment_effect_scope
+    variables:
+      a: {role: event, quantifier: forall}
+facts:
+  index_adjustment_may_be_necessary_between_regular_rebalance_days:
+    frame: index_adjustment_may_be_necessary_between_regular_rebalance_days
+    variables:
+      p: {role: condition, quantifier: exists}
+      interval: {role: time, quantifier: exists}

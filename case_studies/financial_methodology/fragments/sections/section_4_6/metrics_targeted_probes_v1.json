@@ -1,0 +1,59 @@
+{
+  "entry_id": "section_4_6",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1372,
+    "completion_tokens": 288,
+    "total_tokens": 1660
+  },
+  "latency_s": 2.7454025745391846,
+  "probes": {
+    "probe_scope": "yes",
+    "probe_scope_evidence": "\"all errors\"",
+    "probe_scope_drift": "",
+    "probe_exception": "no",
+    "probe_exception_evidence": "\"for variety reasons (internal or external)\"",
+    "probe_exception_drift": "The parenthetical carve-out specifying internal or external reasons was dropped.",
+    "probe_negation": "yes",
+    "probe_negation_evidence": "\"cannot be completely ruled out\"",
+    "probe_negation_drift": "",
+    "probe_counterfactual": "n_a",
+    "probe_counterfactual_evidence": "",
+    "probe_counterfactual_drift": "",
+    "probe_clarification": "no",
+    "probe_clarification_evidence": "\"as well as the general measures to be taken\"",
+    "probe_clarification_drift": "The source’s clarifying phrasing about the general measures to be taken was reworded and the explicit clarification marker was lost.",
+    "probe_responsibility": "yes",
+    "probe_responsibility_evidence": "\"Solactive\"",
+    "probe_responsibility_drift": "",
+    "probe_reference": "yes",
+    "probe_reference_evidence": "\"specified in the Solactive Correction Policy, which is incorporated by reference and available on the Solactive website\"",
+    "probe_reference_drift": "",
+    "probe_temporal_order": "yes",
+    "probe_temporal_order_evidence": "\"within a reasonable period of time\"",
+    "probe_temporal_order_drift": "",
+    "probe_value_source": "n_a",
+    "probe_value_source_evidence": "",
+    "probe_value_source_drift": ""
+  },
+  "summary": {
+    "yes": 5,
+    "no": 2,
+    "n_a": 2,
+    "preservation_rate": 0.714
+  },
+  "drifts": [
+    {
+      "probe": "exception",
+      "evidence": "\"for variety reasons (internal or external)\"",
+      "drift": "The parenthetical carve-out specifying internal or external reasons was dropped."
+    },
+    {
+      "probe": "clarification",
+      "evidence": "\"as well as the general measures to be taken\"",
+      "drift": "The source’s clarifying phrasing about the general measures to be taken was reworded and the explicit clarification marker was lost."
+    }
+  ],
+  "raw": null
+}

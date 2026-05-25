@@ -1,0 +1,69 @@
+{
+  "entry_id": "N15",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1148,
+    "completion_tokens": 251,
+    "total_tokens": 1399
+  },
+  "latency_s": 2.38415265083313,
+  "scenarios": [
+    {
+      "description": "A security named Alpha is reflected in the GBS Index specified in Section 2.1.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A security named Beta is reflected only in a different index, not in the GBS Index specified in Section 2.1.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A security named Gamma is reflected in the GBS Index, but the scenario does not say whether that index is the one specified in Section 2.1.",
+      "category": "scope_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "ambiguous",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A security named Delta is reflected in the GBS Index specified in Section 2.1 only after Section 2.1 is amended later; before the amendment, Delta is not reflected there.",
+      "category": "modality_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "ambiguous",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 4,
+    "agreement_rate": 1.0,
+    "drifts": [],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 1
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "entry_id": "section_5_4",
+  "skipped": false,
+  "ir_innf_families_used": [
+    "AssertDecl",
+    "DeonticDecl",
+    "SymbolDecl",
+    "TypeDecl"
+  ],
+  "ir_fine_families_used": [
+    "AssertDecl.constraint",
+    "AssertDecl.fact",
+    "DeonticDecl.permission",
+    "SymbolDecl.entity",
+    "SymbolDecl.rel",
+    "TypeDecl.sort_enum",
+    "TypeDecl.sort_opaque",
+    "TypeDecl.sort_subtype"
+  ],
+  "ir_family_counts": {
+    "TypeDecl.sort_opaque": 14,
+    "TypeDecl.sort_enum": 1,
+    "TypeDecl.sort_subtype": 3,
+    "SymbolDecl.entity": 10,
+    "SymbolDecl.rel": 46,
+    "AssertDecl.fact": 8,
+    "AssertDecl.constraint": 9,
+    "DeonticDecl.permission": 1
+  },
+  "ir_expr_markers": {
+    "forall": 11,
+    "exists": 13,
+    "implies": 9,
+    "count": 1
+  },
+  "source_signals": {
+    "modality_permission": {
+      "expected_family": "DeonticDecl",
+      "expectation_mode": "required",
+      "matches": [
+        "may be indicated"
+      ]
+    },
+    "action_transition": {
+      "expected_family": "ActionDecl",
+      "expectation_mode": "advisory",
+      "matches": [
+        "transition to"
+      ]
+    }
+  },
+  "gaps": [
+    {
+      "signal": "action_transition",
+      "expected_family": "ActionDecl",
+      "expectation_mode": "advisory",
+      "evidence": [
+        "transition to"
+      ],
+      "satisfied": false
+    }
+  ],
+  "required_gaps": [],
+  "advisory_gaps": [
+    {
+      "signal": "action_transition",
+      "expected_family": "ActionDecl",
+      "expectation_mode": "advisory",
+      "evidence": [
+        "transition to"
+      ],
+      "satisfied": false
+    }
+  ],
+  "matches": [
+    {
+      "signal": "modality_permission",
+      "expected_family": "DeonticDecl",
+      "expectation_mode": "required",
+      "evidence": [
+        "may be indicated"
+      ],
+      "satisfied": true
+    }
+  ],
+  "n_gaps": 1,
+  "n_required_gaps": 0,
+  "n_advisory_gaps": 1,
+  "n_matches": 1
+}

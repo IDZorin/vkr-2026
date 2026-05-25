@@ -1,4 +1,4 @@
-"""Bridge candidate audit for DZ.
+﻿"""Bridge candidate audit for seed methodology.
 
 This is intentionally heuristic. It does not decide bridge truth; it finds
 places worth human review before merge:
@@ -93,10 +93,10 @@ SOURCE_PHRASES = [
 ]
 
 
-def _entry_paths(dz_root: Path) -> list[Path]:
+def _entry_paths(run_root: Path) -> list[Path]:
     out: list[Path] = []
     for sub in ("sections", "definitions", "appendix"):
-        base = dz_root / sub
+        base = run_root / sub
         if not base.exists():
             continue
         for p in sorted(base.glob("*/main_ir.a4v3")):
@@ -106,8 +106,8 @@ def _entry_paths(dz_root: Path) -> list[Path]:
     return out
 
 
-def _entry_id(path: Path, dz_root: Path) -> str:
-    rel = path.parent.relative_to(dz_root).as_posix()
+def _entry_id(path: Path, run_root: Path) -> str:
+    rel = path.parent.relative_to(run_root).as_posix()
     return rel
 
 
@@ -178,15 +178,15 @@ def _assertion_blocks(text: str) -> list[str]:
     return blocks
 
 
-def analyze(dz_root: Path) -> dict[str, Any]:
-    bridge_text = (dz_root / "bridge" / "main_bridge.a4v3").read_text(encoding="utf-8")
+def analyze(run_root: Path) -> dict[str, Any]:
+    bridge_text = (run_root / "bridge" / "main_bridge.a4v3").read_text(encoding="utf-8")
     entries: dict[str, dict[str, Any]] = {}
     decl_groups: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
     symbol_by_entry: dict[str, set[str]] = {}
     parse_warnings: list[dict[str, Any]] = []
 
-    for path in _entry_paths(dz_root):
-        entry_id = _entry_id(path, dz_root)
+    for path in _entry_paths(run_root):
+        entry_id = _entry_id(path, run_root)
         label = _entry_label(entry_id)
         text = path.read_text(encoding="utf-8")
         ast = parse(text, strict=False)
@@ -310,7 +310,7 @@ def analyze(dz_root: Path) -> dict[str, Any]:
 
     return {
         "schema": "bridge_candidate_audit_v1",
-        "dz_root": str(dz_root),
+        "run_root": str(run_root),
         "entry_count": len(entries),
         "parse_warning_count": len(parse_warnings),
         "parse_warnings": parse_warnings,
@@ -381,11 +381,11 @@ def _write_reports(result: dict[str, Any], bridge_dir: Path) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("dz_root", help="IR/outputs/runs/dz")
+    parser.add_argument("run_root", help="case_studies/financial_methodology")
     args = parser.parse_args()
-    dz_root = Path(args.dz_root)
-    result = analyze(dz_root)
-    _write_reports(result, dz_root / "bridge")
+    run_root = Path(args.run_root)
+    result = analyze(run_root)
+    _write_reports(result, run_root / "bridge")
     print(json.dumps({
         "schema": result["schema"],
         "entry_count": result["entry_count"],

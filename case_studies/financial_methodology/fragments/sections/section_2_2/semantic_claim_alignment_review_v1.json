@@ -1,0 +1,157 @@
+{
+  "entry_id": "section_2_2",
+  "schema": "semantic_claim_alignment_review_v1",
+  "allowed_status": [
+    "unreviewed",
+    "approved",
+    "needs_ir_revision",
+    "source_ambiguous",
+    "not_formalized_by_design"
+  ],
+  "items": [
+    {
+      "claim_id": "C01",
+      "claim_hash": "42ebee264ce3",
+      "claim_text": "### 2.2 Selection of the Index Components",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "declaration:opaque:SelectionOfIndexComponents",
+        "declaration:rel:index_component",
+        "declaration:fun:selection_of_index_components",
+        "declaration:rel:fully_rule_based",
+        "declaration:prohibition:index_administrator_discretionary_decision"
+      ]
+    },
+    {
+      "claim_id": "C02",
+      "claim_hash": "269ea0c910b8",
+      "claim_text": "Based on the Index Universe, the initial composition of the Index as well as any selection for an ordinary rebalance is determined on the Selection Day in accordance with the following rules (the \"Index Component Requirements\"):",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:ordinary_rebalance_selection_determined_by_index_component_requirements",
+        "assertion:constraint:initial_composition_determined_by_index_component_requirements",
+        "assertion:constraint:selection_fully_rule_based",
+        "declaration:rel:fully_rule_based",
+        "assertion:constraint:eligible_based_on_index_universe"
+      ]
+    },
+    {
+      "claim_id": "C03",
+      "claim_hash": "859dda841b0e",
+      "claim_text": "Each security is classified into one of the two regions\n   1.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:europe_country_assignment_classification",
+        "assertion:constraint:descending_order_by_free_float_market_capizatlization",
+        "assertion:constraint:americas_country_assignment_classification",
+        "declaration:fun:region",
+        "declaration:opaque:Region"
+      ]
+    },
+    {
+      "claim_id": "C04",
+      "claim_hash": "238e656319c6",
+      "claim_text": "Americas if the Country Assignment is Canada or United States under the Gbs Index Universe framework\n   2.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:americas_country_assignment_classification",
+        "declaration:entity:UnitedStates",
+        "declaration:entity:Canada",
+        "declaration:opaque:CountryAssignment",
+        "declaration:fun:gbs_country_assignment"
+      ]
+    },
+    {
+      "claim_id": "C05",
+      "claim_hash": "c84fb565ede6",
+      "claim_text": "Europe if the Country Assignment is Europe under the Gbs Index Universe framework\n2.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "declaration:entity:Europe",
+        "assertion:constraint:europe_country_assignment_classification",
+        "declaration:opaque:CountryAssignment",
+        "declaration:fun:gbs_country_assignment",
+        "assertion:constraint:americas_country_assignment_classification"
+      ]
+    },
+    {
+      "claim_id": "C06",
+      "claim_hash": "789365292112",
+      "claim_text": "Each security is ranked in a descending order by its Free Float Market Capizatlization.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:descending_order_by_free_float_market_capizatlization",
+        "declaration:fun:free_float_market_capizatlization",
+        "declaration:opaque:FreeFloatMarketCapizatlization",
+        "declaration:opaque:Rank",
+        "declaration:fun:rank"
+      ]
+    },
+    {
+      "claim_id": "C07",
+      "claim_hash": "ce6761e27799",
+      "claim_text": "The top 20 securities for each region are selected for Index inclusion.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:selected_top_20_for_each_region",
+        "assertion:constraint:at_most_20_selected_per_region",
+        "declaration:rel:selected_for_index_inclusion",
+        "assertion:constraint:index_components_selected_for_index_inclusion",
+        "assertion:constraint:initial_composition_determined_by_index_component_requirements"
+      ]
+    },
+    {
+      "claim_id": "C08",
+      "claim_hash": "41be07feef0c",
+      "claim_text": "In case less than 20 securities per region are eligible, the Index contains less than 40 Index Components in total.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:less_than_20_per_region_less_than_40_index_components",
+        "assertion:constraint:selected_top_20_for_each_region",
+        "assertion:constraint:at_most_20_selected_per_region",
+        "declaration:rel:index_component",
+        "declaration:opaque:Region"
+      ]
+    },
+    {
+      "claim_id": "C09",
+      "claim_hash": "61e3c986813a",
+      "claim_text": "The selection of the Index Components is fully rule-based and the Index Administrator cannot make any discretionary decision.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "declaration:prohibition:index_administrator_discretionary_decision",
+        "declaration:rel:fully_rule_based",
+        "assertion:constraint:selection_fully_rule_based",
+        "declaration:opaque:SelectionOfIndexComponents",
+        "declaration:opaque:DiscretionaryDecision"
+      ]
+    }
+  ]
+}

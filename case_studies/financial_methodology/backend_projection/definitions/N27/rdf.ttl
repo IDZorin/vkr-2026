@@ -1,0 +1,59 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N27 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N27/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:SelectionDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:RebalanceDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:RebalanceDay rdfs:subClassOf ex:Day .
+ex:BusinessDayCount a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:BusinessDayCount rdfs:subClassOf ex:Nat .
+
+ex:TwentyBusinessDays a ex:BusinessDayCount, owl:NamedIndividual .
+ex:business_day_count_before a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:business_day_count_before_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:business_day_count_before a4:argument ex:business_day_count_before_arg_0 .
+ex:business_day_count_before_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Day .
+ex:business_day_count_before a4:argument ex:business_day_count_before_arg_1 .
+ex:business_day_count_before a4:resultSort ex:BusinessDayCount .
+ex:business_day_count_before a4:functionFlag "required" .
+ex:selection_day_for_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:selection_day_for_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:selection_day_for_rebalance_day a4:argument ex:selection_day_for_rebalance_day_arg_0 .
+ex:selection_day_for_rebalance_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:selection_day_for_rebalance_day a4:argument ex:selection_day_for_rebalance_day_arg_1 .
+ex:change_of_rebalance_day_disregarded_for_selection_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:change_of_rebalance_day_disregarded_for_selection_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:change_of_rebalance_day_disregarded_for_selection_day a4:argument ex:change_of_rebalance_day_disregarded_for_selection_day_arg_0 .
+ex:change_of_rebalance_day_disregarded_for_selection_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:change_of_rebalance_day_disregarded_for_selection_day a4:argument ex:change_of_rebalance_day_disregarded_for_selection_day_arg_1 .
+
+ex:ASSERT_twenty_business_days_count a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "12"^^xsd:integer ;
+  a4:exprText "(TwentyBusinessDays) = (20)" ;
+  a4:sourceText "fact twenty_business_days_count :\n  TwentyBusinessDays = 20" .
+ex:ASSERT_selection_day_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "15"^^xsd:integer ;
+  a4:exprText "forall sd: SelectionDay, forall rd: RebalanceDay, (selection_day_for_rebalance_day(sd, rd)) iff ((business_day_count_before(sd, rd)) = (TwentyBusinessDays))" ;
+  a4:sourceText "constraint selection_day_definition :\n  forall sd: SelectionDay, forall rd: RebalanceDay,\n    selection_day_for_rebalance_day(sd, rd)\n    iff\n      business_day_count_before(sd, rd) = TwentyBusinessDays" .
+ex:ASSERT_rebalance_day_change_disregarded_for_selection_day a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "21"^^xsd:integer ;
+  a4:exprText "forall sd: SelectionDay, forall rd: RebalanceDay, (selection_day_for_rebalance_day(sd, rd)) implies (change_of_rebalance_day_disregarded_for_selection_day(sd, rd))" ;
+  a4:sourceText "constraint rebalance_day_change_disregarded_for_selection_day :\n  forall sd: SelectionDay, forall rd: RebalanceDay,\n    selection_day_for_rebalance_day(sd, rd)\n    implies\n      change_of_rebalance_day_disregarded_for_selection_day(sd, rd)" .

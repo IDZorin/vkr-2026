@@ -1,0 +1,179 @@
+﻿{
+  "schema": "corpus_aware_multi_judge_v1",
+  "generated_at": "2026-05-10T20:19:00+02:00",
+  "entry_id": "N32",
+  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N32",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "included_context": {
+    "entry": "N32",
+    "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N32",
+    "global_bridge": false,
+    "related_sections": [],
+    "artifacts": {
+      "source.md": true,
+      "normalized.md": true,
+      "main_ir.a4v3": true,
+      "repair.a4v3": false,
+      "provenance.yaml": true,
+      "translator_notes.md": true,
+      "waivers.yaml": false,
+      "waivers_v1.yaml": false
+    }
+  },
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR captures the source as a definitional cross-reference: the quoted term is modeled as a DefinedTerm, Section 1.4 as a DocumentPart, and the fact states that the term has its meaning defined in that section. This matches the source sentence and the documented translation intent.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses a symbolic term name without punctuation, which is a naming choice rather than a semantic change.",
+        "The relation name is verbose but consistent with the documented definitional-reading convention."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2066,
+        "completion_tokens": 168,
+        "total_tokens": 2234
+      },
+      "latency_s": 2.245849609375
+    },
+    {
+      "model": "gpt-5.4",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "none"
+      ],
+      "reason_short": "The local IR captures the sole source claim: the defined term \"WM / Refinitiv Rate\" has its meaning defined in Section 1.4. The IR does not add substantive Section 1.4 content or misread \"shall\" as an obligation; it records the definitional cross-reference expressed in the source.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR normalizes the quoted phrase \"WM / Refinitiv Rate\" into the entity name WMRefinitivRateTerm.",
+        "Section 1.4 is represented abstractly as DocumentPart entity Section1_4 rather than preserving the exact textual formatting.",
+        "The relation name term_shall_have_meaning_defined_in_section is a formalized paraphrase of the drafting phrase rather than a verbatim rendering."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2066,
+        "completion_tokens": 214,
+        "total_tokens": 2280
+      },
+      "latency_s": 3.8406615257263184
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The source sentence is a cross-reference definition stating that the term 'WM / Refinitiv Rate' has its meaning defined in Section 1.4. The IR faithfully captures this by introducing a DefinedTerm entity for the quoted term, a DocumentPart entity for the referenced section, and a relation asserting that the term's meaning is defined in that section. The provenance and translator notes confirm this interpretation and explicitly reject alternative readings (e.g., treating 'shall' as deontic obligation or duplicating substantive content). No semantic divergence exists between source and IR.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "Entity name 'WMRefinitivRateTerm' uses camelCase abbreviation; source uses quoted string with spaces and slash. This is standard IR naming convention, not semantic drift.",
+        "Entity name 'Section1_4' uses underscore notation; source uses 'Section 1.4'. Again, standard IR entity naming, not semantic content change."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2396,
+        "completion_tokens": 328,
+        "total_tokens": 2724
+      },
+      "latency_s": 4.301314353942871
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR directly encodes the source sentence: a fact linking the defined term 'WM / Refinitiv Rate' to the section where its meaning is defined, Section 1.4. The relation precisely captures the definitional cross-reference without distortion.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The entity name 'WMRefinitivRateTerm' normalizes the quoted source phrase 'WM / Refinitiv Rate' by removing slashes and converting to camel case, a common naming convention in formal ontologies.",
+        "The relation name 'term_shall_have_meaning_defined_in_section' includes the word 'shall' from the source, which is acceptable but the source's 'shall' is legal-definition drafting, not deontic obligation, and the IR correctly does not model it as an obligation."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2194,
+        "completion_tokens": 1231,
+        "total_tokens": 3425
+      },
+      "latency_s": 43.124130725860596
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR faithfully captures the source sentence as a definitional cross-reference, linking the quoted term to the specified document section. The relation name and entity types directly mirror the source structure. Corpus context confirms the intentional treatment of 'shall' as definitional rather than deontic and validates the deferral of substantive rate logic to the referenced section.",
+      "semantic_differences": [],
+      "context_resolved_issues": [
+        "Potential ambiguity around the modal 'shall' being interpreted as a deontic obligation is resolved by explicit translator notes and provenance, confirming it functions purely as a definitional pointer."
+      ],
+      "stylistic_notes": [
+        "The relation name is highly descriptive and closely tracks the source legal phrasing, which is appropriate for cross-reference definitions."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2203,
+        "completion_tokens": 2458,
+        "total_tokens": 4661
+      },
+      "latency_s": 46.40513634681702
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "local_source_alignment_mode": "corresponds",
+    "local_source_alignment_distribution": {
+      "corresponds": 5
+    },
+    "local_source_alignment_agreement": 1.0,
+    "corpus_alignment_mode": "corresponds",
+    "corpus_alignment_distribution": {
+      "corresponds": 5
+    },
+    "corpus_alignment_agreement": 1.0,
+    "unanimous_corpus_alignment": true,
+    "needs_context_count": 0,
+    "mean_confidence": 0.988
+  }
+}

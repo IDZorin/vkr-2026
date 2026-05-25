@@ -1,0 +1,323 @@
+﻿-- seed methodology ordinary rebalance workflow v1.
+-- First concrete happy-path process slice.
+-- This file is intentionally self-contained: A4V3 has no import mechanism yet.
+
+sort Workflow
+sort ProcessStep
+sort ProcessTrigger
+sort ProcessInput
+sort ProcessOutput
+sort ProcessState
+sort ProcessStateCarrier
+sort ProcessGroundingTarget
+sort DocumentPart
+sort SourceFragment
+sort CanonicalFrame
+sort CanonicalConcept
+sort CalendarMarker
+
+sort ProcessEdgeKind =
+  ExplicitSourceEdge
+| StructuralDependencyEdge
+| InferredMergeEdge
+| OperationalLoweringEdge
+
+sort StepModality =
+  ObligatoryStep
+| PermittedStep
+| ProhibitedStep
+| DiscretionaryStep
+| DescriptiveStep
+
+sort ProcessTemporalRelation =
+  Before
+| After
+| SameTimeAs
+| During
+| OnOrBefore
+| OnOrAfter
+
+sort IterationSemanticsStatus =
+  NoIteration
+| IterationSemanticsDeferred
+| FixedPointIteration
+
+sort ProcessIOKind =
+  DomainConceptIO
+| ObservationFrameIO
+| CalendarMarkerIO
+| ProcessStateIO
+
+sort ProcessStateKind =
+  EligibleUniverseCandidate
+| EligibleComponentCandidate
+| SelectedComponent
+| CalculationDayComponent
+| ImplementedComponent
+
+sort IndexComponentMembershipState =
+  GenericMembership
+| SelectedMembership
+| CalculationMembership
+| ImplementedMembership
+
+sort ProcessGroundingKind =
+  DocumentPartGrounding
+| SourceFragmentGrounding
+| BridgeDecisionGrounding
+| CanonicalConceptGrounding
+| ProvenanceGrounding
+
+entity OrdinaryRebalanceWorkflow : Workflow
+
+entity DetermineOrdinaryRebalanceCalendar : ProcessStep
+entity ConstructIndexUniverse : ProcessStep
+entity SelectIndexComponents : ProcessStep
+entity CalculateSelectionDayWeights : ProcessStep
+entity DetermineFixingDayShares : ProcessStep
+entity PublishRebalanceComponentChanges : ProcessStep
+entity ImplementOrdinaryRebalance : ProcessStep
+
+entity SelectionDayTrigger : ProcessTrigger
+entity FixingDayTrigger : ProcessTrigger
+entity RebalanceDayAfterCloseOfBusinessTrigger : ProcessTrigger
+entity SufficientNoticeBeforeRebalanceDayTrigger : ProcessTrigger
+entity WorkflowStartTrigger : ProcessTrigger
+
+entity SelectionDayMarker : CalendarMarker
+entity FixingDayMarker : CalendarMarker
+entity RebalanceDayMarker : CalendarMarker
+entity CloseOfBusinessMarker : CalendarMarker
+
+entity IndexUniverseOutput : ProcessOutput
+entity EligibleUniverseCandidateState : ProcessState
+entity EligibleComponentCandidateState : ProcessState
+entity SelectedComponentState : ProcessState
+entity ComponentWeightsOutput : ProcessOutput
+entity FixingDaySharesOutput : ProcessOutput
+entity RebalanceAnnouncementOutput : ProcessOutput
+entity UpdatedComponentSetOutput : ProcessOutput
+entity ImplementedComponentState : ProcessState
+
+entity IndexUniverseInput : ProcessInput
+entity SelectedComponentsInput : ProcessInput
+entity FreeFloatMarketCapitalizationInput : ProcessInput
+entity ComponentWeightsInput : ProcessInput
+entity FixingDaySharesInput : ProcessInput
+entity PlannedComponentChangesInput : ProcessInput
+
+entity EligibleSecurityCarrier : ProcessStateCarrier
+entity SelectedComponentRoleAssignmentCarrier : ProcessStateCarrier
+entity ImplementedComponentRoleAssignmentCarrier : ProcessStateCarrier
+
+entity FreeFloatMarketCapitalizationObservationFrame : CanonicalFrame
+entity ComponentWeightObservationFrame : CanonicalFrame
+entity GenericIndexComponentMembershipFrame : CanonicalFrame
+entity SelectionDayIndexComponentMembershipFrame : CanonicalFrame
+
+entity Section2_1 : DocumentPart
+entity Section2_2 : DocumentPart
+entity Section2_3 : DocumentPart
+entity Section3_1 : DocumentPart
+entity DefinitionN06 : SourceFragment
+entity DefinitionN09 : SourceFragment
+entity DefinitionN11 : SourceFragment
+entity DefinitionN26 : SourceFragment
+entity DefinitionN27 : SourceFragment
+
+entity CalendarGrounding : ProcessGroundingTarget
+entity UniverseGrounding : ProcessGroundingTarget
+entity ComponentSelectionGrounding : ProcessGroundingTarget
+entity WeightingGrounding : ProcessGroundingTarget
+entity FixingSharesGrounding : ProcessGroundingTarget
+entity RebalanceImplementationGrounding : ProcessGroundingTarget
+entity RebalancePublicationGrounding : ProcessGroundingTarget
+entity MembershipCanonicalGrounding : ProcessGroundingTarget
+
+rel workflow_step : Workflow, ProcessStep
+rel step_precedes : ProcessStep, ProcessStep
+rel step_edge_kind : ProcessStep, ProcessStep, ProcessEdgeKind
+rel step_temporal_relation : ProcessStep, ProcessStep, ProcessTemporalRelation
+rel step_modality : ProcessStep, StepModality
+rel step_iteration_status : ProcessStep, IterationSemanticsStatus
+
+rel step_triggered_by : ProcessStep, ProcessTrigger
+rel trigger_calendar_marker : ProcessTrigger, CalendarMarker
+rel trigger_precedes : ProcessTrigger, ProcessTrigger
+rel trigger_temporal_relation : ProcessTrigger, ProcessTrigger, ProcessTemporalRelation
+rel trigger_relation_grounded_in : ProcessTrigger, ProcessTrigger, ProcessGroundingTarget
+
+rel step_requires : ProcessStep, ProcessInput
+rel step_produces : ProcessStep, ProcessOutput
+rel input_kind : ProcessInput, ProcessIOKind
+rel output_kind : ProcessOutput, ProcessIOKind
+rel input_observation_frame : ProcessInput, CanonicalFrame
+rel output_observation_frame : ProcessOutput, CanonicalFrame
+
+rel step_enters_state : ProcessStep, ProcessState
+rel process_state_kind : ProcessState, ProcessStateKind
+rel process_state_carrier : ProcessState, ProcessStateCarrier
+rel process_state_corresponds_to_membership_state : ProcessState, IndexComponentMembershipState
+
+rel step_grounded_in_document_part : ProcessStep, DocumentPart
+rel step_grounded_in : ProcessStep, ProcessGroundingTarget
+rel edge_grounded_in : ProcessStep, ProcessStep, ProcessGroundingTarget
+rel grounding_kind : ProcessGroundingTarget, ProcessGroundingKind
+rel grounding_document_part : ProcessGroundingTarget, DocumentPart
+rel grounding_source_fragment : ProcessGroundingTarget, SourceFragment
+rel grounding_canonical_frame : ProcessGroundingTarget, CanonicalFrame
+
+fact ordinary_rebalance_workflow_steps :
+  workflow_step(OrdinaryRebalanceWorkflow, DetermineOrdinaryRebalanceCalendar)
+  and workflow_step(OrdinaryRebalanceWorkflow, ConstructIndexUniverse)
+  and workflow_step(OrdinaryRebalanceWorkflow, SelectIndexComponents)
+  and workflow_step(OrdinaryRebalanceWorkflow, CalculateSelectionDayWeights)
+  and workflow_step(OrdinaryRebalanceWorkflow, DetermineFixingDayShares)
+  and workflow_step(OrdinaryRebalanceWorkflow, PublishRebalanceComponentChanges)
+  and workflow_step(OrdinaryRebalanceWorkflow, ImplementOrdinaryRebalance)
+
+fact ordinary_rebalance_happy_path_order :
+  step_precedes(DetermineOrdinaryRebalanceCalendar, ConstructIndexUniverse)
+  and step_edge_kind(DetermineOrdinaryRebalanceCalendar, ConstructIndexUniverse, StructuralDependencyEdge)
+  and step_temporal_relation(DetermineOrdinaryRebalanceCalendar, ConstructIndexUniverse, Before)
+  and step_precedes(ConstructIndexUniverse, SelectIndexComponents)
+  and step_edge_kind(ConstructIndexUniverse, SelectIndexComponents, StructuralDependencyEdge)
+  and step_temporal_relation(ConstructIndexUniverse, SelectIndexComponents, Before)
+  and step_precedes(SelectIndexComponents, CalculateSelectionDayWeights)
+  and step_edge_kind(SelectIndexComponents, CalculateSelectionDayWeights, StructuralDependencyEdge)
+  and step_temporal_relation(SelectIndexComponents, CalculateSelectionDayWeights, Before)
+  and step_precedes(CalculateSelectionDayWeights, DetermineFixingDayShares)
+  and step_edge_kind(CalculateSelectionDayWeights, DetermineFixingDayShares, ExplicitSourceEdge)
+  and step_temporal_relation(CalculateSelectionDayWeights, DetermineFixingDayShares, SameTimeAs)
+  and step_precedes(DetermineFixingDayShares, PublishRebalanceComponentChanges)
+  and step_edge_kind(DetermineFixingDayShares, PublishRebalanceComponentChanges, StructuralDependencyEdge)
+  and step_temporal_relation(DetermineFixingDayShares, PublishRebalanceComponentChanges, Before)
+  and step_precedes(PublishRebalanceComponentChanges, ImplementOrdinaryRebalance)
+  and step_edge_kind(PublishRebalanceComponentChanges, ImplementOrdinaryRebalance, ExplicitSourceEdge)
+  and step_temporal_relation(PublishRebalanceComponentChanges, ImplementOrdinaryRebalance, Before)
+
+fact ordinary_rebalance_triggers :
+  step_triggered_by(DetermineOrdinaryRebalanceCalendar, WorkflowStartTrigger)
+  and step_triggered_by(ConstructIndexUniverse, SelectionDayTrigger)
+  and step_triggered_by(SelectIndexComponents, SelectionDayTrigger)
+  and step_triggered_by(CalculateSelectionDayWeights, SelectionDayTrigger)
+  and step_triggered_by(DetermineFixingDayShares, FixingDayTrigger)
+  and step_triggered_by(PublishRebalanceComponentChanges, SufficientNoticeBeforeRebalanceDayTrigger)
+  and step_triggered_by(ImplementOrdinaryRebalance, RebalanceDayAfterCloseOfBusinessTrigger)
+  and trigger_calendar_marker(SelectionDayTrigger, SelectionDayMarker)
+  and trigger_calendar_marker(FixingDayTrigger, FixingDayMarker)
+  and trigger_calendar_marker(SufficientNoticeBeforeRebalanceDayTrigger, RebalanceDayMarker)
+  and trigger_calendar_marker(RebalanceDayAfterCloseOfBusinessTrigger, RebalanceDayMarker)
+  and trigger_calendar_marker(RebalanceDayAfterCloseOfBusinessTrigger, CloseOfBusinessMarker)
+  and trigger_temporal_relation(SelectionDayTrigger, FixingDayTrigger, SameTimeAs)
+  and trigger_precedes(FixingDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger)
+  and trigger_temporal_relation(FixingDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger, Before)
+  and trigger_precedes(SufficientNoticeBeforeRebalanceDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger)
+  and trigger_temporal_relation(SufficientNoticeBeforeRebalanceDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger, Before)
+  and trigger_relation_grounded_in(SelectionDayTrigger, FixingDayTrigger, CalendarGrounding)
+
+fact ordinary_rebalance_step_modalities_and_iteration :
+  step_modality(DetermineOrdinaryRebalanceCalendar, DescriptiveStep)
+  and step_modality(ConstructIndexUniverse, DescriptiveStep)
+  and step_modality(SelectIndexComponents, DescriptiveStep)
+  and step_modality(CalculateSelectionDayWeights, DescriptiveStep)
+  and step_modality(DetermineFixingDayShares, DescriptiveStep)
+  and step_modality(PublishRebalanceComponentChanges, ObligatoryStep)
+  and step_modality(ImplementOrdinaryRebalance, DescriptiveStep)
+  and step_iteration_status(DetermineOrdinaryRebalanceCalendar, NoIteration)
+  and step_iteration_status(ConstructIndexUniverse, NoIteration)
+  and step_iteration_status(SelectIndexComponents, NoIteration)
+  and step_iteration_status(CalculateSelectionDayWeights, IterationSemanticsDeferred)
+  and step_iteration_status(DetermineFixingDayShares, NoIteration)
+  and step_iteration_status(PublishRebalanceComponentChanges, NoIteration)
+  and step_iteration_status(ImplementOrdinaryRebalance, NoIteration)
+
+fact ordinary_rebalance_inputs_outputs :
+  step_produces(ConstructIndexUniverse, IndexUniverseOutput)
+  and output_kind(IndexUniverseOutput, DomainConceptIO)
+  and step_enters_state(ConstructIndexUniverse, EligibleUniverseCandidateState)
+  and process_state_kind(EligibleUniverseCandidateState, EligibleUniverseCandidate)
+  and process_state_carrier(EligibleUniverseCandidateState, EligibleSecurityCarrier)
+  and step_requires(SelectIndexComponents, IndexUniverseInput)
+  and input_kind(IndexUniverseInput, DomainConceptIO)
+  and step_enters_state(SelectIndexComponents, EligibleComponentCandidateState)
+  and process_state_kind(EligibleComponentCandidateState, EligibleComponentCandidate)
+  and process_state_carrier(EligibleComponentCandidateState, EligibleSecurityCarrier)
+  and step_enters_state(SelectIndexComponents, SelectedComponentState)
+  and process_state_kind(SelectedComponentState, SelectedComponent)
+  and process_state_carrier(SelectedComponentState, SelectedComponentRoleAssignmentCarrier)
+  and process_state_corresponds_to_membership_state(SelectedComponentState, SelectedMembership)
+  and step_requires(CalculateSelectionDayWeights, SelectedComponentsInput)
+  and input_kind(SelectedComponentsInput, ProcessStateIO)
+  and step_requires(CalculateSelectionDayWeights, FreeFloatMarketCapitalizationInput)
+  and input_kind(FreeFloatMarketCapitalizationInput, ObservationFrameIO)
+  and input_observation_frame(FreeFloatMarketCapitalizationInput, FreeFloatMarketCapitalizationObservationFrame)
+  and step_produces(CalculateSelectionDayWeights, ComponentWeightsOutput)
+  and output_kind(ComponentWeightsOutput, ObservationFrameIO)
+  and output_observation_frame(ComponentWeightsOutput, ComponentWeightObservationFrame)
+  and step_requires(DetermineFixingDayShares, ComponentWeightsInput)
+  and input_kind(ComponentWeightsInput, ObservationFrameIO)
+  and input_observation_frame(ComponentWeightsInput, ComponentWeightObservationFrame)
+  and step_produces(DetermineFixingDayShares, FixingDaySharesOutput)
+  and output_kind(FixingDaySharesOutput, DomainConceptIO)
+  and step_requires(PublishRebalanceComponentChanges, PlannedComponentChangesInput)
+  and input_kind(PlannedComponentChangesInput, ProcessStateIO)
+  and step_produces(PublishRebalanceComponentChanges, RebalanceAnnouncementOutput)
+  and output_kind(RebalanceAnnouncementOutput, DomainConceptIO)
+  and step_requires(ImplementOrdinaryRebalance, FixingDaySharesInput)
+  and input_kind(FixingDaySharesInput, DomainConceptIO)
+  and step_requires(ImplementOrdinaryRebalance, SelectedComponentsInput)
+  and step_produces(ImplementOrdinaryRebalance, UpdatedComponentSetOutput)
+  and output_kind(UpdatedComponentSetOutput, ProcessStateIO)
+  and step_enters_state(ImplementOrdinaryRebalance, ImplementedComponentState)
+  and process_state_kind(ImplementedComponentState, ImplementedComponent)
+  and process_state_carrier(ImplementedComponentState, ImplementedComponentRoleAssignmentCarrier)
+  and process_state_corresponds_to_membership_state(ImplementedComponentState, ImplementedMembership)
+
+fact ordinary_rebalance_grounding_targets :
+  grounding_kind(CalendarGrounding, SourceFragmentGrounding)
+  and grounding_source_fragment(CalendarGrounding, DefinitionN06)
+  and grounding_source_fragment(CalendarGrounding, DefinitionN09)
+  and grounding_source_fragment(CalendarGrounding, DefinitionN11)
+  and grounding_source_fragment(CalendarGrounding, DefinitionN26)
+  and grounding_source_fragment(CalendarGrounding, DefinitionN27)
+  and grounding_kind(UniverseGrounding, DocumentPartGrounding)
+  and grounding_document_part(UniverseGrounding, Section2_1)
+  and grounding_kind(ComponentSelectionGrounding, DocumentPartGrounding)
+  and grounding_document_part(ComponentSelectionGrounding, Section2_2)
+  and grounding_kind(WeightingGrounding, DocumentPartGrounding)
+  and grounding_document_part(WeightingGrounding, Section2_3)
+  and grounding_kind(FixingSharesGrounding, DocumentPartGrounding)
+  and grounding_document_part(FixingSharesGrounding, Section3_1)
+  and grounding_kind(RebalanceImplementationGrounding, DocumentPartGrounding)
+  and grounding_document_part(RebalanceImplementationGrounding, Section3_1)
+  and grounding_kind(RebalancePublicationGrounding, DocumentPartGrounding)
+  and grounding_document_part(RebalancePublicationGrounding, Section3_1)
+  and grounding_kind(MembershipCanonicalGrounding, CanonicalConceptGrounding)
+  and grounding_canonical_frame(MembershipCanonicalGrounding, GenericIndexComponentMembershipFrame)
+  and grounding_canonical_frame(MembershipCanonicalGrounding, SelectionDayIndexComponentMembershipFrame)
+
+fact ordinary_rebalance_step_grounding :
+  step_grounded_in(DetermineOrdinaryRebalanceCalendar, CalendarGrounding)
+  and step_grounded_in(ConstructIndexUniverse, UniverseGrounding)
+  and step_grounded_in_document_part(ConstructIndexUniverse, Section2_1)
+  and step_grounded_in(SelectIndexComponents, ComponentSelectionGrounding)
+  and step_grounded_in_document_part(SelectIndexComponents, Section2_2)
+  and step_grounded_in(CalculateSelectionDayWeights, WeightingGrounding)
+  and step_grounded_in_document_part(CalculateSelectionDayWeights, Section2_3)
+  and step_grounded_in(DetermineFixingDayShares, FixingSharesGrounding)
+  and step_grounded_in_document_part(DetermineFixingDayShares, Section3_1)
+  and step_grounded_in(PublishRebalanceComponentChanges, RebalancePublicationGrounding)
+  and step_grounded_in_document_part(PublishRebalanceComponentChanges, Section3_1)
+  and step_grounded_in(ImplementOrdinaryRebalance, RebalanceImplementationGrounding)
+  and step_grounded_in_document_part(ImplementOrdinaryRebalance, Section3_1)
+  and step_grounded_in(SelectIndexComponents, MembershipCanonicalGrounding)
+  and step_grounded_in(ImplementOrdinaryRebalance, MembershipCanonicalGrounding)
+
+fact ordinary_rebalance_edge_grounding :
+  edge_grounded_in(DetermineOrdinaryRebalanceCalendar, ConstructIndexUniverse, CalendarGrounding)
+  and edge_grounded_in(ConstructIndexUniverse, SelectIndexComponents, UniverseGrounding)
+  and edge_grounded_in(SelectIndexComponents, CalculateSelectionDayWeights, ComponentSelectionGrounding)
+  and edge_grounded_in(CalculateSelectionDayWeights, DetermineFixingDayShares, FixingSharesGrounding)
+  and edge_grounded_in(DetermineFixingDayShares, PublishRebalanceComponentChanges, RebalancePublicationGrounding)
+  and edge_grounded_in(PublishRebalanceComponentChanges, ImplementOrdinaryRebalance, RebalancePublicationGrounding)

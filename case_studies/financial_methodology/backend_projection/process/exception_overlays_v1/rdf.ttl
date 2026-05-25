@@ -1,0 +1,523 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:exception_overlays_v1 a a4:ProjectionTarget ;
+  a4:relativePath "process/exception_overlays_v1.a4v3" ;
+  a4:targetKind "process" .
+
+ex:Workflow a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessStep a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessTrigger a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessInput a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessOutput a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessState a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessStateCarrier a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessGroundingTarget a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:DocumentPart a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:SourceFragment a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:BridgeFamily a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CalendarMarker a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CalendarWindow a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CalendarWindow rdfs:subClassOf ex:CalendarMarker .
+ex:ProcessEdgeKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:ExplicitSourceEdge a ex:ProcessEdgeKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessEdgeKind a4:enumMember ex:ExplicitSourceEdge .
+ex:StructuralDependencyEdge a ex:ProcessEdgeKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessEdgeKind a4:enumMember ex:StructuralDependencyEdge .
+ex:InferredMergeEdge a ex:ProcessEdgeKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessEdgeKind a4:enumMember ex:InferredMergeEdge .
+ex:OperationalLoweringEdge a ex:ProcessEdgeKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessEdgeKind a4:enumMember ex:OperationalLoweringEdge .
+ex:OverlayBehavior a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:Preempt a ex:OverlayBehavior, a4:EnumMember, owl:NamedIndividual .
+ex:OverlayBehavior a4:enumMember ex:Preempt .
+ex:ModifyAndContinue a ex:OverlayBehavior, a4:EnumMember, owl:NamedIndividual .
+ex:OverlayBehavior a4:enumMember ex:ModifyAndContinue .
+ex:InterruptAndResume a ex:OverlayBehavior, a4:EnumMember, owl:NamedIndividual .
+ex:OverlayBehavior a4:enumMember ex:InterruptAndResume .
+ex:Fallback a ex:OverlayBehavior, a4:EnumMember, owl:NamedIndividual .
+ex:OverlayBehavior a4:enumMember ex:Fallback .
+ex:StepModality a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:ObligatoryStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:ObligatoryStep .
+ex:PermittedStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:PermittedStep .
+ex:ProhibitedStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:ProhibitedStep .
+ex:DiscretionaryStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:DiscretionaryStep .
+ex:DescriptiveStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:DescriptiveStep .
+ex:ProcessTemporalRelation a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:Before a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:Before .
+ex:After a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:After .
+ex:SameTimeAs a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:SameTimeAs .
+ex:During a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:During .
+ex:OnOrBefore a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:OnOrBefore .
+ex:OnOrAfter a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:OnOrAfter .
+ex:IterationSemanticsStatus a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:NoIteration a ex:IterationSemanticsStatus, a4:EnumMember, owl:NamedIndividual .
+ex:IterationSemanticsStatus a4:enumMember ex:NoIteration .
+ex:IterationSemanticsDeferred a ex:IterationSemanticsStatus, a4:EnumMember, owl:NamedIndividual .
+ex:IterationSemanticsStatus a4:enumMember ex:IterationSemanticsDeferred .
+ex:FixedPointIteration a ex:IterationSemanticsStatus, a4:EnumMember, owl:NamedIndividual .
+ex:IterationSemanticsStatus a4:enumMember ex:FixedPointIteration .
+ex:ProcessIOKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:DomainConceptIO a ex:ProcessIOKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessIOKind a4:enumMember ex:DomainConceptIO .
+ex:ObservationFrameIO a ex:ProcessIOKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessIOKind a4:enumMember ex:ObservationFrameIO .
+ex:CalendarMarkerIO a ex:ProcessIOKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessIOKind a4:enumMember ex:CalendarMarkerIO .
+ex:ProcessStateIO a ex:ProcessIOKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessIOKind a4:enumMember ex:ProcessStateIO .
+ex:ProcessGroundingKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:DocumentPartGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:DocumentPartGrounding .
+ex:SourceFragmentGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:SourceFragmentGrounding .
+ex:BridgeDecisionGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:BridgeDecisionGrounding .
+ex:CanonicalConceptGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:CanonicalConceptGrounding .
+ex:ProvenanceGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:ProvenanceGrounding .
+ex:ProcessOverlayStateKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:CorporateActionAffectedComponent a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:CorporateActionAffectedComponent .
+ex:CorporateActionAdjustedComponent a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:CorporateActionAdjustedComponent .
+ex:DisruptedDetermination a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:DisruptedDetermination .
+ex:CorrectionPending a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:CorrectionPending .
+ex:CorrectionResolved a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:CorrectionResolved .
+ex:ActiveIndex a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:ActiveIndex .
+ex:TerminatedIndex a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:TerminatedIndex .
+ex:MethodologyUnderReview a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:MethodologyUnderReview .
+ex:MethodologyChanged a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:MethodologyChanged .
+ex:AmendmentPendingApproval a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:AmendmentPendingApproval .
+ex:AmendmentApproved a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:AmendmentApproved .
+
+ex:OrdinaryRebalanceWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:CorporateActionOverlayWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:MarketDisruptionOverlayWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:CorrectionOverlayWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:TerminationOverlayWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:MethodologyChangeOverlayWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:OversightRuleAmendmentOverlayWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:DetectCorporateActionEvent a ex:ProcessStep, owl:NamedIndividual .
+ex:DetermineCorporateActionAdjustmentNeed a ex:ProcessStep, owl:NamedIndividual .
+ex:AccountForCorporateActionInCalculation a ex:ProcessStep, owl:NamedIndividual .
+ex:EvaluateCorporateActionProcedureDeviation a ex:ProcessStep, owl:NamedIndividual .
+ex:AnnounceCorporateActionAdjustment a ex:ProcessStep, owl:NamedIndividual .
+ex:ImplementCorporateActionAdjustment a ex:ProcessStep, owl:NamedIndividual .
+ex:DetectMarketDisruptionCondition a ex:ProcessStep, owl:NamedIndividual .
+ex:ApplyDisruptionPolicyArrangements a ex:ProcessStep, owl:NamedIndividual .
+ex:DetermineIndexUnderDisruptedConditions a ex:ProcessStep, owl:NamedIndividual .
+ex:IdentifyDeterminationError a ex:ProcessStep, owl:NamedIndividual .
+ex:DetermineCorrectionMeasures a ex:ProcessStep, owl:NamedIndividual .
+ex:CorrectIdentifiedError a ex:ProcessStep, owl:NamedIndividual .
+ex:DetectZeroOrNegativeAdjustedReturnIndexLevel a ex:ProcessStep, owl:NamedIndividual .
+ex:TerminateAffectedIndex a ex:ProcessStep, owl:NamedIndividual .
+ex:AnnounceIndexTermination a ex:ProcessStep, owl:NamedIndividual .
+ex:ReviewMethodologyAtLeastAnnually a ex:ProcessStep, owl:NamedIndividual .
+ex:IdentifyMethodologyChangeNeed a ex:ProcessStep, owl:NamedIndividual .
+ex:MakeMethodologyChangeInPolicy a ex:ProcessStep, owl:NamedIndividual .
+ex:AnnounceMethodologyChange a ex:ProcessStep, owl:NamedIndividual .
+ex:UpdateGuidelineAmendmentDate a ex:ProcessStep, owl:NamedIndividual .
+ex:EnsureConsistentCalculationMethodAfterChange a ex:ProcessStep, owl:NamedIndividual .
+ex:ProposeRuleOrGuidelineAmendment a ex:ProcessStep, owl:NamedIndividual .
+ex:SubmitAmendmentForPriorApproval a ex:ProcessStep, owl:NamedIndividual .
+ex:OversightCommitteePriorApprovalDecision a ex:ProcessStep, owl:NamedIndividual .
+ex:MakeApprovedRuleOrGuidelineAmendment a ex:ProcessStep, owl:NamedIndividual .
+ex:CorporateActionOccurrenceTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:CorporateActionCumDayTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:CorporateActionExDayTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:MarketStressOrDisruptionTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:IdentifiedErrorTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:ReasonablePeriodTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:ZeroOrNegativeAdjustedReturnIndexLevelTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:MethodologyReviewTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:MethodologyChangeNeedTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:ProposedRuleAmendmentTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:CumDayMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:ExDayMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:CorporateActionImplementationWindow a ex:CalendarWindow, owl:NamedIndividual .
+ex:EffectiveDayMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:ReasonablePeriodMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:AnnualReviewMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:CorporateActionEventInput a ex:ProcessInput, owl:NamedIndividual .
+ex:AffectedIndexComponentInput a ex:ProcessInput, owl:NamedIndividual .
+ex:CorporateActionKindInput a ex:ProcessInput, owl:NamedIndividual .
+ex:CorporateActionPriceEffectInput a ex:ProcessInput, owl:NamedIndividual .
+ex:EquityIndexMethodologyInput a ex:ProcessInput, owl:NamedIndividual .
+ex:CorporateActionNoticeInput a ex:ProcessInput, owl:NamedIndividual .
+ex:DisruptionPolicyInput a ex:ProcessInput, owl:NamedIndividual .
+ex:AffectedPriceInput a ex:ProcessInput, owl:NamedIndividual .
+ex:DeterminationErrorInput a ex:ProcessInput, owl:NamedIndividual .
+ex:CorrectionPolicyInput a ex:ProcessInput, owl:NamedIndividual .
+ex:AdjustedReturnIndexCalculationInput a ex:ProcessInput, owl:NamedIndividual .
+ex:MethodologyReviewInput a ex:ProcessInput, owl:NamedIndividual .
+ex:MethodologyPolicyInput a ex:ProcessInput, owl:NamedIndividual .
+ex:ProposedAmendmentInput a ex:ProcessInput, owl:NamedIndividual .
+ex:OversightCommitteeInput a ex:ProcessInput, owl:NamedIndividual .
+ex:RequiredIndexAdjustmentOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:CorporateActionCalculationAdjustmentOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:CorporateActionDeviationDecisionOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:CorporateActionAdjustmentAnnouncementOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:ImplementedCorporateActionAdjustmentOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:DisruptionArrangementOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:DisruptedDeterminationOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:CorrectionMeasuresOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:CorrectedErrorOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:TerminatedIndexOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:TerminationAnnouncementOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:MethodologyChangeOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:MethodologyChangeAnnouncementOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:GuidelineAmendmentDateOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:ConsistentCalculationMethodOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:PriorApprovalOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:ApprovedRuleAmendmentOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:CorporateActionAffectedComponentState a ex:ProcessState, owl:NamedIndividual .
+ex:CorporateActionAdjustedComponentState a ex:ProcessState, owl:NamedIndividual .
+ex:DisruptedDeterminationState a ex:ProcessState, owl:NamedIndividual .
+ex:CorrectionPendingState a ex:ProcessState, owl:NamedIndividual .
+ex:CorrectionResolvedState a ex:ProcessState, owl:NamedIndividual .
+ex:ActiveIndexState a ex:ProcessState, owl:NamedIndividual .
+ex:TerminatedIndexState a ex:ProcessState, owl:NamedIndividual .
+ex:MethodologyUnderReviewState a ex:ProcessState, owl:NamedIndividual .
+ex:MethodologyChangedState a ex:ProcessState, owl:NamedIndividual .
+ex:AmendmentPendingApprovalState a ex:ProcessState, owl:NamedIndividual .
+ex:AmendmentApprovedState a ex:ProcessState, owl:NamedIndividual .
+ex:AffectedComponentCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:AdjustedComponentCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:DeterminationCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:ErrorCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:IndexCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:MethodologyCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:AmendmentCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:Section4_2 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section4_4 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section4_5 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section4_6 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section4_7 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section5_2 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section5_3 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section5_5 a ex:DocumentPart, owl:NamedIndividual .
+ex:DefinitionN25 a ex:SourceFragment, owl:NamedIndividual .
+ex:AnnouncementSectionFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:NewsAnnouncementsUrlFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:CorporateActionGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:CorporateActionCalendarGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:AnnouncementBridgeGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:MarketDisruptionGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:CorrectionGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:CorrectionCalendarGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:TerminationGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:MethodologyChangeGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:MethodologyReviewCalendarGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:OversightGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:workflow_step a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:workflow_step_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_step a4:argument ex:workflow_step_arg_0 .
+ex:workflow_step_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:workflow_step a4:argument ex:workflow_step_arg_1 .
+ex:workflow_invokes a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:workflow_invokes_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_invokes a4:argument ex:workflow_invokes_arg_0 .
+ex:workflow_invokes_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_invokes a4:argument ex:workflow_invokes_arg_1 .
+ex:workflow_modifies a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:workflow_modifies_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_modifies a4:argument ex:workflow_modifies_arg_0 .
+ex:workflow_modifies_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_modifies a4:argument ex:workflow_modifies_arg_1 .
+ex:workflow_interrupts a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:workflow_interrupts_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_interrupts a4:argument ex:workflow_interrupts_arg_0 .
+ex:workflow_interrupts_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_interrupts a4:argument ex:workflow_interrupts_arg_1 .
+ex:step_precedes a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_precedes_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_precedes a4:argument ex:step_precedes_arg_0 .
+ex:step_precedes_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_precedes a4:argument ex:step_precedes_arg_1 .
+ex:step_edge_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:step_edge_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_edge_kind a4:argument ex:step_edge_kind_arg_0 .
+ex:step_edge_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_edge_kind a4:argument ex:step_edge_kind_arg_1 .
+ex:step_edge_kind_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessEdgeKind .
+ex:step_edge_kind a4:argument ex:step_edge_kind_arg_2 .
+ex:step_temporal_relation a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:step_temporal_relation_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_temporal_relation a4:argument ex:step_temporal_relation_arg_0 .
+ex:step_temporal_relation_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_temporal_relation a4:argument ex:step_temporal_relation_arg_1 .
+ex:step_temporal_relation_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessTemporalRelation .
+ex:step_temporal_relation a4:argument ex:step_temporal_relation_arg_2 .
+ex:step_overlay_behavior a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_overlay_behavior_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_overlay_behavior a4:argument ex:step_overlay_behavior_arg_0 .
+ex:step_overlay_behavior_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:OverlayBehavior .
+ex:step_overlay_behavior a4:argument ex:step_overlay_behavior_arg_1 .
+ex:step_modality a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_modality_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_modality a4:argument ex:step_modality_arg_0 .
+ex:step_modality_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:StepModality .
+ex:step_modality a4:argument ex:step_modality_arg_1 .
+ex:step_iteration_status a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_iteration_status_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_iteration_status a4:argument ex:step_iteration_status_arg_0 .
+ex:step_iteration_status_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IterationSemanticsStatus .
+ex:step_iteration_status a4:argument ex:step_iteration_status_arg_1 .
+ex:step_triggered_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_triggered_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_triggered_by a4:argument ex:step_triggered_by_arg_0 .
+ex:step_triggered_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:step_triggered_by a4:argument ex:step_triggered_by_arg_1 .
+ex:trigger_calendar_marker a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:trigger_calendar_marker_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_calendar_marker a4:argument ex:trigger_calendar_marker_arg_0 .
+ex:trigger_calendar_marker_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalendarMarker .
+ex:trigger_calendar_marker a4:argument ex:trigger_calendar_marker_arg_1 .
+ex:trigger_precedes a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:trigger_precedes_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_precedes a4:argument ex:trigger_precedes_arg_0 .
+ex:trigger_precedes_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_precedes a4:argument ex:trigger_precedes_arg_1 .
+ex:trigger_temporal_relation a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:trigger_temporal_relation_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_temporal_relation a4:argument ex:trigger_temporal_relation_arg_0 .
+ex:trigger_temporal_relation_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_temporal_relation a4:argument ex:trigger_temporal_relation_arg_1 .
+ex:trigger_temporal_relation_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessTemporalRelation .
+ex:trigger_temporal_relation a4:argument ex:trigger_temporal_relation_arg_2 .
+ex:trigger_relation_grounded_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:trigger_relation_grounded_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_relation_grounded_in a4:argument ex:trigger_relation_grounded_in_arg_0 .
+ex:trigger_relation_grounded_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_relation_grounded_in a4:argument ex:trigger_relation_grounded_in_arg_1 .
+ex:trigger_relation_grounded_in_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:trigger_relation_grounded_in a4:argument ex:trigger_relation_grounded_in_arg_2 .
+ex:calendar_window_start_marker a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:calendar_window_start_marker_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalendarWindow .
+ex:calendar_window_start_marker a4:argument ex:calendar_window_start_marker_arg_0 .
+ex:calendar_window_start_marker_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalendarMarker .
+ex:calendar_window_start_marker a4:argument ex:calendar_window_start_marker_arg_1 .
+ex:calendar_window_end_marker a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:calendar_window_end_marker_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalendarWindow .
+ex:calendar_window_end_marker a4:argument ex:calendar_window_end_marker_arg_0 .
+ex:calendar_window_end_marker_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalendarMarker .
+ex:calendar_window_end_marker a4:argument ex:calendar_window_end_marker_arg_1 .
+ex:step_during_calendar_window a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_during_calendar_window_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_during_calendar_window a4:argument ex:step_during_calendar_window_arg_0 .
+ex:step_during_calendar_window_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalendarWindow .
+ex:step_during_calendar_window a4:argument ex:step_during_calendar_window_arg_1 .
+ex:step_requires a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_requires_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_requires a4:argument ex:step_requires_arg_0 .
+ex:step_requires_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessInput .
+ex:step_requires a4:argument ex:step_requires_arg_1 .
+ex:step_produces a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_produces_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_produces a4:argument ex:step_produces_arg_0 .
+ex:step_produces_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessOutput .
+ex:step_produces a4:argument ex:step_produces_arg_1 .
+ex:input_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:input_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessInput .
+ex:input_kind a4:argument ex:input_kind_arg_0 .
+ex:input_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessIOKind .
+ex:input_kind a4:argument ex:input_kind_arg_1 .
+ex:output_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:output_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessOutput .
+ex:output_kind a4:argument ex:output_kind_arg_0 .
+ex:output_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessIOKind .
+ex:output_kind a4:argument ex:output_kind_arg_1 .
+ex:step_enters_state a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_enters_state_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_enters_state a4:argument ex:step_enters_state_arg_0 .
+ex:step_enters_state_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:step_enters_state a4:argument ex:step_enters_state_arg_1 .
+ex:step_exits_state a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_exits_state_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_exits_state a4:argument ex:step_exits_state_arg_0 .
+ex:step_exits_state_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:step_exits_state a4:argument ex:step_exits_state_arg_1 .
+ex:process_overlay_state_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:process_overlay_state_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:process_overlay_state_kind a4:argument ex:process_overlay_state_kind_arg_0 .
+ex:process_overlay_state_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessOverlayStateKind .
+ex:process_overlay_state_kind a4:argument ex:process_overlay_state_kind_arg_1 .
+ex:process_state_carrier a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:process_state_carrier_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:process_state_carrier a4:argument ex:process_state_carrier_arg_0 .
+ex:process_state_carrier_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStateCarrier .
+ex:process_state_carrier a4:argument ex:process_state_carrier_arg_1 .
+ex:step_grounded_in_document_part a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_grounded_in_document_part_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_grounded_in_document_part a4:argument ex:step_grounded_in_document_part_arg_0 .
+ex:step_grounded_in_document_part_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:step_grounded_in_document_part a4:argument ex:step_grounded_in_document_part_arg_1 .
+ex:step_grounded_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_grounded_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_grounded_in a4:argument ex:step_grounded_in_arg_0 .
+ex:step_grounded_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:step_grounded_in a4:argument ex:step_grounded_in_arg_1 .
+ex:edge_grounded_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:edge_grounded_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:edge_grounded_in a4:argument ex:edge_grounded_in_arg_0 .
+ex:edge_grounded_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:edge_grounded_in a4:argument ex:edge_grounded_in_arg_1 .
+ex:edge_grounded_in_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:edge_grounded_in a4:argument ex:edge_grounded_in_arg_2 .
+ex:grounding_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_kind a4:argument ex:grounding_kind_arg_0 .
+ex:grounding_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessGroundingKind .
+ex:grounding_kind a4:argument ex:grounding_kind_arg_1 .
+ex:grounding_document_part a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_document_part_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_document_part a4:argument ex:grounding_document_part_arg_0 .
+ex:grounding_document_part_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:grounding_document_part a4:argument ex:grounding_document_part_arg_1 .
+ex:grounding_source_fragment a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_source_fragment_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_source_fragment a4:argument ex:grounding_source_fragment_arg_0 .
+ex:grounding_source_fragment_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SourceFragment .
+ex:grounding_source_fragment a4:argument ex:grounding_source_fragment_arg_1 .
+ex:grounding_bridge_family a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_bridge_family_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_bridge_family a4:argument ex:grounding_bridge_family_arg_0 .
+ex:grounding_bridge_family_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:BridgeFamily .
+ex:grounding_bridge_family a4:argument ex:grounding_bridge_family_arg_1 .
+
+ex:ASSERT_exception_overlay_workflow_composition a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "250"^^xsd:integer ;
+  a4:exprText "(workflow_modifies(CorporateActionOverlayWorkflow, OrdinaryRebalanceWorkflow)) and (workflow_modifies(MarketDisruptionOverlayWorkflow, OrdinaryRebalanceWorkflow)) and (workflow_modifies(CorrectionOverlayWorkflow, OrdinaryRebalanceWorkflow)) and (workflow_interrupts(TerminationOverlayWorkflow, OrdinaryRebalanceWorkflow)) and (workflow_modifies(MethodologyChangeOverlayWorkflow, OrdinaryRebalanceWorkflow)) and (workflow_invokes(MethodologyChangeOverlayWorkflow, OversightRuleAmendmentOverlayWorkflow)) and (workflow_interrupts(OversightRuleAmendmentOverlayWorkflow, MethodologyChangeOverlayWorkflow))" ;
+  a4:sourceText "fact exception_overlay_workflow_composition :\n  workflow_modifies(CorporateActionOverlayWorkflow, OrdinaryRebalanceWorkflow)\n  and workflow_modifies(MarketDisruptionOverlayWorkflow, OrdinaryRebalanceWorkflow)\n  and workflow_modifies(CorrectionOverlayWorkflow, OrdinaryRebalanceWorkflow)\n  and workflow_interrupts(TerminationOverlayWorkflow, OrdinaryRebalanceWorkflow)\n  and workflow_modifies(MethodologyChangeOverlayWorkflow, OrdinaryRebalanceWorkflow)\n  and workflow_invokes(MethodologyChangeOverlayWorkflow, OversightRuleAmendmentOverlayWorkflow)\n  and workflow_interrupts(OversightRuleAmendmentOverlayWorkflow, MethodologyChangeOverlayWorkflow)" .
+ex:ASSERT_corporate_action_overlay_steps a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "259"^^xsd:integer ;
+  a4:exprText "(workflow_step(CorporateActionOverlayWorkflow, DetectCorporateActionEvent)) and (workflow_step(CorporateActionOverlayWorkflow, DetermineCorporateActionAdjustmentNeed)) and (workflow_step(CorporateActionOverlayWorkflow, AccountForCorporateActionInCalculation)) and (workflow_step(CorporateActionOverlayWorkflow, EvaluateCorporateActionProcedureDeviation)) and (workflow_step(CorporateActionOverlayWorkflow, AnnounceCorporateActionAdjustment)) and (workflow_step(CorporateActionOverlayWorkflow, ImplementCorporateActionAdjustment)) and (step_precedes(DetectCorporateActionEvent, DetermineCorporateActionAdjustmentNeed)) and (step_edge_kind(DetectCorporateActionEvent, DetermineCorporateActionAdjustmentNeed, ExplicitSourceEdge)) and (step_temporal_relation(DetectCorporateActionEvent, DetermineCorporateActionAdjustmentNeed, Before)) and (step_precedes(DetermineCorporateActionAdjustmentNeed, AccountForCorporateActionInCalculation)) and (step_edge_kind(DetermineCorporateActionAdjustmentNeed, AccountForCorporateActionInCalculation, ExplicitSourceEdge)) and (step_temporal_relation(DetermineCorporateActionAdjustmentNeed, AccountForCorporateActionInCalculation, Before)) and (step_precedes(DetermineCorporateActionAdjustmentNeed, EvaluateCorporateActionProcedureDeviation)) and (step_edge_kind(DetermineCorporateActionAdjustmentNeed, EvaluateCorporateActionProcedureDeviation, ExplicitSourceEdge)) and (step_temporal_relation(DetermineCorporateActionAdjustmentNeed, EvaluateCorporateActionProcedureDeviation, Before)) and (step_precedes(EvaluateCorporateActionProcedureDeviation, AnnounceCorporateActionAdjustment)) and (step_edge_kind(EvaluateCorporateActionProcedureDeviation, AnnounceCorporateActionAdjustment, StructuralDependencyEdge)) and (step_temporal_relation(EvaluateCorporateActionProcedureDeviation, AnnounceCorporateActionAdjustment, Before)) and (step_precedes(AccountForCorporateActionInCalculation, AnnounceCorporateActionAdjustment)) and (step_edge_kind(AccountForCorporateActionInCalculation, AnnounceCorporateActionAdjustment, ExplicitSourceEdge)) and (step_temporal_relation(AccountForCorporateActionInCalculation, AnnounceCorporateActionAdjustment, Before)) and (step_precedes(AnnounceCorporateActionAdjustment, ImplementCorporateActionAdjustment)) and (step_edge_kind(AnnounceCorporateActionAdjustment, ImplementCorporateActionAdjustment, ExplicitSourceEdge)) and (step_temporal_relation(AnnounceCorporateActionAdjustment, ImplementCorporateActionAdjustment, Before))" ;
+  a4:sourceText "fact corporate_action_overlay_steps :\n  workflow_step(CorporateActionOverlayWorkflow, DetectCorporateActionEvent)\n  and workflow_step(CorporateActionOverlayWorkflow, DetermineCorporateActionAdjustmentNeed)\n  and workflow_step(CorporateActionOverlayWorkflow, AccountForCorporateActionInCalculation)\n  and workflow_step(CorporateActionOverlayWorkflow, EvaluateCorporateActionProcedureDeviation)\n  and workflow_step(CorporateActionOverlayWorkflow, AnnounceCorporateActionAdjustment)\n  and workflow_step(CorporateActionOverlayWorkflow, ImplementCorporateActionAdjustment)\n  and step_precedes(DetectCorporateActionEvent, DetermineCorporateActionAdjustmentNeed)\n  and step_edge_kind(DetectCorporateActionEvent, DetermineCorporateActionAdjustmentNeed, ExplicitSourceEdge)\n  and step_temporal_relation(DetectCorporateActionEvent, DetermineCorporateActionAdjustmentNeed, Before)\n  and step_precedes(DetermineCorporateActionAdjustmentNeed, AccountForCorporateActionInCalculation)\n  and step_edge_kind(DetermineCorporateActionAdjustmentNeed, AccountForCorporateActionInCalculation, ExplicitSourceEdge)\n  and step_temporal_relation(DetermineCorporateActionAdjustmentNeed, AccountForCorporateActionInCalculation, Before)\n  and step_precedes(DetermineCorporateActionAdjustmentNeed, EvaluateCorporateActionProcedureDeviation)\n  and step_edge_kind(DetermineCorporateActionAdjustmentNeed, EvaluateCorporateActionProcedureDeviation, ExplicitSourceEdge)\n  and step_temporal_relation(DetermineCorporateActionAdjustmentNeed, EvaluateCorporateActionProcedureDeviation, Before)\n  and step_precedes(EvaluateCorporateActionProcedureDeviation, AnnounceCorporateActionAdjustment)\n  and step_edge_kind(EvaluateCorporateActionProcedureDeviation, AnnounceCorporateActionAdjustment, StructuralDependencyEdge)\n  and step_temporal_relation(EvaluateCorporateActionProcedureDeviation, AnnounceCorporateActionAdjustment, Before)\n  and step_precedes(AccountForCorporateActionInCalculation, AnnounceCorporateActionAdjustment)\n  and step_edge_kind(AccountForCorporateActionInCalculation, AnnounceCorporateActionAdjustment, ExplicitSourceEdge)\n  and step_temporal_relation(AccountForCorporateActionInCalculation, AnnounceCorporateActionAdjustment, Before)\n  and step_precedes(AnnounceCorporateActionAdjustment, ImplementCorporateActionAdjustment)\n  and step_edge_kind(AnnounceCorporateActionAdjustment, ImplementCorporateActionAdjustment, ExplicitSourceEdge)\n  and step_temporal_relation(AnnounceCorporateActionAdjustment, ImplementCorporateActionAdjustment, Before)" .
+ex:ASSERT_corporate_action_overlay_io_and_state a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "285"^^xsd:integer ;
+  a4:exprText "(step_triggered_by(DetectCorporateActionEvent, CorporateActionOccurrenceTrigger)) and (step_triggered_by(ImplementCorporateActionAdjustment, CorporateActionCumDayTrigger)) and (trigger_calendar_marker(CorporateActionCumDayTrigger, CumDayMarker)) and (trigger_calendar_marker(CorporateActionExDayTrigger, ExDayMarker)) and (trigger_precedes(CorporateActionCumDayTrigger, CorporateActionExDayTrigger)) and (trigger_temporal_relation(CorporateActionCumDayTrigger, CorporateActionExDayTrigger, Before)) and (trigger_relation_grounded_in(CorporateActionCumDayTrigger, CorporateActionExDayTrigger, CorporateActionCalendarGrounding)) and (calendar_window_start_marker(CorporateActionImplementationWindow, CumDayMarker)) and (calendar_window_end_marker(CorporateActionImplementationWindow, ExDayMarker)) and (step_during_calendar_window(ImplementCorporateActionAdjustment, CorporateActionImplementationWindow)) and (step_overlay_behavior(DetectCorporateActionEvent, ModifyAndContinue)) and (step_overlay_behavior(DetermineCorporateActionAdjustmentNeed, ModifyAndContinue)) and (step_overlay_behavior(AccountForCorporateActionInCalculation, ModifyAndContinue)) and (step_overlay_behavior(EvaluateCorporateActionProcedureDeviation, ModifyAndContinue)) and (step_overlay_behavior(AnnounceCorporateActionAdjustment, ModifyAndContinue)) and (step_overlay_behavior(ImplementCorporateActionAdjustment, ModifyAndContinue)) and (step_modality(DetectCorporateActionEvent, DescriptiveStep)) and (step_modality(DetermineCorporateActionAdjustmentNeed, ObligatoryStep)) and (step_modality(AccountForCorporateActionInCalculation, ObligatoryStep)) and (step_modality(EvaluateCorporateActionProcedureDeviation, PermittedStep)) and (step_modality(AnnounceCorporateActionAdjustment, ObligatoryStep)) and (step_modality(ImplementCorporateActionAdjustment, ObligatoryStep)) and (step_iteration_status(DetectCorporateActionEvent, NoIteration)) and (step_iteration_status(DetermineCorporateActionAdjustmentNeed, NoIteration)) and (step_iteration_status(AccountForCorporateActionInCalculation, NoIteration)) and (step_iteration_status(EvaluateCorporateActionProcedureDeviation, NoIteration)) and (step_iteration_status(AnnounceCorporateActionAdjustment, NoIteration)) and (step_iteration_status(ImplementCorporateActionAdjustment, NoIteration)) and (step_requires(DetectCorporateActionEvent, CorporateActionEventInput)) and (input_kind(CorporateActionEventInput, DomainConceptIO)) and (step_requires(DetermineCorporateActionAdjustmentNeed, AffectedIndexComponentInput)) and (input_kind(AffectedIndexComponentInput, DomainConceptIO)) and (step_requires(DetermineCorporateActionAdjustmentNeed, CorporateActionKindInput)) and (input_kind(CorporateActionKindInput, DomainConceptIO)) and (step_requires(AccountForCorporateActionInCalculation, CorporateActionPriceEffectInput)) and (input_kind(CorporateActionPriceEffectInput, ObservationFrameIO)) and (step_requires(AccountForCorporateActionInCalculation, EquityIndexMethodologyInput)) and (input_kind(EquityIndexMethodologyInput, DomainConceptIO)) and (step_produces(DetermineCorporateActionAdjustmentNeed, RequiredIndexAdjustmentOutput)) and (output_kind(RequiredIndexAdjustmentOutput, DomainConceptIO)) and (step_produces(AccountForCorporateActionInCalculation, CorporateActionCalculationAdjustmentOutput)) and (output_kind(CorporateActionCalculationAdjustmentOutput, DomainConceptIO)) and (step_produces(EvaluateCorporateActionProcedureDeviation, CorporateActionDeviationDecisionOutput)) and (output_kind(CorporateActionDeviationDecisionOutput, DomainConceptIO)) and (step_produces(AnnounceCorporateActionAdjustment, CorporateActionAdjustmentAnnouncementOutput)) and (output_kind(CorporateActionAdjustmentAnnouncementOutput, DomainConceptIO)) and (step_requires(ImplementCorporateActionAdjustment, CorporateActionNoticeInput)) and (input_kind(CorporateActionNoticeInput, DomainConceptIO)) and (step_produces(ImplementCorporateActionAdjustment, ImplementedCorporateActionAdjustmentOutput)) and (output_kind(ImplementedCorporateActionAdjustmentOutput, ProcessStateIO)) and (step_enters_state(DetectCorporateActionEvent, CorporateActionAffectedComponentState)) and (process_overlay_state_kind(CorporateActionAffectedComponentState, CorporateActionAffectedComponent)) and (process_state_carrier(CorporateActionAffectedComponentState, AffectedComponentCarrier)) and (step_exits_state(ImplementCorporateActionAdjustment, CorporateActionAffectedComponentState)) and (step_enters_state(ImplementCorporateActionAdjustment, CorporateActionAdjustedComponentState)) and (process_overlay_state_kind(CorporateActionAdjustedComponentState, CorporateActionAdjustedComponent)) and (process_state_carrier(CorporateActionAdjustedComponentState, AdjustedComponentCarrier))" ;
+  a4:sourceText "fact corporate_action_overlay_io_and_state :\n  step_triggered_by(DetectCorporateActionEvent, CorporateActionOccurrenceTrigger)\n  and step_triggered_by(ImplementCorporateActionAdjustment, CorporateActionCumDayTrigger)\n  and trigger_calendar_marker(CorporateActionCumDayTrigger, CumDayMarker)\n  and trigger_calendar_marker(CorporateActionExDayTrigger, ExDayMarker)\n  and trigger_precedes(CorporateActionCumDayTrigger, CorporateActionExDayTrigger)\n  and trigger_temporal_relation(CorporateActionCumDayTrigger, CorporateActionExDayTrigger, Before)\n  and trigger_relation_grounded_in(CorporateActionCumDayTrigger, CorporateActionExDayTrigger, CorporateActionCalendarGrounding)\n  and calendar_window_start_marker(CorporateActionImplementationWindow, CumDayMarker)\n  and calendar_window_end_marker(CorporateActionImplementationWindow, ExDayMarker)\n  and step_during_calendar_window(ImplementCorporateActionAdjustment, CorporateActionImplementationWindow)\n  and step_overlay_behavior(DetectCorporateActionEvent, ModifyAndContinue)\n  and step_overlay_behavior(DetermineCorporateActionAdjustmentNeed, ModifyAndContinue)\n  and step_overlay_behavior(AccountForCorporateActionInCalculation, ModifyAndContinue)\n  and step_overlay_behavior(EvaluateCorporateActionProcedureDeviation, ModifyAndContinue)\n  and step_overlay_behavior(AnnounceCorporateActionAdjustment, ModifyAndContinue)\n  and step_overlay_behavior(ImplementCorporateActionAdjustment, ModifyAndContinue)\n  and step_modality(DetectCorporateActionEvent, DescriptiveStep)\n  and step_modality(DetermineCorporateActionAdjustmentNeed, ObligatoryStep)\n  and step_modality(AccountForCorporateActionInCalculation, ObligatoryStep)\n  and step_modality(EvaluateCorporateActionProcedureDeviation, PermittedStep)\n  and step_modality(AnnounceCorporateActionAdjustment, ObligatoryStep)\n  and step_modality(ImplementCorporateActionAdjustment, ObligatoryStep)\n  and step_iteration_status(DetectCorporateActionEvent, NoIteration)\n  and step_iteration_status(DetermineCorporateActionAdjustmentNeed, NoIteration)\n  and step_iteration_status(AccountForCorporateActionInCalculation, NoIteration)\n  and step_iteration_status(EvaluateCorporateActionProcedureDeviation, NoIteration)\n  and step_iteration_status(AnnounceCorporateActionAdjustment, NoIteration)\n  and step_iteration_status(ImplementCorporateActionAdjustment, NoIteration)\n  and step_requires(DetectCorporateActionEvent, CorporateActionEventInput)\n  and input_kind(CorporateActionEventInput, DomainConceptIO)\n  and step_requires(DetermineCorporateActionAdjustmentNeed, AffectedIndexComponentInput)\n  and input_kind(AffectedIndexComponentInput, DomainConceptIO)\n  and step_requires(DetermineCorporateActionAdjustmentNeed, CorporateActionKindInput)\n  and input_kind(CorporateActionKindInput, DomainConceptIO)\n  and step_requires(AccountForCorporateActionInCalculation, CorporateActionPriceEffectInput)\n  and input_kind(CorporateActionPriceEffectInput, ObservationFrameIO)\n  and step_requires(AccountForCorporateActionInCalculation, EquityIndexMethodologyInput)\n  and input_kind(EquityIndexMethodologyInput, DomainConceptIO)\n  and step_produces(DetermineCorporateActionAdjustmentNeed, RequiredIndexAdjustmentOutput)\n  and output_kind(RequiredIndexAdjustmentOutput, DomainConceptIO)\n  and step_produces(AccountForCorporateActionInCalculation, CorporateActionCalculationAdjustmentOutput)\n  and output_kind(CorporateActionCalculationAdjustmentOutput, DomainConceptIO)\n  and step_produces(EvaluateCorporateActionProcedureDeviation, CorporateActionDeviationDecisionOutput)\n  and output_kind(CorporateActionDeviationDecisionOutput, DomainConceptIO)\n  and step_produces(AnnounceCorporateActionAdjustment, CorporateActionAdjustmentAnnouncementOutput)\n  and output_kind(CorporateActionAdjustmentAnnouncementOutput, DomainConceptIO)\n  and step_requires(ImplementCorporateActionAdjustment, CorporateActionNoticeInput)\n  and input_kind(CorporateActionNoticeInput, DomainConceptIO)\n  and step_produces(ImplementCorporateActionAdjustment, ImplementedCorporateActionAdjustmentOutput)\n  and output_kind(ImplementedCorporateActionAdjustmentOutput, ProcessStateIO)\n  and step_enters_state(DetectCorporateActionEvent, CorporateActionAffectedComponentState)\n  and process_overlay_state_kind(CorporateActionAffectedComponentState, CorporateActionAffectedComponent)\n  and process_state_carrier(CorporateActionAffectedComponentState, AffectedComponentCarrier)\n  and step_exits_state(ImplementCorporateActionAdjustment, CorporateActionAffectedComponentState)\n  and step_enters_state(ImplementCorporateActionAdjustment, CorporateActionAdjustedComponentState)\n  and process_overlay_state_kind(CorporateActionAdjustedComponentState, CorporateActionAdjustedComponent)\n  and process_state_carrier(CorporateActionAdjustedComponentState, AdjustedComponentCarrier)" .
+ex:ASSERT_market_disruption_overlay a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "344"^^xsd:integer ;
+  a4:exprText "(workflow_step(MarketDisruptionOverlayWorkflow, DetectMarketDisruptionCondition)) and (workflow_step(MarketDisruptionOverlayWorkflow, ApplyDisruptionPolicyArrangements)) and (workflow_step(MarketDisruptionOverlayWorkflow, DetermineIndexUnderDisruptedConditions)) and (step_precedes(DetectMarketDisruptionCondition, ApplyDisruptionPolicyArrangements)) and (step_edge_kind(DetectMarketDisruptionCondition, ApplyDisruptionPolicyArrangements, ExplicitSourceEdge)) and (step_temporal_relation(DetectMarketDisruptionCondition, ApplyDisruptionPolicyArrangements, Before)) and (step_precedes(ApplyDisruptionPolicyArrangements, DetermineIndexUnderDisruptedConditions)) and (step_edge_kind(ApplyDisruptionPolicyArrangements, DetermineIndexUnderDisruptedConditions, ExplicitSourceEdge)) and (step_temporal_relation(ApplyDisruptionPolicyArrangements, DetermineIndexUnderDisruptedConditions, Before)) and (step_triggered_by(DetectMarketDisruptionCondition, MarketStressOrDisruptionTrigger)) and (step_overlay_behavior(DetectMarketDisruptionCondition, ModifyAndContinue)) and (step_overlay_behavior(ApplyDisruptionPolicyArrangements, Fallback)) and (step_overlay_behavior(DetermineIndexUnderDisruptedConditions, ModifyAndContinue)) and (step_modality(DetectMarketDisruptionCondition, DescriptiveStep)) and (step_modality(ApplyDisruptionPolicyArrangements, DescriptiveStep)) and (step_modality(DetermineIndexUnderDisruptedConditions, DescriptiveStep)) and (step_iteration_status(DetectMarketDisruptionCondition, NoIteration)) and (step_iteration_status(ApplyDisruptionPolicyArrangements, NoIteration)) and (step_iteration_status(DetermineIndexUnderDisruptedConditions, NoIteration)) and (step_requires(ApplyDisruptionPolicyArrangements, DisruptionPolicyInput)) and (input_kind(DisruptionPolicyInput, DomainConceptIO)) and (step_requires(DetermineIndexUnderDisruptedConditions, AffectedPriceInput)) and (input_kind(AffectedPriceInput, ObservationFrameIO)) and (step_produces(ApplyDisruptionPolicyArrangements, DisruptionArrangementOutput)) and (output_kind(DisruptionArrangementOutput, DomainConceptIO)) and (step_produces(DetermineIndexUnderDisruptedConditions, DisruptedDeterminationOutput)) and (output_kind(DisruptedDeterminationOutput, ProcessStateIO)) and (step_enters_state(DetermineIndexUnderDisruptedConditions, DisruptedDeterminationState)) and (process_overlay_state_kind(DisruptedDeterminationState, DisruptedDetermination)) and (process_state_carrier(DisruptedDeterminationState, DeterminationCarrier))" ;
+  a4:sourceText "fact market_disruption_overlay :\n  workflow_step(MarketDisruptionOverlayWorkflow, DetectMarketDisruptionCondition)\n  and workflow_step(MarketDisruptionOverlayWorkflow, ApplyDisruptionPolicyArrangements)\n  and workflow_step(MarketDisruptionOverlayWorkflow, DetermineIndexUnderDisruptedConditions)\n  and step_precedes(DetectMarketDisruptionCondition, ApplyDisruptionPolicyArrangements)\n  and step_edge_kind(DetectMarketDisruptionCondition, ApplyDisruptionPolicyArrangements, ExplicitSourceEdge)\n  and step_temporal_relation(DetectMarketDisruptionCondition, ApplyDisruptionPolicyArrangements, Before)\n  and step_precedes(ApplyDisruptionPolicyArrangements, DetermineIndexUnderDisruptedConditions)\n  and step_edge_kind(ApplyDisruptionPolicyArrangements, DetermineIndexUnderDisruptedConditions, ExplicitSourceEdge)\n  and step_temporal_relation(ApplyDisruptionPolicyArrangements, DetermineIndexUnderDisruptedConditions, Before)\n  and step_triggered_by(DetectMarketDisruptionCondition, MarketStressOrDisruptionTrigger)\n  and step_overlay_behavior(DetectMarketDisruptionCondition, ModifyAndContinue)\n  and step_overlay_behavior(ApplyDisruptionPolicyArrangements, Fallback)\n  and step_overlay_behavior(DetermineIndexUnderDisruptedConditions, ModifyAndContinue)\n  and step_modality(DetectMarketDisruptionCondition, DescriptiveStep)\n  and step_modality(ApplyDisruptionPolicyArrangements, DescriptiveStep)\n  and step_modality(DetermineIndexUnderDisruptedConditions, DescriptiveStep)\n  and step_iteration_status(DetectMarketDisruptionCondition, NoIteration)\n  and step_iteration_status(ApplyDisruptionPolicyArrangements, NoIteration)\n  and step_iteration_status(DetermineIndexUnderDisruptedConditions, NoIteration)\n  and step_requires(ApplyDisruptionPolicyArrangements, DisruptionPolicyInput)\n  and input_kind(DisruptionPolicyInput, DomainConceptIO)\n  and step_requires(DetermineIndexUnderDisruptedConditions, AffectedPriceInput)\n  and input_kind(AffectedPriceInput, ObservationFrameIO)\n  and step_produces(ApplyDisruptionPolicyArrangements, DisruptionArrangementOutput)\n  and output_kind(DisruptionArrangementOutput, DomainConceptIO)\n  and step_produces(DetermineIndexUnderDisruptedConditions, DisruptedDeterminationOutput)\n  and output_kind(DisruptedDeterminationOutput, ProcessStateIO)\n  and step_enters_state(DetermineIndexUnderDisruptedConditions, DisruptedDeterminationState)\n  and process_overlay_state_kind(DisruptedDeterminationState, DisruptedDetermination)\n  and process_state_carrier(DisruptedDeterminationState, DeterminationCarrier)" .
+ex:ASSERT_correction_overlay a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "376"^^xsd:integer ;
+  a4:exprText "(workflow_step(CorrectionOverlayWorkflow, IdentifyDeterminationError)) and (workflow_step(CorrectionOverlayWorkflow, DetermineCorrectionMeasures)) and (workflow_step(CorrectionOverlayWorkflow, CorrectIdentifiedError)) and (step_precedes(IdentifyDeterminationError, DetermineCorrectionMeasures)) and (step_edge_kind(IdentifyDeterminationError, DetermineCorrectionMeasures, ExplicitSourceEdge)) and (step_temporal_relation(IdentifyDeterminationError, DetermineCorrectionMeasures, Before)) and (step_precedes(DetermineCorrectionMeasures, CorrectIdentifiedError)) and (step_edge_kind(DetermineCorrectionMeasures, CorrectIdentifiedError, ExplicitSourceEdge)) and (step_temporal_relation(DetermineCorrectionMeasures, CorrectIdentifiedError, Before)) and (step_triggered_by(IdentifyDeterminationError, IdentifiedErrorTrigger)) and (step_triggered_by(CorrectIdentifiedError, ReasonablePeriodTrigger)) and (trigger_calendar_marker(ReasonablePeriodTrigger, ReasonablePeriodMarker)) and (step_overlay_behavior(IdentifyDeterminationError, InterruptAndResume)) and (step_overlay_behavior(DetermineCorrectionMeasures, InterruptAndResume)) and (step_overlay_behavior(CorrectIdentifiedError, InterruptAndResume)) and (step_modality(IdentifyDeterminationError, DescriptiveStep)) and (step_modality(DetermineCorrectionMeasures, DescriptiveStep)) and (step_modality(CorrectIdentifiedError, DescriptiveStep)) and (step_iteration_status(IdentifyDeterminationError, NoIteration)) and (step_iteration_status(DetermineCorrectionMeasures, NoIteration)) and (step_iteration_status(CorrectIdentifiedError, NoIteration)) and (step_requires(IdentifyDeterminationError, DeterminationErrorInput)) and (input_kind(DeterminationErrorInput, DomainConceptIO)) and (step_requires(DetermineCorrectionMeasures, CorrectionPolicyInput)) and (input_kind(CorrectionPolicyInput, DomainConceptIO)) and (step_produces(DetermineCorrectionMeasures, CorrectionMeasuresOutput)) and (output_kind(CorrectionMeasuresOutput, DomainConceptIO)) and (step_produces(CorrectIdentifiedError, CorrectedErrorOutput)) and (output_kind(CorrectedErrorOutput, ProcessStateIO)) and (step_enters_state(IdentifyDeterminationError, CorrectionPendingState)) and (process_overlay_state_kind(CorrectionPendingState, CorrectionPending)) and (process_state_carrier(CorrectionPendingState, ErrorCarrier)) and (step_exits_state(CorrectIdentifiedError, CorrectionPendingState)) and (step_enters_state(CorrectIdentifiedError, CorrectionResolvedState)) and (process_overlay_state_kind(CorrectionResolvedState, CorrectionResolved)) and (process_state_carrier(CorrectionResolvedState, ErrorCarrier))" ;
+  a4:sourceText "fact correction_overlay :\n  workflow_step(CorrectionOverlayWorkflow, IdentifyDeterminationError)\n  and workflow_step(CorrectionOverlayWorkflow, DetermineCorrectionMeasures)\n  and workflow_step(CorrectionOverlayWorkflow, CorrectIdentifiedError)\n  and step_precedes(IdentifyDeterminationError, DetermineCorrectionMeasures)\n  and step_edge_kind(IdentifyDeterminationError, DetermineCorrectionMeasures, ExplicitSourceEdge)\n  and step_temporal_relation(IdentifyDeterminationError, DetermineCorrectionMeasures, Before)\n  and step_precedes(DetermineCorrectionMeasures, CorrectIdentifiedError)\n  and step_edge_kind(DetermineCorrectionMeasures, CorrectIdentifiedError, ExplicitSourceEdge)\n  and step_temporal_relation(DetermineCorrectionMeasures, CorrectIdentifiedError, Before)\n  and step_triggered_by(IdentifyDeterminationError, IdentifiedErrorTrigger)\n  and step_triggered_by(CorrectIdentifiedError, ReasonablePeriodTrigger)\n  and trigger_calendar_marker(ReasonablePeriodTrigger, ReasonablePeriodMarker)\n  and step_overlay_behavior(IdentifyDeterminationError, InterruptAndResume)\n  and step_overlay_behavior(DetermineCorrectionMeasures, InterruptAndResume)\n  and step_overlay_behavior(CorrectIdentifiedError, InterruptAndResume)\n  and step_modality(IdentifyDeterminationError, DescriptiveStep)\n  and step_modality(DetermineCorrectionMeasures, DescriptiveStep)\n  and step_modality(CorrectIdentifiedError, DescriptiveStep)\n  and step_iteration_status(IdentifyDeterminationError, NoIteration)\n  and step_iteration_status(DetermineCorrectionMeasures, NoIteration)\n  and step_iteration_status(CorrectIdentifiedError, NoIteration)\n  and step_requires(IdentifyDeterminationError, DeterminationErrorInput)\n  and input_kind(DeterminationErrorInput, DomainConceptIO)\n  and step_requires(DetermineCorrectionMeasures, CorrectionPolicyInput)\n  and input_kind(CorrectionPolicyInput, DomainConceptIO)\n  and step_produces(DetermineCorrectionMeasures, CorrectionMeasuresOutput)\n  and output_kind(CorrectionMeasuresOutput, DomainConceptIO)\n  and step_produces(CorrectIdentifiedError, CorrectedErrorOutput)\n  and output_kind(CorrectedErrorOutput, ProcessStateIO)\n  and step_enters_state(IdentifyDeterminationError, CorrectionPendingState)\n  and process_overlay_state_kind(CorrectionPendingState, CorrectionPending)\n  and process_state_carrier(CorrectionPendingState, ErrorCarrier)\n  and step_exits_state(CorrectIdentifiedError, CorrectionPendingState)\n  and step_enters_state(CorrectIdentifiedError, CorrectionResolvedState)\n  and process_overlay_state_kind(CorrectionResolvedState, CorrectionResolved)\n  and process_state_carrier(CorrectionResolvedState, ErrorCarrier)" .
+ex:ASSERT_termination_overlay a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "414"^^xsd:integer ;
+  a4:exprText "(workflow_step(TerminationOverlayWorkflow, DetectZeroOrNegativeAdjustedReturnIndexLevel)) and (workflow_step(TerminationOverlayWorkflow, TerminateAffectedIndex)) and (workflow_step(TerminationOverlayWorkflow, AnnounceIndexTermination)) and (step_precedes(DetectZeroOrNegativeAdjustedReturnIndexLevel, TerminateAffectedIndex)) and (step_edge_kind(DetectZeroOrNegativeAdjustedReturnIndexLevel, TerminateAffectedIndex, ExplicitSourceEdge)) and (step_temporal_relation(DetectZeroOrNegativeAdjustedReturnIndexLevel, TerminateAffectedIndex, Before)) and (step_precedes(TerminateAffectedIndex, AnnounceIndexTermination)) and (step_edge_kind(TerminateAffectedIndex, AnnounceIndexTermination, ExplicitSourceEdge)) and (step_temporal_relation(TerminateAffectedIndex, AnnounceIndexTermination, Before)) and (step_triggered_by(DetectZeroOrNegativeAdjustedReturnIndexLevel, ZeroOrNegativeAdjustedReturnIndexLevelTrigger)) and (step_overlay_behavior(DetectZeroOrNegativeAdjustedReturnIndexLevel, Preempt)) and (step_overlay_behavior(TerminateAffectedIndex, Preempt)) and (step_overlay_behavior(AnnounceIndexTermination, Preempt)) and (step_modality(DetectZeroOrNegativeAdjustedReturnIndexLevel, DescriptiveStep)) and (step_modality(TerminateAffectedIndex, ObligatoryStep)) and (step_modality(AnnounceIndexTermination, ObligatoryStep)) and (step_iteration_status(DetectZeroOrNegativeAdjustedReturnIndexLevel, NoIteration)) and (step_iteration_status(TerminateAffectedIndex, NoIteration)) and (step_iteration_status(AnnounceIndexTermination, NoIteration)) and (step_requires(DetectZeroOrNegativeAdjustedReturnIndexLevel, AdjustedReturnIndexCalculationInput)) and (input_kind(AdjustedReturnIndexCalculationInput, ObservationFrameIO)) and (step_exits_state(TerminateAffectedIndex, ActiveIndexState)) and (process_overlay_state_kind(ActiveIndexState, ActiveIndex)) and (process_state_carrier(ActiveIndexState, IndexCarrier)) and (step_enters_state(TerminateAffectedIndex, TerminatedIndexState)) and (process_overlay_state_kind(TerminatedIndexState, TerminatedIndex)) and (process_state_carrier(TerminatedIndexState, IndexCarrier)) and (step_produces(TerminateAffectedIndex, TerminatedIndexOutput)) and (output_kind(TerminatedIndexOutput, ProcessStateIO)) and (step_produces(AnnounceIndexTermination, TerminationAnnouncementOutput)) and (output_kind(TerminationAnnouncementOutput, DomainConceptIO))" ;
+  a4:sourceText "fact termination_overlay :\n  workflow_step(TerminationOverlayWorkflow, DetectZeroOrNegativeAdjustedReturnIndexLevel)\n  and workflow_step(TerminationOverlayWorkflow, TerminateAffectedIndex)\n  and workflow_step(TerminationOverlayWorkflow, AnnounceIndexTermination)\n  and step_precedes(DetectZeroOrNegativeAdjustedReturnIndexLevel, TerminateAffectedIndex)\n  and step_edge_kind(DetectZeroOrNegativeAdjustedReturnIndexLevel, TerminateAffectedIndex, ExplicitSourceEdge)\n  and step_temporal_relation(DetectZeroOrNegativeAdjustedReturnIndexLevel, TerminateAffectedIndex, Before)\n  and step_precedes(TerminateAffectedIndex, AnnounceIndexTermination)\n  and step_edge_kind(TerminateAffectedIndex, AnnounceIndexTermination, ExplicitSourceEdge)\n  and step_temporal_relation(TerminateAffectedIndex, AnnounceIndexTermination, Before)\n  and step_triggered_by(DetectZeroOrNegativeAdjustedReturnIndexLevel, ZeroOrNegativeAdjustedReturnIndexLevelTrigger)\n  and step_overlay_behavior(DetectZeroOrNegativeAdjustedReturnIndexLevel, Preempt)\n  and step_overlay_behavior(TerminateAffectedIndex, Preempt)\n  and step_overlay_behavior(AnnounceIndexTermination, Preempt)\n  and step_modality(DetectZeroOrNegativeAdjustedReturnIndexLevel, DescriptiveStep)\n  and step_modality(TerminateAffectedIndex, ObligatoryStep)\n  and step_modality(AnnounceIndexTermination, ObligatoryStep)\n  and step_iteration_status(DetectZeroOrNegativeAdjustedReturnIndexLevel, NoIteration)\n  and step_iteration_status(TerminateAffectedIndex, NoIteration)\n  and step_iteration_status(AnnounceIndexTermination, NoIteration)\n  and step_requires(DetectZeroOrNegativeAdjustedReturnIndexLevel, AdjustedReturnIndexCalculationInput)\n  and input_kind(AdjustedReturnIndexCalculationInput, ObservationFrameIO)\n  and step_exits_state(TerminateAffectedIndex, ActiveIndexState)\n  and process_overlay_state_kind(ActiveIndexState, ActiveIndex)\n  and process_state_carrier(ActiveIndexState, IndexCarrier)\n  and step_enters_state(TerminateAffectedIndex, TerminatedIndexState)\n  and process_overlay_state_kind(TerminatedIndexState, TerminatedIndex)\n  and process_state_carrier(TerminatedIndexState, IndexCarrier)\n  and step_produces(TerminateAffectedIndex, TerminatedIndexOutput)\n  and output_kind(TerminatedIndexOutput, ProcessStateIO)\n  and step_produces(AnnounceIndexTermination, TerminationAnnouncementOutput)\n  and output_kind(TerminationAnnouncementOutput, DomainConceptIO)" .
+ex:ASSERT_methodology_change_overlay a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "447"^^xsd:integer ;
+  a4:exprText "(workflow_step(MethodologyChangeOverlayWorkflow, ReviewMethodologyAtLeastAnnually)) and (workflow_step(MethodologyChangeOverlayWorkflow, IdentifyMethodologyChangeNeed)) and (workflow_step(MethodologyChangeOverlayWorkflow, MakeMethodologyChangeInPolicy)) and (workflow_step(MethodologyChangeOverlayWorkflow, AnnounceMethodologyChange)) and (workflow_step(MethodologyChangeOverlayWorkflow, UpdateGuidelineAmendmentDate)) and (workflow_step(MethodologyChangeOverlayWorkflow, EnsureConsistentCalculationMethodAfterChange)) and (step_precedes(ReviewMethodologyAtLeastAnnually, IdentifyMethodologyChangeNeed)) and (step_edge_kind(ReviewMethodologyAtLeastAnnually, IdentifyMethodologyChangeNeed, ExplicitSourceEdge)) and (step_temporal_relation(ReviewMethodologyAtLeastAnnually, IdentifyMethodologyChangeNeed, Before)) and (step_precedes(IdentifyMethodologyChangeNeed, MakeMethodologyChangeInPolicy)) and (step_edge_kind(IdentifyMethodologyChangeNeed, MakeMethodologyChangeInPolicy, ExplicitSourceEdge)) and (step_temporal_relation(IdentifyMethodologyChangeNeed, MakeMethodologyChangeInPolicy, Before)) and (step_precedes(MakeMethodologyChangeInPolicy, AnnounceMethodologyChange)) and (step_edge_kind(MakeMethodologyChangeInPolicy, AnnounceMethodologyChange, ExplicitSourceEdge)) and (step_temporal_relation(MakeMethodologyChangeInPolicy, AnnounceMethodologyChange, Before)) and (step_precedes(MakeMethodologyChangeInPolicy, UpdateGuidelineAmendmentDate)) and (step_edge_kind(MakeMethodologyChangeInPolicy, UpdateGuidelineAmendmentDate, ExplicitSourceEdge)) and (step_temporal_relation(MakeMethodologyChangeInPolicy, UpdateGuidelineAmendmentDate, Before)) and (step_precedes(MakeMethodologyChangeInPolicy, EnsureConsistentCalculationMethodAfterChange)) and (step_edge_kind(MakeMethodologyChangeInPolicy, EnsureConsistentCalculationMethodAfterChange, ExplicitSourceEdge)) and (step_temporal_relation(MakeMethodologyChangeInPolicy, EnsureConsistentCalculationMethodAfterChange, Before)) and (step_triggered_by(ReviewMethodologyAtLeastAnnually, MethodologyReviewTrigger)) and (trigger_calendar_marker(MethodologyReviewTrigger, AnnualReviewMarker)) and (step_triggered_by(IdentifyMethodologyChangeNeed, MethodologyChangeNeedTrigger)) and (step_overlay_behavior(ReviewMethodologyAtLeastAnnually, ModifyAndContinue)) and (step_overlay_behavior(IdentifyMethodologyChangeNeed, ModifyAndContinue)) and (step_overlay_behavior(MakeMethodologyChangeInPolicy, ModifyAndContinue)) and (step_overlay_behavior(AnnounceMethodologyChange, ModifyAndContinue)) and (step_overlay_behavior(UpdateGuidelineAmendmentDate, ModifyAndContinue)) and (step_overlay_behavior(EnsureConsistentCalculationMethodAfterChange, ModifyAndContinue)) and (step_modality(ReviewMethodologyAtLeastAnnually, DescriptiveStep)) and (step_modality(IdentifyMethodologyChangeNeed, DescriptiveStep)) and (step_modality(MakeMethodologyChangeInPolicy, ObligatoryStep)) and (step_modality(AnnounceMethodologyChange, ObligatoryStep)) and (step_modality(UpdateGuidelineAmendmentDate, DescriptiveStep)) and (step_modality(EnsureConsistentCalculationMethodAfterChange, ObligatoryStep)) and (step_iteration_status(ReviewMethodologyAtLeastAnnually, NoIteration)) and (step_iteration_status(IdentifyMethodologyChangeNeed, NoIteration)) and (step_iteration_status(MakeMethodologyChangeInPolicy, NoIteration)) and (step_iteration_status(AnnounceMethodologyChange, NoIteration)) and (step_iteration_status(UpdateGuidelineAmendmentDate, NoIteration)) and (step_iteration_status(EnsureConsistentCalculationMethodAfterChange, NoIteration)) and (step_requires(ReviewMethodologyAtLeastAnnually, MethodologyReviewInput)) and (input_kind(MethodologyReviewInput, DomainConceptIO)) and (step_requires(MakeMethodologyChangeInPolicy, MethodologyPolicyInput)) and (input_kind(MethodologyPolicyInput, DomainConceptIO)) and (step_produces(MakeMethodologyChangeInPolicy, MethodologyChangeOutput)) and (output_kind(MethodologyChangeOutput, DomainConceptIO)) and (step_produces(AnnounceMethodologyChange, MethodologyChangeAnnouncementOutput)) and (output_kind(MethodologyChangeAnnouncementOutput, DomainConceptIO)) and (step_produces(UpdateGuidelineAmendmentDate, GuidelineAmendmentDateOutput)) and (output_kind(GuidelineAmendmentDateOutput, DomainConceptIO)) and (step_produces(EnsureConsistentCalculationMethodAfterChange, ConsistentCalculationMethodOutput)) and (output_kind(ConsistentCalculationMethodOutput, DomainConceptIO)) and (step_enters_state(ReviewMethodologyAtLeastAnnually, MethodologyUnderReviewState)) and (process_overlay_state_kind(MethodologyUnderReviewState, MethodologyUnderReview)) and (process_state_carrier(MethodologyUnderReviewState, MethodologyCarrier)) and (step_exits_state(MakeMethodologyChangeInPolicy, MethodologyUnderReviewState)) and (step_enters_state(MakeMethodologyChangeInPolicy, MethodologyChangedState)) and (process_overlay_state_kind(MethodologyChangedState, MethodologyChanged)) and (process_state_carrier(MethodologyChangedState, MethodologyCarrier))" ;
+  a4:sourceText "fact methodology_change_overlay :\n  workflow_step(MethodologyChangeOverlayWorkflow, ReviewMethodologyAtLeastAnnually)\n  and workflow_step(MethodologyChangeOverlayWorkflow, IdentifyMethodologyChangeNeed)\n  and workflow_step(MethodologyChangeOverlayWorkflow, MakeMethodologyChangeInPolicy)\n  and workflow_step(MethodologyChangeOverlayWorkflow, AnnounceMethodologyChange)\n  and workflow_step(MethodologyChangeOverlayWorkflow, UpdateGuidelineAmendmentDate)\n  and workflow_step(MethodologyChangeOverlayWorkflow, EnsureConsistentCalculationMethodAfterChange)\n  and step_precedes(ReviewMethodologyAtLeastAnnually, IdentifyMethodologyChangeNeed)\n  and step_edge_kind(ReviewMethodologyAtLeastAnnually, IdentifyMethodologyChangeNeed, ExplicitSourceEdge)\n  and step_temporal_relation(ReviewMethodologyAtLeastAnnually, IdentifyMethodologyChangeNeed, Before)\n  and step_precedes(IdentifyMethodologyChangeNeed, MakeMethodologyChangeInPolicy)\n  and step_edge_kind(IdentifyMethodologyChangeNeed, MakeMethodologyChangeInPolicy, ExplicitSourceEdge)\n  and step_temporal_relation(IdentifyMethodologyChangeNeed, MakeMethodologyChangeInPolicy, Before)\n  and step_precedes(MakeMethodologyChangeInPolicy, AnnounceMethodologyChange)\n  and step_edge_kind(MakeMethodologyChangeInPolicy, AnnounceMethodologyChange, ExplicitSourceEdge)\n  and step_temporal_relation(MakeMethodologyChangeInPolicy, AnnounceMethodologyChange, Before)\n  and step_precedes(MakeMethodologyChangeInPolicy, UpdateGuidelineAmendmentDate)\n  and step_edge_kind(MakeMethodologyChangeInPolicy, UpdateGuidelineAmendmentDate, ExplicitSourceEdge)\n  and step_temporal_relation(MakeMethodologyChangeInPolicy, UpdateGuidelineAmendmentDate, Before)\n  and step_precedes(MakeMethodologyChangeInPolicy, EnsureConsistentCalculationMethodAfterChange)\n  and step_edge_kind(MakeMethodologyChangeInPolicy, EnsureConsistentCalculationMethodAfterChange, ExplicitSourceEdge)\n  and step_temporal_relation(MakeMethodologyChangeInPolicy, EnsureConsistentCalculationMethodAfterChange, Before)\n  and step_triggered_by(ReviewMethodologyAtLeastAnnually, MethodologyReviewTrigger)\n  and trigger_calendar_marker(MethodologyReviewTrigger, AnnualReviewMarker)\n  and step_triggered_by(IdentifyMethodologyChangeNeed, MethodologyChangeNeedTrigger)\n  and step_overlay_behavior(ReviewMethodologyAtLeastAnnually, ModifyAndContinue)\n  and step_overlay_behavior(IdentifyMethodologyChangeNeed, ModifyAndContinue)\n  and step_overlay_behavior(MakeMethodologyChangeInPolicy, ModifyAndContinue)\n  and step_overlay_behavior(AnnounceMethodologyChange, ModifyAndContinue)\n  and step_overlay_behavior(UpdateGuidelineAmendmentDate, ModifyAndContinue)\n  and step_overlay_behavior(EnsureConsistentCalculationMethodAfterChange, ModifyAndContinue)\n  and step_modality(ReviewMethodologyAtLeastAnnually, DescriptiveStep)\n  and step_modality(IdentifyMethodologyChangeNeed, DescriptiveStep)\n  and step_modality(MakeMethodologyChangeInPolicy, ObligatoryStep)\n  and step_modality(AnnounceMethodologyChange, ObligatoryStep)\n  and step_modality(UpdateGuidelineAmendmentDate, DescriptiveStep)\n  and step_modality(EnsureConsistentCalculationMethodAfterChange, ObligatoryStep)\n  and step_iteration_status(ReviewMethodologyAtLeastAnnually, NoIteration)\n  and step_iteration_status(IdentifyMethodologyChangeNeed, NoIteration)\n  and step_iteration_status(MakeMethodologyChangeInPolicy, NoIteration)\n  and step_iteration_status(AnnounceMethodologyChange, NoIteration)\n  and step_iteration_status(UpdateGuidelineAmendmentDate, NoIteration)\n  and step_iteration_status(EnsureConsistentCalculationMethodAfterChange, NoIteration)\n  and step_requires(ReviewMethodologyAtLeastAnnually, MethodologyReviewInput)\n  and input_kind(MethodologyReviewInput, DomainConceptIO)\n  and step_requires(MakeMethodologyChangeInPolicy, MethodologyPolicyInput)\n  and input_kind(MethodologyPolicyInput, DomainConceptIO)\n  and step_produces(MakeMethodologyChangeInPolicy, MethodologyChangeOutput)\n  and output_kind(MethodologyChangeOutput, DomainConceptIO)\n  and step_produces(AnnounceMethodologyChange, MethodologyChangeAnnouncementOutput)\n  and output_kind(MethodologyChangeAnnouncementOutput, DomainConceptIO)\n  and step_produces(UpdateGuidelineAmendmentDate, GuidelineAmendmentDateOutput)\n  and output_kind(GuidelineAmendmentDateOutput, DomainConceptIO)\n  and step_produces(EnsureConsistentCalculationMethodAfterChange, ConsistentCalculationMethodOutput)\n  and output_kind(ConsistentCalculationMethodOutput, DomainConceptIO)\n  and step_enters_state(ReviewMethodologyAtLeastAnnually, MethodologyUnderReviewState)\n  and process_overlay_state_kind(MethodologyUnderReviewState, MethodologyUnderReview)\n  and process_state_carrier(MethodologyUnderReviewState, MethodologyCarrier)\n  and step_exits_state(MakeMethodologyChangeInPolicy, MethodologyUnderReviewState)\n  and step_enters_state(MakeMethodologyChangeInPolicy, MethodologyChangedState)\n  and process_overlay_state_kind(MethodologyChangedState, MethodologyChanged)\n  and process_state_carrier(MethodologyChangedState, MethodologyCarrier)" .
+ex:ASSERT_oversight_rule_amendment_overlay a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "510"^^xsd:integer ;
+  a4:exprText "(workflow_step(OversightRuleAmendmentOverlayWorkflow, ProposeRuleOrGuidelineAmendment)) and (workflow_step(OversightRuleAmendmentOverlayWorkflow, SubmitAmendmentForPriorApproval)) and (workflow_step(OversightRuleAmendmentOverlayWorkflow, OversightCommitteePriorApprovalDecision)) and (workflow_step(OversightRuleAmendmentOverlayWorkflow, MakeApprovedRuleOrGuidelineAmendment)) and (step_precedes(ProposeRuleOrGuidelineAmendment, SubmitAmendmentForPriorApproval)) and (step_edge_kind(ProposeRuleOrGuidelineAmendment, SubmitAmendmentForPriorApproval, ExplicitSourceEdge)) and (step_temporal_relation(ProposeRuleOrGuidelineAmendment, SubmitAmendmentForPriorApproval, Before)) and (step_precedes(SubmitAmendmentForPriorApproval, OversightCommitteePriorApprovalDecision)) and (step_edge_kind(SubmitAmendmentForPriorApproval, OversightCommitteePriorApprovalDecision, ExplicitSourceEdge)) and (step_temporal_relation(SubmitAmendmentForPriorApproval, OversightCommitteePriorApprovalDecision, Before)) and (step_precedes(OversightCommitteePriorApprovalDecision, MakeApprovedRuleOrGuidelineAmendment)) and (step_edge_kind(OversightCommitteePriorApprovalDecision, MakeApprovedRuleOrGuidelineAmendment, ExplicitSourceEdge)) and (step_temporal_relation(OversightCommitteePriorApprovalDecision, MakeApprovedRuleOrGuidelineAmendment, Before)) and (step_triggered_by(ProposeRuleOrGuidelineAmendment, ProposedRuleAmendmentTrigger)) and (step_overlay_behavior(ProposeRuleOrGuidelineAmendment, InterruptAndResume)) and (step_overlay_behavior(SubmitAmendmentForPriorApproval, InterruptAndResume)) and (step_overlay_behavior(OversightCommitteePriorApprovalDecision, InterruptAndResume)) and (step_overlay_behavior(MakeApprovedRuleOrGuidelineAmendment, InterruptAndResume)) and (step_modality(ProposeRuleOrGuidelineAmendment, DescriptiveStep)) and (step_modality(SubmitAmendmentForPriorApproval, ObligatoryStep)) and (step_modality(OversightCommitteePriorApprovalDecision, DescriptiveStep)) and (step_modality(MakeApprovedRuleOrGuidelineAmendment, ObligatoryStep)) and (step_iteration_status(ProposeRuleOrGuidelineAmendment, NoIteration)) and (step_iteration_status(SubmitAmendmentForPriorApproval, NoIteration)) and (step_iteration_status(OversightCommitteePriorApprovalDecision, NoIteration)) and (step_iteration_status(MakeApprovedRuleOrGuidelineAmendment, NoIteration)) and (step_requires(ProposeRuleOrGuidelineAmendment, ProposedAmendmentInput)) and (input_kind(ProposedAmendmentInput, DomainConceptIO)) and (step_requires(SubmitAmendmentForPriorApproval, OversightCommitteeInput)) and (input_kind(OversightCommitteeInput, DomainConceptIO)) and (step_produces(OversightCommitteePriorApprovalDecision, PriorApprovalOutput)) and (output_kind(PriorApprovalOutput, ProcessStateIO)) and (step_produces(MakeApprovedRuleOrGuidelineAmendment, ApprovedRuleAmendmentOutput)) and (output_kind(ApprovedRuleAmendmentOutput, ProcessStateIO)) and (step_enters_state(SubmitAmendmentForPriorApproval, AmendmentPendingApprovalState)) and (process_overlay_state_kind(AmendmentPendingApprovalState, AmendmentPendingApproval)) and (process_state_carrier(AmendmentPendingApprovalState, AmendmentCarrier)) and (step_exits_state(MakeApprovedRuleOrGuidelineAmendment, AmendmentPendingApprovalState)) and (step_enters_state(MakeApprovedRuleOrGuidelineAmendment, AmendmentApprovedState)) and (process_overlay_state_kind(AmendmentApprovedState, AmendmentApproved)) and (process_state_carrier(AmendmentApprovedState, AmendmentCarrier))" ;
+  a4:sourceText "fact oversight_rule_amendment_overlay :\n  workflow_step(OversightRuleAmendmentOverlayWorkflow, ProposeRuleOrGuidelineAmendment)\n  and workflow_step(OversightRuleAmendmentOverlayWorkflow, SubmitAmendmentForPriorApproval)\n  and workflow_step(OversightRuleAmendmentOverlayWorkflow, OversightCommitteePriorApprovalDecision)\n  and workflow_step(OversightRuleAmendmentOverlayWorkflow, MakeApprovedRuleOrGuidelineAmendment)\n  and step_precedes(ProposeRuleOrGuidelineAmendment, SubmitAmendmentForPriorApproval)\n  and step_edge_kind(ProposeRuleOrGuidelineAmendment, SubmitAmendmentForPriorApproval, ExplicitSourceEdge)\n  and step_temporal_relation(ProposeRuleOrGuidelineAmendment, SubmitAmendmentForPriorApproval, Before)\n  and step_precedes(SubmitAmendmentForPriorApproval, OversightCommitteePriorApprovalDecision)\n  and step_edge_kind(SubmitAmendmentForPriorApproval, OversightCommitteePriorApprovalDecision, ExplicitSourceEdge)\n  and step_temporal_relation(SubmitAmendmentForPriorApproval, OversightCommitteePriorApprovalDecision, Before)\n  and step_precedes(OversightCommitteePriorApprovalDecision, MakeApprovedRuleOrGuidelineAmendment)\n  and step_edge_kind(OversightCommitteePriorApprovalDecision, MakeApprovedRuleOrGuidelineAmendment, ExplicitSourceEdge)\n  and step_temporal_relation(OversightCommitteePriorApprovalDecision, MakeApprovedRuleOrGuidelineAmendment, Before)\n  and step_triggered_by(ProposeRuleOrGuidelineAmendment, ProposedRuleAmendmentTrigger)\n  and step_overlay_behavior(ProposeRuleOrGuidelineAmendment, InterruptAndResume)\n  and step_overlay_behavior(SubmitAmendmentForPriorApproval, InterruptAndResume)\n  and step_overlay_behavior(OversightCommitteePriorApprovalDecision, InterruptAndResume)\n  and step_overlay_behavior(MakeApprovedRuleOrGuidelineAmendment, InterruptAndResume)\n  and step_modality(ProposeRuleOrGuidelineAmendment, DescriptiveStep)\n  and step_modality(SubmitAmendmentForPriorApproval, ObligatoryStep)\n  and step_modality(OversightCommitteePriorApprovalDecision, DescriptiveStep)\n  and step_modality(MakeApprovedRuleOrGuidelineAmendment, ObligatoryStep)\n  and step_iteration_status(ProposeRuleOrGuidelineAmendment, NoIteration)\n  and step_iteration_status(SubmitAmendmentForPriorApproval, NoIteration)\n  and step_iteration_status(OversightCommitteePriorApprovalDecision, NoIteration)\n  and step_iteration_status(MakeApprovedRuleOrGuidelineAmendment, NoIteration)\n  and step_requires(ProposeRuleOrGuidelineAmendment, ProposedAmendmentInput)\n  and input_kind(ProposedAmendmentInput, DomainConceptIO)\n  and step_requires(SubmitAmendmentForPriorApproval, OversightCommitteeInput)\n  and input_kind(OversightCommitteeInput, DomainConceptIO)\n  and step_produces(OversightCommitteePriorApprovalDecision, PriorApprovalOutput)\n  and output_kind(PriorApprovalOutput, ProcessStateIO)\n  and step_produces(MakeApprovedRuleOrGuidelineAmendment, ApprovedRuleAmendmentOutput)\n  and output_kind(ApprovedRuleAmendmentOutput, ProcessStateIO)\n  and step_enters_state(SubmitAmendmentForPriorApproval, AmendmentPendingApprovalState)\n  and process_overlay_state_kind(AmendmentPendingApprovalState, AmendmentPendingApproval)\n  and process_state_carrier(AmendmentPendingApprovalState, AmendmentCarrier)\n  and step_exits_state(MakeApprovedRuleOrGuidelineAmendment, AmendmentPendingApprovalState)\n  and step_enters_state(MakeApprovedRuleOrGuidelineAmendment, AmendmentApprovedState)\n  and process_overlay_state_kind(AmendmentApprovedState, AmendmentApproved)\n  and process_state_carrier(AmendmentApprovedState, AmendmentCarrier)" .
+ex:ASSERT_exception_overlay_grounding_targets a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "553"^^xsd:integer ;
+  a4:exprText "(grounding_kind(CorporateActionGrounding, DocumentPartGrounding)) and (grounding_document_part(CorporateActionGrounding, Section4_4)) and (grounding_document_part(CorporateActionGrounding, Section4_5)) and (grounding_kind(CorporateActionCalendarGrounding, DocumentPartGrounding)) and (grounding_document_part(CorporateActionCalendarGrounding, Section4_5)) and (grounding_kind(AnnouncementBridgeGrounding, BridgeDecisionGrounding)) and (grounding_bridge_family(AnnouncementBridgeGrounding, AnnouncementSectionFamily)) and (grounding_bridge_family(AnnouncementBridgeGrounding, NewsAnnouncementsUrlFamily)) and (grounding_kind(MarketDisruptionGrounding, DocumentPartGrounding)) and (grounding_document_part(MarketDisruptionGrounding, Section4_7)) and (grounding_kind(CorrectionGrounding, DocumentPartGrounding)) and (grounding_document_part(CorrectionGrounding, Section4_6)) and (grounding_kind(CorrectionCalendarGrounding, DocumentPartGrounding)) and (grounding_document_part(CorrectionCalendarGrounding, Section4_6)) and (grounding_kind(TerminationGrounding, DocumentPartGrounding)) and (grounding_document_part(TerminationGrounding, Section4_2)) and (grounding_kind(MethodologyChangeGrounding, DocumentPartGrounding)) and (grounding_document_part(MethodologyChangeGrounding, Section5_2)) and (grounding_document_part(MethodologyChangeGrounding, Section5_3)) and (grounding_kind(MethodologyReviewCalendarGrounding, DocumentPartGrounding)) and (grounding_document_part(MethodologyReviewCalendarGrounding, Section5_2)) and (grounding_kind(OversightGrounding, DocumentPartGrounding)) and (grounding_document_part(OversightGrounding, Section5_5)) and (grounding_source_fragment(OversightGrounding, DefinitionN25))" ;
+  a4:sourceText "fact exception_overlay_grounding_targets :\n  grounding_kind(CorporateActionGrounding, DocumentPartGrounding)\n  and grounding_document_part(CorporateActionGrounding, Section4_4)\n  and grounding_document_part(CorporateActionGrounding, Section4_5)\n  and grounding_kind(CorporateActionCalendarGrounding, DocumentPartGrounding)\n  and grounding_document_part(CorporateActionCalendarGrounding, Section4_5)\n  and grounding_kind(AnnouncementBridgeGrounding, BridgeDecisionGrounding)\n  and grounding_bridge_family(AnnouncementBridgeGrounding, AnnouncementSectionFamily)\n  and grounding_bridge_family(AnnouncementBridgeGrounding, NewsAnnouncementsUrlFamily)\n  and grounding_kind(MarketDisruptionGrounding, DocumentPartGrounding)\n  and grounding_document_part(MarketDisruptionGrounding, Section4_7)\n  and grounding_kind(CorrectionGrounding, DocumentPartGrounding)\n  and grounding_document_part(CorrectionGrounding, Section4_6)\n  and grounding_kind(CorrectionCalendarGrounding, DocumentPartGrounding)\n  and grounding_document_part(CorrectionCalendarGrounding, Section4_6)\n  and grounding_kind(TerminationGrounding, DocumentPartGrounding)\n  and grounding_document_part(TerminationGrounding, Section4_2)\n  and grounding_kind(MethodologyChangeGrounding, DocumentPartGrounding)\n  and grounding_document_part(MethodologyChangeGrounding, Section5_2)\n  and grounding_document_part(MethodologyChangeGrounding, Section5_3)\n  and grounding_kind(MethodologyReviewCalendarGrounding, DocumentPartGrounding)\n  and grounding_document_part(MethodologyReviewCalendarGrounding, Section5_2)\n  and grounding_kind(OversightGrounding, DocumentPartGrounding)\n  and grounding_document_part(OversightGrounding, Section5_5)\n  and grounding_source_fragment(OversightGrounding, DefinitionN25)" .
+ex:ASSERT_exception_overlay_step_grounding a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "579"^^xsd:integer ;
+  a4:exprText "(step_grounded_in(DetectCorporateActionEvent, CorporateActionGrounding)) and (step_grounded_in(DetermineCorporateActionAdjustmentNeed, CorporateActionGrounding)) and (step_grounded_in(AccountForCorporateActionInCalculation, CorporateActionGrounding)) and (step_grounded_in(EvaluateCorporateActionProcedureDeviation, CorporateActionGrounding)) and (step_grounded_in(AnnounceCorporateActionAdjustment, CorporateActionGrounding)) and (step_grounded_in(AnnounceCorporateActionAdjustment, AnnouncementBridgeGrounding)) and (step_grounded_in(ImplementCorporateActionAdjustment, CorporateActionGrounding)) and (step_grounded_in(ImplementCorporateActionAdjustment, CorporateActionCalendarGrounding)) and (step_grounded_in(DetectMarketDisruptionCondition, MarketDisruptionGrounding)) and (step_grounded_in(ApplyDisruptionPolicyArrangements, MarketDisruptionGrounding)) and (step_grounded_in(DetermineIndexUnderDisruptedConditions, MarketDisruptionGrounding)) and (step_grounded_in(IdentifyDeterminationError, CorrectionGrounding)) and (step_grounded_in(DetermineCorrectionMeasures, CorrectionGrounding)) and (step_grounded_in(CorrectIdentifiedError, CorrectionGrounding)) and (step_grounded_in(CorrectIdentifiedError, CorrectionCalendarGrounding)) and (step_grounded_in(DetectZeroOrNegativeAdjustedReturnIndexLevel, TerminationGrounding)) and (step_grounded_in(TerminateAffectedIndex, TerminationGrounding)) and (step_grounded_in(AnnounceIndexTermination, TerminationGrounding)) and (step_grounded_in(AnnounceIndexTermination, AnnouncementBridgeGrounding)) and (step_grounded_in(ReviewMethodologyAtLeastAnnually, MethodologyChangeGrounding)) and (step_grounded_in(ReviewMethodologyAtLeastAnnually, MethodologyReviewCalendarGrounding)) and (step_grounded_in(IdentifyMethodologyChangeNeed, MethodologyChangeGrounding)) and (step_grounded_in(MakeMethodologyChangeInPolicy, MethodologyChangeGrounding)) and (step_grounded_in(AnnounceMethodologyChange, MethodologyChangeGrounding)) and (step_grounded_in(AnnounceMethodologyChange, AnnouncementBridgeGrounding)) and (step_grounded_in(UpdateGuidelineAmendmentDate, MethodologyChangeGrounding)) and (step_grounded_in(EnsureConsistentCalculationMethodAfterChange, MethodologyChangeGrounding)) and (step_grounded_in(ProposeRuleOrGuidelineAmendment, OversightGrounding)) and (step_grounded_in(SubmitAmendmentForPriorApproval, OversightGrounding)) and (step_grounded_in(OversightCommitteePriorApprovalDecision, OversightGrounding)) and (step_grounded_in(MakeApprovedRuleOrGuidelineAmendment, OversightGrounding))" ;
+  a4:sourceText "fact exception_overlay_step_grounding :\n  step_grounded_in(DetectCorporateActionEvent, CorporateActionGrounding)\n  and step_grounded_in(DetermineCorporateActionAdjustmentNeed, CorporateActionGrounding)\n  and step_grounded_in(AccountForCorporateActionInCalculation, CorporateActionGrounding)\n  and step_grounded_in(EvaluateCorporateActionProcedureDeviation, CorporateActionGrounding)\n  and step_grounded_in(AnnounceCorporateActionAdjustment, CorporateActionGrounding)\n  and step_grounded_in(AnnounceCorporateActionAdjustment, AnnouncementBridgeGrounding)\n  and step_grounded_in(ImplementCorporateActionAdjustment, CorporateActionGrounding)\n  and step_grounded_in(ImplementCorporateActionAdjustment, CorporateActionCalendarGrounding)\n  and step_grounded_in(DetectMarketDisruptionCondition, MarketDisruptionGrounding)\n  and step_grounded_in(ApplyDisruptionPolicyArrangements, MarketDisruptionGrounding)\n  and step_grounded_in(DetermineIndexUnderDisruptedConditions, MarketDisruptionGrounding)\n  and step_grounded_in(IdentifyDeterminationError, CorrectionGrounding)\n  and step_grounded_in(DetermineCorrectionMeasures, CorrectionGrounding)\n  and step_grounded_in(CorrectIdentifiedError, CorrectionGrounding)\n  and step_grounded_in(CorrectIdentifiedError, CorrectionCalendarGrounding)\n  and step_grounded_in(DetectZeroOrNegativeAdjustedReturnIndexLevel, TerminationGrounding)\n  and step_grounded_in(TerminateAffectedIndex, TerminationGrounding)\n  and step_grounded_in(AnnounceIndexTermination, TerminationGrounding)\n  and step_grounded_in(AnnounceIndexTermination, AnnouncementBridgeGrounding)\n  and step_grounded_in(ReviewMethodologyAtLeastAnnually, MethodologyChangeGrounding)\n  and step_grounded_in(ReviewMethodologyAtLeastAnnually, MethodologyReviewCalendarGrounding)\n  and step_grounded_in(IdentifyMethodologyChangeNeed, MethodologyChangeGrounding)\n  and step_grounded_in(MakeMethodologyChangeInPolicy, MethodologyChangeGrounding)\n  and step_grounded_in(AnnounceMethodologyChange, MethodologyChangeGrounding)\n  and step_grounded_in(AnnounceMethodologyChange, AnnouncementBridgeGrounding)\n  and step_grounded_in(UpdateGuidelineAmendmentDate, MethodologyChangeGrounding)\n  and step_grounded_in(EnsureConsistentCalculationMethodAfterChange, MethodologyChangeGrounding)\n  and step_grounded_in(ProposeRuleOrGuidelineAmendment, OversightGrounding)\n  and step_grounded_in(SubmitAmendmentForPriorApproval, OversightGrounding)\n  and step_grounded_in(OversightCommitteePriorApprovalDecision, OversightGrounding)\n  and step_grounded_in(MakeApprovedRuleOrGuidelineAmendment, OversightGrounding)" .
+ex:ASSERT_exception_overlay_edge_grounding a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "612"^^xsd:integer ;
+  a4:exprText "(edge_grounded_in(DetectCorporateActionEvent, DetermineCorporateActionAdjustmentNeed, CorporateActionGrounding)) and (edge_grounded_in(DetermineCorporateActionAdjustmentNeed, AccountForCorporateActionInCalculation, CorporateActionGrounding)) and (edge_grounded_in(DetermineCorporateActionAdjustmentNeed, EvaluateCorporateActionProcedureDeviation, CorporateActionGrounding)) and (edge_grounded_in(EvaluateCorporateActionProcedureDeviation, AnnounceCorporateActionAdjustment, CorporateActionGrounding)) and (edge_grounded_in(AccountForCorporateActionInCalculation, AnnounceCorporateActionAdjustment, CorporateActionGrounding)) and (edge_grounded_in(AnnounceCorporateActionAdjustment, ImplementCorporateActionAdjustment, CorporateActionGrounding)) and (edge_grounded_in(DetectMarketDisruptionCondition, ApplyDisruptionPolicyArrangements, MarketDisruptionGrounding)) and (edge_grounded_in(ApplyDisruptionPolicyArrangements, DetermineIndexUnderDisruptedConditions, MarketDisruptionGrounding)) and (edge_grounded_in(IdentifyDeterminationError, DetermineCorrectionMeasures, CorrectionGrounding)) and (edge_grounded_in(DetermineCorrectionMeasures, CorrectIdentifiedError, CorrectionGrounding)) and (edge_grounded_in(DetectZeroOrNegativeAdjustedReturnIndexLevel, TerminateAffectedIndex, TerminationGrounding)) and (edge_grounded_in(TerminateAffectedIndex, AnnounceIndexTermination, TerminationGrounding)) and (edge_grounded_in(ReviewMethodologyAtLeastAnnually, IdentifyMethodologyChangeNeed, MethodologyChangeGrounding)) and (edge_grounded_in(IdentifyMethodologyChangeNeed, MakeMethodologyChangeInPolicy, MethodologyChangeGrounding)) and (edge_grounded_in(MakeMethodologyChangeInPolicy, AnnounceMethodologyChange, MethodologyChangeGrounding)) and (edge_grounded_in(MakeMethodologyChangeInPolicy, UpdateGuidelineAmendmentDate, MethodologyChangeGrounding)) and (edge_grounded_in(MakeMethodologyChangeInPolicy, EnsureConsistentCalculationMethodAfterChange, MethodologyChangeGrounding)) and (edge_grounded_in(ProposeRuleOrGuidelineAmendment, SubmitAmendmentForPriorApproval, OversightGrounding)) and (edge_grounded_in(SubmitAmendmentForPriorApproval, OversightCommitteePriorApprovalDecision, OversightGrounding)) and (edge_grounded_in(OversightCommitteePriorApprovalDecision, MakeApprovedRuleOrGuidelineAmendment, OversightGrounding))" ;
+  a4:sourceText "fact exception_overlay_edge_grounding :\n  edge_grounded_in(DetectCorporateActionEvent, DetermineCorporateActionAdjustmentNeed, CorporateActionGrounding)\n  and edge_grounded_in(DetermineCorporateActionAdjustmentNeed, AccountForCorporateActionInCalculation, CorporateActionGrounding)\n  and edge_grounded_in(DetermineCorporateActionAdjustmentNeed, EvaluateCorporateActionProcedureDeviation, CorporateActionGrounding)\n  and edge_grounded_in(EvaluateCorporateActionProcedureDeviation, AnnounceCorporateActionAdjustment, CorporateActionGrounding)\n  and edge_grounded_in(AccountForCorporateActionInCalculation, AnnounceCorporateActionAdjustment, CorporateActionGrounding)\n  and edge_grounded_in(AnnounceCorporateActionAdjustment, ImplementCorporateActionAdjustment, CorporateActionGrounding)\n  and edge_grounded_in(DetectMarketDisruptionCondition, ApplyDisruptionPolicyArrangements, MarketDisruptionGrounding)\n  and edge_grounded_in(ApplyDisruptionPolicyArrangements, DetermineIndexUnderDisruptedConditions, MarketDisruptionGrounding)\n  and edge_grounded_in(IdentifyDeterminationError, DetermineCorrectionMeasures, CorrectionGrounding)\n  and edge_grounded_in(DetermineCorrectionMeasures, CorrectIdentifiedError, CorrectionGrounding)\n  and edge_grounded_in(DetectZeroOrNegativeAdjustedReturnIndexLevel, TerminateAffectedIndex, TerminationGrounding)\n  and edge_grounded_in(TerminateAffectedIndex, AnnounceIndexTermination, TerminationGrounding)\n  and edge_grounded_in(ReviewMethodologyAtLeastAnnually, IdentifyMethodologyChangeNeed, MethodologyChangeGrounding)\n  and edge_grounded_in(IdentifyMethodologyChangeNeed, MakeMethodologyChangeInPolicy, MethodologyChangeGrounding)\n  and edge_grounded_in(MakeMethodologyChangeInPolicy, AnnounceMethodologyChange, MethodologyChangeGrounding)\n  and edge_grounded_in(MakeMethodologyChangeInPolicy, UpdateGuidelineAmendmentDate, MethodologyChangeGrounding)\n  and edge_grounded_in(MakeMethodologyChangeInPolicy, EnsureConsistentCalculationMethodAfterChange, MethodologyChangeGrounding)\n  and edge_grounded_in(ProposeRuleOrGuidelineAmendment, SubmitAmendmentForPriorApproval, OversightGrounding)\n  and edge_grounded_in(SubmitAmendmentForPriorApproval, OversightCommitteePriorApprovalDecision, OversightGrounding)\n  and edge_grounded_in(OversightCommitteePriorApprovalDecision, MakeApprovedRuleOrGuidelineAmendment, OversightGrounding)" .

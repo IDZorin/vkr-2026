@@ -1,0 +1,414 @@
+{
+  "entry_id": "section_4_7",
+  "schema": "quality_snapshot_v1",
+  "generated_at": "2026-05-17T00:17:52",
+  "clean_gate": "accepted",
+  "blocking_conditions": [],
+  "validity": {
+    "ast_valid": 1,
+    "ast_error_count": 0,
+    "rendering_ok": 1,
+    "combined_validation_ok": 1
+  },
+  "grounding": {
+    "raw": {
+      "ungrounded_symbol_count": 10,
+      "ungrounded_sort_count": 25,
+      "ungrounded_ref_count": 0,
+      "ungrounded_callee_count": 0,
+      "origin_error_count": 36
+    },
+    "extended": {
+      "entry": "section_4_7",
+      "ungrounded_sort_count_extended": 0,
+      "ungrounded_symbol_count_extended": 0,
+      "ungrounded_entity_count_extended": 0,
+      "ungrounded_ref_count_extended": 0,
+      "ungrounded_callee_count_extended": 0,
+      "ungrounded": {
+        "sorts": [],
+        "entities": [],
+        "symbols": [],
+        "deontic": [],
+        "temporal": [],
+        "actions": []
+      },
+      "ungrounded_refs": [],
+      "ungrounded_callees": [],
+      "grounded_via_overlay": {
+        "sorts": [
+          "IndexComponent"
+        ],
+        "symbols": []
+      }
+    },
+    "effective_ungrounded_symbol_count": 0,
+    "effective_ungrounded_sort_count": 0,
+    "effective_ungrounded_callee_count": 0
+  },
+  "family_coverage": {
+    "required_gap_count": 0,
+    "advisory_gap_count": 0,
+    "required_gaps": [],
+    "advisory_gaps": []
+  },
+  "source_phrase_coverage": {
+    "phrase_count": 4,
+    "covered_count": 4,
+    "uncovered_count": 0,
+    "coverage_rate": 1.0,
+    "waiver_status": {
+      "uncovered_phrase_count": 0,
+      "waived_uncovered_phrase_count": 0,
+      "unwaived_uncovered_phrase_count": 0,
+      "waived_uncovered_phrases": [],
+      "unwaived_uncovered_phrases": [],
+      "effective_covered_count": 4,
+      "effective_coverage_rate": 1.0,
+      "all_uncovered_phrases_have_token_waiver": true
+    }
+  },
+  "token_provenance": {
+    "summary": {
+      "source_token_count": 55,
+      "content_token_count": 38,
+      "covered_content_token_count": 37,
+      "uncovered_content_token_count": 1,
+      "ignored_stopword_count": 17,
+      "content_coverage_rate": 0.974
+    },
+    "waiver_status": {
+      "waiver_file_present": true,
+      "uncovered_token_count": 1,
+      "human_approved_waiver_count": 1,
+      "approved_uncovered_tokens": [
+        "such"
+      ],
+      "unapproved_uncovered_tokens": [],
+      "approved_tokens_not_currently_uncovered": [],
+      "waiver_accounted_content_token_count": 38,
+      "waiver_accounted_content_coverage_rate": 1.0,
+      "all_uncovered_tokens_have_human_waiver": true
+    },
+    "exact_url_status": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null,
+      "missing_urls": [],
+      "all_source_urls_preserved_exactly": true
+    }
+  },
+  "lowering_audit": {
+    "smell_count": 3,
+    "smells": [
+      {
+        "entry_id": "section_4_7",
+        "decl_kind": "entity",
+        "symbol": "MayBeLimitedOrImpaired",
+        "line_no": 26,
+        "matched_token_or_phrase": "may",
+        "candidate_family": "DeonticDecl",
+        "candidate_kind": "permission",
+        "spec_ref": "#32",
+        "match_kind": "token",
+        "raw_decl": "entity MayBeLimitedOrImpaired : VagueTerm"
+      },
+      {
+        "entry_id": "section_4_7",
+        "decl_kind": "constraint",
+        "symbol": "calculation_during_market_stress_follows_arrangements",
+        "line_no": 75,
+        "matched_token_or_phrase": "during",
+        "candidate_family": "TemporalDecl",
+        "candidate_kind": "temporal_marker",
+        "spec_ref": "#29",
+        "match_kind": "token",
+        "raw_decl": "constraint calculation_during_market_stress_follows_arrangements :"
+      },
+      {
+        "entry_id": "section_4_7",
+        "decl_kind": "constraint",
+        "symbol": "index_determination_may_be_limited_or_impaired",
+        "line_no": 109,
+        "matched_token_or_phrase": "may",
+        "candidate_family": "DeonticDecl",
+        "candidate_kind": "permission",
+        "spec_ref": "#32",
+        "match_kind": "token",
+        "raw_decl": "constraint index_determination_may_be_limited_or_impaired :"
+      }
+    ]
+  },
+  "a4v3_semantic_lint": {
+    "total_findings": 0,
+    "strong_findings": 0,
+    "soft_findings": 0,
+    "style_findings": 0,
+    "advisory_findings": 0,
+    "unused_declaration_count": 0,
+    "arity_gt_5_count": 0,
+    "arity_gt_2_without_role_explanation_count": 0,
+    "sentence_literal_in_formula_count": 0,
+    "permission_source_asserts_concrete_event_instance_count": 0,
+    "deontic_role_parameter_not_bound_count": 0,
+    "deontic_parameter_type_is_entity_count": 0,
+    "unused_rel_fun_count": 0,
+    "unused_sort_entity_count": 0,
+    "self_referential_scope_count": 0,
+    "past_participle_obligation_name_count": 0,
+    "double_coded_deontic_norm_count": 0,
+    "temporal_rel_in_deontic_context_count": 0,
+    "vacuous_responsibility_implication_count": 0,
+    "bare_universal_predicate_constraint_count": 0,
+    "fact_like_universal_constraint_count": 0,
+    "numeric_operation_on_non_numeric_sort_count": 0,
+    "basis_relation_without_value_link_count": 0,
+    "shared_name_token_without_structural_carrier_count": 0,
+    "semantic_contract_gap_count": 0,
+    "semantic_contract_gap_strong_count": 0,
+    "repair_candidate_present_count": 0,
+    "top_k_contract_gap_count": 0,
+    "by_contract_class": {}
+  },
+  "provenance_lint": {
+    "total_findings": 0,
+    "strong_findings": 0,
+    "soft_findings": 0,
+    "advisory_findings": 0,
+    "by_check": {}
+  },
+  "artifact_consistency": {
+    "schema": "artifact_consistency_v1",
+    "status": "ok",
+    "canonical_entry_sha256": "9752cb8a87b466e72accfa79c11602a60152a458f311bd2e04e6103e96e34954",
+    "canonical_files": {
+      "source": {
+        "exists": true,
+        "size": 522,
+        "mtime": "2026-04-28T20:11:49",
+        "sha256": "58e5d9fe0a27e02b1d0656d0bcc7b85423e334f645eb745bcebef5e2cb7c75b7",
+        "path": "source.md",
+        "required": true
+      },
+      "normalized": {
+        "exists": true,
+        "size": 522,
+        "mtime": "2026-04-28T20:11:49",
+        "sha256": "58e5d9fe0a27e02b1d0656d0bcc7b85423e334f645eb745bcebef5e2cb7c75b7",
+        "path": "normalized.md",
+        "required": true
+      },
+      "main_ir": {
+        "exists": true,
+        "size": 4773,
+        "mtime": "2026-05-11T13:12:47",
+        "sha256": "33f9b29c1ce913933005fd33cc34b4e3e1101afc289b65714510ef3901240e2d",
+        "path": "main_ir.a4v3",
+        "required": true
+      },
+      "repair": {
+        "exists": false,
+        "path": "repair.a4v3",
+        "required": false
+      },
+      "provenance": {
+        "exists": true,
+        "size": 7574,
+        "mtime": "2026-05-11T13:47:49",
+        "sha256": "aacc59d160ea0d42d4d6d824817076770a46cfc70971085926ba2590115c3937",
+        "path": "provenance.yaml",
+        "required": true
+      },
+      "translator_notes": {
+        "exists": true,
+        "size": 3847,
+        "mtime": "2026-05-11T13:42:10",
+        "sha256": "4a8fe611090d841b71a7aecaab5f3f91af4b81cf6885f6ef2a885ed7469d8763",
+        "path": "translator_notes.md",
+        "required": false
+      },
+      "token_waiver": {
+        "exists": true,
+        "size": 707,
+        "mtime": "2026-05-14T23:10:00",
+        "sha256": "11b6ee8ea1d09af4754b62c9eb6b1007b34085e0d1e03a0e22d898d97f6d6a5b",
+        "path": "waiver_token_absorption_v1.json",
+        "required": false
+      }
+    },
+    "required_stale_count": 0,
+    "required_missing_count": 0,
+    "required_canonical_missing_count": 0,
+    "advisory_stale_count": 0,
+    "advisory_missing_count": 0,
+    "artifacts": [
+      {
+        "key": "main_metrics",
+        "path": "main_ir_metrics_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T23:10:57",
+        "sha256": "ef4f1f8740cc65e98c97ca6bc8dece97c0820d32bbf1663d4c312f7a3e817a58",
+        "max_input_mtime": "2026-05-11T13:12:47"
+      },
+      {
+        "key": "family_coverage",
+        "path": "metrics_family_coverage_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T23:10:01",
+        "sha256": "1f5a3384408509b2e861b6d860ab405c2c74c1a0ede8c409fb512168c560ba5d",
+        "max_input_mtime": "2026-05-11T13:12:47"
+      },
+      {
+        "key": "source_phrase_coverage",
+        "path": "metrics_source_phrase_coverage_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T23:10:01",
+        "sha256": "8bebdf39092b85b2ef38b16698f4c46a69ecf602a064523c7b5c29792f17b260",
+        "max_input_mtime": "2026-05-11T13:12:47"
+      },
+      {
+        "key": "token_provenance",
+        "path": "metrics_token_provenance_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T23:10:00",
+        "sha256": "ca1847322fe7e88ec936ed6358b1105ac05887e2e82ff0d217e0c99f5db5e746",
+        "max_input_mtime": "2026-05-11T13:12:47"
+      },
+      {
+        "key": "lowering_audit",
+        "path": "lowering_audit_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T23:10:01",
+        "sha256": "0bbb89c9740c3304cd3ceac8d11bca3bbb903de535d969df59b5eff05ad128cd",
+        "max_input_mtime": "2026-05-11T13:12:47"
+      },
+      {
+        "key": "semantic_lint",
+        "path": "a4v3_semantic_lint_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir",
+          "repair",
+          "translator_notes"
+        ],
+        "mtime": "2026-05-14T23:09:57",
+        "sha256": "168b1ccd86180db66157a6d229de0f7255169cbda25f620e5c93b4257f03ed3f",
+        "max_input_mtime": "2026-05-11T13:42:10"
+      },
+      {
+        "key": "provenance_lint",
+        "path": "provenance_lint_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "provenance",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T23:10:00",
+        "sha256": "edadd366b1ddb963655b425b1b07c8e63845a688debdf1d772e889ef36e99fb9",
+        "max_input_mtime": "2026-05-11T13:47:49"
+      },
+      {
+        "key": "diagnostic_suite",
+        "path": "diagnostic_suite_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir",
+          "repair",
+          "token_waiver"
+        ],
+        "mtime": "2026-05-14T23:11:01",
+        "sha256": "28b7e51ae57e35fcef25ab68bfd0b82061872e3c8672d00a18c81c58c5321f78",
+        "max_input_mtime": "2026-05-14T23:10:00"
+      },
+      {
+        "key": "single_semantic_judge",
+        "path": "section_4_7_manual_section_workspace_artifact_current_v1_llm_semantic_verdict_gpt_5_4_mini.json",
+        "required": false,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir"
+        ],
+        "mtime": "2026-05-11T13:14:58",
+        "sha256": "fd19528073c3151e407c709c1adf3256c3dcbc823a3542f101ca93fc2d9cfe55",
+        "max_input_mtime": "2026-05-11T13:12:47"
+      },
+      {
+        "key": "multi_judge",
+        "path": "metrics_multi_judge_consensus_v1.json",
+        "required": false,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-11T13:16:08",
+        "sha256": "a9603d27ca4bb9828d65bb48101e05c9fe330fe923657c3ebd027ecdef6531ed",
+        "max_input_mtime": "2026-05-11T13:12:47"
+      },
+      {
+        "key": "counterexample_probing",
+        "path": "metrics_counterexample_probing_v1.json",
+        "required": false,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-11T13:18:46",
+        "sha256": "4a3ba93941abc37bb2eecdae5d3206bb98059c0b17dcb67f556c91ae6d52fd02",
+        "max_input_mtime": "2026-05-11T13:12:47"
+      }
+    ]
+  },
+  "diagnostic_suite_raw": {
+    "raw_gate": "needs_review",
+    "raw_fail_count": 0,
+    "raw_warning_count": 35,
+    "waiver_adjusted_legacy_lexical_fail_count": 0,
+    "render_nli_advisory_fail_count": 0,
+    "source_normalization_nli_advisory_fail_count": 0,
+    "blocking_fail_count": 0,
+    "blocking_fail_rules": []
+  },
+  "notes": [
+    "clean_gate ignores legacy lexical failures when every uncovered token has a human-approved waiver.",
+    "render NLI failures are kept as advisory because they evaluate deterministic render-back text, not A4V3 validity.",
+    "raw diagnostic_suite_v1.json is preserved unchanged for auditability."
+  ]
+}

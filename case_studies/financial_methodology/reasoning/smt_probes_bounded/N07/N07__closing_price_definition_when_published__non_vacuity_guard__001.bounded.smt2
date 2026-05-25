@@ -1,0 +1,41 @@
+(set-logic ALL)
+(set-option :produce-unsat-cores true)
+
+(declare-sort AccordanceStandard 0)
+(declare-sort Day 0)
+(declare-sort Exchange 0)
+(declare-sort FinancialInstrument 0)
+(declare-sort MonetaryAmount 0)
+
+(declare-fun ClosingPrice (MonetaryAmount) Bool)
+(declare-fun IndexComponent (FinancialInstrument) Bool)
+(declare-fun Price (MonetaryAmount) Bool)
+(declare-fun Security (FinancialInstrument) Bool)
+(declare-fun TradingDay (Day) Bool)
+(declare-fun TradingPrice (MonetaryAmount) Bool)
+
+(declare-const ExchangeRegulations AccordanceStandard)
+(declare-const ExchangeRules AccordanceStandard)
+(declare-const W_c_IndexComponent FinancialInstrument)
+(declare-const W_d_TradingDay Day)
+
+(assert (! (IndexComponent W_c_IndexComponent) :named TYPE_witness_W_c_IndexComponent))
+(assert (! (TradingDay W_d_TradingDay) :named TYPE_witness_W_d_TradingDay))
+
+(declare-fun closing_price (FinancialInstrument Day) MonetaryAmount)
+(declare-fun closing_price_available (FinancialInstrument Day) Bool)
+(declare-fun final_regular_hours_trading_price (FinancialInstrument Day) MonetaryAmount)
+(declare-fun in_accordance_with (MonetaryAmount AccordanceStandard) Bool)
+(declare-fun last_trading_price (FinancialInstrument Day) MonetaryAmount)
+(declare-fun price_determined (MonetaryAmount) Bool)
+(declare-fun price_published_by_exchange (MonetaryAmount Exchange) Bool)
+(declare-fun respective_exchange (FinancialInstrument) Exchange)
+
+(assert (! (and (IndexComponent W_c_IndexComponent) (and (TradingDay W_d_TradingDay) (=> (closing_price_available W_c_IndexComponent W_d_TradingDay) (and (= (closing_price W_c_IndexComponent W_d_TradingDay) (final_regular_hours_trading_price W_c_IndexComponent W_d_TradingDay)) (price_published_by_exchange (closing_price W_c_IndexComponent W_d_TradingDay) (respective_exchange W_c_IndexComponent)) (price_determined (closing_price W_c_IndexComponent W_d_TradingDay)) (in_accordance_with (closing_price W_c_IndexComponent W_d_TradingDay) ExchangeRules) (in_accordance_with (closing_price W_c_IndexComponent W_d_TradingDay) ExchangeRegulations))))) :named BOUNDED_TEXT_closing_price_definition_when_published))
+(assert (! (and (IndexComponent W_c_IndexComponent) (and (TradingDay W_d_TradingDay) (=> (not (closing_price_available W_c_IndexComponent W_d_TradingDay)) (= (closing_price W_c_IndexComponent W_d_TradingDay) (last_trading_price W_c_IndexComponent W_d_TradingDay))))) :named BOUNDED_TEXT_last_trading_price_used_when_closing_price_not_published))
+
+(check-sat)
+(push 1)
+(assert (! (and (IndexComponent W_c_IndexComponent) (TradingDay W_d_TradingDay) (closing_price_available W_c_IndexComponent W_d_TradingDay)) :named BOUNDED_PROBE_N07__closing_price_definition_when_published__non_vacuity_guard__001))
+(check-sat)
+(pop 1)

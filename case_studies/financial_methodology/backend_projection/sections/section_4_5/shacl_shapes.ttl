@@ -1,0 +1,279 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_5 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:SolactiveOrganization a rdfs:Class .
+ex:SolactiveOrganization rdfs:subClassOf ex:Organization .
+ex:SolactiveOrganizationShape a sh:NodeShape ; sh:targetClass ex:SolactiveOrganization .
+ex:IndexComponent a rdfs:Class .
+ex:IndexComponentShape a sh:NodeShape ; sh:targetClass ex:IndexComponent .
+ex:IndexMaintenance a rdfs:Class .
+ex:IndexMaintenanceShape a sh:NodeShape ; sh:targetClass ex:IndexMaintenance .
+ex:IndexCalculation a rdfs:Class .
+ex:IndexCalculationShape a sh:NodeShape ; sh:targetClass ex:IndexCalculation .
+ex:RegularRebalanceDay a rdfs:Class .
+ex:RegularRebalanceDay rdfs:subClassOf ex:Day .
+ex:RegularRebalanceDayShape a sh:NodeShape ; sh:targetClass ex:RegularRebalanceDay .
+ex:CorporateAction a rdfs:Class .
+ex:CorporateAction rdfs:subClassOf ex:Event .
+ex:CorporateActionShape a sh:NodeShape ; sh:targetClass ex:CorporateAction .
+ex:IndexMaintenanceCorporateAction a rdfs:Class .
+ex:IndexMaintenanceCorporateAction rdfs:subClassOf ex:CorporateAction .
+ex:IndexMaintenanceCorporateActionShape a sh:NodeShape ; sh:targetClass ex:IndexMaintenanceCorporateAction .
+ex:CorporateActionKind a rdfs:Class .
+ex:CorporateActionKindShape a sh:NodeShape ; sh:targetClass ex:CorporateActionKind .
+ex:ListedCorporateActionKind a rdfs:Class .
+ex:ListedCorporateActionKind rdfs:subClassOf ex:CorporateActionKind .
+ex:ListedCorporateActionKindShape a sh:NodeShape ; sh:targetClass ex:ListedCorporateActionKind .
+ex:CorporateActionList a rdfs:Class .
+ex:CorporateActionListShape a sh:NodeShape ; sh:targetClass ex:CorporateActionList .
+ex:IndexComponentAttribute a rdfs:Class .
+ex:IndexComponentAttributeShape a sh:NodeShape ; sh:targetClass ex:IndexComponentAttribute .
+ex:Price a ex:IndexComponentAttribute .
+ex:Weighting a ex:IndexComponentAttribute .
+ex:OverallIntegrity a ex:IndexComponentAttribute .
+ex:IndexQuality a rdfs:Class .
+ex:IndexQualityShape a sh:NodeShape ; sh:targetClass ex:IndexQuality .
+ex:Comparability a ex:IndexQuality .
+ex:Representativeness a ex:IndexQuality .
+ex:CorporateActionAdjustment a rdfs:Class .
+ex:CorporateActionAdjustmentShape a sh:NodeShape ; sh:targetClass ex:CorporateActionAdjustment .
+ex:IndexVariable a rdfs:Class .
+ex:IndexVariableShape a sh:NodeShape ; sh:targetClass ex:IndexVariable .
+ex:CorporateActionDefinition a rdfs:Class .
+ex:CorporateActionDefinitionShape a sh:NodeShape ; sh:targetClass ex:CorporateActionDefinition .
+ex:BriefCorporateActionDefinition a rdfs:Class .
+ex:BriefCorporateActionDefinition rdfs:subClassOf ex:CorporateActionDefinition .
+ex:BriefCorporateActionDefinitionShape a sh:NodeShape ; sh:targetClass ex:BriefCorporateActionDefinition .
+ex:PriceEffect a rdfs:Class .
+ex:PriceEffect rdfs:subClassOf ex:Event .
+ex:PriceEffectShape a sh:NodeShape ; sh:targetClass ex:PriceEffect .
+ex:StandardProcedureSet a rdfs:Class .
+ex:StandardProcedureSetShape a sh:NodeShape ; sh:targetClass ex:StandardProcedureSet .
+ex:CorporateActionDeviation a rdfs:Class .
+ex:CorporateActionDeviationShape a sh:NodeShape ; sh:targetClass ex:CorporateActionDeviation .
+ex:PermittedCorporateActionDeviation a rdfs:Class .
+ex:PermittedCorporateActionDeviation rdfs:subClassOf ex:CorporateActionDeviation .
+ex:PermittedCorporateActionDeviationShape a sh:NodeShape ; sh:targetClass ex:PermittedCorporateActionDeviation .
+ex:RegulatoryRequirement a rdfs:Class .
+ex:RegulatoryRequirementShape a sh:NodeShape ; sh:targetClass ex:RegulatoryRequirement .
+ex:MethodologyQuality a rdfs:Class .
+ex:MethodologyQualityShape a sh:NodeShape ; sh:targetClass ex:MethodologyQuality .
+ex:Generic a ex:MethodologyQuality .
+ex:Transparent a ex:MethodologyQuality .
+
+ex:TheIndex a ex:Index .
+ex:Solactive a ex:SolactiveOrganization .
+ex:IndexMaintenanceOfTheIndex a ex:IndexMaintenance .
+ex:CalculationOfTheIndex a ex:IndexCalculation .
+ex:EquityIndexMethodology a ex:Document .
+ex:SolactiveWebsite a ex:WebResource .
+ex:CorporateActionStandardProcedures a ex:StandardProcedureSet .
+ex:RegulatoryRequirements a ex:RegulatoryRequirement .
+ex:AsPossible a ex:VagueTerm .
+ex:RelevantCorporateActionList a ex:CorporateActionList .
+ex:CashDistributions a ex:ListedCorporateActionKind .
+ex:StockDistributions a ex:ListedCorporateActionKind .
+ex:StockDistributionsOfAnotherCompany a ex:ListedCorporateActionKind .
+ex:ShareSplits a ex:ListedCorporateActionKind .
+ex:ReverseSplits a ex:ListedCorporateActionKind .
+ex:CapitalIncreases a ex:ListedCorporateActionKind .
+ex:ShareRepurchases a ex:ListedCorporateActionKind .
+ex:SpinOffs a ex:ListedCorporateActionKind .
+ex:MergersAndAcquisitions a ex:ListedCorporateActionKind .
+ex:Delistings a ex:ListedCorporateActionKind .
+ex:Nationalization a ex:ListedCorporateActionKind .
+ex:Insolvency a ex:ListedCorporateActionKind .
+ex:index_maintenance_of a rdf:Property .
+ex:IndexMaintenanceShape sh:property [ sh:path ex:index_maintenance_of ; sh:class ex:Index ] .
+ex:calculation_of_index a rdf:Property .
+ex:IndexCalculationShape sh:property [ sh:path ex:calculation_of_index ; sh:class ex:Index ] .
+ex:component_of_index a rdf:Property .
+ex:IndexComponentShape sh:property [ sh:path ex:component_of_index ; sh:class ex:Index ] .
+ex:considers_for_index_maintenance a rdfs:Class .
+ex:considers_for_index_maintenanceShape a sh:NodeShape ; sh:targetClass ex:considers_for_index_maintenance .
+ex:considers_for_index_maintenanceShape sh:property [ sh:path ex:considers_for_index_maintenance_arg_0 ; sh:class ex:SolactiveOrganization ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:considers_for_index_maintenanceShape sh:property [ sh:path ex:considers_for_index_maintenance_arg_1 ; sh:class ex:IndexMaintenanceCorporateAction ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:considers_for_index_maintenanceShape sh:property [ sh:path ex:considers_for_index_maintenance_arg_2 ; sh:class ex:IndexMaintenance ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:index_adjustment a rdf:Property .
+ex:IndexMaintenanceCorporateActionShape sh:property [ sh:path ex:index_adjustment ; sh:class ex:CorporateActionAdjustment ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:cum_day a rdf:Property .
+ex:IndexMaintenanceCorporateActionShape sh:property [ sh:path ex:cum_day ; sh:class ex:Day ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:ex_day a rdf:Property .
+ex:IndexMaintenanceCorporateActionShape sh:property [ sh:path ex:ex_day ; sh:class ex:Day ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:price_effect a rdf:Property .
+ex:IndexMaintenanceCorporateActionShape sh:property [ sh:path ex:price_effect ; sh:class ex:PriceEffect ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:adjustment_to_index a rdf:Property .
+ex:CorporateActionAdjustmentShape sh:property [ sh:path ex:adjustment_to_index ; sh:class ex:Index ] .
+ex:adjustment_between_regular_rebalance_days a rdfs:Class .
+ex:adjustment_between_regular_rebalance_daysShape a sh:NodeShape ; sh:targetClass ex:adjustment_between_regular_rebalance_days .
+ex:adjustment_between_regular_rebalance_daysShape sh:property [ sh:path ex:adjustment_between_regular_rebalance_days_arg_0 ; sh:class ex:CorporateActionAdjustment ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:adjustment_between_regular_rebalance_daysShape sh:property [ sh:path ex:adjustment_between_regular_rebalance_days_arg_1 ; sh:class ex:RegularRebalanceDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:adjustment_between_regular_rebalance_daysShape sh:property [ sh:path ex:adjustment_between_regular_rebalance_days_arg_2 ; sh:class ex:RegularRebalanceDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:material_impact_on a rdfs:Class .
+ex:material_impact_onShape a sh:NodeShape ; sh:targetClass ex:material_impact_on .
+ex:material_impact_onShape sh:property [ sh:path ex:material_impact_on_arg_0 ; sh:class ex:IndexMaintenanceCorporateAction ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:material_impact_onShape sh:property [ sh:path ex:material_impact_on_arg_1 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:material_impact_onShape sh:property [ sh:path ex:material_impact_on_arg_2 ; sh:class ex:IndexComponentAttribute ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:implemented_from_to a rdfs:Class .
+ex:implemented_from_toShape a sh:NodeShape ; sh:targetClass ex:implemented_from_to .
+ex:implemented_from_toShape sh:property [ sh:path ex:implemented_from_to_arg_0 ; sh:class ex:IndexMaintenanceCorporateAction ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:implemented_from_toShape sh:property [ sh:path ex:implemented_from_to_arg_1 ; sh:class ex:Day ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:implemented_from_toShape sh:property [ sh:path ex:implemented_from_to_arg_2 ; sh:class ex:Day ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:adjustment_coincides_with_price_effect_occurrence a rdf:Property .
+ex:CorporateActionAdjustmentShape sh:property [ sh:path ex:adjustment_coincides_with_price_effect_occurrence ; sh:class ex:PriceEffect ] .
+ex:available_on a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:available_on ; sh:class ex:WebResource ] .
+ex:website_of a rdf:Property .
+ex:WebResourceShape sh:property [ sh:path ex:website_of ; sh:class ex:Organization ] .
+ex:methodology_covers_corporate_action_kind a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:methodology_covers_corporate_action_kind ; sh:class ex:CorporateActionKind ] .
+ex:methodology_contains_definition a rdfs:Class .
+ex:methodology_contains_definitionShape a sh:NodeShape ; sh:targetClass ex:methodology_contains_definition .
+ex:methodology_contains_definitionShape sh:property [ sh:path ex:methodology_contains_definition_arg_0 ; sh:class ex:Document ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:methodology_contains_definitionShape sh:property [ sh:path ex:methodology_contains_definition_arg_1 ; sh:class ex:CorporateActionKind ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:methodology_contains_definitionShape sh:property [ sh:path ex:methodology_contains_definition_arg_2 ; sh:class ex:BriefCorporateActionDefinition ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:methodology_specifies_relevant_adjustment_to_index_variable a rdfs:Class .
+ex:methodology_specifies_relevant_adjustment_to_index_variableShape a sh:NodeShape ; sh:targetClass ex:methodology_specifies_relevant_adjustment_to_index_variable .
+ex:methodology_specifies_relevant_adjustment_to_index_variableShape sh:property [ sh:path ex:methodology_specifies_relevant_adjustment_to_index_variable_arg_0 ; sh:class ex:Document ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:methodology_specifies_relevant_adjustment_to_index_variableShape sh:property [ sh:path ex:methodology_specifies_relevant_adjustment_to_index_variable_arg_1 ; sh:class ex:CorporateActionKind ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:methodology_specifies_relevant_adjustment_to_index_variableShape sh:property [ sh:path ex:methodology_specifies_relevant_adjustment_to_index_variable_arg_2 ; sh:class ex:IndexVariable ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:index_variable_of a rdf:Property .
+ex:IndexVariableShape sh:property [ sh:path ex:index_variable_of ; sh:class ex:Index ] .
+ex:aims_at_creating a rdf:Property .
+ex:SolactiveOrganizationShape sh:property [ sh:path ex:aims_at_creating ; sh:class ex:Document ] .
+ex:aims_at_maintaining a rdf:Property .
+ex:SolactiveOrganizationShape sh:property [ sh:path ex:aims_at_maintaining ; sh:class ex:Document ] .
+ex:methodology_for_treatment_of_corporate_actions a rdfs:Class ; rdfs:subClassOf ex:Document .
+ex:methodology_quality a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:methodology_quality ; sh:class ex:MethodologyQuality ] .
+ex:methodology_quality_described_by a rdfs:Class .
+ex:methodology_quality_described_byShape a sh:NodeShape ; sh:targetClass ex:methodology_quality_described_by .
+ex:methodology_quality_described_byShape sh:property [ sh:path ex:methodology_quality_described_by_arg_0 ; sh:class ex:Document ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:methodology_quality_described_byShape sh:property [ sh:path ex:methodology_quality_described_by_arg_1 ; sh:class ex:MethodologyQuality ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:methodology_quality_described_byShape sh:property [ sh:path ex:methodology_quality_described_by_arg_2 ; sh:class ex:VagueTerm ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:in_line_with a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:in_line_with ; sh:class ex:RegulatoryRequirement ] .
+ex:standard_procedures_in_methodology a rdf:Property .
+ex:StandardProcedureSetShape sh:property [ sh:path ex:standard_procedures_in_methodology ; sh:class ex:Document ] .
+ex:deviation_for_corporate_action a rdf:Property .
+ex:CorporateActionDeviationShape sh:property [ sh:path ex:deviation_for_corporate_action ; sh:class ex:IndexMaintenanceCorporateAction ] .
+ex:deviation_in_accordance_with_methodology a rdf:Property .
+ex:CorporateActionDeviationShape sh:property [ sh:path ex:deviation_in_accordance_with_methodology ; sh:class ex:Document ] .
+ex:unusual a rdfs:Class ; rdfs:subClassOf ex:IndexMaintenanceCorporateAction .
+ex:complex a rdfs:Class ; rdfs:subClassOf ex:IndexMaintenanceCorporateAction .
+ex:deviation_preserves_index_quality_over_time a rdfs:Class .
+ex:deviation_preserves_index_quality_over_timeShape a sh:NodeShape ; sh:targetClass ex:deviation_preserves_index_quality_over_time .
+ex:deviation_preserves_index_quality_over_timeShape sh:property [ sh:path ex:deviation_preserves_index_quality_over_time_arg_0 ; sh:class ex:CorporateActionDeviation ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:deviation_preserves_index_quality_over_timeShape sh:property [ sh:path ex:deviation_preserves_index_quality_over_time_arg_1 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:deviation_preserves_index_quality_over_timeShape sh:property [ sh:path ex:deviation_preserves_index_quality_over_time_arg_2 ; sh:class ex:IndexQuality ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:conclusive a rdfs:Class ; rdfs:subClassOf ex:CorporateActionList .
+ex:non_conclusive a rdfs:Class ; rdfs:subClassOf ex:CorporateActionList .
+ex:list_item a rdf:Property .
+ex:CorporateActionListShape sh:property [ sh:path ex:list_item ; sh:class ex:CorporateActionKind ] .
+ex:considers_relevant_for_index_maintenance a rdfs:Class .
+ex:considers_relevant_for_index_maintenanceShape a sh:NodeShape ; sh:targetClass ex:considers_relevant_for_index_maintenance .
+ex:considers_relevant_for_index_maintenanceShape sh:property [ sh:path ex:considers_relevant_for_index_maintenance_arg_0 ; sh:class ex:SolactiveOrganization ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:considers_relevant_for_index_maintenanceShape sh:property [ sh:path ex:considers_relevant_for_index_maintenance_arg_1 ; sh:class ex:CorporateActionKind ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:considers_relevant_for_index_maintenanceShape sh:property [ sh:path ex:considers_relevant_for_index_maintenance_arg_2 ; sh:class ex:IndexMaintenance ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+ex:IndexMaintenanceOfTheIndex ex:index_maintenance_of ex:TheIndex .
+ex:CalculationOfTheIndex ex:calculation_of_index ex:TheIndex .
+ex:EquityIndexMethodology ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:Solactive ex:aims_at_creating ex:EquityIndexMethodology .
+ex:Solactive ex:aims_at_maintaining ex:EquityIndexMethodology .
+ex:EquityIndexMethodology a ex:methodology_for_treatment_of_corporate_actions .
+ex:EquityIndexMethodology ex:methodology_quality ex:Generic .
+ex:FACT_corporate_action_treatment_methodology_aim_methodology_quality_described_by_4 a ex:methodology_quality_described_by .
+ex:FACT_corporate_action_treatment_methodology_aim_methodology_quality_described_by_4 ex:methodology_quality_described_by_arg_0 ex:EquityIndexMethodology .
+ex:FACT_corporate_action_treatment_methodology_aim_methodology_quality_described_by_4 ex:methodology_quality_described_by_arg_1 ex:Generic .
+ex:FACT_corporate_action_treatment_methodology_aim_methodology_quality_described_by_4 ex:methodology_quality_described_by_arg_2 ex:AsPossible .
+ex:EquityIndexMethodology ex:methodology_quality ex:Transparent .
+ex:FACT_corporate_action_treatment_methodology_aim_methodology_quality_described_by_6 a ex:methodology_quality_described_by .
+ex:FACT_corporate_action_treatment_methodology_aim_methodology_quality_described_by_6 ex:methodology_quality_described_by_arg_0 ex:EquityIndexMethodology .
+ex:FACT_corporate_action_treatment_methodology_aim_methodology_quality_described_by_6 ex:methodology_quality_described_by_arg_1 ex:Transparent .
+ex:FACT_corporate_action_treatment_methodology_aim_methodology_quality_described_by_6 ex:methodology_quality_described_by_arg_2 ex:AsPossible .
+ex:EquityIndexMethodology ex:in_line_with ex:RegulatoryRequirements .
+ex:CorporateActionStandardProcedures ex:standard_procedures_in_methodology ex:EquityIndexMethodology .
+ex:RelevantCorporateActionList a ex:non_conclusive .
+ex:RelevantCorporateActionList ex:list_item ex:CashDistributions .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_2 a ex:considers_relevant_for_index_maintenance .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_2 ex:considers_relevant_for_index_maintenance_arg_0 ex:Solactive .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_2 ex:considers_relevant_for_index_maintenance_arg_1 ex:CashDistributions .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_2 ex:considers_relevant_for_index_maintenance_arg_2 ex:IndexMaintenanceOfTheIndex .
+ex:EquityIndexMethodology ex:methodology_covers_corporate_action_kind ex:CashDistributions .
+ex:RelevantCorporateActionList ex:list_item ex:StockDistributions .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_5 a ex:considers_relevant_for_index_maintenance .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_5 ex:considers_relevant_for_index_maintenance_arg_0 ex:Solactive .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_5 ex:considers_relevant_for_index_maintenance_arg_1 ex:StockDistributions .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_5 ex:considers_relevant_for_index_maintenance_arg_2 ex:IndexMaintenanceOfTheIndex .
+ex:EquityIndexMethodology ex:methodology_covers_corporate_action_kind ex:StockDistributions .
+ex:RelevantCorporateActionList ex:list_item ex:StockDistributionsOfAnotherCompany .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_8 a ex:considers_relevant_for_index_maintenance .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_8 ex:considers_relevant_for_index_maintenance_arg_0 ex:Solactive .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_8 ex:considers_relevant_for_index_maintenance_arg_1 ex:StockDistributionsOfAnotherCompany .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_8 ex:considers_relevant_for_index_maintenance_arg_2 ex:IndexMaintenanceOfTheIndex .
+ex:EquityIndexMethodology ex:methodology_covers_corporate_action_kind ex:StockDistributionsOfAnotherCompany .
+ex:RelevantCorporateActionList ex:list_item ex:ShareSplits .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_11 a ex:considers_relevant_for_index_maintenance .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_11 ex:considers_relevant_for_index_maintenance_arg_0 ex:Solactive .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_11 ex:considers_relevant_for_index_maintenance_arg_1 ex:ShareSplits .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_11 ex:considers_relevant_for_index_maintenance_arg_2 ex:IndexMaintenanceOfTheIndex .
+ex:EquityIndexMethodology ex:methodology_covers_corporate_action_kind ex:ShareSplits .
+ex:RelevantCorporateActionList ex:list_item ex:ReverseSplits .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_14 a ex:considers_relevant_for_index_maintenance .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_14 ex:considers_relevant_for_index_maintenance_arg_0 ex:Solactive .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_14 ex:considers_relevant_for_index_maintenance_arg_1 ex:ReverseSplits .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_14 ex:considers_relevant_for_index_maintenance_arg_2 ex:IndexMaintenanceOfTheIndex .
+ex:EquityIndexMethodology ex:methodology_covers_corporate_action_kind ex:ReverseSplits .
+ex:RelevantCorporateActionList ex:list_item ex:CapitalIncreases .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_17 a ex:considers_relevant_for_index_maintenance .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_17 ex:considers_relevant_for_index_maintenance_arg_0 ex:Solactive .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_17 ex:considers_relevant_for_index_maintenance_arg_1 ex:CapitalIncreases .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_17 ex:considers_relevant_for_index_maintenance_arg_2 ex:IndexMaintenanceOfTheIndex .
+ex:EquityIndexMethodology ex:methodology_covers_corporate_action_kind ex:CapitalIncreases .
+ex:RelevantCorporateActionList ex:list_item ex:ShareRepurchases .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_20 a ex:considers_relevant_for_index_maintenance .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_20 ex:considers_relevant_for_index_maintenance_arg_0 ex:Solactive .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_20 ex:considers_relevant_for_index_maintenance_arg_1 ex:ShareRepurchases .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_20 ex:considers_relevant_for_index_maintenance_arg_2 ex:IndexMaintenanceOfTheIndex .
+ex:EquityIndexMethodology ex:methodology_covers_corporate_action_kind ex:ShareRepurchases .
+ex:RelevantCorporateActionList ex:list_item ex:SpinOffs .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_23 a ex:considers_relevant_for_index_maintenance .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_23 ex:considers_relevant_for_index_maintenance_arg_0 ex:Solactive .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_23 ex:considers_relevant_for_index_maintenance_arg_1 ex:SpinOffs .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_23 ex:considers_relevant_for_index_maintenance_arg_2 ex:IndexMaintenanceOfTheIndex .
+ex:EquityIndexMethodology ex:methodology_covers_corporate_action_kind ex:SpinOffs .
+ex:RelevantCorporateActionList ex:list_item ex:MergersAndAcquisitions .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_26 a ex:considers_relevant_for_index_maintenance .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_26 ex:considers_relevant_for_index_maintenance_arg_0 ex:Solactive .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_26 ex:considers_relevant_for_index_maintenance_arg_1 ex:MergersAndAcquisitions .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_26 ex:considers_relevant_for_index_maintenance_arg_2 ex:IndexMaintenanceOfTheIndex .
+ex:EquityIndexMethodology ex:methodology_covers_corporate_action_kind ex:MergersAndAcquisitions .
+ex:RelevantCorporateActionList ex:list_item ex:Delistings .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_29 a ex:considers_relevant_for_index_maintenance .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_29 ex:considers_relevant_for_index_maintenance_arg_0 ex:Solactive .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_29 ex:considers_relevant_for_index_maintenance_arg_1 ex:Delistings .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_29 ex:considers_relevant_for_index_maintenance_arg_2 ex:IndexMaintenanceOfTheIndex .
+ex:EquityIndexMethodology ex:methodology_covers_corporate_action_kind ex:Delistings .
+ex:RelevantCorporateActionList ex:list_item ex:Nationalization .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_32 a ex:considers_relevant_for_index_maintenance .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_32 ex:considers_relevant_for_index_maintenance_arg_0 ex:Solactive .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_32 ex:considers_relevant_for_index_maintenance_arg_1 ex:Nationalization .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_32 ex:considers_relevant_for_index_maintenance_arg_2 ex:IndexMaintenanceOfTheIndex .
+ex:EquityIndexMethodology ex:methodology_covers_corporate_action_kind ex:Nationalization .
+ex:RelevantCorporateActionList ex:list_item ex:Insolvency .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_35 a ex:considers_relevant_for_index_maintenance .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_35 ex:considers_relevant_for_index_maintenance_arg_0 ex:Solactive .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_35 ex:considers_relevant_for_index_maintenance_arg_1 ex:Insolvency .
+ex:FACT_relevant_corporate_action_list_considers_relevant_for_index_maintenance_35 ex:considers_relevant_for_index_maintenance_arg_2 ex:IndexMaintenanceOfTheIndex .
+ex:EquityIndexMethodology ex:methodology_covers_corporate_action_kind ex:Insolvency .

@@ -1,0 +1,26 @@
+schema: role_annotations_v1
+entry_id: section_4_6
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  effort_goal:
+    kind: rel
+    args:
+      1: {role: subject}
+      2: {role: subject}
+      3: {role: subject}
+constraints:
+  efforts_to_accurately_calculate_and_maintain_indices:
+    frame: efforts_to_accurately_calculate_and_maintain_indices
+    variables:
+      i: {role: subject, quantifier: forall}
+  identified_errors_correction_endeavor:
+    frame: identified_errors_correction_endeavor
+    variables:
+      e: {role: event, quantifier: forall}
+      v: {role: event, quantifier: exists}
+      t: {role: time, quantifier: exists}
+facts:
+  period_understanding_and_measures_depend_on_underlying:
+    frame: period_understanding_and_measures_depend_on_underlying
+    variables:
+      u: {role: subject, quantifier: exists}

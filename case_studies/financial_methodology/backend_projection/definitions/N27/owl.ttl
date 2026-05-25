@@ -1,0 +1,42 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N27 a owl:Ontology .
+
+ex:SelectionDay a owl:Class .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:RebalanceDay a owl:Class .
+ex:RebalanceDay rdfs:subClassOf ex:Day .
+ex:BusinessDayCount a owl:Class .
+ex:BusinessDayCount rdfs:subClassOf ex:Nat .
+
+ex:TwentyBusinessDays a ex:BusinessDayCount, owl:NamedIndividual .
+ex:business_day_count_before a owl:Class, a4:NaryRelationClass .
+ex:business_day_count_before_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:business_day_count_before ;
+  rdfs:range ex:Day .
+ex:business_day_count_before_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:business_day_count_before ;
+  rdfs:range ex:Day .
+ex:business_day_count_before_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:business_day_count_before ;
+  rdfs:range ex:BusinessDayCount .
+ex:selection_day_for_rebalance_day a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:RebalanceDay .
+ex:change_of_rebalance_day_disregarded_for_selection_day a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:RebalanceDay .
+
+ex:TwentyBusinessDays owl:sameAs "20"^^xsd:integer .
+ex:ASSERT_selection_day_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall sd: SelectionDay, forall rd: RebalanceDay, (selection_day_for_rebalance_day(sd, rd)) iff ((business_day_count_before(sd, rd)) = (TwentyBusinessDays))" .
+ex:ASSERT_rebalance_day_change_disregarded_for_selection_day a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall sd: SelectionDay, forall rd: RebalanceDay, (selection_day_for_rebalance_day(sd, rd)) implies (change_of_rebalance_day_disregarded_for_selection_day(sd, rd))" .

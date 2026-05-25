@@ -1,4 +1,4 @@
-// Source URLs:
+﻿// Source URLs:
 // https://nnov.hse.ru/ba/law/igpr/ruspravda
 // https://hist.msu.ru/ER/Etext/RP/krp_t.htm
 // Entry note: source text is Cyrillic; identifiers use ASCII transliteration.
@@ -889,25 +889,25 @@ and vor(d, thief)
 implies obyazan_uplatit(d, thief, x, rezan, 10)
 
 constraint rp_041a_pri_shtrafe_3_dopolnitelnye_platy :
-forall d: Delo, forall payer: SubjektPrava, forall m: Mechnik, forall dz: Desyatina, forall k: Knyaz,
+forall d: Delo, forall payer: SubjektPrava, forall m: Mechnik, forall desyatina: Desyatina, forall k: Knyaz,
 shtraf(d, payer, grivna, 3)
 and mechnik_dela(d, m)
-and desyatina_dela(d, dz)
+and desyatina_dela(d, desyatina)
 and knyaz_dela(d, k)
 implies
 obyazan_uplatit(d, payer, m, kuna, 15)
-and obyazan_uplatit(d, payer, dz, kuna, 15)
+and obyazan_uplatit(d, payer, desyatina, kuna, 15)
 and obyazan_uplatit(d, payer, k, grivna, 3)
 
 constraint rp_041b_pri_shtrafe_12_dopolnitelnye_platy :
-forall d: Delo, forall payer: SubjektPrava, forall p: Chelovek, forall dz: Desyatina, forall k: Knyaz,
+forall d: Delo, forall payer: SubjektPrava, forall p: Chelovek, forall desyatina: Desyatina, forall k: Knyaz,
 shtraf(d, payer, grivna, 12)
 and privedet_vora(d, p, payer)
-and desyatina_dela(d, dz)
+and desyatina_dela(d, desyatina)
 and knyaz_dela(d, k)
 implies
 obyazan_uplatit(d, payer, p, kuna, 70)
-and obyazan_uplatit(d, payer, dz, grivna, 2)
+and obyazan_uplatit(d, payer, desyatina, grivna, 2)
 and obyazan_uplatit(d, payer, k, grivna, 10)
 
 constraint rp_042a_virniku_solod_na_nedelyu :

@@ -1,0 +1,78 @@
+{
+  "entry_id": "N16",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1038,
+    "completion_tokens": 292,
+    "total_tokens": 1330
+  },
+  "latency_s": 3.5560574531555176,
+  "scenarios": [
+    {
+      "description": "The document states that the term \"Guideline\" has the meaning defined in Section \"Introduction\".",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document states that the term \"Guideline\" has the meaning defined in Section \"Definitions\" instead of Section \"Introduction\".",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document states that every defined term has its meaning in Section \"Introduction\", but does not specifically mention \"Guideline\".",
+      "category": "scope_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "ambiguous",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document says \"Guideline\" will have the meaning defined in Section \"Introduction\" only after approval by an editor, and before approval it has no assigned meaning.",
+      "category": "modality_edge",
+      "source_verdict": "reject",
+      "ir_verdict": "ambiguous",
+      "agree": false,
+      "drift_explanation": "The source text requires that \"Guideline\" shall have the meaning defined in Section \"Introduction\"; a delayed or conditional assignment does not satisfy it. The IR only states the relation holds, and does not encode the conditional or temporal restriction, so it leaves this scenario ambiguous."
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 3,
+    "agreement_rate": 0.75,
+    "drifts": [
+      {
+        "description": "The document says \"Guideline\" will have the meaning defined in Section \"Introduction\" only after approval by an editor, and before approval it has no assigned meaning.",
+        "category": "modality_edge",
+        "source_verdict": "reject",
+        "ir_verdict": "ambiguous",
+        "agree": false,
+        "drift_explanation": "The source text requires that \"Guideline\" shall have the meaning defined in Section \"Introduction\"; a delayed or conditional assignment does not satisfy it. The IR only states the relation holds, and does not encode the conditional or temporal restriction, so it leaves this scenario ambiguous."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 1
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 0
+      }
+    }
+  }
+}

@@ -23,6 +23,9 @@ all = [
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[project.scripts]
+a4v3-toolkit = "a4v3_ir_toolkit.__main__:main"
+
 [tool.hatch.build.targets.wheel]
 packages = ["a4v3_ir_toolkit"]
 

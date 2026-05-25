@@ -1,0 +1,3509 @@
+{
+  "entry_id": "section_5_5",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 46,
+    "content_token_count": 31,
+    "covered_content_token_count": 29,
+    "uncovered_content_token_count": 2,
+    "ignored_stopword_count": 15,
+    "content_coverage_rate": 0.935
+  },
+  "tokens": [
+    {
+      "token": "an",
+      "surface_forms": [
+        "An",
+        "an"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 1
+        },
+        {
+          "line": 3,
+          "column": 231
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "oversight",
+      "surface_forms": [
+        "oversight",
+        "Oversight"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 4
+        },
+        {
+          "line": 3,
+          "column": 86
+        },
+        {
+          "line": 3,
+          "column": 287
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "OversightCommittee",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "OversightCommittee"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "OversightCommitteePriorApproval",
+          "family": "SymbolDecl.entity",
+          "line": 19,
+          "matched_text": "OversightCommitteePriorApproval"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_has_staff",
+          "family": "AssertDecl.fact",
+          "line": 45,
+          "matched_text": "oversight_committee_has_staff"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_prior_approval",
+          "family": "AssertDecl.fact",
+          "line": 49,
+          "matched_text": "oversight_committee_prior_approval"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "family": "AssertDecl.constraint",
+          "line": 52,
+          "matched_text": "oversight_committee_staff_from_solactive_or_subsidiary"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "family": "AssertDecl.constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "declaration",
+          "role": "scope",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "OversightCommitteePriorApproval"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_has_staff",
+          "assertion_kind": "fact",
+          "line": 45,
+          "matched_text": "oversight_committee_has_staff"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_has_staff",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.args[0]",
+          "matched_text": "OversightCommittee"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_prior_approval",
+          "assertion_kind": "fact",
+          "line": 49,
+          "matched_text": "oversight_committee_prior_approval"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_prior_approval",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "OversightCommitteePriorApproval"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_prior_approval",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "OversightCommittee"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "line": 52,
+          "matched_text": "oversight_committee_staff_from_solactive_or_subsidiary"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0]",
+          "matched_text": "OversightCommittee"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0]",
+          "matched_text": "OversightCommittee"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "scope",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "OversightCommitteePriorApproval"
+        }
+      ]
+    },
+    {
+      "token": "committee",
+      "surface_forms": [
+        "committee",
+        "Committee"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 14
+        },
+        {
+          "line": 3,
+          "column": 96
+        },
+        {
+          "line": 3,
+          "column": 297
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Committee",
+          "family": "TypeDecl.subtype",
+          "line": 7,
+          "matched_text": "Committee"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "OversightCommittee",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "OversightCommittee"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "OversightCommittee",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "Committee"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "OversightCommitteePriorApproval",
+          "family": "SymbolDecl.entity",
+          "line": 19,
+          "matched_text": "OversightCommitteePriorApproval"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "composed_of",
+          "family": "SymbolDecl.rel",
+          "line": 25,
+          "matched_text": "Committee"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "responsible_for_decisions_regarding",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "Committee"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "approval_by",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "Committee"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_has_staff",
+          "family": "AssertDecl.fact",
+          "line": 45,
+          "matched_text": "oversight_committee_has_staff"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_prior_approval",
+          "family": "AssertDecl.fact",
+          "line": 49,
+          "matched_text": "oversight_committee_prior_approval"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "family": "AssertDecl.constraint",
+          "line": 52,
+          "matched_text": "oversight_committee_staff_from_solactive_or_subsidiary"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "family": "AssertDecl.constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "declaration",
+          "role": "scope",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "OversightCommitteePriorApproval"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_has_staff",
+          "assertion_kind": "fact",
+          "line": 45,
+          "matched_text": "oversight_committee_has_staff"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_has_staff",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.args[0]",
+          "matched_text": "OversightCommittee"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_prior_approval",
+          "assertion_kind": "fact",
+          "line": 49,
+          "matched_text": "oversight_committee_prior_approval"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_prior_approval",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "OversightCommitteePriorApproval"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_prior_approval",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "OversightCommittee"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "line": 52,
+          "matched_text": "oversight_committee_staff_from_solactive_or_subsidiary"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0]",
+          "matched_text": "OversightCommittee"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0]",
+          "matched_text": "OversightCommittee"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "scope",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "OversightCommitteePriorApproval"
+        }
+      ]
+    },
+    {
+      "token": "compo",
+      "surface_forms": [
+        "composed"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 24
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "composed_of",
+          "family": "SymbolDecl.rel",
+          "line": 25,
+          "matched_text": "composed_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_has_staff",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body",
+          "matched_text": "composed_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "composed_of"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 33
+        },
+        {
+          "line": 3,
+          "column": 177
+        },
+        {
+          "line": 3,
+          "column": 244
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "composed_of",
+          "family": "SymbolDecl.rel",
+          "line": 25,
+          "matched_text": "composed_of"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "subsidiary_of",
+          "family": "SymbolDecl.rel",
+          "line": 27,
+          "matched_text": "subsidiary_of"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rule_of",
+          "family": "SymbolDecl.rel",
+          "line": 29,
+          "matched_text": "rule_of"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "amendment_of_rule",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "amendment_of_rule"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "amendment_of_document",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "amendment_of_document"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "website_of",
+          "family": "SymbolDecl.rel",
+          "line": 38,
+          "matched_text": "website_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "website_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_has_staff",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body",
+          "matched_text": "composed_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "composed_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[0]",
+          "matched_text": "subsidiary_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[0]",
+          "matched_text": "amendment_of_rule"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "rule_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0]",
+          "matched_text": "amendment_of_rule"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[1]",
+          "matched_text": "rule_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "amendment_of_document"
+        }
+      ]
+    },
+    {
+      "token": "staff",
+      "surface_forms": [
+        "staff"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 36
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Staff",
+          "family": "TypeDecl.opaque",
+          "line": 8,
+          "matched_text": "Staff"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "composed_of",
+          "family": "SymbolDecl.rel",
+          "line": 25,
+          "matched_text": "Staff"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "staff_from",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "staff_from"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "staff_from",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "Staff"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_has_staff",
+          "family": "AssertDecl.fact",
+          "line": 45,
+          "matched_text": "oversight_committee_has_staff"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "family": "AssertDecl.constraint",
+          "line": 52,
+          "matched_text": "oversight_committee_staff_from_solactive_or_subsidiary"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_has_staff",
+          "assertion_kind": "fact",
+          "line": 45,
+          "matched_text": "oversight_committee_has_staff"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "oversight_committee_has_staff",
+          "assertion_kind": "fact",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Staff"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "line": 52,
+          "matched_text": "oversight_committee_staff_from_solactive_or_subsidiary"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Staff"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0]",
+          "matched_text": "staff_from"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[1]",
+          "matched_text": "staff_from"
+        }
+      ]
+    },
+    {
+      "token": "from",
+      "surface_forms": [
+        "from"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 42
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "staff_from",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "staff_from"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "family": "AssertDecl.constraint",
+          "line": 52,
+          "matched_text": "oversight_committee_staff_from_solactive_or_subsidiary"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "line": 52,
+          "matched_text": "oversight_committee_staff_from_solactive_or_subsidiary"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0]",
+          "matched_text": "staff_from"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[1]",
+          "matched_text": "staff_from"
+        }
+      ]
+    },
+    {
+      "token": "solactive",
+      "surface_forms": [
+        "Solactive",
+        "solactive"
+      ],
+      "count": 5,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 47
+        },
+        {
+          "line": 3,
+          "column": 399
+        },
+        {
+          "line": 3,
+          "column": 471
+        },
+        {
+          "line": 3,
+          "column": 503
+        },
+        {
+          "line": 3,
+          "column": 560
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Solactive",
+          "family": "SymbolDecl.entity",
+          "line": 14,
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveWebsite",
+          "family": "SymbolDecl.entity",
+          "line": 20,
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComDocumentsMethodologyPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 23,
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "family": "AssertDecl.constraint",
+          "line": 52,
+          "matched_text": "oversight_committee_staff_from_solactive_or_subsidiary"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "line": 52,
+          "matched_text": "oversight_committee_staff_from_solactive_or_subsidiary"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0].args[1]",
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[0].args[1]",
+          "matched_text": "Solactive"
+        }
+      ]
+    },
+    {
+      "token": "and",
+      "surface_forms": [
+        "and"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 57
+        },
+        {
+          "line": 3,
+          "column": 326
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "its",
+      "surface_forms": [
+        "its"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 61
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "subsidiari",
+      "surface_forms": [
+        "subsidiaries"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 65
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Subsidiary",
+          "family": "TypeDecl.subtype",
+          "line": 9,
+          "matched_text": "Subsidiary"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "subsidiary_of",
+          "family": "SymbolDecl.rel",
+          "line": 27,
+          "matched_text": "subsidiary_of"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "subsidiary_of",
+          "family": "SymbolDecl.rel",
+          "line": 27,
+          "matched_text": "Subsidiary"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "family": "AssertDecl.constraint",
+          "line": 52,
+          "matched_text": "oversight_committee_staff_from_solactive_or_subsidiary"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "line": 52,
+          "matched_text": "oversight_committee_staff_from_solactive_or_subsidiary"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].vars[0].sort",
+          "matched_text": "Subsidiary"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_staff_from_solactive_or_subsidiary",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[0]",
+          "matched_text": "subsidiary_of"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 7,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 79
+        },
+        {
+          "line": 3,
+          "column": 167
+        },
+        {
+          "line": 3,
+          "column": 180
+        },
+        {
+          "line": 3,
+          "column": 247
+        },
+        {
+          "line": 3,
+          "column": 283
+        },
+        {
+          "line": 3,
+          "column": 362
+        },
+        {
+          "line": 3,
+          "column": 467
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 15,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1].args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[1].args[1]",
+          "matched_text": "TheIndex"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 110
+        },
+        {
+          "line": 3,
+          "column": 451
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "responsible",
+      "surface_forms": [
+        "responsible"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 113
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "responsible_for_decisions_regarding",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "responsible_for_decisions_regarding"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "family": "AssertDecl.constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "responsible_for_decisions_regarding"
+        }
+      ]
+    },
+    {
+      "token": "for",
+      "surface_forms": [
+        "for"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 125
+        },
+        {
+          "line": 3,
+          "column": 307
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "responsible_for_decisions_regarding",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "responsible_for_decisions_regarding"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "family": "AssertDecl.constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "submit_index_rule_amendment_for_prior_approval"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "responsible_for_decisions_regarding"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "submit_index_rule_amendment_for_prior_approval"
+        }
+      ]
+    },
+    {
+      "token": "decision",
+      "surface_forms": [
+        "decisions"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 129
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "responsible_for_decisions_regarding",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "responsible_for_decisions_regarding"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "family": "AssertDecl.constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "responsible_for_decisions_regarding"
+        }
+      ]
+    },
+    {
+      "token": "regard",
+      "surface_forms": [
+        "regarding"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 139
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "responsible_for_decisions_regarding",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "responsible_for_decisions_regarding"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "responsible_for_decisions_regarding"
+        }
+      ]
+    },
+    {
+      "token": "any",
+      "surface_forms": [
+        "any",
+        "Any"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 149
+        },
+        {
+          "line": 3,
+          "column": 191
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "universal_quantifier",
+          "marker": "forall"
+        }
+      ]
+    },
+    {
+      "token": "amendment",
+      "surface_forms": [
+        "amendments",
+        "amendment"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 153
+        },
+        {
+          "line": 3,
+          "column": 200
+        },
+        {
+          "line": 3,
+          "column": 234
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Amendment",
+          "family": "TypeDecl.opaque",
+          "line": 3,
+          "matched_text": "Amendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexRuleAmendment",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "IndexRuleAmendment",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "Amendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GuidelineAmendment",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "GuidelineAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "GuidelineAmendment",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "Amendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "amendment_of_rule",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "amendment_of_rule"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "amendment_of_rule",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "amendment_of_document",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "amendment_of_document"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "amendment_of_document",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "GuidelineAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "may_result_in",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "may_result_in",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "GuidelineAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "responsible_for_decisions_regarding",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_rule_amendment_scope",
+          "family": "AssertDecl.constraint",
+          "line": 64,
+          "matched_text": "index_rule_amendment_scope"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "family": "AssertDecl.constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_rule_amendments_may_result_in_guideline_amendment",
+          "family": "AssertDecl.constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "submit_index_rule_amendment_for_prior_approval"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "submit target: amendment"
+        },
+        {
+          "source": "declaration",
+          "role": "param_name",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "amendment"
+        },
+        {
+          "source": "declaration",
+          "role": "param_type",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        },
+        {
+          "source": "declaration",
+          "role": "param_name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "amendment"
+        },
+        {
+          "source": "declaration",
+          "role": "param_type",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "line": 64,
+          "matched_text": "index_rule_amendment_scope"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[0]",
+          "matched_text": "amendment_of_rule"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0]",
+          "matched_text": "amendment_of_rule"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "GuidelineAmendment"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "amendment_of_document"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "submit_index_rule_amendment_for_prior_approval"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "target",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "amendment"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        }
+      ]
+    },
+    {
+      "token": "to",
+      "surface_forms": [
+        "to"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 164
+        },
+        {
+          "line": 3,
+          "column": 280
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "rul",
+      "surface_forms": [
+        "rules"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 171
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexRule",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "IndexRule"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexRuleAmendment",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rule_of",
+          "family": "SymbolDecl.rel",
+          "line": 29,
+          "matched_text": "rule_of"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rule_of",
+          "family": "SymbolDecl.rel",
+          "line": 29,
+          "matched_text": "IndexRule"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "amendment_of_rule",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "amendment_of_rule"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "amendment_of_rule",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "amendment_of_rule",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "IndexRule"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "may_result_in",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "responsible_for_decisions_regarding",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_rule_amendment_scope",
+          "family": "AssertDecl.constraint",
+          "line": 64,
+          "matched_text": "index_rule_amendment_scope"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "family": "AssertDecl.constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_rule_amendments_may_result_in_guideline_amendment",
+          "family": "AssertDecl.constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "submit_index_rule_amendment_for_prior_approval"
+        },
+        {
+          "source": "declaration",
+          "role": "param_type",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        },
+        {
+          "source": "declaration",
+          "role": "param_type",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "line": 64,
+          "matched_text": "index_rule_amendment_scope"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "IndexRule"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[0]",
+          "matched_text": "amendment_of_rule"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "rule_of"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "IndexRule"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0]",
+          "matched_text": "amendment_of_rule"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[1]",
+          "matched_text": "rule_of"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "submit_index_rule_amendment_for_prior_approval"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        }
+      ]
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 184
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Index",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexRule",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "IndexRule"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexRuleAmendment",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 15,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 15,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rule_of",
+          "family": "SymbolDecl.rel",
+          "line": 29,
+          "matched_text": "IndexRule"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rule_of",
+          "family": "SymbolDecl.rel",
+          "line": 29,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "amendment_of_rule",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "amendment_of_rule",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "IndexRule"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "may_result_in",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "responsible_for_decisions_regarding",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_rule_amendment_scope",
+          "family": "AssertDecl.constraint",
+          "line": 64,
+          "matched_text": "index_rule_amendment_scope"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "family": "AssertDecl.constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_rule_amendments_may_result_in_guideline_amendment",
+          "family": "AssertDecl.constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "submit_index_rule_amendment_for_prior_approval"
+        },
+        {
+          "source": "declaration",
+          "role": "param_type",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        },
+        {
+          "source": "declaration",
+          "role": "param_type",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "line": 64,
+          "matched_text": "index_rule_amendment_scope"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "IndexRule"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_rule_amendment_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1].args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "line": 70,
+          "matched_text": "oversight_committee_responsible_for_index_rule_amendment_decisions"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "IndexRule"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[1].args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexRuleAmendment"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "submit_index_rule_amendment_for_prior_approval"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        }
+      ]
+    },
+    {
+      "token": "such",
+      "surface_forms": [
+        "such"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 195
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "which",
+      "surface_forms": [
+        "which"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 211
+        },
+        {
+          "line": 3,
+          "column": 445
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "may",
+      "surface_forms": [
+        "may"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 217
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "may_result_in",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "may_result_in"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_rule_amendments_may_result_in_guideline_amendment",
+          "family": "AssertDecl.constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[0]",
+          "matched_text": "may_result_in"
+        }
+      ]
+    },
+    {
+      "token": "result",
+      "surface_forms": [
+        "result"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 221
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "may_result_in",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "may_result_in"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_rule_amendments_may_result_in_guideline_amendment",
+          "family": "AssertDecl.constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[0]",
+          "matched_text": "may_result_in"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 228
+        },
+        {
+          "line": 3,
+          "column": 343
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "may_result_in",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "may_result_in"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_rule_amendments_may_result_in_guideline_amendment",
+          "family": "AssertDecl.constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_in_compliance_with target: MethodologyPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[0]",
+          "matched_text": "may_result_in"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "action",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_in_compliance_with"
+        }
+      ]
+    },
+    {
+      "token": "guideline",
+      "surface_forms": [
+        "Guideline"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 251
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GuidelineAmendment",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "GuidelineAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Guideline",
+          "family": "SymbolDecl.entity",
+          "line": 16,
+          "matched_text": "Guideline"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "amendment_of_document",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "GuidelineAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "may_result_in",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "GuidelineAmendment"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_rule_amendments_may_result_in_guideline_amendment",
+          "family": "AssertDecl.constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "line": 76,
+          "matched_text": "index_rule_amendments_may_result_in_guideline_amendment"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "GuidelineAmendment"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1].args[1]",
+          "matched_text": "Guideline"
+        }
+      ]
+    },
+    {
+      "token": "must",
+      "surface_forms": [
+        "must"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 262
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "modal_obligation",
+          "family": "DeonticDecl.obligation"
+        },
+        {
+          "source": "family_signal",
+          "role": "hard_constraint_obligation",
+          "assertion_kind": "constraint"
+        }
+      ]
+    },
+    {
+      "token": "be",
+      "surface_forms": [
+        "be"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 267
+        },
+        {
+          "line": 3,
+          "column": 335
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "submitt",
+      "surface_forms": [
+        "submitted"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 270
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "prior",
+      "surface_forms": [
+        "prior"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 311
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "PriorApproval",
+          "family": "TypeDecl.subtype",
+          "line": 11,
+          "matched_text": "PriorApproval"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "OversightCommitteePriorApproval",
+          "family": "SymbolDecl.entity",
+          "line": 19,
+          "matched_text": "OversightCommitteePriorApproval"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "OversightCommitteePriorApproval",
+          "family": "SymbolDecl.entity",
+          "line": 19,
+          "matched_text": "PriorApproval"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "approval_by",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "PriorApproval"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_prior_approval",
+          "family": "AssertDecl.fact",
+          "line": 49,
+          "matched_text": "oversight_committee_prior_approval"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "submit_index_rule_amendment_for_prior_approval"
+        },
+        {
+          "source": "declaration",
+          "role": "scope",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "OversightCommitteePriorApproval"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_prior_approval",
+          "assertion_kind": "fact",
+          "line": 49,
+          "matched_text": "oversight_committee_prior_approval"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_prior_approval",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "OversightCommitteePriorApproval"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "submit_index_rule_amendment_for_prior_approval"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "scope",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "OversightCommitteePriorApproval"
+        }
+      ]
+    },
+    {
+      "token": "approval",
+      "surface_forms": [
+        "approval"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 317
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Approval",
+          "family": "TypeDecl.opaque",
+          "line": 10,
+          "matched_text": "Approval"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "PriorApproval",
+          "family": "TypeDecl.subtype",
+          "line": 11,
+          "matched_text": "PriorApproval"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "PriorApproval",
+          "family": "TypeDecl.subtype",
+          "line": 11,
+          "matched_text": "Approval"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "OversightCommitteePriorApproval",
+          "family": "SymbolDecl.entity",
+          "line": 19,
+          "matched_text": "OversightCommitteePriorApproval"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "OversightCommitteePriorApproval",
+          "family": "SymbolDecl.entity",
+          "line": 19,
+          "matched_text": "PriorApproval"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "approval_by",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "approval_by"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "approval_by",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "PriorApproval"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "oversight_committee_prior_approval",
+          "family": "AssertDecl.fact",
+          "line": 49,
+          "matched_text": "oversight_committee_prior_approval"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "submit_index_rule_amendment_for_prior_approval"
+        },
+        {
+          "source": "declaration",
+          "role": "scope",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "OversightCommitteePriorApproval"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "oversight_committee_prior_approval",
+          "assertion_kind": "fact",
+          "line": 49,
+          "matched_text": "oversight_committee_prior_approval"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "oversight_committee_prior_approval",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "approval_by"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "oversight_committee_prior_approval",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "OversightCommitteePriorApproval"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "submit_index_rule_amendment_for_prior_approval"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "scope",
+          "symbol": "submit_index_rule_amendment_for_prior_approval",
+          "family": "DeonticDecl.obligation",
+          "line": 82,
+          "matched_text": "OversightCommitteePriorApproval"
+        }
+      ]
+    },
+    {
+      "token": "will",
+      "surface_forms": [
+        "will"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 330
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "legal_future_or_procedural_future"
+        }
+      ]
+    },
+    {
+      "token": "made",
+      "surface_forms": [
+        "made"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 338
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "passive_make_obligation",
+          "family": "DeonticDecl.obligation"
+        }
+      ]
+    },
+    {
+      "token": "compliance",
+      "surface_forms": [
+        "compliance"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 346
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_in_compliance_with target: MethodologyPolicy"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "action",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_in_compliance_with"
+        }
+      ]
+    },
+    {
+      "token": "with",
+      "surface_forms": [
+        "with"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 357
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_in_compliance_with target: MethodologyPolicy"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "action",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_in_compliance_with"
+        }
+      ]
+    },
+    {
+      "token": "methodologi",
+      "surface_forms": [
+        "Methodology",
+        "methodology-policy"
+      ],
+      "count": 4,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 367
+        },
+        {
+          "line": 3,
+          "column": 423
+        },
+        {
+          "line": 3,
+          "column": 527
+        },
+        {
+          "line": 3,
+          "column": 584
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MethodologyPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 17,
+          "matched_text": "MethodologyPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComDocumentsMethodologyPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 23,
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "methodology_policy_location",
+          "family": "AssertDecl.fact",
+          "line": 40,
+          "matched_text": "methodology_policy_location"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_in_compliance_with target: MethodologyPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "line": 40,
+          "matched_text": "methodology_policy_location"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "MethodologyPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "MethodologyPolicy"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "target",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "MethodologyPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Policy",
+          "family": "TypeDecl.subtype",
+          "line": 12,
+          "matched_text": "Policy"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "MethodologyPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 17,
+          "matched_text": "Policy"
+        }
+      ]
+    },
+    {
+      "token": "polici",
+      "surface_forms": [
+        "Policy"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 379
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Policy",
+          "family": "TypeDecl.subtype",
+          "line": 12,
+          "matched_text": "Policy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MethodologyPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 17,
+          "matched_text": "MethodologyPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "MethodologyPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 17,
+          "matched_text": "Policy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComDocumentsMethodologyPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 23,
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "methodology_policy_location",
+          "family": "AssertDecl.fact",
+          "line": 40,
+          "matched_text": "methodology_policy_location"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_in_compliance_with target: MethodologyPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "line": 40,
+          "matched_text": "methodology_policy_location"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "MethodologyPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "MethodologyPolicy"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "make_index_rule_amendment_in_compliance_with_methodology_policy"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "target",
+          "symbol": "make_index_rule_amendment_in_compliance_with_methodology_policy",
+          "family": "DeonticDecl.obligation",
+          "line": 87,
+          "matched_text": "MethodologyPolicy"
+        }
+      ]
+    },
+    {
+      "token": "http",
+      "surface_forms": [
+        "https"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 387
+        },
+        {
+          "line": 3,
+          "column": 491
+        },
+        {
+          "line": 3,
+          "column": 548
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComDocumentsMethodologyPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 23,
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        }
+      ]
+    },
+    {
+      "token": "www",
+      "surface_forms": [
+        "www"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 395
+        },
+        {
+          "line": 3,
+          "column": 499
+        },
+        {
+          "line": 3,
+          "column": 556
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComDocumentsMethodologyPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 23,
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        }
+      ]
+    },
+    {
+      "token": "com",
+      "surface_forms": [
+        "com"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 409
+        },
+        {
+          "line": 3,
+          "column": 513
+        },
+        {
+          "line": 3,
+          "column": 570
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComDocumentsMethodologyPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 23,
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        }
+      ]
+    },
+    {
+      "token": "document",
+      "surface_forms": [
+        "documents"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 413
+        },
+        {
+          "line": 3,
+          "column": 517
+        },
+        {
+          "line": 3,
+          "column": 574
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "Policy",
+          "family": "TypeDecl.subtype",
+          "line": 12,
+          "matched_text": "Document"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "Guideline",
+          "family": "SymbolDecl.entity",
+          "line": 16,
+          "matched_text": "Document"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComDocumentsMethodologyPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 23,
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "amendment_of_document",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "amendment_of_document"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "amendment_of_document",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "Document"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "available_on",
+          "family": "SymbolDecl.rel",
+          "line": 37,
+          "matched_text": "Document"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "document_url"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComDocumentsMethodologyPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_rule_amendments_may_result_in_guideline_amendment",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "amendment_of_document"
+        }
+      ]
+    },
+    {
+      "token": "available",
+      "surface_forms": [
+        "available"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 454
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "available_on",
+          "family": "SymbolDecl.rel",
+          "line": 37,
+          "matched_text": "available_on"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "available_on"
+        }
+      ]
+    },
+    {
+      "token": "on",
+      "surface_forms": [
+        "on"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 464
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "available_on",
+          "family": "SymbolDecl.rel",
+          "line": 37,
+          "matched_text": "available_on"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "available_on"
+        }
+      ]
+    },
+    {
+      "token": "website",
+      "surface_forms": [
+        "website"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 481
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveWebsite",
+          "family": "SymbolDecl.entity",
+          "line": 20,
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "website_of",
+          "family": "SymbolDecl.rel",
+          "line": 38,
+          "matched_text": "website_of"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "website_of"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "methodology_policy_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveWebsite"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "such",
+      "surface_forms": [
+        "such"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 195
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "submitt",
+      "surface_forms": [
+        "submitted"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 270
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 1,
+      "covered_url_count": 1,
+      "missing_url_count": 0,
+      "url_coverage_rate": 1.0
+    },
+    "urls": [
+      {
+        "url": "https://www.solactive.com/documents/methodology-policy/",
+        "count": 3,
+        "status": "covered_exact",
+        "source_locations": [
+          {
+            "source": "source.md",
+            "line": 3,
+            "column": 387
+          },
+          {
+            "source": "source.md",
+            "line": 3,
+            "column": 491
+          },
+          {
+            "source": "source.md",
+            "line": 3,
+            "column": 548
+          }
+        ],
+        "provenance": [
+          {
+            "source": "ir_surface",
+            "role": "exact_url_literal_or_comment",
+            "matched_text": "https://www.solactive.com/documents/methodology-policy/"
+          }
+        ]
+      }
+    ],
+    "missing_urls": []
+  }
+}

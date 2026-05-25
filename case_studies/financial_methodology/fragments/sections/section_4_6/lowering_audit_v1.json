@@ -1,0 +1,116 @@
+{
+  "entry_id": "section_4_6",
+  "skipped": false,
+  "n_decls": 66,
+  "n_smells": 8,
+  "by_candidate_family": {
+    "DeonticDecl.obligation": 5,
+    "DeonticDecl.prohibition": 1,
+    "TemporalDecl.temporal_marker": 1,
+    "ExpressionGrammar.epistemic_possibility": 1
+  },
+  "by_matched": {
+    "endeavor": 5,
+    "cannot": 1,
+    "within": 1,
+    "may_occur": 1
+  },
+  "smells": [
+    {
+      "entry_id": "section_4_6",
+      "decl_kind": "sort",
+      "symbol": "Endeavor",
+      "line_no": 13,
+      "matched_token_or_phrase": "endeavor",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "obligation",
+      "spec_ref": "#31",
+      "match_kind": "token",
+      "raw_decl": "sort Endeavor"
+    },
+    {
+      "entry_id": "section_4_6",
+      "decl_kind": "entity",
+      "symbol": "CannotBeCompletelyRuledOut",
+      "line_no": 31,
+      "matched_token_or_phrase": "cannot",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "prohibition",
+      "spec_ref": "#33",
+      "match_kind": "token",
+      "raw_decl": "entity CannotBeCompletelyRuledOut : VagueTerm"
+    },
+    {
+      "entry_id": "section_4_6",
+      "decl_kind": "rel",
+      "symbol": "endeavor_by",
+      "line_no": 56,
+      "matched_token_or_phrase": "endeavor",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "obligation",
+      "spec_ref": "#31",
+      "match_kind": "token",
+      "raw_decl": "rel endeavor_by : Endeavor, Organization"
+    },
+    {
+      "entry_id": "section_4_6",
+      "decl_kind": "rel",
+      "symbol": "endeavor_to_correct",
+      "line_no": 57,
+      "matched_token_or_phrase": "endeavor",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "obligation",
+      "spec_ref": "#31",
+      "match_kind": "token",
+      "raw_decl": "rel endeavor_to_correct : Endeavor, Error"
+    },
+    {
+      "entry_id": "section_4_6",
+      "decl_kind": "rel",
+      "symbol": "endeavor_within",
+      "line_no": 58,
+      "matched_token_or_phrase": "endeavor",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "obligation",
+      "spec_ref": "#31",
+      "match_kind": "token",
+      "raw_decl": "rel endeavor_within : Endeavor, Period"
+    },
+    {
+      "entry_id": "section_4_6",
+      "decl_kind": "rel",
+      "symbol": "endeavor_within",
+      "line_no": 58,
+      "matched_token_or_phrase": "within",
+      "candidate_family": "TemporalDecl",
+      "candidate_kind": "temporal_marker",
+      "spec_ref": "#29",
+      "match_kind": "token",
+      "raw_decl": "rel endeavor_within : Endeavor, Period"
+    },
+    {
+      "entry_id": "section_4_6",
+      "decl_kind": "fact",
+      "symbol": "determination_process_errors_may_occur_not_ruled_out",
+      "line_no": 87,
+      "matched_token_or_phrase": "may_occur",
+      "candidate_family": "ExpressionGrammar",
+      "candidate_kind": "epistemic_possibility",
+      "spec_ref": "expr#exists/eventually",
+      "match_kind": "phrase",
+      "raw_decl": "fact determination_process_errors_may_occur_not_ruled_out :"
+    },
+    {
+      "entry_id": "section_4_6",
+      "decl_kind": "constraint",
+      "symbol": "identified_errors_correction_endeavor",
+      "line_no": 112,
+      "matched_token_or_phrase": "endeavor",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "obligation",
+      "spec_ref": "#31",
+      "match_kind": "token",
+      "raw_decl": "constraint identified_errors_correction_endeavor :"
+    }
+  ]
+}

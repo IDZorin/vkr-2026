@@ -1,0 +1,8 @@
+{
+  "backend": "shacl",
+  "status": "ok",
+  "triple_count": 109,
+  "message": "pySHACL conforms=False",
+  "conforms": false,
+  "report_text": "Validation Report\nConforms: False\nResults (1):\nConstraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):\n\tSeverity: sh:Violation\n\tSource Shape: [ sh:class ex:IndexLevel ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path ex:initial_level_result ]\n\tFocus Node: ex:FACT_initial_level_50_ar_on_start_date_initial_level_0\n\tValue Node: Literal(\"739.08\", datatype=xsd:decimal)\n\tResult Path: ex:initial_level_result\n\tMessage: Value does not have class ex:IndexLevel\n"
+}

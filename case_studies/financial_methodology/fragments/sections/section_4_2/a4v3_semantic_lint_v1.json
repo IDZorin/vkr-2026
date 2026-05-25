@@ -1,0 +1,94 @@
+{
+  "entry_id": "section_4_2",
+  "skipped": false,
+  "schema": "a4v3_semantic_lint_v1",
+  "summary": {
+    "total_findings": 3,
+    "strong_findings": 0,
+    "soft_findings": 2,
+    "style_findings": 0,
+    "advisory_findings": 1,
+    "unused_declaration_count": 0,
+    "arity_gt_5_count": 0,
+    "arity_gt_2_without_role_explanation_count": 0,
+    "sentence_literal_in_formula_count": 0,
+    "permission_source_asserts_concrete_event_instance_count": 0,
+    "deontic_role_parameter_not_bound_count": 0,
+    "deontic_parameter_type_is_entity_count": 0,
+    "unused_rel_fun_count": 0,
+    "unused_sort_entity_count": 0,
+    "self_referential_scope_count": 0,
+    "past_participle_obligation_name_count": 0,
+    "double_coded_deontic_norm_count": 0,
+    "temporal_rel_in_deontic_context_count": 1,
+    "vacuous_responsibility_implication_count": 0,
+    "bare_universal_predicate_constraint_count": 0,
+    "fact_like_universal_constraint_count": 0,
+    "numeric_operation_on_non_numeric_sort_count": 0,
+    "basis_relation_without_value_link_count": 0,
+    "shared_name_token_without_structural_carrier_count": 2,
+    "semantic_contract_gap_count": 0,
+    "semantic_contract_gap_strong_count": 0,
+    "repair_candidate_present_count": 0,
+    "top_k_contract_gap_count": 0,
+    "by_contract_class": {
+      "modality_contract": 1,
+      "dependency_contract": 2
+    }
+  },
+  "by_check": {
+    "temporal_rel_in_deontic_context": 1,
+    "shared_name_token_without_structural_carrier": 2
+  },
+  "by_severity": {
+    "advisory": 1,
+    "soft": 2
+  },
+  "by_contract_class": {
+    "modality_contract": 1,
+    "dependency_contract": 2
+  },
+  "unused_by_decl_kind": {},
+  "findings": [
+    {
+      "check": "temporal_rel_in_deontic_context",
+      "severity": "advisory",
+      "decl_kind": "rel",
+      "symbol": "after",
+      "line_no": 33,
+      "matched_tokens": [
+        "after"
+      ],
+      "reason": "Temporal relation is used in assertion bodies while the file has deontic declarations; inspect whether temporal/deontic structure should be first-class instead.",
+      "contract_class": "modality_contract"
+    },
+    {
+      "check": "shared_name_token_without_structural_carrier",
+      "severity": "soft",
+      "claim_kind": "constraint",
+      "claim": "termination_and_announcement_at_zero_or_below",
+      "line_no": 47,
+      "shared_token": "announc",
+      "calls": [
+        "announced_on",
+        "announces_termination"
+      ],
+      "reason": "A non-generic semantic token is repeated across multiple predicate/function names in one claim, but the token has no structural carrier such as a sort, entity, signature argument, or formula-body argument. The relation may live only in names.",
+      "contract_class": "dependency_contract"
+    },
+    {
+      "check": "shared_name_token_without_structural_carrier",
+      "severity": "soft",
+      "claim_kind": "constraint",
+      "claim": "termination_and_announcement_at_zero_or_below",
+      "line_no": 47,
+      "shared_token": "calculat",
+      "calls": [
+        "calculated_index",
+        "calculated_level"
+      ],
+      "reason": "A non-generic semantic token is repeated across multiple predicate/function names in one claim, but the token has no structural carrier such as a sort, entity, signature argument, or formula-body argument. The relation may live only in names.",
+      "contract_class": "dependency_contract"
+    }
+  ]
+}

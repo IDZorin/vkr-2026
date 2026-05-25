@@ -1,0 +1,59 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_1 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:Security a rdfs:Class .
+ex:SecurityShape a sh:NodeShape ; sh:targetClass ex:Security .
+ex:AssetClass a rdfs:Class .
+ex:AssetClassShape a sh:NodeShape ; sh:targetClass ex:AssetClass .
+ex:Equity a ex:AssetClass .
+ex:IndexStrategy a rdfs:Class .
+ex:IndexStrategyShape a sh:NodeShape ; sh:targetClass ex:IndexStrategy .
+ex:BusinessField a rdfs:Class .
+ex:BusinessFieldShape a sh:NodeShape ; sh:targetClass ex:BusinessField .
+ex:CleanEnergy a ex:BusinessField .
+ex:RegionalAllocation a rdfs:Class .
+ex:RegionalAllocationShape a sh:NodeShape ; sh:targetClass ex:RegionalAllocation .
+ex:DevelopedMarketsEurope a ex:RegionalAllocation .
+ex:UnitedStates a ex:RegionalAllocation .
+ex:Canada a ex:RegionalAllocation .
+ex:RebalancingFeeStatus a rdfs:Class .
+ex:RebalancingFeeStatusShape a sh:NodeShape ; sh:targetClass ex:RebalancingFeeStatus .
+ex:NoRebalancingFee a ex:RebalancingFeeStatus .
+ex:RebalancingFrequency a rdfs:Class .
+ex:RebalancingFrequencyShape a sh:NodeShape ; sh:targetClass ex:RebalancingFrequency .
+ex:SemiAnnual a ex:RebalancingFrequency .
+
+ex:TheIndex a ex:Index .
+ex:CleanEnergyBusinessOperationsStrategy a ex:IndexStrategy .
+ex:asset_class a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:asset_class ; sh:class ex:AssetClass ; sh:maxCount 1 ] .
+ex:rebalancing_fee_status a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:rebalancing_fee_status ; sh:class ex:RebalancingFeeStatus ; sh:maxCount 1 ] .
+ex:rebalancing_frequency a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:rebalancing_frequency ; sh:class ex:RebalancingFrequency ; sh:maxCount 1 ] .
+ex:index_strategy a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_strategy ; sh:class ex:IndexStrategy ] .
+ex:regional_allocation a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:regional_allocation ; sh:class ex:RegionalAllocation ] .
+ex:rebalancing_fee_charged a rdfs:Class ; rdfs:subClassOf ex:Index .
+ex:strategy_representation_of_security a rdf:Property .
+ex:IndexStrategyShape sh:property [ sh:path ex:strategy_representation_of_security ; sh:class ex:Security ] .
+ex:security_has_business_operations_in a rdf:Property .
+ex:SecurityShape sh:property [ sh:path ex:security_has_business_operations_in ; sh:class ex:BusinessField ] .
+
+ex:TheIndex ex:asset_class ex:Equity .
+ex:TheIndex ex:index_strategy ex:CleanEnergyBusinessOperationsStrategy .
+ex:TheIndex ex:regional_allocation ex:DevelopedMarketsEurope .
+ex:TheIndex ex:regional_allocation ex:UnitedStates .
+ex:TheIndex ex:regional_allocation ex:Canada .
+ex:TheIndex ex:rebalancing_fee_status ex:NoRebalancingFee .
+ex:TheIndex ex:rebalancing_frequency ex:SemiAnnual .

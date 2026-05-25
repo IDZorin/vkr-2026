@@ -1,0 +1,54 @@
+sort Index
+sort Security
+
+sort AssetClass =
+  Equity
+
+sort IndexStrategy
+
+sort BusinessField =
+  CleanEnergy
+
+sort RegionalAllocation =
+  DevelopedMarketsEurope
+| UnitedStates
+| Canada
+
+sort RebalancingFeeStatus =
+  NoRebalancingFee
+
+sort RebalancingFrequency =
+  SemiAnnual
+
+entity TheIndex : Index
+entity CleanEnergyBusinessOperationsStrategy : IndexStrategy
+
+fun[optional] asset_class : Index -> AssetClass
+fun[optional] rebalancing_fee_status : Index -> RebalancingFeeStatus
+fun[optional] rebalancing_frequency : Index -> RebalancingFrequency
+
+rel index_strategy : Index, IndexStrategy
+rel regional_allocation : Index, RegionalAllocation
+rel rebalancing_fee_charged : Index
+
+rel strategy_representation_of_security : IndexStrategy, Security
+rel security_has_business_operations_in : Security, BusinessField
+
+fact index_scope_table_attributes :
+  asset_class(TheIndex) = Equity
+  and index_strategy(TheIndex, CleanEnergyBusinessOperationsStrategy)
+  and regional_allocation(TheIndex, DevelopedMarketsEurope)
+  and regional_allocation(TheIndex, UnitedStates)
+  and regional_allocation(TheIndex, Canada)
+  and rebalancing_fee_status(TheIndex) = NoRebalancingFee
+  and rebalancing_frequency(TheIndex) = SemiAnnual
+
+constraint clean_energy_strategy_represents_clean_energy_securities :
+  forall s: Security,
+    strategy_representation_of_security(CleanEnergyBusinessOperationsStrategy, s)
+    implies security_has_business_operations_in(s, CleanEnergy)
+
+constraint no_rebalancing_fee_means_rebalancing_fee_not_charged :
+  forall i: Index,
+    rebalancing_fee_status(i) = NoRebalancingFee
+    implies not rebalancing_fee_charged(i)

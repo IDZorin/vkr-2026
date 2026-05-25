@@ -1,0 +1,3854 @@
+{
+  "entry_id": "N17",
+  "by_module": {
+    "a4v3_semantic_lint": {
+      "ok": 12,
+      "warning": 0,
+      "fail": 0,
+      "inspect": 0,
+      "error_no_value": 0,
+      "error_no_threshold": 0,
+      "rules": 12
+    },
+    "merge_canonicalization": {
+      "ok": 8,
+      "warning": 11,
+      "fail": 0,
+      "inspect": 52,
+      "error_no_value": 0,
+      "error_no_threshold": 0,
+      "rules": 71
+    },
+    "ontology_planning": {
+      "ok": 11,
+      "warning": 17,
+      "fail": 0,
+      "inspect": 32,
+      "error_no_value": 0,
+      "error_no_threshold": 0,
+      "rules": 60
+    }
+  },
+  "findings": [
+    {
+      "module": "merge_canonicalization",
+      "rule": "callable_symbol_count",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 1,
+      "value_source": "parameterization.callable_symbol_count",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "<same JSON key as metric name when present>",
+          "raw": 1,
+          "summary": "1"
+        },
+        {
+          "path": "<related section in metrics JSON>",
+          "raw": 1,
+          "summary": "1"
+        }
+      ],
+      "evidence_summary": "1; 1",
+      "what_it_counts": "number of declared callable local symbols.",
+      "how_to_compute": "count local `fun` and `rel` declarations.",
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "merge_canonicalization",
+      "rule": "callable_symbol_with_args_count",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 1,
+      "value_source": "parameterization.callable_symbol_with_args_count",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "<same JSON key as metric name when present>",
+          "raw": 1,
+          "summary": "1"
+        },
+        {
+          "path": "<related section in metrics JSON>",
+          "raw": 1,
+          "summary": "1"
+        }
+      ],
+      "evidence_summary": "1; 1",
+      "what_it_counts": "number of callable local symbols that actually take arguments.",
+      "how_to_compute": "count local `fun` and `rel` declarations whose arity is greater than zero.",
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "merge_canonicalization",
+      "rule": "draft_variant_count",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 1,
+      "value_source": "variants.draft_variant_count",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [],
+      "evidence_summary": "",
+      "what_it_counts": "number of concrete IR variants drafted.",
+      "how_to_compute": "`len(drafter_variants)`.",
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "merge_canonicalization",
+      "rule": "factorization_count",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 1,
+      "value_source": "parameterization.factorization_count",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "<same JSON key as metric name when present>",
+          "raw": 1,
+          "summary": "1"
+        },
+        {
+          "path": "<related section in metrics JSON>",
+          "raw": 1,
+          "summary": "1"
+        }
+      ],
+      "evidence_summary": "1; 1",
+      "what_it_counts": "how many separate callable factors carry argument structure.",
+      "how_to_compute": "count local callable symbols whose arity is greater than zero.",
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "merge_canonicalization",
+      "rule": "focus_signature_unique_count",
+      "kind": "`comparative`",
+      "level": "warning",
+      "scope": "span",
+      "value": 1,
+      "value_source": "variability.focus_signature_unique_count",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [],
+      "evidence_summary": "",
+      "what_it_counts": "how many different focus-symbol signatures appear across variants or reruns.",
+      "how_to_compute": "extract the declared signature of the focus term, for example `rel(IndexComponent,Day)` vs `rel(Day,Exchange)`, and count unique values.",
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "merge_canonicalization",
+      "rule": "top_level_parameter_slot_count",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 2,
+      "value_source": "parameterization.top_level_parameter_slot_count",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "<same JSON key as metric name when present>",
+          "raw": 2,
+          "summary": "2"
+        },
+        {
+          "path": "<related section in metrics JSON>",
+          "raw": 2,
+          "summary": "2"
+        }
+      ],
+      "evidence_summary": "2; 2",
+      "what_it_counts": "total argument slots declared at symbol level.",
+      "how_to_compute": "sum the arities of all local `fun` and `rel` declarations.",
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "merge_canonicalization",
+      "rule": "total_parameter_slot_mass",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 2,
+      "value_source": "parameterization.total_parameter_slot_mass",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "<same JSON key as metric name when present>",
+          "raw": 2,
+          "summary": "2"
+        },
+        {
+          "path": "<related section in metrics JSON>",
+          "raw": 2,
+          "summary": "2"
+        }
+      ],
+      "evidence_summary": "2; 2",
+      "what_it_counts": "total parameter burden of the artifact, independent of how it is factorized.",
+      "how_to_compute": "`top_level_parameter_slot_count + quantifier_parameter_slot_count`.",
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "merge_canonicalization",
+      "rule": "unique_ir_variant_count",
+      "kind": "`comparative`",
+      "level": "warning",
+      "scope": "span",
+      "value": 1,
+      "value_source": "variants.unique_ir_variant_count",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [],
+      "evidence_summary": "",
+      "what_it_counts": "number of materially distinct IR variants.",
+      "how_to_compute": "cluster variants by normalized carrier, focus symbol signature, and formula skeleton; count clusters.",
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "merge_canonicalization",
+      "rule": "unique_variant_signature_count",
+      "kind": "`comparative`",
+      "level": "warning",
+      "scope": "span",
+      "value": 1,
+      "value_source": "variability.unique_variant_signature_count",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [],
+      "evidence_summary": "",
+      "what_it_counts": "how many materially distinct IR outputs appear inside one run.",
+      "how_to_compute": "normalize rendered IR strings and count distinct values, or cluster by structural signature.",
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "merge_canonicalization",
+      "rule": "usable_variant_count",
+      "kind": "`comparative`",
+      "level": "warning",
+      "scope": "span",
+      "value": 1,
+      "value_source": "variability.usable_variant_count",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [],
+      "evidence_summary": "",
+      "what_it_counts": "number of drafted variants that are actually usable for comparison.",
+      "how_to_compute": "count variants with `status = ok`, canonical AST, and non-empty rendered IR.",
+      "bad_value_means": "A merge/variant/gold comparison changed structure or semantics; report exact compared variants or merge rows.",
+      "repair_target": "Use overlay/bridge/conflict split or reject rewrite based on backtest.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "merge_canonicalization",
+      "rule": "cross_reference_dropout_count",
+      "kind": "`hard_warning`",
+      "level": "warning",
+      "scope": "span",
+      "value": 2,
+      "value_source": "<search recursive metrics JSON for key `cross_reference_dropout_count`>",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "evidence.source_cross_references",
+          "raw": [
+            "Section \"Introduction\""
+          ],
+          "summary": "Section \"Introduction\""
+        },
+        {
+          "path": "evidence.ir_cross_references",
+          "raw": [],
+          "summary": "(empty)"
+        }
+      ],
+      "evidence_summary": "Section \"Introduction\"; (empty)",
+      "what_it_counts": "cross-referenced concepts discussed upstream but omitted from final IR.",
+      "how_to_compute": "`expected cross-reference count - used cross-reference count`.",
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "ungrounded_sort_count",
+      "kind": "`hard_fail`",
+      "level": "warning",
+      "scope": "span",
+      "value": 2,
+      "value_source": "grounding.ungrounded_sort_count",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "grounding.new_formula_content_tokens_vs_text_only",
+          "raw": [
+            "definedterm",
+            "documentpart",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "term_shall_have_meaning_defined_in_section"
+          ],
+          "summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more)"
+        },
+        {
+          "path": "grounding.new_full_surface_content_tokens_vs_text_only",
+          "raw": [
+            "a4v3",
+            "canonical",
+            "computation",
+            "current",
+            "definedterm",
+            "deterministic",
+            "documentpart",
+            "draft",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "main_ir",
+            "manual",
+            "metric",
+            "parsed",
+            "primitive_usage",
+            "recomputation",
+            "reconstructed",
+            "rendering_notes",
+            "residual_risks",
+            "section-level",
+            "strengths",
+            "term_shall_have_meaning_defined_in_section",
+            "text",
+            "workspace"
+          ],
+          "summary": "a4v3; canonical; computation (+22 more)"
+        },
+        {
+          "path": "lexical_coverage.formula_repeat_overuse_examples",
+          "raw": [
+            {
+              "token": "definedterm",
+              "current_count": 3,
+              "baseline_count": 0,
+              "delta": 3
+            },
+            {
+              "token": "defined",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "meaning",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "documentpart",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "indexterm",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "introductionsection",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "term",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "have",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "section",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "shall",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            }
+          ],
+          "summary": "{'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more)"
+        },
+        {
+          "path": "grounding.origin_error_count",
+          "raw": 2,
+          "summary": "2"
+        }
+      ],
+      "evidence_summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more); a4v3; canonical; computation (+22 more); {'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more); 2",
+      "what_it_counts": "sort names that are neither Prelude, built-in, locally declared, nor text/advisory grounded.",
+      "how_to_compute": "count sort-origin validation failures.",
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "compound_identifier_count_content",
+      "kind": "`hard_warning`",
+      "level": "warning",
+      "scope": "span",
+      "value": 1,
+      "value_source": "identifier_glue.compound_identifier_count_content",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "identifier_glue.top_glued_identifiers",
+          "raw": [
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more)"
+        },
+        {
+          "path": "identifier_glue.lowest_source_grounded_identifiers",
+          "raw": [
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw (+2 more)"
+        },
+        {
+          "path": "identifier_glue.conditional_relation_name_packing_examples",
+          "raw": [],
+          "summary": "(empty)"
+        },
+        {
+          "path": "identifier_glue.entity_relation_target_fusion_examples",
+          "raw": [],
+          "summary": "(empty)"
+        }
+      ],
+      "evidence_summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more); {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw",
+      "what_it_counts": "identifiers with at least 3 non-stopword content pieces.",
+      "how_to_compute": "split each identifier, remove stopwords/syntax pieces, then count identifiers with at least 3 remaining pieces.",
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "compound_identifier_count_raw",
+      "kind": "`hard_warning`",
+      "level": "warning",
+      "scope": "span",
+      "value": 1,
+      "value_source": "identifier_glue.compound_identifier_count_raw",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "identifier_glue.top_glued_identifiers",
+          "raw": [
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more)"
+        },
+        {
+          "path": "identifier_glue.lowest_source_grounded_identifiers",
+          "raw": [
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw (+2 more)"
+        },
+        {
+          "path": "identifier_glue.conditional_relation_name_packing_examples",
+          "raw": [],
+          "summary": "(empty)"
+        },
+        {
+          "path": "identifier_glue.entity_relation_target_fusion_examples",
+          "raw": [],
+          "summary": "(empty)"
+        }
+      ],
+      "evidence_summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more); {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw",
+      "what_it_counts": "identifiers whose raw split length is already large.",
+      "how_to_compute": "split each identifier at camel/snake boundaries and count those with at least 4 raw pieces.",
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "identifier_count",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 5,
+      "value_source": "identifier_glue.identifier_count",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "identifier_glue.top_glued_identifiers",
+          "raw": [
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more)"
+        },
+        {
+          "path": "identifier_glue.lowest_source_grounded_identifiers",
+          "raw": [
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw (+2 more)"
+        },
+        {
+          "path": "identifier_glue.conditional_relation_name_packing_examples",
+          "raw": [],
+          "summary": "(empty)"
+        },
+        {
+          "path": "identifier_glue.entity_relation_target_fusion_examples",
+          "raw": [],
+          "summary": "(empty)"
+        }
+      ],
+      "evidence_summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more); {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw",
+      "what_it_counts": "number of unique IR identifiers inspected by the glue analysis.",
+      "how_to_compute": "collect unique declaration names, assertion names, and named references/callees from the AST.",
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "identifier_glue_excess_mass_content",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 4,
+      "value_source": "identifier_glue.identifier_glue_excess_mass_content",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "identifier_glue.top_glued_identifiers",
+          "raw": [
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more)"
+        },
+        {
+          "path": "identifier_glue.lowest_source_grounded_identifiers",
+          "raw": [
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw (+2 more)"
+        },
+        {
+          "path": "identifier_glue.conditional_relation_name_packing_examples",
+          "raw": [],
+          "summary": "(empty)"
+        },
+        {
+          "path": "identifier_glue.entity_relation_target_fusion_examples",
+          "raw": [],
+          "summary": "(empty)"
+        }
+      ],
+      "evidence_summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more); {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw",
+      "what_it_counts": "total content-level over-glue mass.",
+      "how_to_compute": "for each identifier, compute `max(0, content_piece_count - 2)` and sum over identifiers.",
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "identifier_glue_excess_mass_raw",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 4,
+      "value_source": "identifier_glue.identifier_glue_excess_mass_raw",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "identifier_glue.top_glued_identifiers",
+          "raw": [
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more)"
+        },
+        {
+          "path": "identifier_glue.lowest_source_grounded_identifiers",
+          "raw": [
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw (+2 more)"
+        },
+        {
+          "path": "identifier_glue.conditional_relation_name_packing_examples",
+          "raw": [],
+          "summary": "(empty)"
+        },
+        {
+          "path": "identifier_glue.entity_relation_target_fusion_examples",
+          "raw": [],
+          "summary": "(empty)"
+        }
+      ],
+      "evidence_summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more); {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw",
+      "what_it_counts": "total raw over-glue mass.",
+      "how_to_compute": "for each identifier, compute `max(0, raw_piece_count - 3)` and sum over identifiers.",
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "max_identifier_piece_count_content",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 6,
+      "value_source": "identifier_glue.max_identifier_piece_count_content",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "identifier_glue.top_glued_identifiers",
+          "raw": [
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more)"
+        },
+        {
+          "path": "identifier_glue.lowest_source_grounded_identifiers",
+          "raw": [
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw (+2 more)"
+        },
+        {
+          "path": "identifier_glue.conditional_relation_name_packing_examples",
+          "raw": [],
+          "summary": "(empty)"
+        },
+        {
+          "path": "identifier_glue.entity_relation_target_fusion_examples",
+          "raw": [],
+          "summary": "(empty)"
+        }
+      ],
+      "evidence_summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more); {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw",
+      "what_it_counts": "worst-case content-piece identifier length.",
+      "how_to_compute": "maximum non-stopword content-piece count across identifiers.",
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "max_identifier_piece_count_raw",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 7,
+      "value_source": "identifier_glue.max_identifier_piece_count_raw",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "identifier_glue.top_glued_identifiers",
+          "raw": [
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more)"
+        },
+        {
+          "path": "identifier_glue.lowest_source_grounded_identifiers",
+          "raw": [
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw (+2 more)"
+        },
+        {
+          "path": "identifier_glue.conditional_relation_name_packing_examples",
+          "raw": [],
+          "summary": "(empty)"
+        },
+        {
+          "path": "identifier_glue.entity_relation_target_fusion_examples",
+          "raw": [],
+          "summary": "(empty)"
+        }
+      ],
+      "evidence_summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more); {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw",
+      "what_it_counts": "worst-case raw identifier length.",
+      "how_to_compute": "maximum raw split-piece count across identifiers.",
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "mean_identifier_piece_count_content",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 2.8,
+      "value_source": "identifier_glue.mean_identifier_piece_count_content",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "identifier_glue.top_glued_identifiers",
+          "raw": [
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more)"
+        },
+        {
+          "path": "identifier_glue.lowest_source_grounded_identifiers",
+          "raw": [
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw (+2 more)"
+        },
+        {
+          "path": "identifier_glue.conditional_relation_name_packing_examples",
+          "raw": [],
+          "summary": "(empty)"
+        },
+        {
+          "path": "identifier_glue.entity_relation_target_fusion_examples",
+          "raw": [],
+          "summary": "(empty)"
+        }
+      ],
+      "evidence_summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more); {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw",
+      "what_it_counts": "average content-piece identifier length.",
+      "how_to_compute": "mean non-stopword content-piece count across identifiers.",
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "mean_identifier_piece_count_raw",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 3,
+      "value_source": "identifier_glue.mean_identifier_piece_count_raw",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "identifier_glue.top_glued_identifiers",
+          "raw": [
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more)"
+        },
+        {
+          "path": "identifier_glue.lowest_source_grounded_identifiers",
+          "raw": [
+            {
+              "identifier": "DocumentPart",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "document",
+                "part"
+              ],
+              "content_pieces": [
+                "document",
+                "part"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 0,
+              "advisory_grounded_content_piece_count": 0,
+              "source_grounded_content_piece_ratio": 0.0,
+              "advisory_grounded_content_piece_ratio": 0.0
+            },
+            {
+              "identifier": "DefinedTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "defined",
+                "term"
+              ],
+              "content_pieces": [
+                "defined",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "IndexTerm",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "index",
+                "term"
+              ],
+              "content_pieces": [
+                "index",
+                "term"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 1,
+              "advisory_grounded_content_piece_count": 1,
+              "source_grounded_content_piece_ratio": 0.5,
+              "advisory_grounded_content_piece_ratio": 0.5
+            },
+            {
+              "identifier": "term_shall_have_meaning_defined_in_section",
+              "raw_piece_count": 7,
+              "content_piece_count": 6,
+              "raw_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "in",
+                "section"
+              ],
+              "content_pieces": [
+                "term",
+                "shall",
+                "have",
+                "meaning",
+                "defined",
+                "section"
+              ],
+              "glue_excess_raw": 4,
+              "glue_excess_content": 4,
+              "source_grounded_content_piece_count": 5,
+              "advisory_grounded_content_piece_count": 5,
+              "source_grounded_content_piece_ratio": 0.8333333333333334,
+              "advisory_grounded_content_piece_ratio": 0.8333333333333334
+            },
+            {
+              "identifier": "IntroductionSection",
+              "raw_piece_count": 2,
+              "content_piece_count": 2,
+              "raw_pieces": [
+                "introduction",
+                "section"
+              ],
+              "content_pieces": [
+                "introduction",
+                "section"
+              ],
+              "glue_excess_raw": 0,
+              "glue_excess_content": 0,
+              "source_grounded_content_piece_count": 2,
+              "advisory_grounded_content_piece_count": 2,
+              "source_grounded_content_piece_ratio": 1.0,
+              "advisory_grounded_content_piece_ratio": 1.0
+            }
+          ],
+          "summary": "{'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw (+2 more)"
+        },
+        {
+          "path": "identifier_glue.conditional_relation_name_packing_examples",
+          "raw": [],
+          "summary": "(empty)"
+        },
+        {
+          "path": "identifier_glue.entity_relation_target_fusion_examples",
+          "raw": [],
+          "summary": "(empty)"
+        }
+      ],
+      "evidence_summary": "{'identifier': 'term_shall_have_meaning_defined_in_section', 'raw_piece_count': ; {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r (+2 more); {'identifier': 'DocumentPart', 'raw_piece_count': 2, 'content_piece_count': 2, '; {'identifier': 'DefinedTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'r; {'identifier': 'IndexTerm', 'raw_piece_count': 2, 'content_piece_count': 2, 'raw",
+      "what_it_counts": "average raw identifier length.",
+      "how_to_compute": "mean raw split-piece count across identifiers.",
+      "bad_value_means": "Semantics may be packed into names; report the exact identifier, pieces, grounding ratios, and source links.",
+      "repair_target": "Split long identifiers into anchored functions/relations/ontology links.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "new_formula_content_token_count_vs_text_only",
+      "kind": "`hard_warning`",
+      "level": "warning",
+      "scope": "span",
+      "value": 6,
+      "value_source": "grounding.new_formula_content_token_count_vs_text_only",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "grounding.new_formula_content_tokens_vs_text_only",
+          "raw": [
+            "definedterm",
+            "documentpart",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "term_shall_have_meaning_defined_in_section"
+          ],
+          "summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more)"
+        },
+        {
+          "path": "grounding.new_full_surface_content_tokens_vs_text_only",
+          "raw": [
+            "a4v3",
+            "canonical",
+            "computation",
+            "current",
+            "definedterm",
+            "deterministic",
+            "documentpart",
+            "draft",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "main_ir",
+            "manual",
+            "metric",
+            "parsed",
+            "primitive_usage",
+            "recomputation",
+            "reconstructed",
+            "rendering_notes",
+            "residual_risks",
+            "section-level",
+            "strengths",
+            "term_shall_have_meaning_defined_in_section",
+            "text",
+            "workspace"
+          ],
+          "summary": "a4v3; canonical; computation (+22 more)"
+        },
+        {
+          "path": "lexical_coverage.formula_repeat_overuse_examples",
+          "raw": [
+            {
+              "token": "definedterm",
+              "current_count": 3,
+              "baseline_count": 0,
+              "delta": 3
+            },
+            {
+              "token": "defined",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "meaning",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "documentpart",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "indexterm",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "introductionsection",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "term",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "have",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "section",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "shall",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            }
+          ],
+          "summary": "{'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more)"
+        },
+        {
+          "path": "grounding.origin_error_count",
+          "raw": 2,
+          "summary": "2"
+        }
+      ],
+      "evidence_summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more); a4v3; canonical; computation (+22 more); {'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more); 2",
+      "what_it_counts": "semantically meaningful new formula tokens relative to source plus normalized text only.",
+      "how_to_compute": "same as above, but remove stopwords and syntax-only tokens before counting.",
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "new_formula_token_count_vs_text_only",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 6,
+      "value_source": "grounding.new_formula_token_count_vs_text_only",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "grounding.new_formula_content_tokens_vs_text_only",
+          "raw": [
+            "definedterm",
+            "documentpart",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "term_shall_have_meaning_defined_in_section"
+          ],
+          "summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more)"
+        },
+        {
+          "path": "grounding.new_full_surface_content_tokens_vs_text_only",
+          "raw": [
+            "a4v3",
+            "canonical",
+            "computation",
+            "current",
+            "definedterm",
+            "deterministic",
+            "documentpart",
+            "draft",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "main_ir",
+            "manual",
+            "metric",
+            "parsed",
+            "primitive_usage",
+            "recomputation",
+            "reconstructed",
+            "rendering_notes",
+            "residual_risks",
+            "section-level",
+            "strengths",
+            "term_shall_have_meaning_defined_in_section",
+            "text",
+            "workspace"
+          ],
+          "summary": "a4v3; canonical; computation (+22 more)"
+        },
+        {
+          "path": "lexical_coverage.formula_repeat_overuse_examples",
+          "raw": [
+            {
+              "token": "definedterm",
+              "current_count": 3,
+              "baseline_count": 0,
+              "delta": 3
+            },
+            {
+              "token": "defined",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "meaning",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "documentpart",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "indexterm",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "introductionsection",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "term",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "have",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "section",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "shall",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            }
+          ],
+          "summary": "{'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more)"
+        },
+        {
+          "path": "grounding.origin_error_count",
+          "raw": 2,
+          "summary": "2"
+        }
+      ],
+      "evidence_summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more); a4v3; canonical; computation (+22 more); {'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more); 2",
+      "what_it_counts": "all new formula tokens relative to source plus normalized text only, without forgiving Prelude.",
+      "how_to_compute": "tokenize rendered formula surface; subtract token set from source excerpt, source term, normalized clauses, and A4V3 syntax; count the residue.",
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "new_full_surface_content_token_count_vs_text_only",
+      "kind": "`hard_warning`",
+      "level": "warning",
+      "scope": "span",
+      "value": 25,
+      "value_source": "grounding.new_full_surface_content_token_count_vs_text_only",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "grounding.new_formula_content_tokens_vs_text_only",
+          "raw": [
+            "definedterm",
+            "documentpart",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "term_shall_have_meaning_defined_in_section"
+          ],
+          "summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more)"
+        },
+        {
+          "path": "grounding.new_full_surface_content_tokens_vs_text_only",
+          "raw": [
+            "a4v3",
+            "canonical",
+            "computation",
+            "current",
+            "definedterm",
+            "deterministic",
+            "documentpart",
+            "draft",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "main_ir",
+            "manual",
+            "metric",
+            "parsed",
+            "primitive_usage",
+            "recomputation",
+            "reconstructed",
+            "rendering_notes",
+            "residual_risks",
+            "section-level",
+            "strengths",
+            "term_shall_have_meaning_defined_in_section",
+            "text",
+            "workspace"
+          ],
+          "summary": "a4v3; canonical; computation (+22 more)"
+        },
+        {
+          "path": "lexical_coverage.formula_repeat_overuse_examples",
+          "raw": [
+            {
+              "token": "definedterm",
+              "current_count": 3,
+              "baseline_count": 0,
+              "delta": 3
+            },
+            {
+              "token": "defined",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "meaning",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "documentpart",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "indexterm",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "introductionsection",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "term",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "have",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "section",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "shall",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            }
+          ],
+          "summary": "{'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more)"
+        },
+        {
+          "path": "grounding.origin_error_count",
+          "raw": 2,
+          "summary": "2"
+        }
+      ],
+      "evidence_summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more); a4v3; canonical; computation (+22 more); {'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more); 2",
+      "what_it_counts": "semantically meaningful new tokens in rendered IR plus prose fields relative to source plus normalized text only.",
+      "how_to_compute": "same as above, but remove stopwords and syntax-only tokens before counting.",
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "new_full_surface_token_count_vs_text_only",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 29,
+      "value_source": "grounding.new_full_surface_token_count_vs_text_only",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "grounding.new_formula_content_tokens_vs_text_only",
+          "raw": [
+            "definedterm",
+            "documentpart",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "term_shall_have_meaning_defined_in_section"
+          ],
+          "summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more)"
+        },
+        {
+          "path": "grounding.new_full_surface_content_tokens_vs_text_only",
+          "raw": [
+            "a4v3",
+            "canonical",
+            "computation",
+            "current",
+            "definedterm",
+            "deterministic",
+            "documentpart",
+            "draft",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "main_ir",
+            "manual",
+            "metric",
+            "parsed",
+            "primitive_usage",
+            "recomputation",
+            "reconstructed",
+            "rendering_notes",
+            "residual_risks",
+            "section-level",
+            "strengths",
+            "term_shall_have_meaning_defined_in_section",
+            "text",
+            "workspace"
+          ],
+          "summary": "a4v3; canonical; computation (+22 more)"
+        },
+        {
+          "path": "lexical_coverage.formula_repeat_overuse_examples",
+          "raw": [
+            {
+              "token": "definedterm",
+              "current_count": 3,
+              "baseline_count": 0,
+              "delta": 3
+            },
+            {
+              "token": "defined",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "meaning",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "documentpart",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "indexterm",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "introductionsection",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "term",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "have",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "section",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "shall",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            }
+          ],
+          "summary": "{'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more)"
+        },
+        {
+          "path": "grounding.origin_error_count",
+          "raw": 2,
+          "summary": "2"
+        }
+      ],
+      "evidence_summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more); a4v3; canonical; computation (+22 more); {'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more); 2",
+      "what_it_counts": "all new tokens in rendered IR plus prose fields relative to source plus normalized text only.",
+      "how_to_compute": "tokenize formula plus prose fields; subtract token set from source excerpt, source term, normalized clauses, and A4V3 syntax; count the residue.",
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "cross_reference_dropout_count",
+      "kind": "`hard_warning`",
+      "level": "warning",
+      "scope": "span",
+      "value": 2,
+      "value_source": "<search recursive metrics JSON for key `cross_reference_dropout_count`>",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "evidence.source_cross_references",
+          "raw": [
+            "Section \"Introduction\""
+          ],
+          "summary": "Section \"Introduction\""
+        },
+        {
+          "path": "evidence.ir_cross_references",
+          "raw": [],
+          "summary": "(empty)"
+        }
+      ],
+      "evidence_summary": "Section \"Introduction\"; (empty)",
+      "what_it_counts": "cross-referenced concepts discussed upstream but omitted from final IR.",
+      "how_to_compute": "`expected cross-reference count - used cross-reference count`.",
+      "bad_value_means": "Metric indicates a possible quality issue; report the value and all available neighboring evidence fields.",
+      "repair_target": "Inspect relevant artifacts and apply module-specific repair rules.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "new_surface_content_token_count",
+      "kind": "`hard_warning`",
+      "level": "warning",
+      "scope": "span",
+      "value": 12,
+      "value_source": "<search recursive metrics JSON for key `new_surface_content_token_count`>",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "grounding.new_formula_content_tokens_vs_text_only",
+          "raw": [
+            "definedterm",
+            "documentpart",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "term_shall_have_meaning_defined_in_section"
+          ],
+          "summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more)"
+        },
+        {
+          "path": "grounding.new_full_surface_content_tokens_vs_text_only",
+          "raw": [
+            "a4v3",
+            "canonical",
+            "computation",
+            "current",
+            "definedterm",
+            "deterministic",
+            "documentpart",
+            "draft",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "main_ir",
+            "manual",
+            "metric",
+            "parsed",
+            "primitive_usage",
+            "recomputation",
+            "reconstructed",
+            "rendering_notes",
+            "residual_risks",
+            "section-level",
+            "strengths",
+            "term_shall_have_meaning_defined_in_section",
+            "text",
+            "workspace"
+          ],
+          "summary": "a4v3; canonical; computation (+22 more)"
+        },
+        {
+          "path": "lexical_coverage.formula_repeat_overuse_examples",
+          "raw": [
+            {
+              "token": "definedterm",
+              "current_count": 3,
+              "baseline_count": 0,
+              "delta": 3
+            },
+            {
+              "token": "defined",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "meaning",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "documentpart",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "indexterm",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "introductionsection",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "term",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "have",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "section",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "shall",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            }
+          ],
+          "summary": "{'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more)"
+        },
+        {
+          "path": "grounding.origin_error_count",
+          "raw": 2,
+          "summary": "2"
+        }
+      ],
+      "evidence_summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more); a4v3; canonical; computation (+22 more); {'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more); 2",
+      "what_it_counts": "semantically meaningful new tokens, excluding syntax and stopwords.",
+      "how_to_compute": "same as `new_surface_token_count`, but after removing stopwords and A4V3 syntax tokens.",
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    },
+    {
+      "module": "ontology_planning",
+      "rule": "new_surface_token_count",
+      "kind": "`continuous`",
+      "level": "warning",
+      "scope": "span",
+      "value": 12,
+      "value_source": "<search recursive metrics JSON for key `new_surface_token_count`>",
+      "value_paths_tried": null,
+      "thresholds": null,
+      "thresholds_full": {
+        "ok": "= 0 unless explicitly expected",
+        "warning": "> 0",
+        "fail": "> 0 for hard-fail families or large unexplained counts"
+      },
+      "error_message": null,
+      "evidence_blocks": [
+        {
+          "path": "grounding.new_formula_content_tokens_vs_text_only",
+          "raw": [
+            "definedterm",
+            "documentpart",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "term_shall_have_meaning_defined_in_section"
+          ],
+          "summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more)"
+        },
+        {
+          "path": "grounding.new_full_surface_content_tokens_vs_text_only",
+          "raw": [
+            "a4v3",
+            "canonical",
+            "computation",
+            "current",
+            "definedterm",
+            "deterministic",
+            "documentpart",
+            "draft",
+            "index_meaning_defined_in_introduction",
+            "indexterm",
+            "introductionsection",
+            "main_ir",
+            "manual",
+            "metric",
+            "parsed",
+            "primitive_usage",
+            "recomputation",
+            "reconstructed",
+            "rendering_notes",
+            "residual_risks",
+            "section-level",
+            "strengths",
+            "term_shall_have_meaning_defined_in_section",
+            "text",
+            "workspace"
+          ],
+          "summary": "a4v3; canonical; computation (+22 more)"
+        },
+        {
+          "path": "lexical_coverage.formula_repeat_overuse_examples",
+          "raw": [
+            {
+              "token": "definedterm",
+              "current_count": 3,
+              "baseline_count": 0,
+              "delta": 3
+            },
+            {
+              "token": "defined",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "meaning",
+              "current_count": 3,
+              "baseline_count": 1,
+              "delta": 2
+            },
+            {
+              "token": "documentpart",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "indexterm",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "introductionsection",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "term",
+              "current_count": 2,
+              "baseline_count": 0,
+              "delta": 2
+            },
+            {
+              "token": "have",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "section",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            },
+            {
+              "token": "shall",
+              "current_count": 2,
+              "baseline_count": 1,
+              "delta": 1
+            }
+          ],
+          "summary": "{'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more)"
+        },
+        {
+          "path": "grounding.origin_error_count",
+          "raw": 2,
+          "summary": "2"
+        }
+      ],
+      "evidence_summary": "definedterm; documentpart; index_meaning_defined_in_introduction (+3 more); a4v3; canonical; computation (+22 more); {'token': 'definedterm', 'current_count': 3, 'baseline_count': 0, 'delta': 3}; {'token': 'defined', 'current_count': 3, 'baseline_count': 1, 'delta': 2}; {'token': 'meaning', 'current_count': 3, 'baseline_count': 1, 'delta': 2} (+7 more); 2",
+      "what_it_counts": "all lexical tokens appearing in rendered IR or structured prose fields that do not belong to the union of source text, normalized text, advisory text, Prelude, and whitelisted A4V3 syntax.",
+      "how_to_compute": "tokenize rendered IR plus prose fields; subtract token sets from source, advisory, Prelude, and A4V3 whitelist; count the residue.",
+      "bad_value_means": "Target contains unsupported or excessive content; report the exact new/ungrounded/overused token or symbol list.",
+      "repair_target": "Remove unsupported content, rename symbols, or add explicit prelude/ontology/user-hint provenance.",
+      "diagnostic_output_must_include": [
+        "actual value",
+        "severity",
+        "evidence values from evidence_paths when present",
+        "exact missing/extra/unlinked tokens or symbols when the JSON provides them",
+        "artifact paths used for comparison"
+      ]
+    }
+  ],
+  "n_findings": 28,
+  "n_fail": 0,
+  "n_warning": 28,
+  "n_error_no_value": 0,
+  "n_error_no_threshold": 0,
+  "gate": "needs_review",
+  "metric_module_statuses": {
+    "metrics_modal_temporal_preservation_v1.json": "ran",
+    "metrics_source_phrase_coverage_v1.json": "exists",
+    "metrics_token_provenance_v1.json": "exists",
+    "metrics_family_coverage_v1.json": "exists",
+    "lowering_audit_v1.json": "exists",
+    "a4v3_semantic_lint_v1.json": "exists",
+    "main_ir_metrics_v1.json": "exists"
+  }
+}

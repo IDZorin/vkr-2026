@@ -1,0 +1,127 @@
+{
+  "entry_id": "section_1_4",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main intraday and closing-level calculation structure, including the calculation window, exchange-based pricing, currency conversion, and WM fixing fallback. However, it also introduces several stronger or different claims, especially around the fallback price selection and the exact handling of the closing-level WM fixing, that are not stated in the source text.",
+      "semantic_differences": [
+        "The source says the intraday fallback uses the later of the most recent Closing Price or the last available Trading Price for the preceding Trading Day; the IR models this with an abstract `later_of` over `Price` values and does not explicitly encode that the second candidate is a Trading Price and the first is a Closing Price in the fallback equation.",
+        "The source specifies that the intraday fallback applies when there is no current Trading Price; the IR additionally imposes a temporal comparability/order relation between the two fallback candidates, which is not stated in the source.",
+        "The source says the closing-level conversion uses the 04:00 p.m. London time WM Fixing quoted by Reuters, and if unavailable uses the last available 04:00 p.m. London time WM Fixing; the IR splits this into availability and a separate `wm_fixing_for_closing_level` selection, which is compatible but more structured than the source and not explicitly stated.",
+        "The source does not state that the WM fixing used for closing-level conversion is itself equal to the available fixing or last available fixing via a separate intermediate function; the IR adds that intermediate equality as an explicit constraint.",
+        "The source says the level is calculated on each Calculation Day from 1:00 a.m. to 10:50 p.m. CET; the IR ties this window to `intraday_calculation_time` and `CalculationTime`, which is a modeling choice not explicitly present in the source wording."
+      ],
+      "stylistic_notes": [
+        "`TheIndex` is a reasonable local name for “the Index”.",
+        "`IntercontinentalExchange` and `ICE` are treated as aliases, which matches the source wording.",
+        "The IR uses canonicalized time entities such as `Time1_00AMCET` and `Time10_50PMCET` to represent the stated calculation window."
+      ],
+      "confidence": 0.86,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4478,
+        "completion_tokens": 471,
+        "total_tokens": 4949
+      },
+      "latency_s": 6.712820768356323
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures most of the source’s core mechanics: intraday calculation on each Calculation Day, use of exchange trading prices, fallback to later of recent closing price or last available prior-day trading price when no current trading price exists, closing level calculation, and currency conversion using ICE spot FX intraday and Reuters WM 4:00 p.m. London fixing for closing levels with fallback to the last available fixing. However, it weakens or omits some source claims, especially the explicit statement that the index level is calculated on each Calculation Day and that the closing level is calculated for each Calculation Day based on closing prices themselves rather than clearly using those prices as the actual calculation inputs.",
+      "semantic_differences": [
+        "The source states that the level of the Index is calculated on each Calculation Day, but the IR only constrains what happens for any declared intraday_calculation_time(d,t); it does not assert that every Calculation Day actually has such intraday calculation times or that intraday levels are calculated for each Calculation Day.",
+        "For both intraday and closing calculations, the IR links source prices on listed exchanges to price_used_for_level via intraday_calculation_price/closing_calculation_price, but it does not explicitly require that the exchange trading price or closing price is the same price actually used when no currency conversion is needed except in separate currency-equality cases; this makes the dependence weaker than the source’s direct 'based on' wording.",
+        "The source says the closing level for each Calculation Day is calculated in addition to the intraday calculation; the IR asserts closing levels are calculated on each Calculation Day but does not encode the 'in addition to' relation between intraday and closing calculations."
+      ],
+      "stylistic_notes": [
+        "Use of reified calculation times, modes, and provider/fixing relations is a reasonable formalization choice.",
+        "The alias fact ICE = IntercontinentalExchange is stylistic infrastructure, not a semantic issue.",
+        "Some auxiliary machinery such as price_selection_order and later_of is more formal than the source wording but serves to encode 'the later of'."
+      ],
+      "confidence": 0.82,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4478,
+        "completion_tokens": 474,
+        "total_tokens": 4952
+      },
+      "latency_s": 11.798659801483154
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core calculation logic (intraday vs. closing, price selection fallback, currency conversion) but introduces several structural elements not explicitly stated in the source: (1) a `CalculationTime` sort and associated time-range relations that reify the 1:00 a.m.–10:50 p.m. window as a first-class entity rather than a simple temporal constraint; (2) a `later_of` function with supporting `price_selection_order` relations that formalize the \"later of\" selection rule, but the source does not define what \"later\" means temporally (most recent vs. last available are both prices, not timestamps); (3) explicit `listed_currency` and currency-conversion predicates that go beyond the source's statement that \"Trading Prices not listed in the Index Currency are converted.\" These additions are reasonable formalizations but represent design choices not directly entailed by the source text.",
+      "semantic_differences": [
+        "CalculationTime as a first-class sort with time-range relations (calculation_time_from_to) reifies the intraday window as a structured entity; source states the window as a simple temporal interval (1:00 a.m.–10:50 p.m. CET) without introducing a separate time-entity sort.",
+        "price_selection_order relation and later_of function formalize the \"later of\" rule, but source does not define the temporal ordering criterion (e.g., whether \"later\" means most recent by timestamp, or by trading day). IR assumes a total order on prices via price_selection_order, which is not explicit in source.",
+        "listed_currency function and currency-conversion constraints (intraday_price_converted_when_not_listed_in_index_currency, closing_price_converted_with_available_wm_fixing) introduce a currency attribute on components that is not explicitly named in the source; source says \"Trading Prices of Index Components not listed in the Index Currency are converted\" but does not define a currency property of components.",
+        "intraday_source_price vs. intraday_calculation_price distinction: IR separates the raw price (source_price) from the converted/adjusted price (calculation_price), but source does not explicitly name this intermediate step; it only says prices are \"converted\" and then used in calculation.",
+        "wm_fixing_for_closing_level function introduces a level of indirection (selecting between available and last-available WM Fixing) that is implicit in the source's conditional logic but not named as a separate entity."
+      ],
+      "stylistic_notes": [
+        "IR uses `IntercontinentalExchange` as the canonical entity name and aliases it to `ICE`; source uses both names interchangeably. This is a reasonable naming choice.",
+        "IR introduces `TimeOfDay` and `TimeZone` sorts to represent 1:00 a.m., 10:50 p.m., 04:00 p.m., CET, and London time; source treats these as literals. The formalization is sound but adds structure.",
+        "IR uses `intraday_level_calculated_on` and `closing_level_calculated_on` relations to track which level is calculated on which day; source states this as a narrative fact (\"calculated on each Calculation Day\"). The reification is standard a4v3 practice.",
+        "IR names the fallback rule via `no_current_trading_price_fallback` constraint; source uses the phrase \"Should there be no current Trading Price...\". The naming is descriptive but not from source.",
+        "IR uses `converted_from_using` relation to link converted prices to their source and exchange rate; source uses the verb \"converted\" without naming the relation. This is a reasonable formalization."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 5583,
+        "completion_tokens": 907,
+        "total_tokens": 6490
+      },
+      "latency_s": 14.938779592514038
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 79.63118124008179
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures all operational rules from the source text, including the intraday calculation window, the fallback logic for missing trading prices (later of most recent closing price or preceding day's trading price), and the currency conversion mechanisms for both intraday and closing levels. The formalization correctly distinguishes between raw exchange prices and converted calculation prices, and accurately models the WM Fixing fallback and Reuters/ICE provider attributions using standard a4v3 infrastructure.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The 'later of' condition is formalized via a `price_selection_order` relation and a `later_of` function, which is a standard and precise way to handle temporal comparisons in a4v3.",
+        "The IR introduces distinct functions for raw source prices (`intraday_source_price`, `closing_price`) and post-conversion calculation prices (`intraday_calculation_price`, `closing_calculation_price`), which cleanly separates the source's implicit conversion step without altering semantics."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4776,
+        "completion_tokens": 2854,
+        "total_tokens": 7630
+      },
+      "latency_s": 55.91950440406799
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.845
+  }
+}

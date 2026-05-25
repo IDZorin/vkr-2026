@@ -1,0 +1,279 @@
+section: "5.2 Methodology Review"
+source_file: "source.md"
+schema_version: "v2"
+review_status: "draft_ir_to_text_user_review"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+# For each fact/constraint/obligation/permission/prohibition:
+#   kind             -- IR family
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | plumbing | derived_invariant | verification_probe
+#   source_quotes    -- verbatim source spans the element formalizes
+#   back_translation -- natural-language unfolding of the IR formula using source phrasing
+#   vocabulary_basis -- source_only | mixed | ir_internal_bridge | ir_plumbing
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+#   notes            -- optional clarification
+
+claims:
+
+  index_methodology_scope:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The methodology of the Index is subject to regular review, at least annually."
+    back_translation: >
+      The methodology of the Index is the methodology of the Index.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Local context fact connecting the source phrase "methodology of the
+      Index" to the section-local Index entity. Tautological surface form
+      reflects an entity-binding fact: the entity used throughout this
+      section for "the methodology of the Index" is asserted to stand in
+      the methodology-of relation with the Index.
+
+  methodology_subject_to_regular_review_at_least_annually:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The methodology of the Index is subject to regular review, at least annually."
+    back_translation: >
+      There is a review of the methodology of the Index that is regular and
+      is at least annually.
+    vocabulary_basis: source_only
+    status: covered
+
+  methodology_reviews_are_regular_at_least_annually:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The methodology of the Index is subject to regular review, at least annually."
+    back_translation: >
+      Every review of the methodology of the Index is regular and is at
+      least annually.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This is the chosen universal interpretation of the source phrase. It
+      keeps regularity separate from the later condition that a need for a
+      change is identified within such review.
+
+  identified_need_has_review_identified_change:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "In case a need of a change of the methodology has been identified within such review"
+      - "such change will be made in accordance with the Solactive Methodology Policy"
+    back_translation: >
+      If a need of a change of the methodology has been identified within a
+      review of the methodology of the Index, then that need is a need of a
+      change of the methodology of the Index, and there exists such a change
+      of the methodology of the Index that is the change for that need.
+    vocabulary_basis: source_only
+    status: covered
+
+  make_methodology_change_in_accordance_with_policy:
+    kind: obligation
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "such change will be made in accordance with the Solactive Methodology Policy"
+    back_translation: >
+      Such change of the methodology of the Index is obliged to be made in
+      accordance with the Solactive Methodology Policy.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The legal future "will be made" is represented as an obligation so a
+      violation remains possible instead of becoming a logical contradiction.
+
+  announce_methodology_change_on_solactive_website:
+    kind: obligation
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Such change in the methodology will be announced on the Solactive website under the Section"
+      - "Announcement"
+    back_translation: >
+      Such change in the methodology of the Index is obliged to be announced
+      on the Solactive website under the Section "Announcement".
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The legal future "will be announced" is represented as an obligation.
+
+  methodology_change_need_example_condition_catalog:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "e.g. if the underlying market or economic reality has changed since the launch of the Index"
+      - "i.e. if the present methodology is based on obsolete assumptions and factors and no longer reflects the reality as accurately, reliably and appropriately as before"
+    back_translation: >
+      Each of the following is an example condition for a need of a change
+      of the methodology: that the underlying market has changed since the
+      launch of the Index; that the economic reality has changed since the
+      launch of the Index; that the methodology of the Index is based on an
+      obsolete assumption; that the methodology of the Index is based on
+      an obsolete factor; and that the methodology of the Index no longer
+      reflects the reality as accurately, reliably and appropriately as
+      before.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source uses an example followed by an explanatory "i.e." clause.
+      The IR preserves the listed conditions as a catalog rather than turning
+      them into a hard rule that all conditions must hold simultaneously.
+      Flatness simplification: the source's nested e.g./i.e. structure is
+      collapsed into a single flat enumeration of five example conditions.
+      The "no longer reflects reality as before" polarity is exposed by the
+      separate bridge constraint
+      `no_longer_reflects_reality_condition_means_not_reflects_reality_as_before`.
+      The back-translation above describes the combined source-level reading;
+      internally, the catalog fact keeps the quality catalog neutral through
+      `example_condition_reflection_quality`, while the negative polarity is
+      carried by the bridge claim below.
+
+  no_longer_reflects_reality_condition_means_not_reflects_reality_as_before:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "no longer reflects the reality as accurately, reliably and appropriately as before"
+    back_translation: >
+      If the example condition is the condition that the methodology no
+      longer reflects reality with a listed quality, then the methodology
+      does not reflect reality as before with that quality.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Polarity bridge for contradiction detection. `NoLongerReflectsReality`
+      remains the source-facing example-condition enum value, while
+      `reflects_reality_as_before(methodology, quality)` is the positive
+      carrier. The bridge links the source condition to `not
+      reflects_reality_as_before(...)`, so a later merged claim that the
+      methodology still reflects reality as before can conflict explicitly.
+
+  methodology_change_need_example_condition_scope:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "In case a need of a change of the methodology has been identified within such review"
+      - "e.g. if the underlying market or economic reality has changed since the launch of the Index"
+      - "i.e. if the present methodology is based on obsolete assumptions and factors and no longer reflects the reality as accurately, reliably and appropriately as before"
+    back_translation: >
+      If a need of a change of the methodology has an example condition,
+      then that need is a need of a change of the methodology of the Index,
+      and the condition is one of the example conditions for a need of a
+      change of the methodology.
+    vocabulary_basis: source_only
+    status: covered
+
+  methodology_policy_location:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the Solactive Methodology Policy, which is incorporated by reference and available on the Solactive website"
+      - "https://www.solactive.com/documents/methodology-policy/"
+    back_translation: >
+      The Solactive Methodology Policy has the URL
+      https://www.solactive.com/documents/methodology-policy/, is available
+      on the Solactive website, the Solactive website is the website of
+      Solactive, and the Solactive Methodology Policy is incorporated by
+      reference into this Guideline.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source says the policy is incorporated by reference. The target is
+      modeled as this Guideline so the reference direction remains explicit.
+
+  announcement_section_location:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "under the Section"
+      - "Announcement"
+      - "https://www.solactive.com/news/announcements/"
+    back_translation: >
+      The Section "Announcement" is a section of the Solactive website and
+      has the URL https://www.solactive.com/news/announcements/.
+    vocabulary_basis: source_only
+    status: covered
+
+  last_amendment_date_contained_in_guideline:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The date of the last amendment of this Index is contained in this Guideline."
+    back_translation: >
+      The last amendment of the Index is an amendment of the Index, and the
+      date of the last amendment of the Index is contained in this Guideline.
+    vocabulary_basis: source_only
+    status: covered
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  ReflectionQuality:
+    note: >
+      Compact source-grounded category for the three adverbs in the phrase
+      "as accurately, reliably and appropriately as before". It is not a
+      global quality ontology.
+    source_phrases:
+      - "accurately"
+      - "reliably"
+      - "appropriately"
+  Accuracy:
+    note: >
+      Enum member for the source phrase "accurately" inside the no-longer-
+      reflects-reality example condition.
+    source_phrase: "accurately"
+  Reliability:
+    note: >
+      Enum member for the source phrase "reliably" inside the no-longer-
+      reflects-reality example condition.
+    source_phrase: "reliably"
+  Appropriateness:
+    note: >
+      Enum member for the source phrase "appropriately" inside the no-longer-
+      reflects-reality example condition.
+    source_phrase: "appropriately"
+  MethodologyChangeNeedExampleCondition:
+    note: >
+      Source-grounded catalog of the examples and explanatory conditions in
+      the parenthetical e.g./i.e. phrase. The catalog avoids over-strengthening
+      the example into a conjunction.
+  methodology_has_obsolete_basis:
+    note: >
+      Relation for the source phrase "the present methodology is based on
+      obsolete assumptions and factors". It links the methodology to the
+      obsolete assumption and obsolete factor example conditions.
+    source_phrase: "based"
+  reflects_reality_as_before:
+    note: >
+      Positive carrier relation for the phrase "reflects the reality ...
+      as before". The source's "no longer reflects..." wording is connected
+      to this positive carrier by an explicit `not` bridge.
+    source_phrase: "reflects the reality as before"
+  example_condition_reflection_quality:
+    note: >
+      Bridge relation linking the source condition "no longer reflects the
+      reality" to the three listed quality adverbs: accurately, reliably, and
+      appropriately. The negative polarity itself is not hidden in this name;
+      it is expressed by the explicit `not reflects_reality_as_before(...)`
+      constraint.
+    source_phrases:
+      - "accurately"
+      - "reliably"
+      - "appropriately"

@@ -1,0 +1,69 @@
+{
+  "entry_id": "N28",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1040,
+    "completion_tokens": 235,
+    "total_tokens": 1275
+  },
+  "latency_s": 2.0550708770751953,
+  "scenarios": [
+    {
+      "description": "The document states that the term \"Solactive\" has the meaning defined in Section \"Introduction\".",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document states that \"Solactive\" has its meaning defined in Section \"Definitions\" instead of Section \"Introduction\".",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document states that \"Solactive\" has the meaning defined in Section \"Introduction\", and also says that another term has its meaning defined there too.",
+      "category": "scope_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "ambiguous",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document says that \"Solactive\" will have the meaning defined in Section \"Introduction\" only after a later amendment is executed.",
+      "category": "modality_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "ambiguous",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 4,
+    "agreement_rate": 1.0,
+    "drifts": [],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 1
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

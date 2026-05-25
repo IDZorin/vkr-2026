@@ -1,0 +1,64 @@
+{
+  "entry_id": "section_5_5",
+  "skipped": false,
+  "n_decls": 31,
+  "n_smells": 4,
+  "by_candidate_family": {
+    "DeonticDecl.permission": 2,
+    "DeonticDecl.obligation": 2
+  },
+  "by_matched": {
+    "may": 2,
+    "responsible": 2
+  },
+  "smells": [
+    {
+      "entry_id": "section_5_5",
+      "decl_kind": "rel",
+      "symbol": "may_result_in",
+      "line_no": 32,
+      "matched_token_or_phrase": "may",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "permission",
+      "spec_ref": "#32",
+      "match_kind": "token",
+      "raw_decl": "rel may_result_in : IndexRuleAmendment, GuidelineAmendment"
+    },
+    {
+      "entry_id": "section_5_5",
+      "decl_kind": "rel",
+      "symbol": "responsible_for_decisions_regarding",
+      "line_no": 34,
+      "matched_token_or_phrase": "responsible",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "obligation",
+      "spec_ref": "#31",
+      "match_kind": "token",
+      "raw_decl": "rel responsible_for_decisions_regarding : Committee, IndexRuleAmendment"
+    },
+    {
+      "entry_id": "section_5_5",
+      "decl_kind": "constraint",
+      "symbol": "oversight_committee_responsible_for_index_rule_amendment_decisions",
+      "line_no": 70,
+      "matched_token_or_phrase": "responsible",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "obligation",
+      "spec_ref": "#31",
+      "match_kind": "token",
+      "raw_decl": "constraint oversight_committee_responsible_for_index_rule_amendment_decisions :"
+    },
+    {
+      "entry_id": "section_5_5",
+      "decl_kind": "constraint",
+      "symbol": "index_rule_amendments_may_result_in_guideline_amendment",
+      "line_no": 76,
+      "matched_token_or_phrase": "may",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "permission",
+      "spec_ref": "#32",
+      "match_kind": "token",
+      "raw_decl": "constraint index_rule_amendments_may_result_in_guideline_amendment :"
+    }
+  ]
+}

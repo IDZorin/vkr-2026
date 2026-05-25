@@ -1,0 +1,117 @@
+{
+  "entry_id": "N04",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR states that Business Day holds exactly for days whose weekday is Monday through Friday, which matches the source definition of Business Day as every weekday from Monday to Friday.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses a formal biconditional and explicit weekday enumeration, which is a standard precise rendering of the source phrase."
+      ],
+      "confidence": 0.99,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1849,
+        "completion_tokens": 100,
+        "total_tokens": 1949
+      },
+      "latency_s": 2.111891269683838
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR defines business_day exactly as those days whose weekday is Monday through Friday, which matches the source statement that a Business Day is every weekday from Monday to Friday.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The source uses the quoted term \"Business Day\" while the IR uses the predicate name business_day.",
+        "The IR spells out Monday through Friday extensionally rather than using a compact phrase like \"weekday from Monday to Friday.\""
+      ],
+      "confidence": 0.99,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1849,
+        "completion_tokens": 143,
+        "total_tokens": 1992
+      },
+      "latency_s": 3.824077844619751
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR correctly formalizes the source definition of 'Business Day' as a relation on Day objects that holds exactly when the day's weekday is one of Monday through Friday. The constraint uses a disjunction of five equality checks against the prelude Weekday entities, which precisely captures the source phrase 'every weekday from Monday to Friday.' The use of `WeekdayOf` as a function from Day to Weekday is a standard a4v3 encoding of the temporal property, and the biconditional ensures the definition is both necessary and sufficient.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces `WeekdayOf` as an implicit function from Day to Weekday; this is a canonical a4v3 lowering of the temporal attribute and is not explicitly named in the source, but is standard infrastructure for reasoning about weekdays.",
+        "The relation `business_day : Day` is a reification of the noun phrase 'Business Day' into a unary predicate, which is the standard a4v3 pattern for defining day categories."
+      ],
+      "confidence": 0.99,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2108,
+        "completion_tokens": 297,
+        "total_tokens": 2405
+      },
+      "latency_s": 4.429366111755371
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The source states that a Business Day is every weekday from Monday to Friday. The IR defines business_day(d) as true exactly when d's day of the week is Monday, Tuesday, Wednesday, Thursday, or Friday, which is an accurate formalization of the source's intention.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses a relational predicate and an iff constraint, which is a standard formalization of definitional equivalence.",
+        "WeekdayOf is a prelude function mapping Day to Weekday; its use here is appropriate and faithful to the source word 'weekday'."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1959,
+        "completion_tokens": 440,
+        "total_tokens": 2399
+      },
+      "latency_s": 16.266783237457275
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR accurately captures the definitional statement by universally quantifying over Days and using a biconditional to equate the 'business_day' predicate with the condition that the day's weekday is Monday through Friday. The logical structure and scope perfectly match the source text.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR explicitly enumerates each weekday with disjunctions rather than using a range or set-membership construct, which is a standard and semantically equivalent a4v3 lowering.",
+        "The projection function `WeekdayOf` is a conventional and clear way to map a `Day` instance to its `Weekday` sort."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1977,
+        "completion_tokens": 1222,
+        "total_tokens": 3199
+      },
+      "latency_s": 23.98314094543457
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "corresponds": 5
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 1.0,
+    "unanimous": true,
+    "mean_confidence": 0.994
+  }
+}

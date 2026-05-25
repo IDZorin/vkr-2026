@@ -1,0 +1,26 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N15 a a4:ShaclProjectionTarget .
+
+ex:GbsIndex a rdfs:Class .
+ex:GbsIndexShape a sh:NodeShape ; sh:targetClass ex:GbsIndex .
+ex:Security a rdfs:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:SecurityShape a sh:NodeShape ; sh:targetClass ex:Security .
+
+ex:GbsIndexSpecifiedInSection2_1 a ex:GbsIndex .
+ex:Section2_1 a ex:DocumentPart .
+ex:gbs_index_component a rdf:Property .
+ex:SecurityShape sh:property [ sh:path ex:gbs_index_component ; sh:class ex:GbsIndex ] .
+ex:security_reflected_in_gbs_index a rdf:Property .
+ex:SecurityShape sh:property [ sh:path ex:security_reflected_in_gbs_index ; sh:class ex:GbsIndex ] .
+ex:gbs_index_specified_in_section a rdf:Property .
+ex:GbsIndexShape sh:property [ sh:path ex:gbs_index_specified_in_section ; sh:class ex:DocumentPart ] .
+
+ex:GbsIndexSpecifiedInSection2_1 ex:gbs_index_specified_in_section ex:Section2_1 .

@@ -1,0 +1,40 @@
+{
+  "entry_id": "section_5_5",
+  "schema": "waiver_token_absorption_v1",
+  "generated_from": "metrics_token_provenance_v1.json",
+  "items": [
+    {
+      "token": "such",
+      "surface_forms": [
+        "such"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 195
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_anaphoric_reference",
+      "comment": "'Such' refers back to the already introduced amendments to the rules of the Index. The referent is represented as IndexRuleAmendment and amendment_of_rule(...); adding a standalone such predicate would duplicate an anaphoric surface marker.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "submitt",
+      "surface_forms": [
+        "submitted"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 270
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "covered_by_deontic_action_morphology",
+      "comment": "'Submitted' is represented by the DeonticDecl `submit_index_rule_amendment_for_prior_approval` with `action: submit`, `target: OversightCommittee`, and `scope: PriorApproval`. The waiver is only for the token-provenance stem mismatch between source `submitted` and IR action `submit`; the submission duty is not omitted.",
+      "reviewer": "human_approved"
+    }
+  ],
+  "stale_tokens_from_previous_file": []
+}

@@ -1,0 +1,34 @@
+schema: role_annotations_v1
+entry_id: N08
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  closing_price:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+    returns: {role: same_as_type}
+  daily_value_traded:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+    returns: {role: same_as_type}
+  respective_exchange:
+    kind: fun
+    args:
+      1: {role: component}
+    returns: {role: same_as_type}
+  volume_traded_on_exchange_during_trading_day:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: exchange}
+      3: {role: day}
+    returns: {role: same_as_type}
+constraints:
+  daily_value_traded_product_definition:
+    frame: daily_value_traded_product_definition
+    variables:
+      c: {role: component, quantifier: forall}
+      d: {role: day, quantifier: forall}

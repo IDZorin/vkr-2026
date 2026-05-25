@@ -1,0 +1,279 @@
+-- LOCAL IR for Section 1.4 Prices and calculation frequency.
+-- Source-local "the Index" is kept as TheIndex; cross-section alignment can
+-- map it to the canonical Section 1.2 index family.
+
+sort Index
+sort IndexComponent extends FinancialInstrument
+sort CalculationDay extends Day
+sort TradingDay extends Day
+sort Exchange
+sort CalculationTime
+sort CalculationMode
+sort TimeOfDay
+sort TimeZone
+
+sort IndexLevel extends Real
+sort Price extends MonetaryAmount
+sort TradingPrice extends Price
+sort ClosingPrice extends Price
+sort ForeignExchangeRate
+sort SpotForeignExchangeRate extends ForeignExchangeRate
+sort WMFixing extends ForeignExchangeRate
+
+entity TheIndex : Index
+entity Time1_00AMCET : TimeOfDay
+entity Time10_50PMCET : TimeOfDay
+entity Time04_00PMLondon : TimeOfDay
+entity IntradayCalculation : CalculationMode
+entity CET : TimeZone
+entity LondonTime : TimeZone
+entity IntercontinentalExchange : Organization
+entity ICE : Organization
+entity Reuters : Organization
+
+fun[required] index_currency : Index -> Currency
+fun[required] intraday_level : Index, CalculationDay, CalculationTime -> IndexLevel
+fun[required] closing_level : Index, CalculationDay -> IndexLevel
+
+fun[required] intraday_source_price : IndexComponent, CalculationDay, CalculationTime -> Price
+fun[required] intraday_calculation_price : IndexComponent, CalculationDay, CalculationTime -> Price
+fun[required] current_trading_price : IndexComponent, CalculationDay, CalculationTime -> TradingPrice
+fun[required] most_recent_closing_price : IndexComponent, CalculationDay, CalculationTime -> ClosingPrice
+fun[required] preceding_trading_day : CalculationDay -> TradingDay
+fun[required] last_available_trading_price : IndexComponent, TradingDay -> TradingPrice
+fun[required] later_of : Price, Price -> Price
+
+fun[required] closing_price : IndexComponent, CalculationDay -> ClosingPrice
+fun[required] closing_calculation_price : IndexComponent, CalculationDay -> Price
+
+fun[required] listed_currency : CalculationDay, IndexComponent -> Currency
+fun[required] current_ice_spot_foreign_exchange_rate :
+  Currency, Currency, CalculationDay, CalculationTime -> SpotForeignExchangeRate
+fun[required] wm_fixing_4pm_london :
+  Currency, Currency, CalculationDay -> WMFixing
+fun[required] last_available_wm_fixing_4pm_london :
+  Currency, Currency, CalculationDay -> WMFixing
+fun[required] wm_fixing_for_closing_level :
+  Currency, Currency, CalculationDay -> WMFixing
+
+rel index_component : CalculationDay, IndexComponent
+rel intraday_calculation_time : CalculationDay, CalculationTime
+rel calculation_mode : CalculationTime, CalculationMode
+rel calculation_time_from_to : CalculationTime, TimeOfDay, TimeOfDay, TimeZone
+rel listed_on_exchanges : CalculationDay, IndexComponent, Exchange
+rel price_on_exchange : Price, Exchange
+rel intraday_level_calculated_on : IndexLevel, CalculationDay, CalculationTime
+rel closing_level_calculated_on : IndexLevel, CalculationDay
+rel price_used_for_level : IndexLevel, IndexComponent, Price
+rel current_trading_price_available : IndexComponent, CalculationDay, CalculationTime
+rel price_selection_order : Price, Price
+rel converted_from_using : Price, Price, ForeignExchangeRate
+rel foreign_exchange_rate_provider : ForeignExchangeRate, Organization
+rel wm_fixing_4pm_london_available : Currency, Currency, CalculationDay
+rel wm_fixing_quoted_by : WMFixing, Organization
+rel fixing_time : WMFixing, TimeOfDay, TimeZone
+
+fact ice_alias :
+  ICE = IntercontinentalExchange
+
+fact intraday_calculation_window :
+  forall d: CalculationDay, forall t: CalculationTime,
+    intraday_calculation_time(d, t)
+    implies
+      calculation_mode(t, IntradayCalculation)
+      and calculation_time_from_to(t, Time1_00AMCET, Time10_50PMCET, CET)
+      and intraday_level_calculated_on(intraday_level(TheIndex, d, t), d, t)
+
+constraint intraday_level_uses_exchange_trading_prices :
+  forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent,
+    intraday_calculation_time(d, t)
+    and index_component(d, c)
+    implies
+      exists e: Exchange,
+        listed_on_exchanges(d, c, e)
+        and price_on_exchange(intraday_source_price(c, d, t), e)
+        and price_used_for_level(
+          intraday_level(TheIndex, d, t),
+          c,
+          intraday_calculation_price(c, d, t)
+        )
+
+constraint current_trading_price_used_when_available :
+  forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent,
+    intraday_calculation_time(d, t)
+    and index_component(d, c)
+    and current_trading_price_available(c, d, t)
+    implies
+      intraday_source_price(c, d, t) = current_trading_price(c, d, t)
+
+constraint no_current_trading_price_fallback :
+  forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent,
+    intraday_calculation_time(d, t)
+    and index_component(d, c)
+    and not current_trading_price_available(c, d, t)
+    implies
+      intraday_source_price(c, d, t) =
+        later_of(
+          most_recent_closing_price(c, d, t),
+          last_available_trading_price(c, preceding_trading_day(d))
+        )
+
+constraint fallback_price_candidates_are_temporally_comparable :
+  forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent,
+    intraday_calculation_time(d, t)
+    and index_component(d, c)
+    implies
+      price_selection_order(
+        most_recent_closing_price(c, d, t),
+        last_available_trading_price(c, preceding_trading_day(d))
+      )
+      or
+      price_selection_order(
+        last_available_trading_price(c, preceding_trading_day(d)),
+        most_recent_closing_price(c, d, t)
+      )
+
+constraint later_of_returns_a_candidate :
+  forall p1: Price, forall p2: Price,
+    later_of(p1, p2) = p1
+    or
+    later_of(p1, p2) = p2
+
+constraint later_of_selects_temporally_later_candidate :
+  forall p1: Price, forall p2: Price,
+    (price_selection_order(p1, p2) implies later_of(p1, p2) = p1)
+    and
+    (price_selection_order(p2, p1) implies later_of(p1, p2) = p2)
+
+constraint intraday_price_kept_when_listed_in_index_currency :
+  forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent,
+    intraday_calculation_time(d, t)
+    and index_component(d, c)
+    and listed_currency(d, c) = index_currency(TheIndex)
+    implies
+      intraday_calculation_price(c, d, t) = intraday_source_price(c, d, t)
+
+constraint intraday_price_converted_when_not_listed_in_index_currency :
+  forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent,
+    intraday_calculation_time(d, t)
+    and index_component(d, c)
+    and listed_currency(d, c) != index_currency(TheIndex)
+    implies
+      converted_from_using(
+        intraday_calculation_price(c, d, t),
+        intraday_source_price(c, d, t),
+        current_ice_spot_foreign_exchange_rate(
+          listed_currency(d, c),
+          index_currency(TheIndex),
+          d,
+          t
+        )
+      )
+
+fact current_ice_spot_foreign_exchange_rate_source :
+  forall src: Currency, forall tgt: Currency,
+  forall d: CalculationDay, forall t: CalculationTime,
+    foreign_exchange_rate_provider(
+      current_ice_spot_foreign_exchange_rate(src, tgt, d, t),
+      IntercontinentalExchange
+    )
+
+fact closing_level_calculated_each_calculation_day :
+  forall d: CalculationDay,
+    closing_level_calculated_on(closing_level(TheIndex, d), d)
+
+constraint closing_level_based_on_closing_prices :
+  forall d: CalculationDay, forall c: IndexComponent,
+    index_component(d, c)
+    implies
+      exists e: Exchange,
+        listed_on_exchanges(d, c, e)
+        and price_on_exchange(closing_price(c, d), e)
+        and price_used_for_level(
+          closing_level(TheIndex, d),
+          c,
+          closing_calculation_price(c, d)
+        )
+
+constraint closing_price_kept_when_listed_in_index_currency :
+  forall d: CalculationDay, forall c: IndexComponent,
+    index_component(d, c)
+    and listed_currency(d, c) = index_currency(TheIndex)
+    implies
+      closing_calculation_price(c, d) = closing_price(c, d)
+
+constraint closing_price_converted_with_available_wm_fixing :
+  forall d: CalculationDay, forall c: IndexComponent,
+    index_component(d, c)
+    and listed_currency(d, c) != index_currency(TheIndex)
+    and wm_fixing_4pm_london_available(
+      listed_currency(d, c),
+      index_currency(TheIndex),
+      d
+    )
+    implies
+      wm_fixing_for_closing_level(
+        listed_currency(d, c),
+        index_currency(TheIndex),
+        d
+      ) =
+        wm_fixing_4pm_london(
+          listed_currency(d, c),
+          index_currency(TheIndex),
+          d
+        )
+      and
+      converted_from_using(
+        closing_calculation_price(c, d),
+        closing_price(c, d),
+        wm_fixing_for_closing_level(
+          listed_currency(d, c),
+          index_currency(TheIndex),
+          d
+        )
+      )
+
+constraint closing_price_converted_with_last_available_wm_fixing :
+  forall d: CalculationDay, forall c: IndexComponent,
+    index_component(d, c)
+    and listed_currency(d, c) != index_currency(TheIndex)
+    and not wm_fixing_4pm_london_available(
+      listed_currency(d, c),
+      index_currency(TheIndex),
+      d
+    )
+    implies
+      wm_fixing_for_closing_level(
+        listed_currency(d, c),
+        index_currency(TheIndex),
+        d
+      ) =
+        last_available_wm_fixing_4pm_london(
+          listed_currency(d, c),
+          index_currency(TheIndex),
+          d
+        )
+      and
+      converted_from_using(
+        closing_calculation_price(c, d),
+        closing_price(c, d),
+        wm_fixing_for_closing_level(
+          listed_currency(d, c),
+          index_currency(TheIndex),
+          d
+        )
+      )
+
+fact wm_fixing_4pm_london_quoted_by_reuters :
+  forall src: Currency, forall tgt: Currency, forall d: CalculationDay,
+    wm_fixing_quoted_by(wm_fixing_4pm_london(src, tgt, d), Reuters)
+    and fixing_time(wm_fixing_4pm_london(src, tgt, d), Time04_00PMLondon, LondonTime)
+
+fact last_available_wm_fixing_4pm_london_quoted_by_reuters :
+  forall src: Currency, forall tgt: Currency, forall d: CalculationDay,
+    wm_fixing_quoted_by(last_available_wm_fixing_4pm_london(src, tgt, d), Reuters)
+    and fixing_time(
+      last_available_wm_fixing_4pm_london(src, tgt, d),
+      Time04_00PMLondon,
+      LondonTime
+    )

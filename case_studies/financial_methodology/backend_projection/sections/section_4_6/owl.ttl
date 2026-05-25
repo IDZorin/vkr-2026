@@ -1,0 +1,165 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_6 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:Effort a owl:Class .
+ex:DeterminationProcess a owl:Class .
+ex:Error a owl:Class .
+ex:Error rdfs:subClassOf ex:Event .
+ex:ErrorPossibility a owl:Class .
+ex:Description a owl:Class .
+ex:IndexEffortGoal a owl:Class ; owl:oneOf ( ex:AccurateCalculation ex:AccurateMaintenance ) .
+ex:AccurateCalculation a ex:IndexEffortGoal, owl:NamedIndividual .
+ex:AccurateMaintenance a ex:IndexEffortGoal, owl:NamedIndividual .
+ex:Reason a owl:Class ; owl:oneOf ( ex:Internal ex:External ) .
+ex:Internal a ex:Reason, owl:NamedIndividual .
+ex:External a ex:Reason, owl:NamedIndividual .
+ex:Endeavor a owl:Class .
+ex:Understanding a owl:Class .
+ex:GeneralMeasure a owl:Class .
+ex:UnderlyingDependency a owl:Class .
+ex:PolicySpecification a owl:Class .
+ex:Underlying a owl:Class .
+ex:CorrectionPolicy a owl:Class .
+ex:CorrectionPolicy rdfs:subClassOf ex:Document .
+
+ex:Solactive a ex:Organization, owl:NamedIndividual .
+ex:SolactiveGreatestPossibleEfforts a ex:Effort, owl:NamedIndividual .
+ex:SolactiveDeterminationProcess a ex:DeterminationProcess, owl:NamedIndividual .
+ex:DeterminationProcessErrorPossibility a ex:ErrorPossibility, owl:NamedIndividual .
+ex:DeterminationProcessErrorDescription a ex:Description, owl:NamedIndividual .
+ex:ReasonablePeriodOfTime a ex:VagueTerm, owl:NamedIndividual .
+ex:ReasonablePeriodOfTimeUnderstanding a ex:Understanding, owl:NamedIndividual .
+ex:GeneralMeasuresToBeTaken a ex:GeneralMeasure, owl:NamedIndividual .
+ex:FromTimeToTime a ex:VagueTerm, owl:NamedIndividual .
+ex:VarietyReasons a ex:VagueTerm, owl:NamedIndividual .
+ex:CannotBeCompletelyRuledOut a ex:VagueTerm, owl:NamedIndividual .
+ex:PeriodAndMeasureUnderlyingDependency a ex:UnderlyingDependency, owl:NamedIndividual .
+ex:CorrectionPolicySpecification a ex:PolicySpecification, owl:NamedIndividual .
+ex:ThisGuideline a ex:Document, owl:NamedIndividual .
+ex:SolactiveCorrectionPolicy a ex:CorrectionPolicy, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:index_of a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:Organization .
+ex:makes_effort a owl:ObjectProperty ;
+  rdfs:domain ex:Organization ;
+  rdfs:range ex:Effort .
+ex:greatest_possible a owl:Class ; rdfs:subClassOf ex:Effort .
+ex:effort_goal a owl:Class, a4:NaryRelationClass .
+ex:effort_goal_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:effort_goal ;
+  rdfs:range ex:Effort .
+ex:effort_goal_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:effort_goal ;
+  rdfs:range ex:Index .
+ex:effort_goal_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:effort_goal ;
+  rdfs:range ex:IndexEffortGoal .
+ex:error_possibility_in_determination_process a owl:ObjectProperty ;
+  rdfs:domain ex:ErrorPossibility ;
+  rdfs:range ex:DeterminationProcess .
+ex:description_of_error_possibility a owl:ObjectProperty ;
+  rdfs:domain ex:Description ;
+  rdfs:range ex:ErrorPossibility .
+ex:description_occurrence_term a owl:ObjectProperty ;
+  rdfs:domain ex:Description ;
+  rdfs:range ex:VagueTerm .
+ex:description_reason_term a owl:ObjectProperty ;
+  rdfs:domain ex:Description ;
+  rdfs:range ex:VagueTerm .
+ex:description_polarity_term a owl:ObjectProperty ;
+  rdfs:domain ex:Description ;
+  rdfs:range ex:VagueTerm .
+ex:error_possibility_reason a owl:ObjectProperty ;
+  rdfs:domain ex:ErrorPossibility ;
+  rdfs:range ex:Reason .
+ex:completely_ruled_out a owl:Class ; rdfs:subClassOf ex:ErrorPossibility .
+ex:error_in_determination_process a owl:ObjectProperty ;
+  rdfs:domain ex:Error ;
+  rdfs:range ex:DeterminationProcess .
+ex:identified a owl:Class ; rdfs:subClassOf ex:Error .
+ex:endeavor_by a owl:ObjectProperty ;
+  rdfs:domain ex:Endeavor ;
+  rdfs:range ex:Organization .
+ex:endeavor_to_correct a owl:ObjectProperty ;
+  rdfs:domain ex:Endeavor ;
+  rdfs:range ex:Error .
+ex:endeavor_within a owl:ObjectProperty ;
+  rdfs:domain ex:Endeavor ;
+  rdfs:range ex:Period .
+ex:reasonable_period_for_error a owl:ObjectProperty ;
+  rdfs:domain ex:Error ;
+  rdfs:range ex:Period .
+ex:period_described_by a owl:ObjectProperty ;
+  rdfs:domain ex:Period ;
+  rdfs:range ex:VagueTerm .
+ex:understanding_of a owl:ObjectProperty ;
+  rdfs:domain ex:Understanding ;
+  rdfs:range ex:VagueTerm .
+ex:general_measure_to_be_taken a owl:Class ; rdfs:subClassOf ex:GeneralMeasure .
+ex:dependency_understanding a owl:ObjectProperty ;
+  rdfs:domain ex:UnderlyingDependency ;
+  rdfs:range ex:Understanding .
+ex:dependency_general_measure a owl:ObjectProperty ;
+  rdfs:domain ex:UnderlyingDependency ;
+  rdfs:range ex:GeneralMeasure .
+ex:dependency_underlying a owl:ObjectProperty ;
+  rdfs:domain ex:UnderlyingDependency ;
+  rdfs:range ex:Underlying .
+ex:generally_applies a owl:Class ; rdfs:subClassOf ex:UnderlyingDependency .
+ex:specification_understanding a owl:ObjectProperty ;
+  rdfs:domain ex:PolicySpecification ;
+  rdfs:range ex:Understanding .
+ex:specification_general_measure a owl:ObjectProperty ;
+  rdfs:domain ex:PolicySpecification ;
+  rdfs:range ex:GeneralMeasure .
+ex:specification_policy a owl:ObjectProperty ;
+  rdfs:domain ex:PolicySpecification ;
+  rdfs:range ex:CorrectionPolicy .
+ex:incorporated_by_reference_into a owl:ObjectProperty ;
+  rdfs:domain ex:Document ;
+  rdfs:range ex:Document .
+ex:available_on a owl:ObjectProperty ;
+  rdfs:domain ex:Document ;
+  rdfs:range ex:WebResource .
+ex:website_of a owl:ObjectProperty ;
+  rdfs:domain ex:WebResource ;
+  rdfs:range ex:Organization .
+
+ex:Solactive ex:makes_effort ex:SolactiveGreatestPossibleEfforts .
+ex:SolactiveGreatestPossibleEfforts a ex:greatest_possible .
+ex:ASSERT_efforts_to_accurately_calculate_and_maintain_indices a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, (index_of(i, Solactive)) implies ((effort_goal(SolactiveGreatestPossibleEfforts, i, AccurateCalculation)) and (effort_goal(SolactiveGreatestPossibleEfforts, i, AccurateMaintenance)))" .
+ex:DeterminationProcessErrorPossibility ex:error_possibility_in_determination_process ex:SolactiveDeterminationProcess .
+ex:DeterminationProcessErrorDescription ex:description_of_error_possibility ex:DeterminationProcessErrorPossibility .
+ex:DeterminationProcessErrorDescription ex:description_occurrence_term ex:FromTimeToTime .
+ex:DeterminationProcessErrorDescription ex:description_reason_term ex:VarietyReasons .
+ex:DeterminationProcessErrorDescription ex:description_polarity_term ex:CannotBeCompletelyRuledOut .
+ex:DeterminationProcessErrorPossibility ex:error_possibility_reason ex:Internal .
+ex:DeterminationProcessErrorPossibility ex:error_possibility_reason ex:External .
+ex:ASSERT_determination_process_errors_may_occur_not_ruled_out a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(error_possibility_in_determination_process(DeterminationProcessErrorPossibility, SolactiveDeterminationProcess)) and (description_of_error_possibility(DeterminationProcessErrorDescription, DeterminationProcessErrorPossibility)) and (description_occurrence_term(DeterminationProcessErrorDescription, FromTimeToTime)) and (description_reason_term(DeterminationProcessErrorDescription, VarietyReasons)) and (description_polarity_term(DeterminationProcessErrorDescription, CannotBeCompletelyRuledOut)) and (error_possibility_reason(DeterminationProcessErrorPossibility, Internal)) and (error_possibility_reason(DeterminationProcessErrorPossibility, External)) and (not (completely_ruled_out(DeterminationProcessErrorPossibility)))" .
+ex:ASSERT_identified_errors_correction_endeavor a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall e: Error, ((error_in_determination_process(e, SolactiveDeterminationProcess)) and (identified(e))) implies (exists v: Endeavor, exists t: Period, (endeavor_by(v, Solactive)) and (endeavor_to_correct(v, e)) and (reasonable_period_for_error(e, t)) and (period_described_by(t, ReasonablePeriodOfTime)) and (endeavor_within(v, t)))" .
+ex:ASSERT_period_understanding_and_measures_depend_on_underlying a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "exists u: Underlying, (dependency_understanding(PeriodAndMeasureUnderlyingDependency, ReasonablePeriodOfTimeUnderstanding)) and (dependency_general_measure(PeriodAndMeasureUnderlyingDependency, GeneralMeasuresToBeTaken)) and (dependency_underlying(PeriodAndMeasureUnderlyingDependency, u)) and (generally_applies(PeriodAndMeasureUnderlyingDependency))" .
+ex:ReasonablePeriodOfTimeUnderstanding ex:understanding_of ex:ReasonablePeriodOfTime .
+ex:GeneralMeasuresToBeTaken a ex:general_measure_to_be_taken .
+ex:CorrectionPolicySpecification ex:specification_understanding ex:ReasonablePeriodOfTimeUnderstanding .
+ex:CorrectionPolicySpecification ex:specification_general_measure ex:GeneralMeasuresToBeTaken .
+ex:CorrectionPolicySpecification ex:specification_policy ex:SolactiveCorrectionPolicy .
+ex:SolactiveCorrectionPolicy ex:incorporated_by_reference_into ex:ThisGuideline .
+ex:SolactiveCorrectionPolicy ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .

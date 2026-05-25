@@ -1,0 +1,88 @@
+{
+  "entry_id": "section_4_2",
+  "schema": "waiver_token_absorption_v1",
+  "generated_from": "metrics_token_provenance_v1.json",
+  "items": [
+    {
+      "token": "negative",
+      "surface_forms": [
+        "negative"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 90
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "parenthetical_synonym",
+      "comment": "Human-approved waiver: parenthetical synonym in the source phrase \"zero or below zero (negative)\"; the negative polarity is already formalized by calculated_level(c) <= 0.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "respective",
+      "surface_forms": [
+        "respective"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 105
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "anaphoric_binding",
+      "comment": "Human-approved waiver: \"respective\" is absorbed by reusing the same index variable i in calculated_index(c, i) and terminates_index(t, i).",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "such",
+      "surface_forms": [
+        "such"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 166
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "anaphoric_binding",
+      "comment": "Human-approved waiver: \"such termination\" is absorbed by announces_termination(a, t), where t is the termination event introduced in the same consequent.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "available",
+      "surface_forms": [
+        "available"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 233
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "url_locator_surface",
+      "comment": "Human-approved waiver: \"available at\" is represented by document_part_url(NewsSection, HttpsWwwSolactiveComNewsAnnouncements) plus the website/section chain, not by a separate availability predicate.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "clarification",
+      "surface_forms": [
+        "clarification"
+      ],
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 5
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "discourse_marker",
+      "comment": "Human-approved waiver: \"For clarification\" is a discourse marker introducing the permission sentence; it does not add a separate domain predicate beyond the permission itself.",
+      "reviewer": "human_approved"
+    }
+  ],
+  "stale_tokens_from_previous_file": []
+}

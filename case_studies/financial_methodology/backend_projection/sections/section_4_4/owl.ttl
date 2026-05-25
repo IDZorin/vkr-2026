@@ -1,0 +1,162 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_4 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:SolactiveOrganization a owl:Class .
+ex:SolactiveOrganization rdfs:subClassOf ex:Organization .
+ex:IndexComponent a owl:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:CorporateAction a owl:Class .
+ex:CorporateAction rdfs:subClassOf ex:Event .
+ex:IndexAdjustment a owl:Class .
+ex:RequiredIndexAdjustment a owl:Class .
+ex:RequiredIndexAdjustment rdfs:subClassOf ex:IndexAdjustment .
+ex:IndexAdjustmentPossibility a owl:Class .
+ex:IndexAdjustmentEffect a owl:Class ; owl:oneOf ( ex:ComponentRelationEffect ex:ComponentNumberEffect ex:ComponentWeightingEffect ) .
+ex:ComponentRelationEffect a ex:IndexAdjustmentEffect, owl:NamedIndividual .
+ex:ComponentNumberEffect a ex:IndexAdjustmentEffect, owl:NamedIndividual .
+ex:ComponentWeightingEffect a ex:IndexAdjustmentEffect, owl:NamedIndividual .
+ex:RebalanceDay a owl:Class .
+ex:RebalanceDay rdfs:subClassOf ex:Day .
+ex:RegularRebalanceDay a owl:Class .
+ex:RegularRebalanceDay rdfs:subClassOf ex:RebalanceDay .
+ex:RebalanceInterval a owl:Class .
+ex:TradingDay a owl:Class .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:EffectiveDay a owl:Class .
+ex:EffectiveDay rdfs:subClassOf ex:Day .
+ex:Notice a owl:Class .
+ex:Notice rdfs:subClassOf ex:Document .
+ex:NoticePeriod a owl:Class .
+ex:EquityIndexMethodology a owl:Class .
+ex:EquityIndexMethodology rdfs:subClassOf ex:Document .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:Solactive a ex:SolactiveOrganization, owl:NamedIndividual .
+ex:SolactiveEquityIndexMethodology a ex:EquityIndexMethodology, owl:NamedIndividual .
+ex:ThisGuideline a ex:Document, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:AnnouncementsSection a ex:DocumentPart, owl:NamedIndividual .
+ex:Section4_4Below a ex:DocumentPart, owl:NamedIndividual .
+ex:CertainCircumstances a ex:VagueTerm, owl:NamedIndividual .
+ex:MayBeNecessary a ex:VagueTerm, owl:NamedIndividual .
+ex:MayHaveToBeDone a ex:VagueTerm, owl:NamedIndividual .
+ex:CertainIndexComponents a ex:VagueTerm, owl:NamedIndividual .
+ex:adjustment_possibility_of_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexAdjustmentPossibility ;
+  rdfs:range ex:Index .
+ex:adjustment_possibility_described_by a owl:ObjectProperty ;
+  rdfs:domain ex:IndexAdjustmentPossibility ;
+  rdfs:range ex:VagueTerm .
+ex:adjustment_possibility_between_interval a owl:ObjectProperty ;
+  rdfs:domain ex:IndexAdjustmentPossibility ;
+  rdfs:range ex:RebalanceInterval .
+ex:interval_start_rebalance_day a owl:ObjectProperty ;
+  rdfs:domain ex:RebalanceInterval ;
+  rdfs:range ex:RegularRebalanceDay .
+ex:interval_end_rebalance_day a owl:ObjectProperty ;
+  rdfs:domain ex:RebalanceInterval ;
+  rdfs:range ex:RegularRebalanceDay .
+ex:adjustment_of_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexAdjustment ;
+  rdfs:range ex:Index .
+ex:adjustment_required_due_to_corporate_action a owl:ObjectProperty ;
+  rdfs:domain ex:RequiredIndexAdjustment ;
+  rdfs:range ex:CorporateAction .
+ex:adjustment_between_interval a owl:ObjectProperty ;
+  rdfs:domain ex:IndexAdjustment ;
+  rdfs:range ex:RebalanceInterval .
+ex:affected_index_component a owl:ObjectProperty ;
+  rdfs:domain ex:IndexAdjustment ;
+  rdfs:range ex:IndexComponent .
+ex:specified_in a owl:ObjectProperty ;
+  rdfs:domain ex:CorporateAction ;
+  rdfs:range ex:DocumentPart .
+ex:corporate_action_in_relation_to_component a owl:ObjectProperty ;
+  rdfs:domain ex:CorporateAction ;
+  rdfs:range ex:IndexComponent .
+ex:possible_adjustment_effect a owl:ObjectProperty ;
+  rdfs:domain ex:IndexAdjustment ;
+  rdfs:range ex:IndexAdjustmentEffect .
+ex:adjustment_effect_described_by a owl:ObjectProperty ;
+  rdfs:domain ex:IndexAdjustmentEffect ;
+  rdfs:range ex:VagueTerm .
+ex:adjustment_effect_scope_described_by a owl:ObjectProperty ;
+  rdfs:domain ex:IndexAdjustment ;
+  rdfs:range ex:VagueTerm .
+ex:incorporated_by_reference_into a owl:ObjectProperty ;
+  rdfs:domain ex:Document ;
+  rdfs:range ex:Document .
+ex:available_on a owl:ObjectProperty ;
+  rdfs:domain ex:Document ;
+  rdfs:range ex:WebResource .
+ex:website_of a owl:ObjectProperty ;
+  rdfs:domain ex:WebResource ;
+  rdfs:range ex:Organization .
+ex:section_of_website a owl:ObjectProperty ;
+  rdfs:domain ex:DocumentPart ;
+  rdfs:range ex:WebResource .
+ex:notice_for_index_adjustment a owl:ObjectProperty ;
+  rdfs:domain ex:Notice ;
+  rdfs:range ex:RequiredIndexAdjustment .
+ex:announced_by a owl:ObjectProperty ;
+  rdfs:domain ex:Notice ;
+  rdfs:range ex:Organization .
+ex:announced_on a owl:ObjectProperty ;
+  rdfs:domain ex:Notice ;
+  rdfs:range ex:WebResource .
+ex:announced_under_section a owl:ObjectProperty ;
+  rdfs:domain ex:Notice ;
+  rdfs:range ex:DocumentPart .
+ex:notice_gives_notice_period a owl:ObjectProperty ;
+  rdfs:domain ex:Notice ;
+  rdfs:range ex:NoticePeriod .
+ex:notice_period_with_respect_to_component a owl:ObjectProperty ;
+  rdfs:domain ex:NoticePeriod ;
+  rdfs:range ex:IndexComponent .
+ex:notice_period_day a owl:ObjectProperty ;
+  rdfs:domain ex:NoticePeriod ;
+  rdfs:range ex:TradingDay .
+ex:trading_day_with_respect_to a owl:ObjectProperty ;
+  rdfs:domain ex:TradingDay ;
+  rdfs:range ex:IndexComponent .
+ex:effective_day_specified_in_respective_notice a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Notice ;
+  rdfs:range ex:EffectiveDay .
+ex:implemented_on a owl:ObjectProperty ;
+  rdfs:domain ex:IndexAdjustment ;
+  rdfs:range ex:Day .
+
+ex:SolactiveEquityIndexMethodology ex:incorporated_by_reference_into ex:ThisGuideline .
+ex:SolactiveEquityIndexMethodology ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:AnnouncementsSection ex:section_of_website ex:SolactiveWebsite .
+ex:ComponentWeightingEffect ex:adjustment_effect_described_by ex:CertainIndexComponents .
+ex:ASSERT_index_adjustment_may_be_necessary_between_regular_rebalance_days a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "exists p: IndexAdjustmentPossibility, exists interval: RebalanceInterval, (adjustment_possibility_of_index(p, TheIndex)) and (adjustment_possibility_described_by(p, CertainCircumstances)) and (adjustment_possibility_described_by(p, MayBeNecessary)) and (adjustment_possibility_between_interval(p, interval))" .
+ex:ASSERT_rebalance_interval_order a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall interval: RebalanceInterval, forall r1: RegularRebalanceDay, forall r2: RegularRebalanceDay, ((interval_start_rebalance_day(interval, r1)) and (interval_end_rebalance_day(interval, r2))) implies (day_before(r1, r2))" .
+ex:ASSERT_corporate_action_creates_required_index_adjustment a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall ca: CorporateAction, forall c: IndexComponent, forall d: Day, ((specified_in(ca, Section4_4Below)) and (corporate_action_in_relation_to_component(ca, c)) and (occurs_on(ca, d))) implies (exists a: RequiredIndexAdjustment, exists interval: RebalanceInterval, (adjustment_of_index(a, TheIndex)) and (adjustment_required_due_to_corporate_action(a, ca)) and (affected_index_component(a, c)) and (adjustment_between_interval(a, interval)))" .
+ex:ASSERT_required_adjustment_effect_scope a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall a: RequiredIndexAdjustment, (adjustment_effect_scope_described_by(a, MayHaveToBeDone)) and ((possible_adjustment_effect(a, ComponentRelationEffect)) or (possible_adjustment_effect(a, ComponentNumberEffect)) or (possible_adjustment_effect(a, ComponentWeightingEffect)))" .
+ex:ASSERT_index_adjustment_notice_publication a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall a: RequiredIndexAdjustment, forall n: Notice, (notice_for_index_adjustment(n, a)) implies ((announced_by(n, Solactive)) and (announced_on(n, SolactiveWebsite)) and (announced_under_section(n, AnnouncementsSection)))" .
+ex:ASSERT_notice_period_at_least_two_trading_days a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall a: RequiredIndexAdjustment, forall n: Notice, forall p: NoticePeriod, forall c: IndexComponent, ((notice_for_index_adjustment(n, a)) and (notice_gives_notice_period(n, p)) and (affected_index_component(a, c)) and (notice_period_with_respect_to_component(p, c))) implies ((<count>) >= (2))" .
+ex:ASSERT_index_adjustment_implemented_on_notice_effective_day a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall a: RequiredIndexAdjustment, forall n: Notice, (notice_for_index_adjustment(n, a)) implies (implemented_on(a, effective_day_specified_in_respective_notice(n)))" .

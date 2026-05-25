@@ -1,0 +1,2233 @@
+﻿-- seed methodology global bridge layer.
+-- This file records cross-section identity links and aliases. It is not a
+-- source-local translation of any one section.
+
+sort BridgeEntry
+sort BridgeSymbol
+sort BridgeIndex extends BridgeSymbol
+sort BridgeSort extends BridgeSymbol
+sort BridgeEntity extends BridgeSymbol
+sort BridgeRelation extends BridgeSymbol
+sort BridgeFamily
+sort BridgeFrame
+sort BridgeRole
+sort BridgeConfidence = High | Medium | Low
+sort BridgeLinkType =
+  CrossSectionIdentity
+| SourceAlias
+| TickerAlias
+| SortAlias
+| EntityAlias
+| RelationAlias
+| ScopedRelationAlias
+| RelatedConcept
+| UnresolvedDrift
+sort BridgeArgumentOrder =
+  SameArgumentOrder
+| ReversedArgumentOrder
+| ScopedExtraIndexArgument
+| ScopedExtraCalculationDayArgument
+| NotApplicableArgumentOrder
+
+sort BridgeProjectionKind =
+  FunctionProjection
+| RelationProjection
+| PredicateProjection
+
+entity Section1_2 : BridgeEntry
+entity Section2_1 : BridgeEntry
+entity Section4_1 : BridgeEntry
+entity Appendix8_1 : BridgeEntry
+entity DefinitionN02 : BridgeEntry
+entity DefinitionN03 : BridgeEntry
+entity DefinitionN16 : BridgeEntry
+entity DefinitionN17 : BridgeEntry
+entity DefinitionN18 : BridgeEntry
+entity DefinitionN20 : BridgeEntry
+entity DefinitionN22 : BridgeEntry
+entity DefinitionN24 : BridgeEntry
+entity DefinitionN25 : BridgeEntry
+entity DefinitionN28 : BridgeEntry
+entity DefinitionN29 : BridgeEntry
+entity DefinitionN32 : BridgeEntry
+entity Section1_4 : BridgeEntry
+entity Section3_1 : BridgeEntry
+entity Section4_4 : BridgeEntry
+entity Section4_5 : BridgeEntry
+entity Section4_7 : BridgeEntry
+entity DefinitionN07 : BridgeEntry
+entity DefinitionN08 : BridgeEntry
+entity DefinitionN09 : BridgeEntry
+entity DefinitionN10 : BridgeEntry
+entity DefinitionN12 : BridgeEntry
+entity DefinitionN13 : BridgeEntry
+entity DefinitionN14 : BridgeEntry
+entity DefinitionN23 : BridgeEntry
+entity DefinitionN26 : BridgeEntry
+entity DefinitionN27 : BridgeEntry
+entity DefinitionN30 : BridgeEntry
+entity DefinitionN31 : BridgeEntry
+entity Section1_1 : BridgeEntry
+entity Section1_3 : BridgeEntry
+entity Section1_5 : BridgeEntry
+entity Section2_2 : BridgeEntry
+entity Section2_3 : BridgeEntry
+entity Section3_2 : BridgeEntry
+entity Section4_2 : BridgeEntry
+entity Section4_3 : BridgeEntry
+entity Section4_6 : BridgeEntry
+entity Section5_1 : BridgeEntry
+entity Section5_2 : BridgeEntry
+entity Section5_3 : BridgeEntry
+entity Section5_4 : BridgeEntry
+entity Section5_5 : BridgeEntry
+entity DefinitionN01 : BridgeEntry
+entity DefinitionN04 : BridgeEntry
+entity DefinitionN05 : BridgeEntry
+entity DefinitionN06 : BridgeEntry
+entity DefinitionN11 : BridgeEntry
+entity DefinitionN15 : BridgeEntry
+entity DefinitionN19 : BridgeEntry
+entity DefinitionN21 : BridgeEntry
+
+entity Section4_1_PriceReturnIndexVersion : BridgeIndex
+entity Section4_1_NTRIndexVersion : BridgeIndex
+entity Section4_1_GTRIndexVersion : BridgeIndex
+entity Section4_1_AdjustedReturnVersion : BridgeIndex
+entity Section4_1_SOLTCA50 : BridgeIndex
+
+entity Section1_2_SolactiveTransatlanticCleanEnergyEURIndexPR : BridgeIndex
+entity Section1_2_SolactiveTransatlanticCleanEnergyEURIndexNTR : BridgeIndex
+entity Section1_2_SolactiveTransatlanticCleanEnergyEURIndexTR : BridgeIndex
+entity Section1_2_SolactiveTransatlanticCleanEnergyEURIndex5PercentAR : BridgeIndex
+entity Section1_2_SolactiveTransatlanticCleanEnergyEURIndex50AR : BridgeIndex
+
+entity Section2_1_RBICSSubindustryClassification : BridgeSort
+entity Appendix8_1_RbicsSubindustry : BridgeSort
+entity Section2_1_BusinessIndustryClassificationSystem : BridgeSort
+entity Appendix8_1_RbicsClassificationSystem : BridgeSort
+entity Section2_1_Appendix : BridgeSort
+entity Appendix8_1_Appendix : BridgeSort
+
+entity Section2_1_IndexGuidelineAppendix : BridgeEntity
+entity Appendix8_1_Appendix8 : BridgeEntity
+entity Section2_1_FactSetRevereBusinessIndustryClassificationSystem : BridgeEntity
+entity Appendix8_1_RBICS : BridgeEntity
+
+entity Section2_1_rbics_subindustry_classification_in_appendix : BridgeRelation
+entity Appendix8_1_appendix_includes_rbics_subindustry : BridgeRelation
+entity Section2_1_rbics_subindustry_classification_of_system : BridgeRelation
+entity Appendix8_1_rbics_classifies_subindustry : BridgeRelation
+
+entity N02_DefinedTerm : BridgeSort
+entity N03_DefinedTerm : BridgeSort
+entity N16_DefinedTerm : BridgeSort
+entity N17_DefinedTerm : BridgeSort
+entity N18_DefinedTerm : BridgeSort
+entity N20_DefinedTerm : BridgeSort
+entity N22_DefinedTerm : BridgeSort
+entity N24_DefinedTerm : BridgeSort
+entity N25_DefinedTerm : BridgeSort
+entity N28_DefinedTerm : BridgeSort
+entity N29_DefinedTerm : BridgeSort
+entity N32_DefinedTerm : BridgeSort
+
+entity N02_BenchmarkRegulationTerm : BridgeEntity
+entity N03_BMRTerm : BridgeEntity
+entity N16_GuidelineTerm : BridgeEntity
+entity N17_IndexTerm : BridgeEntity
+entity N18_IndexAdministratorTerm : BridgeEntity
+entity N20_IndexComponentRequirementsTerm : BridgeEntity
+entity N22_IndexUniverseRequirementsTerm : BridgeEntity
+entity N24_LiveDateTerm : BridgeEntity
+entity N25_OversightCommitteeTerm : BridgeEntity
+entity N28_SolactiveTerm : BridgeEntity
+entity N29_StartDateTerm : BridgeEntity
+entity N32_WMRefinitivRateTerm : BridgeEntity
+
+entity N02_IntroductionSection : BridgeEntity
+entity N03_IntroductionSection : BridgeEntity
+entity N16_IntroductionSection : BridgeEntity
+entity N17_IntroductionSection : BridgeEntity
+entity N18_IntroductionSection : BridgeEntity
+entity N28_IntroductionSection : BridgeEntity
+entity N20_Section2_2 : BridgeEntity
+entity N22_Section2_1 : BridgeEntity
+entity N24_Section1_3 : BridgeEntity
+entity N29_Section1_3 : BridgeEntity
+entity N25_Section5_5 : BridgeEntity
+entity N32_Section1_4 : BridgeEntity
+
+entity N02_term_shall_have_meaning_defined_in_section : BridgeRelation
+entity N03_term_shall_have_meaning_defined_in_section : BridgeRelation
+entity N16_term_shall_have_meaning_defined_in_section : BridgeRelation
+entity N17_term_shall_have_meaning_defined_in_section : BridgeRelation
+entity N18_term_shall_have_meaning_defined_in_section : BridgeRelation
+entity N20_term_shall_have_meaning_defined_in_section : BridgeRelation
+entity N22_term_shall_have_meaning_defined_in_section : BridgeRelation
+entity N24_term_shall_have_meaning_defined_in_section : BridgeRelation
+entity N25_term_shall_have_meaning_defined_in_section : BridgeRelation
+entity N28_term_shall_have_meaning_defined_in_section : BridgeRelation
+entity N29_term_shall_have_meaning_defined_in_section : BridgeRelation
+entity N32_term_shall_have_meaning_defined_in_section : BridgeRelation
+
+entity N07_ClosingPrice : BridgeSort
+entity N08_ClosingPrice : BridgeSort
+entity N13_ClosingPrice : BridgeSort
+entity Section1_4_ClosingPrice : BridgeSort
+entity N07_TradingPrice : BridgeSort
+entity N31_TradingPrice : BridgeSort
+entity Section1_4_TradingPrice : BridgeSort
+entity N07_TradingDay : BridgeSort
+entity N01_TradingDay : BridgeSort
+entity N08_TradingDay : BridgeSort
+entity N31_TradingDay : BridgeSort
+entity Section1_4_TradingDay : BridgeSort
+entity Section4_4_TradingDay : BridgeSort
+entity N30_TradingDayContext : BridgeSort
+entity N09_Exchange : BridgeSort
+entity N10_Exchange : BridgeSort
+entity N07_Exchange : BridgeSort
+entity N08_Exchange : BridgeSort
+entity N31_Exchange : BridgeSort
+entity Section1_4_Exchange : BridgeSort
+entity N30_Exchange : BridgeSort
+entity N09_EligibleRebalanceDay : BridgeSort
+entity N26_RebalanceDay : BridgeSort
+entity N27_RebalanceDay : BridgeSort
+entity N30_RebalanceDay : BridgeSort
+entity Section3_1_RebalanceDay : BridgeSort
+entity Section4_4_RebalanceDay : BridgeSort
+entity Section4_4_RegularRebalanceDay : BridgeSort
+entity Section4_5_RegularRebalanceDay : BridgeSort
+entity N27_BusinessDayCount : BridgeSort
+entity Section3_1_FixingDay : BridgeSort
+entity Section3_1_CloseOfBusiness : BridgeSort
+entity N12_SelectionDay : BridgeSort
+entity N13_SelectionDay : BridgeSort
+entity N27_SelectionDay : BridgeSort
+entity Section2_1_SelectionDay : BridgeSort
+entity Section3_1_SelectionDay : BridgeSort
+entity N12_ShareClass : BridgeSort
+entity N13_ShareClass : BridgeSort
+entity Section2_1_ShareClass : BridgeSort
+entity N12_FreeFloat : BridgeSort
+entity N13_FreeFloatMarketCapitalization : BridgeSort
+entity N14_GbsIndexUniverse : BridgeSort
+entity Section2_1_GbsIndexUniverse : BridgeSort
+entity N23_IndexUniverse : BridgeSort
+
+entity N09_NewYorkStockExchange : BridgeEntity
+entity N09_LondonStockExchange : BridgeEntity
+entity N09_EUREXExchange : BridgeEntity
+entity N09_TokyoStockExchange : BridgeEntity
+entity N27_TwentyBusinessDays : BridgeEntity
+entity N06_CloseOfBusiness : BridgeEntity
+
+entity N07_closing_price : BridgeRelation
+entity N08_closing_price : BridgeRelation
+entity Section1_4_closing_price : BridgeRelation
+entity N13_closing_price_of_share_class : BridgeRelation
+entity N07_respective_exchange : BridgeRelation
+entity N08_respective_exchange : BridgeRelation
+entity N31_respective_exchange : BridgeRelation
+entity N10_respective_exchange_for_index_component : BridgeRelation
+entity N12_share_class : BridgeRelation
+entity N13_share_class : BridgeRelation
+entity N12_sourced_from_data_vendor : BridgeRelation
+entity N13_sourced_from_data_vendor : BridgeRelation
+entity N09_eligible_rebalance_day : BridgeRelation
+entity N26_eligible_rebalance_day : BridgeRelation
+entity N04_business_day : BridgeRelation
+entity N27_business_day_count_before : BridgeRelation
+entity N11_fixing_day : BridgeRelation
+entity N11_selection_day : BridgeRelation
+entity N06_calculation_time_of_closing_level_of_index : BridgeRelation
+entity N27_selection_day_for_rebalance_day : BridgeRelation
+entity Section3_1_selection_day_of_rebalance : BridgeRelation
+entity Section3_1_fixing_day_of_rebalance : BridgeRelation
+entity Section3_1_close_of_business_on_day : BridgeRelation
+entity Section4_1_index_component_of : BridgeRelation
+entity Section4_7_index_component_of : BridgeRelation
+entity N31_trading_price : BridgeRelation
+entity Section1_4_current_trading_price : BridgeRelation
+entity N07_last_trading_price : BridgeRelation
+entity Section1_4_last_available_trading_price : BridgeRelation
+entity N07_closing_price_available : BridgeRelation
+entity Section1_4_current_trading_price_available : BridgeRelation
+entity N12_free_float : BridgeRelation
+entity N13_free_float_market_capitalization : BridgeRelation
+entity N13_shares_outstanding_in_free_float : BridgeRelation
+entity Section4_2_announcement_by : BridgeRelation
+entity Section4_4_announced_by : BridgeRelation
+entity Section4_2_announcement_under_section : BridgeRelation
+entity Section4_4_announced_under_section : BridgeRelation
+entity Section1_3_initial_level : BridgeRelation
+entity Section4_1_index_level : BridgeRelation
+entity Section4_2_calculated_level : BridgeRelation
+entity Section4_3_level_of_index : BridgeRelation
+entity N21_index_currency : BridgeRelation
+entity Section1_3_section_1_3_index : BridgeRelation
+entity Section4_1_section_4_1_index : BridgeRelation
+entity Section2_1_SolactiveGBSBenchmarkSeriesPdf : BridgeEntity
+entity N14_SolactiveGBSBenchmarkSeriesGuideline : BridgeEntity
+entity Section2_1_HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf : BridgeEntity
+entity N14_HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf : BridgeEntity
+entity Section2_2_FreeFloatMarketCapizatlization : BridgeSort
+entity Section2_3_FloatMarketCapizatlization : BridgeSort
+entity Section4_4_adjustment_of_index : BridgeRelation
+entity Section4_5_adjustment_to_index : BridgeRelation
+entity Section4_6_VarietyReasons : BridgeEntity
+entity Section4_7_VarietyOfReasons : BridgeEntity
+entity N15_security_reflected_in_gbs_index : BridgeRelation
+entity N19_security_reflected_in_index : BridgeRelation
+
+entity TheIndexLocalPlaceholderFamily : BridgeFamily
+entity SolactiveWebsiteFamily : BridgeFamily
+entity ThisGuidelineFamily : BridgeFamily
+entity EquityIndexMethodologyFamily : BridgeFamily
+entity SolactiveGreatestPossibleEffortsFamily : BridgeFamily
+entity TheIndexAdministratorFamily : BridgeFamily
+entity GbsIndexSpecifiedInSection2_1Family : BridgeFamily
+entity AnnouncementSectionFamily : BridgeFamily
+entity CoreSecuritySortFamily : BridgeFamily
+entity CoreIndexComponentSortFamily : BridgeFamily
+entity IndexLevelSortFamily : BridgeFamily
+entity SolactiveOrganizationSortFamily : BridgeFamily
+entity CorporateActionSortFamily : BridgeFamily
+entity IndexCalculationSortFamily : BridgeFamily
+entity NoticeSortFamily : BridgeFamily
+entity DailyValueTradedFamily : BridgeFamily
+entity AverageDailyValueTradedFamily : BridgeFamily
+entity DataVendorSortFamily : BridgeFamily
+entity ShareCountSortFamily : BridgeFamily
+entity IndexCurrencyFunctionFamily : BridgeFamily
+entity IndexTypeFunctionFamily : BridgeFamily
+entity IndexComponentRequirementsRelationFamily : BridgeFamily
+entity GbsIndexSpecifiedInSectionRelationFamily : BridgeFamily
+entity MethodologyOfIndexRelationFamily : BridgeFamily
+entity IndexOfRelationFamily : BridgeFamily
+entity GenericDocumentAvailabilityRelationFamily : BridgeFamily
+entity CanadaClassificationFamily : BridgeFamily
+entity UnitedStatesClassificationFamily : BridgeFamily
+entity EquityIndexMethodologyUrlFamily : BridgeFamily
+entity MethodologyPolicyUrlFamily : BridgeFamily
+entity NewsAnnouncementsUrlFamily : BridgeFamily
+entity RegionSortFamily : BridgeFamily
+entity RegionFunctionFamily : BridgeFamily
+entity AnnouncementOnRelationFamily : BridgeFamily
+entity FullyRuleBasedRelationFamily : BridgeFamily
+entity GreatestPossibleRelationFamily : BridgeFamily
+entity CalculationTimeSortFamily : BridgeFamily
+entity DiscretionaryDecisionSortFamily : BridgeFamily
+entity ErrorSortFamily : BridgeFamily
+entity IsinSortFamily : BridgeFamily
+entity IndexQualitySortFamily : BridgeFamily
+entity IndexRuleSortFamily : BridgeFamily
+entity PolicySortFamily : BridgeFamily
+entity CanonicalIndexSortFamily : BridgeFamily
+entity CanonicalIndexAdministratorSortFamily : BridgeFamily
+entity CanonicalSolactiveEntityFamily : BridgeFamily
+entity CanonicalPriceSortFamily : BridgeFamily
+entity CanonicalCalculationDaySortFamily : BridgeFamily
+entity CanonicalSelectionDaySortFamily : BridgeFamily
+entity CanonicalGbsIndexSortFamily : BridgeFamily
+entity CanonicalGuidelineEntityFamily : BridgeFamily
+entity CanonicalIndexTypeSortFamily : BridgeFamily
+entity CanonicalEffortSortFamily : BridgeFamily
+entity CanonicalIndexMethodologySortFamily : BridgeFamily
+entity CanonicalIndexComponentRelationFamily : BridgeFamily
+entity CanonicalIndexUniverseRelationFamily : BridgeFamily
+entity LegacyIncorporatedByReferenceRelationFamily : BridgeFamily
+entity SectionReferenceEntityFamily : BridgeFamily
+entity BusinessDayProcessFamily : BridgeFamily
+entity CloseOfBusinessProcessFamily : BridgeFamily
+entity FixingDayProcessFamily : BridgeFamily
+entity SectionLocalIndexScopeRelationReviewFamily : BridgeFamily
+entity GBSBenchmarkSeriesDocumentFamily : BridgeFamily
+entity GBSBenchmarkSeriesUrlFamily : BridgeFamily
+entity FloatMarketCapitalizationReviewFamily : BridgeFamily
+entity IndexAdjustmentRelationReviewFamily : BridgeFamily
+entity VarietyReasonsVagueTermFamily : BridgeFamily
+entity SecurityReflectedRelationReviewFamily : BridgeFamily
+
+entity Section1_1_Index : BridgeSort
+entity Section1_2_Index : BridgeSort
+entity Section1_3_Index : BridgeSort
+entity Section1_4_Index : BridgeSort
+entity Section1_5_Index : BridgeSort
+entity Section3_1_Index : BridgeSort
+entity Section3_2_Index : BridgeSort
+entity Section4_1_Index : BridgeSort
+entity Section4_2_Index : BridgeSort
+entity Section4_3_Index : BridgeSort
+entity Section4_4_Index : BridgeSort
+entity Section4_5_Index : BridgeSort
+entity Section4_6_Index : BridgeSort
+entity Section4_7_Index : BridgeSort
+entity Section5_1_Index : BridgeSort
+entity Section5_2_Index : BridgeSort
+entity Section5_3_Index : BridgeSort
+entity Section5_4_Index : BridgeSort
+entity Section5_5_Index : BridgeSort
+entity N06_Index : BridgeSort
+entity N10_Index : BridgeSort
+entity N19_Index : BridgeSort
+entity N21_Index : BridgeSort
+entity N30_Index : BridgeSort
+
+entity Section1_2_IndexAdministrator : BridgeSort
+entity Section2_1_IndexAdministrator : BridgeSort
+entity Section2_2_IndexAdministrator : BridgeSort
+entity Section5_3_IndexAdministrator : BridgeSort
+entity N30_IndexAdministrator : BridgeSort
+
+entity Section1_2_Solactive : BridgeEntity
+entity Section1_5_Solactive : BridgeEntity
+entity Section3_1_Solactive : BridgeEntity
+entity Section4_2_Solactive : BridgeEntity
+entity Section4_4_Solactive : BridgeEntity
+entity Section4_5_Solactive : BridgeEntity
+entity Section4_6_Solactive : BridgeEntity
+entity Section4_7_Solactive : BridgeEntity
+entity Section5_2_Solactive : BridgeEntity
+entity Section5_4_Solactive : BridgeEntity
+entity Section5_5_Solactive : BridgeEntity
+
+entity Section1_3_SolactiveTransatlanticCleanEnergyEURIndexPR : BridgeIndex
+entity Section1_3_SolactiveTransatlanticCleanEnergyEURIndexNTR : BridgeIndex
+entity Section1_3_SolactiveTransatlanticCleanEnergyEURIndexTR : BridgeIndex
+entity Section1_3_SolactiveTransatlanticCleanEnergyEURIndex5PercentAR : BridgeIndex
+entity Section1_3_SolactiveTransatlanticCleanEnergyEURIndex50AR : BridgeIndex
+entity Section1_2_SOLTCA50 : BridgeEntity
+
+entity Section1_4_CalculationDay : BridgeSort
+entity Section4_1_CalculationDay : BridgeSort
+entity N30_CalculationDay : BridgeSort
+entity Section2_2_SelectionDay : BridgeSort
+entity Section2_3_SelectionDay : BridgeSort
+
+entity Section1_4_Price : BridgeSort
+entity Section4_1_Price : BridgeSort
+entity N07_Price : BridgeSort
+entity N31_Price : BridgeSort
+
+entity Section2_1_GbsIndex : BridgeSort
+entity N14_GbsIndex : BridgeSort
+entity N15_GbsIndex : BridgeSort
+
+entity Section1_2_Guideline : BridgeEntity
+entity Section5_2_Guideline : BridgeEntity
+entity Section5_5_Guideline : BridgeEntity
+entity N06_Section1_4 : BridgeEntity
+entity N14_Section2_1 : BridgeEntity
+entity N15_Section2_1 : BridgeEntity
+entity Section3_1_Section2_1 : BridgeEntity
+entity Section3_1_Section2_2 : BridgeEntity
+
+entity Section1_2_IndexType : BridgeSort
+entity Section4_1_IndexType : BridgeSort
+entity Section4_6_Effort : BridgeSort
+entity Section5_4_Effort : BridgeSort
+entity Section5_2_IndexMethodology : BridgeSort
+entity Section5_4_IndexMethodology : BridgeSort
+entity Section3_1_EquityIndexMethodology : BridgeSort
+entity Section4_4_EquityIndexMethodology : BridgeSort
+
+entity Section1_4_index_component : BridgeRelation
+entity Section2_2_index_component : BridgeRelation
+entity N19_index_component : BridgeRelation
+entity Section2_1_index_universe : BridgeRelation
+entity Section2_2_index_universe : BridgeRelation
+entity Section4_1_incorporated_by_reference : BridgeRelation
+entity Section5_4_incorporated_by_reference : BridgeRelation
+
+entity Section1_1_TheIndex : BridgeEntity
+entity Section1_4_TheIndex : BridgeEntity
+entity Section1_5_TheIndex : BridgeEntity
+entity Section3_1_TheIndex : BridgeEntity
+entity Section3_2_TheIndex : BridgeEntity
+entity Section4_3_TheIndex : BridgeEntity
+entity Section4_4_TheIndex : BridgeEntity
+entity Section4_5_TheIndex : BridgeEntity
+entity Section4_7_TheIndex : BridgeEntity
+entity Section5_1_TheIndex : BridgeEntity
+entity Section5_2_TheIndex : BridgeEntity
+entity Section5_3_TheIndex : BridgeEntity
+entity Section5_5_TheIndex : BridgeEntity
+entity N06_TheIndex : BridgeEntity
+entity N10_TheIndex : BridgeEntity
+entity N19_TheIndex : BridgeEntity
+entity N30_TheIndex : BridgeEntity
+entity Section1_2_SolactiveWebsite : BridgeEntity
+entity Section3_1_SolactiveWebsite : BridgeEntity
+entity Section4_1_SolactiveWebsite : BridgeEntity
+entity Section4_2_SolactiveWebsite : BridgeEntity
+entity Section4_4_SolactiveWebsite : BridgeEntity
+entity Section4_5_SolactiveWebsite : BridgeEntity
+entity Section4_6_SolactiveWebsite : BridgeEntity
+entity Section4_7_SolactiveWebsite : BridgeEntity
+entity Section5_2_SolactiveWebsite : BridgeEntity
+entity Section5_4_SolactiveWebsite : BridgeEntity
+entity Section5_5_SolactiveWebsite : BridgeEntity
+entity Section3_1_ThisGuideline : BridgeEntity
+entity Section4_4_ThisGuideline : BridgeEntity
+entity Section4_6_ThisGuideline : BridgeEntity
+entity Section4_7_ThisGuideline : BridgeEntity
+entity Section1_2_EquityIndexMethodology : BridgeEntity
+entity Section4_1_EquityIndexMethodology : BridgeEntity
+entity Section4_5_EquityIndexMethodology : BridgeEntity
+entity Section3_1_SolactiveEquityIndexMethodology : BridgeEntity
+entity Section4_4_SolactiveEquityIndexMethodology : BridgeEntity
+entity Section4_6_SolactiveGreatestPossibleEfforts : BridgeEntity
+entity Section5_4_SolactiveGreatestPossibleEfforts : BridgeEntity
+entity N30_TheIndexAdministrator : BridgeEntity
+entity Section5_3_TheIndexAdministrator : BridgeEntity
+entity N14_GbsIndexSpecifiedInSection2_1 : BridgeEntity
+entity N15_GbsIndexSpecifiedInSection2_1 : BridgeEntity
+entity Section3_1_AnnouncementSection : BridgeEntity
+entity Section4_4_AnnouncementsSection : BridgeEntity
+entity Section5_2_AnnouncementSection : BridgeEntity
+
+entity N07_Security : BridgeSort
+entity N12_Security : BridgeSort
+entity N13_Security : BridgeSort
+entity N15_Security : BridgeSort
+entity N19_Security : BridgeSort
+entity N30_Security : BridgeSort
+entity Section1_1_Security : BridgeSort
+entity Section2_1_Security : BridgeSort
+entity Section2_2_Security : BridgeSort
+entity N01_IndexComponent : BridgeSort
+entity N07_IndexComponent : BridgeSort
+entity N08_IndexComponent : BridgeSort
+entity N10_IndexComponent : BridgeSort
+entity N30_IndexComponent : BridgeSort
+entity N31_IndexComponent : BridgeSort
+entity Section1_4_IndexComponent : BridgeSort
+entity Section2_3_IndexComponent : BridgeSort
+entity Section3_1_IndexComponent : BridgeSort
+entity Section4_1_IndexComponent : BridgeSort
+entity Section4_4_IndexComponent : BridgeSort
+entity Section4_5_IndexComponent : BridgeSort
+entity Section4_7_IndexComponent : BridgeSort
+entity Section1_3_IndexLevel : BridgeSort
+entity Section1_4_IndexLevel : BridgeSort
+entity Section4_1_IndexLevel : BridgeSort
+entity Section4_2_IndexLevel : BridgeSort
+entity Section4_3_IndexLevel : BridgeSort
+entity Section1_5_SolactiveOrganization : BridgeSort
+entity Section3_1_SolactiveOrganization : BridgeSort
+entity Section4_2_SolactiveOrganization : BridgeSort
+entity Section4_4_SolactiveOrganization : BridgeSort
+entity Section4_5_SolactiveOrganization : BridgeSort
+entity Section4_4_CorporateAction : BridgeSort
+entity Section4_5_CorporateAction : BridgeSort
+entity Section4_2_IndexCalculation : BridgeSort
+entity Section4_5_IndexCalculation : BridgeSort
+entity Section3_1_Notice : BridgeSort
+entity Section4_4_Notice : BridgeSort
+entity N01_DailyValueTraded : BridgeSort
+entity N08_DailyValueTraded : BridgeSort
+entity N01_AverageDailyValueTraded : BridgeSort
+entity Section2_1_AverageDailyValueTraded : BridgeSort
+entity N12_DataVendor : BridgeSort
+entity N13_DataVendor : BridgeSort
+entity N12_ShareCount : BridgeSort
+entity N13_ShareCount : BridgeSort
+
+entity N01_daily_value_traded : BridgeRelation
+entity N08_daily_value_traded : BridgeRelation
+entity N01_average_daily_value_traded : BridgeRelation
+entity Section2_1_average_daily_value_traded : BridgeRelation
+entity Section1_2_index_currency : BridgeRelation
+entity Section1_4_index_currency : BridgeRelation
+entity Section4_1_index_currency : BridgeRelation
+entity Section1_2_index_type : BridgeRelation
+entity Section4_1_index_type : BridgeRelation
+entity N12_fulfills_index_component_requirements : BridgeRelation
+entity N13_fulfills_index_component_requirements : BridgeRelation
+entity N14_gbs_index_specified_in_section : BridgeRelation
+entity N15_gbs_index_specified_in_section : BridgeRelation
+entity Section5_2_methodology_of_index : BridgeRelation
+entity Section5_4_methodology_of_index : BridgeRelation
+entity Section4_6_index_of : BridgeRelation
+entity Section4_7_index_of : BridgeRelation
+entity Section5_4_index_of : BridgeRelation
+entity Section1_2_available_on : BridgeRelation
+entity Section3_1_available_on : BridgeRelation
+entity Section4_1_available_on : BridgeRelation
+entity Section4_4_available_on : BridgeRelation
+entity Section4_5_available_on : BridgeRelation
+entity Section4_6_available_on : BridgeRelation
+entity Section4_7_available_on : BridgeRelation
+entity Section5_2_available_on : BridgeRelation
+entity Section5_4_available_on : BridgeRelation
+entity Section5_5_available_on : BridgeRelation
+entity Section1_2_website_of : BridgeRelation
+entity Section3_1_website_of : BridgeRelation
+entity Section4_2_website_of : BridgeRelation
+entity Section4_4_website_of : BridgeRelation
+entity Section4_5_website_of : BridgeRelation
+entity Section4_6_website_of : BridgeRelation
+entity Section4_7_website_of : BridgeRelation
+entity Section5_2_website_of : BridgeRelation
+entity Section5_4_website_of : BridgeRelation
+entity Section5_5_website_of : BridgeRelation
+entity Section3_1_incorporated_by_reference_into : BridgeRelation
+entity Section4_4_incorporated_by_reference_into : BridgeRelation
+entity Section4_6_incorporated_by_reference_into : BridgeRelation
+entity Section4_7_incorporated_by_reference_into : BridgeRelation
+entity Section5_2_incorporated_by_reference_into : BridgeRelation
+entity Section3_1_section_of_website : BridgeRelation
+entity Section4_2_section_of_website : BridgeRelation
+entity Section4_4_section_of_website : BridgeRelation
+entity Section5_2_section_of_website : BridgeRelation
+
+entity Section2_1_Canada : BridgeEntity
+entity Section2_2_Canada : BridgeEntity
+entity Section2_1_UnitedStates : BridgeEntity
+entity Section2_2_UnitedStates : BridgeEntity
+entity Section1_2_HttpsWwwSolactiveComDocumentsEquityIndexMethodology : BridgeEntity
+entity Section3_1_HttpsWwwSolactiveComDocumentsEquityIndexMethodology : BridgeEntity
+entity Section5_2_HttpsWwwSolactiveComDocumentsMethodologyPolicy : BridgeEntity
+entity Section5_5_HttpsWwwSolactiveComDocumentsMethodologyPolicy : BridgeEntity
+entity Section1_2_HttpsWwwSolactiveComNewsAnnouncements : BridgeEntity
+entity Section3_1_HttpsWwwSolactiveComNewsAnnouncements : BridgeEntity
+entity Section4_2_HttpsWwwSolactiveComNewsAnnouncements : BridgeEntity
+entity Section5_2_HttpsWwwSolactiveComNewsAnnouncements : BridgeEntity
+
+entity Section2_2_Region : BridgeSort
+entity Section2_3_Region : BridgeSort
+entity N06_CalculationTime : BridgeSort
+entity Section1_4_CalculationTime : BridgeSort
+entity Section2_1_DiscretionaryDecision : BridgeSort
+entity Section2_2_DiscretionaryDecision : BridgeSort
+entity Section4_6_Error : BridgeSort
+entity Section5_3_Error : BridgeSort
+entity Section1_2_ISIN : BridgeSort
+entity Section2_1_ISIN : BridgeSort
+entity Section4_5_IndexQuality : BridgeSort
+entity Section5_4_IndexQuality : BridgeSort
+entity Section5_4_IndexRule : BridgeSort
+entity Section5_5_IndexRule : BridgeSort
+entity Section4_2_Policy : BridgeSort
+entity Section5_5_Policy : BridgeSort
+
+entity Section2_2_region : BridgeRelation
+entity Section2_3_region : BridgeRelation
+entity Section2_2_free_float_market_capizatlization : BridgeRelation
+entity Section2_3_float_market_capizatlization : BridgeRelation
+entity Section2_3_weight : BridgeRelation
+entity Section4_1_component_price : BridgeRelation
+entity Section4_1_component_price_change : BridgeRelation
+entity Section4_1_component_weight : BridgeRelation
+entity Section4_2_announced_on : BridgeRelation
+entity Section4_4_announced_on : BridgeRelation
+entity Section2_1_fully_rule_based : BridgeRelation
+entity Section2_2_fully_rule_based : BridgeRelation
+entity Section4_6_greatest_possible : BridgeRelation
+entity Section5_4_greatest_possible : BridgeRelation
+
+entity TradingPriceObservationFrame : BridgeFrame
+entity ClosingPriceObservationFrame : BridgeFrame
+entity ComponentPriceObservationFrame : BridgeFrame
+entity PriceChangeObservationFrame : BridgeFrame
+entity ComponentWeightObservationFrame : BridgeFrame
+entity RegionClassificationObservationFrame : BridgeFrame
+entity DailyValueTradedObservationFrame : BridgeFrame
+entity AverageDailyValueTradedObservationFrame : BridgeFrame
+entity IndexLevelObservationFrame : BridgeFrame
+entity InitialIndexLevelObservationFrame : BridgeFrame
+entity FreeFloatObservationFrame : BridgeFrame
+entity ShareCountObservationFrame : BridgeFrame
+entity FreeFloatMarketCapitalizationObservationFrame : BridgeFrame
+entity IndexCurrencyObservationFrame : BridgeFrame
+entity ExchangeObservationFrame : BridgeFrame
+entity GenericIndexComponentMembershipFrame : BridgeFrame
+entity SelectionDayIndexComponentMembershipFrame : BridgeFrame
+entity CalculationDayIndexComponentMembershipFrame : BridgeFrame
+
+entity ObservationSubjectRole : BridgeRole
+entity ObservationIndexRole : BridgeRole
+entity ObservationDayContextRole : BridgeRole
+entity ObservationSelectionDayContextRole : BridgeRole
+entity ObservationPeriodContextRole : BridgeRole
+entity ObservationTimeContextRole : BridgeRole
+entity ObservationCalculationRole : BridgeRole
+entity ObservedTradingPriceRole : BridgeRole
+entity ObservedClosingPriceRole : BridgeRole
+entity ObservedComponentPriceRole : BridgeRole
+entity ObservedPriceChangeRole : BridgeRole
+entity ObservedComponentWeightRole : BridgeRole
+entity ObservedRegionRole : BridgeRole
+entity ObservedDailyValueTradedRole : BridgeRole
+entity ObservedAverageDailyValueTradedRole : BridgeRole
+entity ObservedIndexLevelRole : BridgeRole
+entity ObservedFreeFloatRole : BridgeRole
+entity ObservedShareCountRole : BridgeRole
+entity ObservedFreeFloatMarketCapitalizationRole : BridgeRole
+entity ObservedCurrencyRole : BridgeRole
+entity ObservedExchangeRole : BridgeRole
+entity MembershipSecurityRole : BridgeRole
+entity MembershipComponentAssignmentRole : BridgeRole
+entity MembershipIndexRole : BridgeRole
+entity MembershipSelectionDayRole : BridgeRole
+entity MembershipCalculationDayRole : BridgeRole
+entity MembershipStateRole : BridgeRole
+
+rel bridge_declared_in : BridgeSymbol, BridgeEntry
+rel same_index : BridgeIndex, BridgeIndex
+rel same_sort : BridgeSort, BridgeSort
+rel same_entity : BridgeEntity, BridgeEntity
+rel same_relation : BridgeRelation, BridgeRelation
+rel bridge_confidence : BridgeSymbol, BridgeSymbol, BridgeConfidence
+rel bridge_link_type : BridgeSymbol, BridgeSymbol, BridgeLinkType
+rel bridge_supported_by_entry : BridgeSymbol, BridgeSymbol, BridgeEntry
+rel bridge_argument_order : BridgeRelation, BridgeRelation, BridgeArgumentOrder
+rel bridge_family_member : BridgeFamily, BridgeSymbol
+rel bridge_family_anchor : BridgeFamily, BridgeSymbol
+rel bridge_family_link_type : BridgeFamily, BridgeLinkType
+rel bridge_family_confidence : BridgeFamily, BridgeConfidence
+rel bridge_relation_projects_to_frame : BridgeRelation, BridgeFrame
+rel bridge_projection_kind : BridgeRelation, BridgeProjectionKind
+rel bridge_argument_role : BridgeRelation, Nat, BridgeRole
+rel bridge_return_role : BridgeRelation, BridgeRole
+rel bridge_projection_confidence : BridgeRelation, BridgeConfidence
+
+fact lexical_candidate_review_symbol_locations :
+  bridge_declared_in(Section1_3_section_1_3_index, Section1_3)
+  and bridge_declared_in(Section4_1_section_4_1_index, Section4_1)
+  and bridge_declared_in(Section2_1_SolactiveGBSBenchmarkSeriesPdf, Section2_1)
+  and bridge_declared_in(N14_SolactiveGBSBenchmarkSeriesGuideline, DefinitionN14)
+  and bridge_declared_in(Section2_1_HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf, Section2_1)
+  and bridge_declared_in(N14_HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf, DefinitionN14)
+  and bridge_declared_in(Section2_2_FreeFloatMarketCapizatlization, Section2_2)
+  and bridge_declared_in(Section2_3_FloatMarketCapizatlization, Section2_3)
+  and bridge_declared_in(Section4_4_adjustment_of_index, Section4_4)
+  and bridge_declared_in(Section4_5_adjustment_to_index, Section4_5)
+  and bridge_declared_in(Section4_6_VarietyReasons, Section4_6)
+  and bridge_declared_in(Section4_7_VarietyOfReasons, Section4_7)
+  and bridge_declared_in(N15_security_reflected_in_gbs_index, DefinitionN15)
+  and bridge_declared_in(N19_security_reflected_in_index, DefinitionN19)
+
+fact lexical_candidate_review_bridge_decisions :
+  bridge_family_member(SectionLocalIndexScopeRelationReviewFamily, Section1_3_section_1_3_index)
+  and bridge_family_member(SectionLocalIndexScopeRelationReviewFamily, Section4_1_section_4_1_index)
+  and bridge_family_anchor(SectionLocalIndexScopeRelationReviewFamily, Section1_3_section_1_3_index)
+  and bridge_family_link_type(SectionLocalIndexScopeRelationReviewFamily, RelatedConcept)
+  and bridge_family_confidence(SectionLocalIndexScopeRelationReviewFamily, Medium)
+  and bridge_link_type(Section1_3_section_1_3_index, Section4_1_section_4_1_index, RelatedConcept)
+  and bridge_confidence(Section1_3_section_1_3_index, Section4_1_section_4_1_index, Medium)
+  and bridge_supported_by_entry(Section1_3_section_1_3_index, Section4_1_section_4_1_index, Section1_3)
+  and bridge_supported_by_entry(Section1_3_section_1_3_index, Section4_1_section_4_1_index, Section4_1)
+  and bridge_family_member(GBSBenchmarkSeriesDocumentFamily, Section2_1_SolactiveGBSBenchmarkSeriesPdf)
+  and bridge_family_member(GBSBenchmarkSeriesDocumentFamily, N14_SolactiveGBSBenchmarkSeriesGuideline)
+  and bridge_family_anchor(GBSBenchmarkSeriesDocumentFamily, Section2_1_SolactiveGBSBenchmarkSeriesPdf)
+  and bridge_family_link_type(GBSBenchmarkSeriesDocumentFamily, SourceAlias)
+  and bridge_family_confidence(GBSBenchmarkSeriesDocumentFamily, High)
+  and same_entity(Section2_1_SolactiveGBSBenchmarkSeriesPdf, N14_SolactiveGBSBenchmarkSeriesGuideline)
+  and bridge_link_type(Section2_1_SolactiveGBSBenchmarkSeriesPdf, N14_SolactiveGBSBenchmarkSeriesGuideline, SourceAlias)
+  and bridge_confidence(Section2_1_SolactiveGBSBenchmarkSeriesPdf, N14_SolactiveGBSBenchmarkSeriesGuideline, High)
+  and bridge_supported_by_entry(Section2_1_SolactiveGBSBenchmarkSeriesPdf, N14_SolactiveGBSBenchmarkSeriesGuideline, Section2_1)
+  and bridge_supported_by_entry(Section2_1_SolactiveGBSBenchmarkSeriesPdf, N14_SolactiveGBSBenchmarkSeriesGuideline, DefinitionN14)
+  and bridge_family_member(GBSBenchmarkSeriesUrlFamily, Section2_1_HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)
+  and bridge_family_member(GBSBenchmarkSeriesUrlFamily, N14_HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)
+  and bridge_family_anchor(GBSBenchmarkSeriesUrlFamily, Section2_1_HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)
+  and bridge_family_link_type(GBSBenchmarkSeriesUrlFamily, SourceAlias)
+  and bridge_family_confidence(GBSBenchmarkSeriesUrlFamily, High)
+  and same_entity(Section2_1_HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf, N14_HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)
+  and bridge_link_type(Section2_1_HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf, N14_HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf, SourceAlias)
+  and bridge_confidence(Section2_1_HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf, N14_HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf, High)
+  and bridge_supported_by_entry(Section2_1_HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf, N14_HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf, Section2_1)
+  and bridge_supported_by_entry(Section2_1_HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf, N14_HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf, DefinitionN14)
+  and bridge_family_member(FloatMarketCapitalizationReviewFamily, Section2_2_FreeFloatMarketCapizatlization)
+  and bridge_family_member(FloatMarketCapitalizationReviewFamily, Section2_3_FloatMarketCapizatlization)
+  and bridge_family_anchor(FloatMarketCapitalizationReviewFamily, Section2_2_FreeFloatMarketCapizatlization)
+  and bridge_family_link_type(FloatMarketCapitalizationReviewFamily, SortAlias)
+  and bridge_family_confidence(FloatMarketCapitalizationReviewFamily, High)
+  and bridge_family_member(FloatMarketCapitalizationReviewFamily, N13_FreeFloatMarketCapitalization)
+  and same_sort(Section2_2_FreeFloatMarketCapizatlization, Section2_3_FloatMarketCapizatlization)
+  and bridge_link_type(Section2_2_FreeFloatMarketCapizatlization, Section2_3_FloatMarketCapizatlization, SortAlias)
+  and bridge_confidence(Section2_2_FreeFloatMarketCapizatlization, Section2_3_FloatMarketCapizatlization, High)
+  and bridge_supported_by_entry(Section2_2_FreeFloatMarketCapizatlization, Section2_3_FloatMarketCapizatlization, Section2_2)
+  and bridge_supported_by_entry(Section2_2_FreeFloatMarketCapizatlization, Section2_3_FloatMarketCapizatlization, Section2_3)
+  and bridge_supported_by_entry(N13_FreeFloatMarketCapitalization, Section2_2_FreeFloatMarketCapizatlization, DefinitionN13)
+  and bridge_supported_by_entry(N13_FreeFloatMarketCapitalization, Section2_2_FreeFloatMarketCapizatlization, Section2_2)
+  and bridge_family_member(IndexAdjustmentRelationReviewFamily, Section4_4_adjustment_of_index)
+  and bridge_family_member(IndexAdjustmentRelationReviewFamily, Section4_5_adjustment_to_index)
+  and bridge_family_anchor(IndexAdjustmentRelationReviewFamily, Section4_4_adjustment_of_index)
+  and bridge_family_link_type(IndexAdjustmentRelationReviewFamily, RelatedConcept)
+  and bridge_family_confidence(IndexAdjustmentRelationReviewFamily, Medium)
+  and bridge_link_type(Section4_4_adjustment_of_index, Section4_5_adjustment_to_index, RelatedConcept)
+  and bridge_confidence(Section4_4_adjustment_of_index, Section4_5_adjustment_to_index, Medium)
+  and bridge_supported_by_entry(Section4_4_adjustment_of_index, Section4_5_adjustment_to_index, Section4_4)
+  and bridge_supported_by_entry(Section4_4_adjustment_of_index, Section4_5_adjustment_to_index, Section4_5)
+  and bridge_family_member(VarietyReasonsVagueTermFamily, Section4_6_VarietyReasons)
+  and bridge_family_member(VarietyReasonsVagueTermFamily, Section4_7_VarietyOfReasons)
+  and bridge_family_anchor(VarietyReasonsVagueTermFamily, Section4_6_VarietyReasons)
+  and bridge_family_link_type(VarietyReasonsVagueTermFamily, SourceAlias)
+  and bridge_family_confidence(VarietyReasonsVagueTermFamily, High)
+  and same_entity(Section4_6_VarietyReasons, Section4_7_VarietyOfReasons)
+  and bridge_link_type(Section4_6_VarietyReasons, Section4_7_VarietyOfReasons, SourceAlias)
+  and bridge_confidence(Section4_6_VarietyReasons, Section4_7_VarietyOfReasons, High)
+  and bridge_supported_by_entry(Section4_6_VarietyReasons, Section4_7_VarietyOfReasons, Section4_6)
+  and bridge_supported_by_entry(Section4_6_VarietyReasons, Section4_7_VarietyOfReasons, Section4_7)
+  and bridge_family_member(SecurityReflectedRelationReviewFamily, N15_security_reflected_in_gbs_index)
+  and bridge_family_member(SecurityReflectedRelationReviewFamily, N19_security_reflected_in_index)
+  and bridge_family_anchor(SecurityReflectedRelationReviewFamily, N15_security_reflected_in_gbs_index)
+  and bridge_family_link_type(SecurityReflectedRelationReviewFamily, RelatedConcept)
+  and bridge_family_confidence(SecurityReflectedRelationReviewFamily, Medium)
+  and bridge_link_type(N15_security_reflected_in_gbs_index, N19_security_reflected_in_index, RelatedConcept)
+  and bridge_confidence(N15_security_reflected_in_gbs_index, N19_security_reflected_in_index, Medium)
+  and bridge_supported_by_entry(N15_security_reflected_in_gbs_index, N19_security_reflected_in_index, DefinitionN15)
+  and bridge_supported_by_entry(N15_security_reflected_in_gbs_index, N19_security_reflected_in_index, DefinitionN19)
+
+fact bridge_symbol_locations :
+  bridge_declared_in(Section4_1_PriceReturnIndexVersion, Section4_1)
+  and bridge_declared_in(Section4_1_NTRIndexVersion, Section4_1)
+  and bridge_declared_in(Section4_1_GTRIndexVersion, Section4_1)
+  and bridge_declared_in(Section4_1_AdjustedReturnVersion, Section4_1)
+  and bridge_declared_in(Section4_1_SOLTCA50, Section4_1)
+  and bridge_declared_in(Section1_2_SolactiveTransatlanticCleanEnergyEURIndexPR, Section1_2)
+  and bridge_declared_in(Section1_2_SolactiveTransatlanticCleanEnergyEURIndexNTR, Section1_2)
+  and bridge_declared_in(Section1_2_SolactiveTransatlanticCleanEnergyEURIndexTR, Section1_2)
+  and bridge_declared_in(Section1_2_SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, Section1_2)
+  and bridge_declared_in(Section1_2_SolactiveTransatlanticCleanEnergyEURIndex50AR, Section1_2)
+  and bridge_declared_in(Section2_1_RBICSSubindustryClassification, Section2_1)
+  and bridge_declared_in(Appendix8_1_RbicsSubindustry, Appendix8_1)
+  and bridge_declared_in(Section2_1_BusinessIndustryClassificationSystem, Section2_1)
+  and bridge_declared_in(Appendix8_1_RbicsClassificationSystem, Appendix8_1)
+  and bridge_declared_in(Section2_1_Appendix, Section2_1)
+  and bridge_declared_in(Appendix8_1_Appendix, Appendix8_1)
+  and bridge_declared_in(Section2_1_IndexGuidelineAppendix, Section2_1)
+  and bridge_declared_in(Appendix8_1_Appendix8, Appendix8_1)
+  and bridge_declared_in(Section2_1_FactSetRevereBusinessIndustryClassificationSystem, Section2_1)
+  and bridge_declared_in(Appendix8_1_RBICS, Appendix8_1)
+  and bridge_declared_in(Section2_1_rbics_subindustry_classification_in_appendix, Section2_1)
+  and bridge_declared_in(Appendix8_1_appendix_includes_rbics_subindustry, Appendix8_1)
+  and bridge_declared_in(Section2_1_rbics_subindustry_classification_of_system, Section2_1)
+  and bridge_declared_in(Appendix8_1_rbics_classifies_subindustry, Appendix8_1)
+  and bridge_declared_in(N02_DefinedTerm, DefinitionN02)
+  and bridge_declared_in(N03_DefinedTerm, DefinitionN03)
+  and bridge_declared_in(N16_DefinedTerm, DefinitionN16)
+  and bridge_declared_in(N17_DefinedTerm, DefinitionN17)
+  and bridge_declared_in(N18_DefinedTerm, DefinitionN18)
+  and bridge_declared_in(N20_DefinedTerm, DefinitionN20)
+  and bridge_declared_in(N22_DefinedTerm, DefinitionN22)
+  and bridge_declared_in(N24_DefinedTerm, DefinitionN24)
+  and bridge_declared_in(N25_DefinedTerm, DefinitionN25)
+  and bridge_declared_in(N28_DefinedTerm, DefinitionN28)
+  and bridge_declared_in(N29_DefinedTerm, DefinitionN29)
+  and bridge_declared_in(N32_DefinedTerm, DefinitionN32)
+  and bridge_declared_in(N02_BenchmarkRegulationTerm, DefinitionN02)
+  and bridge_declared_in(N03_BMRTerm, DefinitionN03)
+  and bridge_declared_in(N16_GuidelineTerm, DefinitionN16)
+  and bridge_declared_in(N17_IndexTerm, DefinitionN17)
+  and bridge_declared_in(N18_IndexAdministratorTerm, DefinitionN18)
+  and bridge_declared_in(N20_IndexComponentRequirementsTerm, DefinitionN20)
+  and bridge_declared_in(N22_IndexUniverseRequirementsTerm, DefinitionN22)
+  and bridge_declared_in(N24_LiveDateTerm, DefinitionN24)
+  and bridge_declared_in(N25_OversightCommitteeTerm, DefinitionN25)
+  and bridge_declared_in(N28_SolactiveTerm, DefinitionN28)
+  and bridge_declared_in(N29_StartDateTerm, DefinitionN29)
+  and bridge_declared_in(N32_WMRefinitivRateTerm, DefinitionN32)
+  and bridge_declared_in(N02_IntroductionSection, DefinitionN02)
+  and bridge_declared_in(N03_IntroductionSection, DefinitionN03)
+  and bridge_declared_in(N16_IntroductionSection, DefinitionN16)
+  and bridge_declared_in(N17_IntroductionSection, DefinitionN17)
+  and bridge_declared_in(N18_IntroductionSection, DefinitionN18)
+  and bridge_declared_in(N28_IntroductionSection, DefinitionN28)
+  and bridge_declared_in(N20_Section2_2, DefinitionN20)
+  and bridge_declared_in(N22_Section2_1, DefinitionN22)
+  and bridge_declared_in(N24_Section1_3, DefinitionN24)
+  and bridge_declared_in(N29_Section1_3, DefinitionN29)
+  and bridge_declared_in(N25_Section5_5, DefinitionN25)
+  and bridge_declared_in(N32_Section1_4, DefinitionN32)
+  and bridge_declared_in(N02_term_shall_have_meaning_defined_in_section, DefinitionN02)
+  and bridge_declared_in(N03_term_shall_have_meaning_defined_in_section, DefinitionN03)
+  and bridge_declared_in(N16_term_shall_have_meaning_defined_in_section, DefinitionN16)
+  and bridge_declared_in(N17_term_shall_have_meaning_defined_in_section, DefinitionN17)
+  and bridge_declared_in(N18_term_shall_have_meaning_defined_in_section, DefinitionN18)
+  and bridge_declared_in(N20_term_shall_have_meaning_defined_in_section, DefinitionN20)
+  and bridge_declared_in(N22_term_shall_have_meaning_defined_in_section, DefinitionN22)
+  and bridge_declared_in(N24_term_shall_have_meaning_defined_in_section, DefinitionN24)
+  and bridge_declared_in(N25_term_shall_have_meaning_defined_in_section, DefinitionN25)
+  and bridge_declared_in(N28_term_shall_have_meaning_defined_in_section, DefinitionN28)
+  and bridge_declared_in(N29_term_shall_have_meaning_defined_in_section, DefinitionN29)
+  and bridge_declared_in(N32_term_shall_have_meaning_defined_in_section, DefinitionN32)
+
+fact section_4_1_to_section_1_2_index_identities :
+  same_index(Section4_1_PriceReturnIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexPR)
+  and bridge_link_type(Section4_1_PriceReturnIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexPR, CrossSectionIdentity)
+  and bridge_confidence(Section4_1_PriceReturnIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexPR, High)
+  and bridge_supported_by_entry(Section4_1_PriceReturnIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexPR, Section1_2)
+  and bridge_supported_by_entry(Section4_1_PriceReturnIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexPR, Section4_1)
+  and same_index(Section4_1_NTRIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexNTR)
+  and bridge_link_type(Section4_1_NTRIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexNTR, CrossSectionIdentity)
+  and bridge_confidence(Section4_1_NTRIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexNTR, High)
+  and bridge_supported_by_entry(Section4_1_NTRIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexNTR, Section1_2)
+  and bridge_supported_by_entry(Section4_1_NTRIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexNTR, Section4_1)
+  and same_index(Section4_1_GTRIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexTR)
+  and bridge_link_type(Section4_1_GTRIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexTR, CrossSectionIdentity)
+  and bridge_confidence(Section4_1_GTRIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexTR, High)
+  and bridge_supported_by_entry(Section4_1_GTRIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexTR, Section1_2)
+  and bridge_supported_by_entry(Section4_1_GTRIndexVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndexTR, Section4_1)
+  and same_index(Section4_1_AdjustedReturnVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndex5PercentAR)
+  and bridge_link_type(Section4_1_AdjustedReturnVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, SourceAlias)
+  and bridge_confidence(Section4_1_AdjustedReturnVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, High)
+  and bridge_supported_by_entry(Section4_1_AdjustedReturnVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, Section1_2)
+  and bridge_supported_by_entry(Section4_1_AdjustedReturnVersion, Section1_2_SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, Section4_1)
+  and same_index(Section4_1_SOLTCA50, Section1_2_SolactiveTransatlanticCleanEnergyEURIndex50AR)
+  and bridge_link_type(Section4_1_SOLTCA50, Section1_2_SolactiveTransatlanticCleanEnergyEURIndex50AR, TickerAlias)
+  and bridge_confidence(Section4_1_SOLTCA50, Section1_2_SolactiveTransatlanticCleanEnergyEURIndex50AR, High)
+  and bridge_supported_by_entry(Section4_1_SOLTCA50, Section1_2_SolactiveTransatlanticCleanEnergyEURIndex50AR, Section1_2)
+  and bridge_supported_by_entry(Section4_1_SOLTCA50, Section1_2_SolactiveTransatlanticCleanEnergyEURIndex50AR, Section4_1)
+
+fact section_2_1_to_appendix_8_1_rbics_bridge :
+  same_sort(Section2_1_RBICSSubindustryClassification, Appendix8_1_RbicsSubindustry)
+  and bridge_link_type(Section2_1_RBICSSubindustryClassification, Appendix8_1_RbicsSubindustry, SortAlias)
+  and bridge_confidence(Section2_1_RBICSSubindustryClassification, Appendix8_1_RbicsSubindustry, High)
+  and bridge_supported_by_entry(Section2_1_RBICSSubindustryClassification, Appendix8_1_RbicsSubindustry, Section2_1)
+  and bridge_supported_by_entry(Section2_1_RBICSSubindustryClassification, Appendix8_1_RbicsSubindustry, Appendix8_1)
+  and same_sort(Section2_1_BusinessIndustryClassificationSystem, Appendix8_1_RbicsClassificationSystem)
+  and bridge_link_type(Section2_1_BusinessIndustryClassificationSystem, Appendix8_1_RbicsClassificationSystem, SortAlias)
+  and bridge_confidence(Section2_1_BusinessIndustryClassificationSystem, Appendix8_1_RbicsClassificationSystem, High)
+  and bridge_supported_by_entry(Section2_1_BusinessIndustryClassificationSystem, Appendix8_1_RbicsClassificationSystem, Section2_1)
+  and bridge_supported_by_entry(Section2_1_BusinessIndustryClassificationSystem, Appendix8_1_RbicsClassificationSystem, Appendix8_1)
+  and same_sort(Section2_1_Appendix, Appendix8_1_Appendix)
+  and bridge_link_type(Section2_1_Appendix, Appendix8_1_Appendix, SortAlias)
+  and bridge_confidence(Section2_1_Appendix, Appendix8_1_Appendix, High)
+  and bridge_supported_by_entry(Section2_1_Appendix, Appendix8_1_Appendix, Section2_1)
+  and bridge_supported_by_entry(Section2_1_Appendix, Appendix8_1_Appendix, Appendix8_1)
+  and same_entity(Section2_1_IndexGuidelineAppendix, Appendix8_1_Appendix8)
+  and bridge_link_type(Section2_1_IndexGuidelineAppendix, Appendix8_1_Appendix8, EntityAlias)
+  and bridge_confidence(Section2_1_IndexGuidelineAppendix, Appendix8_1_Appendix8, High)
+  and bridge_supported_by_entry(Section2_1_IndexGuidelineAppendix, Appendix8_1_Appendix8, Section2_1)
+  and bridge_supported_by_entry(Section2_1_IndexGuidelineAppendix, Appendix8_1_Appendix8, Appendix8_1)
+  and same_entity(Section2_1_FactSetRevereBusinessIndustryClassificationSystem, Appendix8_1_RBICS)
+  and bridge_link_type(Section2_1_FactSetRevereBusinessIndustryClassificationSystem, Appendix8_1_RBICS, EntityAlias)
+  and bridge_confidence(Section2_1_FactSetRevereBusinessIndustryClassificationSystem, Appendix8_1_RBICS, High)
+  and bridge_supported_by_entry(Section2_1_FactSetRevereBusinessIndustryClassificationSystem, Appendix8_1_RBICS, Section2_1)
+  and bridge_supported_by_entry(Section2_1_FactSetRevereBusinessIndustryClassificationSystem, Appendix8_1_RBICS, Appendix8_1)
+  and same_relation(Section2_1_rbics_subindustry_classification_in_appendix, Appendix8_1_appendix_includes_rbics_subindustry)
+  and bridge_link_type(Section2_1_rbics_subindustry_classification_in_appendix, Appendix8_1_appendix_includes_rbics_subindustry, RelationAlias)
+  and bridge_argument_order(Section2_1_rbics_subindustry_classification_in_appendix, Appendix8_1_appendix_includes_rbics_subindustry, ReversedArgumentOrder)
+  and bridge_confidence(Section2_1_rbics_subindustry_classification_in_appendix, Appendix8_1_appendix_includes_rbics_subindustry, High)
+  and bridge_supported_by_entry(Section2_1_rbics_subindustry_classification_in_appendix, Appendix8_1_appendix_includes_rbics_subindustry, Section2_1)
+  and bridge_supported_by_entry(Section2_1_rbics_subindustry_classification_in_appendix, Appendix8_1_appendix_includes_rbics_subindustry, Appendix8_1)
+  and same_relation(Section2_1_rbics_subindustry_classification_of_system, Appendix8_1_rbics_classifies_subindustry)
+  and bridge_link_type(Section2_1_rbics_subindustry_classification_of_system, Appendix8_1_rbics_classifies_subindustry, RelationAlias)
+  and bridge_argument_order(Section2_1_rbics_subindustry_classification_of_system, Appendix8_1_rbics_classifies_subindustry, ReversedArgumentOrder)
+  and bridge_confidence(Section2_1_rbics_subindustry_classification_of_system, Appendix8_1_rbics_classifies_subindustry, High)
+  and bridge_supported_by_entry(Section2_1_rbics_subindustry_classification_of_system, Appendix8_1_rbics_classifies_subindustry, Section2_1)
+  and bridge_supported_by_entry(Section2_1_rbics_subindustry_classification_of_system, Appendix8_1_rbics_classifies_subindustry, Appendix8_1)
+
+fact cross_reference_definition_pattern_bridge :
+  same_sort(N02_DefinedTerm, N03_DefinedTerm)
+  and same_sort(N02_DefinedTerm, N16_DefinedTerm)
+  and same_sort(N02_DefinedTerm, N17_DefinedTerm)
+  and same_sort(N02_DefinedTerm, N18_DefinedTerm)
+  and same_sort(N02_DefinedTerm, N20_DefinedTerm)
+  and same_sort(N02_DefinedTerm, N22_DefinedTerm)
+  and same_sort(N02_DefinedTerm, N24_DefinedTerm)
+  and same_sort(N02_DefinedTerm, N25_DefinedTerm)
+  and same_sort(N02_DefinedTerm, N28_DefinedTerm)
+  and same_sort(N02_DefinedTerm, N29_DefinedTerm)
+  and same_sort(N02_DefinedTerm, N32_DefinedTerm)
+  and bridge_link_type(N02_DefinedTerm, N03_DefinedTerm, SortAlias)
+  and bridge_link_type(N02_DefinedTerm, N16_DefinedTerm, SortAlias)
+  and bridge_link_type(N02_DefinedTerm, N17_DefinedTerm, SortAlias)
+  and bridge_link_type(N02_DefinedTerm, N18_DefinedTerm, SortAlias)
+  and bridge_link_type(N02_DefinedTerm, N20_DefinedTerm, SortAlias)
+  and bridge_link_type(N02_DefinedTerm, N22_DefinedTerm, SortAlias)
+  and bridge_link_type(N02_DefinedTerm, N24_DefinedTerm, SortAlias)
+  and bridge_link_type(N02_DefinedTerm, N25_DefinedTerm, SortAlias)
+  and bridge_link_type(N02_DefinedTerm, N28_DefinedTerm, SortAlias)
+  and bridge_link_type(N02_DefinedTerm, N29_DefinedTerm, SortAlias)
+  and bridge_link_type(N02_DefinedTerm, N32_DefinedTerm, SortAlias)
+  and same_relation(N02_term_shall_have_meaning_defined_in_section, N03_term_shall_have_meaning_defined_in_section)
+  and same_relation(N02_term_shall_have_meaning_defined_in_section, N16_term_shall_have_meaning_defined_in_section)
+  and same_relation(N02_term_shall_have_meaning_defined_in_section, N17_term_shall_have_meaning_defined_in_section)
+  and same_relation(N02_term_shall_have_meaning_defined_in_section, N18_term_shall_have_meaning_defined_in_section)
+  and same_relation(N02_term_shall_have_meaning_defined_in_section, N20_term_shall_have_meaning_defined_in_section)
+  and same_relation(N02_term_shall_have_meaning_defined_in_section, N22_term_shall_have_meaning_defined_in_section)
+  and same_relation(N02_term_shall_have_meaning_defined_in_section, N24_term_shall_have_meaning_defined_in_section)
+  and same_relation(N02_term_shall_have_meaning_defined_in_section, N25_term_shall_have_meaning_defined_in_section)
+  and same_relation(N02_term_shall_have_meaning_defined_in_section, N28_term_shall_have_meaning_defined_in_section)
+  and same_relation(N02_term_shall_have_meaning_defined_in_section, N29_term_shall_have_meaning_defined_in_section)
+  and same_relation(N02_term_shall_have_meaning_defined_in_section, N32_term_shall_have_meaning_defined_in_section)
+  and bridge_argument_order(N02_term_shall_have_meaning_defined_in_section, N03_term_shall_have_meaning_defined_in_section, SameArgumentOrder)
+  and bridge_argument_order(N02_term_shall_have_meaning_defined_in_section, N16_term_shall_have_meaning_defined_in_section, SameArgumentOrder)
+  and bridge_argument_order(N02_term_shall_have_meaning_defined_in_section, N17_term_shall_have_meaning_defined_in_section, SameArgumentOrder)
+  and bridge_argument_order(N02_term_shall_have_meaning_defined_in_section, N18_term_shall_have_meaning_defined_in_section, SameArgumentOrder)
+  and bridge_argument_order(N02_term_shall_have_meaning_defined_in_section, N20_term_shall_have_meaning_defined_in_section, SameArgumentOrder)
+  and bridge_argument_order(N02_term_shall_have_meaning_defined_in_section, N22_term_shall_have_meaning_defined_in_section, SameArgumentOrder)
+  and bridge_argument_order(N02_term_shall_have_meaning_defined_in_section, N24_term_shall_have_meaning_defined_in_section, SameArgumentOrder)
+  and bridge_argument_order(N02_term_shall_have_meaning_defined_in_section, N25_term_shall_have_meaning_defined_in_section, SameArgumentOrder)
+  and bridge_argument_order(N02_term_shall_have_meaning_defined_in_section, N28_term_shall_have_meaning_defined_in_section, SameArgumentOrder)
+  and bridge_argument_order(N02_term_shall_have_meaning_defined_in_section, N29_term_shall_have_meaning_defined_in_section, SameArgumentOrder)
+  and bridge_argument_order(N02_term_shall_have_meaning_defined_in_section, N32_term_shall_have_meaning_defined_in_section, SameArgumentOrder)
+  and bridge_link_type(N02_term_shall_have_meaning_defined_in_section, N03_term_shall_have_meaning_defined_in_section, RelationAlias)
+  and bridge_link_type(N02_term_shall_have_meaning_defined_in_section, N16_term_shall_have_meaning_defined_in_section, RelationAlias)
+  and bridge_link_type(N02_term_shall_have_meaning_defined_in_section, N17_term_shall_have_meaning_defined_in_section, RelationAlias)
+  and bridge_link_type(N02_term_shall_have_meaning_defined_in_section, N18_term_shall_have_meaning_defined_in_section, RelationAlias)
+  and bridge_link_type(N02_term_shall_have_meaning_defined_in_section, N20_term_shall_have_meaning_defined_in_section, RelationAlias)
+  and bridge_link_type(N02_term_shall_have_meaning_defined_in_section, N22_term_shall_have_meaning_defined_in_section, RelationAlias)
+  and bridge_link_type(N02_term_shall_have_meaning_defined_in_section, N24_term_shall_have_meaning_defined_in_section, RelationAlias)
+  and bridge_link_type(N02_term_shall_have_meaning_defined_in_section, N25_term_shall_have_meaning_defined_in_section, RelationAlias)
+  and bridge_link_type(N02_term_shall_have_meaning_defined_in_section, N28_term_shall_have_meaning_defined_in_section, RelationAlias)
+  and bridge_link_type(N02_term_shall_have_meaning_defined_in_section, N29_term_shall_have_meaning_defined_in_section, RelationAlias)
+  and bridge_link_type(N02_term_shall_have_meaning_defined_in_section, N32_term_shall_have_meaning_defined_in_section, RelationAlias)
+  and same_entity(N02_IntroductionSection, N03_IntroductionSection)
+  and same_entity(N02_IntroductionSection, N16_IntroductionSection)
+  and same_entity(N02_IntroductionSection, N17_IntroductionSection)
+  and same_entity(N02_IntroductionSection, N18_IntroductionSection)
+  and same_entity(N02_IntroductionSection, N28_IntroductionSection)
+  and same_entity(N24_Section1_3, N29_Section1_3)
+  and bridge_link_type(N02_IntroductionSection, N03_IntroductionSection, EntityAlias)
+  and bridge_link_type(N02_IntroductionSection, N16_IntroductionSection, EntityAlias)
+  and bridge_link_type(N02_IntroductionSection, N17_IntroductionSection, EntityAlias)
+  and bridge_link_type(N02_IntroductionSection, N18_IntroductionSection, EntityAlias)
+  and bridge_link_type(N02_IntroductionSection, N28_IntroductionSection, EntityAlias)
+  and bridge_link_type(N24_Section1_3, N29_Section1_3, EntityAlias)
+  and bridge_confidence(N02_DefinedTerm, N03_DefinedTerm, High)
+  and bridge_confidence(N02_DefinedTerm, N16_DefinedTerm, High)
+  and bridge_confidence(N02_DefinedTerm, N17_DefinedTerm, High)
+  and bridge_confidence(N02_DefinedTerm, N18_DefinedTerm, High)
+  and bridge_confidence(N02_DefinedTerm, N20_DefinedTerm, High)
+  and bridge_confidence(N02_DefinedTerm, N22_DefinedTerm, High)
+  and bridge_confidence(N02_DefinedTerm, N24_DefinedTerm, High)
+  and bridge_confidence(N02_DefinedTerm, N25_DefinedTerm, High)
+  and bridge_confidence(N02_DefinedTerm, N28_DefinedTerm, High)
+  and bridge_confidence(N02_DefinedTerm, N29_DefinedTerm, High)
+  and bridge_confidence(N02_DefinedTerm, N32_DefinedTerm, High)
+  and bridge_confidence(N02_term_shall_have_meaning_defined_in_section, N03_term_shall_have_meaning_defined_in_section, High)
+  and bridge_confidence(N02_term_shall_have_meaning_defined_in_section, N16_term_shall_have_meaning_defined_in_section, High)
+  and bridge_confidence(N02_term_shall_have_meaning_defined_in_section, N17_term_shall_have_meaning_defined_in_section, High)
+  and bridge_confidence(N02_term_shall_have_meaning_defined_in_section, N18_term_shall_have_meaning_defined_in_section, High)
+  and bridge_confidence(N02_term_shall_have_meaning_defined_in_section, N20_term_shall_have_meaning_defined_in_section, High)
+  and bridge_confidence(N02_term_shall_have_meaning_defined_in_section, N22_term_shall_have_meaning_defined_in_section, High)
+  and bridge_confidence(N02_term_shall_have_meaning_defined_in_section, N24_term_shall_have_meaning_defined_in_section, High)
+  and bridge_confidence(N02_term_shall_have_meaning_defined_in_section, N25_term_shall_have_meaning_defined_in_section, High)
+  and bridge_confidence(N02_term_shall_have_meaning_defined_in_section, N28_term_shall_have_meaning_defined_in_section, High)
+  and bridge_confidence(N02_term_shall_have_meaning_defined_in_section, N29_term_shall_have_meaning_defined_in_section, High)
+  and bridge_confidence(N02_term_shall_have_meaning_defined_in_section, N32_term_shall_have_meaning_defined_in_section, High)
+  and bridge_confidence(N02_IntroductionSection, N03_IntroductionSection, High)
+  and bridge_confidence(N02_IntroductionSection, N16_IntroductionSection, High)
+  and bridge_confidence(N02_IntroductionSection, N17_IntroductionSection, High)
+  and bridge_confidence(N02_IntroductionSection, N18_IntroductionSection, High)
+  and bridge_confidence(N02_IntroductionSection, N28_IntroductionSection, High)
+  and bridge_confidence(N24_Section1_3, N29_Section1_3, High)
+
+fact recent_definition_bridge_symbol_locations :
+  bridge_declared_in(N07_ClosingPrice, DefinitionN07)
+  and bridge_declared_in(N08_ClosingPrice, DefinitionN08)
+  and bridge_declared_in(N13_ClosingPrice, DefinitionN13)
+  and bridge_declared_in(Section1_4_ClosingPrice, Section1_4)
+  and bridge_declared_in(N07_TradingPrice, DefinitionN07)
+  and bridge_declared_in(N31_TradingPrice, DefinitionN31)
+  and bridge_declared_in(Section1_4_TradingPrice, Section1_4)
+  and bridge_declared_in(N01_TradingDay, DefinitionN01)
+  and bridge_declared_in(N07_TradingDay, DefinitionN07)
+  and bridge_declared_in(N08_TradingDay, DefinitionN08)
+  and bridge_declared_in(N31_TradingDay, DefinitionN31)
+  and bridge_declared_in(Section1_4_TradingDay, Section1_4)
+  and bridge_declared_in(Section4_4_TradingDay, Section4_4)
+  and bridge_declared_in(N30_TradingDayContext, DefinitionN30)
+  and bridge_declared_in(N09_Exchange, DefinitionN09)
+  and bridge_declared_in(N10_Exchange, DefinitionN10)
+  and bridge_declared_in(N07_Exchange, DefinitionN07)
+  and bridge_declared_in(N08_Exchange, DefinitionN08)
+  and bridge_declared_in(N31_Exchange, DefinitionN31)
+  and bridge_declared_in(Section1_4_Exchange, Section1_4)
+  and bridge_declared_in(N30_Exchange, DefinitionN30)
+  and bridge_declared_in(N09_EligibleRebalanceDay, DefinitionN09)
+  and bridge_declared_in(N26_RebalanceDay, DefinitionN26)
+  and bridge_declared_in(N27_RebalanceDay, DefinitionN27)
+  and bridge_declared_in(N30_RebalanceDay, DefinitionN30)
+  and bridge_declared_in(Section3_1_RebalanceDay, Section3_1)
+  and bridge_declared_in(Section4_4_RebalanceDay, Section4_4)
+  and bridge_declared_in(Section4_4_RegularRebalanceDay, Section4_4)
+  and bridge_declared_in(Section4_5_RegularRebalanceDay, Section4_5)
+  and bridge_declared_in(N27_BusinessDayCount, DefinitionN27)
+  and bridge_declared_in(Section3_1_FixingDay, Section3_1)
+  and bridge_declared_in(Section3_1_CloseOfBusiness, Section3_1)
+  and bridge_declared_in(N12_SelectionDay, DefinitionN12)
+  and bridge_declared_in(N13_SelectionDay, DefinitionN13)
+  and bridge_declared_in(N27_SelectionDay, DefinitionN27)
+  and bridge_declared_in(Section2_1_SelectionDay, Section2_1)
+  and bridge_declared_in(Section3_1_SelectionDay, Section3_1)
+  and bridge_declared_in(N12_ShareClass, DefinitionN12)
+  and bridge_declared_in(N13_ShareClass, DefinitionN13)
+  and bridge_declared_in(Section2_1_ShareClass, Section2_1)
+  and bridge_declared_in(N12_FreeFloat, DefinitionN12)
+  and bridge_declared_in(N13_FreeFloatMarketCapitalization, DefinitionN13)
+  and bridge_declared_in(N14_GbsIndexUniverse, DefinitionN14)
+  and bridge_declared_in(Section2_1_GbsIndexUniverse, Section2_1)
+  and bridge_declared_in(N23_IndexUniverse, DefinitionN23)
+  and bridge_declared_in(N09_NewYorkStockExchange, DefinitionN09)
+  and bridge_declared_in(N09_LondonStockExchange, DefinitionN09)
+  and bridge_declared_in(N09_EUREXExchange, DefinitionN09)
+  and bridge_declared_in(N09_TokyoStockExchange, DefinitionN09)
+  and bridge_declared_in(N27_TwentyBusinessDays, DefinitionN27)
+  and bridge_declared_in(N06_CloseOfBusiness, DefinitionN06)
+  and bridge_declared_in(N07_closing_price, DefinitionN07)
+  and bridge_declared_in(N08_closing_price, DefinitionN08)
+  and bridge_declared_in(Section1_4_closing_price, Section1_4)
+  and bridge_declared_in(N13_closing_price_of_share_class, DefinitionN13)
+  and bridge_declared_in(N07_respective_exchange, DefinitionN07)
+  and bridge_declared_in(N08_respective_exchange, DefinitionN08)
+  and bridge_declared_in(N31_respective_exchange, DefinitionN31)
+  and bridge_declared_in(N10_respective_exchange_for_index_component, DefinitionN10)
+  and bridge_declared_in(N12_share_class, DefinitionN12)
+  and bridge_declared_in(N13_share_class, DefinitionN13)
+  and bridge_declared_in(N12_sourced_from_data_vendor, DefinitionN12)
+  and bridge_declared_in(N13_sourced_from_data_vendor, DefinitionN13)
+  and bridge_declared_in(N09_eligible_rebalance_day, DefinitionN09)
+  and bridge_declared_in(N26_eligible_rebalance_day, DefinitionN26)
+  and bridge_declared_in(N04_business_day, DefinitionN04)
+  and bridge_declared_in(N27_business_day_count_before, DefinitionN27)
+  and bridge_declared_in(N11_fixing_day, DefinitionN11)
+  and bridge_declared_in(N11_selection_day, DefinitionN11)
+  and bridge_declared_in(N06_calculation_time_of_closing_level_of_index, DefinitionN06)
+  and bridge_declared_in(N27_selection_day_for_rebalance_day, DefinitionN27)
+  and bridge_declared_in(Section3_1_selection_day_of_rebalance, Section3_1)
+  and bridge_declared_in(Section3_1_fixing_day_of_rebalance, Section3_1)
+  and bridge_declared_in(Section3_1_close_of_business_on_day, Section3_1)
+  and bridge_declared_in(Section4_1_index_component_of, Section4_1)
+  and bridge_declared_in(Section4_7_index_component_of, Section4_7)
+  and bridge_declared_in(N31_trading_price, DefinitionN31)
+  and bridge_declared_in(Section1_4_current_trading_price, Section1_4)
+  and bridge_declared_in(N07_last_trading_price, DefinitionN07)
+  and bridge_declared_in(Section1_4_last_available_trading_price, Section1_4)
+  and bridge_declared_in(N07_closing_price_available, DefinitionN07)
+  and bridge_declared_in(Section1_4_current_trading_price_available, Section1_4)
+  and bridge_declared_in(N12_free_float, DefinitionN12)
+  and bridge_declared_in(N13_free_float_market_capitalization, DefinitionN13)
+  and bridge_declared_in(N13_shares_outstanding_in_free_float, DefinitionN13)
+  and bridge_declared_in(Section4_2_announcement_by, Section4_2)
+  and bridge_declared_in(Section4_4_announced_by, Section4_4)
+  and bridge_declared_in(Section4_2_announcement_under_section, Section4_2)
+  and bridge_declared_in(Section4_4_announced_under_section, Section4_4)
+  and bridge_declared_in(Section1_3_initial_level, Section1_3)
+  and bridge_declared_in(Section4_1_index_level, Section4_1)
+  and bridge_declared_in(Section4_2_calculated_level, Section4_2)
+  and bridge_declared_in(Section4_3_level_of_index, Section4_3)
+  and bridge_declared_in(N21_index_currency, DefinitionN21)
+
+fact price_exchange_and_trading_day_bridge :
+  same_sort(N07_ClosingPrice, N08_ClosingPrice)
+  and bridge_link_type(N07_ClosingPrice, N08_ClosingPrice, SortAlias)
+  and bridge_confidence(N07_ClosingPrice, N08_ClosingPrice, High)
+  and same_sort(N07_ClosingPrice, Section1_4_ClosingPrice)
+  and bridge_link_type(N07_ClosingPrice, Section1_4_ClosingPrice, SortAlias)
+  and bridge_confidence(N07_ClosingPrice, Section1_4_ClosingPrice, High)
+  and same_sort(N07_ClosingPrice, N13_ClosingPrice)
+  and bridge_link_type(N07_ClosingPrice, N13_ClosingPrice, SortAlias)
+  and bridge_confidence(N07_ClosingPrice, N13_ClosingPrice, Medium)
+  and same_sort(N07_TradingPrice, N31_TradingPrice)
+  and bridge_link_type(N07_TradingPrice, N31_TradingPrice, SortAlias)
+  and bridge_confidence(N07_TradingPrice, N31_TradingPrice, High)
+  and same_sort(N07_TradingPrice, Section1_4_TradingPrice)
+  and bridge_link_type(N07_TradingPrice, Section1_4_TradingPrice, SortAlias)
+  and bridge_confidence(N07_TradingPrice, Section1_4_TradingPrice, High)
+  and same_sort(N07_TradingDay, N08_TradingDay)
+  and bridge_link_type(N07_TradingDay, N08_TradingDay, SortAlias)
+  and bridge_confidence(N07_TradingDay, N08_TradingDay, High)
+  and same_sort(N07_TradingDay, N31_TradingDay)
+  and bridge_link_type(N07_TradingDay, N31_TradingDay, SortAlias)
+  and bridge_confidence(N07_TradingDay, N31_TradingDay, High)
+  and same_sort(N07_TradingDay, Section1_4_TradingDay)
+  and bridge_link_type(N07_TradingDay, Section1_4_TradingDay, SortAlias)
+  and bridge_confidence(N07_TradingDay, Section1_4_TradingDay, High)
+  and same_sort(N07_TradingDay, Section4_4_TradingDay)
+  and bridge_link_type(N07_TradingDay, Section4_4_TradingDay, SortAlias)
+  and bridge_confidence(N07_TradingDay, Section4_4_TradingDay, High)
+  and bridge_link_type(N07_TradingDay, N30_TradingDayContext, RelatedConcept)
+  and bridge_confidence(N07_TradingDay, N30_TradingDayContext, Medium)
+  and same_sort(N09_Exchange, N10_Exchange)
+  and bridge_link_type(N09_Exchange, N10_Exchange, SortAlias)
+  and bridge_confidence(N09_Exchange, N10_Exchange, High)
+  and same_sort(N09_Exchange, N07_Exchange)
+  and bridge_link_type(N09_Exchange, N07_Exchange, SortAlias)
+  and bridge_confidence(N09_Exchange, N07_Exchange, High)
+  and same_sort(N09_Exchange, N08_Exchange)
+  and bridge_link_type(N09_Exchange, N08_Exchange, SortAlias)
+  and bridge_confidence(N09_Exchange, N08_Exchange, High)
+  and same_sort(N09_Exchange, N31_Exchange)
+  and bridge_link_type(N09_Exchange, N31_Exchange, SortAlias)
+  and bridge_confidence(N09_Exchange, N31_Exchange, High)
+  and same_sort(N09_Exchange, Section1_4_Exchange)
+  and bridge_link_type(N09_Exchange, Section1_4_Exchange, SortAlias)
+  and bridge_confidence(N09_Exchange, Section1_4_Exchange, High)
+  and same_sort(N09_Exchange, N30_Exchange)
+  and bridge_link_type(N09_Exchange, N30_Exchange, SortAlias)
+  and bridge_confidence(N09_Exchange, N30_Exchange, High)
+  and same_relation(N07_closing_price, N08_closing_price)
+  and bridge_link_type(N07_closing_price, N08_closing_price, RelationAlias)
+  and bridge_argument_order(N07_closing_price, N08_closing_price, SameArgumentOrder)
+  and bridge_confidence(N07_closing_price, N08_closing_price, High)
+  and bridge_link_type(N07_closing_price, Section1_4_closing_price, RelatedConcept)
+  and bridge_confidence(N07_closing_price, Section1_4_closing_price, Medium)
+  and bridge_link_type(N07_closing_price, N13_closing_price_of_share_class, RelatedConcept)
+  and bridge_confidence(N07_closing_price, N13_closing_price_of_share_class, Medium)
+  and same_relation(N07_respective_exchange, N08_respective_exchange)
+  and bridge_link_type(N07_respective_exchange, N08_respective_exchange, RelationAlias)
+  and bridge_argument_order(N07_respective_exchange, N08_respective_exchange, SameArgumentOrder)
+  and bridge_confidence(N07_respective_exchange, N08_respective_exchange, High)
+  and same_relation(N07_respective_exchange, N31_respective_exchange)
+  and bridge_link_type(N07_respective_exchange, N31_respective_exchange, RelationAlias)
+  and bridge_argument_order(N07_respective_exchange, N31_respective_exchange, SameArgumentOrder)
+  and bridge_confidence(N07_respective_exchange, N31_respective_exchange, High)
+  and same_relation(N07_respective_exchange, N10_respective_exchange_for_index_component)
+  and bridge_link_type(N07_respective_exchange, N10_respective_exchange_for_index_component, ScopedRelationAlias)
+  and bridge_argument_order(N07_respective_exchange, N10_respective_exchange_for_index_component, ScopedExtraIndexArgument)
+  and bridge_confidence(N07_respective_exchange, N10_respective_exchange_for_index_component, Medium)
+
+fact calendar_day_bridge :
+  same_sort(N26_RebalanceDay, N27_RebalanceDay)
+  and bridge_link_type(N26_RebalanceDay, N27_RebalanceDay, SortAlias)
+  and bridge_confidence(N26_RebalanceDay, N27_RebalanceDay, High)
+  and same_sort(N26_RebalanceDay, N30_RebalanceDay)
+  and bridge_link_type(N26_RebalanceDay, N30_RebalanceDay, SortAlias)
+  and bridge_confidence(N26_RebalanceDay, N30_RebalanceDay, High)
+  and same_sort(N26_RebalanceDay, Section3_1_RebalanceDay)
+  and bridge_link_type(N26_RebalanceDay, Section3_1_RebalanceDay, SortAlias)
+  and bridge_confidence(N26_RebalanceDay, Section3_1_RebalanceDay, High)
+  and same_sort(N26_RebalanceDay, Section4_4_RebalanceDay)
+  and bridge_link_type(N26_RebalanceDay, Section4_4_RebalanceDay, SortAlias)
+  and bridge_confidence(N26_RebalanceDay, Section4_4_RebalanceDay, High)
+  and same_sort(Section4_4_RegularRebalanceDay, Section4_5_RegularRebalanceDay)
+  and bridge_link_type(Section4_4_RegularRebalanceDay, Section4_5_RegularRebalanceDay, SortAlias)
+  and bridge_confidence(Section4_4_RegularRebalanceDay, Section4_5_RegularRebalanceDay, High)
+  and same_sort(N12_SelectionDay, N13_SelectionDay)
+  and bridge_link_type(N12_SelectionDay, N13_SelectionDay, SortAlias)
+  and bridge_confidence(N12_SelectionDay, N13_SelectionDay, High)
+  and same_sort(N12_SelectionDay, N27_SelectionDay)
+  and bridge_link_type(N12_SelectionDay, N27_SelectionDay, SortAlias)
+  and bridge_confidence(N12_SelectionDay, N27_SelectionDay, High)
+  and same_sort(N12_SelectionDay, Section2_1_SelectionDay)
+  and bridge_link_type(N12_SelectionDay, Section2_1_SelectionDay, SortAlias)
+  and bridge_confidence(N12_SelectionDay, Section2_1_SelectionDay, High)
+  and same_sort(N12_SelectionDay, Section3_1_SelectionDay)
+  and bridge_link_type(N12_SelectionDay, Section3_1_SelectionDay, SortAlias)
+  and bridge_confidence(N12_SelectionDay, Section3_1_SelectionDay, High)
+  and bridge_link_type(N09_EligibleRebalanceDay, N26_RebalanceDay, RelatedConcept)
+  and bridge_confidence(N09_EligibleRebalanceDay, N26_RebalanceDay, Medium)
+  and same_relation(N09_eligible_rebalance_day, N26_eligible_rebalance_day)
+  and bridge_link_type(N09_eligible_rebalance_day, N26_eligible_rebalance_day, RelationAlias)
+  and bridge_argument_order(N09_eligible_rebalance_day, N26_eligible_rebalance_day, SameArgumentOrder)
+  and bridge_confidence(N09_eligible_rebalance_day, N26_eligible_rebalance_day, High)
+  and same_relation(N27_selection_day_for_rebalance_day, Section3_1_selection_day_of_rebalance)
+  and bridge_link_type(N27_selection_day_for_rebalance_day, Section3_1_selection_day_of_rebalance, RelationAlias)
+  and bridge_argument_order(N27_selection_day_for_rebalance_day, Section3_1_selection_day_of_rebalance, ReversedArgumentOrder)
+  and bridge_confidence(N27_selection_day_for_rebalance_day, Section3_1_selection_day_of_rebalance, High)
+
+fact share_free_float_and_index_universe_bridge :
+  same_sort(N12_ShareClass, N13_ShareClass)
+  and bridge_link_type(N12_ShareClass, N13_ShareClass, SortAlias)
+  and bridge_confidence(N12_ShareClass, N13_ShareClass, High)
+  and same_sort(N12_ShareClass, Section2_1_ShareClass)
+  and bridge_link_type(N12_ShareClass, Section2_1_ShareClass, SortAlias)
+  and bridge_confidence(N12_ShareClass, Section2_1_ShareClass, High)
+  and bridge_link_type(N12_FreeFloat, N13_FreeFloatMarketCapitalization, RelatedConcept)
+  and bridge_confidence(N12_FreeFloat, N13_FreeFloatMarketCapitalization, Medium)
+  and same_sort(N13_FreeFloatMarketCapitalization, Section2_2_FreeFloatMarketCapizatlization)
+  and bridge_link_type(N13_FreeFloatMarketCapitalization, Section2_2_FreeFloatMarketCapizatlization, SortAlias)
+  and bridge_confidence(N13_FreeFloatMarketCapitalization, Section2_2_FreeFloatMarketCapizatlization, High)
+  and same_relation(N13_free_float_market_capitalization, Section2_2_free_float_market_capizatlization)
+  and bridge_link_type(N13_free_float_market_capitalization, Section2_2_free_float_market_capizatlization, RelationAlias)
+  and bridge_argument_order(N13_free_float_market_capitalization, Section2_2_free_float_market_capizatlization, SameArgumentOrder)
+  and bridge_confidence(N13_free_float_market_capitalization, Section2_2_free_float_market_capizatlization, High)
+  and same_sort(N14_GbsIndexUniverse, Section2_1_GbsIndexUniverse)
+  and bridge_link_type(N14_GbsIndexUniverse, Section2_1_GbsIndexUniverse, SortAlias)
+  and bridge_confidence(N14_GbsIndexUniverse, Section2_1_GbsIndexUniverse, High)
+  and bridge_link_type(N14_GbsIndexUniverse, N23_IndexUniverse, RelatedConcept)
+  and bridge_confidence(N14_GbsIndexUniverse, N23_IndexUniverse, Medium)
+  and same_relation(N12_share_class, N13_share_class)
+  and bridge_link_type(N12_share_class, N13_share_class, RelationAlias)
+  and bridge_argument_order(N12_share_class, N13_share_class, SameArgumentOrder)
+  and bridge_confidence(N12_share_class, N13_share_class, High)
+  and bridge_link_type(N12_sourced_from_data_vendor, N13_sourced_from_data_vendor, UnresolvedDrift)
+  and bridge_confidence(N12_sourced_from_data_vendor, N13_sourced_from_data_vendor, Low)
+
+fact unresolved_relation_drift_for_merge :
+  bridge_link_type(Section4_1_index_component_of, Section4_7_index_component_of, UnresolvedDrift)
+  and bridge_confidence(Section4_1_index_component_of, Section4_7_index_component_of, Low)
+  and bridge_argument_order(Section4_1_index_component_of, Section4_7_index_component_of, ScopedExtraCalculationDayArgument)
+
+fact process_calendar_bridge :
+  bridge_family_anchor(BusinessDayProcessFamily, N04_business_day)
+  and bridge_family_confidence(BusinessDayProcessFamily, Medium)
+  and bridge_family_link_type(BusinessDayProcessFamily, RelatedConcept)
+  and bridge_family_member(BusinessDayProcessFamily, N04_business_day)
+  and bridge_family_member(BusinessDayProcessFamily, N27_business_day_count_before)
+  and bridge_family_member(BusinessDayProcessFamily, N27_BusinessDayCount)
+  and bridge_family_member(BusinessDayProcessFamily, N27_TwentyBusinessDays)
+  and bridge_family_anchor(CloseOfBusinessProcessFamily, N06_CloseOfBusiness)
+  and bridge_family_confidence(CloseOfBusinessProcessFamily, Medium)
+  and bridge_family_link_type(CloseOfBusinessProcessFamily, RelatedConcept)
+  and bridge_family_member(CloseOfBusinessProcessFamily, N06_CloseOfBusiness)
+  and bridge_family_member(CloseOfBusinessProcessFamily, N06_calculation_time_of_closing_level_of_index)
+  and bridge_family_member(CloseOfBusinessProcessFamily, Section3_1_CloseOfBusiness)
+  and bridge_family_member(CloseOfBusinessProcessFamily, Section3_1_close_of_business_on_day)
+  and bridge_family_anchor(FixingDayProcessFamily, N11_fixing_day)
+  and bridge_family_confidence(FixingDayProcessFamily, High)
+  and bridge_family_link_type(FixingDayProcessFamily, RelatedConcept)
+  and bridge_family_member(FixingDayProcessFamily, N11_fixing_day)
+  and bridge_family_member(FixingDayProcessFamily, N11_selection_day)
+  and bridge_family_member(FixingDayProcessFamily, Section3_1_FixingDay)
+  and bridge_family_member(FixingDayProcessFamily, Section3_1_fixing_day_of_rebalance)
+
+fact trading_price_function_related_bridge :
+  bridge_link_type(N31_trading_price, Section1_4_current_trading_price, RelatedConcept)
+  and bridge_confidence(N31_trading_price, Section1_4_current_trading_price, Medium)
+  and same_relation(N07_last_trading_price, Section1_4_last_available_trading_price)
+  and bridge_link_type(N07_last_trading_price, Section1_4_last_available_trading_price, RelationAlias)
+  and bridge_argument_order(N07_last_trading_price, Section1_4_last_available_trading_price, SameArgumentOrder)
+  and bridge_confidence(N07_last_trading_price, Section1_4_last_available_trading_price, Medium)
+  and bridge_link_type(N07_closing_price_available, Section1_4_current_trading_price_available, RelatedConcept)
+  and bridge_confidence(N07_closing_price_available, Section1_4_current_trading_price_available, Low)
+
+fact value_observation_projection_bridge :
+  bridge_relation_projects_to_frame(N07_closing_price, ClosingPriceObservationFrame)
+  and bridge_projection_kind(N07_closing_price, FunctionProjection)
+  and bridge_argument_role(N07_closing_price, 1, ObservationSubjectRole)
+  and bridge_argument_role(N07_closing_price, 2, ObservationDayContextRole)
+  and bridge_return_role(N07_closing_price, ObservedClosingPriceRole)
+  and bridge_projection_confidence(N07_closing_price, High)
+  and bridge_relation_projects_to_frame(N08_closing_price, ClosingPriceObservationFrame)
+  and bridge_projection_kind(N08_closing_price, FunctionProjection)
+  and bridge_argument_role(N08_closing_price, 1, ObservationSubjectRole)
+  and bridge_argument_role(N08_closing_price, 2, ObservationDayContextRole)
+  and bridge_return_role(N08_closing_price, ObservedClosingPriceRole)
+  and bridge_projection_confidence(N08_closing_price, High)
+  and bridge_relation_projects_to_frame(Section1_4_closing_price, ClosingPriceObservationFrame)
+  and bridge_projection_kind(Section1_4_closing_price, FunctionProjection)
+  and bridge_argument_role(Section1_4_closing_price, 1, ObservationSubjectRole)
+  and bridge_argument_role(Section1_4_closing_price, 2, ObservationDayContextRole)
+  and bridge_return_role(Section1_4_closing_price, ObservedClosingPriceRole)
+  and bridge_projection_confidence(Section1_4_closing_price, Medium)
+  and bridge_relation_projects_to_frame(N13_closing_price_of_share_class, ClosingPriceObservationFrame)
+  and bridge_projection_kind(N13_closing_price_of_share_class, FunctionProjection)
+  and bridge_argument_role(N13_closing_price_of_share_class, 1, ObservationSelectionDayContextRole)
+  and bridge_argument_role(N13_closing_price_of_share_class, 2, ObservationSubjectRole)
+  and bridge_return_role(N13_closing_price_of_share_class, ObservedClosingPriceRole)
+  and bridge_projection_confidence(N13_closing_price_of_share_class, Medium)
+  and bridge_relation_projects_to_frame(N31_trading_price, TradingPriceObservationFrame)
+  and bridge_projection_kind(N31_trading_price, FunctionProjection)
+  and bridge_argument_role(N31_trading_price, 1, ObservationSubjectRole)
+  and bridge_argument_role(N31_trading_price, 2, ObservationDayContextRole)
+  and bridge_return_role(N31_trading_price, ObservedTradingPriceRole)
+  and bridge_projection_confidence(N31_trading_price, High)
+  and bridge_relation_projects_to_frame(Section1_4_current_trading_price, TradingPriceObservationFrame)
+  and bridge_projection_kind(Section1_4_current_trading_price, FunctionProjection)
+  and bridge_argument_role(Section1_4_current_trading_price, 1, ObservationSubjectRole)
+  and bridge_argument_role(Section1_4_current_trading_price, 2, ObservationDayContextRole)
+  and bridge_argument_role(Section1_4_current_trading_price, 3, ObservationTimeContextRole)
+  and bridge_return_role(Section1_4_current_trading_price, ObservedTradingPriceRole)
+  and bridge_projection_confidence(Section1_4_current_trading_price, Medium)
+  and bridge_relation_projects_to_frame(N07_last_trading_price, TradingPriceObservationFrame)
+  and bridge_projection_kind(N07_last_trading_price, FunctionProjection)
+  and bridge_argument_role(N07_last_trading_price, 1, ObservationSubjectRole)
+  and bridge_argument_role(N07_last_trading_price, 2, ObservationDayContextRole)
+  and bridge_return_role(N07_last_trading_price, ObservedTradingPriceRole)
+  and bridge_projection_confidence(N07_last_trading_price, Medium)
+  and bridge_relation_projects_to_frame(Section1_4_last_available_trading_price, TradingPriceObservationFrame)
+  and bridge_projection_kind(Section1_4_last_available_trading_price, FunctionProjection)
+  and bridge_argument_role(Section1_4_last_available_trading_price, 1, ObservationSubjectRole)
+  and bridge_argument_role(Section1_4_last_available_trading_price, 2, ObservationDayContextRole)
+  and bridge_return_role(Section1_4_last_available_trading_price, ObservedTradingPriceRole)
+  and bridge_projection_confidence(Section1_4_last_available_trading_price, Medium)
+  and bridge_relation_projects_to_frame(N01_daily_value_traded, DailyValueTradedObservationFrame)
+  and bridge_projection_kind(N01_daily_value_traded, FunctionProjection)
+  and bridge_argument_role(N01_daily_value_traded, 1, ObservationSubjectRole)
+  and bridge_argument_role(N01_daily_value_traded, 2, ObservationDayContextRole)
+  and bridge_return_role(N01_daily_value_traded, ObservedDailyValueTradedRole)
+  and bridge_projection_confidence(N01_daily_value_traded, High)
+  and bridge_relation_projects_to_frame(N08_daily_value_traded, DailyValueTradedObservationFrame)
+  and bridge_projection_kind(N08_daily_value_traded, FunctionProjection)
+  and bridge_argument_role(N08_daily_value_traded, 1, ObservationSubjectRole)
+  and bridge_argument_role(N08_daily_value_traded, 2, ObservationDayContextRole)
+  and bridge_return_role(N08_daily_value_traded, ObservedDailyValueTradedRole)
+  and bridge_projection_confidence(N08_daily_value_traded, High)
+  and bridge_relation_projects_to_frame(N01_average_daily_value_traded, AverageDailyValueTradedObservationFrame)
+  and bridge_projection_kind(N01_average_daily_value_traded, FunctionProjection)
+  and bridge_argument_role(N01_average_daily_value_traded, 1, ObservationSubjectRole)
+  and bridge_argument_role(N01_average_daily_value_traded, 2, ObservationPeriodContextRole)
+  and bridge_return_role(N01_average_daily_value_traded, ObservedAverageDailyValueTradedRole)
+  and bridge_projection_confidence(N01_average_daily_value_traded, High)
+  and bridge_relation_projects_to_frame(Section2_1_average_daily_value_traded, AverageDailyValueTradedObservationFrame)
+  and bridge_projection_kind(Section2_1_average_daily_value_traded, FunctionProjection)
+  and bridge_argument_role(Section2_1_average_daily_value_traded, 1, ObservationSelectionDayContextRole)
+  and bridge_argument_role(Section2_1_average_daily_value_traded, 2, ObservationSubjectRole)
+  and bridge_argument_role(Section2_1_average_daily_value_traded, 3, ObservationPeriodContextRole)
+  and bridge_return_role(Section2_1_average_daily_value_traded, ObservedAverageDailyValueTradedRole)
+  and bridge_projection_confidence(Section2_1_average_daily_value_traded, Medium)
+  and bridge_relation_projects_to_frame(N12_free_float, FreeFloatObservationFrame)
+  and bridge_projection_kind(N12_free_float, FunctionProjection)
+  and bridge_argument_role(N12_free_float, 1, ObservationSelectionDayContextRole)
+  and bridge_argument_role(N12_free_float, 2, ObservationSubjectRole)
+  and bridge_return_role(N12_free_float, ObservedFreeFloatRole)
+  and bridge_projection_confidence(N12_free_float, High)
+  and bridge_relation_projects_to_frame(N13_shares_outstanding_in_free_float, ShareCountObservationFrame)
+  and bridge_projection_kind(N13_shares_outstanding_in_free_float, FunctionProjection)
+  and bridge_argument_role(N13_shares_outstanding_in_free_float, 1, ObservationSelectionDayContextRole)
+  and bridge_argument_role(N13_shares_outstanding_in_free_float, 2, ObservationSubjectRole)
+  and bridge_return_role(N13_shares_outstanding_in_free_float, ObservedShareCountRole)
+  and bridge_projection_confidence(N13_shares_outstanding_in_free_float, High)
+  and bridge_relation_projects_to_frame(N13_free_float_market_capitalization, FreeFloatMarketCapitalizationObservationFrame)
+  and bridge_projection_kind(N13_free_float_market_capitalization, FunctionProjection)
+  and bridge_argument_role(N13_free_float_market_capitalization, 1, ObservationSelectionDayContextRole)
+  and bridge_argument_role(N13_free_float_market_capitalization, 2, ObservationSubjectRole)
+  and bridge_return_role(N13_free_float_market_capitalization, ObservedFreeFloatMarketCapitalizationRole)
+  and bridge_projection_confidence(N13_free_float_market_capitalization, High)
+  and bridge_relation_projects_to_frame(Section1_3_initial_level, InitialIndexLevelObservationFrame)
+  and bridge_projection_kind(Section1_3_initial_level, FunctionProjection)
+  and bridge_argument_role(Section1_3_initial_level, 1, ObservationIndexRole)
+  and bridge_argument_role(Section1_3_initial_level, 2, ObservationDayContextRole)
+  and bridge_return_role(Section1_3_initial_level, ObservedIndexLevelRole)
+  and bridge_projection_confidence(Section1_3_initial_level, High)
+  and bridge_relation_projects_to_frame(Section4_1_index_level, IndexLevelObservationFrame)
+  and bridge_projection_kind(Section4_1_index_level, FunctionProjection)
+  and bridge_argument_role(Section4_1_index_level, 1, ObservationIndexRole)
+  and bridge_argument_role(Section4_1_index_level, 2, ObservationDayContextRole)
+  and bridge_return_role(Section4_1_index_level, ObservedIndexLevelRole)
+  and bridge_projection_confidence(Section4_1_index_level, High)
+  and bridge_relation_projects_to_frame(Section4_2_calculated_level, IndexLevelObservationFrame)
+  and bridge_projection_kind(Section4_2_calculated_level, FunctionProjection)
+  and bridge_argument_role(Section4_2_calculated_level, 1, ObservationCalculationRole)
+  and bridge_return_role(Section4_2_calculated_level, ObservedIndexLevelRole)
+  and bridge_projection_confidence(Section4_2_calculated_level, Medium)
+  and bridge_relation_projects_to_frame(Section4_3_level_of_index, IndexLevelObservationFrame)
+  and bridge_projection_kind(Section4_3_level_of_index, RelationProjection)
+  and bridge_argument_role(Section4_3_level_of_index, 1, ObservedIndexLevelRole)
+  and bridge_argument_role(Section4_3_level_of_index, 2, ObservationIndexRole)
+  and bridge_projection_confidence(Section4_3_level_of_index, High)
+  and bridge_relation_projects_to_frame(Section1_2_index_currency, IndexCurrencyObservationFrame)
+  and bridge_projection_kind(Section1_2_index_currency, FunctionProjection)
+  and bridge_argument_role(Section1_2_index_currency, 1, ObservationIndexRole)
+  and bridge_return_role(Section1_2_index_currency, ObservedCurrencyRole)
+  and bridge_projection_confidence(Section1_2_index_currency, High)
+  and bridge_relation_projects_to_frame(Section1_4_index_currency, IndexCurrencyObservationFrame)
+  and bridge_projection_kind(Section1_4_index_currency, FunctionProjection)
+  and bridge_argument_role(Section1_4_index_currency, 1, ObservationIndexRole)
+  and bridge_return_role(Section1_4_index_currency, ObservedCurrencyRole)
+  and bridge_projection_confidence(Section1_4_index_currency, High)
+  and bridge_relation_projects_to_frame(Section4_1_index_currency, IndexCurrencyObservationFrame)
+  and bridge_projection_kind(Section4_1_index_currency, FunctionProjection)
+  and bridge_argument_role(Section4_1_index_currency, 1, ObservationIndexRole)
+  and bridge_return_role(Section4_1_index_currency, ObservedCurrencyRole)
+  and bridge_projection_confidence(Section4_1_index_currency, High)
+  and bridge_relation_projects_to_frame(N21_index_currency, IndexCurrencyObservationFrame)
+  and bridge_projection_kind(N21_index_currency, RelationProjection)
+  and bridge_argument_role(N21_index_currency, 1, ObservationIndexRole)
+  and bridge_argument_role(N21_index_currency, 2, ObservedCurrencyRole)
+  and bridge_projection_confidence(N21_index_currency, High)
+  and bridge_relation_projects_to_frame(N07_respective_exchange, ExchangeObservationFrame)
+  and bridge_projection_kind(N07_respective_exchange, FunctionProjection)
+  and bridge_argument_role(N07_respective_exchange, 1, ObservationSubjectRole)
+  and bridge_return_role(N07_respective_exchange, ObservedExchangeRole)
+  and bridge_projection_confidence(N07_respective_exchange, High)
+  and bridge_relation_projects_to_frame(N08_respective_exchange, ExchangeObservationFrame)
+  and bridge_projection_kind(N08_respective_exchange, FunctionProjection)
+  and bridge_argument_role(N08_respective_exchange, 1, ObservationSubjectRole)
+  and bridge_return_role(N08_respective_exchange, ObservedExchangeRole)
+  and bridge_projection_confidence(N08_respective_exchange, High)
+  and bridge_relation_projects_to_frame(N31_respective_exchange, ExchangeObservationFrame)
+  and bridge_projection_kind(N31_respective_exchange, FunctionProjection)
+  and bridge_argument_role(N31_respective_exchange, 1, ObservationSubjectRole)
+  and bridge_return_role(N31_respective_exchange, ObservedExchangeRole)
+  and bridge_projection_confidence(N31_respective_exchange, High)
+  and bridge_relation_projects_to_frame(N10_respective_exchange_for_index_component, ExchangeObservationFrame)
+  and bridge_projection_kind(N10_respective_exchange_for_index_component, FunctionProjection)
+  and bridge_argument_role(N10_respective_exchange_for_index_component, 1, ObservationIndexRole)
+  and bridge_argument_role(N10_respective_exchange_for_index_component, 2, ObservationSubjectRole)
+  and bridge_return_role(N10_respective_exchange_for_index_component, ObservedExchangeRole)
+  and bridge_projection_confidence(N10_respective_exchange_for_index_component, Medium)
+
+fact second_value_observation_projection_bridge :
+  bridge_relation_projects_to_frame(Section2_3_weight, ComponentWeightObservationFrame)
+  and bridge_projection_kind(Section2_3_weight, FunctionProjection)
+  and bridge_argument_role(Section2_3_weight, 1, ObservationSelectionDayContextRole)
+  and bridge_argument_role(Section2_3_weight, 2, ObservationSubjectRole)
+  and bridge_return_role(Section2_3_weight, ObservedComponentWeightRole)
+  and bridge_projection_confidence(Section2_3_weight, High)
+  and bridge_relation_projects_to_frame(Section4_1_component_weight, ComponentWeightObservationFrame)
+  and bridge_projection_kind(Section4_1_component_weight, FunctionProjection)
+  and bridge_argument_role(Section4_1_component_weight, 1, ObservationIndexRole)
+  and bridge_argument_role(Section4_1_component_weight, 2, ObservationDayContextRole)
+  and bridge_argument_role(Section4_1_component_weight, 3, ObservationSubjectRole)
+  and bridge_return_role(Section4_1_component_weight, ObservedComponentWeightRole)
+  and bridge_projection_confidence(Section4_1_component_weight, Medium)
+  and bridge_relation_projects_to_frame(Section2_2_free_float_market_capizatlization, FreeFloatMarketCapitalizationObservationFrame)
+  and bridge_projection_kind(Section2_2_free_float_market_capizatlization, FunctionProjection)
+  and bridge_argument_role(Section2_2_free_float_market_capizatlization, 1, ObservationSelectionDayContextRole)
+  and bridge_argument_role(Section2_2_free_float_market_capizatlization, 2, ObservationSubjectRole)
+  and bridge_return_role(Section2_2_free_float_market_capizatlization, ObservedFreeFloatMarketCapitalizationRole)
+  and bridge_projection_confidence(Section2_2_free_float_market_capizatlization, Medium)
+  and bridge_relation_projects_to_frame(Section2_3_float_market_capizatlization, FreeFloatMarketCapitalizationObservationFrame)
+  and bridge_projection_kind(Section2_3_float_market_capizatlization, FunctionProjection)
+  and bridge_argument_role(Section2_3_float_market_capizatlization, 1, ObservationSelectionDayContextRole)
+  and bridge_argument_role(Section2_3_float_market_capizatlization, 2, ObservationSubjectRole)
+  and bridge_return_role(Section2_3_float_market_capizatlization, ObservedFreeFloatMarketCapitalizationRole)
+  and bridge_projection_confidence(Section2_3_float_market_capizatlization, High)
+  and bridge_relation_projects_to_frame(Section2_2_region, RegionClassificationObservationFrame)
+  and bridge_projection_kind(Section2_2_region, FunctionProjection)
+  and bridge_argument_role(Section2_2_region, 1, ObservationSelectionDayContextRole)
+  and bridge_argument_role(Section2_2_region, 2, ObservationSubjectRole)
+  and bridge_return_role(Section2_2_region, ObservedRegionRole)
+  and bridge_projection_confidence(Section2_2_region, High)
+  and bridge_relation_projects_to_frame(Section2_3_region, RegionClassificationObservationFrame)
+  and bridge_projection_kind(Section2_3_region, FunctionProjection)
+  and bridge_argument_role(Section2_3_region, 1, ObservationSubjectRole)
+  and bridge_return_role(Section2_3_region, ObservedRegionRole)
+  and bridge_projection_confidence(Section2_3_region, Medium)
+  and bridge_relation_projects_to_frame(Section4_1_component_price, ComponentPriceObservationFrame)
+  and bridge_projection_kind(Section4_1_component_price, FunctionProjection)
+  and bridge_argument_role(Section4_1_component_price, 1, ObservationSubjectRole)
+  and bridge_argument_role(Section4_1_component_price, 2, ObservationDayContextRole)
+  and bridge_return_role(Section4_1_component_price, ObservedComponentPriceRole)
+  and bridge_projection_confidence(Section4_1_component_price, High)
+  and bridge_relation_projects_to_frame(Section4_1_component_price_change, PriceChangeObservationFrame)
+  and bridge_projection_kind(Section4_1_component_price_change, FunctionProjection)
+  and bridge_argument_role(Section4_1_component_price_change, 1, ObservationSubjectRole)
+  and bridge_argument_role(Section4_1_component_price_change, 2, ObservationDayContextRole)
+  and bridge_return_role(Section4_1_component_price_change, ObservedPriceChangeRole)
+  and bridge_projection_confidence(Section4_1_component_price_change, Medium)
+
+fact index_component_membership_projection_bridge :
+  bridge_relation_projects_to_frame(N19_index_component, GenericIndexComponentMembershipFrame)
+  and bridge_projection_kind(N19_index_component, RelationProjection)
+  and bridge_argument_role(N19_index_component, 1, MembershipSecurityRole)
+  and bridge_argument_role(N19_index_component, 2, MembershipIndexRole)
+  and bridge_projection_confidence(N19_index_component, High)
+  and bridge_relation_projects_to_frame(Section4_7_index_component_of, GenericIndexComponentMembershipFrame)
+  and bridge_projection_kind(Section4_7_index_component_of, RelationProjection)
+  and bridge_argument_role(Section4_7_index_component_of, 1, MembershipComponentAssignmentRole)
+  and bridge_argument_role(Section4_7_index_component_of, 2, MembershipIndexRole)
+  and bridge_projection_confidence(Section4_7_index_component_of, High)
+  and bridge_relation_projects_to_frame(Section2_2_index_component, SelectionDayIndexComponentMembershipFrame)
+  and bridge_projection_kind(Section2_2_index_component, RelationProjection)
+  and bridge_argument_role(Section2_2_index_component, 1, MembershipSelectionDayRole)
+  and bridge_argument_role(Section2_2_index_component, 2, MembershipSecurityRole)
+  and bridge_projection_confidence(Section2_2_index_component, Medium)
+  and bridge_relation_projects_to_frame(Section1_4_index_component, CalculationDayIndexComponentMembershipFrame)
+  and bridge_projection_kind(Section1_4_index_component, RelationProjection)
+  and bridge_argument_role(Section1_4_index_component, 1, MembershipCalculationDayRole)
+  and bridge_argument_role(Section1_4_index_component, 2, MembershipComponentAssignmentRole)
+  and bridge_projection_confidence(Section1_4_index_component, Medium)
+  and bridge_relation_projects_to_frame(Section4_1_index_component_of, CalculationDayIndexComponentMembershipFrame)
+  and bridge_projection_kind(Section4_1_index_component_of, RelationProjection)
+  and bridge_argument_role(Section4_1_index_component_of, 1, MembershipIndexRole)
+  and bridge_argument_role(Section4_1_index_component_of, 2, MembershipCalculationDayRole)
+  and bridge_argument_role(Section4_1_index_component_of, 3, MembershipComponentAssignmentRole)
+  and bridge_projection_confidence(Section4_1_index_component_of, High)
+
+fact core_bridge_family_symbol_locations :
+  bridge_declared_in(Section1_1_TheIndex, Section1_1)
+  and bridge_declared_in(Section1_4_TheIndex, Section1_4)
+  and bridge_declared_in(Section1_5_TheIndex, Section1_5)
+  and bridge_declared_in(Section3_1_TheIndex, Section3_1)
+  and bridge_declared_in(Section3_2_TheIndex, Section3_2)
+  and bridge_declared_in(Section4_3_TheIndex, Section4_3)
+  and bridge_declared_in(Section4_4_TheIndex, Section4_4)
+  and bridge_declared_in(Section4_5_TheIndex, Section4_5)
+  and bridge_declared_in(Section4_7_TheIndex, Section4_7)
+  and bridge_declared_in(Section5_1_TheIndex, Section5_1)
+  and bridge_declared_in(Section5_2_TheIndex, Section5_2)
+  and bridge_declared_in(Section5_3_TheIndex, Section5_3)
+  and bridge_declared_in(Section5_5_TheIndex, Section5_5)
+  and bridge_declared_in(N06_TheIndex, DefinitionN06)
+  and bridge_declared_in(N10_TheIndex, DefinitionN10)
+  and bridge_declared_in(N19_TheIndex, DefinitionN19)
+  and bridge_declared_in(N30_TheIndex, DefinitionN30)
+  and bridge_declared_in(Section1_2_SolactiveWebsite, Section1_2)
+  and bridge_declared_in(Section3_1_SolactiveWebsite, Section3_1)
+  and bridge_declared_in(Section4_1_SolactiveWebsite, Section4_1)
+  and bridge_declared_in(Section4_2_SolactiveWebsite, Section4_2)
+  and bridge_declared_in(Section4_4_SolactiveWebsite, Section4_4)
+  and bridge_declared_in(Section4_5_SolactiveWebsite, Section4_5)
+  and bridge_declared_in(Section4_6_SolactiveWebsite, Section4_6)
+  and bridge_declared_in(Section4_7_SolactiveWebsite, Section4_7)
+  and bridge_declared_in(Section5_2_SolactiveWebsite, Section5_2)
+  and bridge_declared_in(Section5_4_SolactiveWebsite, Section5_4)
+  and bridge_declared_in(Section5_5_SolactiveWebsite, Section5_5)
+  and bridge_declared_in(Section3_1_ThisGuideline, Section3_1)
+  and bridge_declared_in(Section4_4_ThisGuideline, Section4_4)
+  and bridge_declared_in(Section4_6_ThisGuideline, Section4_6)
+  and bridge_declared_in(Section4_7_ThisGuideline, Section4_7)
+  and bridge_declared_in(Section1_2_EquityIndexMethodology, Section1_2)
+  and bridge_declared_in(Section4_1_EquityIndexMethodology, Section4_1)
+  and bridge_declared_in(Section4_5_EquityIndexMethodology, Section4_5)
+  and bridge_declared_in(Section3_1_SolactiveEquityIndexMethodology, Section3_1)
+  and bridge_declared_in(Section4_4_SolactiveEquityIndexMethodology, Section4_4)
+  and bridge_declared_in(Section4_6_SolactiveGreatestPossibleEfforts, Section4_6)
+  and bridge_declared_in(Section5_4_SolactiveGreatestPossibleEfforts, Section5_4)
+  and bridge_declared_in(N30_TheIndexAdministrator, DefinitionN30)
+  and bridge_declared_in(Section5_3_TheIndexAdministrator, Section5_3)
+  and bridge_declared_in(N14_GbsIndexSpecifiedInSection2_1, DefinitionN14)
+  and bridge_declared_in(N15_GbsIndexSpecifiedInSection2_1, DefinitionN15)
+  and bridge_declared_in(Section3_1_AnnouncementSection, Section3_1)
+  and bridge_declared_in(Section4_4_AnnouncementsSection, Section4_4)
+  and bridge_declared_in(Section5_2_AnnouncementSection, Section5_2)
+  and bridge_declared_in(N07_Security, DefinitionN07)
+  and bridge_declared_in(N12_Security, DefinitionN12)
+  and bridge_declared_in(N13_Security, DefinitionN13)
+  and bridge_declared_in(N15_Security, DefinitionN15)
+  and bridge_declared_in(N19_Security, DefinitionN19)
+  and bridge_declared_in(N30_Security, DefinitionN30)
+  and bridge_declared_in(Section1_1_Security, Section1_1)
+  and bridge_declared_in(Section2_1_Security, Section2_1)
+  and bridge_declared_in(Section2_2_Security, Section2_2)
+  and bridge_declared_in(N01_IndexComponent, DefinitionN01)
+  and bridge_declared_in(N07_IndexComponent, DefinitionN07)
+  and bridge_declared_in(N08_IndexComponent, DefinitionN08)
+  and bridge_declared_in(N10_IndexComponent, DefinitionN10)
+  and bridge_declared_in(N30_IndexComponent, DefinitionN30)
+  and bridge_declared_in(N31_IndexComponent, DefinitionN31)
+  and bridge_declared_in(Section1_4_IndexComponent, Section1_4)
+  and bridge_declared_in(Section2_3_IndexComponent, Section2_3)
+  and bridge_declared_in(Section3_1_IndexComponent, Section3_1)
+  and bridge_declared_in(Section4_1_IndexComponent, Section4_1)
+  and bridge_declared_in(Section4_4_IndexComponent, Section4_4)
+  and bridge_declared_in(Section4_5_IndexComponent, Section4_5)
+  and bridge_declared_in(Section4_7_IndexComponent, Section4_7)
+  and bridge_declared_in(Section1_3_IndexLevel, Section1_3)
+  and bridge_declared_in(Section1_4_IndexLevel, Section1_4)
+  and bridge_declared_in(Section4_1_IndexLevel, Section4_1)
+  and bridge_declared_in(Section4_2_IndexLevel, Section4_2)
+  and bridge_declared_in(Section4_3_IndexLevel, Section4_3)
+  and bridge_declared_in(Section1_5_SolactiveOrganization, Section1_5)
+  and bridge_declared_in(Section3_1_SolactiveOrganization, Section3_1)
+  and bridge_declared_in(Section4_2_SolactiveOrganization, Section4_2)
+  and bridge_declared_in(Section4_4_SolactiveOrganization, Section4_4)
+  and bridge_declared_in(Section4_5_SolactiveOrganization, Section4_5)
+  and bridge_declared_in(Section4_4_CorporateAction, Section4_4)
+  and bridge_declared_in(Section4_5_CorporateAction, Section4_5)
+  and bridge_declared_in(Section4_2_IndexCalculation, Section4_2)
+  and bridge_declared_in(Section4_5_IndexCalculation, Section4_5)
+  and bridge_declared_in(Section3_1_Notice, Section3_1)
+  and bridge_declared_in(Section4_4_Notice, Section4_4)
+  and bridge_declared_in(N01_DailyValueTraded, DefinitionN01)
+  and bridge_declared_in(N08_DailyValueTraded, DefinitionN08)
+  and bridge_declared_in(N01_AverageDailyValueTraded, DefinitionN01)
+  and bridge_declared_in(Section2_1_AverageDailyValueTraded, Section2_1)
+  and bridge_declared_in(N12_DataVendor, DefinitionN12)
+  and bridge_declared_in(N13_DataVendor, DefinitionN13)
+  and bridge_declared_in(N12_ShareCount, DefinitionN12)
+  and bridge_declared_in(N13_ShareCount, DefinitionN13)
+  and bridge_declared_in(N01_daily_value_traded, DefinitionN01)
+  and bridge_declared_in(N08_daily_value_traded, DefinitionN08)
+  and bridge_declared_in(N01_average_daily_value_traded, DefinitionN01)
+  and bridge_declared_in(Section2_1_average_daily_value_traded, Section2_1)
+  and bridge_declared_in(Section1_2_index_currency, Section1_2)
+  and bridge_declared_in(Section1_4_index_currency, Section1_4)
+  and bridge_declared_in(Section4_1_index_currency, Section4_1)
+  and bridge_declared_in(Section1_2_index_type, Section1_2)
+  and bridge_declared_in(Section4_1_index_type, Section4_1)
+  and bridge_declared_in(N12_fulfills_index_component_requirements, DefinitionN12)
+  and bridge_declared_in(N13_fulfills_index_component_requirements, DefinitionN13)
+  and bridge_declared_in(N14_gbs_index_specified_in_section, DefinitionN14)
+  and bridge_declared_in(N15_gbs_index_specified_in_section, DefinitionN15)
+  and bridge_declared_in(Section5_2_methodology_of_index, Section5_2)
+  and bridge_declared_in(Section5_4_methodology_of_index, Section5_4)
+  and bridge_declared_in(Section4_6_index_of, Section4_6)
+  and bridge_declared_in(Section4_7_index_of, Section4_7)
+  and bridge_declared_in(Section5_4_index_of, Section5_4)
+  and bridge_declared_in(Section1_2_available_on, Section1_2)
+  and bridge_declared_in(Section3_1_available_on, Section3_1)
+  and bridge_declared_in(Section4_1_available_on, Section4_1)
+  and bridge_declared_in(Section4_4_available_on, Section4_4)
+  and bridge_declared_in(Section4_5_available_on, Section4_5)
+  and bridge_declared_in(Section4_6_available_on, Section4_6)
+  and bridge_declared_in(Section4_7_available_on, Section4_7)
+  and bridge_declared_in(Section5_2_available_on, Section5_2)
+  and bridge_declared_in(Section5_4_available_on, Section5_4)
+  and bridge_declared_in(Section5_5_available_on, Section5_5)
+  and bridge_declared_in(Section1_2_website_of, Section1_2)
+  and bridge_declared_in(Section3_1_website_of, Section3_1)
+  and bridge_declared_in(Section4_2_website_of, Section4_2)
+  and bridge_declared_in(Section4_4_website_of, Section4_4)
+  and bridge_declared_in(Section4_5_website_of, Section4_5)
+  and bridge_declared_in(Section4_6_website_of, Section4_6)
+  and bridge_declared_in(Section4_7_website_of, Section4_7)
+  and bridge_declared_in(Section5_2_website_of, Section5_2)
+  and bridge_declared_in(Section5_4_website_of, Section5_4)
+  and bridge_declared_in(Section5_5_website_of, Section5_5)
+  and bridge_declared_in(Section3_1_incorporated_by_reference_into, Section3_1)
+  and bridge_declared_in(Section4_4_incorporated_by_reference_into, Section4_4)
+  and bridge_declared_in(Section4_6_incorporated_by_reference_into, Section4_6)
+  and bridge_declared_in(Section4_7_incorporated_by_reference_into, Section4_7)
+  and bridge_declared_in(Section5_2_incorporated_by_reference_into, Section5_2)
+  and bridge_declared_in(Section3_1_section_of_website, Section3_1)
+  and bridge_declared_in(Section4_2_section_of_website, Section4_2)
+  and bridge_declared_in(Section4_4_section_of_website, Section4_4)
+  and bridge_declared_in(Section5_2_section_of_website, Section5_2)
+  and bridge_declared_in(Section2_1_Canada, Section2_1)
+  and bridge_declared_in(Section2_2_Canada, Section2_2)
+  and bridge_declared_in(Section2_1_UnitedStates, Section2_1)
+  and bridge_declared_in(Section2_2_UnitedStates, Section2_2)
+  and bridge_declared_in(Section1_2_HttpsWwwSolactiveComDocumentsEquityIndexMethodology, Section1_2)
+  and bridge_declared_in(Section3_1_HttpsWwwSolactiveComDocumentsEquityIndexMethodology, Section3_1)
+  and bridge_declared_in(Section5_2_HttpsWwwSolactiveComDocumentsMethodologyPolicy, Section5_2)
+  and bridge_declared_in(Section5_5_HttpsWwwSolactiveComDocumentsMethodologyPolicy, Section5_5)
+  and bridge_declared_in(Section1_2_HttpsWwwSolactiveComNewsAnnouncements, Section1_2)
+  and bridge_declared_in(Section3_1_HttpsWwwSolactiveComNewsAnnouncements, Section3_1)
+  and bridge_declared_in(Section4_2_HttpsWwwSolactiveComNewsAnnouncements, Section4_2)
+  and bridge_declared_in(Section5_2_HttpsWwwSolactiveComNewsAnnouncements, Section5_2)
+  and bridge_declared_in(Section2_2_Region, Section2_2)
+  and bridge_declared_in(Section2_3_Region, Section2_3)
+  and bridge_declared_in(N06_CalculationTime, DefinitionN06)
+  and bridge_declared_in(Section1_4_CalculationTime, Section1_4)
+  and bridge_declared_in(Section2_1_DiscretionaryDecision, Section2_1)
+  and bridge_declared_in(Section2_2_DiscretionaryDecision, Section2_2)
+  and bridge_declared_in(Section4_6_Error, Section4_6)
+  and bridge_declared_in(Section5_3_Error, Section5_3)
+  and bridge_declared_in(Section1_2_ISIN, Section1_2)
+  and bridge_declared_in(Section2_1_ISIN, Section2_1)
+  and bridge_declared_in(Section4_5_IndexQuality, Section4_5)
+  and bridge_declared_in(Section5_4_IndexQuality, Section5_4)
+  and bridge_declared_in(Section5_4_IndexRule, Section5_4)
+  and bridge_declared_in(Section5_5_IndexRule, Section5_5)
+  and bridge_declared_in(Section4_2_Policy, Section4_2)
+  and bridge_declared_in(Section5_5_Policy, Section5_5)
+  and bridge_declared_in(Section2_2_region, Section2_2)
+  and bridge_declared_in(Section2_3_region, Section2_3)
+  and bridge_declared_in(Section2_2_free_float_market_capizatlization, Section2_2)
+  and bridge_declared_in(Section2_3_float_market_capizatlization, Section2_3)
+  and bridge_declared_in(Section2_3_weight, Section2_3)
+  and bridge_declared_in(Section4_1_component_price, Section4_1)
+  and bridge_declared_in(Section4_1_component_price_change, Section4_1)
+  and bridge_declared_in(Section4_1_component_weight, Section4_1)
+  and bridge_declared_in(Section4_2_announced_on, Section4_2)
+  and bridge_declared_in(Section4_4_announced_on, Section4_4)
+  and bridge_declared_in(Section2_1_fully_rule_based, Section2_1)
+  and bridge_declared_in(Section2_2_fully_rule_based, Section2_2)
+  and bridge_declared_in(Section4_6_greatest_possible, Section4_6)
+  and bridge_declared_in(Section5_4_greatest_possible, Section5_4)
+
+fact canonical_merge_expansion_symbol_locations :
+  bridge_declared_in(Section1_1_Index, Section1_1)
+  and bridge_declared_in(Section1_2_Index, Section1_2)
+  and bridge_declared_in(Section1_3_Index, Section1_3)
+  and bridge_declared_in(Section1_4_Index, Section1_4)
+  and bridge_declared_in(Section1_5_Index, Section1_5)
+  and bridge_declared_in(Section3_1_Index, Section3_1)
+  and bridge_declared_in(Section3_2_Index, Section3_2)
+  and bridge_declared_in(Section4_1_Index, Section4_1)
+  and bridge_declared_in(Section4_2_Index, Section4_2)
+  and bridge_declared_in(Section4_3_Index, Section4_3)
+  and bridge_declared_in(Section4_4_Index, Section4_4)
+  and bridge_declared_in(Section4_5_Index, Section4_5)
+  and bridge_declared_in(Section4_6_Index, Section4_6)
+  and bridge_declared_in(Section4_7_Index, Section4_7)
+  and bridge_declared_in(Section5_1_Index, Section5_1)
+  and bridge_declared_in(Section5_2_Index, Section5_2)
+  and bridge_declared_in(Section5_3_Index, Section5_3)
+  and bridge_declared_in(Section5_4_Index, Section5_4)
+  and bridge_declared_in(Section5_5_Index, Section5_5)
+  and bridge_declared_in(N06_Index, DefinitionN06)
+  and bridge_declared_in(N10_Index, DefinitionN10)
+  and bridge_declared_in(N19_Index, DefinitionN19)
+  and bridge_declared_in(N21_Index, DefinitionN21)
+  and bridge_declared_in(N30_Index, DefinitionN30)
+  and bridge_declared_in(Section1_2_IndexAdministrator, Section1_2)
+  and bridge_declared_in(Section2_1_IndexAdministrator, Section2_1)
+  and bridge_declared_in(Section2_2_IndexAdministrator, Section2_2)
+  and bridge_declared_in(Section5_3_IndexAdministrator, Section5_3)
+  and bridge_declared_in(N30_IndexAdministrator, DefinitionN30)
+  and bridge_declared_in(Section1_2_Solactive, Section1_2)
+  and bridge_declared_in(Section1_5_Solactive, Section1_5)
+  and bridge_declared_in(Section3_1_Solactive, Section3_1)
+  and bridge_declared_in(Section4_2_Solactive, Section4_2)
+  and bridge_declared_in(Section4_4_Solactive, Section4_4)
+  and bridge_declared_in(Section4_5_Solactive, Section4_5)
+  and bridge_declared_in(Section4_6_Solactive, Section4_6)
+  and bridge_declared_in(Section4_7_Solactive, Section4_7)
+  and bridge_declared_in(Section5_2_Solactive, Section5_2)
+  and bridge_declared_in(Section5_4_Solactive, Section5_4)
+  and bridge_declared_in(Section5_5_Solactive, Section5_5)
+  and bridge_declared_in(Section1_3_SolactiveTransatlanticCleanEnergyEURIndexPR, Section1_3)
+  and bridge_declared_in(Section1_3_SolactiveTransatlanticCleanEnergyEURIndexNTR, Section1_3)
+  and bridge_declared_in(Section1_3_SolactiveTransatlanticCleanEnergyEURIndexTR, Section1_3)
+  and bridge_declared_in(Section1_3_SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, Section1_3)
+  and bridge_declared_in(Section1_3_SolactiveTransatlanticCleanEnergyEURIndex50AR, Section1_3)
+  and bridge_declared_in(Section1_2_SOLTCA50, Section1_2)
+  and bridge_declared_in(Section1_4_CalculationDay, Section1_4)
+  and bridge_declared_in(Section4_1_CalculationDay, Section4_1)
+  and bridge_declared_in(N30_CalculationDay, DefinitionN30)
+  and bridge_declared_in(Section2_2_SelectionDay, Section2_2)
+  and bridge_declared_in(Section2_3_SelectionDay, Section2_3)
+  and bridge_declared_in(Section1_4_Price, Section1_4)
+  and bridge_declared_in(Section4_1_Price, Section4_1)
+  and bridge_declared_in(N07_Price, DefinitionN07)
+  and bridge_declared_in(N31_Price, DefinitionN31)
+  and bridge_declared_in(Section2_1_GbsIndex, Section2_1)
+  and bridge_declared_in(N14_GbsIndex, DefinitionN14)
+  and bridge_declared_in(N15_GbsIndex, DefinitionN15)
+  and bridge_declared_in(Section1_2_Guideline, Section1_2)
+  and bridge_declared_in(Section5_2_Guideline, Section5_2)
+  and bridge_declared_in(Section5_5_Guideline, Section5_5)
+  and bridge_declared_in(N06_Section1_4, DefinitionN06)
+  and bridge_declared_in(N14_Section2_1, DefinitionN14)
+  and bridge_declared_in(N15_Section2_1, DefinitionN15)
+  and bridge_declared_in(Section3_1_Section2_1, Section3_1)
+  and bridge_declared_in(Section3_1_Section2_2, Section3_1)
+  and bridge_declared_in(Section1_2_IndexType, Section1_2)
+  and bridge_declared_in(Section4_1_IndexType, Section4_1)
+  and bridge_declared_in(Section4_6_Effort, Section4_6)
+  and bridge_declared_in(Section5_4_Effort, Section5_4)
+  and bridge_declared_in(Section5_2_IndexMethodology, Section5_2)
+  and bridge_declared_in(Section5_4_IndexMethodology, Section5_4)
+  and bridge_declared_in(Section3_1_EquityIndexMethodology, Section3_1)
+  and bridge_declared_in(Section4_4_EquityIndexMethodology, Section4_4)
+  and bridge_declared_in(Section1_4_index_component, Section1_4)
+  and bridge_declared_in(Section2_2_index_component, Section2_2)
+  and bridge_declared_in(N19_index_component, DefinitionN19)
+  and bridge_declared_in(Section2_1_index_universe, Section2_1)
+  and bridge_declared_in(Section2_2_index_universe, Section2_2)
+  and bridge_declared_in(Section4_1_incorporated_by_reference, Section4_1)
+  and bridge_declared_in(Section5_4_incorporated_by_reference, Section5_4)
+
+fact core_bridge_family_memberships :
+  bridge_family_anchor(TheIndexLocalPlaceholderFamily, Section1_1_TheIndex)
+  and bridge_family_confidence(TheIndexLocalPlaceholderFamily, High)
+  and bridge_family_link_type(TheIndexLocalPlaceholderFamily, EntityAlias)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, Section1_1_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, Section1_4_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, Section1_5_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, Section3_1_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, Section3_2_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, Section4_3_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, Section4_4_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, Section4_5_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, Section4_7_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, Section5_1_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, Section5_2_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, Section5_3_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, Section5_5_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, N06_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, N10_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, N19_TheIndex)
+  and bridge_family_member(TheIndexLocalPlaceholderFamily, N30_TheIndex)
+  and bridge_family_anchor(SolactiveWebsiteFamily, Section1_2_SolactiveWebsite)
+  and bridge_family_confidence(SolactiveWebsiteFamily, High)
+  and bridge_family_link_type(SolactiveWebsiteFamily, EntityAlias)
+  and bridge_family_member(SolactiveWebsiteFamily, Section1_2_SolactiveWebsite)
+  and bridge_family_member(SolactiveWebsiteFamily, Section3_1_SolactiveWebsite)
+  and bridge_family_member(SolactiveWebsiteFamily, Section4_1_SolactiveWebsite)
+  and bridge_family_member(SolactiveWebsiteFamily, Section4_2_SolactiveWebsite)
+  and bridge_family_member(SolactiveWebsiteFamily, Section4_4_SolactiveWebsite)
+  and bridge_family_member(SolactiveWebsiteFamily, Section4_5_SolactiveWebsite)
+  and bridge_family_member(SolactiveWebsiteFamily, Section4_6_SolactiveWebsite)
+  and bridge_family_member(SolactiveWebsiteFamily, Section4_7_SolactiveWebsite)
+  and bridge_family_member(SolactiveWebsiteFamily, Section5_2_SolactiveWebsite)
+  and bridge_family_member(SolactiveWebsiteFamily, Section5_4_SolactiveWebsite)
+  and bridge_family_member(SolactiveWebsiteFamily, Section5_5_SolactiveWebsite)
+  and bridge_family_anchor(ThisGuidelineFamily, Section3_1_ThisGuideline)
+  and bridge_family_confidence(ThisGuidelineFamily, High)
+  and bridge_family_link_type(ThisGuidelineFamily, EntityAlias)
+  and bridge_family_member(ThisGuidelineFamily, Section3_1_ThisGuideline)
+  and bridge_family_member(ThisGuidelineFamily, Section4_4_ThisGuideline)
+  and bridge_family_member(ThisGuidelineFamily, Section4_6_ThisGuideline)
+  and bridge_family_member(ThisGuidelineFamily, Section4_7_ThisGuideline)
+  and bridge_family_anchor(EquityIndexMethodologyFamily, Section1_2_EquityIndexMethodology)
+  and bridge_family_confidence(EquityIndexMethodologyFamily, High)
+  and bridge_family_link_type(EquityIndexMethodologyFamily, EntityAlias)
+  and bridge_family_member(EquityIndexMethodologyFamily, Section1_2_EquityIndexMethodology)
+  and bridge_family_member(EquityIndexMethodologyFamily, Section4_1_EquityIndexMethodology)
+  and bridge_family_member(EquityIndexMethodologyFamily, Section4_5_EquityIndexMethodology)
+  and bridge_family_member(EquityIndexMethodologyFamily, Section3_1_SolactiveEquityIndexMethodology)
+  and bridge_family_member(EquityIndexMethodologyFamily, Section4_4_SolactiveEquityIndexMethodology)
+  and bridge_family_anchor(SolactiveGreatestPossibleEffortsFamily, Section4_6_SolactiveGreatestPossibleEfforts)
+  and bridge_family_confidence(SolactiveGreatestPossibleEffortsFamily, High)
+  and bridge_family_link_type(SolactiveGreatestPossibleEffortsFamily, EntityAlias)
+  and bridge_family_member(SolactiveGreatestPossibleEffortsFamily, Section4_6_SolactiveGreatestPossibleEfforts)
+  and bridge_family_member(SolactiveGreatestPossibleEffortsFamily, Section5_4_SolactiveGreatestPossibleEfforts)
+  and bridge_family_anchor(TheIndexAdministratorFamily, N30_TheIndexAdministrator)
+  and bridge_family_confidence(TheIndexAdministratorFamily, High)
+  and bridge_family_link_type(TheIndexAdministratorFamily, EntityAlias)
+  and bridge_family_member(TheIndexAdministratorFamily, N30_TheIndexAdministrator)
+  and bridge_family_member(TheIndexAdministratorFamily, Section5_3_TheIndexAdministrator)
+  and bridge_family_anchor(GbsIndexSpecifiedInSection2_1Family, N14_GbsIndexSpecifiedInSection2_1)
+  and bridge_family_confidence(GbsIndexSpecifiedInSection2_1Family, High)
+  and bridge_family_link_type(GbsIndexSpecifiedInSection2_1Family, EntityAlias)
+  and bridge_family_member(GbsIndexSpecifiedInSection2_1Family, N14_GbsIndexSpecifiedInSection2_1)
+  and bridge_family_member(GbsIndexSpecifiedInSection2_1Family, N15_GbsIndexSpecifiedInSection2_1)
+  and bridge_family_anchor(AnnouncementSectionFamily, Section3_1_AnnouncementSection)
+  and bridge_family_confidence(AnnouncementSectionFamily, High)
+  and bridge_family_link_type(AnnouncementSectionFamily, EntityAlias)
+  and bridge_family_member(AnnouncementSectionFamily, Section3_1_AnnouncementSection)
+  and bridge_family_member(AnnouncementSectionFamily, Section4_4_AnnouncementsSection)
+  and bridge_family_member(AnnouncementSectionFamily, Section5_2_AnnouncementSection)
+  and bridge_family_anchor(CoreSecuritySortFamily, N07_Security)
+  and bridge_family_confidence(CoreSecuritySortFamily, High)
+  and bridge_family_link_type(CoreSecuritySortFamily, SortAlias)
+  and bridge_family_member(CoreSecuritySortFamily, N07_Security)
+  and bridge_family_member(CoreSecuritySortFamily, N12_Security)
+  and bridge_family_member(CoreSecuritySortFamily, N13_Security)
+  and bridge_family_member(CoreSecuritySortFamily, N15_Security)
+  and bridge_family_member(CoreSecuritySortFamily, N19_Security)
+  and bridge_family_member(CoreSecuritySortFamily, N30_Security)
+  and bridge_family_member(CoreSecuritySortFamily, Section1_1_Security)
+  and bridge_family_member(CoreSecuritySortFamily, Section2_1_Security)
+  and bridge_family_member(CoreSecuritySortFamily, Section2_2_Security)
+  and bridge_family_anchor(CoreIndexComponentSortFamily, N01_IndexComponent)
+  and bridge_family_confidence(CoreIndexComponentSortFamily, High)
+  and bridge_family_link_type(CoreIndexComponentSortFamily, SortAlias)
+  and bridge_family_member(CoreIndexComponentSortFamily, N01_IndexComponent)
+  and bridge_family_member(CoreIndexComponentSortFamily, N07_IndexComponent)
+  and bridge_family_member(CoreIndexComponentSortFamily, N08_IndexComponent)
+  and bridge_family_member(CoreIndexComponentSortFamily, N10_IndexComponent)
+  and bridge_family_member(CoreIndexComponentSortFamily, N30_IndexComponent)
+  and bridge_family_member(CoreIndexComponentSortFamily, N31_IndexComponent)
+  and bridge_family_member(CoreIndexComponentSortFamily, Section1_4_IndexComponent)
+  and bridge_family_member(CoreIndexComponentSortFamily, Section2_3_IndexComponent)
+  and bridge_family_member(CoreIndexComponentSortFamily, Section3_1_IndexComponent)
+  and bridge_family_member(CoreIndexComponentSortFamily, Section4_1_IndexComponent)
+  and bridge_family_member(CoreIndexComponentSortFamily, Section4_4_IndexComponent)
+  and bridge_family_member(CoreIndexComponentSortFamily, Section4_5_IndexComponent)
+  and bridge_family_member(CoreIndexComponentSortFamily, Section4_7_IndexComponent)
+  and bridge_family_anchor(IndexLevelSortFamily, Section1_3_IndexLevel)
+  and bridge_family_confidence(IndexLevelSortFamily, High)
+  and bridge_family_link_type(IndexLevelSortFamily, SortAlias)
+  and bridge_family_member(IndexLevelSortFamily, Section1_3_IndexLevel)
+  and bridge_family_member(IndexLevelSortFamily, Section1_4_IndexLevel)
+  and bridge_family_member(IndexLevelSortFamily, Section4_1_IndexLevel)
+  and bridge_family_member(IndexLevelSortFamily, Section4_2_IndexLevel)
+  and bridge_family_member(IndexLevelSortFamily, Section4_3_IndexLevel)
+  and bridge_family_anchor(SolactiveOrganizationSortFamily, Section1_5_SolactiveOrganization)
+  and bridge_family_confidence(SolactiveOrganizationSortFamily, High)
+  and bridge_family_link_type(SolactiveOrganizationSortFamily, SortAlias)
+  and bridge_family_member(SolactiveOrganizationSortFamily, Section1_5_SolactiveOrganization)
+  and bridge_family_member(SolactiveOrganizationSortFamily, Section3_1_SolactiveOrganization)
+  and bridge_family_member(SolactiveOrganizationSortFamily, Section4_2_SolactiveOrganization)
+  and bridge_family_member(SolactiveOrganizationSortFamily, Section4_4_SolactiveOrganization)
+  and bridge_family_member(SolactiveOrganizationSortFamily, Section4_5_SolactiveOrganization)
+  and bridge_family_anchor(CorporateActionSortFamily, Section4_4_CorporateAction)
+  and bridge_family_confidence(CorporateActionSortFamily, High)
+  and bridge_family_link_type(CorporateActionSortFamily, SortAlias)
+  and bridge_family_member(CorporateActionSortFamily, Section4_4_CorporateAction)
+  and bridge_family_member(CorporateActionSortFamily, Section4_5_CorporateAction)
+  and bridge_family_anchor(IndexCalculationSortFamily, Section4_2_IndexCalculation)
+  and bridge_family_confidence(IndexCalculationSortFamily, High)
+  and bridge_family_link_type(IndexCalculationSortFamily, SortAlias)
+  and bridge_family_member(IndexCalculationSortFamily, Section4_2_IndexCalculation)
+  and bridge_family_member(IndexCalculationSortFamily, Section4_5_IndexCalculation)
+  and bridge_family_anchor(NoticeSortFamily, Section3_1_Notice)
+  and bridge_family_confidence(NoticeSortFamily, High)
+  and bridge_family_link_type(NoticeSortFamily, SortAlias)
+  and bridge_family_member(NoticeSortFamily, Section3_1_Notice)
+  and bridge_family_member(NoticeSortFamily, Section4_4_Notice)
+  and bridge_family_anchor(DailyValueTradedFamily, N01_DailyValueTraded)
+  and bridge_family_confidence(DailyValueTradedFamily, High)
+  and bridge_family_link_type(DailyValueTradedFamily, RelatedConcept)
+  and bridge_family_member(DailyValueTradedFamily, N01_DailyValueTraded)
+  and bridge_family_member(DailyValueTradedFamily, N08_DailyValueTraded)
+  and bridge_family_member(DailyValueTradedFamily, N01_daily_value_traded)
+  and bridge_family_member(DailyValueTradedFamily, N08_daily_value_traded)
+  and bridge_family_anchor(AverageDailyValueTradedFamily, N01_AverageDailyValueTraded)
+  and bridge_family_confidence(AverageDailyValueTradedFamily, High)
+  and bridge_family_link_type(AverageDailyValueTradedFamily, RelatedConcept)
+  and bridge_family_member(AverageDailyValueTradedFamily, N01_AverageDailyValueTraded)
+  and bridge_family_member(AverageDailyValueTradedFamily, Section2_1_AverageDailyValueTraded)
+  and bridge_family_member(AverageDailyValueTradedFamily, N01_average_daily_value_traded)
+  and bridge_family_member(AverageDailyValueTradedFamily, Section2_1_average_daily_value_traded)
+  and bridge_family_anchor(DataVendorSortFamily, N12_DataVendor)
+  and bridge_family_confidence(DataVendorSortFamily, High)
+  and bridge_family_link_type(DataVendorSortFamily, SortAlias)
+  and bridge_family_member(DataVendorSortFamily, N12_DataVendor)
+  and bridge_family_member(DataVendorSortFamily, N13_DataVendor)
+  and bridge_family_anchor(ShareCountSortFamily, N12_ShareCount)
+  and bridge_family_confidence(ShareCountSortFamily, High)
+  and bridge_family_link_type(ShareCountSortFamily, SortAlias)
+  and bridge_family_member(ShareCountSortFamily, N12_ShareCount)
+  and bridge_family_member(ShareCountSortFamily, N13_ShareCount)
+  and bridge_family_anchor(IndexCurrencyFunctionFamily, Section1_2_index_currency)
+  and bridge_family_confidence(IndexCurrencyFunctionFamily, High)
+  and bridge_family_link_type(IndexCurrencyFunctionFamily, RelationAlias)
+  and bridge_family_member(IndexCurrencyFunctionFamily, Section1_2_index_currency)
+  and bridge_family_member(IndexCurrencyFunctionFamily, Section1_4_index_currency)
+  and bridge_family_member(IndexCurrencyFunctionFamily, Section4_1_index_currency)
+  and bridge_family_anchor(IndexTypeFunctionFamily, Section1_2_index_type)
+  and bridge_family_confidence(IndexTypeFunctionFamily, High)
+  and bridge_family_link_type(IndexTypeFunctionFamily, RelationAlias)
+  and bridge_family_member(IndexTypeFunctionFamily, Section1_2_index_type)
+  and bridge_family_member(IndexTypeFunctionFamily, Section4_1_index_type)
+  and bridge_family_anchor(IndexComponentRequirementsRelationFamily, N12_fulfills_index_component_requirements)
+  and bridge_family_confidence(IndexComponentRequirementsRelationFamily, High)
+  and bridge_family_link_type(IndexComponentRequirementsRelationFamily, RelationAlias)
+  and bridge_family_member(IndexComponentRequirementsRelationFamily, N12_fulfills_index_component_requirements)
+  and bridge_family_member(IndexComponentRequirementsRelationFamily, N13_fulfills_index_component_requirements)
+  and bridge_family_anchor(GbsIndexSpecifiedInSectionRelationFamily, N14_gbs_index_specified_in_section)
+  and bridge_family_confidence(GbsIndexSpecifiedInSectionRelationFamily, High)
+  and bridge_family_link_type(GbsIndexSpecifiedInSectionRelationFamily, RelationAlias)
+  and bridge_family_member(GbsIndexSpecifiedInSectionRelationFamily, N14_gbs_index_specified_in_section)
+  and bridge_family_member(GbsIndexSpecifiedInSectionRelationFamily, N15_gbs_index_specified_in_section)
+  and bridge_family_anchor(MethodologyOfIndexRelationFamily, Section5_2_methodology_of_index)
+  and bridge_family_confidence(MethodologyOfIndexRelationFamily, High)
+  and bridge_family_link_type(MethodologyOfIndexRelationFamily, RelationAlias)
+  and bridge_family_member(MethodologyOfIndexRelationFamily, Section5_2_methodology_of_index)
+  and bridge_family_member(MethodologyOfIndexRelationFamily, Section5_4_methodology_of_index)
+  and bridge_family_anchor(IndexOfRelationFamily, Section4_6_index_of)
+  and bridge_family_confidence(IndexOfRelationFamily, High)
+  and bridge_family_link_type(IndexOfRelationFamily, RelationAlias)
+  and bridge_family_member(IndexOfRelationFamily, Section4_6_index_of)
+  and bridge_family_member(IndexOfRelationFamily, Section4_7_index_of)
+  and bridge_family_member(IndexOfRelationFamily, Section5_4_index_of)
+  and bridge_family_anchor(GenericDocumentAvailabilityRelationFamily, Section1_2_available_on)
+  and bridge_family_confidence(GenericDocumentAvailabilityRelationFamily, High)
+  and bridge_family_link_type(GenericDocumentAvailabilityRelationFamily, RelationAlias)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section1_2_available_on)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section3_1_available_on)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_1_available_on)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_4_available_on)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_5_available_on)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_6_available_on)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_7_available_on)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section5_2_available_on)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section5_4_available_on)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section5_5_available_on)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section1_2_website_of)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section3_1_website_of)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_2_website_of)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_4_website_of)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_5_website_of)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_6_website_of)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_7_website_of)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section5_2_website_of)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section5_4_website_of)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section5_5_website_of)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section3_1_incorporated_by_reference_into)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_4_incorporated_by_reference_into)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_6_incorporated_by_reference_into)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_7_incorporated_by_reference_into)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section5_2_incorporated_by_reference_into)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section3_1_section_of_website)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_2_section_of_website)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section4_4_section_of_website)
+  and bridge_family_member(GenericDocumentAvailabilityRelationFamily, Section5_2_section_of_website)
+  and bridge_family_anchor(CanadaClassificationFamily, Section2_1_Canada)
+  and bridge_family_confidence(CanadaClassificationFamily, Medium)
+  and bridge_family_link_type(CanadaClassificationFamily, RelatedConcept)
+  and bridge_family_member(CanadaClassificationFamily, Section2_1_Canada)
+  and bridge_family_member(CanadaClassificationFamily, Section2_2_Canada)
+  and bridge_family_anchor(UnitedStatesClassificationFamily, Section2_1_UnitedStates)
+  and bridge_family_confidence(UnitedStatesClassificationFamily, Medium)
+  and bridge_family_link_type(UnitedStatesClassificationFamily, RelatedConcept)
+  and bridge_family_member(UnitedStatesClassificationFamily, Section2_1_UnitedStates)
+  and bridge_family_member(UnitedStatesClassificationFamily, Section2_2_UnitedStates)
+  and bridge_family_anchor(EquityIndexMethodologyUrlFamily, Section1_2_HttpsWwwSolactiveComDocumentsEquityIndexMethodology)
+  and bridge_family_confidence(EquityIndexMethodologyUrlFamily, High)
+  and bridge_family_link_type(EquityIndexMethodologyUrlFamily, EntityAlias)
+  and bridge_family_member(EquityIndexMethodologyUrlFamily, Section1_2_HttpsWwwSolactiveComDocumentsEquityIndexMethodology)
+  and bridge_family_member(EquityIndexMethodologyUrlFamily, Section3_1_HttpsWwwSolactiveComDocumentsEquityIndexMethodology)
+  and bridge_family_anchor(MethodologyPolicyUrlFamily, Section5_2_HttpsWwwSolactiveComDocumentsMethodologyPolicy)
+  and bridge_family_confidence(MethodologyPolicyUrlFamily, High)
+  and bridge_family_link_type(MethodologyPolicyUrlFamily, EntityAlias)
+  and bridge_family_member(MethodologyPolicyUrlFamily, Section5_2_HttpsWwwSolactiveComDocumentsMethodologyPolicy)
+  and bridge_family_member(MethodologyPolicyUrlFamily, Section5_5_HttpsWwwSolactiveComDocumentsMethodologyPolicy)
+  and bridge_family_anchor(NewsAnnouncementsUrlFamily, Section1_2_HttpsWwwSolactiveComNewsAnnouncements)
+  and bridge_family_confidence(NewsAnnouncementsUrlFamily, High)
+  and bridge_family_link_type(NewsAnnouncementsUrlFamily, EntityAlias)
+  and bridge_family_member(NewsAnnouncementsUrlFamily, Section1_2_HttpsWwwSolactiveComNewsAnnouncements)
+  and bridge_family_member(NewsAnnouncementsUrlFamily, Section3_1_HttpsWwwSolactiveComNewsAnnouncements)
+  and bridge_family_member(NewsAnnouncementsUrlFamily, Section4_2_HttpsWwwSolactiveComNewsAnnouncements)
+  and bridge_family_member(NewsAnnouncementsUrlFamily, Section5_2_HttpsWwwSolactiveComNewsAnnouncements)
+  and bridge_family_anchor(RegionSortFamily, Section2_2_Region)
+  and bridge_family_confidence(RegionSortFamily, High)
+  and bridge_family_link_type(RegionSortFamily, SortAlias)
+  and bridge_family_member(RegionSortFamily, Section2_2_Region)
+  and bridge_family_member(RegionSortFamily, Section2_3_Region)
+  and bridge_family_anchor(RegionFunctionFamily, Section2_2_region)
+  and bridge_family_confidence(RegionFunctionFamily, Medium)
+  and bridge_family_link_type(RegionFunctionFamily, RelatedConcept)
+  and bridge_family_member(RegionFunctionFamily, Section2_2_region)
+  and bridge_family_member(RegionFunctionFamily, Section2_3_region)
+  and bridge_family_anchor(AnnouncementOnRelationFamily, Section4_2_announced_on)
+  and bridge_family_confidence(AnnouncementOnRelationFamily, Medium)
+  and bridge_family_link_type(AnnouncementOnRelationFamily, RelationAlias)
+  and bridge_family_member(AnnouncementOnRelationFamily, Section4_2_announced_on)
+  and bridge_family_member(AnnouncementOnRelationFamily, Section4_4_announced_on)
+  and same_relation(Section4_2_announcement_by, Section4_4_announced_by)
+  and bridge_link_type(Section4_2_announcement_by, Section4_4_announced_by, RelationAlias)
+  and bridge_argument_order(Section4_2_announcement_by, Section4_4_announced_by, SameArgumentOrder)
+  and bridge_confidence(Section4_2_announcement_by, Section4_4_announced_by, High)
+  and same_relation(Section4_2_announcement_under_section, Section4_4_announced_under_section)
+  and bridge_link_type(Section4_2_announcement_under_section, Section4_4_announced_under_section, RelationAlias)
+  and bridge_argument_order(Section4_2_announcement_under_section, Section4_4_announced_under_section, SameArgumentOrder)
+  and bridge_confidence(Section4_2_announcement_under_section, Section4_4_announced_under_section, High)
+  and bridge_family_anchor(FullyRuleBasedRelationFamily, Section2_1_fully_rule_based)
+  and bridge_family_confidence(FullyRuleBasedRelationFamily, High)
+  and bridge_family_link_type(FullyRuleBasedRelationFamily, RelationAlias)
+  and bridge_family_member(FullyRuleBasedRelationFamily, Section2_1_fully_rule_based)
+  and bridge_family_member(FullyRuleBasedRelationFamily, Section2_2_fully_rule_based)
+  and bridge_family_anchor(GreatestPossibleRelationFamily, Section4_6_greatest_possible)
+  and bridge_family_confidence(GreatestPossibleRelationFamily, High)
+  and bridge_family_link_type(GreatestPossibleRelationFamily, RelationAlias)
+  and bridge_family_member(GreatestPossibleRelationFamily, Section4_6_greatest_possible)
+  and bridge_family_member(GreatestPossibleRelationFamily, Section5_4_greatest_possible)
+  and bridge_family_anchor(CalculationTimeSortFamily, N06_CalculationTime)
+  and bridge_family_confidence(CalculationTimeSortFamily, High)
+  and bridge_family_link_type(CalculationTimeSortFamily, SortAlias)
+  and bridge_family_member(CalculationTimeSortFamily, N06_CalculationTime)
+  and bridge_family_member(CalculationTimeSortFamily, Section1_4_CalculationTime)
+  and bridge_family_anchor(DiscretionaryDecisionSortFamily, Section2_1_DiscretionaryDecision)
+  and bridge_family_confidence(DiscretionaryDecisionSortFamily, High)
+  and bridge_family_link_type(DiscretionaryDecisionSortFamily, SortAlias)
+  and bridge_family_member(DiscretionaryDecisionSortFamily, Section2_1_DiscretionaryDecision)
+  and bridge_family_member(DiscretionaryDecisionSortFamily, Section2_2_DiscretionaryDecision)
+  and bridge_family_anchor(ErrorSortFamily, Section4_6_Error)
+  and bridge_family_confidence(ErrorSortFamily, Medium)
+  and bridge_family_link_type(ErrorSortFamily, SortAlias)
+  and bridge_family_member(ErrorSortFamily, Section4_6_Error)
+  and bridge_family_member(ErrorSortFamily, Section5_3_Error)
+  and bridge_family_anchor(IsinSortFamily, Section1_2_ISIN)
+  and bridge_family_confidence(IsinSortFamily, High)
+  and bridge_family_link_type(IsinSortFamily, SortAlias)
+  and bridge_family_member(IsinSortFamily, Section1_2_ISIN)
+  and bridge_family_member(IsinSortFamily, Section2_1_ISIN)
+  and bridge_family_anchor(IndexQualitySortFamily, Section4_5_IndexQuality)
+  and bridge_family_confidence(IndexQualitySortFamily, Medium)
+  and bridge_family_link_type(IndexQualitySortFamily, RelatedConcept)
+  and bridge_family_member(IndexQualitySortFamily, Section4_5_IndexQuality)
+  and bridge_family_member(IndexQualitySortFamily, Section5_4_IndexQuality)
+  and bridge_family_anchor(IndexRuleSortFamily, Section5_4_IndexRule)
+  and bridge_family_confidence(IndexRuleSortFamily, High)
+  and bridge_family_link_type(IndexRuleSortFamily, SortAlias)
+  and bridge_family_member(IndexRuleSortFamily, Section5_4_IndexRule)
+  and bridge_family_member(IndexRuleSortFamily, Section5_5_IndexRule)
+  and bridge_family_anchor(PolicySortFamily, Section4_2_Policy)
+  and bridge_family_confidence(PolicySortFamily, High)
+  and bridge_family_link_type(PolicySortFamily, SortAlias)
+  and bridge_family_member(PolicySortFamily, Section4_2_Policy)
+  and bridge_family_member(PolicySortFamily, Section5_5_Policy)
+
+fact canonical_merge_expansion_family_memberships :
+  bridge_family_anchor(CanonicalIndexSortFamily, Section1_2_Index)
+  and bridge_family_confidence(CanonicalIndexSortFamily, High)
+  and bridge_family_link_type(CanonicalIndexSortFamily, SortAlias)
+  and bridge_family_member(CanonicalIndexSortFamily, Section1_1_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section1_2_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section1_3_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section1_4_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section1_5_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section3_1_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section3_2_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section4_1_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section4_2_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section4_3_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section4_4_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section4_5_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section4_6_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section4_7_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section5_1_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section5_2_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section5_3_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section5_4_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, Section5_5_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, N06_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, N10_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, N19_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, N21_Index)
+  and bridge_family_member(CanonicalIndexSortFamily, N30_Index)
+  and bridge_family_anchor(CanonicalIndexAdministratorSortFamily, N30_IndexAdministrator)
+  and bridge_family_confidence(CanonicalIndexAdministratorSortFamily, High)
+  and bridge_family_link_type(CanonicalIndexAdministratorSortFamily, SortAlias)
+  and bridge_family_member(CanonicalIndexAdministratorSortFamily, Section1_2_IndexAdministrator)
+  and bridge_family_member(CanonicalIndexAdministratorSortFamily, Section2_1_IndexAdministrator)
+  and bridge_family_member(CanonicalIndexAdministratorSortFamily, Section2_2_IndexAdministrator)
+  and bridge_family_member(CanonicalIndexAdministratorSortFamily, Section5_3_IndexAdministrator)
+  and bridge_family_member(CanonicalIndexAdministratorSortFamily, N30_IndexAdministrator)
+  and bridge_family_anchor(CanonicalSolactiveEntityFamily, Section1_2_Solactive)
+  and bridge_family_confidence(CanonicalSolactiveEntityFamily, High)
+  and bridge_family_link_type(CanonicalSolactiveEntityFamily, EntityAlias)
+  and bridge_family_member(CanonicalSolactiveEntityFamily, Section1_2_Solactive)
+  and bridge_family_member(CanonicalSolactiveEntityFamily, Section1_5_Solactive)
+  and bridge_family_member(CanonicalSolactiveEntityFamily, Section3_1_Solactive)
+  and bridge_family_member(CanonicalSolactiveEntityFamily, Section4_2_Solactive)
+  and bridge_family_member(CanonicalSolactiveEntityFamily, Section4_4_Solactive)
+  and bridge_family_member(CanonicalSolactiveEntityFamily, Section4_5_Solactive)
+  and bridge_family_member(CanonicalSolactiveEntityFamily, Section4_6_Solactive)
+  and bridge_family_member(CanonicalSolactiveEntityFamily, Section4_7_Solactive)
+  and bridge_family_member(CanonicalSolactiveEntityFamily, Section5_2_Solactive)
+  and bridge_family_member(CanonicalSolactiveEntityFamily, Section5_4_Solactive)
+  and bridge_family_member(CanonicalSolactiveEntityFamily, Section5_5_Solactive)
+  and bridge_family_anchor(CanonicalPriceSortFamily, Section1_4_Price)
+  and bridge_family_confidence(CanonicalPriceSortFamily, High)
+  and bridge_family_link_type(CanonicalPriceSortFamily, SortAlias)
+  and bridge_family_member(CanonicalPriceSortFamily, Section1_4_Price)
+  and bridge_family_member(CanonicalPriceSortFamily, Section4_1_Price)
+  and bridge_family_member(CanonicalPriceSortFamily, N07_Price)
+  and bridge_family_member(CanonicalPriceSortFamily, N31_Price)
+  and bridge_family_anchor(CanonicalCalculationDaySortFamily, Section1_4_CalculationDay)
+  and bridge_family_confidence(CanonicalCalculationDaySortFamily, High)
+  and bridge_family_link_type(CanonicalCalculationDaySortFamily, SortAlias)
+  and bridge_family_member(CanonicalCalculationDaySortFamily, Section1_4_CalculationDay)
+  and bridge_family_member(CanonicalCalculationDaySortFamily, Section4_1_CalculationDay)
+  and bridge_family_member(CanonicalCalculationDaySortFamily, N30_CalculationDay)
+  and bridge_family_anchor(CanonicalSelectionDaySortFamily, N12_SelectionDay)
+  and bridge_family_confidence(CanonicalSelectionDaySortFamily, High)
+  and bridge_family_link_type(CanonicalSelectionDaySortFamily, SortAlias)
+  and bridge_family_member(CanonicalSelectionDaySortFamily, N12_SelectionDay)
+  and bridge_family_member(CanonicalSelectionDaySortFamily, N13_SelectionDay)
+  and bridge_family_member(CanonicalSelectionDaySortFamily, N27_SelectionDay)
+  and bridge_family_member(CanonicalSelectionDaySortFamily, Section2_1_SelectionDay)
+  and bridge_family_member(CanonicalSelectionDaySortFamily, Section2_2_SelectionDay)
+  and bridge_family_member(CanonicalSelectionDaySortFamily, Section2_3_SelectionDay)
+  and bridge_family_member(CanonicalSelectionDaySortFamily, Section3_1_SelectionDay)
+  and bridge_family_anchor(CanonicalGbsIndexSortFamily, Section2_1_GbsIndex)
+  and bridge_family_confidence(CanonicalGbsIndexSortFamily, High)
+  and bridge_family_link_type(CanonicalGbsIndexSortFamily, SortAlias)
+  and bridge_family_member(CanonicalGbsIndexSortFamily, Section2_1_GbsIndex)
+  and bridge_family_member(CanonicalGbsIndexSortFamily, N14_GbsIndex)
+  and bridge_family_member(CanonicalGbsIndexSortFamily, N15_GbsIndex)
+  and bridge_family_anchor(CanonicalGuidelineEntityFamily, Section1_2_Guideline)
+  and bridge_family_confidence(CanonicalGuidelineEntityFamily, High)
+  and bridge_family_link_type(CanonicalGuidelineEntityFamily, EntityAlias)
+  and bridge_family_member(CanonicalGuidelineEntityFamily, Section1_2_Guideline)
+  and bridge_family_member(CanonicalGuidelineEntityFamily, Section5_2_Guideline)
+  and bridge_family_member(CanonicalGuidelineEntityFamily, Section5_5_Guideline)
+  and bridge_family_anchor(SectionReferenceEntityFamily, Section3_1_Section2_1)
+  and bridge_family_confidence(SectionReferenceEntityFamily, Medium)
+  and bridge_family_link_type(SectionReferenceEntityFamily, RelatedConcept)
+  and bridge_family_member(SectionReferenceEntityFamily, N06_Section1_4)
+  and bridge_family_member(SectionReferenceEntityFamily, N14_Section2_1)
+  and bridge_family_member(SectionReferenceEntityFamily, N15_Section2_1)
+  and bridge_family_member(SectionReferenceEntityFamily, Section3_1_Section2_1)
+  and bridge_family_member(SectionReferenceEntityFamily, Section3_1_Section2_2)
+  and bridge_family_anchor(CanonicalIndexTypeSortFamily, Section1_2_IndexType)
+  and bridge_family_confidence(CanonicalIndexTypeSortFamily, High)
+  and bridge_family_link_type(CanonicalIndexTypeSortFamily, SortAlias)
+  and bridge_family_member(CanonicalIndexTypeSortFamily, Section1_2_IndexType)
+  and bridge_family_member(CanonicalIndexTypeSortFamily, Section4_1_IndexType)
+  and bridge_family_anchor(CanonicalEffortSortFamily, Section4_6_Effort)
+  and bridge_family_confidence(CanonicalEffortSortFamily, High)
+  and bridge_family_link_type(CanonicalEffortSortFamily, SortAlias)
+  and bridge_family_member(CanonicalEffortSortFamily, Section4_6_Effort)
+  and bridge_family_member(CanonicalEffortSortFamily, Section5_4_Effort)
+  and bridge_family_anchor(CanonicalIndexMethodologySortFamily, Section5_2_IndexMethodology)
+  and bridge_family_confidence(CanonicalIndexMethodologySortFamily, High)
+  and bridge_family_link_type(CanonicalIndexMethodologySortFamily, SortAlias)
+  and bridge_family_member(CanonicalIndexMethodologySortFamily, Section5_2_IndexMethodology)
+  and bridge_family_member(CanonicalIndexMethodologySortFamily, Section5_4_IndexMethodology)
+  and bridge_family_member(CanonicalIndexMethodologySortFamily, Section3_1_EquityIndexMethodology)
+  and bridge_family_member(CanonicalIndexMethodologySortFamily, Section4_4_EquityIndexMethodology)
+  and bridge_family_anchor(CanonicalIndexComponentRelationFamily, N19_index_component)
+  and bridge_family_confidence(CanonicalIndexComponentRelationFamily, Medium)
+  and bridge_family_link_type(CanonicalIndexComponentRelationFamily, RelatedConcept)
+  and bridge_family_member(CanonicalIndexComponentRelationFamily, N19_index_component)
+  and bridge_family_member(CanonicalIndexComponentRelationFamily, Section1_4_index_component)
+  and bridge_family_member(CanonicalIndexComponentRelationFamily, Section2_2_index_component)
+  and bridge_family_anchor(CanonicalIndexUniverseRelationFamily, Section2_1_index_universe)
+  and bridge_family_confidence(CanonicalIndexUniverseRelationFamily, Medium)
+  and bridge_family_link_type(CanonicalIndexUniverseRelationFamily, RelatedConcept)
+  and bridge_family_member(CanonicalIndexUniverseRelationFamily, Section2_1_index_universe)
+  and bridge_family_member(CanonicalIndexUniverseRelationFamily, Section2_2_index_universe)
+  and bridge_family_anchor(LegacyIncorporatedByReferenceRelationFamily, Section4_1_incorporated_by_reference)
+  and bridge_family_confidence(LegacyIncorporatedByReferenceRelationFamily, Medium)
+  and bridge_family_link_type(LegacyIncorporatedByReferenceRelationFamily, RelatedConcept)
+  and bridge_family_member(LegacyIncorporatedByReferenceRelationFamily, Section4_1_incorporated_by_reference)
+  and bridge_family_member(LegacyIncorporatedByReferenceRelationFamily, Section5_4_incorporated_by_reference)

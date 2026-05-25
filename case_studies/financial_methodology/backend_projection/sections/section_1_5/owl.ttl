@@ -1,0 +1,64 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_5 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:License a owl:Class .
+ex:IndexUnderlyingValueLicense a owl:Class .
+ex:IndexUnderlyingValueLicense rdfs:subClassOf ex:License .
+ex:LicenseClass a owl:Class .
+ex:LicenseIssuance a owl:Class .
+ex:LicenseUseCategory a owl:Class ; owl:oneOf ( ex:FinancialInstrumentUse ex:InvestmentFundUse ex:FinancialContractUse ) .
+ex:FinancialInstrumentUse a ex:LicenseUseCategory, owl:NamedIndividual .
+ex:InvestmentFundUse a ex:LicenseUseCategory, owl:NamedIndividual .
+ex:FinancialContractUse a ex:LicenseUseCategory, owl:NamedIndividual .
+ex:LicenseRecipientCategory a owl:Class ; owl:oneOf ( ex:StockExchangeRecipient ex:BankRecipient ex:FinancialServicesProviderRecipient ex:InvestmentHouseRecipient ) .
+ex:StockExchangeRecipient a ex:LicenseRecipientCategory, owl:NamedIndividual .
+ex:BankRecipient a ex:LicenseRecipientCategory, owl:NamedIndividual .
+ex:FinancialServicesProviderRecipient a ex:LicenseRecipientCategory, owl:NamedIndividual .
+ex:InvestmentHouseRecipient a ex:LicenseRecipientCategory, owl:NamedIndividual .
+ex:SolactiveOrganization a owl:Class .
+ex:SolactiveOrganization rdfs:subClassOf ex:Organization .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:Solactive a ex:SolactiveOrganization, owl:NamedIndividual .
+ex:LicensesToUseIndexAsUnderlyingValue a ex:LicenseClass, owl:NamedIndividual .
+ex:IndexUnderlyingValueLicenseIssuance a ex:LicenseIssuance, owl:NamedIndividual .
+ex:license_class_uses_index_as_underlying_value a owl:ObjectProperty ;
+  rdfs:domain ex:LicenseClass ;
+  rdfs:range ex:Index .
+ex:license_class_use_category a owl:ObjectProperty ;
+  rdfs:domain ex:LicenseClass ;
+  rdfs:range ex:LicenseUseCategory .
+ex:license_instance_of_class a owl:ObjectProperty ;
+  rdfs:domain ex:IndexUnderlyingValueLicense ;
+  rdfs:range ex:LicenseClass .
+ex:issuance_of_license_class a owl:ObjectProperty ;
+  rdfs:domain ex:LicenseIssuance ;
+  rdfs:range ex:LicenseClass .
+ex:issuance_to_recipient_category a owl:ObjectProperty ;
+  rdfs:domain ex:LicenseIssuance ;
+  rdfs:range ex:LicenseRecipientCategory .
+ex:issuance_by a owl:ObjectProperty ;
+  rdfs:domain ex:LicenseIssuance ;
+  rdfs:range ex:SolactiveOrganization .
+
+ex:LicensesToUseIndexAsUnderlyingValue ex:license_class_uses_index_as_underlying_value ex:TheIndex .
+ex:LicensesToUseIndexAsUnderlyingValue ex:license_class_use_category ex:FinancialInstrumentUse .
+ex:LicensesToUseIndexAsUnderlyingValue ex:license_class_use_category ex:InvestmentFundUse .
+ex:LicensesToUseIndexAsUnderlyingValue ex:license_class_use_category ex:FinancialContractUse .
+ex:IndexUnderlyingValueLicenseIssuance ex:issuance_of_license_class ex:LicensesToUseIndexAsUnderlyingValue .
+ex:IndexUnderlyingValueLicenseIssuance ex:issuance_to_recipient_category ex:StockExchangeRecipient .
+ex:IndexUnderlyingValueLicenseIssuance ex:issuance_to_recipient_category ex:BankRecipient .
+ex:IndexUnderlyingValueLicenseIssuance ex:issuance_to_recipient_category ex:FinancialServicesProviderRecipient .
+ex:IndexUnderlyingValueLicenseIssuance ex:issuance_to_recipient_category ex:InvestmentHouseRecipient .
+ex:IndexUnderlyingValueLicenseIssuance ex:issuance_by ex:Solactive .
+ex:ASSERT_index_underlying_value_license_instance_class a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall l: IndexUnderlyingValueLicense, license_instance_of_class(l, LicensesToUseIndexAsUnderlyingValue)" .

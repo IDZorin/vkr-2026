@@ -1,0 +1,245 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_2_1 a owl:Ontology .
+
+ex:SelectionDay a owl:Class .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:Security a owl:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:ShareClass a owl:Class .
+ex:ShareClass rdfs:subClassOf ex:Security .
+ex:Company a owl:Class .
+ex:GbsIndex a owl:Class .
+ex:GbsIndexUniverse a owl:Class .
+ex:ISIN a owl:Class .
+ex:GbsIndexUniverseClassification a owl:Class .
+ex:AverageDailyValueTraded a owl:Class .
+ex:AverageDailyValueTraded rdfs:subClassOf ex:MonetaryAmount .
+ex:MonthCount a owl:Class .
+ex:MonthCount rdfs:subClassOf ex:Nat .
+ex:BusinessIndustryClassificationSystem a owl:Class .
+ex:RBICSSubindustryClassification a owl:Class .
+ex:Appendix a owl:Class .
+ex:IndexAdministrator a owl:Class .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:DeterminationOfIndexUniverse a owl:Class .
+ex:DiscretionaryDecision a owl:Class .
+
+ex:SolactiveGBSGlobalMarketsAllCapUSDIndexPR a ex:GbsIndex, owl:NamedIndividual .
+ex:DE000SLA78E2 a ex:ISIN, owl:NamedIndividual .
+ex:isin a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:GbsIndex ;
+  rdfs:range ex:ISIN .
+ex:gbs_index_universe a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:GbsIndex ;
+  rdfs:range ex:GbsIndexUniverse .
+ex:SolactiveGBSBenchmarkSeriesPdf a ex:Document, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf a ex:Url, owl:NamedIndividual .
+ex:GbsIndexUniverseFrameworkDocumentPart a ex:DocumentPart, owl:NamedIndividual .
+ex:GbsIndexUniverseFrameworkDocumentLocator a ex:DocumentLocator, owl:NamedIndividual .
+ex:DevelopedMarketsEurope a ex:GbsIndexUniverseClassification, owl:NamedIndividual .
+ex:Canada a ex:GbsIndexUniverseClassification, owl:NamedIndividual .
+ex:UnitedStates a ex:GbsIndexUniverseClassification, owl:NamedIndividual .
+ex:USD a ex:Currency, owl:NamedIndividual .
+ex:Million a ex:MonetaryAmountScale, owl:NamedIndividual .
+ex:IndexUniverseMinimumAverageDailyValueTradedThreshold a ex:MonetaryAmount, owl:NamedIndividual .
+ex:OneMonth a ex:MonthCount, owl:NamedIndividual .
+ex:SixMonths a ex:MonthCount, owl:NamedIndividual .
+ex:months_prior_including_selection_day a owl:Class, a4:NaryRelationClass .
+ex:months_prior_including_selection_day_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:months_prior_including_selection_day ;
+  rdfs:range ex:MonthCount .
+ex:months_prior_including_selection_day_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:months_prior_including_selection_day ;
+  rdfs:range ex:SelectionDay .
+ex:months_prior_including_selection_day_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:months_prior_including_selection_day ;
+  rdfs:range ex:LookbackWindow .
+ex:months_over a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:LookbackWindow ;
+  rdfs:range ex:MonthCount .
+ex:lookback_window_anchor_day a owl:ObjectProperty ;
+  rdfs:domain ex:LookbackWindow ;
+  rdfs:range ex:SelectionDay .
+ex:lookback_window_includes_anchor_day a owl:ObjectProperty ;
+  rdfs:domain ex:LookbackWindow ;
+  rdfs:range ex:SelectionDay .
+ex:average_daily_value_traded a owl:Class, a4:NaryRelationClass .
+ex:average_daily_value_traded_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:average_daily_value_traded ;
+  rdfs:range ex:SelectionDay .
+ex:average_daily_value_traded_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:average_daily_value_traded ;
+  rdfs:range ex:Security .
+ex:average_daily_value_traded_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:average_daily_value_traded ;
+  rdfs:range ex:LookbackWindow .
+ex:average_daily_value_traded_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:average_daily_value_traded ;
+  rdfs:range ex:AverageDailyValueTraded .
+ex:minimum_average_daily_value_traded a owl:Class, a4:NaryRelationClass .
+ex:minimum_average_daily_value_traded_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:minimum_average_daily_value_traded ;
+  rdfs:range ex:SelectionDay .
+ex:minimum_average_daily_value_traded_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:minimum_average_daily_value_traded ;
+  rdfs:range ex:Security .
+ex:minimum_average_daily_value_traded_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:minimum_average_daily_value_traded ;
+  rdfs:range ex:AverageDailyValueTraded .
+ex:FactSetRevereBusinessIndustryClassificationSystem a ex:BusinessIndustryClassificationSystem, owl:NamedIndividual .
+ex:IndexGuidelineAppendix a ex:Appendix, owl:NamedIndividual .
+ex:rbics_subindustry_classification_of_system a owl:ObjectProperty ;
+  rdfs:domain ex:RBICSSubindustryClassification ;
+  rdfs:range ex:BusinessIndustryClassificationSystem .
+ex:rbics_subindustry_classification_in_appendix a owl:ObjectProperty ;
+  rdfs:domain ex:RBICSSubindustryClassification ;
+  rdfs:range ex:Appendix .
+ex:appendix_rbics_subindustry_classification a owl:Class ; rdfs:subClassOf ex:RBICSSubindustryClassification .
+ex:index_universe a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:ShareClass .
+ex:eligible_for_index_universe a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:ShareClass .
+ex:part_component_of_gbs_index_universe a owl:Class, a4:NaryRelationClass .
+ex:part_component_of_gbs_index_universe_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:part_component_of_gbs_index_universe ;
+  rdfs:range ex:SelectionDay .
+ex:part_component_of_gbs_index_universe_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:part_component_of_gbs_index_universe ;
+  rdfs:range ex:Security .
+ex:part_component_of_gbs_index_universe_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:part_component_of_gbs_index_universe ;
+  rdfs:range ex:GbsIndexUniverse .
+ex:gbs_index_universe_classification a owl:Class, a4:NaryRelationClass .
+ex:gbs_index_universe_classification_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:gbs_index_universe_classification ;
+  rdfs:range ex:SelectionDay .
+ex:gbs_index_universe_classification_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:gbs_index_universe_classification ;
+  rdfs:range ex:Security .
+ex:gbs_index_universe_classification_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:gbs_index_universe_classification ;
+  rdfs:range ex:GbsIndexUniverseClassification .
+ex:company a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:ShareClass ;
+  rdfs:range ex:Company .
+ex:company_currently_included_in_index a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:Company .
+ex:share_class_currently_included_in_index a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:ShareClass .
+ex:eligible_by_current_company_buffer_rule a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:ShareClass .
+ex:eligible_by_not_current_company_buffer_rule a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:ShareClass .
+ex:share_class_satisfies_buffer_rule a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:ShareClass .
+ex:CurrentCompanyBufferRule a ex:IndexBufferRule, owl:NamedIndividual .
+ex:NotCurrentCompanyBufferRule a ex:IndexBufferRule, owl:NamedIndividual .
+ex:AvoidFrequentChangesBetweenTwoShareClasses a ex:VagueTerm, owl:NamedIndividual .
+ex:share_class_with_highest_minimum_average_daily_value_traded a owl:Class, a4:NaryRelationClass .
+ex:share_class_with_highest_minimum_average_daily_value_traded_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:share_class_with_highest_minimum_average_daily_value_traded ;
+  rdfs:range ex:SelectionDay .
+ex:share_class_with_highest_minimum_average_daily_value_traded_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:share_class_with_highest_minimum_average_daily_value_traded ;
+  rdfs:range ex:Company .
+ex:share_class_with_highest_minimum_average_daily_value_traded_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:share_class_with_highest_minimum_average_daily_value_traded ;
+  rdfs:range ex:ShareClass .
+ex:highest_minimum_average_daily_value_traded a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:ShareClass .
+ex:rbics_subindustry_classification a owl:Class, a4:NaryRelationClass .
+ex:rbics_subindustry_classification_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:rbics_subindustry_classification ;
+  rdfs:range ex:SelectionDay .
+ex:rbics_subindustry_classification_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:rbics_subindustry_classification ;
+  rdfs:range ex:Security .
+ex:rbics_subindustry_classification_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:rbics_subindustry_classification ;
+  rdfs:range ex:RBICSSubindustryClassification .
+ex:determination_of_index_universe a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:DeterminationOfIndexUniverse .
+ex:fully_rule_based a owl:Class ; rdfs:subClassOf ex:DeterminationOfIndexUniverse .
+
+ex:SolactiveGBSGlobalMarketsAllCapUSDIndexPR ex:isin ex:DE000SLA78E2 .
+ex:ASSERT_solactive_gbs_benchmark_series_pdf_url a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "document_url(SolactiveGBSBenchmarkSeriesPdf, HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)" .
+ex:ASSERT_gbs_index_universe_framework_document_part a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "part_of_document(GbsIndexUniverseFrameworkDocumentPart, SolactiveGBSBenchmarkSeriesPdf)" .
+ex:ASSERT_gbs_index_universe_framework_document_part_locator a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "document_part_locator(GbsIndexUniverseFrameworkDocumentPart, GbsIndexUniverseFrameworkDocumentLocator)" .
+ex:ASSERT_gbs_index_universe_framework_document_part_url a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "document_part_url(GbsIndexUniverseFrameworkDocumentPart, HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)" .
+ex:ASSERT_index_universe_minimum_average_daily_value_traded_threshold_currency a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(currency(IndexUniverseMinimumAverageDailyValueTradedThreshold)) = (USD)" .
+ex:ASSERT_index_universe_minimum_average_daily_value_traded_threshold_value a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(monetary_amount_value(IndexUniverseMinimumAverageDailyValueTradedThreshold)) = (5)" .
+ex:ASSERT_index_universe_minimum_average_daily_value_traded_threshold_scale a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(monetary_amount_scale(IndexUniverseMinimumAverageDailyValueTradedThreshold)) = (Million)" .
+ex:OneMonth owl:sameAs "1"^^xsd:integer .
+ex:SixMonths owl:sameAs "6"^^xsd:integer .
+ex:ASSERT_declared_lookback_windows a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, ((months_over(months_prior_including_selection_day(OneMonth, d))) = (OneMonth)) and (lookback_window_anchor_day(months_prior_including_selection_day(OneMonth, d), d)) and (lookback_window_includes_anchor_day(months_prior_including_selection_day(OneMonth, d), d)) and ((months_over(months_prior_including_selection_day(SixMonths, d))) = (SixMonths)) and (lookback_window_anchor_day(months_prior_including_selection_day(SixMonths, d), d)) and (lookback_window_includes_anchor_day(months_prior_including_selection_day(SixMonths, d), d))" .
+ex:ASSERT_minimum_average_daily_value_traded_over_declared_lookback_windows a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, ((minimum_average_daily_value_traded(d, s)) <= (average_daily_value_traded(d, s, months_prior_including_selection_day(OneMonth, d)))) and ((minimum_average_daily_value_traded(d, s)) <= (average_daily_value_traded(d, s, months_prior_including_selection_day(SixMonths, d)))) and (((minimum_average_daily_value_traded(d, s)) = (average_daily_value_traded(d, s, months_prior_including_selection_day(OneMonth, d)))) or ((minimum_average_daily_value_traded(d, s)) = (average_daily_value_traded(d, s, months_prior_including_selection_day(SixMonths, d)))))" .
+ex:ASSERT_appendix_rbics_subindustry_classification_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall cls: RBICSSubindustryClassification, (appendix_rbics_subindustry_classification(cls)) iff ((rbics_subindustry_classification_of_system(cls, FactSetRevereBusinessIndustryClassificationSystem)) and (rbics_subindustry_classification_in_appendix(cls, IndexGuidelineAppendix)))" .
+ex:ASSERT_company_currently_included_in_index_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall co: Company, (company_currently_included_in_index(d, co)) iff (exists sc: ShareClass, ((company(sc)) = (co)) and (share_class_currently_included_in_index(d, sc)))" .
+ex:ASSERT_highest_minimum_average_daily_value_traded_share_class_company a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall co: Company, (company(share_class_with_highest_minimum_average_daily_value_traded(d, co))) = (co)" .
+ex:ASSERT_highest_minimum_average_daily_value_traded_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall co: Company, forall other: ShareClass, (((company(other)) = (co)) and (not ((other) = (share_class_with_highest_minimum_average_daily_value_traded(d, co))))) implies ((minimum_average_daily_value_traded(d, share_class_with_highest_minimum_average_daily_value_traded(d, co))) >= (minimum_average_daily_value_traded(d, other)))" .
+ex:ASSERT_highest_minimum_average_daily_value_traded_predicate a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall sc: ShareClass, (highest_minimum_average_daily_value_traded(d, sc)) iff ((sc) = (share_class_with_highest_minimum_average_daily_value_traded(d, company(sc))))" .
+ex:ASSERT_current_company_buffer_rule a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall sc: ShareClass, (eligible_by_current_company_buffer_rule(d, sc)) iff ((company_currently_included_in_index(d, company(sc))) and (share_class_currently_included_in_index(d, sc)) and (forall other: ShareClass, (((company(other)) = (company(sc))) and (not ((other) = (sc)))) implies ((minimum_average_daily_value_traded(d, sc)) >= ((60%) * (minimum_average_daily_value_traded(d, other))))))" .
+ex:ASSERT_not_current_company_buffer_rule a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall sc: ShareClass, (eligible_by_not_current_company_buffer_rule(d, sc)) iff ((not (company_currently_included_in_index(d, company(sc)))) and (highest_minimum_average_daily_value_traded(d, sc)))" .
+ex:ASSERT_share_class_satisfies_buffer_rule_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall sc: ShareClass, (share_class_satisfies_buffer_rule(d, sc)) iff ((eligible_by_current_company_buffer_rule(d, sc)) or (eligible_by_not_current_company_buffer_rule(d, sc)))" .
+ex:ASSERT_index_universe_bridge a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall sc: ShareClass, (index_universe(d, sc)) iff (eligible_for_index_universe(d, sc))" .
+ex:ASSERT_eligible_for_index_universe_requirements a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall sc: ShareClass, (eligible_for_index_universe(d, sc)) iff ((part_component_of_gbs_index_universe(d, sc, gbs_index_universe(SolactiveGBSGlobalMarketsAllCapUSDIndexPR))) and (((gbs_index_universe_classification(d, sc)) = (DevelopedMarketsEurope)) or ((gbs_index_universe_classification(d, sc)) = (Canada)) or ((gbs_index_universe_classification(d, sc)) = (UnitedStates))) and ((minimum_average_daily_value_traded(d, sc)) >= (IndexUniverseMinimumAverageDailyValueTradedThreshold)) and (share_class_satisfies_buffer_rule(d, sc)) and (appendix_rbics_subindustry_classification(rbics_subindustry_classification(d, sc))))" .
+ex:ASSERT_only_one_share_class_of_each_company a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall co: Company, (<count>) <= (1)" .
+ex:ASSERT_determination_of_index_universe_fully_rule_based a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall d: SelectionDay, fully_rule_based(determination_of_index_universe(d))" .

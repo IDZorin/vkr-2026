@@ -1,0 +1,219 @@
+{
+  "entry_id": "section_3_1",
+  "has_source": true,
+  "has_normalized": true,
+  "has_render": true,
+  "has_ir": true,
+  "source": {
+    "modals": {
+      "will": 1
+    },
+    "negated_modals": {},
+    "temporal": {
+      "after": 1,
+      "before": 1
+    },
+    "quantifiers": {
+      "any": 1
+    },
+    "numeric_literals": [
+      "2.1",
+      "2.2"
+    ],
+    "_token_count": 142
+  },
+  "normalized": {
+    "modals": {
+      "will": 1
+    },
+    "negated_modals": {},
+    "temporal": {
+      "after": 1,
+      "before": 1
+    },
+    "quantifiers": {
+      "any": 1
+    },
+    "numeric_literals": [
+      "2.1",
+      "2.2"
+    ],
+    "_token_count": 142
+  },
+  "render": {
+    "modals": {},
+    "negated_modals": {},
+    "temporal": {
+      "after": 1,
+      "before": 1
+    },
+    "quantifiers": {
+      "each": 1,
+      "no": 1
+    },
+    "numeric_literals": [
+      "2.1",
+      "2.2",
+      "3.1"
+    ],
+    "_token_count": 120
+  },
+  "ir_logical": {
+    "implies_count": 3,
+    "iff_count": 0,
+    "forall_count": 9,
+    "exists_count": 5,
+    "not_count": 0,
+    "and_count": 27,
+    "or_count": 0,
+    "numeric_literals": []
+  },
+  "drifts": {
+    "source_to_render": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 1,
+        "added": {},
+        "removed": {
+          "will": 1
+        }
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 2,
+        "removed_count": 1,
+        "added": {
+          "no": 1,
+          "each": 1
+        },
+        "removed": {
+          "any": 1
+        }
+      },
+      "numeric_literals": {
+        "added_count": 1,
+        "removed_count": 0,
+        "added": {
+          "3.1": 1
+        },
+        "removed": {}
+      }
+    },
+    "source_to_normalized": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "numeric_literals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      }
+    },
+    "normalized_to_render": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 1,
+        "added": {},
+        "removed": {
+          "will": 1
+        }
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 2,
+        "removed_count": 1,
+        "added": {
+          "no": 1,
+          "each": 1
+        },
+        "removed": {
+          "any": 1
+        }
+      },
+      "numeric_literals": {
+        "added_count": 1,
+        "removed_count": 0,
+        "added": {
+          "3.1": 1
+        },
+        "removed": {}
+      }
+    }
+  },
+  "alarms": [
+    {
+      "kind": "modals_lost_in_render",
+      "removed": {
+        "will": 1
+      },
+      "count": 1
+    },
+    {
+      "kind": "quantifiers_lost_in_render",
+      "removed": {
+        "any": 1
+      },
+      "count": 1
+    },
+    {
+      "kind": "quantifiers_added_in_render",
+      "added": {
+        "no": 1,
+        "each": 1
+      },
+      "count": 2
+    },
+    {
+      "kind": "numeric_literals_added_in_render",
+      "added": {
+        "3.1": 1
+      },
+      "count": 1
+    }
+  ],
+  "alarm_count": 4
+}

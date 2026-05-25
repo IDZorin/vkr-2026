@@ -1,0 +1,386 @@
+{
+  "entry_id": "N20",
+  "schema": "quality_snapshot_v1",
+  "generated_at": "2026-05-17T00:17:54",
+  "clean_gate": "accepted",
+  "blocking_conditions": [],
+  "validity": {
+    "ast_valid": 1,
+    "ast_error_count": 0,
+    "rendering_ok": 1,
+    "combined_validation_ok": 1
+  },
+  "grounding": {
+    "raw": {
+      "ungrounded_symbol_count": 0,
+      "ungrounded_sort_count": 2,
+      "ungrounded_ref_count": 0,
+      "ungrounded_callee_count": 0,
+      "origin_error_count": 2
+    },
+    "extended": {
+      "entry": "N20",
+      "ungrounded_sort_count_extended": 0,
+      "ungrounded_symbol_count_extended": 0,
+      "ungrounded_entity_count_extended": 0,
+      "ungrounded_ref_count_extended": 0,
+      "ungrounded_callee_count_extended": 0,
+      "ungrounded": {
+        "sorts": [],
+        "entities": [],
+        "symbols": [],
+        "deontic": [],
+        "temporal": [],
+        "actions": []
+      },
+      "ungrounded_refs": [],
+      "ungrounded_callees": [],
+      "grounded_via_overlay": {
+        "sorts": [],
+        "symbols": []
+      }
+    },
+    "effective_ungrounded_symbol_count": 0,
+    "effective_ungrounded_sort_count": 0,
+    "effective_ungrounded_callee_count": 0
+  },
+  "family_coverage": {
+    "required_gap_count": 0,
+    "advisory_gap_count": 0,
+    "required_gaps": [],
+    "advisory_gaps": []
+  },
+  "source_phrase_coverage": {
+    "phrase_count": 1,
+    "covered_count": 1,
+    "uncovered_count": 0,
+    "coverage_rate": 1.0,
+    "waiver_status": {
+      "uncovered_phrase_count": 0,
+      "waived_uncovered_phrase_count": 0,
+      "unwaived_uncovered_phrase_count": 0,
+      "waived_uncovered_phrases": [],
+      "unwaived_uncovered_phrases": [],
+      "effective_covered_count": 1,
+      "effective_coverage_rate": 1.0,
+      "all_uncovered_phrases_have_token_waiver": true
+    }
+  },
+  "token_provenance": {
+    "summary": {
+      "source_token_count": 12,
+      "content_token_count": 8,
+      "covered_content_token_count": 8,
+      "uncovered_content_token_count": 0,
+      "ignored_stopword_count": 4,
+      "content_coverage_rate": 1.0
+    },
+    "waiver_status": {
+      "waiver_file_present": true,
+      "uncovered_token_count": 0,
+      "human_approved_waiver_count": 0,
+      "approved_uncovered_tokens": [],
+      "unapproved_uncovered_tokens": [],
+      "approved_tokens_not_currently_uncovered": [],
+      "waiver_accounted_content_token_count": 8,
+      "waiver_accounted_content_coverage_rate": 1.0,
+      "all_uncovered_tokens_have_human_waiver": true
+    },
+    "exact_url_status": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null,
+      "missing_urls": [],
+      "all_source_urls_preserved_exactly": true
+    }
+  },
+  "lowering_audit": {
+    "smell_count": 1,
+    "smells": [
+      {
+        "entry_id": "N20",
+        "decl_kind": "rel",
+        "symbol": "term_shall_have_meaning_defined_in_section",
+        "line_no": 6,
+        "matched_token_or_phrase": "shall",
+        "candidate_family": "DeonticDecl",
+        "candidate_kind": "obligation",
+        "spec_ref": "#31",
+        "match_kind": "token",
+        "raw_decl": "rel term_shall_have_meaning_defined_in_section : DefinedTerm, DocumentPart"
+      }
+    ]
+  },
+  "a4v3_semantic_lint": {
+    "total_findings": 0,
+    "strong_findings": 0,
+    "soft_findings": 0,
+    "style_findings": 0,
+    "advisory_findings": 0,
+    "unused_declaration_count": 0,
+    "arity_gt_5_count": 0,
+    "arity_gt_2_without_role_explanation_count": 0,
+    "sentence_literal_in_formula_count": 0,
+    "permission_source_asserts_concrete_event_instance_count": 0,
+    "deontic_role_parameter_not_bound_count": 0,
+    "deontic_parameter_type_is_entity_count": 0,
+    "unused_rel_fun_count": 0,
+    "unused_sort_entity_count": 0,
+    "self_referential_scope_count": 0,
+    "past_participle_obligation_name_count": 0,
+    "double_coded_deontic_norm_count": 0,
+    "temporal_rel_in_deontic_context_count": 0,
+    "vacuous_responsibility_implication_count": 0,
+    "bare_universal_predicate_constraint_count": 0,
+    "fact_like_universal_constraint_count": 0,
+    "numeric_operation_on_non_numeric_sort_count": 0,
+    "basis_relation_without_value_link_count": 0,
+    "shared_name_token_without_structural_carrier_count": 0,
+    "semantic_contract_gap_count": 0,
+    "semantic_contract_gap_strong_count": 0,
+    "repair_candidate_present_count": 0,
+    "top_k_contract_gap_count": 0,
+    "by_contract_class": {}
+  },
+  "provenance_lint": {
+    "total_findings": 0,
+    "strong_findings": 0,
+    "soft_findings": 0,
+    "advisory_findings": 0,
+    "by_check": {}
+  },
+  "artifact_consistency": {
+    "schema": "artifact_consistency_v1",
+    "status": "ok",
+    "canonical_entry_sha256": "59b0b8572195c6b6dd89f86e415437ecbfe22a2244f93cca922077ab1af1526b",
+    "canonical_files": {
+      "source": {
+        "exists": true,
+        "size": 81,
+        "mtime": "2026-04-28T20:11:45",
+        "sha256": "63909e92ef6a31cc35d82f578bed9629fe7a257feee8084a02e835362396a268",
+        "path": "source.md",
+        "required": true
+      },
+      "normalized": {
+        "exists": true,
+        "size": 81,
+        "mtime": "2026-04-28T20:11:45",
+        "sha256": "63909e92ef6a31cc35d82f578bed9629fe7a257feee8084a02e835362396a268",
+        "path": "normalized.md",
+        "required": true
+      },
+      "main_ir": {
+        "exists": true,
+        "size": 336,
+        "mtime": "2026-05-10T19:33:04",
+        "sha256": "1e3aeb516dff99ad24456badcba4a810e442c8497aafb6e0a49b8e9c19241e8a",
+        "path": "main_ir.a4v3",
+        "required": true
+      },
+      "repair": {
+        "exists": false,
+        "path": "repair.a4v3",
+        "required": false
+      },
+      "provenance": {
+        "exists": true,
+        "size": 1314,
+        "mtime": "2026-05-10T19:34:41",
+        "sha256": "01674372adc833302d91201bb03511df71a72fe8737b726b8418f05a7950956c",
+        "path": "provenance.yaml",
+        "required": true
+      },
+      "translator_notes": {
+        "exists": true,
+        "size": 911,
+        "mtime": "2026-05-10T19:35:47",
+        "sha256": "d2c93a86a8066e1a5606b289b5d78deac867e4824f5850c600b4cf714ee5e528",
+        "path": "translator_notes.md",
+        "required": false
+      },
+      "token_waiver": {
+        "exists": true,
+        "size": 185,
+        "mtime": "2026-05-10T19:56:18",
+        "sha256": "24db9902310fced8ab7a463710af5d071afd1cafae63eee4ecf5b9f6fc4bcf66",
+        "path": "waiver_token_absorption_v1.json",
+        "required": false
+      }
+    },
+    "required_stale_count": 0,
+    "required_missing_count": 0,
+    "required_canonical_missing_count": 0,
+    "advisory_stale_count": 0,
+    "advisory_missing_count": 0,
+    "artifacts": [
+      {
+        "key": "main_metrics",
+        "path": "main_ir_metrics_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir"
+        ],
+        "mtime": "2026-05-10T19:57:07",
+        "sha256": "690dff0411d1f14cb67c610eec1432377ee7d083569af38a6ab5941e7dece9c8",
+        "max_input_mtime": "2026-05-10T19:33:04"
+      },
+      {
+        "key": "family_coverage",
+        "path": "metrics_family_coverage_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir"
+        ],
+        "mtime": "2026-05-10T19:56:19",
+        "sha256": "a9801216a9d5f60a39dbb9576a6818a70c5c657fad8ef5acd91a4d98c930ffe5",
+        "max_input_mtime": "2026-05-10T19:33:04"
+      },
+      {
+        "key": "source_phrase_coverage",
+        "path": "metrics_source_phrase_coverage_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-10T19:56:19",
+        "sha256": "d1b8ef9a0b5e2ac8faa537e9d59c8b7f83de770dbd00ab851edec71c8918a13c",
+        "max_input_mtime": "2026-05-10T19:33:04"
+      },
+      {
+        "key": "token_provenance",
+        "path": "metrics_token_provenance_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-10T19:56:18",
+        "sha256": "2ce6dc8ad465dc24f71afdc8f6e5b0761ec538d2f7cf2014dbfc3ea22d5ef541",
+        "max_input_mtime": "2026-05-10T19:33:04"
+      },
+      {
+        "key": "lowering_audit",
+        "path": "lowering_audit_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "main_ir"
+        ],
+        "mtime": "2026-05-10T19:56:19",
+        "sha256": "459b1784d202cc1beb71b535f162601d21dcfe2d13d19476a8386adda4ba52df",
+        "max_input_mtime": "2026-05-10T19:33:04"
+      },
+      {
+        "key": "semantic_lint",
+        "path": "a4v3_semantic_lint_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir",
+          "repair",
+          "translator_notes"
+        ],
+        "mtime": "2026-05-12T13:01:19",
+        "sha256": "a8021eb34489cfcbdce357355402675c96855f2904f0d83b1a2eba660fd146da",
+        "max_input_mtime": "2026-05-10T19:35:47"
+      },
+      {
+        "key": "provenance_lint",
+        "path": "provenance_lint_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "provenance",
+          "main_ir"
+        ],
+        "mtime": "2026-05-10T19:56:19",
+        "sha256": "a69feb440ccb42e4c1f1f62a8fb8abfcb112c2e460b6c25e5c0dc634052228a1",
+        "max_input_mtime": "2026-05-10T19:34:41"
+      },
+      {
+        "key": "diagnostic_suite",
+        "path": "diagnostic_suite_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir",
+          "repair",
+          "token_waiver"
+        ],
+        "mtime": "2026-05-10T19:58:56",
+        "sha256": "51a54bc6ed39cf27cb8417ed6e955cda6f07eaa4f9099e28bf0177cb53890157",
+        "max_input_mtime": "2026-05-10T19:56:18"
+      },
+      {
+        "key": "single_semantic_judge",
+        "path": "N20_manual_section_workspace_artifact_current_v1_llm_semantic_verdict_gpt_5_4_mini.json",
+        "required": false,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir"
+        ],
+        "mtime": "2026-05-10T19:57:07",
+        "sha256": "117d941c1b4db5a2b51cc2b2f7964423a3afe6a9b66f1e8c2f0e90abb74d41b4",
+        "max_input_mtime": "2026-05-10T19:33:04"
+      },
+      {
+        "key": "multi_judge",
+        "path": "metrics_multi_judge_consensus_v1.json",
+        "required": false,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-10T19:57:45",
+        "sha256": "e5baeba9247d879b43701dbe512b83fe0f76fc8535ad78e0740ba34d9cbec5af",
+        "max_input_mtime": "2026-05-10T19:33:04"
+      },
+      {
+        "key": "counterexample_probing",
+        "path": "metrics_counterexample_probing_v1.json",
+        "required": false,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-10T19:58:54",
+        "sha256": "fe5aaf1f6dbb2cd334159515bf9aa21d834e7fb4a8e3ba30722d282a6a6058e4",
+        "max_input_mtime": "2026-05-10T19:33:04"
+      }
+    ]
+  },
+  "diagnostic_suite_raw": {
+    "raw_gate": "needs_review",
+    "raw_fail_count": 0,
+    "raw_warning_count": 28,
+    "waiver_adjusted_legacy_lexical_fail_count": 0,
+    "render_nli_advisory_fail_count": 0,
+    "source_normalization_nli_advisory_fail_count": 0,
+    "blocking_fail_count": 0,
+    "blocking_fail_rules": []
+  },
+  "notes": [
+    "clean_gate ignores legacy lexical failures when every uncovered token has a human-approved waiver.",
+    "render NLI failures are kept as advisory because they evaluate deterministic render-back text, not A4V3 validity.",
+    "raw diagnostic_suite_v1.json is preserved unchanged for auditability."
+  ]
+}

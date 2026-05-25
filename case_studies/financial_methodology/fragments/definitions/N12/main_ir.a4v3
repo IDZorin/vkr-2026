@@ -1,0 +1,42 @@
+sort SelectionDay extends Day
+sort Security extends FinancialInstrument
+sort ShareClass
+sort Share
+sort ShareCount extends Nat
+sort Fraction extends Real
+sort FreeFloat extends Fraction
+sort DataVendor
+
+fun[required] share_class : SelectionDay, Security -> ShareClass
+fun[required] free_float : SelectionDay, Security -> FreeFloat
+fun[required] free_float_numerator : FreeFloat -> ShareCount
+fun[required] free_float_denominator : FreeFloat -> ShareCount
+
+rel fulfills_index_component_requirements : SelectionDay, Security
+rel share_of_share_class : Share, ShareClass
+rel issued_share_on_selection_day : SelectionDay, Share
+rel available_for_trading_by_market_participants : SelectionDay, Share
+rel locked_in_by_long_term_holders : SelectionDay, Share
+rel sourced_from_data_vendor : FreeFloat, DataVendor
+
+constraint free_float_definition :
+  forall d: SelectionDay, forall s: Security,
+    fulfills_index_component_requirements(d, s)
+    implies
+      free_float_numerator(free_float(d, s))
+      =
+      count(sh in Share where
+        share_of_share_class(sh, share_class(d, s))
+        and issued_share_on_selection_day(d, sh)
+        and available_for_trading_by_market_participants(d, sh)
+        and not locked_in_by_long_term_holders(d, sh))
+      and free_float_denominator(free_float(d, s))
+      =
+      count(sh in Share where
+        share_of_share_class(sh, share_class(d, s))
+        and issued_share_on_selection_day(d, sh))
+      and free_float(d, s)
+      =
+      free_float_numerator(free_float(d, s)) / free_float_denominator(free_float(d, s))
+      and exists vendor: DataVendor,
+        sourced_from_data_vendor(free_float(d, s), vendor)

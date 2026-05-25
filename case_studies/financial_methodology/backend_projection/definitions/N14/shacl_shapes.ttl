@@ -1,0 +1,30 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N14 a a4:ShaclProjectionTarget .
+
+ex:GbsIndexUniverse a rdfs:Class .
+ex:GbsIndexUniverseShape a sh:NodeShape ; sh:targetClass ex:GbsIndexUniverse .
+ex:GbsIndex a rdfs:Class .
+ex:GbsIndexShape a sh:NodeShape ; sh:targetClass ex:GbsIndex .
+
+ex:TheGbsIndexUniverse a ex:GbsIndexUniverse .
+ex:GbsIndexSpecifiedInSection2_1 a ex:GbsIndex .
+ex:Section2_1 a ex:DocumentPart .
+ex:SolactiveGBSBenchmarkSeriesGuideline a ex:Document .
+ex:HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf a ex:Url .
+ex:gbs_index_specified_in_section a rdf:Property .
+ex:GbsIndexShape sh:property [ sh:path ex:gbs_index_specified_in_section ; sh:class ex:DocumentPart ] .
+ex:index_universe_as_defined_in_guideline a rdf:Property .
+ex:GbsIndexUniverseShape sh:property [ sh:path ex:index_universe_as_defined_in_guideline ; sh:class ex:Document ] .
+ex:index_universe_for_gbs_index a rdf:Property .
+ex:GbsIndexUniverseShape sh:property [ sh:path ex:index_universe_for_gbs_index ; sh:class ex:GbsIndex ] .
+
+ex:GbsIndexSpecifiedInSection2_1 ex:gbs_index_specified_in_section ex:Section2_1 .
+ex:TheGbsIndexUniverse ex:index_universe_as_defined_in_guideline ex:SolactiveGBSBenchmarkSeriesGuideline .
+ex:TheGbsIndexUniverse ex:index_universe_for_gbs_index ex:GbsIndexSpecifiedInSection2_1 .

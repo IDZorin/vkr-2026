@@ -1,0 +1,45 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N21 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:Table a owl:Class .
+ex:TableColumn a owl:Class .
+ex:IndexCurrencySpecification a owl:Class .
+
+ex:Section1_2 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section1_2IndexTable a ex:Table, owl:NamedIndividual .
+ex:CurrencyColumn a ex:TableColumn, owl:NamedIndividual .
+ex:index_currency a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:Currency .
+ex:specification_for_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexCurrencySpecification ;
+  rdfs:range ex:Index .
+ex:specification_currency a owl:ObjectProperty ;
+  rdfs:domain ex:IndexCurrencySpecification ;
+  rdfs:range ex:Currency .
+ex:specification_column a owl:ObjectProperty ;
+  rdfs:domain ex:IndexCurrencySpecification ;
+  rdfs:range ex:TableColumn .
+ex:specification_table a owl:ObjectProperty ;
+  rdfs:domain ex:IndexCurrencySpecification ;
+  rdfs:range ex:Table .
+ex:table_in_section a owl:ObjectProperty ;
+  rdfs:domain ex:Table ;
+  rdfs:range ex:DocumentPart .
+ex:column_of_table a owl:ObjectProperty ;
+  rdfs:domain ex:TableColumn ;
+  rdfs:range ex:Table .
+
+ex:Section1_2IndexTable ex:table_in_section ex:Section1_2 .
+ex:CurrencyColumn ex:column_of_table ex:Section1_2IndexTable .
+ex:ASSERT_index_currency_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, forall c: Currency, (index_currency(i, c)) iff (exists spec: IndexCurrencySpecification, (specification_for_index(spec, i)) and (specification_currency(spec, c)) and (specification_column(spec, CurrencyColumn)) and (specification_table(spec, Section1_2IndexTable)))" .

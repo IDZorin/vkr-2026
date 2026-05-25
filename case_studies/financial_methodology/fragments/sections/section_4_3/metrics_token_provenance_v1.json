@@ -1,0 +1,816 @@
+{
+  "entry_id": "section_4_3",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 11,
+    "content_token_count": 7,
+    "covered_content_token_count": 7,
+    "uncovered_content_token_count": 0,
+    "ignored_stopword_count": 4,
+    "content_coverage_rate": 1.0
+  },
+  "tokens": [
+    {
+      "token": "the",
+      "surface_forms": [
+        "The",
+        "the"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 1
+        },
+        {
+          "line": 3,
+          "column": 14
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 6,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndex",
+          "matched_text": "the Index"
+        }
+      ]
+    },
+    {
+      "token": "level",
+      "surface_forms": [
+        "level"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 5
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexLevel",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "level_of_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rounded_to_precision",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_level_rounded_to_two_decimal_places",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "level_of_index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexLevel",
+          "matched_text": "level"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 11
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "level_of_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "level_of_index"
+        }
+      ]
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 18
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Index",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexLevel",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 6,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 6,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "level_of_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rounded_to_precision",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_level_rounded_to_two_decimal_places",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "level_of_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Index",
+          "matched_text": "Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndex",
+          "matched_text": "the Index"
+        }
+      ]
+    },
+    {
+      "token": "will",
+      "surface_forms": [
+        "will"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 24
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "legal_future_or_procedural_future"
+        }
+      ]
+    },
+    {
+      "token": "be",
+      "surface_forms": [
+        "be"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 29
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "round",
+      "surface_forms": [
+        "rounded"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 32
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "RoundingPrecision",
+          "family": "TypeDecl.opaque",
+          "line": 3,
+          "matched_text": "RoundingPrecision"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TwoDecimalPlaces",
+          "family": "SymbolDecl.entity",
+          "line": 7,
+          "matched_text": "RoundingPrecision"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rounded_to_precision",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "rounded_to_precision"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rounded_to_precision",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "RoundingPrecision"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "decimal_place_count",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "RoundingPrecision"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_level_rounded_to_two_decimal_places",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "rounded_to_precision"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "rounded_to_precision",
+          "matched_text": "rounded to"
+        }
+      ]
+    },
+    {
+      "token": "to",
+      "surface_forms": [
+        "to"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 40
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rounded_to_precision",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "rounded_to_precision"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_level_rounded_to_two_decimal_places",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "rounded_to_precision"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "rounded_to_precision",
+          "matched_text": "rounded to"
+        }
+      ]
+    },
+    {
+      "token": "two",
+      "surface_forms": [
+        "two"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 43
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TwoDecimalPlaces",
+          "family": "SymbolDecl.entity",
+          "line": 7,
+          "matched_text": "TwoDecimalPlaces"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "two_decimal_places_precision",
+          "family": "AssertDecl.fact",
+          "line": 14,
+          "matched_text": "two_decimal_places_precision"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_level_rounded_to_two_decimal_places",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "two_decimal_places_precision",
+          "assertion_kind": "fact",
+          "line": 14,
+          "matched_text": "two_decimal_places_precision"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "two_decimal_places_precision",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[0]",
+          "matched_text": "TwoDecimalPlaces"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1]",
+          "matched_text": "TwoDecimalPlaces"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TwoDecimalPlaces",
+          "matched_text": "two decimal places"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DecimalPlaceCount",
+          "matched_text": "two"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "decimal_place_count",
+          "matched_text": "two"
+        }
+      ]
+    },
+    {
+      "token": "decimal",
+      "surface_forms": [
+        "decimal"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 47
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DecimalPlaceCount",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "DecimalPlaceCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TwoDecimalPlaces",
+          "family": "SymbolDecl.entity",
+          "line": 7,
+          "matched_text": "TwoDecimalPlaces"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "decimal_place_count",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "decimal_place_count"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "decimal_place_count",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "DecimalPlaceCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "two_decimal_places_precision",
+          "family": "AssertDecl.fact",
+          "line": 14,
+          "matched_text": "two_decimal_places_precision"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_level_rounded_to_two_decimal_places",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "two_decimal_places_precision",
+          "assertion_kind": "fact",
+          "line": 14,
+          "matched_text": "two_decimal_places_precision"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "two_decimal_places_precision",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left",
+          "matched_text": "decimal_place_count"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "two_decimal_places_precision",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[0]",
+          "matched_text": "TwoDecimalPlaces"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1]",
+          "matched_text": "TwoDecimalPlaces"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "RoundingPrecision",
+          "matched_text": "decimal places"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TwoDecimalPlaces",
+          "matched_text": "two decimal places"
+        }
+      ]
+    },
+    {
+      "token": "plac",
+      "surface_forms": [
+        "places"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 55
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TwoDecimalPlaces",
+          "family": "SymbolDecl.entity",
+          "line": 7,
+          "matched_text": "TwoDecimalPlaces"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "two_decimal_places_precision",
+          "family": "AssertDecl.fact",
+          "line": 14,
+          "matched_text": "two_decimal_places_precision"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_level_rounded_to_two_decimal_places",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "two_decimal_places_precision",
+          "assertion_kind": "fact",
+          "line": 14,
+          "matched_text": "two_decimal_places_precision"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "two_decimal_places_precision",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[0]",
+          "matched_text": "TwoDecimalPlaces"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "index_level_rounded_to_two_decimal_places"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_level_rounded_to_two_decimal_places",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1]",
+          "matched_text": "TwoDecimalPlaces"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "RoundingPrecision",
+          "matched_text": "decimal places"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TwoDecimalPlaces",
+          "matched_text": "two decimal places"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DecimalPlaceCount",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "DecimalPlaceCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "decimal_place_count",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "decimal_place_count"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "decimal_place_count",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "DecimalPlaceCount"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "two_decimal_places_precision",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left",
+          "matched_text": "decimal_place_count"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

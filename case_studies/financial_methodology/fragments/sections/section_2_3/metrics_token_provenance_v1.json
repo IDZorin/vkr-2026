@@ -1,0 +1,2016 @@
+{
+  "entry_id": "section_2_3",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 42,
+    "content_token_count": 28,
+    "covered_content_token_count": 20,
+    "uncovered_content_token_count": 8,
+    "ignored_stopword_count": 14,
+    "content_coverage_rate": 0.714
+  },
+  "tokens": [
+    {
+      "token": "weight",
+      "surface_forms": [
+        "Weighting",
+        "weight",
+        "weights"
+      ],
+      "count": 4,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 1
+        },
+        {
+          "line": 3,
+          "column": 59
+        },
+        {
+          "line": 6,
+          "column": 5
+        },
+        {
+          "line": 8,
+          "column": 5
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "WeightRedistributionProcess",
+          "family": "TypeDecl.opaque",
+          "line": 5,
+          "matched_text": "WeightRedistributionProcess"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "weight"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_redistribution_process",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "weight_redistribution_process"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "weight_redistribution_process",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "WeightRedistributionProcess"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_has_float_market_capizatlization_basis",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "weight_has_float_market_capizatlization_basis"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "iterative_process",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "WeightRedistributionProcess"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "redistributes_weight_proportionally",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "redistributes_weight_proportionally"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "redistributes_weight_proportionally",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "WeightRedistributionProcess"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_based_on_float_market_capizatlization",
+          "family": "AssertDecl.fact",
+          "line": 16,
+          "matched_text": "weight_based_on_float_market_capizatlization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "single_index_component_weight_capped",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "single_index_component_weight_capped"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_redistribution_process_is_iterative",
+          "family": "AssertDecl.fact",
+          "line": 31,
+          "matched_text": "weight_redistribution_process_is_iterative"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weights_redistributed_proportionally",
+          "family": "AssertDecl.fact",
+          "line": 35,
+          "matched_text": "weights_redistributed_proportionally"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "line": 16,
+          "matched_text": "weight_based_on_float_market_capizatlization"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body",
+          "matched_text": "weight_has_float_market_capizatlization_basis"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body.args[0]",
+          "matched_text": "weight"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "region_represents_exactly_50_percent",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[1]",
+          "matched_text": "weight"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "single_index_component_weight_capped",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "single_index_component_weight_capped"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "single_index_component_weight_capped",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "weight"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "weight_redistribution_process_is_iterative",
+          "assertion_kind": "fact",
+          "line": 31,
+          "matched_text": "weight_redistribution_process_is_iterative"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weight_redistribution_process_is_iterative",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.args[0]",
+          "matched_text": "weight_redistribution_process"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "weights_redistributed_proportionally",
+          "assertion_kind": "fact",
+          "line": 35,
+          "matched_text": "weights_redistributed_proportionally"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weights_redistributed_proportionally",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body",
+          "matched_text": "redistributes_weight_proportionally"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weights_redistributed_proportionally",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body.args[0]",
+          "matched_text": "weight_redistribution_process"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weights_redistributed_proportionally",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body.args[2]",
+          "matched_text": "weight"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 11
+        },
+        {
+          "line": 5,
+          "column": 40
+        },
+        {
+          "line": 6,
+          "column": 12
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the",
+        "The"
+      ],
+      "count": 5,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 14
+        },
+        {
+          "line": 3,
+          "column": 119
+        },
+        {
+          "line": 5,
+          "column": 43
+        },
+        {
+          "line": 6,
+          "column": 1
+        },
+        {
+          "line": 8,
+          "column": 1
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 4,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 18
+        },
+        {
+          "line": 3,
+          "column": 29
+        },
+        {
+          "line": 5,
+          "column": 53
+        },
+        {
+          "line": 6,
+          "column": 26
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "region",
+          "family": "SymbolDecl.fun",
+          "line": 7,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "float_market_capizatlization",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "weight",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "redistributes_weight_proportionally",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "single_index_component_weight_capped",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "single_index_component_weight_capped"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "region_represents_exactly_50_percent",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0].binder.sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "single_index_component_weight_capped",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "single_index_component_weight_capped"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "single_index_component_weight_capped",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "weights_redistributed_proportionally",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        }
+      ]
+    },
+    {
+      "token": "component",
+      "surface_forms": [
+        "Components",
+        "Component"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 24
+        },
+        {
+          "line": 3,
+          "column": 35
+        },
+        {
+          "line": 6,
+          "column": 32
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "region",
+          "family": "SymbolDecl.fun",
+          "line": 7,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "float_market_capizatlization",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "weight",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "redistributes_weight_proportionally",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "single_index_component_weight_capped",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "single_index_component_weight_capped"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "region_represents_exactly_50_percent",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0].binder.sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "single_index_component_weight_capped",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "single_index_component_weight_capped"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "single_index_component_weight_capped",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "weights_redistributed_proportionally",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        }
+      ]
+    },
+    {
+      "token": "on",
+      "surface_forms": [
+        "On",
+        "on"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 1
+        },
+        {
+          "line": 3,
+          "column": 72
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_based_on_float_market_capizatlization",
+          "family": "AssertDecl.fact",
+          "line": 16,
+          "matched_text": "weight_based_on_float_market_capizatlization"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "line": 16,
+          "matched_text": "weight_based_on_float_market_capizatlization"
+        }
+      ]
+    },
+    {
+      "token": "each",
+      "surface_forms": [
+        "each",
+        "Each"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 4
+        },
+        {
+          "line": 3,
+          "column": 24
+        },
+        {
+          "line": 5,
+          "column": 1
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "universal_quantifier",
+          "marker": "forall"
+        }
+      ]
+    },
+    {
+      "token": "selection",
+      "surface_forms": [
+        "Selection"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 9
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SelectionDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "float_market_capizatlization",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "weight",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "weight_redistribution_process",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "region_represents_exactly_50_percent",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "single_index_component_weight_capped",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "weight_redistribution_process_is_iterative",
+          "assertion_kind": "fact",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "weights_redistributed_proportionally",
+          "assertion_kind": "fact",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        }
+      ]
+    },
+    {
+      "token": "day",
+      "surface_forms": [
+        "Day"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 19
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SelectionDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "SelectionDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "float_market_capizatlization",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "weight",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "weight_redistribution_process",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "region_represents_exactly_50_percent",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "single_index_component_weight_capped",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "weight_redistribution_process_is_iterative",
+          "assertion_kind": "fact",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "weights_redistributed_proportionally",
+          "assertion_kind": "fact",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 45
+        },
+        {
+          "line": 6,
+          "column": 42
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_redistribution_process_is_iterative",
+          "family": "AssertDecl.fact",
+          "line": 31,
+          "matched_text": "weight_redistribution_process_is_iterative"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "weight_redistribution_process_is_iterative",
+          "assertion_kind": "fact",
+          "line": 31,
+          "matched_text": "weight_redistribution_process_is_iterative"
+        }
+      ]
+    },
+    {
+      "token": "assign",
+      "surface_forms": [
+        "assigned"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 48
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "a",
+      "surface_forms": [
+        "a"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 57
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "bas",
+      "surface_forms": [
+        "based"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 66
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_based_on_float_market_capizatlization",
+          "family": "AssertDecl.fact",
+          "line": 16,
+          "matched_text": "weight_based_on_float_market_capizatlization"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "line": 16,
+          "matched_text": "weight_based_on_float_market_capizatlization"
+        }
+      ]
+    },
+    {
+      "token": "its",
+      "surface_forms": [
+        "its"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 75
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "float",
+      "surface_forms": [
+        "Float"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 79
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "FloatMarketCapizatlization",
+          "family": "TypeDecl.opaque",
+          "line": 4,
+          "matched_text": "FloatMarketCapizatlization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "float_market_capizatlization",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "float_market_capizatlization"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "float_market_capizatlization",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "FloatMarketCapizatlization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_has_float_market_capizatlization_basis",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "weight_has_float_market_capizatlization_basis"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "weight_has_float_market_capizatlization_basis",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "FloatMarketCapizatlization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_based_on_float_market_capizatlization",
+          "family": "AssertDecl.fact",
+          "line": 16,
+          "matched_text": "weight_based_on_float_market_capizatlization"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "line": 16,
+          "matched_text": "weight_based_on_float_market_capizatlization"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body",
+          "matched_text": "weight_has_float_market_capizatlization_basis"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "float_market_capizatlization"
+        }
+      ]
+    },
+    {
+      "token": "market",
+      "surface_forms": [
+        "Market"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 85
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "FloatMarketCapizatlization",
+          "family": "TypeDecl.opaque",
+          "line": 4,
+          "matched_text": "FloatMarketCapizatlization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "float_market_capizatlization",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "float_market_capizatlization"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "float_market_capizatlization",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "FloatMarketCapizatlization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_has_float_market_capizatlization_basis",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "weight_has_float_market_capizatlization_basis"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "weight_has_float_market_capizatlization_basis",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "FloatMarketCapizatlization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_based_on_float_market_capizatlization",
+          "family": "AssertDecl.fact",
+          "line": 16,
+          "matched_text": "weight_based_on_float_market_capizatlization"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "line": 16,
+          "matched_text": "weight_based_on_float_market_capizatlization"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body",
+          "matched_text": "weight_has_float_market_capizatlization_basis"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "float_market_capizatlization"
+        }
+      ]
+    },
+    {
+      "token": "capizatlization",
+      "surface_forms": [
+        "Capizatlization"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 92
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "FloatMarketCapizatlization",
+          "family": "TypeDecl.opaque",
+          "line": 4,
+          "matched_text": "FloatMarketCapizatlization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "float_market_capizatlization",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "float_market_capizatlization"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "float_market_capizatlization",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "FloatMarketCapizatlization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_has_float_market_capizatlization_basis",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "weight_has_float_market_capizatlization_basis"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "weight_has_float_market_capizatlization_basis",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "FloatMarketCapizatlization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_based_on_float_market_capizatlization",
+          "family": "AssertDecl.fact",
+          "line": 16,
+          "matched_text": "weight_based_on_float_market_capizatlization"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "line": 16,
+          "matched_text": "weight_based_on_float_market_capizatlization"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body",
+          "matched_text": "weight_has_float_market_capizatlization_basis"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weight_based_on_float_market_capizatlization",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "float_market_capizatlization"
+        }
+      ]
+    },
+    {
+      "token": "subject",
+      "surface_forms": [
+        "subject"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 108
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "to",
+      "surface_forms": [
+        "to"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 116
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "follow",
+      "surface_forms": [
+        "following"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 123
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "constraint",
+      "surface_forms": [
+        "constraints"
+      ],
+      "count": 2,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 133
+        },
+        {
+          "line": 8,
+          "column": 81
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "region",
+      "surface_forms": [
+        "region"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 6
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Region",
+          "family": "TypeDecl.opaque",
+          "line": 3,
+          "matched_text": "Region"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "region",
+          "family": "SymbolDecl.fun",
+          "line": 7,
+          "matched_text": "region"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "region",
+          "family": "SymbolDecl.fun",
+          "line": 7,
+          "matched_text": "Region"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "region_represents_exactly_50_percent",
+          "family": "AssertDecl.constraint",
+          "line": 23,
+          "matched_text": "region_represents_exactly_50_percent"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "region_represents_exactly_50_percent",
+          "assertion_kind": "constraint",
+          "line": 23,
+          "matched_text": "region_represents_exactly_50_percent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "region_represents_exactly_50_percent",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "Region"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "region_represents_exactly_50_percent",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0].predicate.left",
+          "matched_text": "region"
+        }
+      ]
+    },
+    {
+      "token": "must",
+      "surface_forms": [
+        "must"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 13
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "hard_constraint_obligation",
+          "assertion_kind": "constraint"
+        }
+      ]
+    },
+    {
+      "token": "represent",
+      "surface_forms": [
+        "represent"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 18
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "region_represents_exactly_50_percent",
+          "family": "AssertDecl.constraint",
+          "line": 23,
+          "matched_text": "region_represents_exactly_50_percent"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "region_represents_exactly_50_percent",
+          "assertion_kind": "constraint",
+          "line": 23,
+          "matched_text": "region_represents_exactly_50_percent"
+        }
+      ]
+    },
+    {
+      "token": "exactli",
+      "surface_forms": [
+        "exactly"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 28
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "region_represents_exactly_50_percent",
+          "family": "AssertDecl.constraint",
+          "line": 23,
+          "matched_text": "region_represents_exactly_50_percent"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "region_represents_exactly_50_percent",
+          "assertion_kind": "constraint",
+          "line": 23,
+          "matched_text": "region_represents_exactly_50_percent"
+        }
+      ]
+    },
+    {
+      "token": "50%",
+      "surface_forms": [
+        "50%"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 36
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "region_represents_exactly_50_percent",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "50%"
+        }
+      ]
+    },
+    {
+      "token": "total",
+      "surface_forms": [
+        "total"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 47
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "any",
+      "surface_forms": [
+        "any"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 15
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "universal_quantifier",
+          "marker": "forall"
+        }
+      ]
+    },
+    {
+      "token": "single",
+      "surface_forms": [
+        "single"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 19
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "single_index_component_weight_capped",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "single_index_component_weight_capped"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "single_index_component_weight_capped",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "single_index_component_weight_capped"
+        },
+        {
+          "source": "family_signal",
+          "role": "per_item_universal_scope",
+          "marker": "forall"
+        }
+      ]
+    },
+    {
+      "token": "cap",
+      "surface_forms": [
+        "capped"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 45
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "single_index_component_weight_capped",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "single_index_component_weight_capped"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "single_index_component_weight_capped",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "single_index_component_weight_capped"
+        }
+      ]
+    },
+    {
+      "token": "at",
+      "surface_forms": [
+        "at"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 52
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "5%",
+      "surface_forms": [
+        "5%"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 55
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "single_index_component_weight_capped",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "5%"
+        }
+      ]
+    },
+    {
+      "token": "are",
+      "surface_forms": [
+        "are"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 13
+        },
+        {
+          "line": 8,
+          "column": 93
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "redistribut",
+      "surface_forms": [
+        "redistributed"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 17
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "redistributes_weight_proportionally",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "redistributes_weight_proportionally"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weights_redistributed_proportionally",
+          "family": "AssertDecl.fact",
+          "line": 35,
+          "matched_text": "weights_redistributed_proportionally"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "weights_redistributed_proportionally",
+          "assertion_kind": "fact",
+          "line": 35,
+          "matched_text": "weights_redistributed_proportionally"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weights_redistributed_proportionally",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body",
+          "matched_text": "redistributes_weight_proportionally"
+        }
+      ]
+    },
+    {
+      "token": "proportionalli",
+      "surface_forms": [
+        "proportionally"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 31
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "redistributes_weight_proportionally",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "redistributes_weight_proportionally"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weights_redistributed_proportionally",
+          "family": "AssertDecl.fact",
+          "line": 35,
+          "matched_text": "weights_redistributed_proportionally"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "weights_redistributed_proportionally",
+          "assertion_kind": "fact",
+          "line": 35,
+          "matched_text": "weights_redistributed_proportionally"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weights_redistributed_proportionally",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body",
+          "matched_text": "redistributes_weight_proportionally"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 46
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "an",
+      "surface_forms": [
+        "an"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 49
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "iterative",
+      "surface_forms": [
+        "iterative"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 52
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "iterative_process",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "iterative_process"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_redistribution_process_is_iterative",
+          "family": "AssertDecl.fact",
+          "line": 31,
+          "matched_text": "weight_redistribution_process_is_iterative"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "weight_redistribution_process_is_iterative",
+          "assertion_kind": "fact",
+          "line": 31,
+          "matched_text": "weight_redistribution_process_is_iterative"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weight_redistribution_process_is_iterative",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body",
+          "matched_text": "iterative_process"
+        }
+      ]
+    },
+    {
+      "token": "proc",
+      "surface_forms": [
+        "process"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 62
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "WeightRedistributionProcess",
+          "family": "TypeDecl.opaque",
+          "line": 5,
+          "matched_text": "WeightRedistributionProcess"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_redistribution_process",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "weight_redistribution_process"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "weight_redistribution_process",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "WeightRedistributionProcess"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "iterative_process",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "iterative_process"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "iterative_process",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "WeightRedistributionProcess"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "redistributes_weight_proportionally",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "WeightRedistributionProcess"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "weight_redistribution_process_is_iterative",
+          "family": "AssertDecl.fact",
+          "line": 31,
+          "matched_text": "weight_redistribution_process_is_iterative"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "weight_redistribution_process_is_iterative",
+          "assertion_kind": "fact",
+          "line": 31,
+          "matched_text": "weight_redistribution_process_is_iterative"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weight_redistribution_process_is_iterative",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body",
+          "matched_text": "iterative_process"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weight_redistribution_process_is_iterative",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.args[0]",
+          "matched_text": "weight_redistribution_process"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "weights_redistributed_proportionally",
+          "assertion_kind": "fact",
+          "expr_path": "expr.body.body.args[0]",
+          "matched_text": "weight_redistribution_process"
+        }
+      ]
+    },
+    {
+      "token": "until",
+      "surface_forms": [
+        "until"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 70
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "both",
+      "surface_forms": [
+        "both"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 76
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "satisfi",
+      "surface_forms": [
+        "satisfied"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 97
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "assign",
+      "surface_forms": [
+        "assigned"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 48
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "subject",
+      "surface_forms": [
+        "subject"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 108
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "follow",
+      "surface_forms": [
+        "following"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 123
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "constraint",
+      "surface_forms": [
+        "constraints"
+      ],
+      "count": 2,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 133
+        },
+        {
+          "line": 8,
+          "column": 81
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "total",
+      "surface_forms": [
+        "total"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 47
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "until",
+      "surface_forms": [
+        "until"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 70
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "both",
+      "surface_forms": [
+        "both"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 76
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "satisfi",
+      "surface_forms": [
+        "satisfied"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 97
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

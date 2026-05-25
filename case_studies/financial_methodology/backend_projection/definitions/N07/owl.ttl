@@ -1,0 +1,77 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N07 a owl:Ontology .
+
+ex:Security a owl:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:IndexComponent a owl:Class .
+ex:IndexComponent rdfs:subClassOf ex:Security .
+ex:TradingDay a owl:Class .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:Exchange a owl:Class .
+ex:Price a owl:Class .
+ex:Price rdfs:subClassOf ex:MonetaryAmount .
+ex:TradingPrice a owl:Class .
+ex:TradingPrice rdfs:subClassOf ex:Price .
+ex:ClosingPrice a owl:Class .
+ex:ClosingPrice rdfs:subClassOf ex:TradingPrice .
+ex:AccordanceStandard a owl:Class .
+
+ex:ExchangeRules a ex:AccordanceStandard, owl:NamedIndividual .
+ex:ExchangeRegulations a ex:AccordanceStandard, owl:NamedIndividual .
+ex:closing_price a owl:Class, a4:NaryRelationClass .
+ex:closing_price_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:closing_price ;
+  rdfs:range ex:IndexComponent .
+ex:closing_price_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:closing_price ;
+  rdfs:range ex:TradingDay .
+ex:closing_price_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:closing_price ;
+  rdfs:range ex:ClosingPrice .
+ex:respective_exchange a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:IndexComponent ;
+  rdfs:range ex:Exchange .
+ex:final_regular_hours_trading_price a owl:Class, a4:NaryRelationClass .
+ex:final_regular_hours_trading_price_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:final_regular_hours_trading_price ;
+  rdfs:range ex:IndexComponent .
+ex:final_regular_hours_trading_price_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:final_regular_hours_trading_price ;
+  rdfs:range ex:TradingDay .
+ex:final_regular_hours_trading_price_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:final_regular_hours_trading_price ;
+  rdfs:range ex:ClosingPrice .
+ex:last_trading_price a owl:Class, a4:NaryRelationClass .
+ex:last_trading_price_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:last_trading_price ;
+  rdfs:range ex:IndexComponent .
+ex:last_trading_price_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:last_trading_price ;
+  rdfs:range ex:TradingDay .
+ex:last_trading_price_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:last_trading_price ;
+  rdfs:range ex:TradingPrice .
+ex:price_published_by_exchange a owl:ObjectProperty ;
+  rdfs:domain ex:Price ;
+  rdfs:range ex:Exchange .
+ex:price_determined a owl:Class ; rdfs:subClassOf ex:Price .
+ex:in_accordance_with a owl:ObjectProperty ;
+  rdfs:domain ex:Price ;
+  rdfs:range ex:AccordanceStandard .
+ex:closing_price_available a owl:ObjectProperty ;
+  rdfs:domain ex:IndexComponent ;
+  rdfs:range ex:TradingDay .
+
+ex:ASSERT_closing_price_definition_when_published a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall c: IndexComponent, forall d: TradingDay, (closing_price_available(c, d)) implies (((closing_price(c, d)) = (final_regular_hours_trading_price(c, d))) and (price_published_by_exchange(closing_price(c, d), respective_exchange(c))) and (price_determined(closing_price(c, d))) and (in_accordance_with(closing_price(c, d), ExchangeRules)) and (in_accordance_with(closing_price(c, d), ExchangeRegulations)))" .
+ex:ASSERT_last_trading_price_used_when_closing_price_not_published a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall c: IndexComponent, forall d: TradingDay, (not (closing_price_available(c, d))) implies ((closing_price(c, d)) = (last_trading_price(c, d)))" .

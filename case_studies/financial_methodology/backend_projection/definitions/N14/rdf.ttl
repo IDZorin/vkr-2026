@@ -1,0 +1,56 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N14 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N14/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:GbsIndexUniverse a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:GbsIndex a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+
+ex:TheGbsIndexUniverse a ex:GbsIndexUniverse, owl:NamedIndividual .
+ex:GbsIndexSpecifiedInSection2_1 a ex:GbsIndex, owl:NamedIndividual .
+ex:Section2_1 a ex:DocumentPart, owl:NamedIndividual .
+ex:SolactiveGBSBenchmarkSeriesGuideline a ex:Document, owl:NamedIndividual .
+ex:HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf a ex:Url, owl:NamedIndividual .
+ex:gbs_index_specified_in_section a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:gbs_index_specified_in_section_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:GbsIndex .
+ex:gbs_index_specified_in_section a4:argument ex:gbs_index_specified_in_section_arg_0 .
+ex:gbs_index_specified_in_section_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:gbs_index_specified_in_section a4:argument ex:gbs_index_specified_in_section_arg_1 .
+ex:index_universe_as_defined_in_guideline a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_universe_as_defined_in_guideline_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:GbsIndexUniverse .
+ex:index_universe_as_defined_in_guideline a4:argument ex:index_universe_as_defined_in_guideline_arg_0 .
+ex:index_universe_as_defined_in_guideline_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Document .
+ex:index_universe_as_defined_in_guideline a4:argument ex:index_universe_as_defined_in_guideline_arg_1 .
+ex:index_universe_for_gbs_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_universe_for_gbs_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:GbsIndexUniverse .
+ex:index_universe_for_gbs_index a4:argument ex:index_universe_for_gbs_index_arg_0 .
+ex:index_universe_for_gbs_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:GbsIndex .
+ex:index_universe_for_gbs_index a4:argument ex:index_universe_for_gbs_index_arg_1 .
+
+ex:ASSERT_solactive_gbs_benchmark_series_guideline_url a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "15"^^xsd:integer ;
+  a4:exprText "document_url(SolactiveGBSBenchmarkSeriesGuideline, HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)" ;
+  a4:sourceText "fact solactive_gbs_benchmark_series_guideline_url :\n  document_url(\n    SolactiveGBSBenchmarkSeriesGuideline,\n    HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf\n  )" .
+ex:ASSERT_gbs_index_specified_in_section_2_1 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "21"^^xsd:integer ;
+  a4:exprText "gbs_index_specified_in_section(GbsIndexSpecifiedInSection2_1, Section2_1)" ;
+  a4:sourceText "fact gbs_index_specified_in_section_2_1 :\n  gbs_index_specified_in_section(GbsIndexSpecifiedInSection2_1, Section2_1)" .
+ex:ASSERT_gbs_index_universe_definition a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "24"^^xsd:integer ;
+  a4:exprText "(index_universe_as_defined_in_guideline(TheGbsIndexUniverse, SolactiveGBSBenchmarkSeriesGuideline)) and (index_universe_for_gbs_index(TheGbsIndexUniverse, GbsIndexSpecifiedInSection2_1))" ;
+  a4:sourceText "fact gbs_index_universe_definition :\n  index_universe_as_defined_in_guideline(\n    TheGbsIndexUniverse,\n    SolactiveGBSBenchmarkSeriesGuideline\n  )\n  and index_universe_for_gbs_index(\n    TheGbsIndexUniverse,\n    GbsIndexSpecifiedInSection2_1\n  )" .

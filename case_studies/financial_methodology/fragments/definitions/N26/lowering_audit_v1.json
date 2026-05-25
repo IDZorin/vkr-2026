@@ -1,0 +1,39 @@
+{
+  "entry_id": "N26",
+  "skipped": false,
+  "n_decls": 12,
+  "n_smells": 2,
+  "by_candidate_family": {
+    "TemporalDecl.temporal_marker": 2
+  },
+  "by_matched": {
+    "after": 1,
+    "before": 1
+  },
+  "smells": [
+    {
+      "entry_id": "N26",
+      "decl_kind": "rel",
+      "symbol": "immediately_following_eligible_rebalance_day_after",
+      "line_no": 17,
+      "matched_token_or_phrase": "after",
+      "candidate_family": "TemporalDecl",
+      "candidate_kind": "temporal_marker",
+      "spec_ref": "#29",
+      "match_kind": "token",
+      "raw_decl": "rel immediately_following_eligible_rebalance_day_after : Day, Day"
+    },
+    {
+      "entry_id": "N26",
+      "decl_kind": "rel",
+      "symbol": "strictly_before",
+      "line_no": 18,
+      "matched_token_or_phrase": "before",
+      "candidate_family": "TemporalDecl",
+      "candidate_kind": "temporal_marker",
+      "spec_ref": "#29",
+      "match_kind": "token",
+      "raw_decl": "rel strictly_before : Day, Day"
+    }
+  ]
+}

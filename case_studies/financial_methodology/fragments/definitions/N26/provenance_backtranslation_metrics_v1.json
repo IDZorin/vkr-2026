@@ -1,0 +1,112 @@
+{
+  "schema": "provenance_backtranslation_metrics_v1",
+  "entry_id": "N26",
+  "generated_at": "2026-05-20T03:58:28",
+  "status": "ok",
+  "semantic_requested": false,
+  "summary": {
+    "claim_count": 4,
+    "source_claim_count": 4,
+    "claims_with_warnings": 3,
+    "source_claims_with_warnings": 3,
+    "mean_deterministic_meaningfulness_score": 0.675,
+    "mean_source_claim_deterministic_meaningfulness_score": 0.675,
+    "mean_source_token_recall": 0.666,
+    "mean_back_translation_token_precision": 0.577,
+    "warning_counts": {
+      "low_source_token_recall": 1,
+      "modal_family_not_preserved": 3,
+      "negation_not_preserved": 1
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "first_weekday_ordinal_value",
+      "kind": "fact",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 59,
+      "back_translation_char_len": 67,
+      "source_token_count": 6,
+      "back_translation_token_count": 8,
+      "source_token_recall": 0.333,
+      "back_translation_token_precision": 0.25,
+      "token_jaccard": 0.167,
+      "number_preservation": null,
+      "url_preservation": null,
+      "modal_family_preservation": 0.0,
+      "negation_preservation": null,
+      "deterministic_meaningfulness_score": 0.536,
+      "warnings": [
+        "low_source_token_recall",
+        "modal_family_not_preserved"
+      ]
+    },
+    {
+      "claim_id": "scheduled_rebalance_day_definition",
+      "kind": "constraint",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 59,
+      "back_translation_char_len": 91,
+      "source_token_count": 6,
+      "back_translation_token_count": 7,
+      "source_token_recall": 1.0,
+      "back_translation_token_precision": 0.857,
+      "token_jaccard": 0.857,
+      "number_preservation": null,
+      "url_preservation": null,
+      "modal_family_preservation": 1.0,
+      "negation_preservation": null,
+      "deterministic_meaningfulness_score": 0.959,
+      "warnings": []
+    },
+    {
+      "claim_id": "rebalance_day_definition",
+      "kind": "constraint",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 180,
+      "back_translation_char_len": 252,
+      "source_token_count": 12,
+      "back_translation_token_count": 10,
+      "source_token_recall": 0.583,
+      "back_translation_token_precision": 0.7,
+      "token_jaccard": 0.467,
+      "number_preservation": null,
+      "url_preservation": null,
+      "modal_family_preservation": 0.0,
+      "negation_preservation": 1.0,
+      "deterministic_meaningfulness_score": 0.679,
+      "warnings": [
+        "modal_family_not_preserved"
+      ]
+    },
+    {
+      "claim_id": "immediately_following_eligible_rebalance_day_definition",
+      "kind": "constraint",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 120,
+      "back_translation_char_len": 262,
+      "source_token_count": 8,
+      "back_translation_token_count": 12,
+      "source_token_recall": 0.75,
+      "back_translation_token_precision": 0.5,
+      "token_jaccard": 0.429,
+      "number_preservation": null,
+      "url_preservation": null,
+      "modal_family_preservation": 0.0,
+      "negation_preservation": 0.0,
+      "deterministic_meaningfulness_score": 0.526,
+      "warnings": [
+        "modal_family_not_preserved",
+        "negation_not_preserved"
+      ]
+    }
+  ]
+}

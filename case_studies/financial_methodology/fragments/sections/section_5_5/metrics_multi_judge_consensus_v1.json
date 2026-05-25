@@ -1,0 +1,127 @@
+{
+  "entry_id": "section_5_5",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core ideas that an oversight committee of Solactive staff and subsidiaries is responsible for amendment decisions, that amendments require prior approval, and that they must comply with the Methodology Policy. However, it also introduces several extra structural commitments and narrows the scope to IndexRuleAmendments/GuidelineAmendments in ways not stated by the source, while omitting the source’s broader reference to any amendments to the rules of the Index.",
+      "semantic_differences": [
+        "The source speaks about any amendments to the rules of the Index, but the IR restricts responsibility and approval obligations to IndexRuleAmendment only, which is a narrower scope than the source states.",
+        "The source says any such amendment may result in an amendment of the Guideline, but the IR encodes this as a relation from every IndexRuleAmendment to some GuidelineAmendment, which is a stronger and more specific structural claim than the source text.",
+        "The source states the committee is composed of staff from Solactive and its subsidiaries, but the IR adds explicit staff_from/subsidiary_of constraints and a Solactive-or-subsidiary membership condition that are not explicitly stated in the source.",
+        "The source says amendments will be made in compliance with the Methodology Policy, but the IR turns this into an obligation predicate on an amendment action, which is a formalization choice that slightly changes the surface meaning.",
+        "The source mentions the policy is available on the Solactive website, but the IR additionally asserts a specific URL entity and a website_of relation to Solactive, which goes beyond the source wording."
+      ],
+      "stylistic_notes": [
+        "The IR uses technical symbol names such as IndexRuleAmendment and GuidelineAmendment to represent source phrases like amendments to the rules of the Index and amendment of the Guideline.",
+        "The committee name OversightCommittee is a faithful capitalization/normalization of the quoted term in the source.",
+        "The URL and website entities are a formal encoding of the hyperlink in the source."
+      ],
+      "confidence": 0.86,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2568,
+        "completion_tokens": 433,
+        "total_tokens": 3001
+      },
+      "latency_s": 4.3489439487457275
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "one_way_implication",
+      "reason_short": "The IR captures most core points of the source: the Oversight Committee is composed of Solactive/subsidiary staff, is responsible for decisions on amendments to Index rules, amendments may lead to Guideline amendment, prior approval is required, and compliance with the Methodology Policy is required, with the policy available at the stated URL on the Solactive website. However, the IR strengthens the source in a few places by making all IndexRuleAmendments be amendments of rules of TheIndex and by asserting that every such amendment may result in a Guideline amendment, whereas the source says such amendment may result in a Guideline amendment, not that all do.",
+      "semantic_differences": [
+        "The source says an amendment to the rules of the Index may result in an amendment of the Guideline; the IR states that every IndexRuleAmendment has some GuidelineAmendment that it may result in, which is stronger than mere possibility.",
+        "The source speaks about amendments to the rules of the Index in the relevant context, but the IR globally constrains every IndexRuleAmendment to be an amendment of a rule of TheIndex, which adds a universal scope not explicitly stated by the source."
+      ],
+      "stylistic_notes": [
+        "The IR models prior approval via a PriorApproval entity and an obligation to submit to that approval scope rather than directly stating 'submitted to the Oversight Committee for prior approval'; this is a reasonable formalization choice.",
+        "The source mentions 'the Guideline' while the IR uses a specific Guideline document entity; this is naming/detail choice rather than a semantic mismatch.",
+        "The obligation 'make_index_rule_amendment_in_compliance_with_methodology_policy' omits an explicit target amendment object in the target field and instead targets the policy; the intended meaning is still fairly clear from the declaration name."
+      ],
+      "confidence": 0.88,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2568,
+        "completion_tokens": 429,
+        "total_tokens": 2997
+      },
+      "latency_s": 8.661476612091064
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core organizational structure (Oversight Committee composed of staff from Solactive and subsidiaries) and the main procedural requirements (prior approval, compliance with Methodology Policy). However, the IR introduces several formal structures and relationships not explicitly stated in the source: the distinction between IndexRuleAmendment and GuidelineAmendment as separate sorts with a may_result_in relationship, the reification of Approval/PriorApproval as entities, and the constraint that amendments must be to rules of TheIndex. The source states amendments 'may result in' a Guideline amendment but does not formally separate amendment types or establish the logical dependencies the IR encodes. Additionally, the source does not explicitly state that the Oversight Committee is responsible for decisions regarding amendments; it states the committee 'is responsible for decisions regarding any amendments to the rules of the Index,' which the IR interprets as responsibility for IndexRuleAmendment decisions specifically.",
+      "semantic_differences": [
+        "IR introduces IndexRuleAmendment and GuidelineAmendment as distinct sorts with a may_result_in relationship; source treats 'amendment' as a single concept that may result in a Guideline amendment without formally separating types.",
+        "IR reifies PriorApproval and OversightCommitteePriorApproval as entities; source describes prior approval as a procedural requirement, not a reified entity.",
+        "IR constraint 'index_rule_amendments_may_result_in_guideline_amendment' asserts that every IndexRuleAmendment results in some GuidelineAmendment; source says amendments 'may result in' a Guideline amendment (possibility, not necessity).",
+        "IR introduces 'rule_of' relation and constrains amendments to rules of TheIndex; source does not explicitly establish this relationship structure.",
+        "IR obligation 'submit_index_rule_amendment_for_prior_approval' uses a formal action/target/scope structure; source states amendments 'must be submitted to the Oversight Committee for prior approval' without specifying an agent performing the submission."
+      ],
+      "stylistic_notes": [
+        "IR uses 'composed_of' and 'staff_from' relations to encode 'composed of staff from Solactive and its subsidiaries'; source uses natural language phrasing.",
+        "IR introduces sort Staff and Subsidiary as distinct from Organization; source does not formally distinguish these.",
+        "IR creates entity names like 'OversightCommitteePriorApproval' and 'HttpsWwwSolactiveComDocumentsMethodologyPolicy' that are verbose but trace to source content.",
+        "IR uses 'document_url' predicate (not defined in prelude) to link MethodologyPolicy to its URL; source provides the URL inline.",
+        "Obligation declarations use structured action/target/scope fields; source uses imperative phrasing ('must be submitted', 'will be made in compliance')."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3013,
+        "completion_tokens": 717,
+        "total_tokens": 3730
+      },
+      "latency_s": 8.219712018966675
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 72.74475884437561
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures all substantive claims from the source: the Oversight Committee's composition (staff from Solactive and subsidiaries), its decision-making responsibility over Index rule amendments, the potential for such amendments to trigger Guideline amendments, the mandatory submission for prior approval, the requirement for compliance with the Methodology Policy, and the policy's web location. All constraints, facts, and obligations map directly to the source statements without introducing external knowledge or altering the intended meaning.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The DeonticDecl for submission uses a 'scope' field rather than a standard 'agent' or 'recipient' field; this is a minor syntactic variation but correctly conveys the approval context.",
+        "Explicit sorts for IndexRuleAmendment and GuidelineAmendment are introduced to cleanly separate the two amendment types mentioned in the source, which is a valid and clear ontological choice.",
+        "The universal quantification in the 'may_result_in' constraint formalizes the source's descriptive possibility clause into a relational linkage, which is standard practice for this type of methodology encoding."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2701,
+        "completion_tokens": 4322,
+        "total_tokens": 7023
+      },
+      "latency_s": 83.36711049079895
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.853
+  }
+}

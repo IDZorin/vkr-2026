@@ -1,0 +1,123 @@
+{
+  "entry_id": "N20",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR captures that the defined term \"Index Component Requirements\" has its meaning defined in Section 2.2. The added symbol names are a faithful formalization of the quoted term and section reference.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR normalizes the quoted phrase into the entity name `IndexComponentRequirementsTerm` and the section reference into `Section2_2`.",
+        "`DefinedTerm` and `DocumentPart` are formal catalog choices rather than source wording."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1855,
+        "completion_tokens": 130,
+        "total_tokens": 1985
+      },
+      "latency_s": 2.3142213821411133
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "corresponds",
+      "relation_type": "same_meaning_poor_wording",
+      "reason_short": "The source states that the defined term “Index Component Requirements” has the meaning given in Section 2.2. The IR captures this by introducing the term and Section 2.2 and asserting that the term’s meaning is defined in that section. This matches the source semantically, though the IR uses a generic relation rather than reproducing the quoted term text directly.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR models the quoted phrase as an entity named IndexComponentRequirementsTerm rather than preserving the exact surface text.",
+        "Using a generic relation term_shall_have_meaning_defined_in_section is a slightly awkward but semantically adequate encoding of the definitional reference."
+      ],
+      "confidence": 0.97,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1855,
+        "completion_tokens": 194,
+        "total_tokens": 2049
+      },
+      "latency_s": 3.83148193359375
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR correctly captures that 'Index Component Requirements' is a defined term whose meaning is specified in Section 2.2. However, the IR introduces a new sort `DefinedTerm` and a new relation `term_shall_have_meaning_defined_in_section` that are not present in the prelude and are not strictly necessary to encode the source claim. The source is a simple definitional cross-reference; the IR reifies this as a formal ontology with custom sorts and relations. While the core semantic content (term definition location) is preserved, the IR adds structural overhead that goes beyond what the source text warrants under LAYER 2 constraints.",
+      "semantic_differences": [
+        "IR introduces custom sort `DefinedTerm` not in prelude or source. Source does not require a general 'defined term' ontology; it merely states that one specific phrase has a meaning defined elsewhere.",
+        "IR introduces custom relation `term_shall_have_meaning_defined_in_section` not in prelude or source. The source's 'shall have the meaning as defined in' is a definitional statement, not a general relation that needs reification as a named predicate.",
+        "IR treats the cross-reference as a formal ontological relationship, whereas source is a simple definitional pointer. The IR's approach suggests a methodology for handling all defined terms, which is not justified by this single source sentence."
+      ],
+      "stylistic_notes": [
+        "Entity naming `IndexComponentRequirementsTerm` is reasonable but verbose; source simply uses the phrase in quotes.",
+        "Entity naming `Section2_2` follows a4v3 convention for DocumentPart but source writes 'Section 2.2'.",
+        "The relation name `term_shall_have_meaning_defined_in_section` is a literal encoding of source phrasing but is unnecessarily long for a simple definitional link."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2122,
+        "completion_tokens": 477,
+        "total_tokens": 2599
+      },
+      "latency_s": 6.9152467250823975
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures the source statement: a defined term 'Index Component Requirements' is declared as a DefinedTerm, Section 2.2 as a DocumentPart, and the relation asserts the definition location. No semantic divergence.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "Relation name 'term_shall_have_meaning_defined_in_section' is verbatim from source wording, acceptable but long.",
+        "Entity names IndexComponentRequirementsTerm and Section2_2 are directly derived from source."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1972,
+        "completion_tokens": 483,
+        "total_tokens": 2455
+      },
+      "latency_s": 18.938256978988647
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR accurately formalizes the source's definition cross-reference by asserting a direct relationship between the specified term and the referenced document section, preserving the exact semantic claim that the term's meaning is established in that section.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The relation name is highly descriptive but slightly verbose; introducing a dedicated `DefinedTerm` sort is acceptable for clarity, though a prelude sort like `VagueTerm` or a simple string literal could also represent the term."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1981,
+        "completion_tokens": 1689,
+        "total_tokens": 3670
+      },
+      "latency_s": 33.720911502838135
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "corresponds": 4,
+      "partially_corresponds": 1
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 0.8,
+    "unanimous": false,
+    "mean_confidence": 0.93
+  }
+}

@@ -1,0 +1,9 @@
+sort DefinedTerm
+
+entity IndexComponentRequirementsTerm : DefinedTerm
+entity Section2_2 : DocumentPart
+
+rel term_shall_have_meaning_defined_in_section : DefinedTerm, DocumentPart
+
+fact index_component_requirements_meaning_defined_in_section_2_2 :
+  term_shall_have_meaning_defined_in_section(IndexComponentRequirementsTerm, Section2_2)

@@ -1,0 +1,1990 @@
+{
+  "entry_id": "section_2_2",
+  "schema": "semantic_claim_alignment_v1",
+  "generated_at": "2026-05-03T18:23:28",
+  "parse_error": null,
+  "summary": {
+    "claim_count": 9,
+    "strong_candidate_count": 6,
+    "partial_candidate_count": 2,
+    "weak_or_missing_candidate_count": 1,
+    "reviewed_count": 0,
+    "approved_count": 0,
+    "needs_revision_count": 0,
+    "average_top3_token_coverage": 0.796,
+    "all_claims_review_approved": false
+  },
+  "claims": [
+    {
+      "claim_id": "C01",
+      "text": "### 2.2 Selection of the Index Components",
+      "hash": "42ebee264ce3",
+      "tokens": [
+        {
+          "token": "selection",
+          "surface_forms": [
+            "Selection"
+          ],
+          "keys": [
+            "selection"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "component",
+          "surface_forms": [
+            "Components"
+          ],
+          "keys": [
+            "component",
+            "components"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "declaration:opaque:SelectionOfIndexComponents",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "SelectionOfIndexComponents",
+          "line": 18,
+          "token_recall": 1.0,
+          "token_precision": 0.571,
+          "score": 0.914,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "selection"
+          ],
+          "raw_excerpt": "sort SelectionOfIndexComponents"
+        },
+        {
+          "block_id": "declaration:rel:index_component",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "index_component",
+          "line": 31,
+          "token_recall": 1.0,
+          "token_precision": 0.333,
+          "score": 0.867,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "selection"
+          ],
+          "raw_excerpt": "rel index_component : SelectionDay, Security"
+        },
+        {
+          "block_id": "declaration:fun:selection_of_index_components",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "selection_of_index_components",
+          "line": 24,
+          "token_recall": 1.0,
+          "token_precision": 0.286,
+          "score": 0.857,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "selection"
+          ],
+          "raw_excerpt": "fun[required] selection_of_index_components : SelectionDay -> SelectionOfIndexComponents"
+        },
+        {
+          "block_id": "declaration:rel:fully_rule_based",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "fully_rule_based",
+          "line": 35,
+          "token_recall": 1.0,
+          "token_precision": 0.267,
+          "score": 0.853,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "selection"
+          ],
+          "raw_excerpt": "rel fully_rule_based : SelectionOfIndexComponents"
+        },
+        {
+          "block_id": "declaration:prohibition:index_administrator_discretionary_decision",
+          "role": "declaration",
+          "family": "DeonticDecl",
+          "kind": "prohibition",
+          "name": "index_administrator_discretionary_decision",
+          "line": 96,
+          "token_recall": 1.0,
+          "token_precision": 0.25,
+          "score": 0.85,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "selection"
+          ],
+          "raw_excerpt": "prohibition index_administrator_discretionary_decision( agent: IndexAdministrator, selection: SelectionOfIndexComponents, decision: DiscretionaryDecision ) action: make_discretionary_decision target: decision scope: selection"
+        }
+      ],
+      "candidate_count": 27,
+      "covered_claim_tokens_by_top3": [
+        "component",
+        "index",
+        "selection"
+      ],
+      "uncovered_claim_tokens_by_top3": [],
+      "top3_token_coverage": 1.0,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C02",
+      "text": "Based on the Index Universe, the initial composition of the Index as well as any selection for an ordinary rebalance is determined on the Selection Day in accordance with the following rules (the \"Index Component Requirements\"):",
+      "hash": "269ea0c910b8",
+      "tokens": [
+        {
+          "token": "bas",
+          "surface_forms": [
+            "Based"
+          ],
+          "keys": [
+            "bas",
+            "based"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ],
+          "keys": [
+            "universe"
+          ]
+        },
+        {
+          "token": "initial",
+          "surface_forms": [
+            "initial"
+          ],
+          "keys": [
+            "initial"
+          ]
+        },
+        {
+          "token": "composition",
+          "surface_forms": [
+            "composition"
+          ],
+          "keys": [
+            "composition"
+          ]
+        },
+        {
+          "token": "selection",
+          "surface_forms": [
+            "selection",
+            "Selection"
+          ],
+          "keys": [
+            "selection"
+          ]
+        },
+        {
+          "token": "ordinari",
+          "surface_forms": [
+            "ordinary"
+          ],
+          "keys": [
+            "ordinari",
+            "ordinary"
+          ]
+        },
+        {
+          "token": "rebalance",
+          "surface_forms": [
+            "rebalance"
+          ],
+          "keys": [
+            "rebalance"
+          ]
+        },
+        {
+          "token": "determin",
+          "surface_forms": [
+            "determined"
+          ],
+          "keys": [
+            "determin",
+            "determined"
+          ]
+        },
+        {
+          "token": "day",
+          "surface_forms": [
+            "Day"
+          ],
+          "keys": [
+            "day"
+          ]
+        },
+        {
+          "token": "accordance",
+          "surface_forms": [
+            "accordance"
+          ],
+          "keys": [
+            "accordance"
+          ]
+        },
+        {
+          "token": "follow",
+          "surface_forms": [
+            "following"
+          ],
+          "keys": [
+            "follow",
+            "following"
+          ]
+        },
+        {
+          "token": "rul",
+          "surface_forms": [
+            "rules"
+          ],
+          "keys": [
+            "rul",
+            "rule",
+            "rules"
+          ]
+        },
+        {
+          "token": "component",
+          "surface_forms": [
+            "Component"
+          ],
+          "keys": [
+            "component"
+          ]
+        },
+        {
+          "token": "requirement",
+          "surface_forms": [
+            "Requirements"
+          ],
+          "keys": [
+            "requirement",
+            "requirements"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:ordinary_rebalance_selection_determined_by_index_component_requirements",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "ordinary_rebalance_selection_determined_by_index_component_requirements",
+          "line": 81,
+          "token_recall": 0.533,
+          "token_precision": 0.423,
+          "score": 0.511,
+          "matched_claim_tokens": [
+            "component",
+            "day",
+            "determin",
+            "index",
+            "ordinari",
+            "rebalance",
+            "requirement",
+            "selection"
+          ],
+          "raw_excerpt": "constraint ordinary_rebalance_selection_determined_by_index_component_requirements : forall d: SelectionDay, forall s: Security, ordinary_rebalance_selection(d, s) iff selected_for_index_inclusion(d, s)"
+        },
+        {
+          "block_id": "assertion:constraint:initial_composition_determined_by_index_component_requirements",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "initial_composition_determined_by_index_component_requirements",
+          "line": 77,
+          "token_recall": 0.533,
+          "token_precision": 0.4,
+          "score": 0.507,
+          "matched_claim_tokens": [
+            "component",
+            "composition",
+            "day",
+            "determin",
+            "index",
+            "initial",
+            "requirement",
+            "selection"
+          ],
+          "raw_excerpt": "constraint initial_composition_determined_by_index_component_requirements : forall d: SelectionDay, forall s: Security, initial_composition(d, s) iff selected_for_index_inclusion(d, s)"
+        },
+        {
+          "block_id": "assertion:constraint:selection_fully_rule_based",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "selection_fully_rule_based",
+          "line": 92,
+          "token_recall": 0.4,
+          "token_precision": 0.318,
+          "score": 0.384,
+          "matched_claim_tokens": [
+            "bas",
+            "component",
+            "day",
+            "index",
+            "rul",
+            "selection"
+          ],
+          "raw_excerpt": "constraint selection_fully_rule_based : forall d: SelectionDay, fully_rule_based(selection_of_index_components(d))"
+        },
+        {
+          "block_id": "declaration:rel:fully_rule_based",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "fully_rule_based",
+          "line": 35,
+          "token_recall": 0.333,
+          "token_precision": 0.4,
+          "score": 0.347,
+          "matched_claim_tokens": [
+            "bas",
+            "component",
+            "index",
+            "rul",
+            "selection"
+          ],
+          "raw_excerpt": "rel fully_rule_based : SelectionOfIndexComponents"
+        },
+        {
+          "block_id": "assertion:constraint:eligible_based_on_index_universe",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "eligible_based_on_index_universe",
+          "line": 37,
+          "token_recall": 0.333,
+          "token_precision": 0.316,
+          "score": 0.33,
+          "matched_claim_tokens": [
+            "bas",
+            "day",
+            "index",
+            "selection",
+            "universe"
+          ],
+          "raw_excerpt": "constraint eligible_based_on_index_universe : forall d: SelectionDay, forall s: Security, eligible(d, s) implies index_universe(d, s)"
+        }
+      ],
+      "candidate_count": 27,
+      "covered_claim_tokens_by_top3": [
+        "bas",
+        "component",
+        "composition",
+        "day",
+        "determin",
+        "index",
+        "initial",
+        "ordinari",
+        "rebalance",
+        "requirement",
+        "rul",
+        "selection"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ]
+        },
+        {
+          "token": "accordance",
+          "surface_forms": [
+            "accordance"
+          ]
+        },
+        {
+          "token": "follow",
+          "surface_forms": [
+            "following"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.8,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C03",
+      "text": "Each security is classified into one of the two regions\n   1.",
+      "hash": "859dda841b0e",
+      "tokens": [
+        {
+          "token": "securiti",
+          "surface_forms": [
+            "security"
+          ],
+          "keys": [
+            "securiti",
+            "security"
+          ]
+        },
+        {
+          "token": "classifi",
+          "surface_forms": [
+            "classified"
+          ],
+          "keys": [
+            "classifi",
+            "classified",
+            "classify"
+          ]
+        },
+        {
+          "token": "one",
+          "surface_forms": [
+            "one"
+          ],
+          "keys": [
+            "one"
+          ]
+        },
+        {
+          "token": "two",
+          "surface_forms": [
+            "two"
+          ],
+          "keys": [
+            "two"
+          ]
+        },
+        {
+          "token": "region",
+          "surface_forms": [
+            "regions"
+          ],
+          "keys": [
+            "region",
+            "regions"
+          ]
+        },
+        {
+          "token": "1",
+          "surface_forms": [
+            "1"
+          ],
+          "keys": [
+            "1"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:europe_country_assignment_classification",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "europe_country_assignment_classification",
+          "line": 47,
+          "token_recall": 0.5,
+          "token_precision": 0.148,
+          "score": 0.43,
+          "matched_claim_tokens": [
+            "classifi",
+            "region",
+            "securiti"
+          ],
+          "raw_excerpt": "constraint europe_country_assignment_classification : forall d: SelectionDay, forall s: Security, eligible(d, s) and gbs_country_assignment(d, s) = Europe implies region(d, s) = EuropeRegion"
+        },
+        {
+          "block_id": "assertion:constraint:descending_order_by_free_float_market_capizatlization",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "descending_order_by_free_float_market_capizatlization",
+          "line": 53,
+          "token_recall": 0.5,
+          "token_precision": 0.125,
+          "score": 0.425,
+          "matched_claim_tokens": [
+            "1",
+            "region",
+            "securiti"
+          ],
+          "raw_excerpt": "constraint descending_order_by_free_float_market_capizatlization : forall d: SelectionDay, forall r: Region, forall s1: Security, forall s2: Security, eligible(d, s1) and eligible(d, s2) and region(d, s1) = r and region(d, s2) = r and free_float_market_capizatlization(d, s1) > free_float_market_capizatlization(d, s2) implies rank(d, r, s1) < rank(d, r, s2)"
+        },
+        {
+          "block_id": "assertion:constraint:americas_country_assignment_classification",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "americas_country_assignment_classification",
+          "line": 41,
+          "token_recall": 0.5,
+          "token_precision": 0.111,
+          "score": 0.422,
+          "matched_claim_tokens": [
+            "classifi",
+            "region",
+            "securiti"
+          ],
+          "raw_excerpt": "constraint americas_country_assignment_classification : forall d: SelectionDay, forall s: Security, eligible(d, s) and (gbs_country_assignment(d, s) = Canada or gbs_country_assignment(d, s) = UnitedStates) implies region(d, s) = Americas"
+        },
+        {
+          "block_id": "declaration:fun:region",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "region",
+          "line": 26,
+          "token_recall": 0.333,
+          "token_precision": 0.333,
+          "score": 0.333,
+          "matched_claim_tokens": [
+            "region",
+            "securiti"
+          ],
+          "raw_excerpt": "fun[required] region : SelectionDay, Security -> Region"
+        },
+        {
+          "block_id": "declaration:opaque:Region",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "Region",
+          "line": 3,
+          "token_recall": 0.167,
+          "token_precision": 1.0,
+          "score": 0.333,
+          "matched_claim_tokens": [
+            "region"
+          ],
+          "raw_excerpt": "sort Region"
+        }
+      ],
+      "candidate_count": 24,
+      "covered_claim_tokens_by_top3": [
+        "1",
+        "classifi",
+        "region",
+        "securiti"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "one",
+          "surface_forms": [
+            "one"
+          ]
+        },
+        {
+          "token": "two",
+          "surface_forms": [
+            "two"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.667,
+      "auto_status": "partial_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C04",
+      "text": "Americas if the Country Assignment is Canada or United States under the Gbs Index Universe framework\n   2.",
+      "hash": "238e656319c6",
+      "tokens": [
+        {
+          "token": "america",
+          "surface_forms": [
+            "Americas"
+          ],
+          "keys": [
+            "america",
+            "americas"
+          ]
+        },
+        {
+          "token": "countri",
+          "surface_forms": [
+            "Country"
+          ],
+          "keys": [
+            "countri",
+            "country"
+          ]
+        },
+        {
+          "token": "assignment",
+          "surface_forms": [
+            "Assignment"
+          ],
+          "keys": [
+            "assignment"
+          ]
+        },
+        {
+          "token": "canada",
+          "surface_forms": [
+            "Canada"
+          ],
+          "keys": [
+            "canada"
+          ]
+        },
+        {
+          "token": "unit",
+          "surface_forms": [
+            "United"
+          ],
+          "keys": [
+            "unit",
+            "united"
+          ]
+        },
+        {
+          "token": "stat",
+          "surface_forms": [
+            "States"
+          ],
+          "keys": [
+            "stat",
+            "state",
+            "states"
+          ]
+        },
+        {
+          "token": "under",
+          "surface_forms": [
+            "under"
+          ],
+          "keys": [
+            "under"
+          ]
+        },
+        {
+          "token": "gbs",
+          "surface_forms": [
+            "Gbs"
+          ],
+          "keys": [
+            "gbs"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ],
+          "keys": [
+            "universe"
+          ]
+        },
+        {
+          "token": "framework",
+          "surface_forms": [
+            "framework"
+          ],
+          "keys": [
+            "framework"
+          ]
+        },
+        {
+          "token": "2",
+          "surface_forms": [
+            "2"
+          ],
+          "keys": [
+            "2"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:americas_country_assignment_classification",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "americas_country_assignment_classification",
+          "line": 41,
+          "token_recall": 0.583,
+          "token_precision": 0.333,
+          "score": 0.533,
+          "matched_claim_tokens": [
+            "america",
+            "assignment",
+            "canada",
+            "countri",
+            "gbs",
+            "stat",
+            "unit"
+          ],
+          "raw_excerpt": "constraint americas_country_assignment_classification : forall d: SelectionDay, forall s: Security, eligible(d, s) and (gbs_country_assignment(d, s) = Canada or gbs_country_assignment(d, s) = UnitedStates) implies region(d, s) = Americas"
+        },
+        {
+          "block_id": "declaration:entity:UnitedStates",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "UnitedStates",
+          "line": 11,
+          "token_recall": 0.333,
+          "token_precision": 0.615,
+          "score": 0.39,
+          "matched_claim_tokens": [
+            "assignment",
+            "countri",
+            "stat",
+            "unit"
+          ],
+          "raw_excerpt": "entity UnitedStates : CountryAssignment"
+        },
+        {
+          "block_id": "declaration:entity:Canada",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "Canada",
+          "line": 10,
+          "token_recall": 0.25,
+          "token_precision": 0.667,
+          "score": 0.333,
+          "matched_claim_tokens": [
+            "assignment",
+            "canada",
+            "countri"
+          ],
+          "raw_excerpt": "entity Canada : CountryAssignment"
+        },
+        {
+          "block_id": "declaration:opaque:CountryAssignment",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "CountryAssignment",
+          "line": 8,
+          "token_recall": 0.167,
+          "token_precision": 0.75,
+          "score": 0.283,
+          "matched_claim_tokens": [
+            "assignment",
+            "countri"
+          ],
+          "raw_excerpt": "sort CountryAssignment"
+        },
+        {
+          "block_id": "declaration:fun:gbs_country_assignment",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "gbs_country_assignment",
+          "line": 25,
+          "token_recall": 0.25,
+          "token_precision": 0.286,
+          "score": 0.257,
+          "matched_claim_tokens": [
+            "assignment",
+            "countri",
+            "gbs"
+          ],
+          "raw_excerpt": "fun[required] gbs_country_assignment : SelectionDay, Security -> CountryAssignment"
+        }
+      ],
+      "candidate_count": 25,
+      "covered_claim_tokens_by_top3": [
+        "america",
+        "assignment",
+        "canada",
+        "countri",
+        "gbs",
+        "stat",
+        "unit"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "under",
+          "surface_forms": [
+            "under"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ]
+        },
+        {
+          "token": "framework",
+          "surface_forms": [
+            "framework"
+          ]
+        },
+        {
+          "token": "2",
+          "surface_forms": [
+            "2"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.583,
+      "auto_status": "partial_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C05",
+      "text": "Europe if the Country Assignment is Europe under the Gbs Index Universe framework\n2.",
+      "hash": "c84fb565ede6",
+      "tokens": [
+        {
+          "token": "europe",
+          "surface_forms": [
+            "Europe"
+          ],
+          "keys": [
+            "europe"
+          ]
+        },
+        {
+          "token": "countri",
+          "surface_forms": [
+            "Country"
+          ],
+          "keys": [
+            "countri",
+            "country"
+          ]
+        },
+        {
+          "token": "assignment",
+          "surface_forms": [
+            "Assignment"
+          ],
+          "keys": [
+            "assignment"
+          ]
+        },
+        {
+          "token": "under",
+          "surface_forms": [
+            "under"
+          ],
+          "keys": [
+            "under"
+          ]
+        },
+        {
+          "token": "gbs",
+          "surface_forms": [
+            "Gbs"
+          ],
+          "keys": [
+            "gbs"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ],
+          "keys": [
+            "universe"
+          ]
+        },
+        {
+          "token": "framework",
+          "surface_forms": [
+            "framework"
+          ],
+          "keys": [
+            "framework"
+          ]
+        },
+        {
+          "token": "2",
+          "surface_forms": [
+            "2"
+          ],
+          "keys": [
+            "2"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "declaration:entity:Europe",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "Europe",
+          "line": 12,
+          "token_recall": 0.333,
+          "token_precision": 0.667,
+          "score": 0.4,
+          "matched_claim_tokens": [
+            "assignment",
+            "countri",
+            "europe"
+          ],
+          "raw_excerpt": "entity Europe : CountryAssignment"
+        },
+        {
+          "block_id": "assertion:constraint:europe_country_assignment_classification",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "europe_country_assignment_classification",
+          "line": 47,
+          "token_recall": 0.444,
+          "token_precision": 0.185,
+          "score": 0.393,
+          "matched_claim_tokens": [
+            "assignment",
+            "countri",
+            "europe",
+            "gbs"
+          ],
+          "raw_excerpt": "constraint europe_country_assignment_classification : forall d: SelectionDay, forall s: Security, eligible(d, s) and gbs_country_assignment(d, s) = Europe implies region(d, s) = EuropeRegion"
+        },
+        {
+          "block_id": "declaration:opaque:CountryAssignment",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "CountryAssignment",
+          "line": 8,
+          "token_recall": 0.222,
+          "token_precision": 0.75,
+          "score": 0.328,
+          "matched_claim_tokens": [
+            "assignment",
+            "countri"
+          ],
+          "raw_excerpt": "sort CountryAssignment"
+        },
+        {
+          "block_id": "declaration:fun:gbs_country_assignment",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "gbs_country_assignment",
+          "line": 25,
+          "token_recall": 0.333,
+          "token_precision": 0.286,
+          "score": 0.324,
+          "matched_claim_tokens": [
+            "assignment",
+            "countri",
+            "gbs"
+          ],
+          "raw_excerpt": "fun[required] gbs_country_assignment : SelectionDay, Security -> CountryAssignment"
+        },
+        {
+          "block_id": "assertion:constraint:americas_country_assignment_classification",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "americas_country_assignment_classification",
+          "line": 41,
+          "token_recall": 0.333,
+          "token_precision": 0.111,
+          "score": 0.289,
+          "matched_claim_tokens": [
+            "assignment",
+            "countri",
+            "gbs"
+          ],
+          "raw_excerpt": "constraint americas_country_assignment_classification : forall d: SelectionDay, forall s: Security, eligible(d, s) and (gbs_country_assignment(d, s) = Canada or gbs_country_assignment(d, s) = UnitedStates) implies region(d, s) = Americas"
+        }
+      ],
+      "candidate_count": 25,
+      "covered_claim_tokens_by_top3": [
+        "assignment",
+        "countri",
+        "europe",
+        "gbs"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "under",
+          "surface_forms": [
+            "under"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ]
+        },
+        {
+          "token": "framework",
+          "surface_forms": [
+            "framework"
+          ]
+        },
+        {
+          "token": "2",
+          "surface_forms": [
+            "2"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.444,
+      "auto_status": "weak_or_missing_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C06",
+      "text": "Each security is ranked in a descending order by its Free Float Market Capizatlization.",
+      "hash": "789365292112",
+      "tokens": [
+        {
+          "token": "securiti",
+          "surface_forms": [
+            "security"
+          ],
+          "keys": [
+            "securiti",
+            "security"
+          ]
+        },
+        {
+          "token": "rank",
+          "surface_forms": [
+            "ranked"
+          ],
+          "keys": [
+            "rank",
+            "ranked"
+          ]
+        },
+        {
+          "token": "descend",
+          "surface_forms": [
+            "descending"
+          ],
+          "keys": [
+            "descend",
+            "descending"
+          ]
+        },
+        {
+          "token": "order",
+          "surface_forms": [
+            "order"
+          ],
+          "keys": [
+            "order"
+          ]
+        },
+        {
+          "token": "free",
+          "surface_forms": [
+            "Free"
+          ],
+          "keys": [
+            "free"
+          ]
+        },
+        {
+          "token": "float",
+          "surface_forms": [
+            "Float"
+          ],
+          "keys": [
+            "float"
+          ]
+        },
+        {
+          "token": "market",
+          "surface_forms": [
+            "Market"
+          ],
+          "keys": [
+            "market"
+          ]
+        },
+        {
+          "token": "capizatlization",
+          "surface_forms": [
+            "Capizatlization"
+          ],
+          "keys": [
+            "capizatlization",
+            "capizatlize"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:descending_order_by_free_float_market_capizatlization",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "descending_order_by_free_float_market_capizatlization",
+          "line": 53,
+          "token_recall": 1.0,
+          "token_precision": 0.344,
+          "score": 0.869,
+          "matched_claim_tokens": [
+            "capizatlization",
+            "descend",
+            "float",
+            "free",
+            "market",
+            "order",
+            "rank",
+            "securiti"
+          ],
+          "raw_excerpt": "constraint descending_order_by_free_float_market_capizatlization : forall d: SelectionDay, forall r: Region, forall s1: Security, forall s2: Security, eligible(d, s1) and eligible(d, s2) and region(d, s1) = r and region(d, s2) = r and free_float_market_capizatlization(d, s1) > free_float_market_capizatlization(d, s2) implies rank(d, r, s1) < rank(d, r, s2)"
+        },
+        {
+          "block_id": "declaration:fun:free_float_market_capizatlization",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "free_float_market_capizatlization",
+          "line": 27,
+          "token_recall": 0.625,
+          "token_precision": 0.412,
+          "score": 0.582,
+          "matched_claim_tokens": [
+            "capizatlization",
+            "float",
+            "free",
+            "market",
+            "securiti"
+          ],
+          "raw_excerpt": "fun[required] free_float_market_capizatlization : SelectionDay, Security -> FreeFloatMarketCapizatlization"
+        },
+        {
+          "block_id": "declaration:opaque:FreeFloatMarketCapizatlization",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "FreeFloatMarketCapizatlization",
+          "line": 14,
+          "token_recall": 0.5,
+          "token_precision": 0.714,
+          "score": 0.543,
+          "matched_claim_tokens": [
+            "capizatlization",
+            "float",
+            "free",
+            "market"
+          ],
+          "raw_excerpt": "sort FreeFloatMarketCapizatlization"
+        },
+        {
+          "block_id": "declaration:opaque:Rank",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "Rank",
+          "line": 15,
+          "token_recall": 0.125,
+          "token_precision": 1.0,
+          "score": 0.3,
+          "matched_claim_tokens": [
+            "rank"
+          ],
+          "raw_excerpt": "sort Rank"
+        },
+        {
+          "block_id": "declaration:fun:rank",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "rank",
+          "line": 28,
+          "token_recall": 0.25,
+          "token_precision": 0.3,
+          "score": 0.26,
+          "matched_claim_tokens": [
+            "rank",
+            "securiti"
+          ],
+          "raw_excerpt": "fun[required] rank : SelectionDay, Region, Security -> Rank"
+        }
+      ],
+      "candidate_count": 23,
+      "covered_claim_tokens_by_top3": [
+        "capizatlization",
+        "descend",
+        "float",
+        "free",
+        "market",
+        "order",
+        "rank",
+        "securiti"
+      ],
+      "uncovered_claim_tokens_by_top3": [],
+      "top3_token_coverage": 1.0,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C07",
+      "text": "The top 20 securities for each region are selected for Index inclusion.",
+      "hash": "ce6761e27799",
+      "tokens": [
+        {
+          "token": "top",
+          "surface_forms": [
+            "top"
+          ],
+          "keys": [
+            "top"
+          ]
+        },
+        {
+          "token": "20",
+          "surface_forms": [
+            "20"
+          ],
+          "keys": [
+            "20"
+          ]
+        },
+        {
+          "token": "securiti",
+          "surface_forms": [
+            "securities"
+          ],
+          "keys": [
+            "securiti",
+            "securitie",
+            "securities",
+            "security"
+          ]
+        },
+        {
+          "token": "region",
+          "surface_forms": [
+            "region"
+          ],
+          "keys": [
+            "region"
+          ]
+        },
+        {
+          "token": "select",
+          "surface_forms": [
+            "selected"
+          ],
+          "keys": [
+            "select",
+            "selected"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "inclusion",
+          "surface_forms": [
+            "inclusion"
+          ],
+          "keys": [
+            "inclusion"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:selected_top_20_for_each_region",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "selected_top_20_for_each_region",
+          "line": 62,
+          "token_recall": 1.0,
+          "token_precision": 0.429,
+          "score": 0.886,
+          "matched_claim_tokens": [
+            "20",
+            "inclusion",
+            "index",
+            "region",
+            "securiti",
+            "select",
+            "top"
+          ],
+          "raw_excerpt": "constraint selected_top_20_for_each_region : forall d: SelectionDay, forall s: Security, selected_for_index_inclusion(d, s) iff eligible(d, s) and rank(d, region(d, s), s) <= 20"
+        },
+        {
+          "block_id": "assertion:constraint:at_most_20_selected_per_region",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "at_most_20_selected_per_region",
+          "line": 69,
+          "token_recall": 0.857,
+          "token_precision": 0.364,
+          "score": 0.758,
+          "matched_claim_tokens": [
+            "20",
+            "inclusion",
+            "index",
+            "region",
+            "securiti",
+            "select"
+          ],
+          "raw_excerpt": "constraint at_most_20_selected_per_region : forall d: SelectionDay, forall r: Region, count(s in Security where selected_for_index_inclusion(d, s) and region(d, s) = r) <= 20"
+        },
+        {
+          "block_id": "declaration:rel:selected_for_index_inclusion",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "selected_for_index_inclusion",
+          "line": 30,
+          "token_recall": 0.571,
+          "token_precision": 0.5,
+          "score": 0.557,
+          "matched_claim_tokens": [
+            "inclusion",
+            "index",
+            "securiti",
+            "select"
+          ],
+          "raw_excerpt": "rel selected_for_index_inclusion : SelectionDay, Security"
+        },
+        {
+          "block_id": "assertion:constraint:index_components_selected_for_index_inclusion",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "index_components_selected_for_index_inclusion",
+          "line": 73,
+          "token_recall": 0.571,
+          "token_precision": 0.333,
+          "score": 0.524,
+          "matched_claim_tokens": [
+            "inclusion",
+            "index",
+            "securiti",
+            "select"
+          ],
+          "raw_excerpt": "constraint index_components_selected_for_index_inclusion : forall d: SelectionDay, forall s: Security, index_component(d, s) iff selected_for_index_inclusion(d, s)"
+        },
+        {
+          "block_id": "assertion:constraint:initial_composition_determined_by_index_component_requirements",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "initial_composition_determined_by_index_component_requirements",
+          "line": 77,
+          "token_recall": 0.571,
+          "token_precision": 0.24,
+          "score": 0.505,
+          "matched_claim_tokens": [
+            "inclusion",
+            "index",
+            "securiti",
+            "select"
+          ],
+          "raw_excerpt": "constraint initial_composition_determined_by_index_component_requirements : forall d: SelectionDay, forall s: Security, initial_composition(d, s) iff selected_for_index_inclusion(d, s)"
+        }
+      ],
+      "candidate_count": 30,
+      "covered_claim_tokens_by_top3": [
+        "20",
+        "inclusion",
+        "index",
+        "region",
+        "securiti",
+        "select",
+        "top"
+      ],
+      "uncovered_claim_tokens_by_top3": [],
+      "top3_token_coverage": 1.0,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C08",
+      "text": "In case less than 20 securities per region are eligible, the Index contains less than 40 Index Components in total.",
+      "hash": "41be07feef0c",
+      "tokens": [
+        {
+          "token": "case",
+          "surface_forms": [
+            "case"
+          ],
+          "keys": [
+            "case"
+          ]
+        },
+        {
+          "token": "less",
+          "surface_forms": [
+            "less"
+          ],
+          "keys": [
+            "less"
+          ]
+        },
+        {
+          "token": "than",
+          "surface_forms": [
+            "than"
+          ],
+          "keys": [
+            "than"
+          ]
+        },
+        {
+          "token": "20",
+          "surface_forms": [
+            "20"
+          ],
+          "keys": [
+            "20"
+          ]
+        },
+        {
+          "token": "securiti",
+          "surface_forms": [
+            "securities"
+          ],
+          "keys": [
+            "securiti",
+            "securitie",
+            "securities",
+            "security"
+          ]
+        },
+        {
+          "token": "per",
+          "surface_forms": [
+            "per"
+          ],
+          "keys": [
+            "per"
+          ]
+        },
+        {
+          "token": "region",
+          "surface_forms": [
+            "region"
+          ],
+          "keys": [
+            "region"
+          ]
+        },
+        {
+          "token": "eligible",
+          "surface_forms": [
+            "eligible"
+          ],
+          "keys": [
+            "eligible"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "contain",
+          "surface_forms": [
+            "contains"
+          ],
+          "keys": [
+            "contain",
+            "contains"
+          ]
+        },
+        {
+          "token": "40",
+          "surface_forms": [
+            "40"
+          ],
+          "keys": [
+            "40"
+          ]
+        },
+        {
+          "token": "component",
+          "surface_forms": [
+            "Components"
+          ],
+          "keys": [
+            "component",
+            "components"
+          ]
+        },
+        {
+          "token": "total",
+          "surface_forms": [
+            "total"
+          ],
+          "keys": [
+            "total"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:less_than_20_per_region_less_than_40_index_components",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "less_than_20_per_region_less_than_40_index_components",
+          "line": 85,
+          "token_recall": 0.769,
+          "token_precision": 0.444,
+          "score": 0.704,
+          "matched_claim_tokens": [
+            "20",
+            "40",
+            "component",
+            "eligible",
+            "index",
+            "less",
+            "per",
+            "region",
+            "securiti",
+            "than"
+          ],
+          "raw_excerpt": "constraint less_than_20_per_region_less_than_40_index_components : forall d: SelectionDay, (exists r: Region, count(s in Security where eligible(d, s) and region(d, s) = r) < 20) implies count(s in Security where index_component(d, s)) < 40"
+        },
+        {
+          "block_id": "assertion:constraint:selected_top_20_for_each_region",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "selected_top_20_for_each_region",
+          "line": 62,
+          "token_recall": 0.385,
+          "token_precision": 0.286,
+          "score": 0.365,
+          "matched_claim_tokens": [
+            "20",
+            "eligible",
+            "index",
+            "region",
+            "securiti"
+          ],
+          "raw_excerpt": "constraint selected_top_20_for_each_region : forall d: SelectionDay, forall s: Security, selected_for_index_inclusion(d, s) iff eligible(d, s) and rank(d, region(d, s), s) <= 20"
+        },
+        {
+          "block_id": "assertion:constraint:at_most_20_selected_per_region",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "at_most_20_selected_per_region",
+          "line": 69,
+          "token_recall": 0.385,
+          "token_precision": 0.273,
+          "score": 0.362,
+          "matched_claim_tokens": [
+            "20",
+            "index",
+            "per",
+            "region",
+            "securiti"
+          ],
+          "raw_excerpt": "constraint at_most_20_selected_per_region : forall d: SelectionDay, forall r: Region, count(s in Security where selected_for_index_inclusion(d, s) and region(d, s) = r) <= 20"
+        },
+        {
+          "block_id": "declaration:rel:index_component",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "index_component",
+          "line": 31,
+          "token_recall": 0.231,
+          "token_precision": 0.444,
+          "score": 0.274,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "securiti"
+          ],
+          "raw_excerpt": "rel index_component : SelectionDay, Security"
+        },
+        {
+          "block_id": "declaration:opaque:Region",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "Region",
+          "line": 3,
+          "token_recall": 0.077,
+          "token_precision": 1.0,
+          "score": 0.262,
+          "matched_claim_tokens": [
+            "region"
+          ],
+          "raw_excerpt": "sort Region"
+        }
+      ],
+      "candidate_count": 30,
+      "covered_claim_tokens_by_top3": [
+        "20",
+        "40",
+        "component",
+        "eligible",
+        "index",
+        "less",
+        "per",
+        "region",
+        "securiti",
+        "than"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "case",
+          "surface_forms": [
+            "case"
+          ]
+        },
+        {
+          "token": "contain",
+          "surface_forms": [
+            "contains"
+          ]
+        },
+        {
+          "token": "total",
+          "surface_forms": [
+            "total"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.769,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C09",
+      "text": "The selection of the Index Components is fully rule-based and the Index Administrator cannot make any discretionary decision.",
+      "hash": "61e3c986813a",
+      "tokens": [
+        {
+          "token": "selection",
+          "surface_forms": [
+            "selection"
+          ],
+          "keys": [
+            "selection"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "component",
+          "surface_forms": [
+            "Components"
+          ],
+          "keys": [
+            "component",
+            "components"
+          ]
+        },
+        {
+          "token": "fulli",
+          "surface_forms": [
+            "fully"
+          ],
+          "keys": [
+            "fulli",
+            "fully"
+          ]
+        },
+        {
+          "token": "bas",
+          "surface_forms": [
+            "rule-based"
+          ],
+          "keys": [
+            "bas",
+            "based",
+            "rule"
+          ]
+        },
+        {
+          "token": "administrator",
+          "surface_forms": [
+            "Administrator"
+          ],
+          "keys": [
+            "administrator"
+          ]
+        },
+        {
+          "token": "cannot",
+          "surface_forms": [
+            "cannot"
+          ],
+          "keys": [
+            "cannot"
+          ]
+        },
+        {
+          "token": "make",
+          "surface_forms": [
+            "make"
+          ],
+          "keys": [
+            "make"
+          ]
+        },
+        {
+          "token": "discretionari",
+          "surface_forms": [
+            "discretionary"
+          ],
+          "keys": [
+            "discretionari",
+            "discretionary"
+          ]
+        },
+        {
+          "token": "decision",
+          "surface_forms": [
+            "decision"
+          ],
+          "keys": [
+            "decision"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "declaration:prohibition:index_administrator_discretionary_decision",
+          "role": "declaration",
+          "family": "DeonticDecl",
+          "kind": "prohibition",
+          "name": "index_administrator_discretionary_decision",
+          "line": 96,
+          "token_recall": 0.7,
+          "token_precision": 0.562,
+          "score": 0.672,
+          "matched_claim_tokens": [
+            "administrator",
+            "component",
+            "decision",
+            "discretionari",
+            "index",
+            "make",
+            "selection"
+          ],
+          "raw_excerpt": "prohibition index_administrator_discretionary_decision( agent: IndexAdministrator, selection: SelectionOfIndexComponents, decision: DiscretionaryDecision ) action: make_discretionary_decision target: decision scope: selection"
+        },
+        {
+          "block_id": "declaration:rel:fully_rule_based",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "fully_rule_based",
+          "line": 35,
+          "token_recall": 0.5,
+          "token_precision": 0.6,
+          "score": 0.52,
+          "matched_claim_tokens": [
+            "bas",
+            "component",
+            "fulli",
+            "index",
+            "selection"
+          ],
+          "raw_excerpt": "rel fully_rule_based : SelectionOfIndexComponents"
+        },
+        {
+          "block_id": "assertion:constraint:selection_fully_rule_based",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "selection_fully_rule_based",
+          "line": 92,
+          "token_recall": 0.5,
+          "token_precision": 0.409,
+          "score": 0.482,
+          "matched_claim_tokens": [
+            "bas",
+            "component",
+            "fulli",
+            "index",
+            "selection"
+          ],
+          "raw_excerpt": "constraint selection_fully_rule_based : forall d: SelectionDay, fully_rule_based(selection_of_index_components(d))"
+        },
+        {
+          "block_id": "declaration:opaque:SelectionOfIndexComponents",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "SelectionOfIndexComponents",
+          "line": 18,
+          "token_recall": 0.3,
+          "token_precision": 0.571,
+          "score": 0.354,
+          "matched_claim_tokens": [
+            "component",
+            "index",
+            "selection"
+          ],
+          "raw_excerpt": "sort SelectionOfIndexComponents"
+        },
+        {
+          "block_id": "declaration:opaque:DiscretionaryDecision",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "DiscretionaryDecision",
+          "line": 19,
+          "token_recall": 0.2,
+          "token_precision": 0.75,
+          "score": 0.31,
+          "matched_claim_tokens": [
+            "decision",
+            "discretionari"
+          ],
+          "raw_excerpt": "sort DiscretionaryDecision"
+        }
+      ],
+      "candidate_count": 28,
+      "covered_claim_tokens_by_top3": [
+        "administrator",
+        "bas",
+        "component",
+        "decision",
+        "discretionari",
+        "fulli",
+        "index",
+        "make",
+        "selection"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "cannot",
+          "surface_forms": [
+            "cannot"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.9,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    }
+  ]
+}

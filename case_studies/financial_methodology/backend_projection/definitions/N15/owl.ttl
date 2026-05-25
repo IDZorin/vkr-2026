@@ -1,0 +1,30 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N15 a owl:Ontology .
+
+ex:GbsIndex a owl:Class .
+ex:Security a owl:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+
+ex:GbsIndexSpecifiedInSection2_1 a ex:GbsIndex, owl:NamedIndividual .
+ex:Section2_1 a ex:DocumentPart, owl:NamedIndividual .
+ex:gbs_index_component a owl:ObjectProperty ;
+  rdfs:domain ex:Security ;
+  rdfs:range ex:GbsIndex .
+ex:security_reflected_in_gbs_index a owl:ObjectProperty ;
+  rdfs:domain ex:Security ;
+  rdfs:range ex:GbsIndex .
+ex:gbs_index_specified_in_section a owl:ObjectProperty ;
+  rdfs:domain ex:GbsIndex ;
+  rdfs:range ex:DocumentPart .
+
+ex:GbsIndexSpecifiedInSection2_1 ex:gbs_index_specified_in_section ex:Section2_1 .
+ex:ASSERT_gbs_index_component_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall s: Security, (gbs_index_component(s, GbsIndexSpecifiedInSection2_1)) iff (security_reflected_in_gbs_index(s, GbsIndexSpecifiedInSection2_1))" .

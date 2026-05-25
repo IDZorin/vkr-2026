@@ -1,0 +1,277 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_6 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_4_6/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Effort a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:DeterminationProcess a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Error a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Error rdfs:subClassOf ex:Event .
+ex:ErrorPossibility a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Description a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexEffortGoal a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:AccurateCalculation a ex:IndexEffortGoal, a4:EnumMember, owl:NamedIndividual .
+ex:IndexEffortGoal a4:enumMember ex:AccurateCalculation .
+ex:AccurateMaintenance a ex:IndexEffortGoal, a4:EnumMember, owl:NamedIndividual .
+ex:IndexEffortGoal a4:enumMember ex:AccurateMaintenance .
+ex:Reason a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:Internal a ex:Reason, a4:EnumMember, owl:NamedIndividual .
+ex:Reason a4:enumMember ex:Internal .
+ex:External a ex:Reason, a4:EnumMember, owl:NamedIndividual .
+ex:Reason a4:enumMember ex:External .
+ex:Endeavor a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Understanding a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:GeneralMeasure a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:UnderlyingDependency a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:PolicySpecification a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Underlying a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CorrectionPolicy a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CorrectionPolicy rdfs:subClassOf ex:Document .
+
+ex:Solactive a ex:Organization, owl:NamedIndividual .
+ex:SolactiveGreatestPossibleEfforts a ex:Effort, owl:NamedIndividual .
+ex:SolactiveDeterminationProcess a ex:DeterminationProcess, owl:NamedIndividual .
+ex:DeterminationProcessErrorPossibility a ex:ErrorPossibility, owl:NamedIndividual .
+ex:DeterminationProcessErrorDescription a ex:Description, owl:NamedIndividual .
+ex:ReasonablePeriodOfTime a ex:VagueTerm, owl:NamedIndividual .
+ex:ReasonablePeriodOfTimeUnderstanding a ex:Understanding, owl:NamedIndividual .
+ex:GeneralMeasuresToBeTaken a ex:GeneralMeasure, owl:NamedIndividual .
+ex:FromTimeToTime a ex:VagueTerm, owl:NamedIndividual .
+ex:VarietyReasons a ex:VagueTerm, owl:NamedIndividual .
+ex:CannotBeCompletelyRuledOut a ex:VagueTerm, owl:NamedIndividual .
+ex:PeriodAndMeasureUnderlyingDependency a ex:UnderlyingDependency, owl:NamedIndividual .
+ex:CorrectionPolicySpecification a ex:PolicySpecification, owl:NamedIndividual .
+ex:ThisGuideline a ex:Document, owl:NamedIndividual .
+ex:SolactiveCorrectionPolicy a ex:CorrectionPolicy, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:index_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_of a4:argument ex:index_of_arg_0 .
+ex:index_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:index_of a4:argument ex:index_of_arg_1 .
+ex:makes_effort a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:makes_effort_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Organization .
+ex:makes_effort a4:argument ex:makes_effort_arg_0 .
+ex:makes_effort_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Effort .
+ex:makes_effort a4:argument ex:makes_effort_arg_1 .
+ex:greatest_possible a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:greatest_possible_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Effort .
+ex:greatest_possible a4:argument ex:greatest_possible_arg_0 .
+ex:effort_goal a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:effort_goal_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Effort .
+ex:effort_goal a4:argument ex:effort_goal_arg_0 .
+ex:effort_goal_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:effort_goal a4:argument ex:effort_goal_arg_1 .
+ex:effort_goal_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:IndexEffortGoal .
+ex:effort_goal a4:argument ex:effort_goal_arg_2 .
+ex:error_possibility_in_determination_process a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:error_possibility_in_determination_process_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ErrorPossibility .
+ex:error_possibility_in_determination_process a4:argument ex:error_possibility_in_determination_process_arg_0 .
+ex:error_possibility_in_determination_process_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DeterminationProcess .
+ex:error_possibility_in_determination_process a4:argument ex:error_possibility_in_determination_process_arg_1 .
+ex:description_of_error_possibility a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:description_of_error_possibility_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Description .
+ex:description_of_error_possibility a4:argument ex:description_of_error_possibility_arg_0 .
+ex:description_of_error_possibility_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ErrorPossibility .
+ex:description_of_error_possibility a4:argument ex:description_of_error_possibility_arg_1 .
+ex:description_occurrence_term a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:description_occurrence_term_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Description .
+ex:description_occurrence_term a4:argument ex:description_occurrence_term_arg_0 .
+ex:description_occurrence_term_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:VagueTerm .
+ex:description_occurrence_term a4:argument ex:description_occurrence_term_arg_1 .
+ex:description_reason_term a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:description_reason_term_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Description .
+ex:description_reason_term a4:argument ex:description_reason_term_arg_0 .
+ex:description_reason_term_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:VagueTerm .
+ex:description_reason_term a4:argument ex:description_reason_term_arg_1 .
+ex:description_polarity_term a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:description_polarity_term_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Description .
+ex:description_polarity_term a4:argument ex:description_polarity_term_arg_0 .
+ex:description_polarity_term_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:VagueTerm .
+ex:description_polarity_term a4:argument ex:description_polarity_term_arg_1 .
+ex:error_possibility_reason a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:error_possibility_reason_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ErrorPossibility .
+ex:error_possibility_reason a4:argument ex:error_possibility_reason_arg_0 .
+ex:error_possibility_reason_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Reason .
+ex:error_possibility_reason a4:argument ex:error_possibility_reason_arg_1 .
+ex:completely_ruled_out a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:completely_ruled_out_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ErrorPossibility .
+ex:completely_ruled_out a4:argument ex:completely_ruled_out_arg_0 .
+ex:error_in_determination_process a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:error_in_determination_process_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Error .
+ex:error_in_determination_process a4:argument ex:error_in_determination_process_arg_0 .
+ex:error_in_determination_process_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DeterminationProcess .
+ex:error_in_determination_process a4:argument ex:error_in_determination_process_arg_1 .
+ex:identified a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:identified_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Error .
+ex:identified a4:argument ex:identified_arg_0 .
+ex:endeavor_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:endeavor_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Endeavor .
+ex:endeavor_by a4:argument ex:endeavor_by_arg_0 .
+ex:endeavor_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:endeavor_by a4:argument ex:endeavor_by_arg_1 .
+ex:endeavor_to_correct a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:endeavor_to_correct_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Endeavor .
+ex:endeavor_to_correct a4:argument ex:endeavor_to_correct_arg_0 .
+ex:endeavor_to_correct_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Error .
+ex:endeavor_to_correct a4:argument ex:endeavor_to_correct_arg_1 .
+ex:endeavor_within a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:endeavor_within_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Endeavor .
+ex:endeavor_within a4:argument ex:endeavor_within_arg_0 .
+ex:endeavor_within_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Period .
+ex:endeavor_within a4:argument ex:endeavor_within_arg_1 .
+ex:reasonable_period_for_error a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:reasonable_period_for_error_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Error .
+ex:reasonable_period_for_error a4:argument ex:reasonable_period_for_error_arg_0 .
+ex:reasonable_period_for_error_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Period .
+ex:reasonable_period_for_error a4:argument ex:reasonable_period_for_error_arg_1 .
+ex:period_described_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:period_described_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Period .
+ex:period_described_by a4:argument ex:period_described_by_arg_0 .
+ex:period_described_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:VagueTerm .
+ex:period_described_by a4:argument ex:period_described_by_arg_1 .
+ex:understanding_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:understanding_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Understanding .
+ex:understanding_of a4:argument ex:understanding_of_arg_0 .
+ex:understanding_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:VagueTerm .
+ex:understanding_of a4:argument ex:understanding_of_arg_1 .
+ex:general_measure_to_be_taken a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:general_measure_to_be_taken_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:GeneralMeasure .
+ex:general_measure_to_be_taken a4:argument ex:general_measure_to_be_taken_arg_0 .
+ex:dependency_understanding a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:dependency_understanding_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:UnderlyingDependency .
+ex:dependency_understanding a4:argument ex:dependency_understanding_arg_0 .
+ex:dependency_understanding_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Understanding .
+ex:dependency_understanding a4:argument ex:dependency_understanding_arg_1 .
+ex:dependency_general_measure a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:dependency_general_measure_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:UnderlyingDependency .
+ex:dependency_general_measure a4:argument ex:dependency_general_measure_arg_0 .
+ex:dependency_general_measure_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:GeneralMeasure .
+ex:dependency_general_measure a4:argument ex:dependency_general_measure_arg_1 .
+ex:dependency_underlying a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:dependency_underlying_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:UnderlyingDependency .
+ex:dependency_underlying a4:argument ex:dependency_underlying_arg_0 .
+ex:dependency_underlying_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Underlying .
+ex:dependency_underlying a4:argument ex:dependency_underlying_arg_1 .
+ex:generally_applies a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:generally_applies_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:UnderlyingDependency .
+ex:generally_applies a4:argument ex:generally_applies_arg_0 .
+ex:specification_understanding a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:specification_understanding_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:PolicySpecification .
+ex:specification_understanding a4:argument ex:specification_understanding_arg_0 .
+ex:specification_understanding_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Understanding .
+ex:specification_understanding a4:argument ex:specification_understanding_arg_1 .
+ex:specification_general_measure a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:specification_general_measure_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:PolicySpecification .
+ex:specification_general_measure a4:argument ex:specification_general_measure_arg_0 .
+ex:specification_general_measure_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:GeneralMeasure .
+ex:specification_general_measure a4:argument ex:specification_general_measure_arg_1 .
+ex:specification_policy a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:specification_policy_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:PolicySpecification .
+ex:specification_policy a4:argument ex:specification_policy_arg_0 .
+ex:specification_policy_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CorrectionPolicy .
+ex:specification_policy a4:argument ex:specification_policy_arg_1 .
+ex:incorporated_by_reference_into a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:incorporated_by_reference_into_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Document .
+ex:incorporated_by_reference_into a4:argument ex:incorporated_by_reference_into_arg_0 .
+ex:incorporated_by_reference_into_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Document .
+ex:incorporated_by_reference_into a4:argument ex:incorporated_by_reference_into_arg_1 .
+ex:available_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:available_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Document .
+ex:available_on a4:argument ex:available_on_arg_0 .
+ex:available_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:WebResource .
+ex:available_on a4:argument ex:available_on_arg_1 .
+ex:website_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:website_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:WebResource .
+ex:website_of a4:argument ex:website_of_arg_0 .
+ex:website_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:website_of a4:argument ex:website_of_arg_1 .
+
+ex:ASSERT_solactive_greatest_possible_efforts a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "76"^^xsd:integer ;
+  a4:exprText "(makes_effort(Solactive, SolactiveGreatestPossibleEfforts)) and (greatest_possible(SolactiveGreatestPossibleEfforts))" ;
+  a4:sourceText "fact solactive_greatest_possible_efforts :\n  makes_effort(Solactive, SolactiveGreatestPossibleEfforts)\n  and greatest_possible(SolactiveGreatestPossibleEfforts)" .
+ex:ASSERT_efforts_to_accurately_calculate_and_maintain_indices a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "80"^^xsd:integer ;
+  a4:exprText "forall i: Index, (index_of(i, Solactive)) implies ((effort_goal(SolactiveGreatestPossibleEfforts, i, AccurateCalculation)) and (effort_goal(SolactiveGreatestPossibleEfforts, i, AccurateMaintenance)))" ;
+  a4:sourceText "constraint efforts_to_accurately_calculate_and_maintain_indices :\n  forall i: Index,\n    index_of(i, Solactive)\n    implies\n      effort_goal(SolactiveGreatestPossibleEfforts, i, AccurateCalculation)\n      and effort_goal(SolactiveGreatestPossibleEfforts, i, AccurateMaintenance)" .
+ex:ASSERT_determination_process_errors_may_occur_not_ruled_out a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "87"^^xsd:integer ;
+  a4:exprText "(error_possibility_in_determination_process(DeterminationProcessErrorPossibility, SolactiveDeterminationProcess)) and (description_of_error_possibility(DeterminationProcessErrorDescription, DeterminationProcessErrorPossibility)) and (description_occurrence_term(DeterminationProcessErrorDescription, FromTimeToTime)) and (description_reason_term(DeterminationProcessErrorDescription, VarietyReasons)) and (description_polarity_term(DeterminationProcessErrorDescription, CannotBeCompletelyRuledOut)) and (error_possibility_reason(DeterminationProcessErrorPossibility, Internal)) and (error_possibility_reason(DeterminationProcessErrorPossibility, External)) and (not (completely_ruled_out(DeterminationProcessErrorPossibility)))" ;
+  a4:sourceText "fact determination_process_errors_may_occur_not_ruled_out :\n  error_possibility_in_determination_process(\n    DeterminationProcessErrorPossibility,\n    SolactiveDeterminationProcess\n  )\n  and description_of_error_possibility(\n    DeterminationProcessErrorDescription,\n    DeterminationProcessErrorPossibility\n  )\n  and description_occurrence_term(\n    DeterminationProcessErrorDescription,\n    FromTimeToTime\n  )\n  and description_reason_term(\n    DeterminationProcessErrorDescription,\n    VarietyReasons\n  )\n  and description_polarity_term(\n    DeterminationProcessErrorDescription,\n    CannotBeCompletelyRuledOut\n  )\n  and error_possibility_reason(DeterminationProcessErrorPossibility, Internal)\n  and error_possibility_reason(DeterminationProcessErrorPossibility, External)\n  and not completely_ruled_out(DeterminationProcessErrorPossibility)" .
+ex:ASSERT_identified_errors_correction_endeavor a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "112"^^xsd:integer ;
+  a4:exprText "forall e: Error, ((error_in_determination_process(e, SolactiveDeterminationProcess)) and (identified(e))) implies (exists v: Endeavor, exists t: Period, (endeavor_by(v, Solactive)) and (endeavor_to_correct(v, e)) and (reasonable_period_for_error(e, t)) and (period_described_by(t, ReasonablePeriodOfTime)) and (endeavor_within(v, t)))" ;
+  a4:sourceText "constraint identified_errors_correction_endeavor :\n  forall e: Error,\n    error_in_determination_process(e, SolactiveDeterminationProcess)\n    and identified(e)\n    implies\n      exists v: Endeavor, exists t: Period,\n        endeavor_by(v, Solactive)\n        and endeavor_to_correct(v, e)\n        and reasonable_period_for_error(e, t)\n        and period_described_by(t, ReasonablePeriodOfTime)\n        and endeavor_within(v, t)" .
+ex:ASSERT_period_understanding_and_measures_depend_on_underlying a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "124"^^xsd:integer ;
+  a4:exprText "exists u: Underlying, (dependency_understanding(PeriodAndMeasureUnderlyingDependency, ReasonablePeriodOfTimeUnderstanding)) and (dependency_general_measure(PeriodAndMeasureUnderlyingDependency, GeneralMeasuresToBeTaken)) and (dependency_underlying(PeriodAndMeasureUnderlyingDependency, u)) and (generally_applies(PeriodAndMeasureUnderlyingDependency))" ;
+  a4:sourceText "fact period_understanding_and_measures_depend_on_underlying :\n  exists u: Underlying,\n      dependency_understanding(\n        PeriodAndMeasureUnderlyingDependency,\n        ReasonablePeriodOfTimeUnderstanding\n      )\n      and dependency_general_measure(\n        PeriodAndMeasureUnderlyingDependency,\n        GeneralMeasuresToBeTaken\n      )\n      and dependency_underlying(\n        PeriodAndMeasureUnderlyingDependency,\n        u\n      )\n      and generally_applies(PeriodAndMeasureUnderlyingDependency)" .
+ex:ASSERT_correction_policy_specifies_period_understanding_and_measures a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "140"^^xsd:integer ;
+  a4:exprText "(understanding_of(ReasonablePeriodOfTimeUnderstanding, ReasonablePeriodOfTime)) and (general_measure_to_be_taken(GeneralMeasuresToBeTaken)) and (specification_understanding(CorrectionPolicySpecification, ReasonablePeriodOfTimeUnderstanding)) and (specification_general_measure(CorrectionPolicySpecification, GeneralMeasuresToBeTaken)) and (specification_policy(CorrectionPolicySpecification, SolactiveCorrectionPolicy))" ;
+  a4:sourceText "fact correction_policy_specifies_period_understanding_and_measures :\n  understanding_of(\n    ReasonablePeriodOfTimeUnderstanding,\n    ReasonablePeriodOfTime\n  )\n  and general_measure_to_be_taken(GeneralMeasuresToBeTaken)\n  and specification_understanding(\n    CorrectionPolicySpecification,\n    ReasonablePeriodOfTimeUnderstanding\n  )\n  and specification_general_measure(\n    CorrectionPolicySpecification,\n    GeneralMeasuresToBeTaken\n  )\n  and specification_policy(CorrectionPolicySpecification, SolactiveCorrectionPolicy)" .
+ex:ASSERT_correction_policy_reference a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "156"^^xsd:integer ;
+  a4:exprText "(incorporated_by_reference_into(SolactiveCorrectionPolicy, ThisGuideline)) and (available_on(SolactiveCorrectionPolicy, SolactiveWebsite)) and (website_of(SolactiveWebsite, Solactive))" ;
+  a4:sourceText "fact correction_policy_reference :\n  incorporated_by_reference_into(SolactiveCorrectionPolicy, ThisGuideline)\n  and available_on(SolactiveCorrectionPolicy, SolactiveWebsite)\n  and website_of(SolactiveWebsite, Solactive)" .

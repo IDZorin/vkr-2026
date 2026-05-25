@@ -1,0 +1,1430 @@
+{
+  "entry_id": "N08",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 28,
+    "content_token_count": 18,
+    "covered_content_token_count": 16,
+    "uncovered_content_token_count": 2,
+    "ignored_stopword_count": 10,
+    "content_coverage_rate": 0.889
+  },
+  "tokens": [
+    {
+      "token": "daili",
+      "surface_forms": [
+        "Daily"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DailyValueTraded",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_product_definition",
+          "family": "AssertDecl.constraint",
+          "line": 13,
+          "matched_text": "daily_value_traded_product_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "line": 13,
+          "matched_text": "daily_value_traded_product_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DailyValueTraded",
+          "matched_text": "Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded",
+          "matched_text": "Daily Value Traded"
+        }
+      ]
+    },
+    {
+      "token": "value",
+      "surface_forms": [
+        "Value"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 8
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DailyValueTraded",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_product_definition",
+          "family": "AssertDecl.constraint",
+          "line": 13,
+          "matched_text": "daily_value_traded_product_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "line": 13,
+          "matched_text": "daily_value_traded_product_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DailyValueTraded",
+          "matched_text": "Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded",
+          "matched_text": "Daily Value Traded"
+        }
+      ]
+    },
+    {
+      "token": "trad",
+      "surface_forms": [
+        "Traded",
+        "Trading",
+        "traded"
+      ],
+      "count": 4,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 14
+        },
+        {
+          "line": 1,
+          "column": 68
+        },
+        {
+          "line": 1,
+          "column": 162
+        },
+        {
+          "line": 1,
+          "column": 254
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DailyValueTraded",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "volume_traded_on_exchange_during_trading_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_product_definition",
+          "family": "AssertDecl.constraint",
+          "line": 13,
+          "matched_text": "daily_value_traded_product_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "line": 13,
+          "matched_text": "daily_value_traded_product_definition"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "volume_traded_on_exchange_during_trading_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DailyValueTraded",
+          "matched_text": "Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "VolumeNumberOfShares",
+          "matched_text": "volume traded (measured as a number of shares)"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradingDay",
+          "matched_text": "Trading Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded",
+          "matched_text": "Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "matched_text": "volume traded ... of such Index Component on the Exchange during such Trading Day"
+        }
+      ]
+    },
+    {
+      "token": "mean",
+      "surface_forms": [
+        "means"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 22
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 29
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "respect",
+      "surface_forms": [
+        "respect"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 32
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 5,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 40
+        },
+        {
+          "line": 1,
+          "column": 93
+        },
+        {
+          "line": 1,
+          "column": 118
+        },
+        {
+          "line": 1,
+          "column": 191
+        },
+        {
+          "line": 1,
+          "column": 202
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "VolumeNumberOfShares",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "VolumeNumberOfShares"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "VolumeNumberOfShares"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "VolumeNumberOfShares",
+          "matched_text": "volume traded (measured as a number of shares)"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price",
+          "matched_text": "Closing Price of such Index Component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "matched_text": "volume traded ... of such Index Component on the Exchange during such Trading Day"
+        }
+      ]
+    },
+    {
+      "token": "an",
+      "surface_forms": [
+        "an"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 43
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 46
+        },
+        {
+          "line": 1,
+          "column": 126
+        },
+        {
+          "line": 1,
+          "column": 210
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "respective_exchange",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexComponent",
+          "matched_text": "Index Component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price",
+          "matched_text": "Closing Price of such Index Component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "matched_text": "volume traded ... of such Index Component on the Exchange during such Trading Day"
+        }
+      ]
+    },
+    {
+      "token": "component",
+      "surface_forms": [
+        "Component"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 52
+        },
+        {
+          "line": 1,
+          "column": 132
+        },
+        {
+          "line": 1,
+          "column": 216
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "respective_exchange",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexComponent",
+          "matched_text": "Index Component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price",
+          "matched_text": "Closing Price of such Index Component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "matched_text": "volume traded ... of such Index Component on the Exchange during such Trading Day"
+        }
+      ]
+    },
+    {
+      "token": "and",
+      "surface_forms": [
+        "and"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 62
+        },
+        {
+          "line": 1,
+          "column": 142
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "a",
+      "surface_forms": [
+        "a"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 66
+        },
+        {
+          "line": 1,
+          "column": 182
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "VolumeNumberOfShares",
+          "matched_text": "volume traded (measured as a number of shares)"
+        }
+      ]
+    },
+    {
+      "token": "day",
+      "surface_forms": [
+        "Day"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 76
+        },
+        {
+          "line": 1,
+          "column": 262
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "TradingDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "volume_traded_on_exchange_during_trading_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "volume_traded_on_exchange_during_trading_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradingDay",
+          "matched_text": "Trading Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "matched_text": "volume traded ... of such Index Component on the Exchange during such Trading Day"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 4,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 81
+        },
+        {
+          "line": 1,
+          "column": 100
+        },
+        {
+          "line": 1,
+          "column": 151
+        },
+        {
+          "line": 1,
+          "column": 229
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Exchange",
+          "matched_text": "the Exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "matched_text": "volume traded ... of such Index Component on the Exchange during such Trading Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "respective_exchange",
+          "matched_text": "the Exchange"
+        }
+      ]
+    },
+    {
+      "token": "product",
+      "surface_forms": [
+        "product"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 85
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_product_definition",
+          "family": "AssertDecl.constraint",
+          "line": 13,
+          "matched_text": "daily_value_traded_product_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "line": 13,
+          "matched_text": "daily_value_traded_product_definition"
+        }
+      ]
+    },
+    {
+      "token": "i",
+      "surface_forms": [
+        "i"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 97
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "clo",
+      "surface_forms": [
+        "Closing"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 104
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ClosingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ClosingPrice",
+          "matched_text": "Closing Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price",
+          "matched_text": "Closing Price of such Index Component"
+        }
+      ]
+    },
+    {
+      "token": "price",
+      "surface_forms": [
+        "Price"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 112
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ClosingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ClosingPrice",
+          "matched_text": "Closing Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price",
+          "matched_text": "Closing Price of such Index Component"
+        }
+      ]
+    },
+    {
+      "token": "such",
+      "surface_forms": [
+        "such"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 121
+        },
+        {
+          "line": 1,
+          "column": 205
+        },
+        {
+          "line": 1,
+          "column": 249
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price",
+          "matched_text": "Closing Price of such Index Component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "matched_text": "volume traded ... of such Index Component on the Exchange during such Trading Day"
+        }
+      ]
+    },
+    {
+      "token": "ii",
+      "surface_forms": [
+        "ii"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 147
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "volume",
+      "surface_forms": [
+        "volume"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 155
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "VolumeNumberOfShares",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "VolumeNumberOfShares"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "volume_traded_on_exchange_during_trading_day"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "VolumeNumberOfShares"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "volume_traded_on_exchange_during_trading_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "VolumeNumberOfShares",
+          "matched_text": "volume traded (measured as a number of shares)"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "matched_text": "volume traded ... of such Index Component on the Exchange during such Trading Day"
+        }
+      ]
+    },
+    {
+      "token": "measur",
+      "surface_forms": [
+        "measured"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 170
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "VolumeNumberOfShares",
+          "matched_text": "volume traded (measured as a number of shares)"
+        }
+      ]
+    },
+    {
+      "token": "as",
+      "surface_forms": [
+        "as"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 179
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "VolumeNumberOfShares",
+          "matched_text": "volume traded (measured as a number of shares)"
+        }
+      ]
+    },
+    {
+      "token": "number",
+      "surface_forms": [
+        "number"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 184
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "VolumeNumberOfShares",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "VolumeNumberOfShares"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "VolumeNumberOfShares"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "VolumeNumberOfShares",
+          "matched_text": "volume traded (measured as a number of shares)"
+        }
+      ]
+    },
+    {
+      "token": "shar",
+      "surface_forms": [
+        "shares"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 194
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "VolumeNumberOfShares",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "VolumeNumberOfShares"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "VolumeNumberOfShares"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "VolumeNumberOfShares",
+          "matched_text": "volume traded (measured as a number of shares)"
+        }
+      ]
+    },
+    {
+      "token": "on",
+      "surface_forms": [
+        "on"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 226
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "volume_traded_on_exchange_during_trading_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "volume_traded_on_exchange_during_trading_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "matched_text": "volume traded ... of such Index Component on the Exchange during such Trading Day"
+        }
+      ]
+    },
+    {
+      "token": "exchange",
+      "surface_forms": [
+        "Exchange"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 233
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Exchange",
+          "family": "TypeDecl.opaque",
+          "line": 3,
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "volume_traded_on_exchange_during_trading_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "respective_exchange",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "respective_exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "respective_exchange",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "volume_traded_on_exchange_during_trading_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right.args[1]",
+          "matched_text": "respective_exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Exchange",
+          "matched_text": "the Exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "matched_text": "volume traded ... of such Index Component on the Exchange during such Trading Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "respective_exchange",
+          "matched_text": "the Exchange"
+        }
+      ]
+    },
+    {
+      "token": "dur",
+      "surface_forms": [
+        "during"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 242
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "volume_traded_on_exchange_during_trading_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_product_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "volume_traded_on_exchange_during_trading_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "volume_traded_on_exchange_during_trading_day",
+          "matched_text": "volume traded ... of such Index Component on the Exchange during such Trading Day"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "mean",
+      "surface_forms": [
+        "means"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 22
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "respect",
+      "surface_forms": [
+        "respect"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 32
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

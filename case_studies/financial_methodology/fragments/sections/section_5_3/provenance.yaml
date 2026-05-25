@@ -1,0 +1,253 @@
+﻿section: "5.3 Changes to the Method"
+source_file: "source.md"
+schema_version: "v2"
+review_status: "draft_ir_to_text_user_review"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+# For each fact/constraint/obligation/permission/prohibition:
+#   kind             -- IR family
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | plumbing | derived_invariant | verification_probe
+#   source_quotes    -- verbatim source spans the element formalizes
+#   back_translation -- natural-language unfolding of the IR formula
+#   vocabulary_basis -- source_only | mixed | ir_internal_bridge | ir_plumbing
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+#   notes            -- optional clarification
+
+claims:
+
+  index_administrator_for_index:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The application by the Index Administrator of the method described in this document is final and binding."
+      - "The Index Administrator shall apply the method described above for the composition and calculation of the Index."
+    back_translation: >
+      The Index Administrator is the index administrator of the Index.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Local context fact connecting the source's repeated "Index Administrator"
+      and "Index" references.
+
+  described_method_reference:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the method described in this document"
+      - "the method described above"
+    back_translation: >
+      The described method is described in this document and is also the method
+      described above.
+    vocabulary_basis: source_only
+    status: covered
+
+  described_method_for_composition_and_calculation:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "for the composition and calculation of the Index"
+    back_translation: >
+      The described method is the method for the Index and has the purposes
+      composition and calculation.
+    vocabulary_basis: source_only
+    status: covered
+
+  described_method_application_final_and_binding:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The application by the Index Administrator of the method described in this document is final and binding."
+    back_translation: >
+      The application of the described method by the Index Administrator is
+      final and binding.
+    vocabulary_basis: source_only
+    status: covered
+
+  index_terms_and_conditions:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the terms and conditions of the Index"
+    back_translation: >
+      The Index has terms and conditions.
+    vocabulary_basis: source_only
+    status: covered
+
+  potential_method_change_reasons:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "it cannot be excluded that the market environment, supervisory, legal and financial or tax reasons may require changes to be made to this method"
+    back_translation: >
+      Each of the market environment, supervisory, legal, financial, and
+      tax reasons may require a change to the described method.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This is a possibility representation. It does not assert that any actual
+      change is made.
+
+  deemed_modification_or_change_scope:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The Index Administrator may also make changes to the terms and conditions of the Index and the method applied to calculate the Index that it deems to be necessary and desirable in order to prevent obvious or demonstrable error or to remedy, correct or supplement incorrect terms and conditions."
+    back_translation: >
+      Every deemed modification or change is a modification or change of
+      the Index; it changes either the terms and conditions of the Index
+      or the calculation method applied to the Index; it is deemed
+      necessary and desirable by the Index Administrator; and it either
+      prevents an obvious or demonstrable error, or remedies, corrects,
+      or supplements incorrect terms and conditions.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source permission is represented by the separate permission
+      `make_deemed_modification_or_change`. This constraint defines the scope
+      of the subtype targeted by that permission; it is not a second hard
+      requirement that a change must be made.
+
+  appropriate_steps_consistency_target:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the Index Administrator will take the appropriate steps to ensure a calculation method is applied that is consistent with the method described above"
+    back_translation: >
+      The appropriate steps are appropriate and ensure that the calculation
+      method applied to the Index is consistent with the described method.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This fact defines the target of the final obligation. The obligation
+      itself is `take_appropriate_steps_for_consistent_calculation_method`.
+
+  apply_described_method:
+    kind: obligation
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The Index Administrator shall apply the method described above for the composition and calculation of the Index."
+    back_translation: >
+      The Index Administrator is obliged to apply the described method for the
+      Index.
+    vocabulary_basis: source_only
+    status: covered
+
+  make_deemed_modification_or_change:
+    kind: permission
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The Index Administrator may also make changes to the terms and conditions of the Index and the method applied to calculate the Index that it deems to be necessary and desirable in order to prevent obvious or demonstrable error or to remedy, correct or supplement incorrect terms and conditions."
+    back_translation: >
+      The Index Administrator is permitted to make a deemed modification
+      or change to the Index.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The condition "deems necessary and desirable..." is carried by the
+      `DeemedModificationOrChange` subtype constraint rather than by a complex
+      boolean deontic scope.
+
+  information_withheld_means_information_not_provided:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "The Index Administrator is not obliged to provide information on any such modifications or changes."
+    back_translation: >
+      Information is withheld about a modification or change if and only if
+      information is not provided about that modification or change.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Polarity bridge for contradiction detection. The deontic claim below
+      uses a positive action name `withhold_information`, while this bridge
+      relates withholding to the positive carrier
+      `provide_information_on_modification_or_change`. Information is also
+      exposed as the entity `ModificationOrChangeInformation`, so the concept
+      does not live only inside predicate names.
+
+  withhold_information_on_modification_or_change:
+    kind: permission
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The Index Administrator is not obliged to provide information on any such modifications or changes."
+    back_translation: >
+      The Index Administrator is permitted to withhold information about a
+      modification or change.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      A4V3 has no local first-class absence-of-obligation construct in this
+      financial methodology style. The permission to withhold information is a deontic
+      approximation of "not obliged to provide information"; it is not an
+      obligation to withhold information. The positive carrier
+      `provide_information_on_modification_or_change` is exposed by the
+      bridge constraint above.
+
+  take_appropriate_steps_for_consistent_calculation_method:
+    kind: obligation
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Despite the modifications and changes, the Index Administrator will take the appropriate steps to ensure a calculation method is applied that is consistent with the method described above."
+    back_translation: >
+      For every modification or change, the Index Administrator is obliged
+      to take the appropriate steps for that modification or change.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Deontic obligation chosen over a hard constraint so that failure remains
+      representable as a violation rather than becoming logically impossible.
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  TheIndex:
+    note: >
+      Local entity for the section's bare "the Index" reference. Cross-section
+      identity belongs to the merge layer if this section is combined with
+      Section 1.2 entities.
+  ThisDocument:
+    note: >
+      Entity for "this document" in the source phrase "method described in
+      this document".
+  DescribedMethod:
+    note: >
+      Entity for both "the method described in this document" and "the method
+      described above". The two references are treated as the same local method.
+  DeemedModificationOrChange:
+    note: >
+      Subtype of ModificationOrChange. Its scope is defined by
+      `deemed_modification_or_change_scope` and is used as the target class of
+      the permission to make changes.
+  VagueTerm:
+    note: >
+      Used for qualitative legal terms `Obvious`, `Demonstrable`, `Necessary`,
+      and `Desirable`; these terms are source-grounded but not computationally
+      defined in the section.
+  Information:
+    note: >
+      Generic local carrier sort for the source phrase "information on any
+      such modifications or changes". It exists so the provide/withhold
+      polarity bridge has a structural information argument rather than
+      relying on the token "information" only inside relation names.
+  ModificationOrChangeInformation:
+    note: >
+      Entity for the source phrase "information on any such modifications or
+      changes". It is the target of the withholding permission and the
+      information carrier in the positive/negative polarity bridge.

@@ -1,0 +1,52 @@
+section: "N19 Definition: Index Component"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  index_component_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Index Component\" is each security reflected in the Index."
+    back_translation: >
+      For every security, that security is an Index Component of the Index
+      if and only if that security is reflected in the Index.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Pure definitional claim. The biconditional is used because the source
+      defines the term "Index Component". The source phrase "each security"
+      is represented by universal quantification over Security. The local
+      entity TheIndex captures the source phrase "the Index"; cross-section
+      identity belongs to bridge/merge work. The source phrase "reflected
+      in the Index" is kept as a separate predicate rather than hidden in
+      the name `index_component`; the biconditional links the source
+      vocabulary to the defined term.
+
+uncovered_source:
+  - quote: "(none -- the single source sentence is the single IR claim)"
+
+vocabulary_notes:
+  index_component:
+    note: >
+      IR relation for the source term "Index Component". Back-translation
+      uses the spaced source phrase, not the IR identifier.
+    source_phrase: "Index Component"
+  Security:
+    note: >
+      Sort for the source phrase "security".
+    source_phrase: "security"
+  security_reflected_in_index:
+    note: >
+      Structural relation for the source phrase "reflected in the Index".
+    source_phrase: "reflected in the Index"
+  TheIndex:
+    note: >
+      Local entity for the source phrase "the Index". Cross-section identity
+      with published index entities belongs to the merge layer.
+    source_phrase: "the Index"

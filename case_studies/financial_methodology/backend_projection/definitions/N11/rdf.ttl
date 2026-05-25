@@ -1,0 +1,26 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N11 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N11/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:fixing_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:fixing_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:fixing_day a4:argument ex:fixing_day_arg_0 .
+ex:selection_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:selection_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:selection_day a4:argument ex:selection_day_arg_0 .
+
+ex:ASSERT_fixing_day_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "4"^^xsd:integer ;
+  a4:exprText "forall d: Day, (fixing_day(d)) iff (selection_day(d))" ;
+  a4:sourceText "constraint fixing_day_definition :\n  forall d: Day,\n    fixing_day(d) iff selection_day(d)" .

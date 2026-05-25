@@ -1,0 +1,54 @@
+{
+  "entry_id": "N06",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1189,
+    "completion_tokens": 227,
+    "total_tokens": 1416
+  },
+  "latency_s": 2.171704053878784,
+  "probes": {
+    "probe_scope": "n_a",
+    "probe_scope_evidence": "",
+    "probe_scope_drift": "",
+    "probe_exception": "n_a",
+    "probe_exception_evidence": "",
+    "probe_exception_drift": "",
+    "probe_negation": "n_a",
+    "probe_negation_evidence": "",
+    "probe_negation_drift": "",
+    "probe_counterfactual": "n_a",
+    "probe_counterfactual_evidence": "",
+    "probe_counterfactual_drift": "",
+    "probe_clarification": "n_a",
+    "probe_clarification_evidence": "",
+    "probe_clarification_drift": "",
+    "probe_responsibility": "n_a",
+    "probe_responsibility_evidence": "",
+    "probe_responsibility_drift": "",
+    "probe_reference": "yes",
+    "probe_reference_evidence": "\"as outlined in Section 1.4\"",
+    "probe_reference_drift": "",
+    "probe_temporal_order": "n_a",
+    "probe_temporal_order_evidence": "",
+    "probe_temporal_order_drift": "",
+    "probe_value_source": "no",
+    "probe_value_source_evidence": "\"the calculation time of the closing level of the Index\"",
+    "probe_value_source_drift": "\"closing level of TheIndex\" preserves the reference but drops the source-of-value framing of the Index's closing level"
+  },
+  "summary": {
+    "yes": 1,
+    "no": 1,
+    "n_a": 7,
+    "preservation_rate": 0.5
+  },
+  "drifts": [
+    {
+      "probe": "value_source",
+      "evidence": "\"the calculation time of the closing level of the Index\"",
+      "drift": "\"closing level of TheIndex\" preserves the reference but drops the source-of-value framing of the Index's closing level"
+    }
+  ],
+  "raw": null
+}

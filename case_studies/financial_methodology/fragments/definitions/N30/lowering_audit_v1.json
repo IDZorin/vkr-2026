@@ -1,0 +1,52 @@
+{
+  "entry_id": "N30",
+  "skipped": false,
+  "n_decls": 49,
+  "n_smells": 3,
+  "by_candidate_family": {
+    "TemporalDecl.temporal_marker": 2,
+    "DeonticDecl.obligation": 1
+  },
+  "by_matched": {
+    "prior_to": 2,
+    "responsible": 1
+  },
+  "smells": [
+    {
+      "entry_id": "N30",
+      "decl_kind": "rel",
+      "symbol": "context_excluded_by_prior_to_close_cessation",
+      "line_no": 37,
+      "matched_token_or_phrase": "prior_to",
+      "candidate_family": "TemporalDecl",
+      "candidate_kind": "temporal_marker",
+      "spec_ref": "#29",
+      "match_kind": "phrase",
+      "raw_decl": "rel context_excluded_by_prior_to_close_cessation : TradingDayContext"
+    },
+    {
+      "entry_id": "N30",
+      "decl_kind": "rel",
+      "symbol": "prior_to",
+      "line_no": 47,
+      "matched_token_or_phrase": "prior_to",
+      "candidate_family": "TemporalDecl",
+      "candidate_kind": "temporal_marker",
+      "spec_ref": "#29",
+      "match_kind": "phrase",
+      "raw_decl": "rel prior_to : TradingCessationPossibility, ExchangeClosingTime"
+    },
+    {
+      "entry_id": "N30",
+      "decl_kind": "rel",
+      "symbol": "ultimately_responsible_for_trading_day_determination",
+      "line_no": 58,
+      "matched_token_or_phrase": "responsible",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "obligation",
+      "spec_ref": "#31",
+      "match_kind": "token",
+      "raw_decl": "rel ultimately_responsible_for_trading_day_determination : IndexAdministratorForThisIndex, TradingDayDetermination"
+    }
+  ]
+}

@@ -1,0 +1,1492 @@
+{
+  "entry_id": "N31",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 22,
+    "content_token_count": 11,
+    "covered_content_token_count": 10,
+    "uncovered_content_token_count": 1,
+    "ignored_stopword_count": 11,
+    "content_coverage_rate": 0.909
+  },
+  "tokens": [
+    {
+      "token": "the",
+      "surface_forms": [
+        "The",
+        "the"
+      ],
+      "count": 4,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 1
+        },
+        {
+          "line": 1,
+          "column": 75
+        },
+        {
+          "line": 1,
+          "column": 116
+        },
+        {
+          "line": 1,
+          "column": 150
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_exchange",
+          "matched_text": "on the respective Exchange"
+        }
+      ]
+    },
+    {
+      "token": "trad",
+      "surface_forms": [
+        "Trading",
+        "traded"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 6
+        },
+        {
+          "line": 1,
+          "column": 60
+        },
+        {
+          "line": 1,
+          "column": 140
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "TradingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "trading_price"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "TradingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trade_day",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "most_recent_published_trade_for",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_price_definition",
+          "family": "AssertDecl.constraint",
+          "line": 46,
+          "matched_text": "trading_price_definition"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "most_recent_published_trade_uniqueness",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "trading_price_definition",
+          "assertion_kind": "constraint",
+          "line": 46,
+          "matched_text": "trading_price_definition"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "trading_price_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_price_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.args[1].left",
+          "matched_text": "trading_price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradingPrice",
+          "matched_text": "Trading Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradingDay",
+          "matched_text": "Trading Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Trade",
+          "matched_text": "traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_price",
+          "matched_text": "Trading Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_component",
+          "matched_text": "Index Component was traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_day",
+          "matched_text": "Trading Day"
+        }
+      ]
+    },
+    {
+      "token": "price",
+      "surface_forms": [
+        "Price",
+        "price"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 14
+        },
+        {
+          "line": 1,
+          "column": 101
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Price",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "Price"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "TradingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "TradingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "Price"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "trading_price"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "TradingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trade_price",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "trade_price"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "trade_price",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "Price"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_price_definition",
+          "family": "AssertDecl.constraint",
+          "line": 46,
+          "matched_text": "trading_price_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "trading_price_definition",
+          "assertion_kind": "constraint",
+          "line": 46,
+          "matched_text": "trading_price_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_price_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.args[1].left",
+          "matched_text": "trading_price"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_price_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.args[1].right",
+          "matched_text": "trade_price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradingPrice",
+          "matched_text": "Trading Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_price",
+          "matched_text": "Trading Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_price",
+          "matched_text": "price at which"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 21
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "respect",
+      "surface_forms": [
+        "respect"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 24
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 32
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "an",
+      "surface_forms": [
+        "an"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 35
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 38
+        },
+        {
+          "line": 1,
+          "column": 120
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "respective_exchange",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trade_component",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "most_recent_published_trade_for",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "most_recent_published_trade_uniqueness",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "trading_price_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexComponent",
+          "matched_text": "Index Component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_component",
+          "matched_text": "Index Component was traded"
+        }
+      ]
+    },
+    {
+      "token": "component",
+      "surface_forms": [
+        "Component"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 44
+        },
+        {
+          "line": 1,
+          "column": 126
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "respective_exchange",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trade_component",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "trade_component"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trade_component",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "most_recent_published_trade_for",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[1]",
+          "matched_text": "trade_component"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[2]",
+          "matched_text": "trade_component"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "most_recent_published_trade_uniqueness",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "trading_price_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexComponent",
+          "matched_text": "Index Component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_component",
+          "matched_text": "Index Component was traded"
+        }
+      ]
+    },
+    {
+      "token": "and",
+      "surface_forms": [
+        "and"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 54
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "a",
+      "surface_forms": [
+        "a"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 58
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "day",
+      "surface_forms": [
+        "Day"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 68
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "TradingDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trade_day",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "trade_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trade_day",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "most_recent_published_trade_for",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[2]",
+          "matched_text": "trade_day"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[3]",
+          "matched_text": "trade_day"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "most_recent_published_trade_uniqueness",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "trading_price_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradingDay",
+          "matched_text": "Trading Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_day",
+          "matched_text": "Trading Day"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 72
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "most",
+      "surface_forms": [
+        "most"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 79
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "most_recent_published_trade_for",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "most_recent_published_trade_scope",
+          "family": "AssertDecl.constraint",
+          "line": 20,
+          "matched_text": "most_recent_published_trade_scope"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "most_recent_published_trade_temporal_ordering",
+          "family": "AssertDecl.constraint",
+          "line": 29,
+          "matched_text": "most_recent_published_trade_temporal_ordering"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "most_recent_published_trade_uniqueness",
+          "family": "AssertDecl.constraint",
+          "line": 39,
+          "matched_text": "most_recent_published_trade_uniqueness"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "line": 20,
+          "matched_text": "most_recent_published_trade_scope"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "line": 29,
+          "matched_text": "most_recent_published_trade_temporal_ordering"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[0]",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "most_recent_published_trade_uniqueness",
+          "assertion_kind": "constraint",
+          "line": 39,
+          "matched_text": "most_recent_published_trade_uniqueness"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_uniqueness",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[0]",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_uniqueness",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[1]",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_price_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.args[0]",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradeTime",
+          "matched_text": "most recent"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_time",
+          "matched_text": "most recent"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "most_recent_published_trade_for",
+          "matched_text": "most recent published"
+        }
+      ]
+    },
+    {
+      "token": "recent",
+      "surface_forms": [
+        "recent"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 84
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "most_recent_published_trade_for",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "most_recent_published_trade_scope",
+          "family": "AssertDecl.constraint",
+          "line": 20,
+          "matched_text": "most_recent_published_trade_scope"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "most_recent_published_trade_temporal_ordering",
+          "family": "AssertDecl.constraint",
+          "line": 29,
+          "matched_text": "most_recent_published_trade_temporal_ordering"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "most_recent_published_trade_uniqueness",
+          "family": "AssertDecl.constraint",
+          "line": 39,
+          "matched_text": "most_recent_published_trade_uniqueness"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "line": 20,
+          "matched_text": "most_recent_published_trade_scope"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "line": 29,
+          "matched_text": "most_recent_published_trade_temporal_ordering"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[0]",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "most_recent_published_trade_uniqueness",
+          "assertion_kind": "constraint",
+          "line": 39,
+          "matched_text": "most_recent_published_trade_uniqueness"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_uniqueness",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[0]",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_uniqueness",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[1]",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_price_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.args[0]",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradeTime",
+          "matched_text": "most recent"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_time",
+          "matched_text": "most recent"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "most_recent_published_trade_for",
+          "matched_text": "most recent published"
+        }
+      ]
+    },
+    {
+      "token": "publish",
+      "surface_forms": [
+        "published"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 91
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "published_trade",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "published_trade"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "most_recent_published_trade_for",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "most_recent_published_trade_scope",
+          "family": "AssertDecl.constraint",
+          "line": 20,
+          "matched_text": "most_recent_published_trade_scope"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "most_recent_published_trade_temporal_ordering",
+          "family": "AssertDecl.constraint",
+          "line": 29,
+          "matched_text": "most_recent_published_trade_temporal_ordering"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "most_recent_published_trade_uniqueness",
+          "family": "AssertDecl.constraint",
+          "line": 39,
+          "matched_text": "most_recent_published_trade_uniqueness"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "line": 20,
+          "matched_text": "most_recent_published_trade_scope"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[0]",
+          "matched_text": "published_trade"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "line": 29,
+          "matched_text": "most_recent_published_trade_temporal_ordering"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[0]",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[1]",
+          "matched_text": "published_trade"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "most_recent_published_trade_uniqueness",
+          "assertion_kind": "constraint",
+          "line": 39,
+          "matched_text": "most_recent_published_trade_uniqueness"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_uniqueness",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[0]",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_uniqueness",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[1]",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_price_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.args[0]",
+          "matched_text": "most_recent_published_trade_for"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "published_trade",
+          "matched_text": "published"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "most_recent_published_trade_for",
+          "matched_text": "most recent published"
+        }
+      ]
+    },
+    {
+      "token": "at",
+      "surface_forms": [
+        "at"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 107
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_price",
+          "matched_text": "price at which"
+        }
+      ]
+    },
+    {
+      "token": "which",
+      "surface_forms": [
+        "which"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 110
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_price",
+          "matched_text": "price at which"
+        }
+      ]
+    },
+    {
+      "token": "was",
+      "surface_forms": [
+        "was"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 136
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_component",
+          "matched_text": "Index Component was traded"
+        }
+      ]
+    },
+    {
+      "token": "on",
+      "surface_forms": [
+        "on"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 147
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_exchange",
+          "matched_text": "on the respective Exchange"
+        }
+      ]
+    },
+    {
+      "token": "respective",
+      "surface_forms": [
+        "respective"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 154
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "respective_exchange",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "respective_exchange"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[3].args[1]",
+          "matched_text": "respective_exchange"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[4].args[1]",
+          "matched_text": "respective_exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "respective_exchange",
+          "matched_text": "respective Exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_exchange",
+          "matched_text": "on the respective Exchange"
+        }
+      ]
+    },
+    {
+      "token": "exchange",
+      "surface_forms": [
+        "Exchange"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 165
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Exchange",
+          "family": "TypeDecl.opaque",
+          "line": 3,
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "respective_exchange",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "respective_exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "respective_exchange",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trade_exchange",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "trade_exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trade_exchange",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[3]",
+          "matched_text": "trade_exchange"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[3].args[1]",
+          "matched_text": "respective_exchange"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[4]",
+          "matched_text": "trade_exchange"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "most_recent_published_trade_temporal_ordering",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.body.left.args[4].args[1]",
+          "matched_text": "respective_exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Exchange",
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "respective_exchange",
+          "matched_text": "respective Exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trade_exchange",
+          "matched_text": "on the respective Exchange"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "respect",
+      "surface_forms": [
+        "respect"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 24
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

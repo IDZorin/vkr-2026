@@ -1,0 +1,2453 @@
+{
+  "entry_id": "section_1_2",
+  "schema": "semantic_claim_alignment_v1",
+  "generated_at": "2026-05-03T18:23:28",
+  "parse_error": null,
+  "summary": {
+    "claim_count": 9,
+    "strong_candidate_count": 6,
+    "partial_candidate_count": 3,
+    "weak_or_missing_candidate_count": 0,
+    "reviewed_count": 0,
+    "approved_count": 0,
+    "needs_revision_count": 0,
+    "average_top3_token_coverage": 0.795,
+    "all_claims_review_approved": false
+  },
+  "claims": [
+    {
+      "claim_id": "C01",
+      "text": "### 1.2 Identifiers and Publication",
+      "hash": "d90d8c67c235",
+      "tokens": [
+        {
+          "token": "identifier",
+          "surface_forms": [
+            "Identifiers"
+          ],
+          "keys": [
+            "identifier",
+            "identifiers"
+          ]
+        },
+        {
+          "token": "publication",
+          "surface_forms": [
+            "Publication"
+          ],
+          "keys": [
+            "publication",
+            "publifi",
+            "publify"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "declaration:opaque:IndexPublication",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "IndexPublication",
+          "line": 18,
+          "token_recall": 0.5,
+          "token_precision": 0.429,
+          "score": 0.486,
+          "matched_claim_tokens": [
+            "publication"
+          ],
+          "raw_excerpt": "sort IndexPublication"
+        },
+        {
+          "block_id": "declaration:subtype:GuidelineAmendment",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "subtype",
+          "name": "GuidelineAmendment",
+          "line": 20,
+          "token_recall": 0.5,
+          "token_precision": 0.273,
+          "score": 0.455,
+          "matched_claim_tokens": [
+            "publication"
+          ],
+          "raw_excerpt": "sort GuidelineAmendment extends IndexPublication"
+        },
+        {
+          "block_id": "declaration:subtype:NoticePublication",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "subtype",
+          "name": "NoticePublication",
+          "line": 19,
+          "token_recall": 0.5,
+          "token_precision": 0.25,
+          "score": 0.45,
+          "matched_claim_tokens": [
+            "publication"
+          ],
+          "raw_excerpt": "sort NoticePublication extends IndexPublication"
+        },
+        {
+          "block_id": "declaration:rel:publication_in_relation_to_index",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "publication_in_relation_to_index",
+          "line": 92,
+          "token_recall": 0.5,
+          "token_precision": 0.25,
+          "score": 0.45,
+          "matched_claim_tokens": [
+            "publication"
+          ],
+          "raw_excerpt": "rel publication_in_relation_to_index : IndexPublication, Index"
+        },
+        {
+          "block_id": "declaration:rel:available_at",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "available_at",
+          "line": 93,
+          "token_recall": 0.5,
+          "token_precision": 0.231,
+          "score": 0.446,
+          "matched_claim_tokens": [
+            "publication"
+          ],
+          "raw_excerpt": "rel available_at : IndexPublication, WebResource"
+        }
+      ],
+      "candidate_count": 18,
+      "covered_claim_tokens_by_top3": [
+        "publication"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "identifier",
+          "surface_forms": [
+            "Identifiers"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.5,
+      "auto_status": "partial_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C02",
+      "text": "The Index is published under the following identifiers:",
+      "hash": "01280e243010",
+      "tokens": [
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "publish",
+          "surface_forms": [
+            "published"
+          ],
+          "keys": [
+            "publish",
+            "published"
+          ]
+        },
+        {
+          "token": "under",
+          "surface_forms": [
+            "under"
+          ],
+          "keys": [
+            "under"
+          ]
+        },
+        {
+          "token": "follow",
+          "surface_forms": [
+            "following"
+          ],
+          "keys": [
+            "follow",
+            "following"
+          ]
+        },
+        {
+          "token": "identifier",
+          "surface_forms": [
+            "identifiers"
+          ],
+          "keys": [
+            "identifier",
+            "identifiers"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "declaration:rel:published_under_following_identifiers",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "published_under_following_identifiers",
+          "line": 82,
+          "token_recall": 1.0,
+          "token_precision": 0.8,
+          "score": 0.96,
+          "matched_claim_tokens": [
+            "follow",
+            "identifier",
+            "index",
+            "publish",
+            "under"
+          ],
+          "raw_excerpt": "rel published_under_following_identifiers : Index"
+        },
+        {
+          "block_id": "assertion:constraint:published_index_on_index_administrator_website",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "published_index_on_index_administrator_website",
+          "line": 177,
+          "token_recall": 1.0,
+          "token_precision": 0.381,
+          "score": 0.876,
+          "matched_claim_tokens": [
+            "follow",
+            "identifier",
+            "index",
+            "publish",
+            "under"
+          ],
+          "raw_excerpt": "constraint published_index_on_index_administrator_website : forall i: Index, published_under_following_identifiers(i) implies published_on(i, SolactiveWebsite)"
+        },
+        {
+          "block_id": "assertion:constraint:published_index_available_via_boerse_stuttgart",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "published_index_available_via_boerse_stuttgart",
+          "line": 182,
+          "token_recall": 1.0,
+          "token_precision": 0.258,
+          "score": 0.852,
+          "matched_claim_tokens": [
+            "follow",
+            "identifier",
+            "index",
+            "publish",
+            "under"
+          ],
+          "raw_excerpt": "constraint published_index_available_via_boerse_stuttgart : forall i: Index, published_under_following_identifiers(i) implies available_via(i, BoerseStuttgartGmbHPriceMarketingServices)"
+        },
+        {
+          "block_id": "assertion:constraint:vendor_decides_distribution_or_display",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "vendor_decides_distribution_or_display",
+          "line": 191,
+          "token_recall": 1.0,
+          "token_precision": 0.17,
+          "score": 0.834,
+          "matched_claim_tokens": [
+            "follow",
+            "identifier",
+            "index",
+            "publish",
+            "under"
+          ],
+          "raw_excerpt": "constraint vendor_decides_distribution_or_display : forall v: AffiliatedVendor, forall i: Index, forall a: VendorAction, published_under_following_identifiers(i) implies individual_basis(vendor_decision(v, i, a)) and via_information_systems(vendor_decision(v, i, a), information_systems(v))"
+        },
+        {
+          "block_id": "assertion:fact:index_ntr_identifiers",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "index_ntr_identifiers",
+          "line": 130,
+          "token_recall": 1.0,
+          "token_precision": 0.119,
+          "score": 0.824,
+          "matched_claim_tokens": [
+            "follow",
+            "identifier",
+            "index",
+            "publish",
+            "under"
+          ],
+          "raw_excerpt": "fact index_ntr_identifiers : published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexNTR) and index_name(SolactiveTransatlanticCleanEnergyEURIndexNTR) = SolactiveTransatlanticCleanEnergyEURIndexNTRName and index_isin(SolactiveTransatlanticCleanEnergyEURIndexNTR) = DE000SL0R4C2 and index_currency(SolactiveTransatlanticCleanEnergyEURIndexNTR) = EUR and index_type(SolactiveTransatlanticCleanEnergyEURIndexNTR) = NetTotalReturn and index_ric(SolactiveTransatlanticCleanEnergyEUR"
+        }
+      ],
+      "candidate_count": 52,
+      "covered_claim_tokens_by_top3": [
+        "follow",
+        "identifier",
+        "index",
+        "publish",
+        "under"
+      ],
+      "uncovered_claim_tokens_by_top3": [],
+      "top3_token_coverage": 1.0,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C03",
+      "text": "| Name                                                 | ISIN         | Currency   | Type   | RIC       | BBG ticker   |\n|------------------------------------------------------|--------------|------------|--------|-----------|--------------|\n| Solactive Transatlantic Clean Energy EUR Index PR    | DE000SL0R4B4 | EUR        | PR*    | .SOLTCEYP | SOLTCEYP     |\n| Solactive Transatlantic Clean Energy EUR Index NTR   | DE000SL0R4C2 | EUR        | NTR*   | .SOLTCEYN |              |\n| Solactive Transatlantic Clean Energy EUR Index TR    | DE000SL0R4D0 | EUR        | GTR*   | .SOLTCEYT | SOLTCEYT     |\n| Solactive Transatlantic Clean Energy EUR Index 50 AR | DE000SL0R4E8 | EUR        | AR**   | .SOLTCA50 | SOLTCA50     |\n| Solactive Transatlantic Clean Energy EUR Index 5% AR | DE000SL0R4F5 | EUR        | AR*    | .SOLTCEA5 | SOLTCEA5     |",
+      "hash": "75d1303170dd",
+      "tokens": [
+        {
+          "token": "name",
+          "surface_forms": [
+            "Name"
+          ],
+          "keys": [
+            "name"
+          ]
+        },
+        {
+          "token": "i",
+          "surface_forms": [
+            "ISIN"
+          ],
+          "keys": [
+            "i",
+            "isin",
+            "n",
+            "s"
+          ]
+        },
+        {
+          "token": "currenci",
+          "surface_forms": [
+            "Currency"
+          ],
+          "keys": [
+            "currenci",
+            "currency"
+          ]
+        },
+        {
+          "token": "type",
+          "surface_forms": [
+            "Type"
+          ],
+          "keys": [
+            "type"
+          ]
+        },
+        {
+          "token": "c",
+          "surface_forms": [
+            "RIC",
+            "SOLTCEYP",
+            "SOLTCEYN",
+            "SOLTCEYT"
+          ],
+          "keys": [
+            "c",
+            "e",
+            "i",
+            "l",
+            "n",
+            "o",
+            "p",
+            "r",
+            "ric",
+            "s",
+            "soltceyn",
+            "soltceyp",
+            "soltceyt",
+            "t",
+            "y"
+          ]
+        },
+        {
+          "token": "b",
+          "surface_forms": [
+            "BBG"
+          ],
+          "keys": [
+            "b",
+            "bbg",
+            "g"
+          ]
+        },
+        {
+          "token": "ticker",
+          "surface_forms": [
+            "ticker"
+          ],
+          "keys": [
+            "ticker"
+          ]
+        },
+        {
+          "token": "solactive",
+          "surface_forms": [
+            "Solactive"
+          ],
+          "keys": [
+            "solactive"
+          ]
+        },
+        {
+          "token": "transatlantic",
+          "surface_forms": [
+            "Transatlantic"
+          ],
+          "keys": [
+            "transatlantic"
+          ]
+        },
+        {
+          "token": "clean",
+          "surface_forms": [
+            "Clean"
+          ],
+          "keys": [
+            "clean"
+          ]
+        },
+        {
+          "token": "energi",
+          "surface_forms": [
+            "Energy"
+          ],
+          "keys": [
+            "energi",
+            "energy"
+          ]
+        },
+        {
+          "token": "e",
+          "surface_forms": [
+            "EUR"
+          ],
+          "keys": [
+            "e",
+            "eur",
+            "r",
+            "u"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "0",
+          "surface_forms": [
+            "DE000SL0R4B4",
+            "DE000SL0R4C2",
+            "DE000SL0R4D0",
+            "DE000SL0R4E8",
+            "DE000SL0R4F5"
+          ],
+          "keys": [
+            "0",
+            "000",
+            "2",
+            "4",
+            "5",
+            "8",
+            "b",
+            "c",
+            "d",
+            "de000sl0r4b4",
+            "de000sl0r4c2",
+            "de000sl0r4d0",
+            "de000sl0r4e8",
+            "de000sl0r4f5",
+            "e",
+            "f",
+            "l",
+            "r",
+            "s"
+          ]
+        },
+        {
+          "token": "n",
+          "surface_forms": [
+            "NTR"
+          ],
+          "keys": [
+            "n",
+            "ntr",
+            "r",
+            "t"
+          ]
+        },
+        {
+          "token": "g",
+          "surface_forms": [
+            "GTR"
+          ],
+          "keys": [
+            "g",
+            "gtr",
+            "r",
+            "t"
+          ]
+        },
+        {
+          "token": "50",
+          "surface_forms": [
+            "50",
+            "SOLTCA50"
+          ],
+          "keys": [
+            "50",
+            "a",
+            "c",
+            "l",
+            "o",
+            "s",
+            "soltca50",
+            "t"
+          ]
+        },
+        {
+          "token": "5",
+          "surface_forms": [
+            "SOLTCEA5"
+          ],
+          "keys": [
+            "5",
+            "a",
+            "c",
+            "e",
+            "l",
+            "o",
+            "s",
+            "soltcea5",
+            "t"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:fact:index_50_ar_identifiers",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "index_50_ar_identifiers",
+          "line": 149,
+          "token_recall": 1.0,
+          "token_precision": 0.478,
+          "score": 0.896,
+          "matched_claim_tokens": [
+            "0",
+            "5",
+            "50",
+            "b",
+            "c",
+            "clean",
+            "currenci",
+            "e",
+            "energi",
+            "g",
+            "i",
+            "index",
+            "n",
+            "name",
+            "solactive",
+            "ticker",
+            "transatlantic",
+            "type"
+          ],
+          "raw_excerpt": "fact index_50_ar_identifiers : published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndex50AR) and index_name(SolactiveTransatlanticCleanEnergyEURIndex50AR) = SolactiveTransatlanticCleanEnergyEURIndex50ARName and index_isin(SolactiveTransatlanticCleanEnergyEURIndex50AR) = DE000SL0R4E8 and index_currency(SolactiveTransatlanticCleanEnergyEURIndex50AR) = EUR and index_type(SolactiveTransatlanticCleanEnergyEURIndex50AR) = AdjustedReturnIndex and index_ric(SolactiveTransatlanticC"
+        },
+        {
+          "block_id": "assertion:fact:index_pr_identifiers",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "index_pr_identifiers",
+          "line": 120,
+          "token_recall": 1.0,
+          "token_precision": 0.457,
+          "score": 0.891,
+          "matched_claim_tokens": [
+            "0",
+            "5",
+            "50",
+            "b",
+            "c",
+            "clean",
+            "currenci",
+            "e",
+            "energi",
+            "g",
+            "i",
+            "index",
+            "n",
+            "name",
+            "solactive",
+            "ticker",
+            "transatlantic",
+            "type"
+          ],
+          "raw_excerpt": "fact index_pr_identifiers : published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexPR) and index_name(SolactiveTransatlanticCleanEnergyEURIndexPR) = SolactiveTransatlanticCleanEnergyEURIndexPRName and index_isin(SolactiveTransatlanticCleanEnergyEURIndexPR) = DE000SL0R4B4 and index_currency(SolactiveTransatlanticCleanEnergyEURIndexPR) = EUR and index_type(SolactiveTransatlanticCleanEnergyEURIndexPR) = PriceReturn and index_ric(SolactiveTransatlanticCleanEnergyEURIndexPR) ="
+        },
+        {
+          "block_id": "assertion:fact:index_5_percent_ar_identifiers",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "index_5_percent_ar_identifiers",
+          "line": 159,
+          "token_recall": 1.0,
+          "token_precision": 0.444,
+          "score": 0.889,
+          "matched_claim_tokens": [
+            "0",
+            "5",
+            "50",
+            "b",
+            "c",
+            "clean",
+            "currenci",
+            "e",
+            "energi",
+            "g",
+            "i",
+            "index",
+            "n",
+            "name",
+            "solactive",
+            "ticker",
+            "transatlantic",
+            "type"
+          ],
+          "raw_excerpt": "fact index_5_percent_ar_identifiers : published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) and index_name(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = SolactiveTransatlanticCleanEnergyEURIndex5PercentARName and index_isin(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = DE000SL0R4F5 and index_currency(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = EUR and index_type(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = AdjustedReturn"
+        },
+        {
+          "block_id": "assertion:fact:index_tr_identifiers",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "index_tr_identifiers",
+          "line": 139,
+          "token_recall": 1.0,
+          "token_precision": 0.423,
+          "score": 0.885,
+          "matched_claim_tokens": [
+            "0",
+            "5",
+            "50",
+            "b",
+            "c",
+            "clean",
+            "currenci",
+            "e",
+            "energi",
+            "g",
+            "i",
+            "index",
+            "n",
+            "name",
+            "solactive",
+            "ticker",
+            "transatlantic",
+            "type"
+          ],
+          "raw_excerpt": "fact index_tr_identifiers : published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexTR) and index_name(SolactiveTransatlanticCleanEnergyEURIndexTR) = SolactiveTransatlanticCleanEnergyEURIndexTRName and index_isin(SolactiveTransatlanticCleanEnergyEURIndexTR) = DE000SL0R4D0 and index_currency(SolactiveTransatlanticCleanEnergyEURIndexTR) = EUR and index_type(SolactiveTransatlanticCleanEnergyEURIndexTR) = GrossTotalReturn and index_ric(SolactiveTransatlanticCleanEnergyEURIndex"
+        },
+        {
+          "block_id": "assertion:constraint:ntr_has_no_bbg_ticker",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "ntr_has_no_bbg_ticker",
+          "line": 169,
+          "token_recall": 0.833,
+          "token_precision": 0.696,
+          "score": 0.806,
+          "matched_claim_tokens": [
+            "0",
+            "5",
+            "50",
+            "b",
+            "c",
+            "clean",
+            "e",
+            "energi",
+            "g",
+            "i",
+            "index",
+            "n",
+            "solactive",
+            "ticker",
+            "transatlantic"
+          ],
+          "raw_excerpt": "constraint ntr_has_no_bbg_ticker : not exists t: BBGTicker, bbg_ticker(SolactiveTransatlanticCleanEnergyEURIndexNTR, t)"
+        }
+      ],
+      "candidate_count": 77,
+      "covered_claim_tokens_by_top3": [
+        "0",
+        "5",
+        "50",
+        "b",
+        "c",
+        "clean",
+        "currenci",
+        "e",
+        "energi",
+        "g",
+        "i",
+        "index",
+        "n",
+        "name",
+        "solactive",
+        "ticker",
+        "transatlantic",
+        "type"
+      ],
+      "uncovered_claim_tokens_by_top3": [],
+      "top3_token_coverage": 1.0,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C04",
+      "text": "*PR, NTR, GTR, AR means that the Index is calculated as price return, net total return, gross total return, adjusted return Index as described in the Equity Index Methodology, which is available on the Solactive website: [https://www.solactive.com/documents/equity-index-methodology/](https://www.solactive.com/documents/equity-index-methodology/)",
+      "hash": "4d9e44213a36",
+      "tokens": [
+        {
+          "token": "n",
+          "surface_forms": [
+            "NTR"
+          ],
+          "keys": [
+            "n",
+            "ntr",
+            "r",
+            "t"
+          ]
+        },
+        {
+          "token": "g",
+          "surface_forms": [
+            "GTR"
+          ],
+          "keys": [
+            "g",
+            "gtr",
+            "r",
+            "t"
+          ]
+        },
+        {
+          "token": "mean",
+          "surface_forms": [
+            "means"
+          ],
+          "keys": [
+            "mean",
+            "means"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "calculat",
+          "surface_forms": [
+            "calculated"
+          ],
+          "keys": [
+            "calculat",
+            "calculated"
+          ]
+        },
+        {
+          "token": "price",
+          "surface_forms": [
+            "price"
+          ],
+          "keys": [
+            "price"
+          ]
+        },
+        {
+          "token": "return",
+          "surface_forms": [
+            "return"
+          ],
+          "keys": [
+            "return"
+          ]
+        },
+        {
+          "token": "net",
+          "surface_forms": [
+            "net"
+          ],
+          "keys": [
+            "net"
+          ]
+        },
+        {
+          "token": "total",
+          "surface_forms": [
+            "total"
+          ],
+          "keys": [
+            "total"
+          ]
+        },
+        {
+          "token": "gro",
+          "surface_forms": [
+            "gross"
+          ],
+          "keys": [
+            "gro",
+            "gros",
+            "gross"
+          ]
+        },
+        {
+          "token": "adjust",
+          "surface_forms": [
+            "adjusted"
+          ],
+          "keys": [
+            "adjust",
+            "adjusted"
+          ]
+        },
+        {
+          "token": "describ",
+          "surface_forms": [
+            "described"
+          ],
+          "keys": [
+            "describ",
+            "described"
+          ]
+        },
+        {
+          "token": "equiti",
+          "surface_forms": [
+            "Equity",
+            "equity-index-methodology"
+          ],
+          "keys": [
+            "equiti",
+            "equity",
+            "index",
+            "methodologi",
+            "methodology"
+          ]
+        },
+        {
+          "token": "methodologi",
+          "surface_forms": [
+            "Methodology"
+          ],
+          "keys": [
+            "methodologi",
+            "methodology"
+          ]
+        },
+        {
+          "token": "available",
+          "surface_forms": [
+            "available"
+          ],
+          "keys": [
+            "available"
+          ]
+        },
+        {
+          "token": "solactive",
+          "surface_forms": [
+            "Solactive",
+            "solactive"
+          ],
+          "keys": [
+            "solactive"
+          ]
+        },
+        {
+          "token": "website",
+          "surface_forms": [
+            "website"
+          ],
+          "keys": [
+            "website"
+          ]
+        },
+        {
+          "token": "http",
+          "surface_forms": [
+            "https"
+          ],
+          "keys": [
+            "http",
+            "https"
+          ]
+        },
+        {
+          "token": "www",
+          "surface_forms": [
+            "www"
+          ],
+          "keys": [
+            "www"
+          ]
+        },
+        {
+          "token": "com",
+          "surface_forms": [
+            "com"
+          ],
+          "keys": [
+            "com"
+          ]
+        },
+        {
+          "token": "document",
+          "surface_forms": [
+            "documents"
+          ],
+          "keys": [
+            "document",
+            "documents"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:fact:equity_index_methodology_location",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "equity_index_methodology_location",
+          "line": 105,
+          "token_recall": 0.476,
+          "token_precision": 0.519,
+          "score": 0.485,
+          "matched_claim_tokens": [
+            "available",
+            "com",
+            "document",
+            "equiti",
+            "http",
+            "index",
+            "methodologi",
+            "solactive",
+            "website",
+            "www"
+          ],
+          "raw_excerpt": "fact equity_index_methodology_location : document_url(EquityIndexMethodology, HttpsWwwSolactiveComDocumentsEquityIndexMethodology) and available_on(EquityIndexMethodology, SolactiveWebsite)"
+        },
+        {
+          "block_id": "assertion:fact:index_type_identifier_meanings",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "index_type_identifier_meanings",
+          "line": 95,
+          "token_recall": 0.476,
+          "token_precision": 0.516,
+          "score": 0.484,
+          "matched_claim_tokens": [
+            "adjust",
+            "equiti",
+            "g",
+            "gro",
+            "index",
+            "n",
+            "net",
+            "price",
+            "return",
+            "total"
+          ],
+          "raw_excerpt": "fact index_type_identifier_meanings : index_type_identifier(PriceReturn) = PR and index_type_identifier(NetTotalReturn) = NTR and index_type_identifier(GrossTotalReturn) = GTR and index_type_identifier(AdjustedReturnIndex) = AR"
+        },
+        {
+          "block_id": "declaration:entity:HttpsWwwSolactiveComDocumentsEquityIndexMethodology",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "HttpsWwwSolactiveComDocumentsEquityIndexMethodology",
+          "line": 68,
+          "token_recall": 0.381,
+          "token_precision": 0.75,
+          "score": 0.455,
+          "matched_claim_tokens": [
+            "com",
+            "document",
+            "equiti",
+            "http",
+            "index",
+            "methodologi",
+            "solactive",
+            "www"
+          ],
+          "raw_excerpt": "entity HttpsWwwSolactiveComDocumentsEquityIndexMethodology : Url"
+        },
+        {
+          "block_id": "declaration:enum:IndexType",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "enum",
+          "name": "IndexType",
+          "line": 7,
+          "token_recall": 0.381,
+          "token_precision": 0.625,
+          "score": 0.43,
+          "matched_claim_tokens": [
+            "adjust",
+            "equiti",
+            "gro",
+            "index",
+            "net",
+            "price",
+            "return",
+            "total"
+          ],
+          "raw_excerpt": "sort IndexType = PriceReturn | NetTotalReturn | GrossTotalReturn | AdjustedReturnIndex"
+        },
+        {
+          "block_id": "assertion:fact:index_ntr_identifiers",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "index_ntr_identifiers",
+          "line": 130,
+          "token_recall": 0.476,
+          "token_precision": 0.224,
+          "score": 0.426,
+          "matched_claim_tokens": [
+            "describ",
+            "equiti",
+            "g",
+            "index",
+            "methodologi",
+            "n",
+            "net",
+            "return",
+            "solactive",
+            "total"
+          ],
+          "raw_excerpt": "fact index_ntr_identifiers : published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexNTR) and index_name(SolactiveTransatlanticCleanEnergyEURIndexNTR) = SolactiveTransatlanticCleanEnergyEURIndexNTRName and index_isin(SolactiveTransatlanticCleanEnergyEURIndexNTR) = DE000SL0R4C2 and index_currency(SolactiveTransatlanticCleanEnergyEURIndexNTR) = EUR and index_type(SolactiveTransatlanticCleanEnergyEURIndexNTR) = NetTotalReturn and index_ric(SolactiveTransatlanticCleanEnergyEUR"
+        }
+      ],
+      "candidate_count": 84,
+      "covered_claim_tokens_by_top3": [
+        "adjust",
+        "available",
+        "com",
+        "document",
+        "equiti",
+        "g",
+        "gro",
+        "http",
+        "index",
+        "methodologi",
+        "n",
+        "net",
+        "price",
+        "return",
+        "solactive",
+        "total",
+        "website",
+        "www"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "mean",
+          "surface_forms": [
+            "means"
+          ]
+        },
+        {
+          "token": "calculat",
+          "surface_forms": [
+            "calculated"
+          ]
+        },
+        {
+          "token": "describ",
+          "surface_forms": [
+            "described"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.857,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C05",
+      "text": "**AR means that the Index is calculated as an adjusted return index, following the formula specified in Section 4.",
+      "hash": "103ded53ce18",
+      "tokens": [
+        {
+          "token": "mean",
+          "surface_forms": [
+            "means"
+          ],
+          "keys": [
+            "mean",
+            "means"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index",
+            "index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "calculat",
+          "surface_forms": [
+            "calculated"
+          ],
+          "keys": [
+            "calculat",
+            "calculated"
+          ]
+        },
+        {
+          "token": "adjust",
+          "surface_forms": [
+            "adjusted"
+          ],
+          "keys": [
+            "adjust",
+            "adjusted"
+          ]
+        },
+        {
+          "token": "return",
+          "surface_forms": [
+            "return"
+          ],
+          "keys": [
+            "return"
+          ]
+        },
+        {
+          "token": "follow",
+          "surface_forms": [
+            "following"
+          ],
+          "keys": [
+            "follow",
+            "following"
+          ]
+        },
+        {
+          "token": "formula",
+          "surface_forms": [
+            "formula"
+          ],
+          "keys": [
+            "formula"
+          ]
+        },
+        {
+          "token": "specifi",
+          "surface_forms": [
+            "specified"
+          ],
+          "keys": [
+            "specifi",
+            "specified",
+            "specify"
+          ]
+        },
+        {
+          "token": "section",
+          "surface_forms": [
+            "Section"
+          ],
+          "keys": [
+            "section"
+          ]
+        },
+        {
+          "token": "4",
+          "surface_forms": [
+            "4"
+          ],
+          "keys": [
+            "4"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:fact:index_50_ar_identifiers",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "index_50_ar_identifiers",
+          "line": 149,
+          "token_recall": 0.8,
+          "token_precision": 0.179,
+          "score": 0.676,
+          "matched_claim_tokens": [
+            "4",
+            "adjust",
+            "follow",
+            "formula",
+            "index",
+            "return",
+            "section",
+            "specifi"
+          ],
+          "raw_excerpt": "fact index_50_ar_identifiers : published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndex50AR) and index_name(SolactiveTransatlanticCleanEnergyEURIndex50AR) = SolactiveTransatlanticCleanEnergyEURIndex50ARName and index_isin(SolactiveTransatlanticCleanEnergyEURIndex50AR) = DE000SL0R4E8 and index_currency(SolactiveTransatlanticCleanEnergyEURIndex50AR) = EUR and index_type(SolactiveTransatlanticCleanEnergyEURIndex50AR) = AdjustedReturnIndex and index_ric(SolactiveTransatlanticC"
+        },
+        {
+          "block_id": "assertion:fact:index_5_percent_ar_identifiers",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "index_5_percent_ar_identifiers",
+          "line": 159,
+          "token_recall": 0.5,
+          "token_precision": 0.097,
+          "score": 0.419,
+          "matched_claim_tokens": [
+            "4",
+            "adjust",
+            "follow",
+            "index",
+            "return"
+          ],
+          "raw_excerpt": "fact index_5_percent_ar_identifiers : published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) and index_name(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = SolactiveTransatlanticCleanEnergyEURIndex5PercentARName and index_isin(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = DE000SL0R4F5 and index_currency(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = EUR and index_type(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = AdjustedReturn"
+        },
+        {
+          "block_id": "declaration:rel:formula_specified_in",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "formula_specified_in",
+          "line": 84,
+          "token_recall": 0.3,
+          "token_precision": 0.5,
+          "score": 0.34,
+          "matched_claim_tokens": [
+            "formula",
+            "index",
+            "specifi"
+          ],
+          "raw_excerpt": "rel formula_specified_in : Index, DocumentPart"
+        },
+        {
+          "block_id": "assertion:fact:index_ntr_identifiers",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "index_ntr_identifiers",
+          "line": 130,
+          "token_recall": 0.4,
+          "token_precision": 0.075,
+          "score": 0.335,
+          "matched_claim_tokens": [
+            "4",
+            "follow",
+            "index",
+            "return"
+          ],
+          "raw_excerpt": "fact index_ntr_identifiers : published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexNTR) and index_name(SolactiveTransatlanticCleanEnergyEURIndexNTR) = SolactiveTransatlanticCleanEnergyEURIndexNTRName and index_isin(SolactiveTransatlanticCleanEnergyEURIndexNTR) = DE000SL0R4C2 and index_currency(SolactiveTransatlanticCleanEnergyEURIndexNTR) = EUR and index_type(SolactiveTransatlanticCleanEnergyEURIndexNTR) = NetTotalReturn and index_ric(SolactiveTransatlanticCleanEnergyEUR"
+        },
+        {
+          "block_id": "assertion:fact:index_pr_identifiers",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "index_pr_identifiers",
+          "line": 120,
+          "token_recall": 0.4,
+          "token_precision": 0.071,
+          "score": 0.334,
+          "matched_claim_tokens": [
+            "4",
+            "follow",
+            "index",
+            "return"
+          ],
+          "raw_excerpt": "fact index_pr_identifiers : published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexPR) and index_name(SolactiveTransatlanticCleanEnergyEURIndexPR) = SolactiveTransatlanticCleanEnergyEURIndexPRName and index_isin(SolactiveTransatlanticCleanEnergyEURIndexPR) = DE000SL0R4B4 and index_currency(SolactiveTransatlanticCleanEnergyEURIndexPR) = EUR and index_type(SolactiveTransatlanticCleanEnergyEURIndexPR) = PriceReturn and index_ric(SolactiveTransatlanticCleanEnergyEURIndexPR) ="
+        }
+      ],
+      "candidate_count": 60,
+      "covered_claim_tokens_by_top3": [
+        "4",
+        "adjust",
+        "follow",
+        "formula",
+        "index",
+        "return",
+        "section",
+        "specifi"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "mean",
+          "surface_forms": [
+            "means"
+          ]
+        },
+        {
+          "token": "calculat",
+          "surface_forms": [
+            "calculated"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.8,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C06",
+      "text": "The Index is published on the website of the Index Administrator ( [www.solactive.com](https://www.solactive.com) ) and is, in addition, available via the price marketing services of Boerse Stuttgart GmbH and may be distributed to all of its affiliated vendors.",
+      "hash": "8c1030a2918a",
+      "tokens": [
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "publish",
+          "surface_forms": [
+            "published"
+          ],
+          "keys": [
+            "publish",
+            "published"
+          ]
+        },
+        {
+          "token": "website",
+          "surface_forms": [
+            "website"
+          ],
+          "keys": [
+            "website"
+          ]
+        },
+        {
+          "token": "administrator",
+          "surface_forms": [
+            "Administrator"
+          ],
+          "keys": [
+            "administrator"
+          ]
+        },
+        {
+          "token": "www",
+          "surface_forms": [
+            "www"
+          ],
+          "keys": [
+            "www"
+          ]
+        },
+        {
+          "token": "solactive",
+          "surface_forms": [
+            "solactive"
+          ],
+          "keys": [
+            "solactive"
+          ]
+        },
+        {
+          "token": "com",
+          "surface_forms": [
+            "com"
+          ],
+          "keys": [
+            "com"
+          ]
+        },
+        {
+          "token": "http",
+          "surface_forms": [
+            "https"
+          ],
+          "keys": [
+            "http",
+            "https"
+          ]
+        },
+        {
+          "token": "addition",
+          "surface_forms": [
+            "addition"
+          ],
+          "keys": [
+            "addition"
+          ]
+        },
+        {
+          "token": "available",
+          "surface_forms": [
+            "available"
+          ],
+          "keys": [
+            "available"
+          ]
+        },
+        {
+          "token": "via",
+          "surface_forms": [
+            "via"
+          ],
+          "keys": [
+            "via"
+          ]
+        },
+        {
+          "token": "price",
+          "surface_forms": [
+            "price"
+          ],
+          "keys": [
+            "price"
+          ]
+        },
+        {
+          "token": "market",
+          "surface_forms": [
+            "marketing"
+          ],
+          "keys": [
+            "market",
+            "marketing"
+          ]
+        },
+        {
+          "token": "servic",
+          "surface_forms": [
+            "services"
+          ],
+          "keys": [
+            "servic",
+            "service",
+            "services"
+          ]
+        },
+        {
+          "token": "boerse",
+          "surface_forms": [
+            "Boerse"
+          ],
+          "keys": [
+            "boerse"
+          ]
+        },
+        {
+          "token": "stuttgart",
+          "surface_forms": [
+            "Stuttgart"
+          ],
+          "keys": [
+            "stuttgart"
+          ]
+        },
+        {
+          "token": "gmb",
+          "surface_forms": [
+            "GmbH"
+          ],
+          "keys": [
+            "gmb",
+            "gmbh",
+            "h"
+          ]
+        },
+        {
+          "token": "may",
+          "surface_forms": [
+            "may"
+          ],
+          "keys": [
+            "may"
+          ]
+        },
+        {
+          "token": "distribut",
+          "surface_forms": [
+            "distributed"
+          ],
+          "keys": [
+            "distribut",
+            "distributed"
+          ]
+        },
+        {
+          "token": "all",
+          "surface_forms": [
+            "all"
+          ],
+          "keys": [
+            "all"
+          ]
+        },
+        {
+          "token": "affiliat",
+          "surface_forms": [
+            "affiliated"
+          ],
+          "keys": [
+            "affiliat",
+            "affiliated"
+          ]
+        },
+        {
+          "token": "vendor",
+          "surface_forms": [
+            "vendors"
+          ],
+          "keys": [
+            "vendor",
+            "vendors"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:published_index_available_via_boerse_stuttgart",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "published_index_available_via_boerse_stuttgart",
+          "line": 182,
+          "token_recall": 0.455,
+          "token_precision": 0.484,
+          "score": 0.46,
+          "matched_claim_tokens": [
+            "available",
+            "boerse",
+            "gmb",
+            "index",
+            "market",
+            "price",
+            "publish",
+            "servic",
+            "stuttgart",
+            "via"
+          ],
+          "raw_excerpt": "constraint published_index_available_via_boerse_stuttgart : forall i: Index, published_under_following_identifiers(i) implies available_via(i, BoerseStuttgartGmbHPriceMarketingServices)"
+        },
+        {
+          "block_id": "declaration:rel:available_via",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "available_via",
+          "line": 89,
+          "token_recall": 0.273,
+          "token_precision": 0.692,
+          "score": 0.357,
+          "matched_claim_tokens": [
+            "available",
+            "index",
+            "market",
+            "price",
+            "servic",
+            "via"
+          ],
+          "raw_excerpt": "rel available_via : Index, PriceMarketingServices"
+        },
+        {
+          "block_id": "declaration:entity:BoerseStuttgartGmbHPriceMarketingServices",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "BoerseStuttgartGmbHPriceMarketingServices",
+          "line": 24,
+          "token_recall": 0.273,
+          "token_precision": 0.588,
+          "score": 0.336,
+          "matched_claim_tokens": [
+            "boerse",
+            "gmb",
+            "market",
+            "price",
+            "servic",
+            "stuttgart"
+          ],
+          "raw_excerpt": "entity BoerseStuttgartGmbHPriceMarketingServices : PriceMarketingServices"
+        },
+        {
+          "block_id": "assertion:fact:announcements_website",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "announcements_website",
+          "line": 113,
+          "token_recall": 0.318,
+          "token_precision": 0.381,
+          "score": 0.331,
+          "matched_claim_tokens": [
+            "administrator",
+            "com",
+            "http",
+            "index",
+            "solactive",
+            "website",
+            "www"
+          ],
+          "raw_excerpt": "fact announcements_website : has_url(IndexAdministratorAnnouncementsWebsite, HttpsWwwSolactiveComNewsAnnouncements) and website_of(IndexAdministratorAnnouncementsWebsite, Solactive)"
+        },
+        {
+          "block_id": "declaration:permission:index_distribution_to_affiliated_vendors",
+          "role": "declaration",
+          "family": "DeonticDecl",
+          "kind": "permission",
+          "name": "index_distribution_to_affiliated_vendors",
+          "line": 187,
+          "token_recall": 0.273,
+          "token_precision": 0.55,
+          "score": 0.328,
+          "matched_claim_tokens": [
+            "affiliat",
+            "index",
+            "market",
+            "price",
+            "servic",
+            "vendor"
+          ],
+          "raw_excerpt": "permission index_distribution_to_affiliated_vendors(agent: PriceMarketingServices, target: AffiliatedVendor) action: distribute scope: Index"
+        }
+      ],
+      "candidate_count": 70,
+      "covered_claim_tokens_by_top3": [
+        "available",
+        "boerse",
+        "gmb",
+        "index",
+        "market",
+        "price",
+        "publish",
+        "servic",
+        "stuttgart",
+        "via"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "website",
+          "surface_forms": [
+            "website"
+          ]
+        },
+        {
+          "token": "administrator",
+          "surface_forms": [
+            "Administrator"
+          ]
+        },
+        {
+          "token": "www",
+          "surface_forms": [
+            "www"
+          ]
+        },
+        {
+          "token": "solactive",
+          "surface_forms": [
+            "solactive"
+          ]
+        },
+        {
+          "token": "com",
+          "surface_forms": [
+            "com"
+          ]
+        },
+        {
+          "token": "http",
+          "surface_forms": [
+            "https"
+          ]
+        },
+        {
+          "token": "addition",
+          "surface_forms": [
+            "addition"
+          ]
+        },
+        {
+          "token": "may",
+          "surface_forms": [
+            "may"
+          ]
+        },
+        {
+          "token": "distribut",
+          "surface_forms": [
+            "distributed"
+          ]
+        },
+        {
+          "token": "all",
+          "surface_forms": [
+            "all"
+          ]
+        },
+        {
+          "token": "affiliat",
+          "surface_forms": [
+            "affiliated"
+          ]
+        },
+        {
+          "token": "vendor",
+          "surface_forms": [
+            "vendors"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.455,
+      "auto_status": "partial_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C07",
+      "text": "Each vendor decides on an individual basis as to whether it will distribute or display the Index via its information systems.",
+      "hash": "a796d6bf0d7f",
+      "tokens": [
+        {
+          "token": "vendor",
+          "surface_forms": [
+            "vendor"
+          ],
+          "keys": [
+            "vendor"
+          ]
+        },
+        {
+          "token": "decid",
+          "surface_forms": [
+            "decides"
+          ],
+          "keys": [
+            "decid",
+            "decide",
+            "decides"
+          ]
+        },
+        {
+          "token": "individual",
+          "surface_forms": [
+            "individual"
+          ],
+          "keys": [
+            "individual"
+          ]
+        },
+        {
+          "token": "basi",
+          "surface_forms": [
+            "basis"
+          ],
+          "keys": [
+            "basi",
+            "basis",
+            "basy"
+          ]
+        },
+        {
+          "token": "whether",
+          "surface_forms": [
+            "whether"
+          ],
+          "keys": [
+            "whether"
+          ]
+        },
+        {
+          "token": "will",
+          "surface_forms": [
+            "will"
+          ],
+          "keys": [
+            "will"
+          ]
+        },
+        {
+          "token": "distribute",
+          "surface_forms": [
+            "distribute"
+          ],
+          "keys": [
+            "distribute"
+          ]
+        },
+        {
+          "token": "displai",
+          "surface_forms": [
+            "display"
+          ],
+          "keys": [
+            "displai",
+            "display"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "via",
+          "surface_forms": [
+            "via"
+          ],
+          "keys": [
+            "via"
+          ]
+        },
+        {
+          "token": "informate",
+          "surface_forms": [
+            "information"
+          ],
+          "keys": [
+            "informate",
+            "information"
+          ]
+        },
+        {
+          "token": "system",
+          "surface_forms": [
+            "systems"
+          ],
+          "keys": [
+            "system",
+            "systems"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:vendor_decides_distribution_or_display",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "vendor_decides_distribution_or_display",
+          "line": 191,
+          "token_recall": 0.75,
+          "token_precision": 0.34,
+          "score": 0.668,
+          "matched_claim_tokens": [
+            "basi",
+            "decid",
+            "displai",
+            "index",
+            "individual",
+            "informate",
+            "system",
+            "vendor",
+            "via"
+          ],
+          "raw_excerpt": "constraint vendor_decides_distribution_or_display : forall v: AffiliatedVendor, forall i: Index, forall a: VendorAction, published_under_following_identifiers(i) implies individual_basis(vendor_decision(v, i, a)) and via_information_systems(vendor_decision(v, i, a), information_systems(v))"
+        },
+        {
+          "block_id": "declaration:rel:via_information_systems",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "via_information_systems",
+          "line": 91,
+          "token_recall": 0.333,
+          "token_precision": 0.545,
+          "score": 0.376,
+          "matched_claim_tokens": [
+            "informate",
+            "system",
+            "vendor",
+            "via"
+          ],
+          "raw_excerpt": "rel via_information_systems : VendorDecision, InformationSystem"
+        },
+        {
+          "block_id": "declaration:enum:VendorAction",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "enum",
+          "name": "VendorAction",
+          "line": 16,
+          "token_recall": 0.25,
+          "token_precision": 0.8,
+          "score": 0.36,
+          "matched_claim_tokens": [
+            "displai",
+            "distribute",
+            "vendor"
+          ],
+          "raw_excerpt": "sort VendorAction = Distribute | Display"
+        },
+        {
+          "block_id": "declaration:fun:information_systems",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "information_systems",
+          "line": 78,
+          "token_recall": 0.25,
+          "token_precision": 0.5,
+          "score": 0.3,
+          "matched_claim_tokens": [
+            "informate",
+            "system",
+            "vendor"
+          ],
+          "raw_excerpt": "fun[required] information_systems : Vendor -> InformationSystem"
+        },
+        {
+          "block_id": "declaration:rel:individual_basis",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "individual_basis",
+          "line": 90,
+          "token_recall": 0.25,
+          "token_precision": 0.5,
+          "score": 0.3,
+          "matched_claim_tokens": [
+            "basi",
+            "individual",
+            "vendor"
+          ],
+          "raw_excerpt": "rel individual_basis : VendorDecision"
+        }
+      ],
+      "candidate_count": 60,
+      "covered_claim_tokens_by_top3": [
+        "basi",
+        "decid",
+        "displai",
+        "distribute",
+        "index",
+        "individual",
+        "informate",
+        "system",
+        "vendor",
+        "via"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "whether",
+          "surface_forms": [
+            "whether"
+          ]
+        },
+        {
+          "token": "will",
+          "surface_forms": [
+            "will"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.833,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C08",
+      "text": "Any publication in relation to the Index (e.g.",
+      "hash": "bff2d1fa57c9",
+      "tokens": [
+        {
+          "token": "publication",
+          "surface_forms": [
+            "publication"
+          ],
+          "keys": [
+            "publication",
+            "publifi",
+            "publify"
+          ]
+        },
+        {
+          "token": "relate",
+          "surface_forms": [
+            "relation"
+          ],
+          "keys": [
+            "relate",
+            "relation"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "declaration:rel:publication_in_relation_to_index",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "publication_in_relation_to_index",
+          "line": 92,
+          "token_recall": 1.0,
+          "token_precision": 0.5,
+          "score": 0.9,
+          "matched_claim_tokens": [
+            "index",
+            "publication",
+            "relate"
+          ],
+          "raw_excerpt": "rel publication_in_relation_to_index : IndexPublication, Index"
+        },
+        {
+          "block_id": "assertion:constraint:index_publications_available_at_announcements_website",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "index_publications_available_at_announcements_website",
+          "line": 198,
+          "token_recall": 1.0,
+          "token_precision": 0.222,
+          "score": 0.844,
+          "matched_claim_tokens": [
+            "index",
+            "publication",
+            "relate"
+          ],
+          "raw_excerpt": "constraint index_publications_available_at_announcements_website : forall p: IndexPublication, forall i: Index, publication_in_relation_to_index(p, i) implies available_at(p, IndexAdministratorAnnouncementsWebsite)"
+        },
+        {
+          "block_id": "declaration:opaque:IndexPublication",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "IndexPublication",
+          "line": 18,
+          "token_recall": 0.667,
+          "token_precision": 0.571,
+          "score": 0.648,
+          "matched_claim_tokens": [
+            "index",
+            "publication"
+          ],
+          "raw_excerpt": "sort IndexPublication"
+        },
+        {
+          "block_id": "declaration:subtype:GuidelineAmendment",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "subtype",
+          "name": "GuidelineAmendment",
+          "line": 20,
+          "token_recall": 0.667,
+          "token_precision": 0.364,
+          "score": 0.606,
+          "matched_claim_tokens": [
+            "index",
+            "publication"
+          ],
+          "raw_excerpt": "sort GuidelineAmendment extends IndexPublication"
+        },
+        {
+          "block_id": "declaration:subtype:NoticePublication",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "subtype",
+          "name": "NoticePublication",
+          "line": 19,
+          "token_recall": 0.667,
+          "token_precision": 0.333,
+          "score": 0.6,
+          "matched_claim_tokens": [
+            "index",
+            "publication"
+          ],
+          "raw_excerpt": "sort NoticePublication extends IndexPublication"
+        }
+      ],
+      "candidate_count": 52,
+      "covered_claim_tokens_by_top3": [
+        "index",
+        "publication",
+        "relate"
+      ],
+      "uncovered_claim_tokens_by_top3": [],
+      "top3_token_coverage": 1.0,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C09",
+      "text": "notices, amendments to the Guideline) will be available at the website of the Index Administrator: [https://www.solactive.com/news/announcements/](https://www.solactive.com/news/announcements/) .",
+      "hash": "71e86db169bb",
+      "tokens": [
+        {
+          "token": "notic",
+          "surface_forms": [
+            "notices"
+          ],
+          "keys": [
+            "notic",
+            "notice",
+            "notices"
+          ]
+        },
+        {
+          "token": "amendment",
+          "surface_forms": [
+            "amendments"
+          ],
+          "keys": [
+            "amendment",
+            "amendments"
+          ]
+        },
+        {
+          "token": "guideline",
+          "surface_forms": [
+            "Guideline"
+          ],
+          "keys": [
+            "guideline"
+          ]
+        },
+        {
+          "token": "will",
+          "surface_forms": [
+            "will"
+          ],
+          "keys": [
+            "will"
+          ]
+        },
+        {
+          "token": "available",
+          "surface_forms": [
+            "available"
+          ],
+          "keys": [
+            "available"
+          ]
+        },
+        {
+          "token": "website",
+          "surface_forms": [
+            "website"
+          ],
+          "keys": [
+            "website"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "administrator",
+          "surface_forms": [
+            "Administrator"
+          ],
+          "keys": [
+            "administrator"
+          ]
+        },
+        {
+          "token": "http",
+          "surface_forms": [
+            "https"
+          ],
+          "keys": [
+            "http",
+            "https"
+          ]
+        },
+        {
+          "token": "www",
+          "surface_forms": [
+            "www"
+          ],
+          "keys": [
+            "www"
+          ]
+        },
+        {
+          "token": "solactive",
+          "surface_forms": [
+            "solactive"
+          ],
+          "keys": [
+            "solactive"
+          ]
+        },
+        {
+          "token": "com",
+          "surface_forms": [
+            "com"
+          ],
+          "keys": [
+            "com"
+          ]
+        },
+        {
+          "token": "new",
+          "surface_forms": [
+            "news"
+          ],
+          "keys": [
+            "new",
+            "news"
+          ]
+        },
+        {
+          "token": "announcement",
+          "surface_forms": [
+            "announcements"
+          ],
+          "keys": [
+            "announcement",
+            "announcements"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:fact:announcements_website",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "announcements_website",
+          "line": 113,
+          "token_recall": 0.643,
+          "token_precision": 0.571,
+          "score": 0.629,
+          "matched_claim_tokens": [
+            "administrator",
+            "announcement",
+            "com",
+            "http",
+            "index",
+            "new",
+            "solactive",
+            "website",
+            "www"
+          ],
+          "raw_excerpt": "fact announcements_website : has_url(IndexAdministratorAnnouncementsWebsite, HttpsWwwSolactiveComNewsAnnouncements) and website_of(IndexAdministratorAnnouncementsWebsite, Solactive)"
+        },
+        {
+          "block_id": "declaration:entity:HttpsWwwSolactiveComNewsAnnouncements",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "HttpsWwwSolactiveComNewsAnnouncements",
+          "line": 70,
+          "token_recall": 0.429,
+          "token_precision": 0.692,
+          "score": 0.481,
+          "matched_claim_tokens": [
+            "announcement",
+            "com",
+            "http",
+            "new",
+            "solactive",
+            "www"
+          ],
+          "raw_excerpt": "entity HttpsWwwSolactiveComNewsAnnouncements : Url"
+        },
+        {
+          "block_id": "assertion:fact:equity_index_methodology_location",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "equity_index_methodology_location",
+          "line": 105,
+          "token_recall": 0.5,
+          "token_precision": 0.296,
+          "score": 0.459,
+          "matched_claim_tokens": [
+            "available",
+            "com",
+            "http",
+            "index",
+            "solactive",
+            "website",
+            "www"
+          ],
+          "raw_excerpt": "fact equity_index_methodology_location : document_url(EquityIndexMethodology, HttpsWwwSolactiveComDocumentsEquityIndexMethodology) and available_on(EquityIndexMethodology, SolactiveWebsite)"
+        },
+        {
+          "block_id": "assertion:fact:solactive_website",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "solactive_website",
+          "line": 101,
+          "token_recall": 0.357,
+          "token_precision": 0.429,
+          "score": 0.371,
+          "matched_claim_tokens": [
+            "com",
+            "http",
+            "solactive",
+            "website",
+            "www"
+          ],
+          "raw_excerpt": "fact solactive_website : has_url(SolactiveWebsite, HttpsWwwSolactiveCom) and website_of(SolactiveWebsite, Solactive)"
+        },
+        {
+          "block_id": "declaration:entity:HttpsWwwSolactiveComDocumentsEquityIndexMethodology",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "HttpsWwwSolactiveComDocumentsEquityIndexMethodology",
+          "line": 68,
+          "token_recall": 0.357,
+          "token_precision": 0.375,
+          "score": 0.361,
+          "matched_claim_tokens": [
+            "com",
+            "http",
+            "index",
+            "solactive",
+            "www"
+          ],
+          "raw_excerpt": "entity HttpsWwwSolactiveComDocumentsEquityIndexMethodology : Url"
+        }
+      ],
+      "candidate_count": 60,
+      "covered_claim_tokens_by_top3": [
+        "administrator",
+        "announcement",
+        "available",
+        "com",
+        "http",
+        "index",
+        "new",
+        "solactive",
+        "website",
+        "www"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "notic",
+          "surface_forms": [
+            "notices"
+          ]
+        },
+        {
+          "token": "amendment",
+          "surface_forms": [
+            "amendments"
+          ]
+        },
+        {
+          "token": "guideline",
+          "surface_forms": [
+            "Guideline"
+          ]
+        },
+        {
+          "token": "will",
+          "surface_forms": [
+            "will"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.714,
+      "auto_status": "partial_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    }
+  ]
+}

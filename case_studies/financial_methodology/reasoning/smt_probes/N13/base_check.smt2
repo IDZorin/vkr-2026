@@ -1,0 +1,30 @@
+(set-logic ALL)
+(set-option :produce-unsat-cores true)
+
+(declare-sort DataVendor 0)
+(declare-sort Day 0)
+(declare-sort FinancialInstrument 0)
+(declare-sort MonetaryAmount 0)
+(declare-sort ShareClass 0)
+
+(declare-fun ClosingPrice (MonetaryAmount) Bool)
+(declare-fun FreeFloatMarketCapitalization (MonetaryAmount) Bool)
+(declare-fun Security (FinancialInstrument) Bool)
+(declare-fun SelectionDay (Day) Bool)
+(declare-fun ShareCount (Int) Bool)
+
+(declare-fun closing_price_of_share_class (Day ShareClass) MonetaryAmount)
+(declare-fun free_float_market_capitalization (Day FinancialInstrument) MonetaryAmount)
+(declare-fun fulfills_index_component_requirements (Day FinancialInstrument) Bool)
+(declare-fun share_class (Day FinancialInstrument) ShareClass)
+(declare-fun shares_outstanding_in_free_float (Day ShareClass) Int)
+(declare-fun sourced_from_data_vendor (Int DataVendor) Bool)
+
+(assert (! (forall ((closing_price_of_share_class_arg0 Day) (closing_price_of_share_class_arg1 ShareClass)) (ClosingPrice (closing_price_of_share_class closing_price_of_share_class_arg0 closing_price_of_share_class_arg1))) :named TYPE_symbol_closing_price_of_share_class))
+(assert (! (forall ((free_float_market_capitalization_arg0 Day) (free_float_market_capitalization_arg1 FinancialInstrument)) (FreeFloatMarketCapitalization (free_float_market_capitalization free_float_market_capitalization_arg0 free_float_market_capitalization_arg1))) :named TYPE_symbol_free_float_market_capitalization))
+(assert (! (forall ((fulfills_index_component_requirements_arg0 Day) (fulfills_index_component_requirements_arg1 FinancialInstrument)) (=> (fulfills_index_component_requirements fulfills_index_component_requirements_arg0 fulfills_index_component_requirements_arg1) (and (SelectionDay fulfills_index_component_requirements_arg0) (Security fulfills_index_component_requirements_arg1)))) :named TYPE_symbol_fulfills_index_component_requirements))
+(assert (! (forall ((shares_outstanding_in_free_float_arg0 Day) (shares_outstanding_in_free_float_arg1 ShareClass)) (ShareCount (shares_outstanding_in_free_float shares_outstanding_in_free_float_arg0 shares_outstanding_in_free_float_arg1))) :named TYPE_symbol_shares_outstanding_in_free_float))
+(assert (! (forall ((sourced_from_data_vendor_arg0 Int) (sourced_from_data_vendor_arg1 DataVendor)) (=> (sourced_from_data_vendor sourced_from_data_vendor_arg0 sourced_from_data_vendor_arg1) (ShareCount sourced_from_data_vendor_arg0))) :named TYPE_symbol_sourced_from_data_vendor))
+
+(assert (! (forall ((d Day)) (=> (SelectionDay d) (forall ((s FinancialInstrument)) (=> (Security s) (=> (fulfills_index_component_requirements d s) (and (= (free_float_market_capitalization d s) (* (shares_outstanding_in_free_float d (share_class d s)) (closing_price_of_share_class d (share_class d s)))) (exists ((vendor DataVendor)) (sourced_from_data_vendor (shares_outstanding_in_free_float d (share_class d s)) vendor)))))))) :named TEXT_free_float_market_capitalization_calculated_as_multiplication_definition))
+(check-sat)

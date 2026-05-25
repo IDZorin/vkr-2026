@@ -1,0 +1,69 @@
+# Bridge Candidate Audit v1
+
+- entries scanned: `55`
+- parse warnings: `0`
+- repeated exact declarations: `92`
+- same-name different-signature declarations: `27`
+- unbridged repeated exact declarations: `0`
+- lexical candidates: `53`
+- repeated source phrase candidates: `28`
+- assertion external identifier blocks: `0`
+
+## Same Name, Different Signature
+- `entity Canada` in sections/section_2_1, sections/section_2_2; signatures: [': CountryAssignment', ': GbsIndexUniverseClassification']; bridge hits: ['Section2_1_Canada', 'Section2_2_Canada']
+- `entity SOLTCA50` in sections/section_1_2, sections/section_4_1; signatures: [': BBGTicker', ': Index']; bridge hits: ['Section1_2_SOLTCA50', 'Section4_1_SOLTCA50']
+- `entity Solactive` in sections/section_1_2, sections/section_1_5, sections/section_3_1, sections/section_4_2, sections/section_4_4, sections/section_4_5, sections/section_4_6, sections/section_4_7, sections/section_5_2, sections/section_5_4, sections/section_5_5; signatures: [': IndexAdministrator', ': Organization', ': SolactiveOrganization']; bridge hits: ['Section1_2_Solactive', 'Section1_5_Solactive', 'Section3_1_Solactive', 'Section4_2_Solactive', 'Section4_4_Solactive', 'Section4_5_Solactive', 'Section4_6_Solactive', 'Section4_7_Solactive', 'Section5_2_Solactive', 'Section5_4_Solactive', 'Section5_5_Solactive']
+- `entity TheIndexAdministrator` in definitions/N30, sections/section_5_3; signatures: [': IndexAdministrator', ': IndexAdministratorForThisIndex']; bridge hits: ['Section5_3_TheIndexAdministrator', 'N30_TheIndexAdministrator']
+- `entity UnitedStates` in sections/section_2_1, sections/section_2_2; signatures: [': CountryAssignment', ': GbsIndexUniverseClassification']; bridge hits: ['Section2_1_UnitedStates', 'Section2_2_UnitedStates']
+- `fun average_daily_value_traded` in definitions/N01, sections/section_2_1; signatures: ['(IndexComponent, SpecifiedPeriod) -> AverageDailyValueTraded', '(SelectionDay, Security, LookbackWindow) -> AverageDailyValueTraded']; bridge hits: ['Section2_1_average_daily_value_traded', 'N01_average_daily_value_traded']
+- `fun closing_price` in definitions/N07, definitions/N08, sections/section_1_4; signatures: ['(IndexComponent, CalculationDay) -> ClosingPrice', '(IndexComponent, TradingDay) -> ClosingPrice']; bridge hits: ['Section1_4_closing_price', 'N07_closing_price', 'N08_closing_price']
+- `fun region` in sections/section_2_2, sections/section_2_3; signatures: ['(IndexComponent) -> Region', '(SelectionDay, Security) -> Region']; bridge hits: ['Section2_2_region', 'Section2_3_region']
+- `rel announced_on` in sections/section_4_2, sections/section_4_4; signatures: ['(Notice, WebResource)', '(TerminationAnnouncement, WebResource)']; bridge hits: ['Section4_2_announced_on', 'Section4_4_announced_on']
+- `rel eligible_rebalance_day` in definitions/N09, definitions/N26; signatures: ['(Day)', '(EligibleRebalanceDay)']; bridge hits: ['N09_eligible_rebalance_day', 'N26_eligible_rebalance_day']
+- `rel fully_rule_based` in sections/section_2_1, sections/section_2_2; signatures: ['(DeterminationOfIndexUniverse)', '(SelectionOfIndexComponents)']; bridge hits: ['Section2_1_fully_rule_based', 'Section2_2_fully_rule_based']
+- `rel incorporated_by_reference` in sections/section_4_1, sections/section_5_4; signatures: ['(Document)', '(TerminationPolicy)']; bridge hits: ['Section4_1_incorporated_by_reference', 'Section5_4_incorporated_by_reference']
+- `rel index_component` in definitions/N19, sections/section_1_4, sections/section_2_2; signatures: ['(CalculationDay, IndexComponent)', '(Security, Index)', '(SelectionDay, Security)']; bridge hits: ['Section1_4_index_component', 'Section2_2_index_component', 'N19_index_component']
+- `rel index_component_of` in sections/section_4_1, sections/section_4_7; signatures: ['(Index, CalculationDay, IndexComponent)', '(IndexComponent, Index)']; bridge hits: ['Section4_1_index_component_of', 'Section4_7_index_component_of']
+- `rel index_universe` in sections/section_2_1, sections/section_2_2; signatures: ['(SelectionDay, Security)', '(SelectionDay, ShareClass)']; bridge hits: ['Section2_1_index_universe', 'Section2_2_index_universe']
+- `rel sourced_from_data_vendor` in definitions/N12, definitions/N13; signatures: ['(FreeFloat, DataVendor)', '(ShareCount, DataVendor)']; bridge hits: ['N12_sourced_from_data_vendor', 'N13_sourced_from_data_vendor']
+- `sort AverageDailyValueTraded` in definitions/N01, sections/section_2_1; signatures: ['extends MonetaryAmount', 'extends Real']; bridge hits: ['Section2_1_AverageDailyValueTraded', 'N01_AverageDailyValueTraded']
+- `sort ClosingPrice` in definitions/N07, definitions/N08, definitions/N13, sections/section_1_4; signatures: ['extends MonetaryAmount', 'extends Price', 'extends TradingPrice']; bridge hits: ['Section1_4_ClosingPrice', 'N07_ClosingPrice', 'N08_ClosingPrice', 'N13_ClosingPrice']
+- `sort DailyValueTraded` in definitions/N01, definitions/N08; signatures: ['extends MonetaryAmount', 'extends Real']; bridge hits: ['N01_DailyValueTraded', 'N08_DailyValueTraded']
+- `sort Error` in sections/section_4_6, sections/section_5_3; signatures: ['extends Event', 'opaque']; bridge hits: ['Section4_6_Error', 'Section5_3_Error']
+- `sort IndexCalculation` in sections/section_4_2, sections/section_4_5; signatures: ['extends Event', 'opaque']; bridge hits: ['Section4_2_IndexCalculation', 'Section4_5_IndexCalculation']
+- `sort IndexComponent` in definitions/N01, definitions/N07, definitions/N08, definitions/N10, definitions/N30, definitions/N31, sections/section_1_4, sections/section_2_3, sections/section_3_1, sections/section_4_1, sections/section_4_4, sections/section_4_5, sections/section_4_7; signatures: ['extends FinancialInstrument', 'extends Security', 'opaque']; bridge hits: ['Section1_4_IndexComponent', 'Section2_3_IndexComponent', 'Section3_1_IndexComponent', 'Section4_1_IndexComponent', 'Section4_4_IndexComponent', 'Section4_5_IndexComponent', 'Section4_7_IndexComponent', 'N01_IndexComponent', 'N07_IndexComponent', 'N08_IndexComponent', 'N10_IndexComponent', 'N30_IndexComponent', 'N31_IndexComponent']
+- `sort IndexQuality` in sections/section_4_5, sections/section_5_4; signatures: ['enum Comparability|Representativeness', 'enum Resilience|ContinuedIntegrity|ContinuedReliability|Comparability']; bridge hits: ['Section4_5_IndexQuality', 'Section5_4_IndexQuality']
+- `sort Price` in definitions/N07, definitions/N31, sections/section_1_4, sections/section_4_1; signatures: ['extends MonetaryAmount', 'extends Real']; bridge hits: ['Section1_4_Price', 'Section4_1_Price', 'N07_Price', 'N31_Price']
+- `sort RegularRebalanceDay` in sections/section_4_4, sections/section_4_5; signatures: ['extends Day', 'extends RebalanceDay']; bridge hits: ['Section4_4_RegularRebalanceDay', 'Section4_5_RegularRebalanceDay']
+- `sort Security` in definitions/N07, definitions/N12, definitions/N13, definitions/N15, definitions/N19, definitions/N30, sections/section_1_1, sections/section_2_1, sections/section_2_2; signatures: ['extends FinancialInstrument', 'opaque']; bridge hits: ['Section1_1_Security', 'Section2_1_Security', 'Section2_2_Security', 'N07_Security', 'N12_Security', 'N13_Security', 'N15_Security', 'N19_Security', 'N30_Security']
+- `sort ShareClass` in definitions/N12, definitions/N13, sections/section_2_1; signatures: ['extends Security', 'opaque']; bridge hits: ['Section2_1_ShareClass', 'N12_ShareClass', 'N13_ShareClass']
+
+## Repeated Source Phrases
+- `Average Daily Value Traded`: sections/section_2_1(4), definitions/N01(1)
+- `Business Day`: definitions/N04(1), definitions/N27(1)
+- `Calculation Day`: sections/section_1_4(3), sections/section_4_1(8), definitions/N05(1), definitions/N30(1)
+- `Closing Price`: sections/section_1_4(3), definitions/N07(2), definitions/N08(1), definitions/N13(1)
+- `Close of Business`: sections/section_3_1(1), definitions/N06(1)
+- `Daily Value Traded`: sections/section_2_1(4), definitions/N01(2), definitions/N08(1)
+- `Data Vendor`: definitions/N12(1), definitions/N13(1)
+- `Eligible Rebalance Day`: definitions/N09(1), definitions/N26(2)
+- `Exchange`: sections/section_1_4(4), sections/section_1_5(1), definitions/N07(4), definitions/N08(1), definitions/N09(4), definitions/N10(2), definitions/N30(4), definitions/N31(1)
+- `Fixing Day`: sections/section_3_1(1), definitions/N11(1)
+- `Free Float`: sections/section_2_2(1), definitions/N12(1), definitions/N13(3)
+- `GBS Index Universe`: sections/section_2_1(2), sections/section_2_2(2), definitions/N14(1)
+- `Index Administrator`: sections/section_1_2(2), sections/section_2_1(2), sections/section_2_2(1), sections/section_5_3(5), definitions/N18(1), definitions/N30(1)
+- `Index Component`: sections/section_1_4(6), sections/section_2_2(4), sections/section_2_3(3), sections/section_3_1(2), sections/section_4_1(3), sections/section_4_4(5), sections/section_4_5(1), sections/section_4_7(1), sections/section_5_1(1), definitions/N01(1), definitions/N07(2), definitions/N08(3), definitions/N10(2), definitions/N12(1), definitions/N13(1), definitions/N15(1), definitions/N19(1), definitions/N20(1), definitions/N30(3), definitions/N31(2)
+- `Index Component Requirements`: sections/section_2_2(1), definitions/N12(1), definitions/N13(1), definitions/N20(1)
+- `Index Currency`: sections/section_1_4(2), sections/section_4_1(1), definitions/N21(1)
+- `Index Universe`: sections/section_2_1(9), sections/section_2_2(3), sections/section_5_1(1), definitions/N14(2), definitions/N22(1), definitions/N23(2)
+- `Index Universe Requirements`: sections/section_2_1(2), definitions/N22(1), definitions/N23(1)
+- `Live Date`: sections/section_1_3(2), definitions/N24(1)
+- `Oversight Committee`: sections/section_5_5(3), definitions/N25(1)
+- `Rebalance Day`: sections/section_3_1(2), sections/section_4_4(1), sections/section_4_5(1), definitions/N09(1), definitions/N26(4), definitions/N27(2), definitions/N30(3)
+- `Regular Rebalance Day`: sections/section_4_4(1), sections/section_4_5(1)
+- `Selection Day`: sections/section_2_1(5), sections/section_2_2(1), sections/section_2_3(1), sections/section_3_1(2), definitions/N11(1), definitions/N12(1), definitions/N13(2), definitions/N27(1)
+- `Share Class`: sections/section_2_1(4), definitions/N12(2), definitions/N13(2)
+- `Solactive`: sections/section_1_2(12), sections/section_1_3(1), sections/section_1_5(1), sections/section_2_1(3), sections/section_3_1(7), sections/section_4_1(3), sections/section_4_2(4), sections/section_4_4(4), sections/section_4_5(4), sections/section_4_6(4), sections/section_4_7(3), sections/section_5_2(7), sections/section_5_4(7), sections/section_5_5(5), definitions/N14(3), definitions/N28(1)
+- `Start Date`: sections/section_1_3(1), definitions/N29(1)
+- `Trading Day`: sections/section_1_4(1), sections/section_4_4(1), definitions/N01(1), definitions/N07(1), definitions/N08(2), definitions/N09(1), definitions/N30(3), definitions/N31(1)
+- `Trading Price`: sections/section_1_4(4), definitions/N07(2), definitions/N31(1)

@@ -1,0 +1,219 @@
+{
+  "entry_id": "section_5_3",
+  "has_source": true,
+  "has_normalized": true,
+  "has_render": true,
+  "has_ir": true,
+  "source": {
+    "modals": {
+      "shall": 1,
+      "cannot": 1,
+      "may": 2,
+      "will": 1
+    },
+    "negated_modals": {
+      "cannot": 1
+    },
+    "temporal": {},
+    "quantifiers": {
+      "any": 1
+    },
+    "numeric_literals": [],
+    "_token_count": 151
+  },
+  "normalized": {
+    "modals": {
+      "shall": 1,
+      "cannot": 1,
+      "may": 2,
+      "will": 1
+    },
+    "negated_modals": {
+      "cannot": 1
+    },
+    "temporal": {},
+    "quantifiers": {
+      "any": 1
+    },
+    "numeric_literals": [],
+    "_token_count": 151
+  },
+  "render": {
+    "modals": {},
+    "negated_modals": {},
+    "temporal": {},
+    "quantifiers": {
+      "each": 1,
+      "either": 1
+    },
+    "numeric_literals": [],
+    "_token_count": 132
+  },
+  "ir_logical": {
+    "implies_count": 0,
+    "iff_count": 1,
+    "forall_count": 3,
+    "exists_count": 1,
+    "not_count": 1,
+    "and_count": 17,
+    "or_count": 5,
+    "numeric_literals": []
+  },
+  "drifts": {
+    "source_to_render": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 5,
+        "added": {},
+        "removed": {
+          "cannot": 1,
+          "will": 1,
+          "may": 2,
+          "shall": 1
+        }
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 1,
+        "added": {},
+        "removed": {
+          "cannot": 1
+        }
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 2,
+        "removed_count": 1,
+        "added": {
+          "either": 1,
+          "each": 1
+        },
+        "removed": {
+          "any": 1
+        }
+      },
+      "numeric_literals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      }
+    },
+    "source_to_normalized": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "numeric_literals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      }
+    },
+    "normalized_to_render": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 5,
+        "added": {},
+        "removed": {
+          "cannot": 1,
+          "will": 1,
+          "may": 2,
+          "shall": 1
+        }
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 1,
+        "added": {},
+        "removed": {
+          "cannot": 1
+        }
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 2,
+        "removed_count": 1,
+        "added": {
+          "either": 1,
+          "each": 1
+        },
+        "removed": {
+          "any": 1
+        }
+      },
+      "numeric_literals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      }
+    }
+  },
+  "alarms": [
+    {
+      "kind": "modals_lost_in_render",
+      "removed": {
+        "cannot": 1,
+        "will": 1,
+        "may": 2,
+        "shall": 1
+      },
+      "count": 5
+    },
+    {
+      "kind": "negated_modals_lost_in_render",
+      "removed": {
+        "cannot": 1
+      },
+      "count": 1
+    },
+    {
+      "kind": "quantifiers_lost_in_render",
+      "removed": {
+        "any": 1
+      },
+      "count": 1
+    },
+    {
+      "kind": "quantifiers_added_in_render",
+      "added": {
+        "either": 1,
+        "each": 1
+      },
+      "count": 2
+    }
+  ],
+  "alarm_count": 4
+}

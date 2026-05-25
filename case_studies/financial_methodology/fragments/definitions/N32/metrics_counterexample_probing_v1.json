@@ -1,0 +1,86 @@
+{
+  "entry_id": "N32",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1062,
+    "completion_tokens": 356,
+    "total_tokens": 1418
+  },
+  "latency_s": 2.912240982055664,
+  "scenarios": [
+    {
+      "description": "The contract uses the defined term \"WM / Refinitiv Rate,\" and Section 1.4 states its meaning.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The contract uses \"WM / Refinitiv Rate,\" but its meaning is defined in Section 2.1 instead of Section 1.4.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The contract says \"WM / Refinitiv Rate\" has the meaning in Section 1.4, but also says that if another section gives a different meaning, that other section controls for a limited exception.",
+      "category": "scope_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "accept",
+      "agree": false,
+      "drift_explanation": "The source text only states that the term shall have the meaning as defined in Section 1.4, so an exception is not covered and is ambiguous. The IR only encodes the Section 1.4 linkage and does not represent the exception, so it would still accept."
+    },
+    {
+      "description": "A later amendment changes Section 1.4 after signing, and the question is whether the term's meaning follows the amended section immediately or only after notice.",
+      "category": "modality_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "accept",
+      "agree": false,
+      "drift_explanation": "The source text does not address amendment timing, notice, or actor responsibility, so the scenario is ambiguous. The IR contains only a static fact linking the term to Section 1.4 and therefore accepts it."
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 2,
+    "agreement_rate": 0.5,
+    "drifts": [
+      {
+        "description": "The contract says \"WM / Refinitiv Rate\" has the meaning in Section 1.4, but also says that if another section gives a different meaning, that other section controls for a limited exception.",
+        "category": "scope_edge",
+        "source_verdict": "ambiguous",
+        "ir_verdict": "accept",
+        "agree": false,
+        "drift_explanation": "The source text only states that the term shall have the meaning as defined in Section 1.4, so an exception is not covered and is ambiguous. The IR only encodes the Section 1.4 linkage and does not represent the exception, so it would still accept."
+      },
+      {
+        "description": "A later amendment changes Section 1.4 after signing, and the question is whether the term's meaning follows the amended section immediately or only after notice.",
+        "category": "modality_edge",
+        "source_verdict": "ambiguous",
+        "ir_verdict": "accept",
+        "agree": false,
+        "drift_explanation": "The source text does not address amendment timing, notice, or actor responsibility, so the scenario is ambiguous. The IR contains only a static fact linking the term to Section 1.4 and therefore accepts it."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 0
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 0
+      }
+    }
+  }
+}

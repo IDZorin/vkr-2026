@@ -1,0 +1,64 @@
+{
+  "entry_id": "section_4_2",
+  "skipped": false,
+  "ir_innf_families_used": [
+    "AssertDecl",
+    "DeonticDecl",
+    "SymbolDecl",
+    "TypeDecl"
+  ],
+  "ir_fine_families_used": [
+    "AssertDecl.constraint",
+    "AssertDecl.fact",
+    "DeonticDecl.permission",
+    "SymbolDecl.entity",
+    "SymbolDecl.fun",
+    "SymbolDecl.rel",
+    "TypeDecl.sort_opaque",
+    "TypeDecl.sort_subtype"
+  ],
+  "ir_family_counts": {
+    "TypeDecl.sort_opaque": 1,
+    "TypeDecl.sort_subtype": 7,
+    "SymbolDecl.entity": 7,
+    "SymbolDecl.rel": 14,
+    "SymbolDecl.fun": 1,
+    "AssertDecl.fact": 2,
+    "AssertDecl.constraint": 2,
+    "DeonticDecl.permission": 1
+  },
+  "ir_expr_markers": {
+    "forall": 4,
+    "exists": 2,
+    "implies": 2,
+    "temporal_order_static_relation_call": 1
+  },
+  "source_signals": {
+    "temporal_order": {
+      "expected_family": "TemporalDecl",
+      "expectation_mode": "required",
+      "matches": [
+        "after"
+      ]
+    }
+  },
+  "gaps": [],
+  "required_gaps": [],
+  "advisory_gaps": [],
+  "matches": [
+    {
+      "signal": "temporal_order",
+      "expected_family": "TemporalDecl",
+      "expectation_mode": "required",
+      "evidence": [
+        "after"
+      ],
+      "satisfied": true,
+      "satisfied_by": "static_temporal_relation_call"
+    }
+  ],
+  "n_gaps": 0,
+  "n_required_gaps": 0,
+  "n_advisory_gaps": 0,
+  "n_matches": 1
+}

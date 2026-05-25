@@ -1,0 +1,415 @@
+﻿{
+  "entry_id": "sections/section_2_3",
+  "model": "manual_workspace_current_v1",
+  "base_url": "",
+  "thinking_budget": 0,
+  "report_comparisons": false,
+  "advisor_samples": 0,
+  "critic_select": false,
+  "request_timeout_s": 0.0,
+  "prelude": {
+    "prelude_version": "minimal_prelude_v1"
+  },
+  "clean_policy": {
+    "policy_version": "clean_experiment_policy_v1"
+  },
+  "ir_stage": {
+    "advisor": {},
+    "drafter": {
+      "result": {
+        "schema_version": "canonical_ast_output_v1",
+        "focus_term": "sections/section_2_3",
+        "ir_ast": {
+          "version": "canonical_ast_v1",
+          "declarations": [
+            {
+              "decl": "sort",
+              "name": "SelectionDay",
+              "parent": "Day"
+            },
+            {
+              "decl": "sort",
+              "name": "IndexComponent"
+            },
+            {
+              "decl": "sort",
+              "name": "Region"
+            },
+            {
+              "decl": "sort",
+              "name": "Weight"
+            },
+            {
+              "decl": "sort",
+              "name": "FloatMarketCapizatlization"
+            },
+            {
+              "decl": "symbol",
+              "symbol_kind": "fun",
+              "name": "region",
+              "args": [
+                "IndexComponent"
+              ],
+              "result_sort": "Region"
+            },
+            {
+              "decl": "symbol",
+              "symbol_kind": "fun",
+              "name": "float_market_capizatlization",
+              "args": [
+                "SelectionDay",
+                "IndexComponent"
+              ],
+              "result_sort": "FloatMarketCapizatlization"
+            },
+            {
+              "decl": "symbol",
+              "symbol_kind": "fun",
+              "name": "weight",
+              "args": [
+                "SelectionDay",
+                "IndexComponent"
+              ],
+              "result_sort": "Weight"
+            },
+            {
+              "decl": "symbol",
+              "symbol_kind": "rel",
+              "name": "based_on_float_market_capizatlization",
+              "args": [
+                "SelectionDay",
+                "IndexComponent"
+              ]
+            },
+            {
+              "decl": "symbol",
+              "symbol_kind": "rel",
+              "name": "redistributed_proportionally",
+              "args": [
+                "SelectionDay",
+                "IndexComponent"
+              ]
+            }
+          ],
+          "assertions": [
+            {
+              "decl": "assert",
+              "assert_kind": "constraint",
+              "name": "weight_based_on_float_market_capizatlization",
+              "expr": {
+                "kind": "forall",
+                "vars": [
+                  {
+                    "name": "d",
+                    "sort": "SelectionDay"
+                  }
+                ],
+                "body": {
+                  "kind": "forall",
+                  "vars": [
+                    {
+                      "name": "c",
+                      "sort": "IndexComponent"
+                    }
+                  ],
+                  "body": {
+                    "kind": "call",
+                    "callee": "based_on_float_market_capizatlization",
+                    "args": [
+                      {
+                        "kind": "ref",
+                        "name": "d"
+                      },
+                      {
+                        "kind": "ref",
+                        "name": "c"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            {
+              "decl": "assert",
+              "assert_kind": "constraint",
+              "name": "region_represents_exactly_50_percent",
+              "expr": null
+            },
+            {
+              "decl": "assert",
+              "assert_kind": "constraint",
+              "name": "single_index_component_weight_capped",
+              "expr": null
+            },
+            {
+              "decl": "assert",
+              "assert_kind": "constraint",
+              "name": "weights_redistributed_proportionally",
+              "expr": {
+                "kind": "forall",
+                "vars": [
+                  {
+                    "name": "d",
+                    "sort": "SelectionDay"
+                  }
+                ],
+                "body": {
+                  "kind": "forall",
+                  "vars": [
+                    {
+                      "name": "c",
+                      "sort": "IndexComponent"
+                    }
+                  ],
+                  "body": {
+                    "kind": "call",
+                    "callee": "redistributed_proportionally",
+                    "args": [
+                      {
+                        "kind": "ref",
+                        "name": "d"
+                      },
+                      {
+                        "kind": "ref",
+                        "name": "c"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "rendering_notes": [],
+        "primitive_usage": [],
+        "strengths": [
+          "Manual workspace draft parsed from main_ir.a4v3 for current metric recomputation."
+        ],
+        "residual_risks": [
+          "Canonical AST reconstructed from manual workspace IR text for deterministic metric computation."
+        ],
+        "ast_conformance": "canonical_ast_v1",
+        "rendered_ir": "sort SelectionDay extends Day\nsort IndexComponent\nsort Region\nsort Weight\nsort FloatMarketCapizatlization\nfun[required] region : IndexComponent -> Region\nfun[required] float_market_capizatlization : SelectionDay, IndexComponent -> FloatMarketCapizatlization\nfun[required] weight : SelectionDay, IndexComponent -> Weight\nrel based_on_float_market_capizatlization : SelectionDay, IndexComponent\nrel redistributed_proportionally : SelectionDay, IndexComponent\nconstraint weight_based_on_float_market_capizatlization :\n  forall d: SelectionDay, forall c: IndexComponent,\n    based_on_float_market_capizatlization(d, c)\nconstraint region_represents_exactly_50_percent :\n  forall d: SelectionDay, forall r: Region,\n    sum(c in IndexComponent where region(c) = r, weight(d, c)) = 50%\nconstraint single_index_component_weight_capped :\n  forall d: SelectionDay, forall c: IndexComponent,\n    weight(d, c) <= 5%\nconstraint weights_redistributed_proportionally :\n  forall d: SelectionDay, forall c: IndexComponent,\n    redistributed_proportionally(d, c)",
+        "draft_ir": "sort SelectionDay extends Day\nsort IndexComponent\nsort Region\nsort Weight\nsort FloatMarketCapizatlization\nfun[required] region : IndexComponent -> Region\nfun[required] float_market_capizatlization : SelectionDay, IndexComponent -> FloatMarketCapizatlization\nfun[required] weight : SelectionDay, IndexComponent -> Weight\nrel based_on_float_market_capizatlization : SelectionDay, IndexComponent\nrel redistributed_proportionally : SelectionDay, IndexComponent\nconstraint weight_based_on_float_market_capizatlization :\n  forall d: SelectionDay, forall c: IndexComponent,\n    based_on_float_market_capizatlization(d, c)\nconstraint region_represents_exactly_50_percent :\n  forall d: SelectionDay, forall r: Region,\n    sum(c in IndexComponent where region(c) = r, weight(d, c)) = 50%\nconstraint single_index_component_weight_capped :\n  forall d: SelectionDay, forall c: IndexComponent,\n    weight(d, c) <= 5%\nconstraint weights_redistributed_proportionally :\n  forall d: SelectionDay, forall c: IndexComponent,\n    redistributed_proportionally(d, c)",
+        "rendering_status": "rendered_from_ast",
+        "status": "ok"
+      },
+      "raw_text": "",
+      "raw_messages": [],
+      "invalid_submit_count": 0,
+      "prose_only_count": 0,
+      "repair_orchestrator_count": 0,
+      "semantic_coverage_retry_count": 0,
+      "deterministic_screen_retry_count": 0,
+      "deterministic_screening": {},
+      "repair_plans": []
+    },
+    "critic": {
+      "selected_reading_id": "MANUAL",
+      "selected_reading_label": "Manual workspace current IR",
+      "confidence": "",
+      "checklist_findings": {}
+    },
+    "drafter_variants": [
+      {
+        "reading_id": "MANUAL",
+        "label": "Manual workspace sections/section_2_3 IR",
+        "is_critic_selected": true,
+        "is_advisor_selected": true,
+        "result": {
+          "schema_version": "canonical_ast_output_v1",
+          "focus_term": "sections/section_2_3",
+          "ir_ast": {
+            "version": "canonical_ast_v1",
+            "declarations": [
+              {
+                "decl": "sort",
+                "name": "SelectionDay",
+                "parent": "Day"
+              },
+              {
+                "decl": "sort",
+                "name": "IndexComponent"
+              },
+              {
+                "decl": "sort",
+                "name": "Region"
+              },
+              {
+                "decl": "sort",
+                "name": "Weight"
+              },
+              {
+                "decl": "sort",
+                "name": "FloatMarketCapizatlization"
+              },
+              {
+                "decl": "symbol",
+                "symbol_kind": "fun",
+                "name": "region",
+                "args": [
+                  "IndexComponent"
+                ],
+                "result_sort": "Region"
+              },
+              {
+                "decl": "symbol",
+                "symbol_kind": "fun",
+                "name": "float_market_capizatlization",
+                "args": [
+                  "SelectionDay",
+                  "IndexComponent"
+                ],
+                "result_sort": "FloatMarketCapizatlization"
+              },
+              {
+                "decl": "symbol",
+                "symbol_kind": "fun",
+                "name": "weight",
+                "args": [
+                  "SelectionDay",
+                  "IndexComponent"
+                ],
+                "result_sort": "Weight"
+              },
+              {
+                "decl": "symbol",
+                "symbol_kind": "rel",
+                "name": "based_on_float_market_capizatlization",
+                "args": [
+                  "SelectionDay",
+                  "IndexComponent"
+                ]
+              },
+              {
+                "decl": "symbol",
+                "symbol_kind": "rel",
+                "name": "redistributed_proportionally",
+                "args": [
+                  "SelectionDay",
+                  "IndexComponent"
+                ]
+              }
+            ],
+            "assertions": [
+              {
+                "decl": "assert",
+                "assert_kind": "constraint",
+                "name": "weight_based_on_float_market_capizatlization",
+                "expr": {
+                  "kind": "forall",
+                  "vars": [
+                    {
+                      "name": "d",
+                      "sort": "SelectionDay"
+                    }
+                  ],
+                  "body": {
+                    "kind": "forall",
+                    "vars": [
+                      {
+                        "name": "c",
+                        "sort": "IndexComponent"
+                      }
+                    ],
+                    "body": {
+                      "kind": "call",
+                      "callee": "based_on_float_market_capizatlization",
+                      "args": [
+                        {
+                          "kind": "ref",
+                          "name": "d"
+                        },
+                        {
+                          "kind": "ref",
+                          "name": "c"
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "decl": "assert",
+                "assert_kind": "constraint",
+                "name": "region_represents_exactly_50_percent",
+                "expr": null
+              },
+              {
+                "decl": "assert",
+                "assert_kind": "constraint",
+                "name": "single_index_component_weight_capped",
+                "expr": null
+              },
+              {
+                "decl": "assert",
+                "assert_kind": "constraint",
+                "name": "weights_redistributed_proportionally",
+                "expr": {
+                  "kind": "forall",
+                  "vars": [
+                    {
+                      "name": "d",
+                      "sort": "SelectionDay"
+                    }
+                  ],
+                  "body": {
+                    "kind": "forall",
+                    "vars": [
+                      {
+                        "name": "c",
+                        "sort": "IndexComponent"
+                      }
+                    ],
+                    "body": {
+                      "kind": "call",
+                      "callee": "redistributed_proportionally",
+                      "args": [
+                        {
+                          "kind": "ref",
+                          "name": "d"
+                        },
+                        {
+                          "kind": "ref",
+                          "name": "c"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "rendering_notes": [],
+          "primitive_usage": [],
+          "strengths": [
+            "Manual workspace draft parsed from main_ir.a4v3 for current metric recomputation."
+          ],
+          "residual_risks": [
+            "Canonical AST reconstructed from manual workspace IR text for deterministic metric computation."
+          ],
+          "ast_conformance": "canonical_ast_v1",
+          "rendered_ir": "sort SelectionDay extends Day\nsort IndexComponent\nsort Region\nsort Weight\nsort FloatMarketCapizatlization\nfun[required] region : IndexComponent -> Region\nfun[required] float_market_capizatlization : SelectionDay, IndexComponent -> FloatMarketCapizatlization\nfun[required] weight : SelectionDay, IndexComponent -> Weight\nrel based_on_float_market_capizatlization : SelectionDay, IndexComponent\nrel redistributed_proportionally : SelectionDay, IndexComponent\nconstraint weight_based_on_float_market_capizatlization :\n  forall d: SelectionDay, forall c: IndexComponent,\n    based_on_float_market_capizatlization(d, c)\nconstraint region_represents_exactly_50_percent :\n  forall d: SelectionDay, forall r: Region,\n    sum(c in IndexComponent where region(c) = r, weight(d, c)) = 50%\nconstraint single_index_component_weight_capped :\n  forall d: SelectionDay, forall c: IndexComponent,\n    weight(d, c) <= 5%\nconstraint weights_redistributed_proportionally :\n  forall d: SelectionDay, forall c: IndexComponent,\n    redistributed_proportionally(d, c)",
+          "draft_ir": "sort SelectionDay extends Day\nsort IndexComponent\nsort Region\nsort Weight\nsort FloatMarketCapizatlization\nfun[required] region : IndexComponent -> Region\nfun[required] float_market_capizatlization : SelectionDay, IndexComponent -> FloatMarketCapizatlization\nfun[required] weight : SelectionDay, IndexComponent -> Weight\nrel based_on_float_market_capizatlization : SelectionDay, IndexComponent\nrel redistributed_proportionally : SelectionDay, IndexComponent\nconstraint weight_based_on_float_market_capizatlization :\n  forall d: SelectionDay, forall c: IndexComponent,\n    based_on_float_market_capizatlization(d, c)\nconstraint region_represents_exactly_50_percent :\n  forall d: SelectionDay, forall r: Region,\n    sum(c in IndexComponent where region(c) = r, weight(d, c)) = 50%\nconstraint single_index_component_weight_capped :\n  forall d: SelectionDay, forall c: IndexComponent,\n    weight(d, c) <= 5%\nconstraint weights_redistributed_proportionally :\n  forall d: SelectionDay, forall c: IndexComponent,\n    redistributed_proportionally(d, c)",
+          "rendering_status": "rendered_from_ast",
+          "status": "ok"
+        },
+        "deterministic_screening": {}
+      }
+    ]
+  },
+  "manual_reference": {
+    "source_excerpt": "### 2.3 Weighting of the Index Components\n\nOn each Selection Day, each Index Component is assigned a weight based on its Float Market Capizatlization subject to the following constraints:\n\n- Each region must represent exactly 50% of the total Index\n- The weight of any single Index Component is capped at 5%.\n\nThe weights are redistributed proportionally in an iterative process until both constraints are satisfied.",
+    "manual_normalized_clauses": [
+      "### 2.3 Weighting of the Index Components",
+      "On each Selection Day, each Index Component is assigned a weight based on its Float Market Capizatlization subject to the following constraints:",
+      "- Each region must represent exactly 50% of the total Index",
+      "- The weight of any single Index Component is capped at 5%.",
+      "The weights are redistributed proportionally in an iterative process until both constraints are satisfied."
+    ],
+    "focus_term": "sections/section_2_3",
+    "disable_silver_reference": false
+  },
+  "manual_source_artifact": "manual_workspace_only",
+  "manual_note": "Manual workspace sections/section_2_3 IR evaluated against current manual normalized.md."
+}

@@ -1,0 +1,60 @@
+{
+  "entry_id": "section_1_3",
+  "skipped": false,
+  "ir_innf_families_used": [
+    "AssertDecl",
+    "SymbolDecl",
+    "TypeDecl"
+  ],
+  "ir_fine_families_used": [
+    "AssertDecl.constraint",
+    "AssertDecl.fact",
+    "SymbolDecl.entity",
+    "SymbolDecl.fun",
+    "SymbolDecl.rel",
+    "TypeDecl.sort_opaque",
+    "TypeDecl.sort_subtype"
+  ],
+  "ir_family_counts": {
+    "TypeDecl.sort_opaque": 1,
+    "TypeDecl.sort_subtype": 2,
+    "SymbolDecl.entity": 9,
+    "SymbolDecl.rel": 8,
+    "SymbolDecl.fun": 2,
+    "AssertDecl.fact": 4,
+    "AssertDecl.constraint": 3
+  },
+  "ir_expr_markers": {
+    "forall": 7,
+    "implies": 3,
+    "temporal_order_static_relation_call": 2
+  },
+  "source_signals": {
+    "temporal_order": {
+      "expected_family": "TemporalDecl",
+      "expectation_mode": "required",
+      "matches": [
+        "prior to"
+      ]
+    }
+  },
+  "gaps": [],
+  "required_gaps": [],
+  "advisory_gaps": [],
+  "matches": [
+    {
+      "signal": "temporal_order",
+      "expected_family": "TemporalDecl",
+      "expectation_mode": "required",
+      "evidence": [
+        "prior to"
+      ],
+      "satisfied": true,
+      "satisfied_by": "static_temporal_relation_call"
+    }
+  ],
+  "n_gaps": 0,
+  "n_required_gaps": 0,
+  "n_advisory_gaps": 0,
+  "n_matches": 1
+}

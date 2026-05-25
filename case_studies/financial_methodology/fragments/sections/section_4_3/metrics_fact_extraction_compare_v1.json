@@ -1,0 +1,52 @@
+{
+  "entry_id": "section_4_3",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1624,
+    "completion_tokens": 83,
+    "total_tokens": 1707
+  },
+  "latency_s": 1.8995447158813477,
+  "raw_parsed": {
+    "source_facts": [
+      "The Index level will be rounded to two decimal places."
+    ],
+    "render_facts": [
+      "The Index level is rounded to two decimal places.",
+      "The TwoDecimalPlaces rounding precision is defined as having a decimal place count of 2."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 0,
+        "match": "paraphrase"
+      }
+    ],
+    "render_only": [
+      1
+    ]
+  },
+  "summary": {
+    "n_source_facts": 1,
+    "n_render_facts": 2,
+    "matched_source": 1,
+    "matched_render": 1,
+    "render_only": 1,
+    "missing_source": 0,
+    "weaker_in_render": 0,
+    "stronger_in_render": 0,
+    "recall": 1.0,
+    "precision": 0.5,
+    "f1": 0.667,
+    "missing_source_facts": [],
+    "render_only_facts": [
+      {
+        "idx": 1,
+        "fact": "The TwoDecimalPlaces rounding precision is defined as having a decimal place count of 2."
+      }
+    ],
+    "weaker_pairs": [],
+    "stronger_pairs": []
+  }
+}

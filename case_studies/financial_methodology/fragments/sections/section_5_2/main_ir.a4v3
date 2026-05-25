@@ -1,0 +1,184 @@
+sort Index
+sort IndexMethodology
+sort MethodologyReview
+sort MethodologyChangeNeed
+sort MethodologyChange
+sort ReviewIdentifiedMethodologyChange extends MethodologyChange
+sort MethodologyPolicy extends Document
+sort IndexAmendment
+
+sort MethodologyChangeNeedExampleCondition =
+  UnderlyingMarketChange
+  | EconomicRealityChange
+  | ObsoleteAssumption
+  | ObsoleteFactor
+  | NoLongerReflectsReality
+
+sort ReflectionQuality =
+  Accuracy
+  | Reliability
+  | Appropriateness
+
+entity TheIndex : Index
+entity TheIndexMethodology : IndexMethodology
+entity Solactive : Organization
+entity Guideline : Document
+entity SolactiveMethodologyPolicy : MethodologyPolicy
+entity SolactiveWebsite : WebResource
+entity AnnouncementSection : DocumentPart
+
+-- raw_url: https://www.solactive.com/documents/methodology-policy/
+entity HttpsWwwSolactiveComDocumentsMethodologyPolicy : Url
+
+-- raw_url: https://www.solactive.com/news/announcements/
+entity HttpsWwwSolactiveComNewsAnnouncements : Url
+
+rel methodology_of_index : IndexMethodology, Index
+
+rel review_of_methodology : MethodologyReview, IndexMethodology
+rel regular : MethodologyReview
+rel at_least_annually : MethodologyReview
+
+rel change_need_of_methodology : MethodologyChangeNeed, IndexMethodology
+rel need_identified_within_review : MethodologyChangeNeed, MethodologyReview
+rel change_for_need : ReviewIdentifiedMethodologyChange, MethodologyChangeNeed
+rel change_of_methodology : MethodologyChange, IndexMethodology
+
+rel need_has_example_condition :
+  MethodologyChangeNeed, MethodologyChangeNeedExampleCondition
+rel example_condition_for_methodology_change_need :
+  MethodologyChangeNeedExampleCondition
+rel example_condition_changed_since_launch_of_index :
+  MethodologyChangeNeedExampleCondition, Index
+rel example_condition_obsolete_assumption_for_methodology :
+  MethodologyChangeNeedExampleCondition, IndexMethodology
+rel example_condition_obsolete_factor_for_methodology :
+  MethodologyChangeNeedExampleCondition, IndexMethodology
+rel methodology_has_obsolete_basis :
+  IndexMethodology, MethodologyChangeNeedExampleCondition
+rel example_condition_reflection_quality :
+  MethodologyChangeNeedExampleCondition, ReflectionQuality
+rel reflects_reality_as_before :
+  IndexMethodology, ReflectionQuality
+
+rel incorporated_by_reference_into : Document, Document
+rel available_on : Document, WebResource
+rel website_of : WebResource, Organization
+rel section_of_website : DocumentPart, WebResource
+
+fun[required] last_amendment : Index -> IndexAmendment
+fun[required] amendment_date : IndexAmendment -> Day
+rel amendment_of_index : IndexAmendment, Index
+rel contained_in : Day, Document
+
+fact index_methodology_scope :
+  methodology_of_index(TheIndexMethodology, TheIndex)
+
+constraint methodology_subject_to_regular_review_at_least_annually :
+  exists r: MethodologyReview,
+    review_of_methodology(r, TheIndexMethodology)
+    and regular(r)
+    and at_least_annually(r)
+
+constraint methodology_reviews_are_regular_at_least_annually :
+  forall r: MethodologyReview,
+    review_of_methodology(r, TheIndexMethodology)
+    implies
+      regular(r)
+      and at_least_annually(r)
+
+constraint identified_need_has_review_identified_change :
+  forall n: MethodologyChangeNeed, forall r: MethodologyReview,
+    need_identified_within_review(n, r)
+    and review_of_methodology(r, TheIndexMethodology)
+    implies
+      (
+        change_need_of_methodology(n, TheIndexMethodology)
+        and
+        exists c: ReviewIdentifiedMethodologyChange,
+          change_for_need(c, n)
+          and change_of_methodology(c, TheIndexMethodology)
+      )
+
+obligation make_methodology_change_in_accordance_with_policy(
+  change: ReviewIdentifiedMethodologyChange
+)
+  action: make_in_accordance_with
+  target: SolactiveMethodologyPolicy
+
+obligation announce_methodology_change_on_solactive_website(
+  change: ReviewIdentifiedMethodologyChange
+)
+  action: announce
+  target: SolactiveWebsite
+  scope: AnnouncementSection
+
+fact methodology_change_need_example_condition_catalog :
+  example_condition_for_methodology_change_need(UnderlyingMarketChange)
+  and example_condition_for_methodology_change_need(EconomicRealityChange)
+  and example_condition_for_methodology_change_need(ObsoleteAssumption)
+  and example_condition_for_methodology_change_need(ObsoleteFactor)
+  and example_condition_for_methodology_change_need(NoLongerReflectsReality)
+  and example_condition_changed_since_launch_of_index(
+    UnderlyingMarketChange,
+    TheIndex
+  )
+  and example_condition_changed_since_launch_of_index(
+    EconomicRealityChange,
+    TheIndex
+  )
+  and example_condition_obsolete_assumption_for_methodology(
+    ObsoleteAssumption,
+    TheIndexMethodology
+  )
+  and methodology_has_obsolete_basis(
+    TheIndexMethodology,
+    ObsoleteAssumption
+  )
+  and example_condition_obsolete_factor_for_methodology(
+    ObsoleteFactor,
+    TheIndexMethodology
+  )
+  and methodology_has_obsolete_basis(
+    TheIndexMethodology,
+    ObsoleteFactor
+  )
+  and example_condition_reflection_quality(NoLongerReflectsReality, Accuracy)
+  and example_condition_reflection_quality(NoLongerReflectsReality, Reliability)
+  and example_condition_reflection_quality(NoLongerReflectsReality, Appropriateness)
+
+constraint no_longer_reflects_reality_condition_means_not_reflects_reality_as_before :
+  forall q: ReflectionQuality,
+    example_condition_reflection_quality(NoLongerReflectsReality, q)
+    implies not reflects_reality_as_before(TheIndexMethodology, q)
+
+constraint methodology_change_need_example_condition_scope :
+  forall n: MethodologyChangeNeed,
+  forall c: MethodologyChangeNeedExampleCondition,
+    need_has_example_condition(n, c)
+    implies
+      change_need_of_methodology(n, TheIndexMethodology)
+      and example_condition_for_methodology_change_need(c)
+
+fact methodology_policy_location :
+  document_url(
+    SolactiveMethodologyPolicy,
+    HttpsWwwSolactiveComDocumentsMethodologyPolicy
+  )
+  and available_on(SolactiveMethodologyPolicy, SolactiveWebsite)
+  and website_of(SolactiveWebsite, Solactive)
+  and incorporated_by_reference_into(SolactiveMethodologyPolicy, Guideline)
+
+fact announcement_section_location :
+  section_of_website(AnnouncementSection, SolactiveWebsite)
+  and document_part_url(
+    AnnouncementSection,
+    HttpsWwwSolactiveComNewsAnnouncements
+  )
+
+fact last_amendment_date_contained_in_guideline :
+  amendment_of_index(last_amendment(TheIndex), TheIndex)
+  and contained_in(
+    amendment_date(last_amendment(TheIndex)),
+    Guideline
+  )

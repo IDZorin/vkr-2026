@@ -1,0 +1,93 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_3 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:IndexLevel a owl:Class .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:ArticleNumber a owl:Class .
+ex:ArticleNumber rdfs:subClassOf ex:Nat .
+
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR a ex:Index, owl:NamedIndividual .
+ex:StartDate05_08_2017 a ex:Day, owl:NamedIndividual .
+ex:LiveDate29_09_2025 a ex:Day, owl:NamedIndividual .
+ex:BMR a ex:Document, owl:NamedIndividual .
+ex:Article8OfBMR a ex:DocumentPart, owl:NamedIndividual .
+ex:section_1_3_index a owl:Class ; rdfs:subClassOf ex:Index .
+ex:start_date a owl:Class ; rdfs:subClassOf ex:Day .
+ex:live_date a owl:Class ; rdfs:subClassOf ex:Day .
+ex:historical_value a owl:Class, a4:NaryRelationClass .
+ex:historical_value_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:historical_value ;
+  rdfs:range ex:IndexLevel .
+ex:historical_value_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:historical_value ;
+  rdfs:range ex:Index .
+ex:historical_value_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:historical_value ;
+  rdfs:range ex:Day .
+ex:recorded_in_accordance_with a owl:ObjectProperty ;
+  rdfs:domain ex:IndexLevel ;
+  rdfs:range ex:DocumentPart .
+ex:published_level_for_period a owl:Class, a4:NaryRelationClass .
+ex:published_level_for_period_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:published_level_for_period ;
+  rdfs:range ex:IndexLevel .
+ex:published_level_for_period_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:published_level_for_period ;
+  rdfs:range ex:Index .
+ex:published_level_for_period_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:published_level_for_period ;
+  rdfs:range ex:Period .
+ex:period_prior_to a owl:ObjectProperty ;
+  rdfs:domain ex:Period ;
+  rdfs:range ex:Day .
+ex:back_tested a owl:Class ; rdfs:subClassOf ex:IndexLevel .
+ex:initial_level a owl:Class, a4:NaryRelationClass .
+ex:initial_level_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:initial_level ;
+  rdfs:range ex:Index .
+ex:initial_level_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:initial_level ;
+  rdfs:range ex:Day .
+ex:initial_level_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:initial_level ;
+  rdfs:range ex:IndexLevel .
+ex:article_number a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:DocumentPart ;
+  rdfs:range ex:ArticleNumber .
+
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR a ex:section_1_3_index .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR a ex:section_1_3_index .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR a ex:section_1_3_index .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR a ex:section_1_3_index .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR a ex:section_1_3_index .
+ex:StartDate05_08_2017 a ex:start_date .
+ex:LiveDate29_09_2025 a ex:live_date .
+ex:Article8OfBMR ex:article_number "8"^^xsd:integer .
+ex:ASSERT_article_8_of_bmr a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(part_of_document(Article8OfBMR, BMR)) and ((article_number(Article8OfBMR)) = (8))" .
+ex:ASSERT_initial_level_default_on_start_date a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, ((section_1_3_index(i)) and (not ((i) = (SolactiveTransatlanticCleanEnergyEURIndex50AR)))) implies ((initial_level(i, StartDate05_08_2017)) = (1000))" .
+ex:FACT_initial_level_50_ar_on_start_date_initial_level_0 a ex:initial_level .
+ex:FACT_initial_level_50_ar_on_start_date_initial_level_0 ex:initial_level_arg_0 ex:SolactiveTransatlanticCleanEnergyEURIndex50AR .
+ex:FACT_initial_level_50_ar_on_start_date_initial_level_0 ex:initial_level_arg_1 ex:StartDate05_08_2017 .
+ex:FACT_initial_level_50_ar_on_start_date_initial_level_0 ex:initial_level_result "739.08"^^xsd:decimal .
+ex:ASSERT_historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, forall d: Day, forall l: IndexLevel, ((section_1_3_index(i)) and (historical_value(l, i, d)) and (not (day_before(d, LiveDate29_09_2025)))) implies (recorded_in_accordance_with(l, Article8OfBMR))" .
+ex:ASSERT_levels_published_prior_to_live_date_back_tested a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, forall p: Period, forall l: IndexLevel, ((section_1_3_index(i)) and (published_level_for_period(l, i, p)) and (period_prior_to(p, LiveDate29_09_2025))) implies (back_tested(l))" .

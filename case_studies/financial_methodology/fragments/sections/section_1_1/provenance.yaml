@@ -1,0 +1,155 @@
+section: "1.1 Scope of the Index"
+source_file: "source.md"
+schema_version: "v2"
+review_status: "draft_ir_to_text_user_review"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+# For each fact/constraint/obligation/permission/prohibition:
+#   kind             -- IR family
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | plumbing | derived_invariant | verification_probe | source_correction
+#   source_quotes    -- verbatim source spans the element formalizes
+#   back_translation -- natural-language unfolding of the IR formula using source phrasing
+#   vocabulary_basis -- source_only | mixed | ir_internal_bridge | ir_plumbing | ir_correction_alias
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+#   notes            -- optional clarification
+
+claims:
+
+  index_scope_table_attributes:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Asset Class           | Equity"
+      - "Strategy              | Representation of securities that have business operations in the field of clean energy."
+      - "Regional Allocation   | Developed Markets Europe, United States and Canada"
+      - "Rebalancing Fee       | -"
+      - "Rebalancing Frequency | Semi-annual"
+    back_translation: >
+      For the Index: the Asset Class is Equity; the Strategy is the
+      representation of securities that have business operations in the
+      field of clean energy; the Regional Allocation includes Developed
+      Markets Europe, includes United States, and includes Canada; the
+      Rebalancing Fee is none; and the Rebalancing Frequency is Semi-annual.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      One aggregating fact per "Tabular section -> ontology" policy: every
+      row of the section's attribute table is collected into a single fact
+      conjoining all attribute values for the Index.
+
+      Two source-interpretation choices are made here and recorded as
+      disclaimer candidates:
+      (a) "Rebalancing Fee: -" is interpreted as the explicit absence
+      "no rebalancing fee" (encoded by the named enum value
+      NoRebalancingFee), not as missing or unspecified data. The bridge
+      constraint `no_rebalancing_fee_means_rebalancing_fee_not_charged`
+      makes the negative polarity explicit for contradiction checks.
+      (b) "Regional Allocation" is multi-valued: the comma-and-"and"
+      separated list "Developed Markets Europe, United States and Canada"
+      is read as three independent allocation values for the Index, each
+      contributed as a separate conjunct under the multi-valued
+      regional_allocation relation.
+
+  clean_energy_strategy_represents_clean_energy_securities:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Strategy              | Representation of securities that have business operations in the field of clean energy."
+    back_translation: >
+      Every security represented by the Strategy of the Index has business
+      operations in the field of clean energy.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Structural unfolding of the descriptive Strategy cell. The source
+      phrase "Representation of securities that have business operations
+      in the field of clean energy" is read as a one-directional necessary
+      condition: every security that the Strategy represents has business
+      operations in the field of clean energy. The reverse direction (every
+      security with such operations is represented by the Strategy) is not
+      asserted; "Representation of X" is treated as implies, not iff.
+      Disclaimer candidate: a stricter reading could make this biconditional;
+      the safer one-directional reading is chosen here.
+
+  no_rebalancing_fee_means_rebalancing_fee_not_charged:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "Rebalancing Fee       | -"
+    back_translation: >
+      If an Index has no rebalancing fee, then a rebalancing fee is not
+      charged for that Index.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Polarity bridge for contradiction detection. The table cell "-" was
+      already interpreted as explicit absence of a rebalancing fee. This
+      constraint adds the positive carrier `rebalancing_fee_charged(i)` and
+      links `NoRebalancingFee` to `not rebalancing_fee_charged(i)`, so a
+      later merged claim that a fee is charged can conflict explicitly.
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  TheIndex:
+    note: >
+      Local entity for the section's references to "the Index".
+      Cross-section identity belongs to the merge layer if this section
+      is combined with Section 1.2 entities.
+  CleanEnergyBusinessOperationsStrategy:
+    note: >
+      Entity for the source's "Strategy: Representation of securities that
+      have business operations in the field of clean energy". The entity's
+      identity is fixed by the source description; the descriptive
+      semantics are unfolded in the constraint
+      `clean_energy_strategy_represents_clean_energy_securities`.
+  AssetClass:
+    note: >
+      Singleton enum with the source value "Equity" as its only declared
+      member. The singleton form is intentional: the schema accommodates
+      other Indices with different asset classes (e.g. Fixed Income) by
+      extending the enum, while this section commits only to Equity.
+  IndexStrategy:
+    note: >
+      Open sort (not enum) for index strategies. The specific instance
+      relevant to this section is the named entity
+      CleanEnergyBusinessOperationsStrategy. Open sort accommodates
+      other indices with arbitrary descriptive strategies.
+  BusinessField:
+    note: >
+      Singleton enum with the source value "clean energy" (encoded as
+      enum member CleanEnergy). Singleton form for extensibility; other
+      indices may classify business fields differently.
+  RegionalAllocation:
+    note: >
+      Enum capturing the three regions listed in the source: "Developed
+      Markets Europe", "United States", and "Canada". Multi-valued under
+      the relation `regional_allocation : Index, RegionalAllocation`.
+      Source phrases for back-translation are the verbatim labels with
+      spaces.
+  RebalancingFeeStatus:
+    note: >
+      Singleton enum with member NoRebalancingFee encoding the source's
+      "-" cell as explicit absence of a rebalancing fee. The interpretive
+      choice ("-" = no fee, rather than = missing data) is the
+      disclaimer candidate documented in
+      `index_scope_table_attributes` notes.
+  rebalancing_fee_charged:
+    note: >
+      Positive carrier relation for contradiction detection. The source-facing
+      enum value NoRebalancingFee is linked to `not
+      rebalancing_fee_charged(i)` by
+      `no_rebalancing_fee_means_rebalancing_fee_not_charged`, so a later
+      merged claim that a rebalancing fee is charged can conflict explicitly.
+    source_phrase: "Rebalancing Fee"
+  RebalancingFrequency:
+    note: >
+      Singleton enum with the source value "Semi-annual" (encoded as enum
+      member SemiAnnual). Singleton form for extensibility.

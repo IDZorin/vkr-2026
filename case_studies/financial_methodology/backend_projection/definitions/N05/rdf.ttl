@@ -1,0 +1,22 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N05 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N05/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:calculation_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:calculation_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:calculation_day a4:argument ex:calculation_day_arg_0 .
+
+ex:ASSERT_calculation_day_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "3"^^xsd:integer ;
+  a4:exprText "forall d: Day, (calculation_day(d)) iff (((WeekdayOf(d)) = (Monday)) or ((WeekdayOf(d)) = (Tuesday)) or ((WeekdayOf(d)) = (Wednesday)) or ((WeekdayOf(d)) = (Thursday)) or ((WeekdayOf(d)) = (Friday)))" ;
+  a4:sourceText "constraint calculation_day_definition :\n  forall d: Day,\n    calculation_day(d)\n    iff\n      WeekdayOf(d) = Monday\n      or WeekdayOf(d) = Tuesday\n      or WeekdayOf(d) = Wednesday\n      or WeekdayOf(d) = Thursday\n      or WeekdayOf(d) = Friday" .

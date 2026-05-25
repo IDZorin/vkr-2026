@@ -1,0 +1,69 @@
+{
+  "entry_id": "section_4_5",
+  "skipped": false,
+  "ir_innf_families_used": [
+    "AssertDecl",
+    "DeonticDecl",
+    "SymbolDecl",
+    "TypeDecl"
+  ],
+  "ir_fine_families_used": [
+    "AssertDecl.constraint",
+    "AssertDecl.fact",
+    "DeonticDecl.obligation",
+    "DeonticDecl.permission",
+    "SymbolDecl.entity",
+    "SymbolDecl.fun",
+    "SymbolDecl.rel",
+    "TypeDecl.sort_enum",
+    "TypeDecl.sort_opaque",
+    "TypeDecl.sort_subtype"
+  ],
+  "ir_family_counts": {
+    "TypeDecl.sort_opaque": 12,
+    "TypeDecl.sort_enum": 3,
+    "TypeDecl.sort_subtype": 8,
+    "SymbolDecl.entity": 22,
+    "SymbolDecl.rel": 31,
+    "SymbolDecl.fun": 4,
+    "AssertDecl.fact": 4,
+    "AssertDecl.constraint": 6,
+    "DeonticDecl.obligation": 2,
+    "DeonticDecl.permission": 1
+  },
+  "ir_expr_markers": {
+    "forall": 6,
+    "exists": 7,
+    "implies": 4,
+    "iff": 1
+  },
+  "source_signals": {
+    "quantifier_universal": {
+      "expected_family": "Formula_forall",
+      "expectation_mode": "required",
+      "matches": [
+        "any unusual",
+        "each"
+      ]
+    }
+  },
+  "gaps": [],
+  "required_gaps": [],
+  "advisory_gaps": [],
+  "matches": [
+    {
+      "signal": "quantifier_universal",
+      "expected_family": "Formula_forall",
+      "expectation_mode": "required",
+      "evidence": [
+        "any unusual",
+        "each"
+      ],
+      "satisfied": true
+    }
+  ],
+  "n_gaps": 0,
+  "n_required_gaps": 0,
+  "n_advisory_gaps": 0,
+  "n_matches": 1
+}

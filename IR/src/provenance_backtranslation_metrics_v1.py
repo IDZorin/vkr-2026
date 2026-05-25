@@ -1,6 +1,6 @@
-"""provenance_backtranslation_metrics_v1.py
+﻿"""provenance_backtranslation_metrics_v1.py
 
-Advisory metrics for DZ provenance back-translations.
+Advisory metrics for methodology provenance back-translations.
 
 The check compares each provenance.yaml claim's source_quotes against its
 back_translation. It is intentionally not a gate: source text can be longer,

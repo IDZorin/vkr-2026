@@ -1,0 +1,231 @@
+﻿{
+  "backend": "owl",
+  "artifact": "case_studies\\financial_methodology\\backend_projection\\sections\\section_1_4\\owl.ttl",
+  "diagnostic_count": 40,
+  "diagnostics": [
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "intraday_level",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "closing_level",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "intraday_source_price",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "intraday_calculation_price",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "current_trading_price",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "most_recent_closing_price",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "last_available_trading_price",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "later_of",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "closing_price",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "closing_calculation_price",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "listed_currency",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "current_ice_spot_foreign_exchange_rate",
+      "arity": 4
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "wm_fixing_4pm_london",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "last_available_wm_fixing_4pm_london",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "wm_fixing_for_closing_level",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_relation_reified",
+      "symbol": "calculation_time_from_to",
+      "arity": 4
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_relation_reified",
+      "symbol": "listed_on_exchanges",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_relation_reified",
+      "symbol": "intraday_level_calculated_on",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_relation_reified",
+      "symbol": "price_used_for_level",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_relation_reified",
+      "symbol": "current_trading_price_available",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_relation_reified",
+      "symbol": "converted_from_using",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_relation_reified",
+      "symbol": "wm_fixing_4pm_london_available",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_relation_reified",
+      "symbol": "fixing_time",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "intraday_calculation_window"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "intraday_level_uses_exchange_trading_prices"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "current_trading_price_used_when_available"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "no_current_trading_price_fallback"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "fallback_price_candidates_are_temporally_comparable"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "later_of_returns_a_candidate"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "later_of_selects_temporally_later_candidate"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "intraday_price_kept_when_listed_in_index_currency"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "intraday_price_converted_when_not_listed_in_index_currency"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "current_ice_spot_foreign_exchange_rate_source"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "closing_level_calculated_each_calculation_day"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "closing_level_based_on_closing_prices"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "closing_price_kept_when_listed_in_index_currency"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "closing_price_converted_with_available_wm_fixing"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "closing_price_converted_with_last_available_wm_fixing"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "wm_fixing_4pm_london_quoted_by_reuters"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "last_available_wm_fixing_4pm_london_quoted_by_reuters"
+    }
+  ],
+  "partial": true
+}

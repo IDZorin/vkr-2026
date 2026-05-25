@@ -1,0 +1,43 @@
+(set-logic ALL)
+(set-option :produce-unsat-cores true)
+
+(declare-sort Discretion 0)
+(declare-sort ExerciseBasis 0)
+(declare-sort Index 0)
+(declare-sort IndexDeterminationMatter 0)
+(declare-sort StrictRule 0)
+
+(declare-fun IndexDeterminationDiscretion (Discretion) Bool)
+
+(declare-const DeterminationOfIndex IndexDeterminationMatter)
+(declare-const DeterminationOfIndexUniverse IndexDeterminationMatter)
+(declare-const ExerciseOfDiscretion ExerciseBasis)
+(declare-const ExerciseOfExpertJudgement ExerciseBasis)
+(declare-const OtherRelevantDecisionInRelationToIndex IndexDeterminationMatter)
+(declare-const SelectionOfIndexComponents IndexDeterminationMatter)
+(declare-const StrictRulesForDiscretionAndExpertJudgement StrictRule)
+(declare-const TheIndex Index)
+(declare-const W_d_IndexDeterminationDiscretion Discretion)
+(declare-const W_m_IndexDeterminationMatter IndexDeterminationMatter)
+
+(assert (! (IndexDeterminationDiscretion W_d_IndexDeterminationDiscretion) :named TYPE_witness_W_d_IndexDeterminationDiscretion))
+(assert (! (distinct ExerciseOfDiscretion ExerciseOfExpertJudgement) :named TYPE_enum_distinct_ExerciseBasis))
+(assert (! (distinct DeterminationOfIndex DeterminationOfIndexUniverse SelectionOfIndexComponents OtherRelevantDecisionInRelationToIndex) :named TYPE_enum_distinct_IndexDeterminationMatter))
+
+(declare-fun discretion_in_relation_to_index (Discretion Index) Bool)
+(declare-fun discretion_in_relation_to_matter (Discretion IndexDeterminationMatter) Bool)
+(declare-fun if_applicable (IndexDeterminationMatter) Bool)
+(declare-fun other_relevant_decision_in_relation_to_index (IndexDeterminationMatter) Bool)
+(declare-fun potential_need_to_exercise (Discretion) Bool)
+(declare-fun rules_regarding_exercise (StrictRule ExerciseBasis) Bool)
+(declare-fun strict_rules (StrictRule) Bool)
+
+(assert (! (and (IndexDeterminationDiscretion W_d_IndexDeterminationDiscretion) (and (potential_need_to_exercise W_d_IndexDeterminationDiscretion) (discretion_in_relation_to_index W_d_IndexDeterminationDiscretion TheIndex) (discretion_in_relation_to_matter W_d_IndexDeterminationDiscretion W_m_IndexDeterminationMatter))) :named BOUNDED_TEXT_index_determination_discretion_scope))
+(assert (! (and (if_applicable DeterminationOfIndexUniverse) (if_applicable SelectionOfIndexComponents) (other_relevant_decision_in_relation_to_index OtherRelevantDecisionInRelationToIndex)) :named BOUNDED_TEXT_applicable_example_matters))
+(assert (! (and (strict_rules StrictRulesForDiscretionAndExpertJudgement) (rules_regarding_exercise StrictRulesForDiscretionAndExpertJudgement ExerciseOfDiscretion) (rules_regarding_exercise StrictRulesForDiscretionAndExpertJudgement ExerciseOfExpertJudgement)) :named BOUNDED_TEXT_strict_rules_for_discretion_or_expert_judgement))
+
+(check-sat)
+(push 1)
+(assert (! (and (IndexDeterminationDiscretion W_d_IndexDeterminationDiscretion) (discretion_in_relation_to_matter W_d_IndexDeterminationDiscretion W_m_IndexDeterminationMatter)) :named BOUNDED_PROBE_section_5_1__index_determination_discretion_scope__existential_witness__001))
+(check-sat)
+(pop 1)

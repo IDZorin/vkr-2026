@@ -1,0 +1,9 @@
+sort DefinedTerm
+
+entity BenchmarkRegulationTerm : DefinedTerm
+entity IntroductionSection : DocumentPart
+
+rel term_shall_have_meaning_defined_in_section : DefinedTerm, DocumentPart
+
+fact benchmark_regulation_meaning_defined_in_introduction :
+  term_shall_have_meaning_defined_in_section(BenchmarkRegulationTerm, IntroductionSection)

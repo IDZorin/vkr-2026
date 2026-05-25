@@ -1,0 +1,54 @@
+{
+  "entry_id": "section_5_3",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1458,
+    "completion_tokens": 262,
+    "total_tokens": 1720
+  },
+  "latency_s": 2.16406512260437,
+  "probes": {
+    "probe_scope": "no",
+    "probe_scope_evidence": "\"The Index Administrator shall apply the method described above\"",
+    "probe_scope_drift": "The universal/obligatory scope of the duty is weakened and split into descriptive statements rather than preserved as a single obligation.",
+    "probe_exception": "yes",
+    "probe_exception_evidence": "\"However, it cannot be excluded that the market environment, supervisory, legal and financial or tax reasons may require changes\"",
+    "probe_exception_drift": "",
+    "probe_negation": "yes",
+    "probe_negation_evidence": "\"it cannot be excluded\"",
+    "probe_negation_drift": "",
+    "probe_counterfactual": "n_a",
+    "probe_counterfactual_evidence": "",
+    "probe_counterfactual_drift": "",
+    "probe_clarification": "yes",
+    "probe_clarification_evidence": "\"the method described above\"",
+    "probe_clarification_drift": "",
+    "probe_responsibility": "yes",
+    "probe_responsibility_evidence": "\"The Index Administrator shall apply\"",
+    "probe_responsibility_drift": "",
+    "probe_reference": "n_a",
+    "probe_reference_evidence": "",
+    "probe_reference_drift": "",
+    "probe_temporal_order": "n_a",
+    "probe_temporal_order_evidence": "",
+    "probe_temporal_order_drift": "",
+    "probe_value_source": "n_a",
+    "probe_value_source_evidence": "",
+    "probe_value_source_drift": ""
+  },
+  "summary": {
+    "yes": 4,
+    "no": 1,
+    "n_a": 4,
+    "preservation_rate": 0.8
+  },
+  "drifts": [
+    {
+      "probe": "scope",
+      "evidence": "\"The Index Administrator shall apply the method described above\"",
+      "drift": "The universal/obligatory scope of the duty is weakened and split into descriptive statements rather than preserved as a single obligation."
+    }
+  ],
+  "raw": null
+}

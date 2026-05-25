@@ -1,0 +1,58 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N10 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N10/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexComponent a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:Exchange a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Listing a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Rules a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:Section2Rules a ex:Rules, owl:NamedIndividual .
+ex:respective_exchange_for_index_component a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:respective_exchange_for_index_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:respective_exchange_for_index_component a4:argument ex:respective_exchange_for_index_component_arg_0 .
+ex:respective_exchange_for_index_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:respective_exchange_for_index_component a4:argument ex:respective_exchange_for_index_component_arg_1 .
+ex:respective_exchange_for_index_component a4:resultSort ex:Exchange .
+ex:respective_exchange_for_index_component a4:functionFlag "required" .
+ex:listing_component a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:listing_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Listing .
+ex:listing_component a4:argument ex:listing_component_arg_0 .
+ex:listing_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:listing_component a4:argument ex:listing_component_arg_1 .
+ex:listing_exchange a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:listing_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Listing .
+ex:listing_exchange a4:argument ex:listing_exchange_arg_0 .
+ex:listing_exchange_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Exchange .
+ex:listing_exchange a4:argument ex:listing_exchange_arg_1 .
+ex:listing_determined_in_accordance_with_rules a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:listing_determined_in_accordance_with_rules_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Listing .
+ex:listing_determined_in_accordance_with_rules a4:argument ex:listing_determined_in_accordance_with_rules_arg_0 .
+ex:listing_determined_in_accordance_with_rules_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Rules .
+ex:listing_determined_in_accordance_with_rules a4:argument ex:listing_determined_in_accordance_with_rules_arg_1 .
+
+ex:ASSERT_exchange_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "16"^^xsd:integer ;
+  a4:exprText "forall c: IndexComponent, exists l: Listing, (listing_component(l, c)) and (listing_determined_in_accordance_with_rules(l, Section2Rules)) and ((respective_exchange_for_index_component(TheIndex, c)) = (listing_exchange(l)))" ;
+  a4:sourceText "constraint exchange_definition :\n  forall c: IndexComponent,\n    exists l: Listing,\n      listing_component(l, c)\n      and listing_determined_in_accordance_with_rules(l, Section2Rules)\n      and respective_exchange_for_index_component(TheIndex, c) = listing_exchange(l)" .

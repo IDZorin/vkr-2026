@@ -1,0 +1,29 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N23 a owl:Ontology .
+
+ex:IndexUniverse a owl:Class .
+ex:IndexUniverseRequirements a owl:Class .
+
+ex:TheIndexUniverse a ex:IndexUniverse, owl:NamedIndividual .
+ex:TheIndexUniverseRequirements a ex:IndexUniverseRequirements, owl:NamedIndividual .
+ex:financial_instrument_in_index_universe a owl:ObjectProperty ;
+  rdfs:domain ex:FinancialInstrument ;
+  rdfs:range ex:IndexUniverse .
+ex:fulfills_index_universe_requirements a owl:ObjectProperty ;
+  rdfs:domain ex:FinancialInstrument ;
+  rdfs:range ex:IndexUniverseRequirements .
+ex:index_universe_is_sum_of_financial_instruments_fulfilling_requirements a owl:ObjectProperty ;
+  rdfs:domain ex:IndexUniverse ;
+  rdfs:range ex:IndexUniverseRequirements .
+
+ex:TheIndexUniverse ex:index_universe_is_sum_of_financial_instruments_fulfilling_requirements ex:TheIndexUniverseRequirements .
+ex:ASSERT_index_universe_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall fi: FinancialInstrument, (financial_instrument_in_index_universe(fi, TheIndexUniverse)) iff (fulfills_index_universe_requirements(fi, TheIndexUniverseRequirements))" .

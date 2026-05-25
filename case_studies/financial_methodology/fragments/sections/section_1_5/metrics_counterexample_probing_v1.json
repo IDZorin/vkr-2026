@@ -1,0 +1,78 @@
+{
+  "entry_id": "section_1_5",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1499,
+    "completion_tokens": 308,
+    "total_tokens": 1807
+  },
+  "latency_s": 2.6622703075408936,
+  "scenarios": [
+    {
+      "description": "Solactive issues a license to a stock exchange allowing use of the Index as the underlying value for a financial instrument.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A bank is issued a license by Solactive to use the Index as the underlying value for an investment fund.",
+      "category": "negative",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "Solactive issues a license to a stock exchange for use of the Index as the underlying value for a financial instrument, and also issues a separate license to a pension fund for the same purpose.",
+      "category": "scope_edge",
+      "source_verdict": "reject",
+      "ir_verdict": "ambiguous",
+      "agree": false,
+      "drift_explanation": "The source text only lists stock exchanges, banks, financial services providers, and investment houses as possible recipients, so the pension fund case is outside the stated recipient set. The IR explicitly constrains recipient categories to the listed four and says nothing about any other recipient type, so the extra issuance is not directly covered and is ambiguous in the IR alone."
+    },
+    {
+      "description": "A license to use the Index as the underlying value for a financial contract is issued by a bank rather than by Solactive.",
+      "category": "modality_edge",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 3,
+    "agreement_rate": 0.75,
+    "drifts": [
+      {
+        "description": "Solactive issues a license to a stock exchange for use of the Index as the underlying value for a financial instrument, and also issues a separate license to a pension fund for the same purpose.",
+        "category": "scope_edge",
+        "source_verdict": "reject",
+        "ir_verdict": "ambiguous",
+        "agree": false,
+        "drift_explanation": "The source text only lists stock exchanges, banks, financial services providers, and investment houses as possible recipients, so the pension fund case is outside the stated recipient set. The IR explicitly constrains recipient categories to the listed four and says nothing about any other recipient type, so the extra issuance is not directly covered and is ambiguous in the IR alone."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 0
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

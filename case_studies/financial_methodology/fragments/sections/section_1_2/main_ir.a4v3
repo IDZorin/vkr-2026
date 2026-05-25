@@ -1,0 +1,207 @@
+sort Index
+sort IndexName
+sort ISIN
+sort RIC
+sort BBGTicker
+
+sort IndexType = PriceReturn | NetTotalReturn | GrossTotalReturn | AdjustedReturnIndex
+sort IndexTypeIdentifier = PR | NTR | GTR | AR
+
+sort IndexAdministrator extends Organization
+sort PriceMarketingServices
+sort Vendor extends Organization
+sort AffiliatedVendor extends Vendor
+sort InformationSystem
+sort VendorDistributionOrDisplayDecision
+
+sort IndexPublication
+
+entity Solactive : IndexAdministrator
+entity BoerseStuttgartGmbH : Organization
+entity BoerseStuttgartGmbHPriceMarketingServices : PriceMarketingServices
+
+entity EUR : Currency
+
+entity SolactiveTransatlanticCleanEnergyEURIndexPR : Index
+entity SolactiveTransatlanticCleanEnergyEURIndexNTR : Index
+entity SolactiveTransatlanticCleanEnergyEURIndexTR : Index
+entity SolactiveTransatlanticCleanEnergyEURIndex50AR : Index
+entity SolactiveTransatlanticCleanEnergyEURIndex5PercentAR : Index
+
+entity SolactiveTransatlanticCleanEnergyEURIndexPRName : IndexName
+entity SolactiveTransatlanticCleanEnergyEURIndexNTRName : IndexName
+entity SolactiveTransatlanticCleanEnergyEURIndexTRName : IndexName
+entity SolactiveTransatlanticCleanEnergyEURIndex50ARName : IndexName
+entity SolactiveTransatlanticCleanEnergyEURIndex5PercentARName : IndexName
+
+entity DE000SL0R4B4 : ISIN
+entity DE000SL0R4C2 : ISIN
+entity DE000SL0R4D0 : ISIN
+entity DE000SL0R4E8 : ISIN
+entity DE000SL0R4F5 : ISIN
+
+entity DotSOLTCEYP : RIC
+entity DotSOLTCEYN : RIC
+entity DotSOLTCEYT : RIC
+entity DotSOLTCA50 : RIC
+entity DotSOLTCEA5 : RIC
+
+entity SOLTCEYP : BBGTicker
+entity SOLTCEYT : BBGTicker
+entity SOLTCA50 : BBGTicker
+entity SOLTCEA5 : BBGTicker
+
+entity Guideline : Document
+entity EquityIndexMethodology : Document
+entity Section4 : DocumentPart
+entity Section4Locator : DocumentLocator
+
+entity SolactiveWebsite : WebResource
+entity IndexAdministratorAnnouncementsWebsite : WebResource
+
+-- raw_url: https://www.solactive.com
+entity HttpsWwwSolactiveCom : Url
+-- raw_url: https://www.solactive.com/documents/equity-index-methodology/
+entity HttpsWwwSolactiveComDocumentsEquityIndexMethodology : Url
+-- raw_url: https://www.solactive.com/news/announcements/
+entity HttpsWwwSolactiveComNewsAnnouncements : Url
+
+fun[optional] index_name : Index -> IndexName
+fun[optional] index_isin : Index -> ISIN
+fun[optional] index_currency : Index -> Currency
+fun[optional] index_type : Index -> IndexType
+fun[optional] index_type_identifier : IndexType -> IndexTypeIdentifier
+fun[optional] index_ric : Index -> RIC
+
+rel bbg_ticker : Index, BBGTicker
+rel published_under_following_identifiers : Index
+rel calculation_described_in : Index, Document
+rel formula_specified_in : Index, DocumentPart
+rel website_of : WebResource, Organization
+rel price_marketing_services_of : PriceMarketingServices, Organization
+rel published_on : Index, WebResource
+rel available_on : Document, WebResource
+rel available_via : Index, PriceMarketingServices
+rel vendor_information_system : Vendor, InformationSystem
+rel distribution_or_display_decision_for_vendor : VendorDistributionOrDisplayDecision, Vendor
+rel distribution_or_display_decision_for_index : VendorDistributionOrDisplayDecision, Index
+rel decision_on_individual_basis : VendorDistributionOrDisplayDecision
+rel decision_via_information_system : VendorDistributionOrDisplayDecision, InformationSystem
+rel publication_in_relation_to_index : IndexPublication, Index
+rel notice_publication_in_relation_to_index : IndexPublication, Index
+rel guideline_amendment_publication_in_relation_to_index : IndexPublication, Document, Index
+rel available_at : IndexPublication, WebResource
+
+fact index_type_identifier_meanings :
+index_type_identifier(PriceReturn) = PR
+and index_type_identifier(NetTotalReturn) = NTR
+and index_type_identifier(GrossTotalReturn) = GTR
+and index_type_identifier(AdjustedReturnIndex) = AR
+
+fact solactive_website :
+has_url(SolactiveWebsite, HttpsWwwSolactiveCom)
+and website_of(SolactiveWebsite, Solactive)
+
+fact equity_index_methodology_location :
+document_url(EquityIndexMethodology, HttpsWwwSolactiveComDocumentsEquityIndexMethodology)
+and available_on(EquityIndexMethodology, SolactiveWebsite)
+
+fact section_4_location :
+part_of_document(Section4, Guideline)
+and document_part_locator(Section4, Section4Locator)
+
+fact announcements_website :
+has_url(IndexAdministratorAnnouncementsWebsite, HttpsWwwSolactiveComNewsAnnouncements)
+and website_of(IndexAdministratorAnnouncementsWebsite, Solactive)
+
+fact boerse_stuttgart_price_marketing_services :
+price_marketing_services_of(BoerseStuttgartGmbHPriceMarketingServices, BoerseStuttgartGmbH)
+
+fact index_pr_identifiers :
+published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexPR)
+and index_name(SolactiveTransatlanticCleanEnergyEURIndexPR) = SolactiveTransatlanticCleanEnergyEURIndexPRName
+and index_isin(SolactiveTransatlanticCleanEnergyEURIndexPR) = DE000SL0R4B4
+and index_currency(SolactiveTransatlanticCleanEnergyEURIndexPR) = EUR
+and index_type(SolactiveTransatlanticCleanEnergyEURIndexPR) = PriceReturn
+and index_ric(SolactiveTransatlanticCleanEnergyEURIndexPR) = DotSOLTCEYP
+and bbg_ticker(SolactiveTransatlanticCleanEnergyEURIndexPR, SOLTCEYP)
+and calculation_described_in(SolactiveTransatlanticCleanEnergyEURIndexPR, EquityIndexMethodology)
+
+fact index_ntr_identifiers :
+published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexNTR)
+and index_name(SolactiveTransatlanticCleanEnergyEURIndexNTR) = SolactiveTransatlanticCleanEnergyEURIndexNTRName
+and index_isin(SolactiveTransatlanticCleanEnergyEURIndexNTR) = DE000SL0R4C2
+and index_currency(SolactiveTransatlanticCleanEnergyEURIndexNTR) = EUR
+and index_type(SolactiveTransatlanticCleanEnergyEURIndexNTR) = NetTotalReturn
+and index_ric(SolactiveTransatlanticCleanEnergyEURIndexNTR) = DotSOLTCEYN
+and calculation_described_in(SolactiveTransatlanticCleanEnergyEURIndexNTR, EquityIndexMethodology)
+
+fact index_tr_identifiers :
+published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexTR)
+and index_name(SolactiveTransatlanticCleanEnergyEURIndexTR) = SolactiveTransatlanticCleanEnergyEURIndexTRName
+and index_isin(SolactiveTransatlanticCleanEnergyEURIndexTR) = DE000SL0R4D0
+and index_currency(SolactiveTransatlanticCleanEnergyEURIndexTR) = EUR
+and index_type(SolactiveTransatlanticCleanEnergyEURIndexTR) = GrossTotalReturn
+and index_ric(SolactiveTransatlanticCleanEnergyEURIndexTR) = DotSOLTCEYT
+and bbg_ticker(SolactiveTransatlanticCleanEnergyEURIndexTR, SOLTCEYT)
+and calculation_described_in(SolactiveTransatlanticCleanEnergyEURIndexTR, EquityIndexMethodology)
+
+fact index_50_ar_identifiers :
+published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndex50AR)
+and index_name(SolactiveTransatlanticCleanEnergyEURIndex50AR) = SolactiveTransatlanticCleanEnergyEURIndex50ARName
+and index_isin(SolactiveTransatlanticCleanEnergyEURIndex50AR) = DE000SL0R4E8
+and index_currency(SolactiveTransatlanticCleanEnergyEURIndex50AR) = EUR
+and index_type(SolactiveTransatlanticCleanEnergyEURIndex50AR) = AdjustedReturnIndex
+and index_ric(SolactiveTransatlanticCleanEnergyEURIndex50AR) = DotSOLTCA50
+and bbg_ticker(SolactiveTransatlanticCleanEnergyEURIndex50AR, SOLTCA50)
+and formula_specified_in(SolactiveTransatlanticCleanEnergyEURIndex50AR, Section4)
+
+fact index_5_percent_ar_identifiers :
+published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR)
+and index_name(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = SolactiveTransatlanticCleanEnergyEURIndex5PercentARName
+and index_isin(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = DE000SL0R4F5
+and index_currency(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = EUR
+and index_type(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = AdjustedReturnIndex
+and index_ric(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = DotSOLTCEA5
+and bbg_ticker(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, SOLTCEA5)
+and calculation_described_in(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, EquityIndexMethodology)
+
+constraint bbg_ticker_at_most_one :
+forall i: Index,
+count(t in BBGTicker where bbg_ticker(i, t)) <= 1
+
+fact listed_indices_publication_channels :
+published_on(SolactiveTransatlanticCleanEnergyEURIndexPR, SolactiveWebsite)
+and available_via(SolactiveTransatlanticCleanEnergyEURIndexPR, BoerseStuttgartGmbHPriceMarketingServices)
+and published_on(SolactiveTransatlanticCleanEnergyEURIndexNTR, SolactiveWebsite)
+and available_via(SolactiveTransatlanticCleanEnergyEURIndexNTR, BoerseStuttgartGmbHPriceMarketingServices)
+and published_on(SolactiveTransatlanticCleanEnergyEURIndexTR, SolactiveWebsite)
+and available_via(SolactiveTransatlanticCleanEnergyEURIndexTR, BoerseStuttgartGmbHPriceMarketingServices)
+and published_on(SolactiveTransatlanticCleanEnergyEURIndex50AR, SolactiveWebsite)
+and available_via(SolactiveTransatlanticCleanEnergyEURIndex50AR, BoerseStuttgartGmbHPriceMarketingServices)
+and published_on(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, SolactiveWebsite)
+and available_via(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, BoerseStuttgartGmbHPriceMarketingServices)
+
+permission index_distribution_to_affiliated_vendors(agent: PriceMarketingServices, target: AffiliatedVendor)
+  action: distribute
+  scope: Index
+
+fact vendor_decides_distribution_or_display :
+forall v: AffiliatedVendor, forall i: Index,
+published_under_following_identifiers(i)
+implies
+exists d: VendorDistributionOrDisplayDecision, exists s: InformationSystem,
+  distribution_or_display_decision_for_vendor(d, v)
+  and distribution_or_display_decision_for_index(d, i)
+  and decision_on_individual_basis(d)
+  and vendor_information_system(v, s)
+  and decision_via_information_system(d, s)
+
+constraint index_publications_available_at_announcements_website :
+forall p: IndexPublication, forall i: Index,
+(
+  publication_in_relation_to_index(p, i)
+  or notice_publication_in_relation_to_index(p, i)
+  or guideline_amendment_publication_in_relation_to_index(p, Guideline, i)
+)
+implies available_at(p, IndexAdministratorAnnouncementsWebsite)

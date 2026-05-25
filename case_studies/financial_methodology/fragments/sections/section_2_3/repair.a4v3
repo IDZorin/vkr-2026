@@ -1,0 +1,12 @@
+-- Repair overlay for section 2.3.
+-- This file does NOT add new methodology claims. It records source-typo
+-- corrections so that downstream tooling preferring canonical spellings
+-- can use them without modifying the source-faithful main IR.
+
+-- The source file uses "FloatMarketCapizatlization", which is a typo for
+-- "FloatMarketCapitalization". The main IR preserves the typo verbatim
+-- (per provenance policy: do not silently correct source). This overlay
+-- introduces the canonical spelling as a subtype-aliased sort, so any
+-- downstream tool that expects the correctly-spelled name can use it.
+
+sort FloatMarketCapitalization extends FloatMarketCapizatlization

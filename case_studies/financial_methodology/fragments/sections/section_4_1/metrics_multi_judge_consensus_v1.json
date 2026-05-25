@@ -1,0 +1,128 @@
+{
+  "entry_id": "section_4_1",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures many core elements of the section: the listed index versions, the methodology reference, the reinvestment of distributions, the 5% NTR decrement, the SOLTCA50 50-point decrement, and the adjusted-return formula structure. However, it also introduces a formula constraint specifically for SOLTCA50 rather than the adjusted return index described in the source, and it omits or misaligns some source-specific details such as the explicit adjusted return index formula being stated for the adjusted return version and the exact role of the underlying index in that formula.",
+      "semantic_differences": [
+        "The source says the adjusted return Index is calculated by the displayed formula, but the IR encodes the formula as a constraint for SOLTCA50 instead of the adjusted return index version.",
+        "The source’s formula uses the adjusted return Index and the Underlying Index generically, while the IR hardwires SOLTCA50 and its underlying index, which is a narrower claim than the source text.",
+        "The source states that any dividends or other distributions are reinvested back into the Index Component paying them at the opening of the effective date (ex-date); the IR captures this generally, but ties it to a Payment/Distribution structure that is not explicitly stated in the source.",
+        "The source says the decrement of 5% per annum is deducted on each Index Calculation Day from the NTR Index version for the adjusted return version; the IR represents this with an underlying-index relation and decrement facts, which is close but not a direct semantic match to the source phrasing."
+      ],
+      "stylistic_notes": [
+        "Using `IndexCalculationFormula`, `FormulaMechanics`, and related relations is a formalization choice rather than source wording.",
+        "`SOLTCA50` and `AdjustedReturnVersion` are naming choices that reflect source terms but are not identical to the prose labels.",
+        "The IR’s explicit `Document`, `WebResource`, and `DocumentPart` entities are structural encodings of the methodology references."
+      ],
+      "confidence": 0.89,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4014,
+        "completion_tokens": 429,
+        "total_tokens": 4443
+      },
+      "latency_s": 6.519619703292847
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures much of the source: the four return forms, reference to the Equity Index Methodology and Solactive website, the standard formula’s dependence on component price changes/weights/currency conversion, dividend reinvestment at ex-date opening, the 5% adjusted-return decrement from NTR, the 50-point decrement from GTR for SOLTCA50, and the explicit SOLTCA50 adjusted-return formula with calendar-day counting. However, it also strengthens and broadens some claims beyond the source and omits some source-specific scoping distinctions.",
+      "semantic_differences": [
+        "The source says the standard index formula stipulates how the level of 'the Index' changes based on prices of its Index Components; the IR applies StandardIndexFormula to all section_4_1_index items, including NTR/GTR/AdjustedReturn/SOLTCA50 versions, which is broader than the source text explicitly states.",
+        "The source says any dividends or other distributions are reinvested back into the Index Component paying them at the opening of the effective date, 'the so called ex-date' of the payment. The IR formalizes this as ex_date(p) = effective_date(p) for all payments, which is a stronger identity claim than the source’s explanatory phrasing and may overcommit.",
+        "The source gives the explicit adjusted return formula generically for 'the adjusted return Index', with SD fixed at 50 index points per annum in that displayed formula. The IR encodes the formula only for SOLTCA50, not for the adjusted return version in general.",
+        "The source states that for construction of the adjusted return version, a decrement of 5% per annum is deducted on each Index Calculation Day from the NTR Index version. The IR records the decrement amount and source index but does not explicitly represent that the deduction is specifically for the construction/calculation of the adjusted return version via a formula.",
+        "The source says the decrement for SOLTCA50 is deducted on each Index Calculation Day from the GTR Index version. The IR captures the decrement and formula but does not explicitly tie the subtraction term in the formula to 'each Index Calculation Day' beyond the generic previous_calculation_day relation."
+      ],
+      "stylistic_notes": [
+        "Using separate entities PriceReturnIndexVersion, NTRIndexVersion, GTRIndexVersion, AdjustedReturnVersion, and SOLTCA50 is a modeling choice; the source text is less explicit about whether these are distinct index entities versus versions/forms.",
+        "The IR introduces ontology such as FormulaMechanics, Payment, Opening, and CurrencyConversion to structure the prose; this is acceptable infrastructure rather than a direct wording match.",
+        "The naming 'AdjustedReturnIndex' in IndexType versus 'adjusted return Index/version' in the source is wording variation, not by itself a semantic issue."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4014,
+        "completion_tokens": 628,
+        "total_tokens": 4642
+      },
+      "latency_s": 13.877098321914673
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core structural elements of Section 4.1 (index types, calculation methodology, decrement mechanics, formula structure) and correctly encodes the SOLTCA50 formula. However, it introduces significant semantic gaps: (1) the standard index formula is declared but never formally specified—only its inputs are listed; (2) the adjusted return formula for non-SOLTCA50 indices is incompletely specified (no constraint equation); (3) dividend reinvestment is encoded as a constraint but the source describes it as a process that happens at opening of ex-date, not a logical requirement; (4) the IR does not formally capture that the adjusted return formula applies to AdjustedReturnVersion (only to SOLTCA50); (5) currency conversion is optional in the IR but the source implies it is conditional on price being quoted in a different currency.",
+      "semantic_differences": [
+        "Standard index formula is referenced but never formally specified as a constraint or equation; only its inputs (price change, weight, currency conversion) are listed as relations.",
+        "Adjusted return formula for AdjustedReturnVersion is not formally specified; only SOLTCA50's formula is given as a constraint equation.",
+        "Dividend reinvestment is encoded as a constraint (ex_date = effective_date) rather than as a process description; the source says dividends 'are reinvested back into the Index Component paying the dividend...at the opening of the effective date', which is a procedural statement, not a logical equivalence.",
+        "The IR does not formally assert that the adjusted return formula applies to AdjustedReturnVersion; it only asserts formula_applies_to_index(AdjustedReturnFormula, SOLTCA50).",
+        "Currency conversion is marked [optional] in the IR, but the source implies it is mandatory when price is quoted in a currency other than the index currency (conditional, not optional)."
+      ],
+      "stylistic_notes": [
+        "The IR introduces many intermediate sorts (FormulaMechanics, Distribution, Payment, Opening, etc.) that are not explicitly named in the source; these are reasonable domain decompositions but represent IR-level design choices.",
+        "The relation names (e.g., formula_level_change_based_on_price_change, reinvested_back_into) are verbose but semantically clear.",
+        "The use of prelude sorts (Day, Document, WebResource, DocumentPart, DocumentLocator) is appropriate and follows the prelude infrastructure rule.",
+        "The constraint soltca50_adjusted_return_index_formula correctly formalizes the given formula, but the parallel constraint for AdjustedReturnVersion is missing."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4966,
+        "completion_tokens": 659,
+        "total_tokens": 5625
+      },
+      "latency_s": 10.164101123809814
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 73.3063452243805
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures all claims in the source text, including the four index return types, the reference to the Equity Index Methodology and Section 1.2, the standard formula components (price change, weight, currency conversion), the dividend reinvestment rule at the ex-date opening, the specific decrements for the adjusted return version (5% from NTR) and SOLTCA50 (50 points from GTR), and the exact adjusted return formula with its variable definitions. All modeling choices align with the source semantics without adding or omitting substantive claims.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR models 't-1' as a `previous_calculation_day_of` relation, which is a standard and clear formalization of the source's temporal reference.",
+        "The source's 'Underlying Index' (UI) is mapped via `underlying_index_of` to the specific base index (NTR or GTR), which correctly resolves the variable definition in context.",
+        "The IR explicitly names the formula constraint for SOLTCA50, matching the source's implicit application of the formula to that specific index version."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4273,
+        "completion_tokens": 3007,
+        "total_tokens": 7280
+      },
+      "latency_s": 58.90578031539917
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.858
+  }
+}

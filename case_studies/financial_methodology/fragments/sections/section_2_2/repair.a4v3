@@ -1,0 +1,9 @@
+-- Repair overlay for section 2.2.
+-- These claims are recommended semantic contracts / derived invariants.
+-- They are part of the auditable package semantics for strict/backend review.
+-- They are not independent source claims and should be read through
+-- provenance.yaml / translator_notes.md as derived from source-backed rules.
+
+constraint at_most_20_selected_per_region :
+  forall d: SelectionDay, forall r: Region,
+    count(s in Security where selected_for_index_inclusion(d, s) and region(d, s) = r) <= 20

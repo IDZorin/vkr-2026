@@ -1,0 +1,250 @@
+sort Index
+sort SolactiveOrganization extends Organization
+sort IndexComponent
+sort IndexMaintenance
+sort IndexCalculation
+sort RegularRebalanceDay extends Day
+
+sort CorporateAction extends Event
+sort IndexMaintenanceCorporateAction extends CorporateAction
+sort CorporateActionKind
+sort ListedCorporateActionKind extends CorporateActionKind
+sort CorporateActionList
+
+sort IndexComponentAttribute =
+  Price
+| Weighting
+| OverallIntegrity
+
+sort IndexQuality =
+  Comparability
+| Representativeness
+
+sort CorporateActionAdjustment
+sort IndexVariable
+sort CorporateActionDefinition
+sort BriefCorporateActionDefinition extends CorporateActionDefinition
+sort PriceEffect extends Event
+sort StandardProcedureSet
+sort CorporateActionDeviation
+sort PermittedCorporateActionDeviation extends CorporateActionDeviation
+sort RegulatoryRequirement
+sort MethodologyQuality =
+  Generic
+| Transparent
+
+entity TheIndex : Index
+entity Solactive : SolactiveOrganization
+entity IndexMaintenanceOfTheIndex : IndexMaintenance
+entity CalculationOfTheIndex : IndexCalculation
+
+entity EquityIndexMethodology : Document
+entity SolactiveWebsite : WebResource
+entity CorporateActionStandardProcedures : StandardProcedureSet
+entity RegulatoryRequirements : RegulatoryRequirement
+entity AsPossible : VagueTerm
+
+entity RelevantCorporateActionList : CorporateActionList
+entity CashDistributions : ListedCorporateActionKind
+entity StockDistributions : ListedCorporateActionKind
+entity StockDistributionsOfAnotherCompany : ListedCorporateActionKind
+entity ShareSplits : ListedCorporateActionKind
+entity ReverseSplits : ListedCorporateActionKind
+entity CapitalIncreases : ListedCorporateActionKind
+entity ShareRepurchases : ListedCorporateActionKind
+entity SpinOffs : ListedCorporateActionKind
+entity MergersAndAcquisitions : ListedCorporateActionKind
+entity Delistings : ListedCorporateActionKind
+entity Nationalization : ListedCorporateActionKind
+entity Insolvency : ListedCorporateActionKind
+
+rel index_maintenance_of : IndexMaintenance, Index
+rel calculation_of_index : IndexCalculation, Index
+rel component_of_index : IndexComponent, Index
+
+rel considers_for_index_maintenance :
+  SolactiveOrganization, IndexMaintenanceCorporateAction, IndexMaintenance
+fun[required] index_adjustment :
+  IndexMaintenanceCorporateAction -> CorporateActionAdjustment
+fun[required] cum_day :
+  IndexMaintenanceCorporateAction -> Day
+fun[required] ex_day :
+  IndexMaintenanceCorporateAction -> Day
+fun[required] price_effect :
+  IndexMaintenanceCorporateAction -> PriceEffect
+
+rel adjustment_to_index : CorporateActionAdjustment, Index
+rel adjustment_between_regular_rebalance_days :
+  CorporateActionAdjustment, RegularRebalanceDay, RegularRebalanceDay
+rel material_impact_on :
+  IndexMaintenanceCorporateAction, IndexComponent, IndexComponentAttribute
+rel implemented_from_to :
+  IndexMaintenanceCorporateAction, Day, Day
+rel adjustment_coincides_with_price_effect_occurrence :
+  CorporateActionAdjustment, PriceEffect
+
+rel available_on : Document, WebResource
+rel website_of : WebResource, Organization
+
+rel methodology_covers_corporate_action_kind :
+  Document, CorporateActionKind
+rel methodology_contains_definition :
+  Document, CorporateActionKind, BriefCorporateActionDefinition
+rel methodology_specifies_relevant_adjustment_to_index_variable :
+  Document, CorporateActionKind, IndexVariable
+rel index_variable_of : IndexVariable, Index
+
+rel aims_at_creating : SolactiveOrganization, Document
+rel aims_at_maintaining : SolactiveOrganization, Document
+rel methodology_for_treatment_of_corporate_actions : Document
+rel methodology_quality : Document, MethodologyQuality
+rel methodology_quality_described_by :
+  Document, MethodologyQuality, VagueTerm
+rel in_line_with : Document, RegulatoryRequirement
+rel standard_procedures_in_methodology :
+  StandardProcedureSet, Document
+
+rel deviation_for_corporate_action :
+  CorporateActionDeviation, IndexMaintenanceCorporateAction
+rel deviation_in_accordance_with_methodology :
+  CorporateActionDeviation, Document
+rel unusual : IndexMaintenanceCorporateAction
+rel complex : IndexMaintenanceCorporateAction
+rel deviation_preserves_index_quality_over_time :
+  CorporateActionDeviation, Index, IndexQuality
+
+rel conclusive : CorporateActionList
+rel non_conclusive : CorporateActionList
+rel list_item : CorporateActionList, CorporateActionKind
+rel considers_relevant_for_index_maintenance :
+  SolactiveOrganization, CorporateActionKind, IndexMaintenance
+
+obligation account_for_corporate_action_in_index_calculation(
+  corporate_action: IndexMaintenanceCorporateAction
+)
+  action: account_for
+  target: CalculationOfTheIndex
+
+obligation make_corporate_action_adjustment_in_compliance_with_equity_index_methodology(
+  adjustment: CorporateActionAdjustment
+)
+  action: make_in_compliance_with
+  target: EquityIndexMethodology
+
+permission deviate_from_standard_procedures(
+  agent: SolactiveOrganization,
+  deviation: PermittedCorporateActionDeviation
+)
+  action: deviate_from
+  target: CorporateActionStandardProcedures
+  scope: EquityIndexMethodology
+
+fact index_maintenance_scope :
+  index_maintenance_of(IndexMaintenanceOfTheIndex, TheIndex)
+  and calculation_of_index(CalculationOfTheIndex, TheIndex)
+
+fact equity_index_methodology_available_on_solactive_website :
+  available_on(EquityIndexMethodology, SolactiveWebsite)
+  and website_of(SolactiveWebsite, Solactive)
+
+fact corporate_action_treatment_methodology_aim :
+  aims_at_creating(Solactive, EquityIndexMethodology)
+  and aims_at_maintaining(Solactive, EquityIndexMethodology)
+  and methodology_for_treatment_of_corporate_actions(EquityIndexMethodology)
+  and methodology_quality(EquityIndexMethodology, Generic)
+  and methodology_quality_described_by(EquityIndexMethodology, Generic, AsPossible)
+  and methodology_quality(EquityIndexMethodology, Transparent)
+  and methodology_quality_described_by(EquityIndexMethodology, Transparent, AsPossible)
+  and in_line_with(EquityIndexMethodology, RegulatoryRequirements)
+  and standard_procedures_in_methodology(CorporateActionStandardProcedures, EquityIndexMethodology)
+
+fact relevant_corporate_action_list :
+  non_conclusive(RelevantCorporateActionList)
+  and list_item(RelevantCorporateActionList, CashDistributions)
+  and considers_relevant_for_index_maintenance(Solactive, CashDistributions, IndexMaintenanceOfTheIndex)
+  and methodology_covers_corporate_action_kind(EquityIndexMethodology, CashDistributions)
+  and list_item(RelevantCorporateActionList, StockDistributions)
+  and considers_relevant_for_index_maintenance(Solactive, StockDistributions, IndexMaintenanceOfTheIndex)
+  and methodology_covers_corporate_action_kind(EquityIndexMethodology, StockDistributions)
+  and list_item(RelevantCorporateActionList, StockDistributionsOfAnotherCompany)
+  and considers_relevant_for_index_maintenance(Solactive, StockDistributionsOfAnotherCompany, IndexMaintenanceOfTheIndex)
+  and methodology_covers_corporate_action_kind(EquityIndexMethodology, StockDistributionsOfAnotherCompany)
+  and list_item(RelevantCorporateActionList, ShareSplits)
+  and considers_relevant_for_index_maintenance(Solactive, ShareSplits, IndexMaintenanceOfTheIndex)
+  and methodology_covers_corporate_action_kind(EquityIndexMethodology, ShareSplits)
+  and list_item(RelevantCorporateActionList, ReverseSplits)
+  and considers_relevant_for_index_maintenance(Solactive, ReverseSplits, IndexMaintenanceOfTheIndex)
+  and methodology_covers_corporate_action_kind(EquityIndexMethodology, ReverseSplits)
+  and list_item(RelevantCorporateActionList, CapitalIncreases)
+  and considers_relevant_for_index_maintenance(Solactive, CapitalIncreases, IndexMaintenanceOfTheIndex)
+  and methodology_covers_corporate_action_kind(EquityIndexMethodology, CapitalIncreases)
+  and list_item(RelevantCorporateActionList, ShareRepurchases)
+  and considers_relevant_for_index_maintenance(Solactive, ShareRepurchases, IndexMaintenanceOfTheIndex)
+  and methodology_covers_corporate_action_kind(EquityIndexMethodology, ShareRepurchases)
+  and list_item(RelevantCorporateActionList, SpinOffs)
+  and considers_relevant_for_index_maintenance(Solactive, SpinOffs, IndexMaintenanceOfTheIndex)
+  and methodology_covers_corporate_action_kind(EquityIndexMethodology, SpinOffs)
+  and list_item(RelevantCorporateActionList, MergersAndAcquisitions)
+  and considers_relevant_for_index_maintenance(Solactive, MergersAndAcquisitions, IndexMaintenanceOfTheIndex)
+  and methodology_covers_corporate_action_kind(EquityIndexMethodology, MergersAndAcquisitions)
+  and list_item(RelevantCorporateActionList, Delistings)
+  and considers_relevant_for_index_maintenance(Solactive, Delistings, IndexMaintenanceOfTheIndex)
+  and methodology_covers_corporate_action_kind(EquityIndexMethodology, Delistings)
+  and list_item(RelevantCorporateActionList, Nationalization)
+  and considers_relevant_for_index_maintenance(Solactive, Nationalization, IndexMaintenanceOfTheIndex)
+  and methodology_covers_corporate_action_kind(EquityIndexMethodology, Nationalization)
+  and list_item(RelevantCorporateActionList, Insolvency)
+  and considers_relevant_for_index_maintenance(Solactive, Insolvency, IndexMaintenanceOfTheIndex)
+  and methodology_covers_corporate_action_kind(EquityIndexMethodology, Insolvency)
+
+constraint considered_corporate_actions_result_in_index_adjustment :
+  forall ca: IndexMaintenanceCorporateAction,
+    considers_for_index_maintenance(Solactive, ca, IndexMaintenanceOfTheIndex)
+    implies
+      adjustment_to_index(index_adjustment(ca), TheIndex)
+      and exists r1: RegularRebalanceDay, exists r2: RegularRebalanceDay,
+        adjustment_between_regular_rebalance_days(index_adjustment(ca), r1, r2)
+        and not (r1 = r2)
+
+constraint considered_corporate_actions_have_material_impact :
+  forall ca: IndexMaintenanceCorporateAction,
+    considers_for_index_maintenance(Solactive, ca, IndexMaintenanceOfTheIndex)
+    implies
+      exists c: IndexComponent, exists attr: IndexComponentAttribute,
+        component_of_index(c, TheIndex)
+        and material_impact_on(ca, c, attr)
+
+constraint corporate_action_implementation_period_and_price_effect :
+  forall ca: IndexMaintenanceCorporateAction,
+    considers_for_index_maintenance(Solactive, ca, IndexMaintenanceOfTheIndex)
+    implies
+      implemented_from_to(ca, cum_day(ca), ex_day(ca))
+      and adjustment_coincides_with_price_effect_occurrence(index_adjustment(ca), price_effect(ca))
+
+constraint equity_index_methodology_material_for_covered_corporate_actions :
+  forall k: CorporateActionKind,
+    methodology_covers_corporate_action_kind(EquityIndexMethodology, k)
+    implies
+      exists d: BriefCorporateActionDefinition, exists v: IndexVariable,
+        methodology_contains_definition(EquityIndexMethodology, k, d)
+        and methodology_specifies_relevant_adjustment_to_index_variable(EquityIndexMethodology, k, v)
+        and index_variable_of(v, TheIndex)
+
+constraint non_conclusive_means_not_conclusive :
+  forall l: CorporateActionList,
+    non_conclusive(l) iff not conclusive(l)
+
+constraint corporate_action_deviation_conditions :
+  forall d: PermittedCorporateActionDeviation,
+    deviation_in_accordance_with_methodology(d, EquityIndexMethodology)
+    and exists ca: IndexMaintenanceCorporateAction,
+      deviation_for_corporate_action(d, ca)
+      and considers_for_index_maintenance(Solactive, ca, IndexMaintenanceOfTheIndex)
+      and (
+        unusual(ca)
+        or complex(ca)
+        or (
+          deviation_preserves_index_quality_over_time(d, TheIndex, Comparability)
+          and deviation_preserves_index_quality_over_time(d, TheIndex, Representativeness)
+        )
+      )

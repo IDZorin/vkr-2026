@@ -1,0 +1,40 @@
+{
+  "schema": "provenance_backtranslation_metrics_v1",
+  "entry_id": "N02",
+  "generated_at": "2026-05-10T19:42:56",
+  "status": "ok",
+  "semantic_requested": false,
+  "summary": {
+    "claim_count": 1,
+    "source_claim_count": 1,
+    "claims_with_warnings": 0,
+    "source_claims_with_warnings": 0,
+    "mean_deterministic_meaningfulness_score": 0.964,
+    "mean_source_claim_deterministic_meaningfulness_score": 0.964,
+    "mean_source_token_recall": 1.0,
+    "mean_back_translation_token_precision": 0.875,
+    "warning_counts": {}
+  },
+  "claims": [
+    {
+      "claim_id": "benchmark_regulation_meaning_defined_in_introduction",
+      "kind": "fact",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 83,
+      "back_translation_char_len": 89,
+      "source_token_count": 7,
+      "back_translation_token_count": 8,
+      "source_token_recall": 1.0,
+      "back_translation_token_precision": 0.875,
+      "token_jaccard": 0.875,
+      "number_preservation": null,
+      "url_preservation": null,
+      "modal_family_preservation": 1.0,
+      "negation_preservation": null,
+      "deterministic_meaningfulness_score": 0.964,
+      "warnings": []
+    }
+  ]
+}

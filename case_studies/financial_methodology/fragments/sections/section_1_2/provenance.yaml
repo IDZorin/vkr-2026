@@ -1,0 +1,365 @@
+section: "1.2 Identifiers and Publication"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+# Top-level sections:
+#   claims        -- assertion-family entries (fact, constraint, obligation, permission, prohibition)
+#   uncovered_source -- source phrases not directly mapped to any IR claim
+#   vocabulary_notes -- IR-introduced sorts/entities that need explanation
+#   corrections   -- non-claim IR overlays (sort_alias, source-typo fix-ups)
+#                    that live in repair.a4v3
+#
+# For claim entries:
+#   kind             -- IR family (fact | constraint | obligation | permission | prohibition)
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | plumbing | derived_invariant | verification_probe
+#   source_quotes    -- verbatim spans from source.md that the element formalizes
+#   back_translation -- natural-language unfolding of the IR formula
+#   vocabulary_basis -- source_only | mixed | ir_internal_bridge | ir_plumbing
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+
+claims:
+
+  index_type_identifier_meanings:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "*PR, NTR, GTR, AR means that the Index is calculated as price return, net total return, gross total return, adjusted return Index"
+    back_translation: >
+      The identifier for price return is PR, for net total return is NTR,
+      for gross total return is GTR, and for adjusted return index is AR.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Captures only the abbreviation-to-long-name mapping from the footnote.
+      The "calculated as ... described in the Equity Index Methodology" part
+      of the same footnote is captured separately by `calculation_described_in`
+      facts in each index's row entry.
+
+  solactive_website:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the website of the Index Administrator ( www.solactive.com )"
+      - "the Solactive website"
+    back_translation: >
+      The Solactive website is at https://www.solactive.com and belongs
+      to Solactive.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Source uses two phrases for the same entity: "the website of the
+      Index Administrator (www.solactive.com)" introduces the URL, and
+      "the Solactive website" appears in the footnote about the Equity
+      Index Methodology. Both attest the same WebResource entity.
+
+  equity_index_methodology_location:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the Equity Index Methodology, which is available on the Solactive website: https://www.solactive.com/documents/equity-index-methodology/"
+    back_translation: >
+      The Equity Index Methodology is at
+      https://www.solactive.com/documents/equity-index-methodology/ and
+      is available on the Solactive website.
+    vocabulary_basis: source_only
+    status: covered
+
+  section_4_location:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: plumbing
+    source_quotes:
+      - "the formula specified in Section 4"
+    back_translation: >
+      IR plumbing (with one source-justified part): Section 4 is part of
+      the Guideline document, and has an IR locator pointer for navigation.
+    vocabulary_basis: ir_plumbing
+    status: derived
+    notes: >
+      Two-part fact. The `part_of_document(Section4, Guideline)` clause is
+      source-justified (the source phrase "the formula specified in Section 4"
+      treats Section 4 as inside the Guideline document). The
+      `document_part_locator(Section4, Section4Locator)` clause is pure IR
+      plumbing for cross-document navigation. Marking the combined fact as
+      plumbing because the locator is the dominant non-source part.
+
+  announcements_website:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the website of the Index Administrator: https://www.solactive.com/news/announcements/"
+    back_translation: >
+      The website of the Index Administrator at
+      https://www.solactive.com/news/announcements/ belongs to Solactive.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The IR distinguishes this from the main Solactive website (different
+      URL, different WebResource entity); both belong to Solactive (the
+      Index Administrator). Source uses "the website of the Index Administrator"
+      for both, disambiguated by URL.
+
+  boerse_stuttgart_price_marketing_services:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the price marketing services of Boerse Stuttgart GmbH"
+    back_translation: >
+      The price marketing services belong to Boerse Stuttgart GmbH.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Definitional fact establishing that the named price marketing services
+      entity belongs to Boerse Stuttgart GmbH. Source uses the genitive
+      "of Boerse Stuttgart GmbH"; the IR makes it an explicit relation.
+
+  index_pr_identifiers:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive Transatlantic Clean Energy EUR Index PR | DE000SL0R4B4 | EUR | PR* | .SOLTCEYP | SOLTCEYP"
+    back_translation: >
+      The Solactive Transatlantic Clean Energy EUR Index PR is published
+      under the following identifiers: name "Solactive Transatlantic Clean
+      Energy EUR Index PR", ISIN DE000SL0R4B4, currency EUR, type price
+      return, RIC .SOLTCEYP, BBG ticker SOLTCEYP; and its calculation is
+      described in the Equity Index Methodology.
+    vocabulary_basis: source_only
+    status: covered
+
+  index_ntr_identifiers:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive Transatlantic Clean Energy EUR Index NTR | DE000SL0R4C2 | EUR | NTR* | .SOLTCEYN |"
+    back_translation: >
+      The Solactive Transatlantic Clean Energy EUR Index NTR is published
+      under the following identifiers: name "Solactive Transatlantic Clean
+      Energy EUR Index NTR", ISIN DE000SL0R4C2, currency EUR, type net
+      total return, RIC .SOLTCEYN; and its calculation is described in the
+      Equity Index Methodology.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The NTR row has no BBG ticker (blank cell in source table). Represented
+      by omitting the `bbg_ticker(...)` fact rather than asserting hard
+      negation. See translator_notes 2026-05-09T10:58:00+02:00 entry.
+
+  index_tr_identifiers:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive Transatlantic Clean Energy EUR Index TR | DE000SL0R4D0 | EUR | GTR* | .SOLTCEYT | SOLTCEYT"
+    back_translation: >
+      The Solactive Transatlantic Clean Energy EUR Index TR is published
+      under the following identifiers: name "Solactive Transatlantic Clean
+      Energy EUR Index TR", ISIN DE000SL0R4D0, currency EUR, type gross
+      total return, RIC .SOLTCEYT, BBG ticker SOLTCEYT; and its calculation
+      is described in the Equity Index Methodology.
+    vocabulary_basis: source_only
+    status: covered
+
+  index_50_ar_identifiers:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive Transatlantic Clean Energy EUR Index 50 AR | DE000SL0R4E8 | EUR | AR** | .SOLTCA50 | SOLTCA50"
+      - "**AR means that the Index is calculated as an adjusted return index, following the formula specified in Section 4."
+    back_translation: >
+      The Solactive Transatlantic Clean Energy EUR Index 50 AR is published
+      under the following identifiers: name "Solactive Transatlantic Clean
+      Energy EUR Index 50 AR", ISIN DE000SL0R4E8, currency EUR, type
+      adjusted return index, RIC .SOLTCA50, BBG ticker SOLTCA50; and its
+      formula is specified in Section 4.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The double-asterisk (**) footnote applies to this row: AR formula is
+      specified in Section 4 (not in the Equity Index Methodology). The IR
+      uses `formula_specified_in(Index50AR, Section4)` instead of
+      `calculation_described_in(Index50AR, EquityIndexMethodology)` to
+      match the source distinction.
+
+  index_5_percent_ar_identifiers:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive Transatlantic Clean Energy EUR Index 5% AR | DE000SL0R4F5 | EUR | AR* | .SOLTCEA5 | SOLTCEA5"
+    back_translation: >
+      The Solactive Transatlantic Clean Energy EUR Index 5% AR is published
+      under the following identifiers: name "Solactive Transatlantic Clean
+      Energy EUR Index 5% AR", ISIN DE000SL0R4F5, currency EUR, type
+      adjusted return index, RIC .SOLTCEA5, BBG ticker SOLTCEA5; and its
+      calculation is described in the Equity Index Methodology.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The single-asterisk (*) footnote applies here: this 5% AR variant's
+      calculation is described in the Equity Index Methodology (the
+      double-asterisk Section-4 carve-out applies only to 50 AR).
+
+  bbg_ticker_at_most_one:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "BBG ticker"
+    back_translation: >
+      Each Index has at most one BBG ticker.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Cardinality constraint derived from the table structure (each index
+      row has either zero or one BBG ticker cell, never multiple). Source
+      does not state this in prose, but the table column allows at most
+      one ticker per row.
+
+  listed_indices_publication_channels:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The Index is published on the website of the Index Administrator ... and is, in addition, available via the price marketing services of Boerse Stuttgart GmbH"
+    back_translation: >
+      Each of the five listed indices (PR, NTR, TR, 50 AR, and 5% AR) is
+      published on the website of the Index Administrator and is, in
+      addition, available via the price marketing services of Boerse
+      Stuttgart GmbH.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Asserted as five explicit ground facts (one per listed index variant)
+      rather than as a universal rule over any future `Index` marked by
+      `published_under_following_identifiers`. See translator_notes
+      2026-05-09T10:58:00+02:00 entry for rationale (avoids over-strong
+      universal quantification).
+
+  index_distribution_to_affiliated_vendors:
+    kind: permission
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "may be distributed to all of its affiliated vendors"
+    back_translation: >
+      The price marketing services may distribute the Index to all of
+      its affiliated vendors.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      DeonticDecl (permission) chosen over hard fact to preserve the "may"
+      modality. Agent is `PriceMarketingServices` (not generic
+      `Organization`) to scope the permission to the Boerse-Stuttgart
+      route specifically. See translator_notes 2026-05-09T11:18:23+02:00
+      entry.
+
+  vendor_decides_distribution_or_display:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Each vendor decides on an individual basis as to whether it will distribute or display the Index via its information systems"
+    back_translation: >
+      For every affiliated vendor and every Index that is published under
+      the listed identifiers, there is some distribution-or-display
+      decision for that vendor and Index, made on an individual basis,
+      and there is some information system of that vendor through which
+      the decision is made.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Existential structure (some decision exists per vendor-index pair)
+      rather than a universal hard constraint that every action is
+      positively decided. Source says "each vendor decides", not "every
+      action is decided positively". See translator_notes
+      2026-05-09T10:58:00+02:00 entry.
+
+  index_publications_available_at_announcements_website:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Any publication in relation to the Index (e.g. notices, amendments to the Guideline) will be available at the website of the Index Administrator: https://www.solactive.com/news/announcements/"
+    back_translation: >
+      Any publication in relation to an Index, including any notice and
+      any amendment to the Guideline, will be available at the website
+      of the Index Administrator.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source uses "e.g." (notices, amendments to the Guideline) as
+      examples of publications. The IR uses three alternative relations
+      (`publication_in_relation_to_index`, `notice_publication_in_relation_to_index`,
+      `guideline_amendment_publication_in_relation_to_index`) on the
+      shared `IndexPublication` sort, joined by `or` in the antecedent.
+      See translator_notes 2026-05-09T11:18:23+02:00 entry for the
+      rejected subtype-based alternative.
+
+uncovered_source:
+  - quote: "(none -- all source content maps to at least one IR claim)"
+
+vocabulary_notes:
+  IndexType:
+    note: >
+      Enum sort with values PriceReturn, NetTotalReturn, GrossTotalReturn,
+      AdjustedReturnIndex. Source uses long names "price return", "net
+      total return", etc. as descriptive prose; IR enum values use
+      CamelCase. Mapping to identifiers (PR/NTR/GTR/AR) is given by
+      `index_type_identifier_meanings`.
+  IndexTypeIdentifier:
+    note: >
+      Enum sort with values PR, NTR, GTR, AR matching the source
+      abbreviations verbatim.
+  IndexAdministrator:
+    note: >
+      Subtype of Organization. The source phrase "the Index Administrator"
+      is an entity (Solactive, declared as `Solactive : IndexAdministrator`).
+      The sort itself is generic for future cross-section reuse.
+  PriceMarketingServices:
+    note: >
+      IR sort for price marketing services entities. Used by
+      `BoerseStuttgartGmbHPriceMarketingServices` instance.
+  Vendor / AffiliatedVendor:
+    note: >
+      `AffiliatedVendor extends Vendor extends Organization`. Source uses
+      "affiliated vendors" as the relevant agent class for the distribution
+      permission. `Vendor` parent sort is IR scaffolding for the subtype.
+  IndexPublication:
+    note: >
+      IR sort for publications related to the Index. Source mentions
+      "publications", "notices", and "amendments to the Guideline" as
+      examples (using "e.g."). The IR captures these three categories via
+      three alternative relations on a single `IndexPublication` sort,
+      not via subtypes (see translator_notes 2026-05-09T11:18:23+02:00).
+  VendorDistributionOrDisplayDecision:
+    note: >
+      IR sort for the decisions vendors make on an individual basis. Source
+      uses "Each vendor decides ... whether it will distribute or display";
+      the IR makes the decision a first-class object so that the individual-
+      basis qualifier and information-system route can be attached as
+      relations.
+  Section4 / Section4Locator:
+    note: >
+      DocumentPart and DocumentLocator entities for cross-document navigation
+      to "the formula specified in Section 4". Pure IR plumbing for
+      cross-references; the source-claim part (Section 4 is in the Guideline)
+      is captured by the `part_of_document` clause of `section_4_location`.
+  HttpsWwwSolactiveCom / HttpsWwwSolactiveComDocumentsEquityIndexMethodology / HttpsWwwSolactiveComNewsAnnouncements:
+    note: >
+      Url entities for the three URLs referenced in source. CamelCase
+      identifiers are IR-derived; the actual URL string appears as a
+      `raw_url` comment above each entity declaration and is preserved
+      verbatim by `has_url` / `document_url` facts.

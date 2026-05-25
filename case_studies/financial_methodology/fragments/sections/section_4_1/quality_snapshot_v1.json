@@ -1,0 +1,392 @@
+{
+  "entry_id": "section_4_1",
+  "schema": "quality_snapshot_v1",
+  "generated_at": "2026-05-20T03:45:45",
+  "clean_gate": "accepted",
+  "blocking_conditions": [],
+  "validity": {
+    "ast_valid": 1,
+    "ast_error_count": 0,
+    "rendering_ok": 1,
+    "combined_validation_ok": 1
+  },
+  "grounding": {
+    "raw": {
+      "ungrounded_symbol_count": 6,
+      "ungrounded_sort_count": 16,
+      "ungrounded_ref_count": 0,
+      "ungrounded_callee_count": 0,
+      "origin_error_count": 25
+    },
+    "extended": {
+      "entry": "section_4_1",
+      "ungrounded_sort_count_extended": 0,
+      "ungrounded_symbol_count_extended": 0,
+      "ungrounded_entity_count_extended": 0,
+      "ungrounded_ref_count_extended": 0,
+      "ungrounded_callee_count_extended": 0,
+      "ungrounded": {
+        "sorts": [],
+        "entities": [],
+        "symbols": [],
+        "deontic": [],
+        "temporal": [],
+        "actions": []
+      },
+      "ungrounded_refs": [],
+      "ungrounded_callees": [],
+      "grounded_via_overlay": {
+        "sorts": [
+          "IndexComponent",
+          "Price"
+        ],
+        "symbols": []
+      }
+    },
+    "effective_ungrounded_symbol_count": 0,
+    "effective_ungrounded_sort_count": 0,
+    "effective_ungrounded_callee_count": 0
+  },
+  "family_coverage": {
+    "required_gap_count": 0,
+    "advisory_gap_count": 0,
+    "required_gaps": [],
+    "advisory_gaps": []
+  },
+  "source_phrase_coverage": {
+    "phrase_count": 20,
+    "covered_count": 19,
+    "uncovered_count": 1,
+    "coverage_rate": 0.95,
+    "waiver_status": {
+      "uncovered_phrase_count": 1,
+      "waived_uncovered_phrase_count": 1,
+      "unwaived_uncovered_phrase_count": 0,
+      "waived_uncovered_phrases": [
+        "Where"
+      ],
+      "unwaived_uncovered_phrases": [],
+      "effective_covered_count": 20,
+      "effective_coverage_rate": 1.0,
+      "all_uncovered_phrases_have_token_waiver": true
+    }
+  },
+  "token_provenance": {
+    "summary": {
+      "source_token_count": 112,
+      "content_token_count": 81,
+      "covered_content_token_count": 68,
+      "uncovered_content_token_count": 13,
+      "ignored_stopword_count": 31,
+      "content_coverage_rate": 0.84
+    },
+    "waiver_status": {
+      "waiver_file_present": true,
+      "uncovered_token_count": 13,
+      "human_approved_waiver_count": 13,
+      "approved_uncovered_tokens": [
+        "account",
+        "call",
+        "can",
+        "case",
+        "construction",
+        "follow",
+        "more",
+        "other",
+        "stipulat",
+        "such",
+        "than",
+        "under",
+        "where"
+      ],
+      "unapproved_uncovered_tokens": [],
+      "approved_tokens_not_currently_uncovered": [],
+      "waiver_accounted_content_token_count": 81,
+      "waiver_accounted_content_coverage_rate": 1.0,
+      "all_uncovered_tokens_have_human_waiver": true
+    },
+    "exact_url_status": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null,
+      "missing_urls": [],
+      "all_source_urls_preserved_exactly": true
+    }
+  },
+  "lowering_audit": {
+    "smell_count": 0,
+    "smells": []
+  },
+  "a4v3_semantic_lint": {
+    "total_findings": 0,
+    "strong_findings": 0,
+    "soft_findings": 0,
+    "style_findings": 0,
+    "advisory_findings": 0,
+    "unused_declaration_count": 0,
+    "arity_gt_5_count": 0,
+    "arity_gt_2_without_role_explanation_count": 0,
+    "sentence_literal_in_formula_count": 0,
+    "permission_source_asserts_concrete_event_instance_count": 0,
+    "deontic_role_parameter_not_bound_count": 0,
+    "deontic_parameter_type_is_entity_count": 0,
+    "unused_rel_fun_count": 0,
+    "unused_sort_entity_count": 0,
+    "self_referential_scope_count": 0,
+    "past_participle_obligation_name_count": 0,
+    "double_coded_deontic_norm_count": 0,
+    "temporal_rel_in_deontic_context_count": 0,
+    "vacuous_responsibility_implication_count": 0,
+    "bare_universal_predicate_constraint_count": 0,
+    "fact_like_universal_constraint_count": 0,
+    "numeric_operation_on_non_numeric_sort_count": 0,
+    "basis_relation_without_value_link_count": 0,
+    "shared_name_token_without_structural_carrier_count": 0,
+    "semantic_contract_gap_count": 0,
+    "semantic_contract_gap_strong_count": 0,
+    "repair_candidate_present_count": 0,
+    "top_k_contract_gap_count": 0,
+    "by_contract_class": {}
+  },
+  "provenance_lint": {
+    "total_findings": 0,
+    "strong_findings": 0,
+    "soft_findings": 0,
+    "advisory_findings": 0,
+    "by_check": {}
+  },
+  "artifact_consistency": {
+    "schema": "artifact_consistency_v1",
+    "status": "advisory_artifact_drift",
+    "canonical_entry_sha256": "bc0f63074f546d470cbb8488105000dee54c2803c5cb6fd5f5c3f18811860d35",
+    "canonical_files": {
+      "source": {
+        "exists": true,
+        "size": 2004,
+        "mtime": "2026-04-28T20:11:48",
+        "sha256": "f8bfee122a8c5f8682dc125077bb68f26084fd2f33a11059fa33195529c1d1ca",
+        "path": "source.md",
+        "required": true
+      },
+      "normalized": {
+        "exists": true,
+        "size": 2004,
+        "mtime": "2026-04-28T20:11:48",
+        "sha256": "f8bfee122a8c5f8682dc125077bb68f26084fd2f33a11059fa33195529c1d1ca",
+        "path": "normalized.md",
+        "required": true
+      },
+      "main_ir": {
+        "exists": true,
+        "size": 7888,
+        "mtime": "2026-05-09T21:29:12",
+        "sha256": "bd46705602a5985849785e80de6f9d29abf41748923fafd8287334bed97ecc06",
+        "path": "main_ir.a4v3",
+        "required": true
+      },
+      "repair": {
+        "exists": false,
+        "path": "repair.a4v3",
+        "required": false
+      },
+      "provenance": {
+        "exists": true,
+        "size": 14807,
+        "mtime": "2026-05-09T21:38:02",
+        "sha256": "31e8de6a8fcbc621987ba47069b86a44ce5ebc4a1a7b0aecdca017708244930f",
+        "path": "provenance.yaml",
+        "required": true
+      },
+      "translator_notes": {
+        "exists": true,
+        "size": 4577,
+        "mtime": "2026-05-11T14:31:15",
+        "sha256": "146d2bc98d32c6f8f9d0423f2687629ff86e59818b9ec2f2fa4cd9ca0671a26e",
+        "path": "translator_notes.md",
+        "required": false
+      },
+      "token_waiver": {
+        "exists": true,
+        "size": 7193,
+        "mtime": "2026-05-14T20:52:48",
+        "sha256": "25ed9667eaf4ef3ae7a1e937cd7c951e6649bbcfa63117f7c9d161a53abbb11b",
+        "path": "waiver_token_absorption_v1.json",
+        "required": false
+      }
+    },
+    "required_stale_count": 0,
+    "required_missing_count": 0,
+    "required_canonical_missing_count": 0,
+    "advisory_stale_count": 1,
+    "advisory_missing_count": 0,
+    "artifacts": [
+      {
+        "key": "main_metrics",
+        "path": "main_ir_metrics_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T20:53:13",
+        "sha256": "10a05f6f265cc8897ff3de61a404edc9c58419460b2cb9d7db23a51d6deda6ce",
+        "max_input_mtime": "2026-05-09T21:29:12"
+      },
+      {
+        "key": "family_coverage",
+        "path": "metrics_family_coverage_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir"
+        ],
+        "mtime": "2026-05-19T20:22:22",
+        "sha256": "fd0c8de1bb7cd9ea6f49cb229b2a521a8435e4e089eb8da519d47bc7f14cdadb",
+        "max_input_mtime": "2026-05-09T21:29:12"
+      },
+      {
+        "key": "source_phrase_coverage",
+        "path": "metrics_source_phrase_coverage_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T20:52:49",
+        "sha256": "7223ac9561e8e3a028d0320ffad9ad22b0b46cb0b29d547c1737dd80b05e664d",
+        "max_input_mtime": "2026-05-09T21:29:12"
+      },
+      {
+        "key": "token_provenance",
+        "path": "metrics_token_provenance_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T20:52:48",
+        "sha256": "e17676711de3797c2fa19f41f2edc84670dd869ee8b631581ae038685fba840a",
+        "max_input_mtime": "2026-05-09T21:29:12"
+      },
+      {
+        "key": "lowering_audit",
+        "path": "lowering_audit_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "main_ir"
+        ],
+        "mtime": "2026-05-19T20:22:24",
+        "sha256": "4fea24a3cc204a083f9c0c91048fbc400523fccaf4c0f5e462ec0bd4419100c7",
+        "max_input_mtime": "2026-05-09T21:29:12"
+      },
+      {
+        "key": "semantic_lint",
+        "path": "a4v3_semantic_lint_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir",
+          "repair",
+          "translator_notes"
+        ],
+        "mtime": "2026-05-14T20:52:45",
+        "sha256": "d5b6cd31a56a8b258165efe63eac67e98c5e6044f2f4804dff48d89697e0679b",
+        "max_input_mtime": "2026-05-11T14:31:15"
+      },
+      {
+        "key": "provenance_lint",
+        "path": "provenance_lint_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "provenance",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T20:52:48",
+        "sha256": "8593a9864a6403efab52b611ecb93e685c138cafbf0aef70b02cda0bad0e72a4",
+        "max_input_mtime": "2026-05-09T21:38:02"
+      },
+      {
+        "key": "diagnostic_suite",
+        "path": "diagnostic_suite_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir",
+          "repair",
+          "token_waiver"
+        ],
+        "mtime": "2026-05-14T20:53:17",
+        "sha256": "a83c405e4252398251026fdf41d03ffde4a45e560ea2966f880080c75b2e33bb",
+        "max_input_mtime": "2026-05-14T20:52:48"
+      },
+      {
+        "key": "single_semantic_judge",
+        "path": "section_4_1_manual_section_workspace_artifact_current_v1_llm_semantic_verdict_gpt_5_4_mini.json",
+        "required": false,
+        "status": "stale",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir"
+        ],
+        "mtime": "2026-05-09T19:26:41",
+        "sha256": "9df7747299298c1e02cc6f7297f0d2c308e6887974b0fd52122880e08ba2a48d",
+        "max_input_mtime": "2026-05-09T21:29:12"
+      },
+      {
+        "key": "multi_judge",
+        "path": "metrics_multi_judge_consensus_v1.json",
+        "required": false,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-20T03:45:34",
+        "sha256": "52793b50faa29cddbb3ec4f27a8388598ea5c51acda571e5e30c84ee283e7d99",
+        "max_input_mtime": "2026-05-09T21:29:12"
+      },
+      {
+        "key": "counterexample_probing",
+        "path": "metrics_counterexample_probing_v1.json",
+        "required": false,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-09T21:33:35",
+        "sha256": "1215b8b049a18dcac8dad3e109b7228388ed26e93f7038296d42ae77ce64d9b2",
+        "max_input_mtime": "2026-05-09T21:29:12"
+      }
+    ]
+  },
+  "diagnostic_suite_raw": {
+    "raw_gate": "needs_review",
+    "raw_fail_count": 0,
+    "raw_warning_count": 33,
+    "waiver_adjusted_legacy_lexical_fail_count": 0,
+    "render_nli_advisory_fail_count": 0,
+    "source_normalization_nli_advisory_fail_count": 0,
+    "blocking_fail_count": 0,
+    "blocking_fail_rules": []
+  },
+  "notes": [
+    "clean_gate ignores legacy lexical failures when every uncovered token has a human-approved waiver.",
+    "render NLI failures are kept as advisory because they evaluate deterministic render-back text, not A4V3 validity.",
+    "raw diagnostic_suite_v1.json is preserved unchanged for auditability."
+  ]
+}

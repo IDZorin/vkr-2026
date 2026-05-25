@@ -1,0 +1,19 @@
+schema: role_annotations_v2
+entry_id: section_1_2
+annotation_status: migrated_signature_only_v2
+migration_notes:
+- Generated from the legacy role_annotations.yaml v1 experiment.
+- Only rel/fun signatures with arity > 2 or repeated argument sorts are retained.
+- Formula logic remains exclusively in main_ir.a4v3; facts/constraints/deontics are not mirrored here.
+symbols:
+  guideline_amendment_publication_in_relation_to_index:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: object
+    notes:
+    - Publication event, amended document, and related index; detailed semantics stay in A4V3/provenance.

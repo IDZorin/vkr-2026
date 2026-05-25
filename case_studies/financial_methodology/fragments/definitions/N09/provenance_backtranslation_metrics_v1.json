@@ -1,0 +1,40 @@
+{
+  "schema": "provenance_backtranslation_metrics_v1",
+  "entry_id": "N09",
+  "generated_at": "2026-05-15T12:21:03",
+  "status": "ok",
+  "semantic_requested": false,
+  "summary": {
+    "claim_count": 1,
+    "source_claim_count": 1,
+    "claims_with_warnings": 0,
+    "source_claims_with_warnings": 0,
+    "mean_deterministic_meaningfulness_score": 0.919,
+    "mean_source_claim_deterministic_meaningfulness_score": 0.919,
+    "mean_source_token_recall": 0.917,
+    "mean_back_translation_token_precision": 0.786,
+    "warning_counts": {}
+  },
+  "claims": [
+    {
+      "claim_id": "eligible_rebalance_day_definition",
+      "kind": "constraint",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 166,
+      "back_translation_char_len": 196,
+      "source_token_count": 12,
+      "back_translation_token_count": 14,
+      "source_token_recall": 0.917,
+      "back_translation_token_precision": 0.786,
+      "token_jaccard": 0.733,
+      "number_preservation": null,
+      "url_preservation": null,
+      "modal_family_preservation": null,
+      "negation_preservation": null,
+      "deterministic_meaningfulness_score": 0.919,
+      "warnings": []
+    }
+  ]
+}

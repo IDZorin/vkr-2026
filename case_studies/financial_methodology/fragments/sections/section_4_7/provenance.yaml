@@ -1,0 +1,191 @@
+section: "4.7 Market Disruption"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  section_4_7_index_scope:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "its indices"
+      - "the Index"
+    back_translation: >
+      The Index is an index of Solactive.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This local scope fact connects the singular phrase "the Index" with the
+      plural phrase "its indices" so that the section can talk both about
+      Solactive indices generally and this guideline's Index specifically.
+
+  disruption_policy_reference:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the Solactive Disruption Policy, which is incorporated by reference and available on the Solactive website"
+    back_translation: >
+      The Solactive Disruption Policy is incorporated by reference into this
+      Guideline, is available on the Solactive website, and the Solactive
+      website is the website of Solactive.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The incorporation relation is directed into this Guideline. No concrete
+      URL is included because the source names the Solactive website but does
+      not print a URL.
+
+  disruption_arrangements_properties:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "predefined and exhaustive arrangements as described in the Solactive Disruption Policy"
+    back_translation: >
+      The disruption arrangements are predefined, exhaustive, and described in
+      the Solactive Disruption Policy.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The arrangement is represented as a named carrier so the calculation rule
+      can point to the same arrangement object.
+
+  calculation_during_market_stress_follows_arrangements:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "In periods of market stress Solactive calculates its indices following predefined and exhaustive arrangements"
+    back_translation: >
+      During a period of market stress, Solactive calculates each Solactive
+      index following the disruption arrangements.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The universal is guarded by both a Solactive-index condition and a
+      period-of-market-stress condition, so it does not apply to arbitrary
+      indices or arbitrary periods.
+
+  market_stress_can_arise_due_to_variety_of_reasons:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Such market stress can arise due to a variety of reasons"
+    back_translation: >
+      A market stress in a market-stress period can arise due to a variety of
+      reasons.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      "Variety of reasons" is retained as a vague-term carrier. It is not
+      reduced to a numeric multiplicity claim such as two or more reasons.
+
+  market_stress_generally_results_in_price_conditions:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "generally results in inaccurate or delayed prices for one or more Index Components"
+    back_translation: >
+      Market stress generally has a price outcome for one or more Index
+      Components, where the price is either inaccurate or delayed.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      "Generally" and "one or more Index Components" are explicit carriers.
+      The price condition is an enum with the two source alternatives:
+      inaccurate and delayed.
+
+  index_determination_may_be_limited_or_impaired:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The determination of the Index may be limited or impaired at times of illiquid or fragmented markets and market stress"
+    back_translation: >
+      At times of market stress, illiquid markets, or fragmented markets, there
+      is a possibility that the determination of the Index is limited or
+      impaired.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source says "may be limited or impaired"; it does not assert that
+      limitation or impairment actually occurs. The IR therefore uses a
+      determination-condition possibility carrier instead of actual
+      `limited(...)` or `impaired(...)` facts.
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  Index:
+    note: "Generic index sort grounded by the source phrase \"its indices\"."
+    source_phrase: "indices"
+  TheIndex:
+    note: "Local entity for the source phrase \"the Index\"."
+    source_phrase: "the Index"
+  Solactive:
+    note: "Local entity for the source phrase \"Solactive\"."
+    source_phrase: "Solactive"
+  MarketStress:
+    note: "Subtype carrier for the source phrase \"market stress\"."
+    source_phrase: "market stress"
+  IlliquidMarket:
+    note: "Subtype carrier for the source phrase \"illiquid markets\"."
+    source_phrase: "illiquid markets"
+  FragmentedMarket:
+    note: "Subtype carrier for the source phrase \"fragmented markets\"."
+    source_phrase: "fragmented markets"
+  SolactiveDisruptionArrangements:
+    note: "Carrier for the source phrase \"predefined and exhaustive arrangements\"."
+    source_phrase: "arrangements"
+  SolactiveDisruptionPolicy:
+    note: "Document carrier for the source phrase \"Solactive Disruption Policy\"."
+    source_phrase: "Solactive Disruption Policy"
+  ThisGuideline:
+    note: "Local target document for the phrase \"incorporated by reference\"."
+    source_phrase: "incorporated by reference"
+  SolactiveWebsite:
+    note: "Web-resource carrier for the source phrase \"Solactive website\"."
+    source_phrase: "Solactive website"
+  VarietyOfReasons:
+    note: "Vague-term carrier for the source phrase \"variety of reasons\"."
+    source_phrase: "variety of reasons"
+  Generally:
+    note: "Vague-term carrier for the source hedge \"generally\"."
+    source_phrase: "generally"
+  OneOrMoreIndexComponents:
+    note: "Vague-term/cardinality carrier for the source phrase \"one or more Index Components\"."
+    source_phrase: "one or more Index Components"
+  PriceCondition:
+    note: "Enum carrier for the source alternatives \"inaccurate\" and \"delayed\"."
+    source_phrases:
+      - "inaccurate"
+      - "delayed"
+  DeterminationConditionPossibility:
+    note: >
+      Possibility carrier for the source modal phrase "may be limited or
+      impaired"; this avoids asserting actual limitation or impairment.
+    source_phrase: "may be limited or impaired"
+  DeterminationCondition:
+    note: "Enum carrier for the source alternatives \"limited\" and \"impaired\"."
+    source_phrases:
+      - "limited"
+      - "impaired"
+  MayBeLimitedOrImpaired:
+    note: "Vague-term/modality marker for the source phrase \"may be limited or impaired\"."
+    source_phrase: "may be limited or impaired"
+  AtTimesOfMarketDisruption:
+    note: "Carrier for the source phrase \"at times of\" market conditions."
+    source_phrase: "at times of"
+  incorporated_by_reference_into:
+    note: >
+      Directed relation for "incorporated by reference", matching the pattern
+      used in sections 4.6 and 5.2.
+    source_phrase: "incorporated by reference"

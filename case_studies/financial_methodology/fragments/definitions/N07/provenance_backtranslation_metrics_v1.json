@@ -1,0 +1,66 @@
+{
+  "schema": "provenance_backtranslation_metrics_v1",
+  "entry_id": "N07",
+  "generated_at": "2026-05-16T21:12:42",
+  "status": "ok",
+  "semantic_requested": false,
+  "summary": {
+    "claim_count": 2,
+    "source_claim_count": 2,
+    "claims_with_warnings": 1,
+    "source_claims_with_warnings": 1,
+    "mean_deterministic_meaningfulness_score": 0.734,
+    "mean_source_claim_deterministic_meaningfulness_score": 0.734,
+    "mean_source_token_recall": 0.673,
+    "mean_back_translation_token_precision": 0.695,
+    "warning_counts": {
+      "modal_family_not_preserved": 1,
+      "negation_not_preserved": 1
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "closing_price_definition_when_published",
+      "kind": "constraint",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 206,
+      "back_translation_char_len": 328,
+      "source_token_count": 16,
+      "back_translation_token_count": 18,
+      "source_token_recall": 0.812,
+      "back_translation_token_precision": 0.722,
+      "token_jaccard": 0.619,
+      "number_preservation": null,
+      "url_preservation": null,
+      "modal_family_preservation": null,
+      "negation_preservation": null,
+      "deterministic_meaningfulness_score": 0.879,
+      "warnings": []
+    },
+    {
+      "claim_id": "last_trading_price_used_when_closing_price_not_published",
+      "kind": "constraint",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 158,
+      "back_translation_char_len": 185,
+      "source_token_count": 15,
+      "back_translation_token_count": 12,
+      "source_token_recall": 0.533,
+      "back_translation_token_precision": 0.667,
+      "token_jaccard": 0.421,
+      "number_preservation": null,
+      "url_preservation": null,
+      "modal_family_preservation": 0.0,
+      "negation_preservation": 0.5,
+      "deterministic_meaningfulness_score": 0.589,
+      "warnings": [
+        "modal_family_not_preserved",
+        "negation_not_preserved"
+      ]
+    }
+  ]
+}

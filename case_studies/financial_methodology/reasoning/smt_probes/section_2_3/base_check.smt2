@@ -1,0 +1,25 @@
+(set-logic ALL)
+(set-option :produce-unsat-cores true)
+
+(declare-sort Day 0)
+(declare-sort FloatMarketCapizatlization 0)
+(declare-sort IndexComponent 0)
+(declare-sort Percent 0)
+(declare-sort Region 0)
+(declare-sort WeightRedistributionProcess 0)
+
+(declare-fun SelectionDay (Day) Bool)
+
+(declare-fun float_market_capizatlization (Day IndexComponent) FloatMarketCapizatlization)
+(declare-fun iterative_process (WeightRedistributionProcess) Bool)
+(declare-fun redistributes_weight_proportionally (WeightRedistributionProcess IndexComponent Percent) Bool)
+(declare-fun region (IndexComponent) Region)
+(declare-fun weight (Day IndexComponent) Percent)
+(declare-fun weight_has_float_market_capizatlization_basis (Percent FloatMarketCapizatlization) Bool)
+(declare-fun weight_redistribution_process (Day) WeightRedistributionProcess)
+
+(assert (! (forall ((d Day)) (=> (SelectionDay d) (forall ((c IndexComponent)) (weight_has_float_market_capizatlization_basis (weight d c) (float_market_capizatlization d c))))) :named TEXT_weight_based_on_float_market_capizatlization))
+(assert (! (forall ((d Day)) (=> (SelectionDay d) (forall ((c IndexComponent)) (<= (weight d c) (/ 5 100))))) :named TEXT_single_index_component_weight_capped))
+(assert (! (forall ((d Day)) (=> (SelectionDay d) (iterative_process (weight_redistribution_process d)))) :named TEXT_weight_redistribution_process_is_iterative))
+(assert (! (forall ((d Day)) (=> (SelectionDay d) (forall ((c IndexComponent)) (redistributes_weight_proportionally (weight_redistribution_process d) c (weight d c))))) :named TEXT_weights_redistributed_proportionally))
+(check-sat)

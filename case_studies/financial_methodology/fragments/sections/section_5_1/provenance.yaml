@@ -1,0 +1,143 @@
+section: "5.1 Discretion in relation to the determination of the Index"
+source_file: "source.md"
+schema_version: "v2"
+review_status: "draft_ir_to_text_user_review"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+# For each fact/constraint/obligation/permission/prohibition:
+#   kind             -- IR family
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | plumbing | derived_invariant | verification_probe | source_correction
+#   source_quotes    -- verbatim source spans the element formalizes
+#   back_translation -- natural-language unfolding of the IR formula using source phrasing
+#   vocabulary_basis -- source_only | mixed | ir_internal_bridge | ir_plumbing | ir_correction_alias
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+#   notes            -- optional clarification
+
+claims:
+
+  index_determination_discretion_scope:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Any discretion which may need to be exercised in relation to the determination of the Index"
+    back_translation: >
+      Every discretion in relation to the determination of the Index may need
+      to be exercised, is in relation to the Index, and is in relation to
+      some matter in relation to the determination of the Index.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Defining universal for the subtype "discretion in relation to the
+      determination of the Index". Captures three intertwined source
+      properties of any such discretion: that it may need to be exercised,
+      that it is in relation to the Index, and that it is in relation to
+      some specific matter within the determination of the Index.
+
+  applicable_example_matters:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "for example the determination of the Index Universe (if applicable), the selection of the Index Components (if applicable) or any other relevant decisions in relation to the Index"
+    back_translation: >
+      The matter "the determination of the Index Universe" applies if
+      applicable, the matter "the selection of the Index Components"
+      applies if applicable, and the matter "any other relevant decisions
+      in relation to the Index" is one of any other relevant decisions in
+      relation to the Index.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source's parenthetical e.g. list contains three example matters,
+      two of them hedged by "(if applicable)". The IR encodes the qualifier
+      as a unary predicate `if_applicable` on enum values rather than as a
+      logical conditional, since the source phrase is a hedge rather than
+      a triggering condition. The third example matter is a catch-all for
+      any other relevant decisions, encoded via a dedicated unary predicate.
+      The umbrella enum value "the determination of the Index" is left
+      unqualified, since the source does not attach "(if applicable)" to
+      the umbrella.
+
+  strict_rules_for_discretion_or_expert_judgement:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "strict rules regarding the exercise of discretion or expert judgement"
+    back_translation: >
+      The strict rules regarding the exercise of discretion or expert
+      judgement are strict, regard the exercise of discretion, and regard
+      the exercise of expert judgement.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source's "or" between "discretion" and "expert judgement" is read
+      inclusively: the strict rules cover both the exercise of discretion
+      and the exercise of expert judgement. The IR encodes this with two
+      conjoined `rules_regarding_exercise` relations on the same entity,
+      one per exercise basis.
+
+  make_index_determination_discretion_in_accordance_with_strict_rules:
+    kind: obligation
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Any discretion which may need to be exercised in relation to the determination of the Index ... shall be made in accordance with strict rules regarding the exercise of discretion or expert judgement."
+    back_translation: >
+      Every discretion in relation to the determination of the Index is
+      obliged to be made in accordance with the strict rules regarding the
+      exercise of discretion or expert judgement.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The legal future "shall be made" is represented as an obligation so
+      a violation remains representable rather than becoming a logical
+      contradiction. The obligation parameter ranges over the subtype
+      "discretion in relation to the determination of the Index", which
+      already carries the source's qualifications "may need to be
+      exercised" and "in relation to the determination of the Index"
+      via the defining universal.
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  TheIndex:
+    note: >
+      Local entity for the section's references to "the Index".
+      Cross-section identity belongs to the merge layer if this section
+      is combined with Section 1.2 entities.
+  StrictRulesForDiscretionAndExpertJudgement:
+    note: >
+      Entity for the source's "strict rules regarding the exercise of
+      discretion or expert judgement". The entity carries three facts:
+      it is strict, it regards the exercise of discretion, and it regards
+      the exercise of expert judgement.
+  IndexDeterminationDiscretion:
+    note: >
+      Subtype of Discretion specifically for discretion in relation to the
+      determination of the Index. Used as the parameter type of the
+      obligation so the modal applies only to such discretions and not to
+      arbitrary global Discretion.
+  IndexDeterminationMatter:
+    note: >
+      Enumerated typology of matters in relation to the determination of
+      the Index. The four enum values correspond to: the umbrella ("the
+      determination of the Index"), and the three example matters from
+      the source's parenthetical e.g. list ("the determination of the
+      Index Universe", "the selection of the Index Components", "any
+      other relevant decisions in relation to the Index"). The umbrella
+      is included so a discretion can be in relation to the determination
+      of the Index in general without committing to a specific listed
+      example.
+  ExerciseBasis:
+    note: >
+      Enumerated typology of the two exercise modalities mentioned in the
+      source: "the exercise of discretion" and "the exercise of expert
+      judgement". The two values are used as the second argument of
+      `rules_regarding_exercise` to attach both characterizations to the
+      strict rules entity.

@@ -1,0 +1,142 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_2_1 a a4:ShaclProjectionTarget .
+
+ex:SelectionDay a rdfs:Class .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:SelectionDayShape a sh:NodeShape ; sh:targetClass ex:SelectionDay .
+ex:Security a rdfs:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:SecurityShape a sh:NodeShape ; sh:targetClass ex:Security .
+ex:ShareClass a rdfs:Class .
+ex:ShareClass rdfs:subClassOf ex:Security .
+ex:ShareClassShape a sh:NodeShape ; sh:targetClass ex:ShareClass .
+ex:Company a rdfs:Class .
+ex:CompanyShape a sh:NodeShape ; sh:targetClass ex:Company .
+ex:GbsIndex a rdfs:Class .
+ex:GbsIndexShape a sh:NodeShape ; sh:targetClass ex:GbsIndex .
+ex:GbsIndexUniverse a rdfs:Class .
+ex:GbsIndexUniverseShape a sh:NodeShape ; sh:targetClass ex:GbsIndexUniverse .
+ex:ISIN a rdfs:Class .
+ex:ISINShape a sh:NodeShape ; sh:targetClass ex:ISIN .
+ex:GbsIndexUniverseClassification a rdfs:Class .
+ex:GbsIndexUniverseClassificationShape a sh:NodeShape ; sh:targetClass ex:GbsIndexUniverseClassification .
+ex:AverageDailyValueTraded a rdfs:Class .
+ex:AverageDailyValueTraded rdfs:subClassOf ex:MonetaryAmount .
+ex:AverageDailyValueTradedShape a sh:NodeShape ; sh:targetClass ex:AverageDailyValueTraded .
+ex:MonthCount a rdfs:Class .
+ex:MonthCount rdfs:subClassOf ex:Nat .
+ex:MonthCountShape a sh:NodeShape ; sh:targetClass ex:MonthCount .
+ex:BusinessIndustryClassificationSystem a rdfs:Class .
+ex:BusinessIndustryClassificationSystemShape a sh:NodeShape ; sh:targetClass ex:BusinessIndustryClassificationSystem .
+ex:RBICSSubindustryClassification a rdfs:Class .
+ex:RBICSSubindustryClassificationShape a sh:NodeShape ; sh:targetClass ex:RBICSSubindustryClassification .
+ex:Appendix a rdfs:Class .
+ex:AppendixShape a sh:NodeShape ; sh:targetClass ex:Appendix .
+ex:IndexAdministrator a rdfs:Class .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:IndexAdministratorShape a sh:NodeShape ; sh:targetClass ex:IndexAdministrator .
+ex:DeterminationOfIndexUniverse a rdfs:Class .
+ex:DeterminationOfIndexUniverseShape a sh:NodeShape ; sh:targetClass ex:DeterminationOfIndexUniverse .
+ex:DiscretionaryDecision a rdfs:Class .
+ex:DiscretionaryDecisionShape a sh:NodeShape ; sh:targetClass ex:DiscretionaryDecision .
+
+ex:SolactiveGBSGlobalMarketsAllCapUSDIndexPR a ex:GbsIndex .
+ex:DE000SLA78E2 a ex:ISIN .
+ex:isin a rdf:Property .
+ex:GbsIndexShape sh:property [ sh:path ex:isin ; sh:class ex:ISIN ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:gbs_index_universe a rdf:Property .
+ex:GbsIndexShape sh:property [ sh:path ex:gbs_index_universe ; sh:class ex:GbsIndexUniverse ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:SolactiveGBSBenchmarkSeriesPdf a ex:Document .
+ex:HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf a ex:Url .
+ex:GbsIndexUniverseFrameworkDocumentPart a ex:DocumentPart .
+ex:GbsIndexUniverseFrameworkDocumentLocator a ex:DocumentLocator .
+ex:DevelopedMarketsEurope a ex:GbsIndexUniverseClassification .
+ex:Canada a ex:GbsIndexUniverseClassification .
+ex:UnitedStates a ex:GbsIndexUniverseClassification .
+ex:USD a ex:Currency .
+ex:Million a ex:MonetaryAmountScale .
+ex:IndexUniverseMinimumAverageDailyValueTradedThreshold a ex:MonetaryAmount .
+ex:OneMonth a ex:MonthCount .
+ex:SixMonths a ex:MonthCount .
+ex:months_prior_including_selection_day a rdfs:Class .
+ex:months_prior_including_selection_dayShape a sh:NodeShape ; sh:targetClass ex:months_prior_including_selection_day .
+ex:months_prior_including_selection_dayShape sh:property [ sh:path ex:months_prior_including_selection_day_arg_0 ; sh:class ex:MonthCount ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:months_prior_including_selection_dayShape sh:property [ sh:path ex:months_prior_including_selection_day_arg_1 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:months_prior_including_selection_dayShape sh:property [ sh:path ex:months_prior_including_selection_day_result ; sh:class ex:LookbackWindow ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:months_over a rdf:Property .
+ex:LookbackWindowShape sh:property [ sh:path ex:months_over ; sh:class ex:MonthCount ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:lookback_window_anchor_day a rdf:Property .
+ex:LookbackWindowShape sh:property [ sh:path ex:lookback_window_anchor_day ; sh:class ex:SelectionDay ] .
+ex:lookback_window_includes_anchor_day a rdf:Property .
+ex:LookbackWindowShape sh:property [ sh:path ex:lookback_window_includes_anchor_day ; sh:class ex:SelectionDay ] .
+ex:average_daily_value_traded a rdfs:Class .
+ex:average_daily_value_tradedShape a sh:NodeShape ; sh:targetClass ex:average_daily_value_traded .
+ex:average_daily_value_tradedShape sh:property [ sh:path ex:average_daily_value_traded_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:average_daily_value_tradedShape sh:property [ sh:path ex:average_daily_value_traded_arg_1 ; sh:class ex:Security ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:average_daily_value_tradedShape sh:property [ sh:path ex:average_daily_value_traded_arg_2 ; sh:class ex:LookbackWindow ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:average_daily_value_tradedShape sh:property [ sh:path ex:average_daily_value_traded_result ; sh:class ex:AverageDailyValueTraded ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:minimum_average_daily_value_traded a rdfs:Class .
+ex:minimum_average_daily_value_tradedShape a sh:NodeShape ; sh:targetClass ex:minimum_average_daily_value_traded .
+ex:minimum_average_daily_value_tradedShape sh:property [ sh:path ex:minimum_average_daily_value_traded_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:minimum_average_daily_value_tradedShape sh:property [ sh:path ex:minimum_average_daily_value_traded_arg_1 ; sh:class ex:Security ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:minimum_average_daily_value_tradedShape sh:property [ sh:path ex:minimum_average_daily_value_traded_result ; sh:class ex:AverageDailyValueTraded ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:FactSetRevereBusinessIndustryClassificationSystem a ex:BusinessIndustryClassificationSystem .
+ex:IndexGuidelineAppendix a ex:Appendix .
+ex:rbics_subindustry_classification_of_system a rdf:Property .
+ex:RBICSSubindustryClassificationShape sh:property [ sh:path ex:rbics_subindustry_classification_of_system ; sh:class ex:BusinessIndustryClassificationSystem ] .
+ex:rbics_subindustry_classification_in_appendix a rdf:Property .
+ex:RBICSSubindustryClassificationShape sh:property [ sh:path ex:rbics_subindustry_classification_in_appendix ; sh:class ex:Appendix ] .
+ex:appendix_rbics_subindustry_classification a rdfs:Class ; rdfs:subClassOf ex:RBICSSubindustryClassification .
+ex:index_universe a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:index_universe ; sh:class ex:ShareClass ] .
+ex:eligible_for_index_universe a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:eligible_for_index_universe ; sh:class ex:ShareClass ] .
+ex:part_component_of_gbs_index_universe a rdfs:Class .
+ex:part_component_of_gbs_index_universeShape a sh:NodeShape ; sh:targetClass ex:part_component_of_gbs_index_universe .
+ex:part_component_of_gbs_index_universeShape sh:property [ sh:path ex:part_component_of_gbs_index_universe_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:part_component_of_gbs_index_universeShape sh:property [ sh:path ex:part_component_of_gbs_index_universe_arg_1 ; sh:class ex:Security ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:part_component_of_gbs_index_universeShape sh:property [ sh:path ex:part_component_of_gbs_index_universe_arg_2 ; sh:class ex:GbsIndexUniverse ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:gbs_index_universe_classification a rdfs:Class .
+ex:gbs_index_universe_classificationShape a sh:NodeShape ; sh:targetClass ex:gbs_index_universe_classification .
+ex:gbs_index_universe_classificationShape sh:property [ sh:path ex:gbs_index_universe_classification_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:gbs_index_universe_classificationShape sh:property [ sh:path ex:gbs_index_universe_classification_arg_1 ; sh:class ex:Security ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:gbs_index_universe_classificationShape sh:property [ sh:path ex:gbs_index_universe_classification_result ; sh:class ex:GbsIndexUniverseClassification ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:company a rdf:Property .
+ex:ShareClassShape sh:property [ sh:path ex:company ; sh:class ex:Company ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:company_currently_included_in_index a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:company_currently_included_in_index ; sh:class ex:Company ] .
+ex:share_class_currently_included_in_index a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:share_class_currently_included_in_index ; sh:class ex:ShareClass ] .
+ex:eligible_by_current_company_buffer_rule a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:eligible_by_current_company_buffer_rule ; sh:class ex:ShareClass ] .
+ex:eligible_by_not_current_company_buffer_rule a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:eligible_by_not_current_company_buffer_rule ; sh:class ex:ShareClass ] .
+ex:share_class_satisfies_buffer_rule a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:share_class_satisfies_buffer_rule ; sh:class ex:ShareClass ] .
+ex:CurrentCompanyBufferRule a ex:IndexBufferRule .
+ex:NotCurrentCompanyBufferRule a ex:IndexBufferRule .
+ex:AvoidFrequentChangesBetweenTwoShareClasses a ex:VagueTerm .
+ex:share_class_with_highest_minimum_average_daily_value_traded a rdfs:Class .
+ex:share_class_with_highest_minimum_average_daily_value_tradedShape a sh:NodeShape ; sh:targetClass ex:share_class_with_highest_minimum_average_daily_value_traded .
+ex:share_class_with_highest_minimum_average_daily_value_tradedShape sh:property [ sh:path ex:share_class_with_highest_minimum_average_daily_value_traded_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:share_class_with_highest_minimum_average_daily_value_tradedShape sh:property [ sh:path ex:share_class_with_highest_minimum_average_daily_value_traded_arg_1 ; sh:class ex:Company ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:share_class_with_highest_minimum_average_daily_value_tradedShape sh:property [ sh:path ex:share_class_with_highest_minimum_average_daily_value_traded_result ; sh:class ex:ShareClass ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:highest_minimum_average_daily_value_traded a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:highest_minimum_average_daily_value_traded ; sh:class ex:ShareClass ] .
+ex:rbics_subindustry_classification a rdfs:Class .
+ex:rbics_subindustry_classificationShape a sh:NodeShape ; sh:targetClass ex:rbics_subindustry_classification .
+ex:rbics_subindustry_classificationShape sh:property [ sh:path ex:rbics_subindustry_classification_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:rbics_subindustry_classificationShape sh:property [ sh:path ex:rbics_subindustry_classification_arg_1 ; sh:class ex:Security ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:rbics_subindustry_classificationShape sh:property [ sh:path ex:rbics_subindustry_classification_result ; sh:class ex:RBICSSubindustryClassification ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:determination_of_index_universe a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:determination_of_index_universe ; sh:class ex:DeterminationOfIndexUniverse ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:fully_rule_based a rdfs:Class ; rdfs:subClassOf ex:DeterminationOfIndexUniverse .
+
+ex:SolactiveGBSGlobalMarketsAllCapUSDIndexPR ex:isin ex:DE000SLA78E2 .

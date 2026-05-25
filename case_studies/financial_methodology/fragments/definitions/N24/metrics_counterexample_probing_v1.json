@@ -1,0 +1,86 @@
+{
+  "entry_id": "N24",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1049,
+    "completion_tokens": 391,
+    "total_tokens": 1440
+  },
+  "latency_s": 3.1025516986846924,
+  "scenarios": [
+    {
+      "description": "The contract uses the exact defined term \"Live Date,\" and the agreement states that its meaning is defined in Section 1.3.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The contract says that \"Live Date\" shall have the meaning defined in Section 2.1 instead of Section 1.3.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The agreement contains multiple defined terms, and only one of them is stated to have its meaning defined in Section 1.3; \"Live Date\" is not among them.",
+      "category": "scope_edge",
+      "source_verdict": "reject",
+      "ir_verdict": "ambiguous",
+      "agree": false,
+      "drift_explanation": "The source text singles out \"Live Date\" and requires that it have the meaning defined in Section 1.3, so this scenario violates the source. The IR only asserts that LiveDateTerm has that relation, but it does not express exclusivity or a broader quantifier over other terms, so it is silent about the scenario."
+    },
+    {
+      "description": "The document says that \"Live Date\" will have the meaning defined in Section 1.3 only after Section 1.3 becomes effective, and before that time the term has no defined meaning.",
+      "category": "modality_edge",
+      "source_verdict": "reject",
+      "ir_verdict": "ambiguous",
+      "agree": false,
+      "drift_explanation": "The source uses an unconditional \"shall have the meaning as defined in Section 1.3,\" so a delayed or conditional meaning conflicts with it. The IR states only a static fact linking LiveDateTerm to Section1_3 and does not encode timing, effectiveness, or conditionality, so it cannot reject the scenario."
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 2,
+    "agreement_rate": 0.5,
+    "drifts": [
+      {
+        "description": "The agreement contains multiple defined terms, and only one of them is stated to have its meaning defined in Section 1.3; \"Live Date\" is not among them.",
+        "category": "scope_edge",
+        "source_verdict": "reject",
+        "ir_verdict": "ambiguous",
+        "agree": false,
+        "drift_explanation": "The source text singles out \"Live Date\" and requires that it have the meaning defined in Section 1.3, so this scenario violates the source. The IR only asserts that LiveDateTerm has that relation, but it does not express exclusivity or a broader quantifier over other terms, so it is silent about the scenario."
+      },
+      {
+        "description": "The document says that \"Live Date\" will have the meaning defined in Section 1.3 only after Section 1.3 becomes effective, and before that time the term has no defined meaning.",
+        "category": "modality_edge",
+        "source_verdict": "reject",
+        "ir_verdict": "ambiguous",
+        "agree": false,
+        "drift_explanation": "The source uses an unconditional \"shall have the meaning as defined in Section 1.3,\" so a delayed or conditional meaning conflicts with it. The IR states only a static fact linking LiveDateTerm to Section1_3 and does not encode timing, effectiveness, or conditionality, so it cannot reject the scenario."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 0
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 0
+      }
+    }
+  }
+}

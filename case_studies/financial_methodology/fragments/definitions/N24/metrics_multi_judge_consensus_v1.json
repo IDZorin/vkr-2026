@@ -1,0 +1,125 @@
+{
+  "entry_id": "N24",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR captures that the defined term “Live Date” has its meaning set by Section 1.3. The use of a generic defined-term symbol and a document-part reference is a faithful formalization of the source sentence.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR omits quotation marks around the term, which is a harmless naming choice.",
+        "“Section1_3” is a normalized identifier for “Section 1.3.”"
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1851,
+        "completion_tokens": 124,
+        "total_tokens": 1975
+      },
+      "latency_s": 2.5263872146606445
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "corresponds",
+      "relation_type": "same_meaning_poor_wording",
+      "reason_short": "The source states that the defined term “Live Date” has the meaning given in Section 1.3, and the IR captures exactly that by introducing the term, the referenced document part, and asserting that the term’s meaning is defined in that section. The main differences are only representational and naming-related, not semantic.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses the generic sort name DefinedTerm and entity name LiveDateTerm rather than the literal quoted text “Live Date”.",
+        "The relation name term_shall_have_meaning_defined_in_section is somewhat awkwardly worded but conveys the intended definitional reference.",
+        "Section 1.3 is modeled as a DocumentPart entity Section1_3, which is a standard structural encoding."
+      ],
+      "confidence": 0.97,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1851,
+        "completion_tokens": 213,
+        "total_tokens": 2064
+      },
+      "latency_s": 3.896566152572632
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR correctly captures that 'Live Date' is a defined term whose meaning is specified in Section 1.3. However, the IR introduces a new sort `DefinedTerm` and a new relation `term_shall_have_meaning_defined_in_section` that are not present in the prelude and are not strictly necessary to encode the source claim. The source is a simple definitional cross-reference; the IR reifies this as a formal ontology with custom sorts and relations. While the IR's claim is semantically sound (it does assert that LiveDateTerm's meaning is defined in Section 1.3), it adds structural overhead that goes beyond what the source text requires. The source makes no claim about a general class of 'DefinedTerms' or a general relation between terms and document parts—it simply states a single definitional reference.",
+      "semantic_differences": [
+        "IR introduces custom sort `DefinedTerm` not present in prelude or source; source makes no claim about a general category of defined terms.",
+        "IR introduces custom relation `term_shall_have_meaning_defined_in_section` not present in prelude or source; source makes no claim about a general relation between terms and sections.",
+        "IR reifies the definitional reference as a formal ontological structure; source is a simple cross-reference statement that does not require ontological reification."
+      ],
+      "stylistic_notes": [
+        "Entity naming `LiveDateTerm` and `Section1_3` are reasonable encodings of the source concepts.",
+        "The use of `fact` to assert the relationship is appropriate for a definitional statement.",
+        "The IR could have been simpler: a single comment or annotation stating that LiveDate is defined in Section 1.3, without introducing new sorts and relations."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2113,
+        "completion_tokens": 454,
+        "total_tokens": 2567
+      },
+      "latency_s": 5.908496618270874
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR encodes the definitional cross-reference from the source: 'Live Date' is a defined term whose meaning is specified in Section 1.3. The fact asserts the relation between the term entity and the document part, matching the source's declaration.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "Entity 'LiveDateTerm' concatenates the source's two-word term; no semantic change.",
+        "Relation name 'term_shall_have_meaning_defined_in_section' is a verbose literal encoding of the source phrasing."
+      ],
+      "confidence": 0.97,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1966,
+        "completion_tokens": 1165,
+        "total_tokens": 3131
+      },
+      "latency_s": 42.69965314865112
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR accurately formalizes the source's cross-reference directive by linking the term 'Live Date' to the document part 'Section 1.3' via a relation that captures the 'shall have the meaning as defined in' instruction. No semantic content is added, omitted, or altered.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The relation name 'term_shall_have_meaning_defined_in_section' is verbose but functionally precise.",
+        "Introducing 'DefinedTerm' as a custom sort is permissible under LAYER 2 rules as it directly traces to the source's reference to a defined term."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1978,
+        "completion_tokens": 1378,
+        "total_tokens": 3356
+      },
+      "latency_s": 26.530560970306396
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "corresponds": 4,
+      "partially_corresponds": 1
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 0.8,
+    "unanimous": false,
+    "mean_confidence": 0.918
+  }
+}

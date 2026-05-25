@@ -1,0 +1,118 @@
+{
+  "entry_id": "N12",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core idea that Free Float is a share-class-specific fraction for securities meeting Index Component Requirements on a Selection Day, and that it is sourced from a data vendor. However, it adds a precise numerator/denominator counting definition and a vendor-existence constraint that are not stated in the source, while also omitting the source’s explicit emphasis on shares being available for trading and not locked-in by long-term holders as the defining description of the fraction.",
+      "semantic_differences": [
+        "The source defines Free Float as the share-class-specific fraction of shares available for trading by market participants and not locked-in by long-term holders; the IR replaces this with a specific count-based numerator/denominator formula, which is not stated in the source.",
+        "The source says the fraction is sourced from data vendors in general; the IR requires existence of a vendor for each free_float value, which is a stronger formal claim than the source text.",
+        "The source describes Free Float as a property of 'the securities fulfilling the Index Component Requirements on a Selection Day'; the IR encodes this only as a conditional definition over securities and does not explicitly state the full descriptive phrasing of the source."
+      ],
+      "stylistic_notes": [
+        "'SelectionDay' is a canonicalized form of 'Selection Day'.",
+        "The IR uses formal symbols like 'free_float_numerator' and 'free_float_denominator' to represent the fraction structure.",
+        "'DataVendor' is a reasonable ontology choice for 'data vendors'."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2205,
+        "completion_tokens": 328,
+        "total_tokens": 2533
+      },
+      "latency_s": 3.8478236198425293
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core idea that for each qualifying security on a selection day, free float is a share-class-specific fraction based on issued shares that are available for trading and not locked in, and that it is sourced from a data vendor. However, it materially strengthens and concretizes the source by defining the fraction as an exact count-based ratio over individual shares and by introducing a specific share class function per security/day, which is not explicitly stated in the source.",
+      "semantic_differences": [
+        "The source says free float is the share-class-specific fraction of the total number of issued shares available for trading and not locked in; the IR makes this an exact mathematical ratio of counts over individual Share objects. The source does not explicitly require this count-of-share-entities encoding.",
+        "The IR introduces a required function share_class : SelectionDay, Security -> ShareClass, effectively assigning a single share class to each security on each selection day. The source refers to 'such share class' but does not explicitly state that each security/day pair has exactly one associated share class.",
+        "The IR requires existence of at least one DataVendor source for every free-float value. The source says 'as sourced from data vendors,' which indicates sourcing but does not clearly specify the existential structure per value in the precise way the IR does."
+      ],
+      "stylistic_notes": [
+        "Using SelectionDay as a subtype of Day and Security as a subtype of FinancialInstrument is a reasonable ontology choice.",
+        "The numerator/denominator decomposition is a formalization choice; it is more explicit than the source wording.",
+        "The phrase 'fulfilling the Index Component Requirements on a Selection Day' is rendered as a predicate on SelectionDay and Security, which is stylistically acceptable."
+      ],
+      "confidence": 0.82,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2205,
+        "completion_tokens": 405,
+        "total_tokens": 2610
+      },
+      "latency_s": 7.677404880523682
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully encodes the source definition of 'Free Float' as a fraction of shares available for trading (not locked-in) relative to total issued shares of a given share class on a Selection Day. The constraint correctly captures the numerator (shares meeting all availability criteria), denominator (all issued shares), and the fraction itself. The sourcing from data vendors is also encoded. All terms trace to source phrases or prelude infrastructure (SelectionDay as Day, Security as FinancialInstrument). The formalization is a canonical a4v3 lowering of the natural-language definition.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "IR introduces intermediate sorts (ShareClass, Share, ShareCount, Fraction, FreeFloat, DataVendor) not explicitly named in source but necessary for formal encoding of the definition.",
+        "IR uses relational predicates (fulfills_index_component_requirements, share_of_share_class, issued_share_on_selection_day, available_for_trading_by_market_participants, locked_in_by_long_term_holders, sourced_from_data_vendor) to decompose the natural-language description into formal logic.",
+        "The constraint uses set comprehension (count with where clauses) to formalize 'fraction of total number of shares' — a standard a4v3 encoding pattern.",
+        "Source phrase 'not locked-in by long term holders' is correctly lowered as negation of the locked_in_by_long_term_holders predicate."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2579,
+        "completion_tokens": 400,
+        "total_tokens": 2979
+      },
+      "latency_s": 5.532118797302246
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 64.87073945999146
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully formalizes the source definition of Free Float as a share-class-specific fraction calculated for each qualifying security on a Selection Day. It correctly decomposes the fraction into a numerator (issued shares available for trading and not locked-in) and a denominator (total issued shares of that share class), and explicitly captures the data vendor sourcing requirement. All logical components and relations map directly to the source text without introducing external semantics.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR models the fraction via explicit numerator and denominator projection functions, a standard formalization pattern that preserves the source meaning.",
+        "Relation names such as `issued_share_on_selection_day` contextualize the temporal scope implied by 'on a Selection Day' in the source."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2348,
+        "completion_tokens": 2587,
+        "total_tokens": 4935
+      },
+      "latency_s": 48.62381148338318
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 2,
+      "corresponds": 2
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.5,
+    "unanimous": false,
+    "mean_confidence": 0.897
+  }
+}

@@ -1,0 +1,409 @@
+section: "1.4 Prices and calculation frequency"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+# For each fact/constraint/obligation/permission/prohibition:
+#   kind             -- IR family
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | plumbing | derived_invariant | verification_probe
+#   source_quotes    -- verbatim source spans the element formalizes
+#   back_translation -- natural-language unfolding of the IR formula
+#   vocabulary_basis -- source_only | mixed | ir_internal_bridge | ir_plumbing
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+#   notes            -- optional clarification
+
+claims:
+
+  ice_alias:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the current Intercontinental Exchange (ICE) spot foreign exchange rate"
+    back_translation: >
+      ICE is the same organization as Intercontinental Exchange.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Source uses "Intercontinental Exchange (ICE)" as an explicit acronym
+      definition. The IR captures both as separate entities and equates them
+      so downstream tooling can use either name.
+
+  intraday_calculation_window:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The level of the Index is calculated on each Calculation Day from 1:00 a.m. to 10:50 p.m. CET"
+    back_translation: >
+      For every Calculation Day and every intraday Calculation Time on that
+      day, the calculation mode is intraday, the calculation time is from
+      1:00 a.m. to 10:50 p.m. CET, and the intraday level of the Index is
+      calculated at that time on that Calculation Day.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      Mixed because "Calculation Time" and "calculation mode" are IR scaffolding
+      around the source phrase "from 1:00 a.m. to 10:50 p.m. CET". The time
+      window itself uses source values (1:00 a.m., 10:50 p.m., CET) verbatim.
+
+  intraday_level_uses_exchange_trading_prices:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "based on the Trading Prices on the Exchanges on which the Index Components are listed"
+    back_translation: >
+      For every Calculation Day, every intraday Calculation Time, and every
+      Index Component, there is some Exchange on which the Index Component
+      is listed, the intraday source price of that Index Component is on
+      that Exchange, and the intraday level of the Index uses the Index
+      Component's intraday calculation price.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Two-layer pipeline: source price (raw Trading Price or fallback) →
+      calculation price (after currency conversion if needed) → level.
+      Source's "based on" is captured by `price_used_for_level`.
+
+  current_trading_price_used_when_available:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "based on the Trading Prices"
+      - "Should there be no current Trading Price for an Index Component"
+    back_translation: >
+      For every Calculation Day, every intraday Calculation Time, and every
+      Index Component, if a current Trading Price is available for that
+      Index Component at that time, then the intraday source price equals
+      the current Trading Price.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Captures the default case (current Trading Price is used). The
+      "Should there be no current Trading Price" branch is captured
+      separately by `no_current_trading_price_fallback`.
+
+  no_current_trading_price_fallback:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Should there be no current Trading Price for an Index Component, the later of: (i) the most recent Closing Price; or (ii) the last available Trading Price for the preceding Trading Day is used in the calculation."
+    back_translation: >
+      For every Calculation Day, every intraday Calculation Time, and every
+      Index Component, if no current Trading Price is available, then the
+      intraday source price is the later of (i) the most recent Closing
+      Price and (ii) the last available Trading Price for the preceding
+      Trading Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The "later of (i) ... ; (ii) ..." selection is captured by the
+      `later_of : Price, Price -> Price` function, which selects the more
+      recent of two prices.
+
+  fallback_price_candidates_are_temporally_comparable:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "the later of: (i) the most recent Closing Price; or (ii) the last available Trading Price for the preceding Trading Day"
+    back_translation: >
+      For every fallback comparison between the most recent Closing Price
+      and the last available Trading Price for the preceding Trading Day,
+      one of the two prices has selection priority over the other for the
+      source phrase "the later of".
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      Bridge contract for the source phrase "the later of". This is not an
+      independent methodology rule; it makes explicit that the two fallback
+      candidates are comparable under the price-selection-order relation used
+      by `later_of`.
+
+  later_of_returns_a_candidate:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "the later of: (i) the most recent Closing Price; or (ii) the last available Trading Price for the preceding Trading Day"
+    back_translation: >
+      For any two candidate prices, later_of returns one of those two
+      candidate prices.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      Bridge contract for the helper function `later_of`; prevents the
+      helper from denoting an unrelated third price.
+
+  later_of_selects_temporally_later_candidate:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "the later of: (i) the most recent Closing Price; or (ii) the last available Trading Price for the preceding Trading Day"
+    back_translation: >
+      For any two candidate prices, if one candidate has selection priority
+      over the other under the source phrase "the later of", later_of
+      selects that candidate.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      Bridge contract that gives formula-body semantics to the source word
+      "later" through `price_selection_order` instead of relying only on
+      the name `later_of`.
+
+  intraday_price_kept_when_listed_in_index_currency:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Trading Prices of Index Components not listed in the Index Currency are converted using the current Intercontinental Exchange (ICE) spot foreign exchange rate."
+    back_translation: >
+      For every Calculation Day, every intraday Calculation Time, and every
+      Index Component, if the Index Component's listed currency is the same
+      as the Index Currency, then the intraday calculation price equals the
+      intraday source price.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Captures the "no conversion" branch implicitly defined by the source
+      conditional: only Index Components NOT in the Index Currency are
+      converted. By contraposition, those listed in the Index Currency keep
+      their price unchanged.
+
+  intraday_price_converted_when_not_listed_in_index_currency:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Trading Prices of Index Components not listed in the Index Currency are converted using the current Intercontinental Exchange (ICE) spot foreign exchange rate."
+    back_translation: >
+      For every Calculation Day, every intraday Calculation Time, and every
+      Index Component, if the Index Component's listed currency is not the
+      Index Currency, then the intraday calculation price is converted from
+      the intraday source price using the current ICE spot foreign exchange
+      rate from the listed currency to the Index Currency.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Currency-pair as explicit args to the FX rate function
+      (current_ice_spot_foreign_exchange_rate(src, tgt, d, t)) makes the
+      conversion direction explicit (from listed currency to Index Currency).
+
+  current_ice_spot_foreign_exchange_rate_source:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the current Intercontinental Exchange (ICE) spot foreign exchange rate"
+    back_translation: >
+      For every currency pair, every Calculation Day, and every intraday
+      Calculation Time, the current ICE spot foreign exchange rate is
+      provided by Intercontinental Exchange.
+    vocabulary_basis: source_only
+    status: covered
+
+  closing_level_calculated_each_calculation_day:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "In addition to the intraday calculation a closing level of the Index for each Calculation Day is also calculated."
+    back_translation: >
+      For every Calculation Day, the closing level of the Index is calculated
+      on that Calculation Day.
+    vocabulary_basis: source_only
+    status: covered
+
+  closing_level_based_on_closing_prices:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "This closing level is based on the Closing Prices for the Index Components on the respective Exchanges on which the Index Components are listed."
+    back_translation: >
+      For every Calculation Day and every Index Component, there is some
+      Exchange on which the Index Component is listed, the Closing Price of
+      the Index Component is on that Exchange, and the closing level of the
+      Index uses the Index Component's closing calculation price.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Same two-layer pipeline as intraday: closing price (raw) → closing
+      calculation price (after conversion if needed) → closing level.
+
+  closing_price_kept_when_listed_in_index_currency:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The Closing Prices of Index Components not listed in the Index Currency are converted using the 04:00 p.m. London time WM Fixing quoted by Reuters."
+    back_translation: >
+      For every Calculation Day and every Index Component, if the Index
+      Component's listed currency is the same as the Index Currency, then
+      the closing calculation price equals the closing price (no conversion
+      is applied).
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Captures the "no conversion" branch by contraposition of the source
+      "not listed in the Index Currency" conditional.
+
+  closing_price_converted_with_available_wm_fixing:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The Closing Prices of Index Components not listed in the Index Currency are converted using the 04:00 p.m. London time WM Fixing quoted by Reuters."
+    back_translation: >
+      For every Calculation Day and every Index Component, if the Index
+      Component's listed currency is not the Index Currency and a 04:00
+      p.m. London time WM Fixing is available for the currency
+      pair on that Calculation Day, then the WM fixing used for the closing
+      level equals that 04:00 p.m. London time WM Fixing, and the closing
+      calculation price is converted from the closing price using that WM
+      fixing.
+    vocabulary_basis: source_only
+    status: covered
+
+  closing_price_converted_with_last_available_wm_fixing:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "If there is no 04:00 p.m. London time WM Fixing for the relevant Calculation Day, the last available 04:00 p.m. London time WM Fixing will be used for the closing level calculation."
+    back_translation: >
+      For every Calculation Day and every Index Component, if the Index
+      Component's listed currency is not the Index Currency and no 04:00
+      p.m. London time WM Fixing is available for the currency
+      pair on that Calculation Day, then the WM fixing used for the closing
+      level equals the last available 04:00 p.m. London time WM Fixing, and
+      the closing calculation price is converted from the closing price
+      using that fallback WM fixing.
+    vocabulary_basis: source_only
+    status: covered
+
+  wm_fixing_4pm_london_quoted_by_reuters:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the 04:00 p.m. London time WM Fixing quoted by Reuters"
+    back_translation: >
+      For every currency pair and every Calculation Day, the 04:00 p.m.
+      London time WM Fixing for that currency pair on that Calculation Day
+      is quoted by Reuters, and its fixing time is 04:00 p.m. London time.
+    vocabulary_basis: source_only
+    status: covered
+
+  last_available_wm_fixing_4pm_london_quoted_by_reuters:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: derived_invariant
+    source_quotes:
+      - "the 04:00 p.m. London time WM Fixing quoted by Reuters"
+      - "the last available 04:00 p.m. London time WM Fixing will be used for the closing level calculation"
+    back_translation: >
+      For every currency pair and every Calculation Day, the last available
+      04:00 p.m. London time WM Fixing for that currency pair on that
+      Calculation Day is quoted by Reuters, and its fixing time is 04:00
+      p.m. London time.
+    vocabulary_basis: source_only
+    status: derived
+    notes: >
+      Source explicitly attributes Reuters only to the regular WM Fixing.
+      For the fallback "last available 04:00 p.m. London time WM Fixing",
+      source does not explicitly state the Reuters attribution. This fact
+      treats the fallback as belonging to the same Reuters-quoted fixing
+      series — a defensible inference because the fallback is, by name,
+      a previously-quoted WM Fixing from the same series. Marked as
+      derived_invariant rather than source_claim to record the
+      consistency-based extension.
+
+uncovered_source:
+  - quote: "(none -- all eight source claims map to at least one IR claim; intraday window, intraday basis, ICE conversion, fallback price, closing flow, closing basis, WM conversion, WM fallback all covered)"
+
+vocabulary_notes:
+  TheIndex:
+    note: >
+      Local entity for the source phrase "the Index" (used generically in 1.4
+      to refer to the methodology Index). Per the local-first / bridge
+      strategy documented in manual_gold_process_v1.md, this section uses a
+      single local entity rather than enumerating the five canonical
+      Section 1.2 variants. A bridge entry should map TheIndex to the family
+      of canonical Section 1.2 indices (PR, NTR, TR, 50 AR, 5% AR), since
+      the calculation methodology applies to all of them.
+  IntradayCalculation:
+    note: >
+      Entity of sort CalculationMode used to tag the intraday calculation
+      mode. Source contrasts intraday vs closing ("In addition to the
+      intraday calculation a closing level..."); the IR currently tags only
+      intraday explicitly. The closing flow is identified by the separate
+      `closing_level` function and `closing_level_calculated_on` rel
+      without a mode entity.
+  Time1_00AMCET / Time10_50PMCET / Time04_00PMLondon:
+    note: >
+      TimeOfDay entities for the three source-mentioned times. Names combine
+      the time value and the timezone label for readability; the explicit
+      TimeZone is also passed as a separate argument in
+      calculation_time_from_to and fixing_time relations for unambiguous
+      timezone semantics.
+  CET / LondonTime:
+    note: >
+      TimeZone entities. Separated from TimeOfDay so that timezone
+      semantics is first-class for downstream verification.
+  ICE / IntercontinentalExchange:
+    note: >
+      Two entities for the same organization. Source uses "Intercontinental
+      Exchange (ICE)" as an explicit acronym definition. The IR keeps both
+      and equates them via `ice_alias` fact. Either name can be used in
+      downstream code.
+  Reuters:
+    note: >
+      Organization entity that quotes the WM Fixing series.
+  later_of:
+    note: >
+      Function `Price, Price -> Price` that selects the more recent of two
+      prices. Used in `no_current_trading_price_fallback` to capture the
+      source phrase "the later of (i) the most recent Closing Price; or
+      (ii) the last available Trading Price for the preceding Trading Day".
+      Its helper semantics is made explicit by the bridge constraints
+      `fallback_price_candidates_are_temporally_comparable`,
+      `later_of_returns_a_candidate`, and
+      `later_of_selects_temporally_later_candidate`.
+  price_selection_order:
+    note: >
+      Binary selection-order relation over price observations. In the
+      Section 1.4 fallback rule, `price_selection_order(p1, p2)` means p1
+      is the candidate selected by the source phrase "the later of" when
+      compared with p2. It should not be read as a value comparison between
+      prices.
+  intraday_source_price / intraday_calculation_price:
+    note: >
+      Two-layer pricing pipeline: `intraday_source_price` is the raw input
+      price (current Trading Price or its fallback), `intraday_calculation_price`
+      is the result after currency conversion (if needed). Same pattern for
+      closing: `closing_price` (raw) and `closing_calculation_price`
+      (converted if needed). The IR makes this pipeline explicit; source
+      describes it implicitly through the conversion conditional.
+  wm_fixing_for_closing_level:
+    note: >
+      Function `Currency, Currency, CalculationDay -> WMFixing` that
+      resolves to either the regular WM fixing (when available) or the
+      fallback last-available fixing. The two
+      `closing_price_converted_with_*_wm_fixing` constraints set its value
+      conditionally. Subsequent currency conversion uses the resolved
+      value.
+  CalculationTime:
+    note: >
+      Sort representing a specific time during the intraday window. Used
+      as an additional dimension on intraday-related functions
+      (intraday_level, intraday_source_price, current_trading_price, etc.)
+      to allow time-varying intraday calculations within the 1:00 a.m. to
+      10:50 p.m. CET window.

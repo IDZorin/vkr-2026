@@ -1,0 +1,52 @@
+{
+  "entry_id": "section_4_7",
+  "skipped": false,
+  "n_decls": 46,
+  "n_smells": 3,
+  "by_candidate_family": {
+    "DeonticDecl.permission": 2,
+    "TemporalDecl.temporal_marker": 1
+  },
+  "by_matched": {
+    "may": 2,
+    "during": 1
+  },
+  "smells": [
+    {
+      "entry_id": "section_4_7",
+      "decl_kind": "entity",
+      "symbol": "MayBeLimitedOrImpaired",
+      "line_no": 26,
+      "matched_token_or_phrase": "may",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "permission",
+      "spec_ref": "#32",
+      "match_kind": "token",
+      "raw_decl": "entity MayBeLimitedOrImpaired : VagueTerm"
+    },
+    {
+      "entry_id": "section_4_7",
+      "decl_kind": "constraint",
+      "symbol": "calculation_during_market_stress_follows_arrangements",
+      "line_no": 75,
+      "matched_token_or_phrase": "during",
+      "candidate_family": "TemporalDecl",
+      "candidate_kind": "temporal_marker",
+      "spec_ref": "#29",
+      "match_kind": "token",
+      "raw_decl": "constraint calculation_during_market_stress_follows_arrangements :"
+    },
+    {
+      "entry_id": "section_4_7",
+      "decl_kind": "constraint",
+      "symbol": "index_determination_may_be_limited_or_impaired",
+      "line_no": 109,
+      "matched_token_or_phrase": "may",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "permission",
+      "spec_ref": "#32",
+      "match_kind": "token",
+      "raw_decl": "constraint index_determination_may_be_limited_or_impaired :"
+    }
+  ]
+}

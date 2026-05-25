@@ -1,0 +1,75 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_2 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:AdjustedReturnIndex a rdfs:Class .
+ex:AdjustedReturnIndex rdfs:subClassOf ex:Index .
+ex:AdjustedReturnIndexShape a sh:NodeShape ; sh:targetClass ex:AdjustedReturnIndex .
+ex:IndexCalculation a rdfs:Class .
+ex:IndexCalculation rdfs:subClassOf ex:Event .
+ex:IndexCalculationShape a sh:NodeShape ; sh:targetClass ex:IndexCalculation .
+ex:IndexTermination a rdfs:Class .
+ex:IndexTermination rdfs:subClassOf ex:Event .
+ex:IndexTerminationShape a sh:NodeShape ; sh:targetClass ex:IndexTermination .
+ex:TerminationAnnouncement a rdfs:Class .
+ex:TerminationAnnouncement rdfs:subClassOf ex:Event .
+ex:TerminationAnnouncementShape a sh:NodeShape ; sh:targetClass ex:TerminationAnnouncement .
+ex:IndexLevel a rdfs:Class .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:IndexLevelShape a sh:NodeShape ; sh:targetClass ex:IndexLevel .
+ex:SolactiveOrganization a rdfs:Class .
+ex:SolactiveOrganization rdfs:subClassOf ex:Organization .
+ex:SolactiveOrganizationShape a sh:NodeShape ; sh:targetClass ex:SolactiveOrganization .
+ex:Policy a rdfs:Class .
+ex:Policy rdfs:subClassOf ex:Document .
+ex:PolicyShape a sh:NodeShape ; sh:targetClass ex:Policy .
+
+ex:Solactive a ex:SolactiveOrganization .
+ex:SolactiveWebsite a ex:WebResource .
+ex:NewsSection a ex:DocumentPart .
+ex:SolactivePolicies a ex:Policy .
+ex:OtherReasons a ex:VagueTerm .
+ex:AsSoonAsReasonablyPossible a ex:VagueTerm .
+ex:HttpsWwwSolactiveComNewsAnnouncements a ex:Url .
+ex:calculated_index a rdf:Property .
+ex:IndexCalculationShape sh:property [ sh:path ex:calculated_index ; sh:class ex:AdjustedReturnIndex ] .
+ex:calculated_level a rdf:Property .
+ex:IndexCalculationShape sh:property [ sh:path ex:calculated_level ; sh:class ex:IndexLevel ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:terminates_index a rdf:Property .
+ex:IndexTerminationShape sh:property [ sh:path ex:terminates_index ; sh:class ex:Index ] .
+ex:termination_calculation a rdf:Property .
+ex:IndexTerminationShape sh:property [ sh:path ex:termination_calculation ; sh:class ex:IndexCalculation ] .
+ex:termination_reason_qualified_by a rdf:Property .
+ex:IndexTerminationShape sh:property [ sh:path ex:termination_reason_qualified_by ; sh:class ex:VagueTerm ] .
+ex:termination_in_accordance_with_policy a rdf:Property .
+ex:IndexTerminationShape sh:property [ sh:path ex:termination_in_accordance_with_policy ; sh:class ex:Policy ] .
+ex:announces_termination a rdf:Property .
+ex:TerminationAnnouncementShape sh:property [ sh:path ex:announces_termination ; sh:class ex:IndexTermination ] .
+ex:announcement_by a rdf:Property .
+ex:TerminationAnnouncementShape sh:property [ sh:path ex:announcement_by ; sh:class ex:Organization ] .
+ex:announced_on a rdf:Property .
+ex:TerminationAnnouncementShape sh:property [ sh:path ex:announced_on ; sh:class ex:WebResource ] .
+ex:announcement_under_section a rdf:Property .
+ex:TerminationAnnouncementShape sh:property [ sh:path ex:announcement_under_section ; sh:class ex:DocumentPart ] .
+ex:announcement_timing_described_by a rdf:Property .
+ex:TerminationAnnouncementShape sh:property [ sh:path ex:announcement_timing_described_by ; sh:class ex:VagueTerm ] .
+ex:after a rdf:Property .
+ex:EventShape sh:property [ sh:path ex:after ; sh:class ex:Event ] .
+ex:section_of_website a rdf:Property .
+ex:DocumentPartShape sh:property [ sh:path ex:section_of_website ; sh:class ex:WebResource ] .
+ex:website_of a rdf:Property .
+ex:WebResourceShape sh:property [ sh:path ex:website_of ; sh:class ex:Organization ] .
+ex:policy_of a rdf:Property .
+ex:PolicyShape sh:property [ sh:path ex:policy_of ; sh:class ex:Organization ] .
+
+ex:NewsSection ex:section_of_website ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:SolactivePolicies ex:policy_of ex:Solactive .

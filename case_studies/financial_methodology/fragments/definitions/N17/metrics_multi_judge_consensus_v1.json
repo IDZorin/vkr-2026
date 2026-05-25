@@ -1,0 +1,124 @@
+{
+  "entry_id": "N17",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR captures that the defined term \"Index\" has its meaning set by the section labeled \"Introduction\". The added label and source-label machinery is just representational scaffolding and does not change the stated meaning relation.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses explicit label entities and a generic relation name rather than the source’s plain-language phrasing.",
+        "\"shall have the meaning as defined in\" is rendered as a formal source-section linkage, which is a standard encoding choice."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1920,
+        "completion_tokens": 133,
+        "total_tokens": 2053
+      },
+      "latency_s": 2.1681692600250244
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "corresponds",
+      "relation_type": "same_meaning_poor_wording",
+      "reason_short": "The IR captures that the defined term labeled \"Index\" has its meaning defined in the document part labeled \"Introduction\", which matches the source statement that \"Index\" shall have the meaning as defined in Section \"Introduction\". The use of labels and an abstract relation is a modeling choice rather than a semantic change.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses a generic relation name `term_shall_have_meaning_defined_in_section` instead of directly modeling definitional equivalence.",
+        "The source says Section \"Introduction\", while the IR types `IntroductionSection` as `DocumentPart`; this is acceptable but slightly less specific in wording.",
+        "Introducing `DefinedTerm`, `DefinedTermLabel`, and `DocumentPartLabel` is a structural encoding choice rather than source-level phrasing."
+      ],
+      "confidence": 0.96,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1920,
+        "completion_tokens": 219,
+        "total_tokens": 2139
+      },
+      "latency_s": 3.900862216949463
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR correctly captures that 'Index' is a defined term whose meaning is specified in the Introduction section. However, the IR introduces three new sorts (DefinedTerm, DefinedTermLabel, DocumentPartLabel) and reifies the relationship as a three-way conjunction of facts, whereas the source makes a simpler definitional claim: 'Index' means whatever is defined in Introduction. The IR's structure is more elaborate than the source warrants, introducing ontological machinery (label relations, separate entities for the term and section) that the source does not explicitly justify. The core semantic content—that Index's meaning is defined in Introduction—is present, but wrapped in additional formal structure.",
+      "semantic_differences": [
+        "Source makes a direct definitional statement ('shall have the meaning as defined in'); IR reifies this as a three-way relational fact involving separate label entities and relations, adding ontological complexity not present in source.",
+        "IR introduces DefinedTermLabel and DocumentPartLabel as distinct sorts with string values, whereas source uses only the natural-language terms 'Index' and 'Introduction' without explicit label reification.",
+        "IR treats the relationship as a conjunction of three independent facts (label assignment + label assignment + meaning relation), whereas source expresses a single definitional claim."
+      ],
+      "stylistic_notes": [
+        "Naming: 'IndexTerm' vs. 'Index' — the IR uses a qualified entity name, which is reasonable for disambiguation but differs from source phrasing.",
+        "Naming: 'term_shall_have_meaning_defined_in_section' is verbose; source uses the deontic 'shall have the meaning' more concisely.",
+        "The IR does not encode the deontic modality ('shall') explicitly; it treats the statement as a fact rather than an obligation or normative claim. This is a design choice (treating 'shall' in a definition as asserting a fact rather than imposing a duty), but it is a choice.",
+        "The use of separate label values (index_label, introduction_label) as intermediate entities is a common a4v3 pattern for cross-referencing, but source does not explicitly introduce this layer."
+      ],
+      "confidence": 0.68,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2220,
+        "completion_tokens": 540,
+        "total_tokens": 2760
+      },
+      "latency_s": 7.584026336669922
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures the source's statement that the term 'Index' has its meaning defined in the 'Introduction' section by introducing a DefinedTerm entity with an appropriate label, a DocumentPart entity for the section, and asserting the relation term_shall_have_meaning_defined_in_section between them. The use of sorts and labels is a necessary formalization that does not alter the original meaning.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR formalizes the source by introducing explicit sorts, labels, and relation names, which is appropriate for a logical encoding."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2036,
+        "completion_tokens": 1966,
+        "total_tokens": 4002
+      },
+      "latency_s": 70.80235075950623
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures the source's cross-reference by modeling the term 'Index' and the section 'Introduction' as distinct entities, linking them to their literal string labels, and asserting the definitional relationship exactly as stated.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces auxiliary sorts and relations to explicitly map string labels to entities, which is a standard and robust a4v3 pattern for handling defined terms and document cross-references."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2051,
+        "completion_tokens": 1377,
+        "total_tokens": 3428
+      },
+      "latency_s": 26.821720838546753
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "corresponds": 4,
+      "partially_corresponds": 1
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 0.8,
+    "unanimous": false,
+    "mean_confidence": 0.908
+  }
+}

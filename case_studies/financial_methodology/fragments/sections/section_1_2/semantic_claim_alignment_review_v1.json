@@ -1,0 +1,157 @@
+{
+  "entry_id": "section_1_2",
+  "schema": "semantic_claim_alignment_review_v1",
+  "allowed_status": [
+    "unreviewed",
+    "approved",
+    "needs_ir_revision",
+    "source_ambiguous",
+    "not_formalized_by_design"
+  ],
+  "items": [
+    {
+      "claim_id": "C01",
+      "claim_hash": "d90d8c67c235",
+      "claim_text": "### 1.2 Identifiers and Publication",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "declaration:opaque:IndexPublication",
+        "declaration:subtype:GuidelineAmendment",
+        "declaration:subtype:NoticePublication",
+        "declaration:rel:publication_in_relation_to_index",
+        "declaration:rel:available_at"
+      ]
+    },
+    {
+      "claim_id": "C02",
+      "claim_hash": "01280e243010",
+      "claim_text": "The Index is published under the following identifiers:",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "declaration:rel:published_under_following_identifiers",
+        "assertion:constraint:published_index_on_index_administrator_website",
+        "assertion:constraint:published_index_available_via_boerse_stuttgart",
+        "assertion:constraint:vendor_decides_distribution_or_display",
+        "assertion:fact:index_ntr_identifiers"
+      ]
+    },
+    {
+      "claim_id": "C03",
+      "claim_hash": "75d1303170dd",
+      "claim_text": "| Name                                                 | ISIN         | Currency   | Type   | RIC       | BBG ticker   |\n|------------------------------------------------------|--------------|------------|--------|-----------|--------------|\n| Solactive Transatlantic Clean Energy EUR Index PR    | DE000SL0R4B4 | EUR        | PR*    | .SOLTCEYP | SOLTCEYP     |\n| Solactive Transatlantic Clean Energy EUR Index NTR   | DE000SL0R4C2 | EUR        | NTR*   | .SOLTCEYN |              |\n| Solactive Transatlantic Clean Energy EUR Index TR    | DE000SL0R4D0 | EUR        | GTR*   | .SOLTCEYT | SOLTCEYT     |\n| Solactive Transatlantic Clean Energy EUR Index 50 AR | DE000SL0R4E8 | EUR        | AR**   | .SOLTCA50 | SOLTCA50     |\n| Solactive Transatlantic Clean Energy EUR Index 5% AR | DE000SL0R4F5 | EUR        | AR*    | .SOLTCEA5 | SOLTCEA5     |",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:fact:index_50_ar_identifiers",
+        "assertion:fact:index_pr_identifiers",
+        "assertion:fact:index_5_percent_ar_identifiers",
+        "assertion:fact:index_tr_identifiers",
+        "assertion:constraint:ntr_has_no_bbg_ticker"
+      ]
+    },
+    {
+      "claim_id": "C04",
+      "claim_hash": "4d9e44213a36",
+      "claim_text": "*PR, NTR, GTR, AR means that the Index is calculated as price return, net total return, gross total return, adjusted return Index as described in the Equity Index Methodology, which is available on the Solactive website: [https://www.solactive.com/documents/equity-index-methodology/](https://www.solactive.com/documents/equity-index-methodology/)",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:fact:equity_index_methodology_location",
+        "assertion:fact:index_type_identifier_meanings",
+        "declaration:entity:HttpsWwwSolactiveComDocumentsEquityIndexMethodology",
+        "declaration:enum:IndexType",
+        "assertion:fact:index_ntr_identifiers"
+      ]
+    },
+    {
+      "claim_id": "C05",
+      "claim_hash": "103ded53ce18",
+      "claim_text": "**AR means that the Index is calculated as an adjusted return index, following the formula specified in Section 4.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:fact:index_50_ar_identifiers",
+        "assertion:fact:index_5_percent_ar_identifiers",
+        "declaration:rel:formula_specified_in",
+        "assertion:fact:index_ntr_identifiers",
+        "assertion:fact:index_pr_identifiers"
+      ]
+    },
+    {
+      "claim_id": "C06",
+      "claim_hash": "8c1030a2918a",
+      "claim_text": "The Index is published on the website of the Index Administrator ( [www.solactive.com](https://www.solactive.com) ) and is, in addition, available via the price marketing services of Boerse Stuttgart GmbH and may be distributed to all of its affiliated vendors.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:published_index_available_via_boerse_stuttgart",
+        "declaration:rel:available_via",
+        "declaration:entity:BoerseStuttgartGmbHPriceMarketingServices",
+        "assertion:fact:announcements_website",
+        "declaration:permission:index_distribution_to_affiliated_vendors"
+      ]
+    },
+    {
+      "claim_id": "C07",
+      "claim_hash": "a796d6bf0d7f",
+      "claim_text": "Each vendor decides on an individual basis as to whether it will distribute or display the Index via its information systems.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:vendor_decides_distribution_or_display",
+        "declaration:rel:via_information_systems",
+        "declaration:enum:VendorAction",
+        "declaration:fun:information_systems",
+        "declaration:rel:individual_basis"
+      ]
+    },
+    {
+      "claim_id": "C08",
+      "claim_hash": "bff2d1fa57c9",
+      "claim_text": "Any publication in relation to the Index (e.g.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "declaration:rel:publication_in_relation_to_index",
+        "assertion:constraint:index_publications_available_at_announcements_website",
+        "declaration:opaque:IndexPublication",
+        "declaration:subtype:GuidelineAmendment",
+        "declaration:subtype:NoticePublication"
+      ]
+    },
+    {
+      "claim_id": "C09",
+      "claim_hash": "71e86db169bb",
+      "claim_text": "notices, amendments to the Guideline) will be available at the website of the Index Administrator: [https://www.solactive.com/news/announcements/](https://www.solactive.com/news/announcements/) .",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:fact:announcements_website",
+        "declaration:entity:HttpsWwwSolactiveComNewsAnnouncements",
+        "assertion:fact:equity_index_methodology_location",
+        "assertion:fact:solactive_website",
+        "declaration:entity:HttpsWwwSolactiveComDocumentsEquityIndexMethodology"
+      ]
+    }
+  ]
+}

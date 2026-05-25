@@ -1,0 +1,22 @@
+{
+  "schema": "metrics_role_annotation_judge_v1",
+  "entry_id": "section_4_5",
+  "generated_at": "2026-05-14T16:11:54",
+  "status": "ok",
+  "model": "gpt-5.4-mini",
+  "verdict": "consistent",
+  "frame_alignment": "correct",
+  "reason_short": "The role annotations preserve the main argument directions and frame structure of the IR and source: agents, events, results, times, effects, and qualities are assigned consistently, and the key condition/effect split for the deviation clause and the OR-structure of the permission conditions are respected. The annotations also correctly treat the passive obligations as agentless and keep the non-conclusive polarity bridge semantically aligned with the source. No material role reversals or added semantic claims are present.",
+  "issues": [],
+  "suggestions": [
+    "No changes required; the current role labels are semantically aligned with the IR and source.",
+    "If desired for readability, consider renaming some generic roles like source/kind/affected to more domain-specific labels, but this is stylistic only."
+  ],
+  "confidence": 0.96,
+  "usage": {
+    "prompt_tokens": 9214,
+    "completion_tokens": 175,
+    "total_tokens": 9389
+  },
+  "latency_s": 4.885031461715698
+}

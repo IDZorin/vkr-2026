@@ -1,0 +1,37 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N26 a a4:ShaclProjectionTarget .
+
+ex:RebalanceDay a rdfs:Class .
+ex:RebalanceDay rdfs:subClassOf ex:Day .
+ex:RebalanceDayShape a sh:NodeShape ; sh:targetClass ex:RebalanceDay .
+ex:ScheduledRebalanceDay a rdfs:Class .
+ex:ScheduledRebalanceDay rdfs:subClassOf ex:Day .
+ex:ScheduledRebalanceDayShape a sh:NodeShape ; sh:targetClass ex:ScheduledRebalanceDay .
+ex:WeekdayOrdinal a rdfs:Class .
+ex:WeekdayOrdinal rdfs:subClassOf ex:Nat .
+ex:WeekdayOrdinalShape a sh:NodeShape ; sh:targetClass ex:WeekdayOrdinal .
+ex:Month a rdfs:Class .
+ex:MonthShape a sh:NodeShape ; sh:targetClass ex:Month .
+ex:May a ex:Month .
+ex:November a ex:Month .
+
+ex:FirstWeekdayOrdinal a ex:WeekdayOrdinal .
+ex:nth_wednesday_in_month a rdfs:Class .
+ex:nth_wednesday_in_monthShape a sh:NodeShape ; sh:targetClass ex:nth_wednesday_in_month .
+ex:nth_wednesday_in_monthShape sh:property [ sh:path ex:nth_wednesday_in_month_arg_0 ; sh:class ex:Day ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:nth_wednesday_in_monthShape sh:property [ sh:path ex:nth_wednesday_in_month_arg_1 ; sh:class ex:Month ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:nth_wednesday_in_monthShape sh:property [ sh:path ex:nth_wednesday_in_month_arg_2 ; sh:class ex:WeekdayOrdinal ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:scheduled_rebalance_day a rdfs:Class ; rdfs:subClassOf ex:Day .
+ex:eligible_rebalance_day a rdfs:Class ; rdfs:subClassOf ex:Day .
+ex:rebalance_day a rdfs:Class ; rdfs:subClassOf ex:Day .
+ex:immediately_following_eligible_rebalance_day_after a rdf:Property .
+ex:DayShape sh:property [ sh:path ex:immediately_following_eligible_rebalance_day_after ; sh:class ex:Day ] .
+ex:strictly_before a rdf:Property .
+ex:DayShape sh:property [ sh:path ex:strictly_before ; sh:class ex:Day ] .

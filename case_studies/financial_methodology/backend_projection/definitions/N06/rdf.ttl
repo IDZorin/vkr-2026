@@ -1,0 +1,38 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N06 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N06/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CalculationTime a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:CloseOfBusiness a ex:CalculationTime, owl:NamedIndividual .
+ex:Section1_4 a ex:DocumentPart, owl:NamedIndividual .
+ex:calculation_time_of_closing_level_of_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:calculation_time_of_closing_level_of_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalculationTime .
+ex:calculation_time_of_closing_level_of_index a4:argument ex:calculation_time_of_closing_level_of_index_arg_0 .
+ex:calculation_time_of_closing_level_of_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:calculation_time_of_closing_level_of_index a4:argument ex:calculation_time_of_closing_level_of_index_arg_1 .
+ex:outlined_in_section a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:outlined_in_section_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalculationTime .
+ex:outlined_in_section a4:argument ex:outlined_in_section_arg_0 .
+ex:outlined_in_section_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:outlined_in_section a4:argument ex:outlined_in_section_arg_1 .
+
+ex:ASSERT_close_of_business_definition a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "11"^^xsd:integer ;
+  a4:exprText "(calculation_time_of_closing_level_of_index(CloseOfBusiness, TheIndex)) and (outlined_in_section(CloseOfBusiness, Section1_4))" ;
+  a4:sourceText "fact close_of_business_definition :\n  calculation_time_of_closing_level_of_index(CloseOfBusiness, TheIndex)\n  and outlined_in_section(CloseOfBusiness, Section1_4)" .

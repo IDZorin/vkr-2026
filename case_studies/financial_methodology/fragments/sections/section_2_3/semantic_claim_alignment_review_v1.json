@@ -1,0 +1,77 @@
+{
+  "entry_id": "section_2_3",
+  "schema": "semantic_claim_alignment_review_v1",
+  "allowed_status": [
+    "unreviewed",
+    "approved",
+    "needs_ir_revision",
+    "source_ambiguous",
+    "not_formalized_by_design"
+  ],
+  "items": [
+    {
+      "claim_id": "C01",
+      "claim_hash": "78792b96893f",
+      "claim_text": "### 2.3 Weighting of the Index Components",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "declaration:fun:weight",
+        "assertion:constraint:single_index_component_weight_capped",
+        "assertion:constraint:weights_redistributed_proportionally",
+        "assertion:constraint:weight_based_on_float_market_capizatlization",
+        "assertion:constraint:region_represents_exactly_50_percent"
+      ]
+    },
+    {
+      "claim_id": "C02",
+      "claim_hash": "5f436a14801a",
+      "claim_text": "On each Selection Day, each Index Component is assigned a weight based on its Float Market Capizatlization subject to the following constraints:",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:weight_based_on_float_market_capizatlization",
+        "declaration:rel:based_on_float_market_capizatlization",
+        "declaration:fun:float_market_capizatlization",
+        "declaration:fun:weight",
+        "assertion:constraint:single_index_component_weight_capped"
+      ]
+    },
+    {
+      "claim_id": "C03",
+      "claim_hash": "e08d087689e2",
+      "claim_text": "- Each region must represent exactly 50% of the total Index\n- The weight of any single Index Component is capped at 5%.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:region_represents_exactly_50_percent",
+        "assertion:constraint:single_index_component_weight_capped",
+        "declaration:fun:region",
+        "declaration:opaque:IndexComponent",
+        "declaration:fun:weight"
+      ]
+    },
+    {
+      "claim_id": "C04",
+      "claim_hash": "6d261b83f83f",
+      "claim_text": "The weights are redistributed proportionally in an iterative process until both constraints are satisfied.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:weights_redistributed_proportionally",
+        "declaration:opaque:Weight",
+        "declaration:rel:redistributed_proportionally",
+        "declaration:fun:weight",
+        "assertion:constraint:single_index_component_weight_capped"
+      ]
+    }
+  ]
+}

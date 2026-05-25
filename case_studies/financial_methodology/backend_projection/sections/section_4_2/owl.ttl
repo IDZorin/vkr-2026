@@ -1,0 +1,91 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_2 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:AdjustedReturnIndex a owl:Class .
+ex:AdjustedReturnIndex rdfs:subClassOf ex:Index .
+ex:IndexCalculation a owl:Class .
+ex:IndexCalculation rdfs:subClassOf ex:Event .
+ex:IndexTermination a owl:Class .
+ex:IndexTermination rdfs:subClassOf ex:Event .
+ex:TerminationAnnouncement a owl:Class .
+ex:TerminationAnnouncement rdfs:subClassOf ex:Event .
+ex:IndexLevel a owl:Class .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:SolactiveOrganization a owl:Class .
+ex:SolactiveOrganization rdfs:subClassOf ex:Organization .
+ex:Policy a owl:Class .
+ex:Policy rdfs:subClassOf ex:Document .
+
+ex:Solactive a ex:SolactiveOrganization, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:NewsSection a ex:DocumentPart, owl:NamedIndividual .
+ex:SolactivePolicies a ex:Policy, owl:NamedIndividual .
+ex:OtherReasons a ex:VagueTerm, owl:NamedIndividual .
+ex:AsSoonAsReasonablyPossible a ex:VagueTerm, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComNewsAnnouncements a ex:Url, owl:NamedIndividual .
+ex:calculated_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexCalculation ;
+  rdfs:range ex:AdjustedReturnIndex .
+ex:calculated_level a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:IndexCalculation ;
+  rdfs:range ex:IndexLevel .
+ex:terminates_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexTermination ;
+  rdfs:range ex:Index .
+ex:termination_calculation a owl:ObjectProperty ;
+  rdfs:domain ex:IndexTermination ;
+  rdfs:range ex:IndexCalculation .
+ex:termination_reason_qualified_by a owl:ObjectProperty ;
+  rdfs:domain ex:IndexTermination ;
+  rdfs:range ex:VagueTerm .
+ex:termination_in_accordance_with_policy a owl:ObjectProperty ;
+  rdfs:domain ex:IndexTermination ;
+  rdfs:range ex:Policy .
+ex:announces_termination a owl:ObjectProperty ;
+  rdfs:domain ex:TerminationAnnouncement ;
+  rdfs:range ex:IndexTermination .
+ex:announcement_by a owl:ObjectProperty ;
+  rdfs:domain ex:TerminationAnnouncement ;
+  rdfs:range ex:Organization .
+ex:announced_on a owl:ObjectProperty ;
+  rdfs:domain ex:TerminationAnnouncement ;
+  rdfs:range ex:WebResource .
+ex:announcement_under_section a owl:ObjectProperty ;
+  rdfs:domain ex:TerminationAnnouncement ;
+  rdfs:range ex:DocumentPart .
+ex:announcement_timing_described_by a owl:ObjectProperty ;
+  rdfs:domain ex:TerminationAnnouncement ;
+  rdfs:range ex:VagueTerm .
+ex:after a owl:ObjectProperty ;
+  rdfs:domain ex:Event ;
+  rdfs:range ex:Event .
+ex:section_of_website a owl:ObjectProperty ;
+  rdfs:domain ex:DocumentPart ;
+  rdfs:range ex:WebResource .
+ex:website_of a owl:ObjectProperty ;
+  rdfs:domain ex:WebResource ;
+  rdfs:range ex:Organization .
+ex:policy_of a owl:ObjectProperty ;
+  rdfs:domain ex:Policy ;
+  rdfs:range ex:Organization .
+
+ex:NewsSection ex:section_of_website ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:ASSERT_news_section_location a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(document_part_url(NewsSection, HttpsWwwSolactiveComNewsAnnouncements)) and (section_of_website(NewsSection, SolactiveWebsite)) and (website_of(SolactiveWebsite, Solactive))" .
+ex:SolactivePolicies ex:policy_of ex:Solactive .
+ex:ASSERT_termination_and_announcement_at_zero_or_below a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall c: IndexCalculation, forall i: AdjustedReturnIndex, ((calculated_index(c, i)) and ((calculated_level(c)) <= (0))) implies (exists t: IndexTermination, exists a: TerminationAnnouncement, (terminates_index(t, i)) and (termination_calculation(t, c)) and (announces_termination(a, t)) and (announcement_by(a, Solactive)) and (announced_on(a, SolactiveWebsite)) and (announcement_under_section(a, NewsSection)) and (after(a, c)) and (announcement_timing_described_by(a, AsSoonAsReasonablyPossible)))" .
+ex:ASSERT_other_reason_termination_in_accordance_with_solactive_policies a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall t: IndexTermination, forall i: Index, ((terminates_index(t, i)) and (termination_reason_qualified_by(t, OtherReasons))) implies (termination_in_accordance_with_policy(t, SolactivePolicies))" .

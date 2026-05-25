@@ -1,0 +1,152 @@
+sort Index
+sort SolactiveOrganization extends Organization
+sort IndexComponent extends FinancialInstrument
+sort SelectionDay extends Day
+sort FixingDay extends Day
+sort RebalanceDay extends Day
+sort OrdinaryRebalance extends Event
+sort CloseOfBusiness extends Event
+sort IndexComponentSelection
+sort Shares
+sort Weight extends Percent
+sort RebalanceProcedure
+sort IndexComponentChange extends Event
+sort Section3_1IndexComponentChange extends IndexComponentChange
+sort Notice extends Document
+sort EquityIndexMethodology extends Document
+
+entity TheIndex : Index
+entity Solactive : SolactiveOrganization
+entity SolactiveEquityIndexMethodology : EquityIndexMethodology
+entity ThisGuideline : Document
+entity SolactiveWebsite : WebResource
+entity Section2_1 : DocumentPart
+entity Section2_2 : DocumentPart
+entity AnnouncementSection : DocumentPart
+entity OrdinaryRebalanceProcedure : RebalanceProcedure
+entity SufficientNoticeBeforeRebalanceDay : VagueTerm
+
+-- raw_url: https://www.solactive.com/documents/equity-index-methodology/
+entity HttpsWwwSolactiveComDocumentsEquityIndexMethodology : Url
+
+-- raw_url: https://www.solactive.com/news/announcements/
+entity HttpsWwwSolactiveComNewsAnnouncements : Url
+
+rel ordinary_rebalance_day : RebalanceDay
+rel ordinary_rebalance_on_day : OrdinaryRebalance, RebalanceDay
+rel selection_day_of_rebalance : RebalanceDay, SelectionDay
+rel fixing_day_of_rebalance : RebalanceDay, FixingDay
+rel close_of_business_on_day : CloseOfBusiness, RebalanceDay
+
+fun[required] new_selection_for_rebalance : RebalanceDay -> IndexComponentSelection
+fun[required] shares_on_fixing_day : FixingDay, IndexComponent -> Shares
+fun[required] weight_on_selection_day : SelectionDay, IndexComponent -> Weight
+fun[required] rebalance_day_of_change : Section3_1IndexComponentChange -> RebalanceDay
+
+rel selection_of_index : IndexComponentSelection, Index
+rel selection_determined_on : IndexComponentSelection, SelectionDay
+rel selection_in_accordance_with : IndexComponentSelection, DocumentPart
+rel selection_includes_index_component : IndexComponentSelection, IndexComponent
+
+rel adjusted_index : OrdinaryRebalance, Index
+rel following_close_of_business : OrdinaryRebalance, CloseOfBusiness
+rel reflects_new_selection : OrdinaryRebalance, IndexComponentSelection
+
+rel carried_out_by_implementing_shares : OrdinaryRebalance, Shares
+rel shares_determined_on : Shares, FixingDay
+rel shares_based_on_weight : Shares, Weight
+rel weight_calculated_on : Weight, SelectionDay
+
+rel procedure_information_in : RebalanceProcedure, Document
+rel incorporated_by_reference_into : Document, Document
+rel available_on : Document, WebResource
+rel website_of : WebResource, Organization
+rel section_of_website : DocumentPart, WebResource
+
+rel change_of_index : Section3_1IndexComponentChange, Index
+rel change_made_to_index_component : Section3_1IndexComponentChange, IndexComponent
+rel notice_for_index_component_change : Notice, Section3_1IndexComponentChange
+rel notice_described_by : Notice, VagueTerm
+rel notice_for_rebalance_day : Notice, RebalanceDay
+rel notice_published_by : Notice, SolactiveOrganization
+rel notice_published_on : Notice, WebResource
+rel notice_published_under : Notice, DocumentPart
+
+obligation publish_index_component_change(
+  agent: SolactiveOrganization,
+  change: Section3_1IndexComponentChange
+)
+  action: publish
+  target: change
+  scope: AnnouncementSection
+
+fact more_information_refer_to_equity_index_methodology :
+  procedure_information_in(OrdinaryRebalanceProcedure, SolactiveEquityIndexMethodology)
+  and incorporated_by_reference_into(SolactiveEquityIndexMethodology, ThisGuideline)
+  and available_on(SolactiveEquityIndexMethodology, SolactiveWebsite)
+  and website_of(SolactiveWebsite, Solactive)
+  and document_url(SolactiveEquityIndexMethodology, HttpsWwwSolactiveComDocumentsEquityIndexMethodology)
+
+fact announcement_section_location :
+  section_of_website(AnnouncementSection, SolactiveWebsite)
+  and document_part_url(AnnouncementSection, HttpsWwwSolactiveComNewsAnnouncements)
+
+constraint new_selection_determined_in_accordance_with_sections :
+  forall rd: RebalanceDay,
+  forall sd: SelectionDay,
+    ordinary_rebalance_day(rd)
+    and selection_day_of_rebalance(rd, sd)
+    implies
+      selection_of_index(new_selection_for_rebalance(rd), TheIndex)
+      and selection_determined_on(new_selection_for_rebalance(rd), sd)
+      and selection_in_accordance_with(new_selection_for_rebalance(rd), Section2_1)
+      and selection_in_accordance_with(new_selection_for_rebalance(rd), Section2_2)
+
+constraint ordinary_rebalance_adjusts_index_after_close_of_business :
+  forall rd: RebalanceDay,
+    ordinary_rebalance_day(rd)
+    implies
+      exists r: OrdinaryRebalance,
+      exists cob: CloseOfBusiness,
+        ordinary_rebalance_on_day(r, rd)
+        and close_of_business_on_day(cob, rd)
+        and occurs_on(r, rd)
+        and adjusted_index(r, TheIndex)
+        and following_close_of_business(r, cob)
+        and reflects_new_selection(r, new_selection_for_rebalance(rd))
+
+constraint ordinary_rebalance_implements_fixing_day_shares :
+  forall rd: RebalanceDay,
+  forall fd: FixingDay,
+  forall sd: SelectionDay,
+  forall c: IndexComponent,
+    ordinary_rebalance_day(rd)
+    and fixing_day_of_rebalance(rd, fd)
+    and selection_day_of_rebalance(rd, sd)
+    and selection_includes_index_component(new_selection_for_rebalance(rd), c)
+    implies
+      exists r: OrdinaryRebalance,
+        ordinary_rebalance_on_day(r, rd)
+        and carried_out_by_implementing_shares(r, shares_on_fixing_day(fd, c))
+        and shares_determined_on(shares_on_fixing_day(fd, c), fd)
+        and weight_calculated_on(weight_on_selection_day(sd, c), sd)
+        and shares_based_on_weight(
+          shares_on_fixing_day(fd, c),
+          weight_on_selection_day(sd, c)
+        )
+
+constraint section_3_1_index_component_change_scope :
+  forall ch: Section3_1IndexComponentChange,
+    change_of_index(ch, TheIndex)
+    and exists c: IndexComponent,
+      change_made_to_index_component(ch, c)
+
+constraint solactive_publishes_index_component_changes_with_notice :
+  forall ch: Section3_1IndexComponentChange,
+    exists n: Notice,
+      notice_for_index_component_change(n, ch)
+      and notice_described_by(n, SufficientNoticeBeforeRebalanceDay)
+      and notice_for_rebalance_day(n, rebalance_day_of_change(ch))
+      and notice_published_by(n, Solactive)
+      and notice_published_on(n, SolactiveWebsite)
+      and notice_published_under(n, AnnouncementSection)

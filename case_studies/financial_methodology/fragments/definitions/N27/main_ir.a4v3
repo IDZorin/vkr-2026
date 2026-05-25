@@ -1,0 +1,25 @@
+sort SelectionDay extends Day
+sort RebalanceDay extends Day
+sort BusinessDayCount extends Nat
+
+entity TwentyBusinessDays : BusinessDayCount
+
+fun[required] business_day_count_before : Day, Day -> BusinessDayCount
+
+rel selection_day_for_rebalance_day : SelectionDay, RebalanceDay
+rel change_of_rebalance_day_disregarded_for_selection_day : SelectionDay, RebalanceDay
+
+fact twenty_business_days_count :
+  TwentyBusinessDays = 20
+
+constraint selection_day_definition :
+  forall sd: SelectionDay, forall rd: RebalanceDay,
+    selection_day_for_rebalance_day(sd, rd)
+    iff
+      business_day_count_before(sd, rd) = TwentyBusinessDays
+
+constraint rebalance_day_change_disregarded_for_selection_day :
+  forall sd: SelectionDay, forall rd: RebalanceDay,
+    selection_day_for_rebalance_day(sd, rd)
+    implies
+      change_of_rebalance_day_disregarded_for_selection_day(sd, rd)

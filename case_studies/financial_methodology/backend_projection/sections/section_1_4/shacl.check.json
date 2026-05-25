@@ -1,0 +1,8 @@
+{
+  "backend": "shacl",
+  "status": "ok",
+  "triple_count": 581,
+  "message": "pySHACL conforms=False",
+  "conforms": false,
+  "report_text": "Validation Report\nConforms: False\nResults (1):\nConstraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n\tSeverity: sh:Violation\n\tSource Shape: [ sh:class ex:Currency ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path ex:index_currency ]\n\tFocus Node: ex:TheIndex\n\tResult Path: ex:index_currency\n\tMessage: Less than 1 values on ex:TheIndex->ex:index_currency\n"
+}

@@ -1,0 +1,291 @@
+section: "4.1 Index calculation"
+source_file: "source.md"
+schema_version: "v2"
+review_status: "draft_ir_to_text_user_review"
+
+ir_files:
+  main: "main_ir.a4v3"
+  bridge: "../../bridge/main_bridge.a4v3"
+
+# For each fact/constraint/obligation/permission/prohibition:
+#   kind             -- IR family
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | plumbing | derived_invariant | verification_probe
+#   source_quotes    -- verbatim source spans the element formalizes
+#   back_translation -- natural-language unfolding of the IR formula
+#   vocabulary_basis -- source_only | mixed | ir_internal_bridge | ir_plumbing
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+#   notes            -- optional clarification
+
+claims:
+
+  section_4_1_index_scope:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The INDEX is calculated as a price return, net total return, gross total return and adjusted return Index."
+      - "For the construction of SOLTCA50, a decrement of 50 index points per annum is deducted on each Index Calculation Day from the GTR Index version."
+    back_translation: >
+      The price return version, the NTR Index version, the GTR Index version,
+      the adjusted return version, and SOLTCA50 are each within the section
+      4.1 index scope.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      The IR rel `section_4_1_index` is a local scope marker for the five
+      indices section 4.1 reasons about. Source enumerates the four return
+      forms and names SOLTCA50 explicitly. Mixed because "section 4.1 index
+      scope" is the IR's own scoping concept, not a source phrase.
+
+  index_calculated_as_return_forms:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The INDEX is calculated as a price return, net total return, gross total return and adjusted return Index."
+    back_translation: >
+      The price return version has index type "price return", the NTR Index
+      version has index type "net total return", the GTR Index version has
+      index type "gross total return", the adjusted return version has index
+      type "adjusted return Index", and SOLTCA50 also has index type
+      "adjusted return Index".
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      SOLTCA50 is included as an adjusted-return index because section 4.1
+      explicitly introduces its adjusted-return construction with a 50 index
+      points per annum decrement. Index type values use lowercase source
+      phrases ("price return", etc.) rather than the IR enum CamelCase form.
+
+  equity_index_methodology_reference:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The calculation is performed according to the Equity Index Methodology, which is available on the Solactive website."
+      - "A more detailed description of the mechanics of the index calculation formula can be found in the Equity Index Methodology under Section 1.2."
+      - "The decrement will be applied in compliance with the Solactive Equity Index Methodology, which is incorporated by reference and available on the Solactive website."
+    back_translation: >
+      The Equity Index Methodology is available on the Solactive website and
+      is incorporated by reference. The standard index formula is in the
+      Equity Index Methodology, and the adjusted return formula is in the
+      Equity Index Methodology. Section 1.2 of the Equity Index Methodology
+      is part of the Equity Index Methodology, has a document part locator,
+      and contains the detailed description of the mechanics of the standard
+      index formula.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      Mixed because `part_of_document`, `document_part_locator`, and the
+      Section 1.2 locator entity are IR plumbing for cross-document navigation,
+      not a source claim about Section 1.2 in their own right. The
+      surrounding facts (URL availability, incorporation by reference,
+      formula location) are source claims.
+
+  calculation_performed_according_to_equity_index_methodology:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The calculation is performed according to the Equity Index Methodology, which is available on the Solactive website."
+    back_translation: >
+      For each of the section 4.1 indices, the calculation of that index is
+      performed according to the Equity Index Methodology.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      Mixed because "section 4.1 indices" paraphrases the IR scope rel. The
+      core source claim "The calculation is performed according to the Equity
+      Index Methodology" is preserved verbatim.
+
+  standard_index_formula_basis:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The standard index formula stipulates that the level of the Index changes based on the change of the prices of its Index Components taking into account their weight in the Index and any currency conversion in case the price of an Index Component is quoted in a currency other than the Index Currency."
+    back_translation: >
+      For each of the section 4.1 indices, every Calculation Day, and every
+      Index Component of that index on that day, the standard index formula
+      applies to that index. The level of the index changes based on the
+      change of the price of the Index Component, taking into account the
+      Index Component's weight in the index. If the price of the Index
+      Component is quoted in a currency other than the Index Currency, then
+      the formula also takes a currency conversion into account.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Currency-conversion is conditional in the IR (only when quoted currency
+      differs from the index currency). Source uses "in case ... is quoted in
+      a currency other than the Index Currency" — preserved verbatim.
+
+  distributions_reinvested_back_at_opening_of_effective_ex_date:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Any dividends or other distributions are reinvested back into the Index Component paying the dividend or other distribution at the opening of the effective date (the so called ex-date) of the payment of such dividend or other distribution."
+    back_translation: >
+      For every Payment, every Distribution, and every Index Component, if
+      the Payment is the payment of that Distribution and the Index Component
+      pays that Distribution, then the ex-date of the Payment equals the
+      effective date of the Payment, and the Distribution is reinvested back
+      into the Index Component paying the distribution at the opening of the
+      effective date of the Payment.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The equality `ex_date(p) = effective_date(p)` follows the parenthetical
+      source wording "the effective date (the so called ex-date)"; see
+      section 4.1 translator_notes 2026-05-09T20:10:00+02:00 for the
+      appositive-equivalence rationale.
+
+  adjusted_return_version_decrement_from_ntr:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "For the construction of the adjusted return version a decrement of 5% per annum is deducted on each Index Calculation Day from the NTR Index version."
+      - "The decrement will be applied in compliance with the Solactive Equity Index Methodology, which is incorporated by reference and available on the Solactive website."
+    back_translation: >
+      The adjusted return version has the NTR Index version as its underlying
+      index. The decrement of the adjusted return version is 5% per annum.
+      That decrement is deducted from the NTR Index version, is applied on
+      each Index Calculation Day, and is applied in compliance with the
+      Equity Index Methodology.
+    vocabulary_basis: source_only
+    status: covered
+
+  soltca50_decrement_from_gtr:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "For the construction of SOLTCA50, a decrement of 50 index points per annum is deducted on each Index Calculation Day from the GTR Index version."
+      - "SD: the Synthetic Dividend of 50 index points per annum"
+    back_translation: >
+      The adjusted return formula applies to SOLTCA50. SOLTCA50 has the GTR
+      Index version as its underlying index. The decrement of SOLTCA50 is
+      its synthetic dividend, and that synthetic dividend is 50 index points
+      per annum. The decrement is deducted from the GTR Index version and is
+      applied on each Index Calculation Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This claim prepares the constants and underlying-index link used by
+      the displayed SOLTCA50 formula in
+      `soltca50_adjusted_return_index_formula`.
+
+  calendar_day_count_for_adjusted_return_formula:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "DC_(t,t-1): the number of calendar days between Calculation Day t (including) and Calculation Day t-1 (excluding)"
+    back_translation: >
+      For every Calculation Day t and Calculation Day t-1, if t-1 is the
+      previous Calculation Day of t, then the number of calendar days
+      between t and t-1 includes t and excludes t-1.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The IR keeps the boundary semantics of the day-count definition (include
+      t, exclude t-1). The numeric count itself is represented by the
+      `CalendarDayCount extends Nat` sort and the
+      `number_of_calendar_days_between` function.
+
+  soltca50_adjusted_return_index_formula:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Index_t = Index_(t-1) * UI_t / UI_(t-1) - SD * DC_(t,t-1) / 360"
+      - "Index_t: the level of the Index as of Calculation Day t"
+      - "Index_(t-1): the level of the Index as of Calculation Day t-1"
+      - "UI_t: the level of the Underlying Index as of Calculation Day t"
+      - "UI_(t-1): the level of the Underlying Index as of Calculation Day t-1"
+      - "SD: the Synthetic Dividend of 50 index points per annum"
+      - "DC_(t,t-1): the number of calendar days between Calculation Day t (including) and Calculation Day t-1 (excluding)"
+    back_translation: >
+      For every Calculation Day t and Calculation Day t-1, if t-1 is the
+      previous Calculation Day of t, then the level of SOLTCA50 as of
+      Calculation Day t equals the level of SOLTCA50 as of Calculation Day
+      t-1 multiplied by the level of the Underlying Index as of Calculation
+      Day t divided by the level of the Underlying Index as of Calculation
+      Day t-1, minus the Synthetic Dividend of SOLTCA50 in index points per
+      annum multiplied by the number of calendar days between t and t-1, and
+      divided by 360.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The displayed adjusted-return formula is attached to SOLTCA50 only,
+      not to every adjusted-return index. This whole-methodology
+      interpretation is documented in section 4.1 translator_notes
+      2026-05-09T20:10:00+02:00 and in the global bridge layer (where
+      SOLTCA50 is mapped to Section 1.2's Index 50 AR, which has type AR**
+      meaning "follows the formula specified in Section 4").
+
+uncovered_source:
+  - quote: "(none recorded; token-level waiver review may still be needed)"
+
+vocabulary_notes:
+  PriceReturnIndexVersion:
+    note: >
+      Source-local entity for the price return index calculation form.
+      Back-translations refer to it as "the price return version" using
+      source phrasing. The global bridge maps it to the canonical Section 1.2
+      price-return entity.
+  NTRIndexVersion:
+    note: >
+      Source-local entity for the NTR Index version. It is the underlying
+      index for the 5% adjusted-return construction. Back-translations refer
+      to it as "the NTR Index version".
+  GTRIndexVersion:
+    note: >
+      Source-local entity for the GTR Index version. It is the underlying
+      index for the SOLTCA50 construction. Back-translations refer to it as
+      "the GTR Index version".
+  AdjustedReturnVersion:
+    note: >
+      Source-local entity for the adjusted return version with a 5% per
+      annum decrement from the NTR Index version. Back-translations refer
+      to it as "the adjusted return version".
+  SOLTCA50:
+    note: >
+      Source-local entity named directly in section 4.1 (a ticker shorthand
+      used as an index name). The displayed adjusted-return formula is
+      interpreted as the SOLTCA50 / 50 AR formula. Bridge link type is
+      TickerAlias to Section 1.2's Index 50 AR.
+  StandardIndexFormula:
+    note: >
+      IR entity for the standard index calculation formula described in the
+      Equity Index Methodology. Back-translations refer to it as "the
+      standard index formula" using source phrasing.
+  AdjustedReturnFormula:
+    note: >
+      IR entity for the adjusted-return formula displayed in section 4.1
+      and applicable to SOLTCA50. Back-translations refer to it as "the
+      adjusted return formula".
+  EquityIndexMethodologySection1_2 / EquityIndexMethodologySection1_2Locator:
+    note: >
+      IR plumbing for the source cross-reference to Section 1.2 of the
+      Equity Index Methodology. The locator is pure infrastructure; the
+      part-of relation is implicit from the source phrase "in the Equity
+      Index Methodology under Section 1.2".
+  EffectiveDate / ExDate:
+    note: >
+      The source parenthetical "the effective date (the so called ex-date)"
+      is represented by the equality `ex_date(p) = effective_date(p)` inside
+      the distribution reinvestment constraint.
+  CalendarDayCount:
+    note: >
+      Numeric sort (extends Nat) for the formula's day-count term DC_(t,t-1).
+      Boundary inclusion/exclusion (include t, exclude t-1) is captured
+      separately in `calendar_day_count_for_adjusted_return_formula`.
+  IndexLevel / Price / PriceChange / IndexPointAmount:
+    note: >
+      Numeric sorts (each extends Real) used in arithmetic operations of the
+      adjusted-return formula and the standard formula's level-change basis.
+      Source uses unannotated numeric notation in the formula; the IR makes
+      the numeric basis explicit via `extends Real`.

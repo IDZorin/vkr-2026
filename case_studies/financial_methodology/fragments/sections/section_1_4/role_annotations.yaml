@@ -1,0 +1,261 @@
+schema: role_annotations_v1
+entry_id: section_1_4
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  calculation_time_from_to:
+    kind: rel
+    args:
+      1: {role: time}
+      2: {role: time}
+      3: {role: time}
+      4: {role: time}
+  closing_calculation_price:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+    returns: {role: same_as_type}
+  closing_level:
+    kind: fun
+    args:
+      1: {role: subject}
+      2: {role: day}
+    returns: {role: same_as_type}
+  closing_price:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+    returns: {role: same_as_type}
+  converted_from_using:
+    kind: rel
+    args:
+      1: {role: price}
+      2: {role: price}
+      3: {role: exchange}
+  current_ice_spot_foreign_exchange_rate:
+    kind: fun
+    args:
+      1: {role: currency}
+      2: {role: currency}
+      3: {role: day}
+      4: {role: time}
+    returns: {role: same_as_type}
+  current_trading_price:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+      3: {role: time}
+    returns: {role: same_as_type}
+  current_trading_price_available:
+    kind: rel
+    args:
+      1: {role: component}
+      2: {role: day}
+      3: {role: time}
+  fixing_time:
+    kind: rel
+    args:
+      1: {role: exchange}
+      2: {role: time}
+      3: {role: time}
+  index_currency:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  intraday_calculation_price:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+      3: {role: time}
+    returns: {role: same_as_type}
+  intraday_level:
+    kind: fun
+    args:
+      1: {role: subject}
+      2: {role: day}
+      3: {role: time}
+    returns: {role: same_as_type}
+  intraday_level_calculated_on:
+    kind: rel
+    args:
+      1: {role: level}
+      2: {role: day}
+      3: {role: time}
+  intraday_source_price:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+      3: {role: time}
+    returns: {role: same_as_type}
+  last_available_trading_price:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+    returns: {role: same_as_type}
+  last_available_wm_fixing_4pm_london:
+    kind: fun
+    args:
+      1: {role: currency}
+      2: {role: currency}
+      3: {role: day}
+    returns: {role: same_as_type}
+  later_of:
+    kind: fun
+    args:
+      1: {role: price}
+      2: {role: price}
+    returns: {role: same_as_type}
+  listed_currency:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: component}
+    returns: {role: same_as_type}
+  listed_on_exchanges:
+    kind: rel
+    args:
+      1: {role: day}
+      2: {role: component}
+      3: {role: exchange}
+  most_recent_closing_price:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+      3: {role: time}
+    returns: {role: same_as_type}
+  preceding_trading_day:
+    kind: fun
+    args:
+      1: {role: day}
+    returns: {role: same_as_type}
+  price_used_for_level:
+    kind: rel
+    args:
+      1: {role: level}
+      2: {role: component}
+      3: {role: price}
+  wm_fixing_4pm_london:
+    kind: fun
+    args:
+      1: {role: currency}
+      2: {role: currency}
+      3: {role: day}
+    returns: {role: same_as_type}
+  wm_fixing_4pm_london_available:
+    kind: rel
+    args:
+      1: {role: currency}
+      2: {role: currency}
+      3: {role: day}
+  wm_fixing_for_closing_level:
+    kind: fun
+    args:
+      1: {role: currency}
+      2: {role: currency}
+      3: {role: day}
+    returns: {role: same_as_type}
+constraints:
+  closing_level_based_on_closing_prices:
+    frame: closing_level_based_on_closing_prices
+    variables:
+      d: {role: day, quantifier: forall}
+      c: {role: component, quantifier: forall}
+      e: {role: exchange, quantifier: exists}
+  closing_price_converted_with_available_wm_fixing:
+    frame: closing_price_converted_with_available_wm_fixing
+    variables:
+      d: {role: day, quantifier: forall}
+      c: {role: component, quantifier: forall}
+  closing_price_converted_with_last_available_wm_fixing:
+    frame: closing_price_converted_with_last_available_wm_fixing
+    variables:
+      d: {role: day, quantifier: forall}
+      c: {role: component, quantifier: forall}
+  closing_price_kept_when_listed_in_index_currency:
+    frame: closing_price_kept_when_listed_in_index_currency
+    variables:
+      d: {role: day, quantifier: forall}
+      c: {role: component, quantifier: forall}
+  current_trading_price_used_when_available:
+    frame: current_trading_price_used_when_available
+    variables:
+      d: {role: day, quantifier: forall}
+      t: {role: time, quantifier: forall}
+      c: {role: component, quantifier: forall}
+  fallback_price_candidates_are_temporally_comparable:
+    frame: fallback_price_candidates_are_temporally_comparable
+    variables:
+      d: {role: day, quantifier: forall}
+      t: {role: time, quantifier: forall}
+      c: {role: component, quantifier: forall}
+  intraday_level_uses_exchange_trading_prices:
+    frame: intraday_level_uses_exchange_trading_prices
+    variables:
+      d: {role: day, quantifier: forall}
+      t: {role: time, quantifier: forall}
+      c: {role: component, quantifier: forall}
+      e: {role: exchange, quantifier: exists}
+  intraday_price_converted_when_not_listed_in_index_currency:
+    frame: intraday_price_converted_when_not_listed_in_index_currency
+    variables:
+      d: {role: day, quantifier: forall}
+      t: {role: time, quantifier: forall}
+      c: {role: component, quantifier: forall}
+  intraday_price_kept_when_listed_in_index_currency:
+    frame: intraday_price_kept_when_listed_in_index_currency
+    variables:
+      d: {role: day, quantifier: forall}
+      t: {role: time, quantifier: forall}
+      c: {role: component, quantifier: forall}
+  later_of_returns_a_candidate:
+    frame: later_of_returns_a_candidate
+    variables:
+      p1: {role: price, quantifier: forall}
+      p2: {role: price, quantifier: forall}
+  later_of_selects_temporally_later_candidate:
+    frame: later_of_selects_temporally_later_candidate
+    variables:
+      p1: {role: price, quantifier: forall}
+      p2: {role: price, quantifier: forall}
+  no_current_trading_price_fallback:
+    frame: no_current_trading_price_fallback
+    variables:
+      d: {role: day, quantifier: forall}
+      t: {role: time, quantifier: forall}
+      c: {role: component, quantifier: forall}
+facts:
+  closing_level_calculated_each_calculation_day:
+    frame: closing_level_calculated_each_calculation_day
+    variables:
+      d: {role: day, quantifier: forall}
+  current_ice_spot_foreign_exchange_rate_source:
+    frame: current_ice_spot_foreign_exchange_rate_source
+    variables:
+      src: {role: currency, quantifier: forall}
+      tgt: {role: currency, quantifier: forall}
+      d: {role: day, quantifier: forall}
+      t: {role: time, quantifier: forall}
+  intraday_calculation_window:
+    frame: intraday_calculation_window
+    variables:
+      d: {role: day, quantifier: forall}
+      t: {role: time, quantifier: forall}
+  last_available_wm_fixing_4pm_london_quoted_by_reuters:
+    frame: last_available_wm_fixing_4pm_london_quoted_by_reuters
+    variables:
+      src: {role: currency, quantifier: forall}
+      tgt: {role: currency, quantifier: forall}
+      d: {role: day, quantifier: forall}
+  wm_fixing_4pm_london_quoted_by_reuters:
+    frame: wm_fixing_4pm_london_quoted_by_reuters
+    variables:
+      src: {role: currency, quantifier: forall}
+      tgt: {role: currency, quantifier: forall}
+      d: {role: day, quantifier: forall}

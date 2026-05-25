@@ -1,0 +1,17 @@
+sort IndexUniverse
+sort IndexUniverseRequirements
+
+entity TheIndexUniverse : IndexUniverse
+entity TheIndexUniverseRequirements : IndexUniverseRequirements
+
+rel financial_instrument_in_index_universe : FinancialInstrument, IndexUniverse
+rel fulfills_index_universe_requirements : FinancialInstrument, IndexUniverseRequirements
+rel index_universe_is_sum_of_financial_instruments_fulfilling_requirements : IndexUniverse, IndexUniverseRequirements
+
+fact index_universe_sum_source_phrase :
+  index_universe_is_sum_of_financial_instruments_fulfilling_requirements(TheIndexUniverse, TheIndexUniverseRequirements)
+
+constraint index_universe_definition :
+  forall fi: FinancialInstrument,
+    financial_instrument_in_index_universe(fi, TheIndexUniverse)
+    iff fulfills_index_universe_requirements(fi, TheIndexUniverseRequirements)

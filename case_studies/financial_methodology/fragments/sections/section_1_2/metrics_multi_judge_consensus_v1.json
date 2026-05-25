@@ -1,0 +1,127 @@
+{
+  "entry_id": "section_1_2",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures most of the identifier table and the publication channels, but it also introduces several claims not supported by the source and misses some source details. In particular, it omits the BBG ticker for the NTR line, adds a publication/availability structure for the index that is not stated as such, and turns the vendor-distribution sentence into a permission about affiliated vendors rather than a descriptive statement about possible distribution/display decisions.",
+      "semantic_differences": [
+        "The source says the NTR index has no BBG ticker listed, while the IR leaves the NTR BBG ticker absent but still treats BBG ticker as a general identifier relation and adds a uniqueness constraint; this is not itself a mismatch, but the IR does not explicitly represent the table's blank entry as such.",
+        "The source states that the index is published on the website of the Index Administrator and is additionally available via Boerse Stuttgart GmbH's price marketing services; the IR encodes this as `published_on` and `available_via` facts for each index, which is a structural interpretation rather than a direct statement of publication under identifiers.",
+        "The source says each vendor decides on an individual basis whether it will distribute or display the Index via its information systems; the IR instead introduces a permission for a price marketing services agent to distribute to affiliated vendors, which changes the modality and the actors involved.",
+        "The source says any publication in relation to the Index will be available at the announcements website; the IR restricts this to `IndexPublication` entities and specific publication kinds, which is narrower than the source's general wording."
+      ],
+      "stylistic_notes": [
+        "`BoerseStuttgartGmbHPriceMarketingServices` and `IndexAdministratorAnnouncementsWebsite` are reasonable canonicalized names for source phrases.",
+        "`DotSOLTCEYP`/`DotSOLTCEYN`/etc. are stylistic encodings of the dotted RIC values.",
+        "`5PercentAR` is a naming normalization of `5% AR`."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4782,
+        "completion_tokens": 428,
+        "total_tokens": 5210
+      },
+      "latency_s": 4.9874467849731445
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures most of the identifier table, the publication websites, the Boerse Stuttgart availability channel, and the statement that vendors decide individually whether to distribute or display the index. However, it omits one explicit table fact (the NTR row has no BBG ticker), weakens the source’s statement about availability to affiliated vendors by turning it into a permission, and overgeneralizes some publication-related claims from the listed index variants to all Index instances.",
+      "semantic_differences": [
+        "The source table explicitly indicates that the NTR index has no BBG ticker (blank entry), but the IR only leaves the ticker absent and adds a general at-most-one constraint; it does not assert that this specific index has no BBG ticker.",
+        "The source says the index is available via the price marketing services of Boerse Stuttgart GmbH and may be distributed to all of its affiliated vendors, whereas the IR encodes only a permission for PriceMarketingServices to distribute to affiliated vendors, not that such availability/distribution channel actually exists for all affiliated vendors.",
+        "The source’s publication-channel statements are about 'The Index' in this methodology context (the listed variants), but the IR’s vendor decision fact quantifies over all Index objects marked as published_under_following_identifiers, potentially extending beyond the concrete listed entries if additional such indices existed.",
+        "The source says any publication in relation to the Index will be available at the announcements website; the IR encodes this for all IndexPublication and all Index instances matching certain predicates, which is broader than the concrete listed index family described in the section."
+      ],
+      "stylistic_notes": [
+        "Using separate sorts for ISIN, RIC, BBGTicker, and IndexType is a reasonable formalization of the table structure.",
+        "The IR does not encode the literal full index names as strings, only as named IndexName entities; this is a naming/representation choice rather than a semantic mismatch by itself.",
+        "BoerseStuttgartGmbH is typed as Organization rather than a more specific subtype; this is acceptable ontology-level simplification.",
+        "The footnote mapping PR/NTR/GTR/AR to return-type meanings is captured cleanly via index_type_identifier_meanings."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4782,
+        "completion_tokens": 502,
+        "total_tokens": 5284
+      },
+      "latency_s": 10.020292043685913
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core identifiers, index variants, and publication channels from the source table and narrative. However, it introduces several structural elements not explicitly stated in the source: (1) a generic `VendorDistributionOrDisplayDecision` entity type with complex decision logic, when the source only states vendors decide individually whether to distribute; (2) a `permission` deontic declaration for affiliated vendors to distribute, which is not a claim the source makes; (3) a constraint that all index publications must be available at the announcements website, which overgeneralizes from the source's statement that publications \"will be available\" there; (4) the `formula_specified_in` relation for the 50 AR index pointing to Section 4, which is reasonable but goes beyond what the source explicitly states about that variant.",
+      "semantic_differences": [
+        "The IR introduces a `permission` deontic declaration (index_distribution_to_affiliated_vendors) that grants affiliated vendors the right to distribute indices. The source states only that indices \"may be distributed to all of its affiliated vendors\" and that \"each vendor decides on an individual basis\" whether to distribute. The source does not grant a permission; it describes a possibility and a vendor choice.",
+        "The IR encodes vendor distribution decisions as a complex entity type (VendorDistributionOrDisplayDecision) with multiple relations (decision_on_individual_basis, decision_via_information_system, etc.). The source simply states \"Each vendor decides on an individual basis as to whether it will distribute or display the Index via its information systems.\" This is a simpler statement about vendor autonomy, not a reified decision object with structured properties.",
+        "The constraint `index_publications_available_at_announcements_website` asserts that ALL index publications (notices, amendments) MUST be available at the announcements website. The source states \"Any publication in relation to the Index (e.g. notices, amendments to the Guideline) will be available at the website of the Index Administrator.\" The word \"will\" is predictive/descriptive, not a strict logical constraint; the IR's `implies available_at(...)` is stronger than the source's descriptive claim.",
+        "The IR uses `formula_specified_in(SolactiveTransatlanticCleanEnergyEURIndex50AR, Section4)` to encode that the 50 AR index formula is in Section 4. The source footnote states \"**AR means that the Index is calculated as an adjusted return index, following the formula specified in Section 4.\" This applies to the 50 AR variant, but the IR's encoding assumes Section 4 is the sole specification source, whereas the source also references the Equity Index Methodology for other AR variants."
+      ],
+      "stylistic_notes": [
+        "Entity naming: `SolactiveTransatlanticCleanEnergyEURIndex5PercentAR` vs. source table name `Solactive Transatlantic Clean Energy EUR Index 5% AR`. The IR spells out '5%' as '5Percent', which is a reasonable normalization but differs from the source's symbolic representation.",
+        "RIC entity names: `DotSOLTCEYP` etc. include the leading dot from the source table (`.SOLTCEYP`). This is a faithful encoding but stylistically verbose; a comment clarifies the raw_url pattern.",
+        "The IR introduces sorts like `IndexTypeIdentifier`, `PriceMarketingServices`, `VendorDistributionOrDisplayDecision`, and `InformationSystem` that are not explicitly named in the source. These are reasonable domain abstractions but represent IR-level design choices rather than source-stated concepts.",
+        "The IR uses `Currency` as a sort (e.g., `EUR : Currency`) without declaring it in the sort list. This appears to assume `Currency` is a prelude sort, but it is not listed in AVAILABLE PRELUDE SORTS. This is a minor inconsistency in sort declaration."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 6246,
+        "completion_tokens": 952,
+        "total_tokens": 7198
+      },
+      "latency_s": 13.028282880783081
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 65.06650757789612
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures all semantic claims from the source text: the table of identifiers is mapped to explicit entity facts, the footnotes regarding calculation methodologies and type abbreviations are encoded as relations and facts, the publication channels and vendor distribution permissions are modeled accurately, and the constraint on publication availability matches the source's requirement. No semantic content is added or omitted.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses explicit entity declarations for each identifier value and maps them via functions/relations, which is a standard and precise a4v3 lowering for tabular data.",
+        "The vendor decision logic is formalized as a universal implication over vendors and indices, which is a rigorous but faithful representation of the source's 'each vendor decides on an individual basis' phrasing.",
+        "The use of a DeonticDecl permission for 'may be distributed' correctly applies the canonical lowering for agent modalities."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 5007,
+        "completion_tokens": 2770,
+        "total_tokens": 7777
+      },
+      "latency_s": 54.167126178741455
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.85
+  }
+}

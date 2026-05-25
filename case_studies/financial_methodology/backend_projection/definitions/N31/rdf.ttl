@@ -1,0 +1,109 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N31 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N31/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:IndexComponent a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:TradingDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:Exchange a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Price a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Price rdfs:subClassOf ex:Real .
+ex:TradingPrice a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TradingPrice rdfs:subClassOf ex:Price .
+ex:Trade a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:TradeTime a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TradeTime rdfs:subClassOf ex:Real .
+
+ex:trading_price a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:trading_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:trading_price a4:argument ex:trading_price_arg_0 .
+ex:trading_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:trading_price a4:argument ex:trading_price_arg_1 .
+ex:trading_price a4:resultSort ex:TradingPrice .
+ex:trading_price a4:functionFlag "required" .
+ex:respective_exchange a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:respective_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:respective_exchange a4:argument ex:respective_exchange_arg_0 .
+ex:respective_exchange a4:resultSort ex:Exchange .
+ex:respective_exchange a4:functionFlag "required" .
+ex:trade_price a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:trade_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Trade .
+ex:trade_price a4:argument ex:trade_price_arg_0 .
+ex:trade_price a4:resultSort ex:Price .
+ex:trade_price a4:functionFlag "required" .
+ex:trade_time a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:trade_time_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Trade .
+ex:trade_time a4:argument ex:trade_time_arg_0 .
+ex:trade_time a4:resultSort ex:TradeTime .
+ex:trade_time a4:functionFlag "required" .
+ex:trade_component a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:trade_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Trade .
+ex:trade_component a4:argument ex:trade_component_arg_0 .
+ex:trade_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:trade_component a4:argument ex:trade_component_arg_1 .
+ex:trade_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:trade_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Trade .
+ex:trade_day a4:argument ex:trade_day_arg_0 .
+ex:trade_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:trade_day a4:argument ex:trade_day_arg_1 .
+ex:trade_exchange a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:trade_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Trade .
+ex:trade_exchange a4:argument ex:trade_exchange_arg_0 .
+ex:trade_exchange_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Exchange .
+ex:trade_exchange a4:argument ex:trade_exchange_arg_1 .
+ex:published_trade a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:published_trade_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Trade .
+ex:published_trade a4:argument ex:published_trade_arg_0 .
+ex:most_recent_published_trade_for a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:most_recent_published_trade_for_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Trade .
+ex:most_recent_published_trade_for a4:argument ex:most_recent_published_trade_for_arg_0 .
+ex:most_recent_published_trade_for_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:most_recent_published_trade_for a4:argument ex:most_recent_published_trade_for_arg_1 .
+ex:most_recent_published_trade_for_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:most_recent_published_trade_for a4:argument ex:most_recent_published_trade_for_arg_2 .
+
+ex:ASSERT_most_recent_published_trade_scope a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "20"^^xsd:integer ;
+  a4:exprText "forall t: Trade, forall c: IndexComponent, forall d: TradingDay, (most_recent_published_trade_for(t, c, d)) implies ((published_trade(t)) and (trade_component(t, c)) and (trade_day(t, d)) and (trade_exchange(t, respective_exchange(c))))" ;
+  a4:sourceText "constraint most_recent_published_trade_scope :\n  forall t: Trade, forall c: IndexComponent, forall d: TradingDay,\n    most_recent_published_trade_for(t, c, d)\n    implies\n      published_trade(t)\n      and trade_component(t, c)\n      and trade_day(t, d)\n      and trade_exchange(t, respective_exchange(c))" .
+ex:ASSERT_most_recent_published_trade_temporal_ordering a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "29"^^xsd:integer ;
+  a4:exprText "forall t: Trade, forall other: Trade, forall c: IndexComponent, forall d: TradingDay, ((most_recent_published_trade_for(t, c, d)) and (published_trade(other)) and (trade_component(other, c)) and (trade_day(other, d)) and (trade_exchange(other, respective_exchange(c)))) implies ((trade_time(t)) >= (trade_time(other)))" ;
+  a4:sourceText "constraint most_recent_published_trade_temporal_ordering :\n  forall t: Trade, forall other: Trade, forall c: IndexComponent, forall d: TradingDay,\n    most_recent_published_trade_for(t, c, d)\n    and published_trade(other)\n    and trade_component(other, c)\n    and trade_day(other, d)\n    and trade_exchange(other, respective_exchange(c))\n    implies\n      trade_time(t) >= trade_time(other)" .
+ex:ASSERT_most_recent_published_trade_uniqueness a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "39"^^xsd:integer ;
+  a4:exprText "forall t1: Trade, forall t2: Trade, forall c: IndexComponent, forall d: TradingDay, ((most_recent_published_trade_for(t1, c, d)) and (most_recent_published_trade_for(t2, c, d))) implies ((t1) = (t2))" ;
+  a4:sourceText "constraint most_recent_published_trade_uniqueness :\n  forall t1: Trade, forall t2: Trade, forall c: IndexComponent, forall d: TradingDay,\n    most_recent_published_trade_for(t1, c, d)\n    and most_recent_published_trade_for(t2, c, d)\n    implies\n      t1 = t2" .
+ex:ASSERT_trading_price_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "46"^^xsd:integer ;
+  a4:exprText "forall c: IndexComponent, forall d: TradingDay, exists t: Trade, (most_recent_published_trade_for(t, c, d)) and ((trading_price(c, d)) = (trade_price(t)))" ;
+  a4:sourceText "constraint trading_price_definition :\n  forall c: IndexComponent, forall d: TradingDay,\n    exists t: Trade,\n      most_recent_published_trade_for(t, c, d)\n      and trading_price(c, d) = trade_price(t)" .

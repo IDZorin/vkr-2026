@@ -1,0 +1,227 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:process_ontology_v1 a a4:ShaclProjectionTarget .
+
+ex:Workflow a rdfs:Class .
+ex:WorkflowShape a sh:NodeShape ; sh:targetClass ex:Workflow .
+ex:ProcessStep a rdfs:Class .
+ex:ProcessStepShape a sh:NodeShape ; sh:targetClass ex:ProcessStep .
+ex:ProcessTrigger a rdfs:Class .
+ex:ProcessTriggerShape a sh:NodeShape ; sh:targetClass ex:ProcessTrigger .
+ex:ProcessInput a rdfs:Class .
+ex:ProcessInputShape a sh:NodeShape ; sh:targetClass ex:ProcessInput .
+ex:ProcessOutput a rdfs:Class .
+ex:ProcessOutputShape a sh:NodeShape ; sh:targetClass ex:ProcessOutput .
+ex:ProcessState a rdfs:Class .
+ex:ProcessStateShape a sh:NodeShape ; sh:targetClass ex:ProcessState .
+ex:ProcessStateCarrier a rdfs:Class .
+ex:ProcessStateCarrierShape a sh:NodeShape ; sh:targetClass ex:ProcessStateCarrier .
+ex:ProcessGroundingTarget a rdfs:Class .
+ex:ProcessGroundingTargetShape a sh:NodeShape ; sh:targetClass ex:ProcessGroundingTarget .
+ex:DocumentPart a rdfs:Class .
+ex:DocumentPartShape a sh:NodeShape ; sh:targetClass ex:DocumentPart .
+ex:LocalAssertionName a rdfs:Class .
+ex:LocalAssertionNameShape a sh:NodeShape ; sh:targetClass ex:LocalAssertionName .
+ex:BridgeFamily a rdfs:Class .
+ex:BridgeFamilyShape a sh:NodeShape ; sh:targetClass ex:BridgeFamily .
+ex:BridgeDecision a rdfs:Class .
+ex:BridgeDecisionShape a sh:NodeShape ; sh:targetClass ex:BridgeDecision .
+ex:CanonicalConcept a rdfs:Class .
+ex:CanonicalConceptShape a sh:NodeShape ; sh:targetClass ex:CanonicalConcept .
+ex:CanonicalFrame a rdfs:Class .
+ex:CanonicalFrame rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalFrameShape a sh:NodeShape ; sh:targetClass ex:CanonicalFrame .
+ex:CanonicalRole a rdfs:Class .
+ex:CanonicalRole rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalRoleShape a sh:NodeShape ; sh:targetClass ex:CanonicalRole .
+ex:ProvenanceClaim a rdfs:Class .
+ex:ProvenanceClaimShape a sh:NodeShape ; sh:targetClass ex:ProvenanceClaim .
+ex:CalendarMarker a rdfs:Class .
+ex:CalendarMarkerShape a sh:NodeShape ; sh:targetClass ex:CalendarMarker .
+ex:CalendarWindow a rdfs:Class .
+ex:CalendarWindow rdfs:subClassOf ex:CalendarMarker .
+ex:CalendarWindowShape a sh:NodeShape ; sh:targetClass ex:CalendarWindow .
+ex:IndexComponentMembershipState a rdfs:Class .
+ex:IndexComponentMembershipStateShape a sh:NodeShape ; sh:targetClass ex:IndexComponentMembershipState .
+ex:GenericMembership a ex:IndexComponentMembershipState .
+ex:SelectedMembership a ex:IndexComponentMembershipState .
+ex:CalculationMembership a ex:IndexComponentMembershipState .
+ex:ImplementedMembership a ex:IndexComponentMembershipState .
+ex:ProcessStateKind a rdfs:Class .
+ex:ProcessStateKindShape a sh:NodeShape ; sh:targetClass ex:ProcessStateKind .
+ex:EligibleUniverseCandidate a ex:ProcessStateKind .
+ex:EligibleComponentCandidate a ex:ProcessStateKind .
+ex:SelectedComponent a ex:ProcessStateKind .
+ex:CalculationDayComponent a ex:ProcessStateKind .
+ex:ImplementedComponent a ex:ProcessStateKind .
+ex:ProcessOverlayStateKind a rdfs:Class .
+ex:ProcessOverlayStateKindShape a sh:NodeShape ; sh:targetClass ex:ProcessOverlayStateKind .
+ex:CorporateActionAffectedComponent a ex:ProcessOverlayStateKind .
+ex:CorporateActionAdjustedComponent a ex:ProcessOverlayStateKind .
+ex:DisruptedDetermination a ex:ProcessOverlayStateKind .
+ex:CorrectionPending a ex:ProcessOverlayStateKind .
+ex:CorrectionResolved a ex:ProcessOverlayStateKind .
+ex:ActiveIndex a ex:ProcessOverlayStateKind .
+ex:TerminatedIndex a ex:ProcessOverlayStateKind .
+ex:MethodologyUnderReview a ex:ProcessOverlayStateKind .
+ex:MethodologyChanged a ex:ProcessOverlayStateKind .
+ex:AmendmentPendingApproval a ex:ProcessOverlayStateKind .
+ex:AmendmentApproved a ex:ProcessOverlayStateKind .
+ex:ProcessEdgeKind a rdfs:Class .
+ex:ProcessEdgeKindShape a sh:NodeShape ; sh:targetClass ex:ProcessEdgeKind .
+ex:ExplicitSourceEdge a ex:ProcessEdgeKind .
+ex:StructuralDependencyEdge a ex:ProcessEdgeKind .
+ex:InferredMergeEdge a ex:ProcessEdgeKind .
+ex:OperationalLoweringEdge a ex:ProcessEdgeKind .
+ex:OverlayBehavior a rdfs:Class .
+ex:OverlayBehaviorShape a sh:NodeShape ; sh:targetClass ex:OverlayBehavior .
+ex:Preempt a ex:OverlayBehavior .
+ex:ModifyAndContinue a ex:OverlayBehavior .
+ex:InterruptAndResume a ex:OverlayBehavior .
+ex:Fallback a ex:OverlayBehavior .
+ex:StepModality a rdfs:Class .
+ex:StepModalityShape a sh:NodeShape ; sh:targetClass ex:StepModality .
+ex:ObligatoryStep a ex:StepModality .
+ex:PermittedStep a ex:StepModality .
+ex:ProhibitedStep a ex:StepModality .
+ex:DiscretionaryStep a ex:StepModality .
+ex:DescriptiveStep a ex:StepModality .
+ex:ProcessTemporalRelation a rdfs:Class .
+ex:ProcessTemporalRelationShape a sh:NodeShape ; sh:targetClass ex:ProcessTemporalRelation .
+ex:Before a ex:ProcessTemporalRelation .
+ex:After a ex:ProcessTemporalRelation .
+ex:SameTimeAs a ex:ProcessTemporalRelation .
+ex:During a ex:ProcessTemporalRelation .
+ex:OnOrBefore a ex:ProcessTemporalRelation .
+ex:OnOrAfter a ex:ProcessTemporalRelation .
+ex:IterationSemanticsStatus a rdfs:Class .
+ex:IterationSemanticsStatusShape a sh:NodeShape ; sh:targetClass ex:IterationSemanticsStatus .
+ex:NoIteration a ex:IterationSemanticsStatus .
+ex:IterationSemanticsDeferred a ex:IterationSemanticsStatus .
+ex:FixedPointIteration a ex:IterationSemanticsStatus .
+ex:ProcessGroundingKind a rdfs:Class .
+ex:ProcessGroundingKindShape a sh:NodeShape ; sh:targetClass ex:ProcessGroundingKind .
+ex:DocumentPartGrounding a ex:ProcessGroundingKind .
+ex:LocalConstraintGrounding a ex:ProcessGroundingKind .
+ex:LocalFactGrounding a ex:ProcessGroundingKind .
+ex:BridgeDecisionGrounding a ex:ProcessGroundingKind .
+ex:CanonicalConceptGrounding a ex:ProcessGroundingKind .
+ex:ProvenanceGrounding a ex:ProcessGroundingKind .
+ex:ProcessIOKind a rdfs:Class .
+ex:ProcessIOKindShape a sh:NodeShape ; sh:targetClass ex:ProcessIOKind .
+ex:DomainConceptIO a ex:ProcessIOKind .
+ex:ObservationFrameIO a ex:ProcessIOKind .
+ex:CalendarMarkerIO a ex:ProcessIOKind .
+ex:ProcessStateIO a ex:ProcessIOKind .
+
+ex:workflow_step a rdf:Property .
+ex:WorkflowShape sh:property [ sh:path ex:workflow_step ; sh:class ex:ProcessStep ] .
+ex:workflow_invokes a rdf:Property .
+ex:WorkflowShape sh:property [ sh:path ex:workflow_invokes ; sh:class ex:Workflow ] .
+ex:workflow_modifies a rdf:Property .
+ex:WorkflowShape sh:property [ sh:path ex:workflow_modifies ; sh:class ex:Workflow ] .
+ex:workflow_interrupts a rdf:Property .
+ex:WorkflowShape sh:property [ sh:path ex:workflow_interrupts ; sh:class ex:Workflow ] .
+ex:step_precedes a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_precedes ; sh:class ex:ProcessStep ] .
+ex:step_edge_kind a rdfs:Class .
+ex:step_edge_kindShape a sh:NodeShape ; sh:targetClass ex:step_edge_kind .
+ex:step_edge_kindShape sh:property [ sh:path ex:step_edge_kind_arg_0 ; sh:class ex:ProcessStep ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_edge_kindShape sh:property [ sh:path ex:step_edge_kind_arg_1 ; sh:class ex:ProcessStep ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_edge_kindShape sh:property [ sh:path ex:step_edge_kind_arg_2 ; sh:class ex:ProcessEdgeKind ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_temporal_relation a rdfs:Class .
+ex:step_temporal_relationShape a sh:NodeShape ; sh:targetClass ex:step_temporal_relation .
+ex:step_temporal_relationShape sh:property [ sh:path ex:step_temporal_relation_arg_0 ; sh:class ex:ProcessStep ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_temporal_relationShape sh:property [ sh:path ex:step_temporal_relation_arg_1 ; sh:class ex:ProcessStep ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_temporal_relationShape sh:property [ sh:path ex:step_temporal_relation_arg_2 ; sh:class ex:ProcessTemporalRelation ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_overlay_behavior a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_overlay_behavior ; sh:class ex:OverlayBehavior ] .
+ex:step_modality a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_modality ; sh:class ex:StepModality ] .
+ex:step_iteration_status a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_iteration_status ; sh:class ex:IterationSemanticsStatus ] .
+ex:step_triggered_by a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_triggered_by ; sh:class ex:ProcessTrigger ] .
+ex:trigger_calendar_marker a rdf:Property .
+ex:ProcessTriggerShape sh:property [ sh:path ex:trigger_calendar_marker ; sh:class ex:CalendarMarker ] .
+ex:trigger_precedes a rdf:Property .
+ex:ProcessTriggerShape sh:property [ sh:path ex:trigger_precedes ; sh:class ex:ProcessTrigger ] .
+ex:trigger_temporal_relation a rdfs:Class .
+ex:trigger_temporal_relationShape a sh:NodeShape ; sh:targetClass ex:trigger_temporal_relation .
+ex:trigger_temporal_relationShape sh:property [ sh:path ex:trigger_temporal_relation_arg_0 ; sh:class ex:ProcessTrigger ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trigger_temporal_relationShape sh:property [ sh:path ex:trigger_temporal_relation_arg_1 ; sh:class ex:ProcessTrigger ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trigger_temporal_relationShape sh:property [ sh:path ex:trigger_temporal_relation_arg_2 ; sh:class ex:ProcessTemporalRelation ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trigger_relation_grounded_in a rdfs:Class .
+ex:trigger_relation_grounded_inShape a sh:NodeShape ; sh:targetClass ex:trigger_relation_grounded_in .
+ex:trigger_relation_grounded_inShape sh:property [ sh:path ex:trigger_relation_grounded_in_arg_0 ; sh:class ex:ProcessTrigger ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trigger_relation_grounded_inShape sh:property [ sh:path ex:trigger_relation_grounded_in_arg_1 ; sh:class ex:ProcessTrigger ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trigger_relation_grounded_inShape sh:property [ sh:path ex:trigger_relation_grounded_in_arg_2 ; sh:class ex:ProcessGroundingTarget ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:calendar_window_start_marker a rdf:Property .
+ex:CalendarWindowShape sh:property [ sh:path ex:calendar_window_start_marker ; sh:class ex:CalendarMarker ] .
+ex:calendar_window_end_marker a rdf:Property .
+ex:CalendarWindowShape sh:property [ sh:path ex:calendar_window_end_marker ; sh:class ex:CalendarMarker ] .
+ex:step_during_calendar_window a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_during_calendar_window ; sh:class ex:CalendarWindow ] .
+ex:step_requires a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_requires ; sh:class ex:ProcessInput ] .
+ex:step_produces a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_produces ; sh:class ex:ProcessOutput ] .
+ex:input_kind a rdf:Property .
+ex:ProcessInputShape sh:property [ sh:path ex:input_kind ; sh:class ex:ProcessIOKind ] .
+ex:output_kind a rdf:Property .
+ex:ProcessOutputShape sh:property [ sh:path ex:output_kind ; sh:class ex:ProcessIOKind ] .
+ex:input_observation_frame a rdf:Property .
+ex:ProcessInputShape sh:property [ sh:path ex:input_observation_frame ; sh:class ex:CanonicalFrame ] .
+ex:output_observation_frame a rdf:Property .
+ex:ProcessOutputShape sh:property [ sh:path ex:output_observation_frame ; sh:class ex:CanonicalFrame ] .
+ex:input_canonical_concept a rdf:Property .
+ex:ProcessInputShape sh:property [ sh:path ex:input_canonical_concept ; sh:class ex:CanonicalConcept ] .
+ex:output_canonical_concept a rdf:Property .
+ex:ProcessOutputShape sh:property [ sh:path ex:output_canonical_concept ; sh:class ex:CanonicalConcept ] .
+ex:step_enters_state a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_enters_state ; sh:class ex:ProcessState ] .
+ex:step_exits_state a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_exits_state ; sh:class ex:ProcessState ] .
+ex:process_state_kind a rdf:Property .
+ex:ProcessStateShape sh:property [ sh:path ex:process_state_kind ; sh:class ex:ProcessStateKind ] .
+ex:process_overlay_state_kind a rdf:Property .
+ex:ProcessStateShape sh:property [ sh:path ex:process_overlay_state_kind ; sh:class ex:ProcessOverlayStateKind ] .
+ex:process_state_carrier a rdf:Property .
+ex:ProcessStateShape sh:property [ sh:path ex:process_state_carrier ; sh:class ex:ProcessStateCarrier ] .
+ex:process_state_corresponds_to_membership_state a rdf:Property .
+ex:ProcessStateShape sh:property [ sh:path ex:process_state_corresponds_to_membership_state ; sh:class ex:IndexComponentMembershipState ] .
+ex:process_state_kind_corresponds_to_membership_state a rdf:Property .
+ex:ProcessStateKindShape sh:property [ sh:path ex:process_state_kind_corresponds_to_membership_state ; sh:class ex:IndexComponentMembershipState ] .
+ex:step_grounded_in_document_part a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_grounded_in_document_part ; sh:class ex:DocumentPart ] .
+ex:step_grounded_in a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_grounded_in ; sh:class ex:ProcessGroundingTarget ] .
+ex:edge_grounded_in a rdfs:Class .
+ex:edge_grounded_inShape a sh:NodeShape ; sh:targetClass ex:edge_grounded_in .
+ex:edge_grounded_inShape sh:property [ sh:path ex:edge_grounded_in_arg_0 ; sh:class ex:ProcessStep ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:edge_grounded_inShape sh:property [ sh:path ex:edge_grounded_in_arg_1 ; sh:class ex:ProcessStep ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:edge_grounded_inShape sh:property [ sh:path ex:edge_grounded_in_arg_2 ; sh:class ex:ProcessGroundingTarget ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:grounding_kind a rdf:Property .
+ex:ProcessGroundingTargetShape sh:property [ sh:path ex:grounding_kind ; sh:class ex:ProcessGroundingKind ] .
+ex:grounding_document_part a rdf:Property .
+ex:ProcessGroundingTargetShape sh:property [ sh:path ex:grounding_document_part ; sh:class ex:DocumentPart ] .
+ex:grounding_local_assertion a rdf:Property .
+ex:ProcessGroundingTargetShape sh:property [ sh:path ex:grounding_local_assertion ; sh:class ex:LocalAssertionName ] .
+ex:grounding_bridge_family a rdf:Property .
+ex:ProcessGroundingTargetShape sh:property [ sh:path ex:grounding_bridge_family ; sh:class ex:BridgeFamily ] .
+ex:grounding_bridge_decision a rdf:Property .
+ex:ProcessGroundingTargetShape sh:property [ sh:path ex:grounding_bridge_decision ; sh:class ex:BridgeDecision ] .
+ex:grounding_canonical_concept a rdf:Property .
+ex:ProcessGroundingTargetShape sh:property [ sh:path ex:grounding_canonical_concept ; sh:class ex:CanonicalConcept ] .
+ex:grounding_provenance_claim a rdf:Property .
+ex:ProcessGroundingTargetShape sh:property [ sh:path ex:grounding_provenance_claim ; sh:class ex:ProvenanceClaim ] .
+
+ex:SelectedComponent ex:process_state_kind_corresponds_to_membership_state ex:SelectedMembership .
+ex:CalculationDayComponent ex:process_state_kind_corresponds_to_membership_state ex:CalculationMembership .
+ex:ImplementedComponent ex:process_state_kind_corresponds_to_membership_state ex:ImplementedMembership .

@@ -1,0 +1,116 @@
+schema: role_annotations_v2
+entry_id: section_4_1
+annotation_status: migrated_signature_only_v2
+migration_notes:
+- Generated from the legacy role_annotations.yaml v1 experiment.
+- Only rel/fun signatures with arity > 2 or repeated argument sorts are retained.
+- Formula logic remains exclusively in main_ir.a4v3; facts/constraints/deontics are not mirrored here.
+symbols:
+  index_component_of:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: time
+      3:
+        role: object
+  formula_level_change_based_on_price_change:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: time
+      4:
+        role: object
+      5:
+        role: basis
+    notes:
+    - The formula is the subject; the index and component are objects in the calculation frame.
+  formula_level_change_takes_weight:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: time
+      4:
+        role: object
+      5:
+        role: basis
+    notes:
+    - The formula is the subject; the index and component are objects in the calculation frame.
+  formula_level_change_takes_currency_conversion:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: time
+      4:
+        role: object
+      5:
+        role: basis
+    notes:
+    - The formula is the subject; the index and component are objects in the calculation frame.
+  reinvested_back_into:
+    kind: rel
+    args:
+      1:
+        role: value
+      2:
+        role: object
+        direction: to
+      3:
+        role: time
+  previous_calculation_day_of:
+    kind: rel
+    args:
+      1:
+        role: time
+        direction: from
+      2:
+        role: time
+        direction: to
+    notes:
+    - Arg1 is the previous/earlier calculation day; arg2 is the later day it precedes.
+  component_weight:
+    kind: fun
+    args:
+      1:
+        role: subject
+      2:
+        role: time
+      3:
+        role: object
+    returns:
+      role: value
+  currency_conversion:
+    kind: fun
+    args:
+      1:
+        role: subject
+      2:
+        role: time
+      3:
+        role: object
+    returns:
+      role: value
+  number_of_calendar_days_between:
+    kind: fun
+    args:
+      1:
+        role: time
+        direction: from
+      2:
+        role: time
+        direction: to
+    returns:
+      role: value

@@ -1,4 +1,4 @@
-"""Build a resolved methodology view for the DZ corpus.
+﻿"""Build a resolved methodology view for the seed methodology corpus.
 
 This script deliberately does *not* rewrite local `main_ir.a4v3` files into a
 new merged IR. Local IR remains the source-faithful gold layer. The resolved
@@ -88,10 +88,10 @@ def _split_args(raw: str) -> list[str]:
     return [arg.strip() for arg in raw.split(",") if arg.strip()]
 
 
-def _entry_paths(dz_root: Path) -> list[Path]:
+def _entry_paths(run_root: Path) -> list[Path]:
     out: list[Path] = []
     for sub in ("sections", "definitions", "appendix"):
-        base = dz_root / sub
+        base = run_root / sub
         if not base.exists():
             continue
         for p in sorted(base.glob("*/main_ir.a4v3")):
@@ -101,8 +101,8 @@ def _entry_paths(dz_root: Path) -> list[Path]:
     return out
 
 
-def _entry_id(path: Path, dz_root: Path) -> str:
-    return path.parent.relative_to(dz_root).as_posix()
+def _entry_id(path: Path, run_root: Path) -> str:
+    return path.parent.relative_to(run_root).as_posix()
 
 
 def _entry_label(entry_id: str) -> str:
@@ -338,9 +338,9 @@ def _parse_canonical(canonical_path: Path) -> dict[str, Any]:
     }
 
 
-def analyze(dz_root: Path) -> dict[str, Any]:
-    bridge_path = dz_root / "bridge" / "main_bridge.a4v3"
-    canonical_path = dz_root / "merge" / "canonical_ontology_v1.a4v3"
+def analyze(run_root: Path) -> dict[str, Any]:
+    bridge_path = run_root / "bridge" / "main_bridge.a4v3"
+    canonical_path = run_root / "merge" / "canonical_ontology_v1.a4v3"
     bridge = _parse_bridge(bridge_path)
     canonical = _parse_canonical(canonical_path)
 
@@ -349,8 +349,8 @@ def analyze(dz_root: Path) -> dict[str, Any]:
     rule_dependencies: list[dict[str, Any]] = []
     parse_warnings: list[dict[str, Any]] = []
 
-    for path in _entry_paths(dz_root):
-        entry_id = _entry_id(path, dz_root)
+    for path in _entry_paths(run_root):
+        entry_id = _entry_id(path, run_root)
         entry_label = _entry_label(entry_id)
         text = path.read_text(encoding="utf-8")
         ast = parse(text, strict=False)
@@ -453,7 +453,7 @@ def analyze(dz_root: Path) -> dict[str, Any]:
     return {
         "schema": "resolved_methodology_view_v1",
         "status": status,
-        "dz_root": str(dz_root),
+        "run_root": str(run_root),
         "source_of_truth_note": (
             "This is a derived inspection view. Source of truth remains local IR "
             "+ audit envelope + bridge + canonical ontology."
@@ -600,15 +600,15 @@ def _write_markdown(report: dict[str, Any], out_path: Path) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dz-root", default="IR/outputs/runs/dz")
+    ap.add_argument("--run-root", default="case_studies/financial_methodology")
     ap.add_argument("--out-dir", default=None)
     args = ap.parse_args()
 
-    dz_root = Path(args.dz_root)
-    out_dir = Path(args.out_dir) if args.out_dir else dz_root / "merge"
+    run_root = Path(args.run_root)
+    out_dir = Path(args.out_dir) if args.out_dir else run_root / "merge"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    report = analyze(dz_root)
+    report = analyze(run_root)
     json_path = out_dir / "resolved_methodology_view_v1.json"
     md_path = out_dir / "resolved_methodology_view_v1.md"
     json_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

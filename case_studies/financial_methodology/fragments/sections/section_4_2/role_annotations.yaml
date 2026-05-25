@@ -1,0 +1,22 @@
+schema: role_annotations_v1
+entry_id: section_4_2
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  calculated_level:
+    kind: fun
+    args:
+      1: {role: event}
+    returns: {role: same_as_type}
+constraints:
+  other_reason_termination_in_accordance_with_solactive_policies:
+    frame: other_reason_termination_in_accordance_with_solactive_policies
+    variables:
+      t: {role: event, quantifier: forall}
+      i: {role: subject, quantifier: forall}
+  termination_and_announcement_at_zero_or_below:
+    frame: termination_and_announcement_at_zero_or_below
+    variables:
+      c: {role: event, quantifier: forall}
+      i: {role: subject, quantifier: forall}
+      t: {role: event, quantifier: exists}
+      a: {role: event, quantifier: exists}

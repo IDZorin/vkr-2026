@@ -1,0 +1,119 @@
+{
+  "entry_id": "N27",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures that Selection Day is 20 business days before Rebalance Day and includes a disregard-of-change condition, but it weakens the source by making the disregard clause only an implication from the selection-day relation rather than part of the definition itself. It also introduces a separate relation and a count entity that are not explicitly stated in the source, though they are compatible encodings.",
+      "semantic_differences": [
+        "The source states the disregard of any change of the Rebalance Day as part of the same definition; the IR only derives a disregard relation from the selection-day relation, so the disregard condition is not equivalently embedded in the definition.",
+        "The IR introduces an explicit `selection_day_for_rebalance_day` relation and a `change_of_rebalance_day_disregarded_for_selection_day` relation, whereas the source is a single definitional sentence without these separate predicates."
+      ],
+      "stylistic_notes": [
+        "`TwentyBusinessDays` is a naming choice for the numeral 20.",
+        "`business_day_count_before` is a formalized phrasing of “is ... before.”",
+        "`SelectionDay` and `RebalanceDay` are camel-cased identifiers for quoted source terms."
+      ],
+      "confidence": 0.89,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1986,
+        "completion_tokens": 265,
+        "total_tokens": 2251
+      },
+      "latency_s": 3.917820692062378
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "one_way_implication",
+      "reason_short": "The IR captures the core claim that a Selection Day is defined by being 20 business days before a Rebalance Day. However, the source also says this is determined while disregarding any change of the Rebalance Day, and the IR represents that only as an extra predicate asserted whenever the selection-day relation holds, without formalizing what it means to disregard such changes or how that affects the counting/definition.",
+      "semantic_differences": [
+        "The source qualifies the definition with 'disregarding any change of the Rebalance Day', but the IR does not encode the semantic effect of disregarding changes; it only adds a separate relation `change_of_rebalance_day_disregarded_for_selection_day(sd, rd)`.",
+        "Because the 'disregarding change' condition is not built into the defining equivalence for `selection_day_for_rebalance_day`, the IR leaves open models where the 20-business-day calculation is sensitive to rebalance-day changes, contrary to the source qualification."
+      ],
+      "stylistic_notes": [
+        "Using dedicated sorts `SelectionDay` and `RebalanceDay` is a reasonable ontological refinement.",
+        "The naming `business_day_count_before` is slightly awkward but understandable.",
+        "Representing 20 via `TwentyBusinessDays` plus an equality fact is stylistically heavier than necessary but not semantically problematic."
+      ],
+      "confidence": 0.93,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1986,
+        "completion_tokens": 325,
+        "total_tokens": 2311
+      },
+      "latency_s": 6.487464666366577
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR correctly captures that Selection Day is 20 business days before Rebalance Day and that changes to Rebalance Day are disregarded. However, the IR introduces a relation `selection_day_for_rebalance_day` that reifies a functional dependency as a binary relation without asserting uniqueness or functional properties. The source phrase 'disregarding any change of the Rebalance Day' is ambiguous: it could mean (a) the Selection Day calculation ignores whether the Rebalance Day has been changed, or (b) the Selection Day remains fixed even if Rebalance Day changes. The IR's second constraint only asserts that if a selection-rebalance pair holds, then the disregard relation holds—it does not clarify the temporal or causal semantics of 'disregarding.' Additionally, the IR does not explicitly state that Selection Day is uniquely determined by the 20-business-day offset, leaving open whether multiple Selection Days could satisfy the constraint.",
+      "semantic_differences": [
+        "The source states Selection Day IS 20 business days before Rebalance Day (a definition/identity), but the IR uses a biconditional `iff` in `selection_day_definition` that treats this as a constraint rather than a strict functional definition. While logically equivalent in a well-formed model, the IR does not enforce that for each Rebalance Day there is exactly one Selection Day.",
+        "The phrase 'disregarding any change of the Rebalance Day' is semantically ambiguous in the source. The IR interprets it as: if a selection-rebalance pair is established, then the disregard relation holds. But the source may intend: the Selection Day calculation is performed as if the Rebalance Day had not changed (i.e., using a prior or baseline Rebalance Day). The IR does not encode this temporal or counterfactual semantics.",
+        "The IR introduces `change_of_rebalance_day_disregarded_for_selection_day` as a relation without defining what 'change' means or what state is being disregarded. The source phrase is vague about whether 'change' refers to a past change, a potential future change, or a specific event. The IR does not resolve this ambiguity."
+      ],
+      "stylistic_notes": [
+        "The sort `BusinessDayCount extends Nat` is a reasonable encoding, but the source does not explicitly introduce a 'business day count' type—it uses the count as a numeric modifier. This is a legitimate a4v3 design choice for type safety.",
+        "The entity `TwentyBusinessDays : BusinessDayCount` is a stylistic choice to reify the constant 20. The constraint `twenty_business_days_count : TwentyBusinessDays = 20` is redundant if `TwentyBusinessDays` is defined as a constant; a simpler approach would be to use the literal `20` in the definition constraint.",
+        "The relation name `change_of_rebalance_day_disregarded_for_selection_day` is verbose and does not clarify the semantics of 'disregarding.' A clearer name might be `selection_day_ignores_rebalance_day_change` or similar, but this is a naming preference, not a semantic error."
+      ],
+      "confidence": 0.68,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2317,
+        "completion_tokens": 809,
+        "total_tokens": 3126
+      },
+      "latency_s": 9.199245929718018
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 67.32512998580933
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR precisely captures the source's core definition by establishing a bidirectional constraint that links a Selection Day to a Rebalance Day exactly when the business day count between them equals 20. The additional relation for the 'disregarding any change' clause is a standard a4v3 conservative lowering that preserves the textual disclaimer as a formal tag without introducing unstated operational mechanics, maintaining full semantic alignment with the source.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The 'disregarding any change' clause is encoded as a trivially implied predicate rather than modeling schedule-change dynamics; this is a deliberate conservative lowering to preserve the exact phrasing without hallucinating temporal mechanics.",
+        "The function name `business_day_count_before` implicitly encodes the 'Business Days' unit from the source, which is acceptable and aligns with standard a4v3 naming conventions for domain-specific counters."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2121,
+        "completion_tokens": 3001,
+        "total_tokens": 5122
+      },
+      "latency_s": 56.79837417602539
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.863
+  }
+}

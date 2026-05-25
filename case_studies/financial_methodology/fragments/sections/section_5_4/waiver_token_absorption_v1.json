@@ -1,0 +1,176 @@
+{
+  "entry_id": "section_5_4",
+  "schema": "waiver_token_absorption_v1",
+  "generated_from": "metrics_token_provenance_v1.json",
+  "items": [
+    {
+      "token": "mak",
+      "surface_forms": [
+        "makes"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 11
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_support_verb",
+      "comment": "\"makes\" is the support verb in \"makes the greatest possible efforts\". The substantive claim is represented by `effort_by(SolactiveGreatestPossibleEfforts, Solactive)` and `greatest_possible(SolactiveGreatestPossibleEfforts)`; no separate action predicate is needed.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "order",
+      "surface_forms": [
+        "order"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 307
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "\"in order to\" marks purpose. The purpose is represented directly by `procedure_maintains(..., ContinuedReliability)` and `procedure_maintains(..., Comparability)`, so `order` does not need a standalone carrier.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "neverthel",
+      "surface_forms": [
+        "Nevertheless"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 381
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "\"Nevertheless\" is a discourse contrast marker between the methodology-adaptation claim and the fallback cessation condition. The contrast is accounted for by representing both claims separately: adaptation where necessary, and orderly cessation when no other options are available. It does not introduce a standalone domain object, relation, or formula.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "other",
+      "surface_forms": [
+        "other"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 401
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_quantifier_modifier",
+      "comment": "\"other\" occurs in \"no other options are available\". The exclusion is represented by `count(o in Option where available_option_for_index(o, i)) = 0`; adding a separate `other` concept would duplicate the zero-option condition.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "indicat",
+      "surface_forms": [
+        "indicated"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 471
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_modal_event",
+      "comment": "\"indicated\" appears in \"may be indicated\". The source is modal/optional, so the IR intentionally avoids a hard `indicated(c)` outcome. The indication is represented by `permission indicate_orderly_cessation(...)` plus `orderly_cessation_indication_available(i)` under the no-options fallback condition.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "way",
+      "surface_forms": [
+        "way"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 634
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "\"way\" is part of the phrase \"in a way not foreseeable\". The formal content is represented by the negated foreseeability relations at inception; `way` adds no separate domain object.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "particularli",
+      "surface_forms": [
+        "particularly"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 714
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_emphasis_modifier",
+      "comment": "\"particularly\" emphasizes that selection criteria are included among index rules. The inclusion is already explicit through `SelectionCriteria extends IndexRule`; no separate emphasis predicate is needed.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "can",
+      "surface_forms": [
+        "can"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 751
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_modal_auxiliary",
+      "comment": "\"can\" is an auxiliary in \"can no longer be applied coherently\". The operative condition is represented by `not applied_coherently(r, i)` rather than by a separate modality.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "longer",
+      "surface_forms": [
+        "longer"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 758
+        },
+        {
+          "line": 3,
+          "column": 806
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_negation_modifier",
+      "comment": "\"longer\" appears in \"no longer be applied\" and \"no longer used\". The loss of applicability/use is represented by negated predicates and negated existence of underlying-value uses; `longer` does not introduce an additional temporal trace in this local IR.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "how",
+      "surface_forms": [
+        "how"
+      ],
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 61
+        },
+        {
+          "line": 5,
+          "column": 139
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_procedural_connector",
+      "comment": "\"how\" introduces the content of the guidelines: identifying situations, procedures for informing stakeholders, procedures for consulting stakeholders, and termination/transition procedures. These are represented explicitly by `guidelines_identify`, `procedure_for_informing`, `procedure_for_consulting`, the shared `Stakeholders` carrier, and procedure relations.",
+      "reviewer": "human_approved"
+    }
+  ],
+  "stale_tokens_from_previous_file": []
+}

@@ -1,0 +1,73 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N13 a owl:Ontology .
+
+ex:SelectionDay a owl:Class .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:Security a owl:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:ShareClass a owl:Class .
+ex:ShareCount a owl:Class .
+ex:ShareCount rdfs:subClassOf ex:Nat .
+ex:ClosingPrice a owl:Class .
+ex:ClosingPrice rdfs:subClassOf ex:MonetaryAmount .
+ex:FreeFloatMarketCapitalization a owl:Class .
+ex:FreeFloatMarketCapitalization rdfs:subClassOf ex:MonetaryAmount .
+ex:DataVendor a owl:Class .
+
+ex:share_class a owl:Class, a4:NaryRelationClass .
+ex:share_class_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:share_class ;
+  rdfs:range ex:SelectionDay .
+ex:share_class_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:share_class ;
+  rdfs:range ex:Security .
+ex:share_class_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:share_class ;
+  rdfs:range ex:ShareClass .
+ex:free_float_market_capitalization a owl:Class, a4:NaryRelationClass .
+ex:free_float_market_capitalization_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:free_float_market_capitalization ;
+  rdfs:range ex:SelectionDay .
+ex:free_float_market_capitalization_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:free_float_market_capitalization ;
+  rdfs:range ex:Security .
+ex:free_float_market_capitalization_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:free_float_market_capitalization ;
+  rdfs:range ex:FreeFloatMarketCapitalization .
+ex:shares_outstanding_in_free_float a owl:Class, a4:NaryRelationClass .
+ex:shares_outstanding_in_free_float_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:shares_outstanding_in_free_float ;
+  rdfs:range ex:SelectionDay .
+ex:shares_outstanding_in_free_float_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:shares_outstanding_in_free_float ;
+  rdfs:range ex:ShareClass .
+ex:shares_outstanding_in_free_float_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:shares_outstanding_in_free_float ;
+  rdfs:range ex:ShareCount .
+ex:closing_price_of_share_class a owl:Class, a4:NaryRelationClass .
+ex:closing_price_of_share_class_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:closing_price_of_share_class ;
+  rdfs:range ex:SelectionDay .
+ex:closing_price_of_share_class_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:closing_price_of_share_class ;
+  rdfs:range ex:ShareClass .
+ex:closing_price_of_share_class_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:closing_price_of_share_class ;
+  rdfs:range ex:ClosingPrice .
+ex:fulfills_index_component_requirements a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:Security .
+ex:sourced_from_data_vendor a owl:ObjectProperty ;
+  rdfs:domain ex:ShareCount ;
+  rdfs:range ex:DataVendor .
+
+ex:ASSERT_free_float_market_capitalization_calculated_as_multiplication_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (fulfills_index_component_requirements(d, s)) implies (((free_float_market_capitalization(d, s)) = ((shares_outstanding_in_free_float(d, share_class(d, s))) * (closing_price_of_share_class(d, share_class(d, s))))) and (exists vendor: DataVendor, sourced_from_data_vendor(shares_outstanding_in_free_float(d, share_class(d, s)), vendor)))" .

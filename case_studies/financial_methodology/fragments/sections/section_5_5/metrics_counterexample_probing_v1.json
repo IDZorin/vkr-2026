@@ -1,0 +1,94 @@
+{
+  "entry_id": "section_5_5",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1711,
+    "completion_tokens": 415,
+    "total_tokens": 2126
+  },
+  "latency_s": 4.135127544403076,
+  "scenarios": [
+    {
+      "description": "A proposed amendment to the rules of TheIndex is submitted to the OversightCommittee for prior approval, and the amendment is made in compliance with the MethodologyPolicy. The committee includes staff from Solactive and a subsidiary of Solactive.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "An amendment to the rules of TheIndex is made without being submitted to the OversightCommittee for prior approval, even though it is otherwise compliant with the MethodologyPolicy.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "ambiguous",
+      "agree": false,
+      "drift_explanation": "The source requires prior submission to the OversightCommittee, but the IR only states an obligation to submit and does not encode a direct rejection condition for an unsubmitted scenario."
+    },
+    {
+      "description": "The OversightCommittee is composed only of staff from Solactive, with no staff from any subsidiary. A rule amendment to TheIndex is still submitted for prior approval and made in compliance with the MethodologyPolicy.",
+      "category": "scope_edge",
+      "source_verdict": "accept",
+      "ir_verdict": "ambiguous",
+      "agree": false,
+      "drift_explanation": "The source says the committee is composed of staff from Solactive and its subsidiaries, but it does not explicitly require at least one subsidiary staff member; the IR adds only an existence of some staff and a source-of-staff constraint, leaving the all-Solactive composition case underdetermined."
+    },
+    {
+      "description": "A rule amendment to TheIndex is approved by the OversightCommittee after it has already been made, rather than being submitted to the committee beforehand.",
+      "category": "modality_edge",
+      "source_verdict": "reject",
+      "ir_verdict": "ambiguous",
+      "agree": false,
+      "drift_explanation": "The source requires prior approval before the amendment is made, but the IR encodes only a submit obligation with a prior-approval scope and does not specify temporal ordering or an explicit approval-before-making relation."
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 1,
+    "agreement_rate": 0.25,
+    "drifts": [
+      {
+        "description": "An amendment to the rules of TheIndex is made without being submitted to the OversightCommittee for prior approval, even though it is otherwise compliant with the MethodologyPolicy.",
+        "category": "negative",
+        "source_verdict": "reject",
+        "ir_verdict": "ambiguous",
+        "agree": false,
+        "drift_explanation": "The source requires prior submission to the OversightCommittee, but the IR only states an obligation to submit and does not encode a direct rejection condition for an unsubmitted scenario."
+      },
+      {
+        "description": "The OversightCommittee is composed only of staff from Solactive, with no staff from any subsidiary. A rule amendment to TheIndex is still submitted for prior approval and made in compliance with the MethodologyPolicy.",
+        "category": "scope_edge",
+        "source_verdict": "accept",
+        "ir_verdict": "ambiguous",
+        "agree": false,
+        "drift_explanation": "The source says the committee is composed of staff from Solactive and its subsidiaries, but it does not explicitly require at least one subsidiary staff member; the IR adds only an existence of some staff and a source-of-staff constraint, leaving the all-Solactive composition case underdetermined."
+      },
+      {
+        "description": "A rule amendment to TheIndex is approved by the OversightCommittee after it has already been made, rather than being submitted to the committee beforehand.",
+        "category": "modality_edge",
+        "source_verdict": "reject",
+        "ir_verdict": "ambiguous",
+        "agree": false,
+        "drift_explanation": "The source requires prior approval before the amendment is made, but the IR encodes only a submit obligation with a prior-approval scope and does not specify temporal ordering or an explicit approval-before-making relation."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 0
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 0
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 0
+      }
+    }
+  }
+}

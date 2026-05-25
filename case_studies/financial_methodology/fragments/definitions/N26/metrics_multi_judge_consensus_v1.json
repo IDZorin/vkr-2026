@@ -1,0 +1,117 @@
+{
+  "entry_id": "N26",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core idea that Rebalance Day is the first Wednesday in May and November, and that if the scheduled day is not eligible then the rebalance day is the immediately following eligible rebalance day. However, it also introduces a separate ScheduledRebalanceDay sort that is unused in the definitions, and the rebalance-day definition is not a clean direct encoding of the source phrasing, making the correspondence only partial.",
+      "semantic_differences": [
+        "The IR introduces a distinct ScheduledRebalanceDay sort that is not reflected in the source text.",
+        "The rebalance_day definition is formulated as a disjunction over an eligible scheduled day or an immediately following eligible day, rather than directly stating that the Rebalance Day is the first Wednesday in May and November with the fallback rule applied to that day.",
+        "The source says 'that day' referring to the first Wednesday in May and November; the IR separates scheduled_rebalance_day from rebalance_day, which changes the structure of the stated rule."
+      ],
+      "stylistic_notes": [
+        "Using nth_wednesday_in_month with FirstWeekdayOrdinal is a formal encoding of 'first Wednesday'.",
+        "The month restriction to May and November matches the source wording."
+      ],
+      "confidence": 0.89,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2152,
+        "completion_tokens": 299,
+        "total_tokens": 2451
+      },
+      "latency_s": 3.545060157775879
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core rule that the scheduled rebalance date is the first Wednesday in May or November, and that if that scheduled day is not eligible then the rebalance day is the immediately following eligible rebalance day. However, it does not fully enforce uniqueness or exact identification of the first Wednesday, and it introduces only a one-way characterization of the 'immediately following eligible rebalance day' relation rather than a full equivalence.",
+      "semantic_differences": [
+        "The source defines Rebalance Day as a specific day (the first Wednesday in May and November, with fallback if ineligible), but the IR allows rebalance_day to hold of any day satisfying the stated conditions and does not enforce uniqueness of the rebalance day within each relevant month/occurrence.",
+        "The IR uses nth_wednesday_in_month as a primitive relation without constraining it to mean the actual first Wednesday; thus the source's calendrical meaning is only assumed, not fully captured in the formal content provided.",
+        "The definition of immediately_following_eligible_rebalance_day_after is only one-directional (if the relation holds, then certain conditions follow), so the IR does not fully state that every eligible day with no intervening eligible day after the scheduled day must be the immediately following eligible rebalance day."
+      ],
+      "stylistic_notes": [
+        "The IR introduces both RebalanceDay and ScheduledRebalanceDay sorts but then uses predicate relations over Day instead; this is more of a modeling style issue than a semantic mismatch.",
+        "Redefining Month locally while Month already exists in the prelude is a catalog/style issue, not itself a semantic divergence for this phrase."
+      ],
+      "confidence": 0.88,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2152,
+        "completion_tokens": 355,
+        "total_tokens": 2507
+      },
+      "latency_s": 7.367479562759399
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully encodes the source's two-part definition of Rebalance Day: (1) the first Wednesday in May or November, if that day is an Eligible Rebalance Day; (2) otherwise, the immediately following Eligible Rebalance Day. The IR introduces canonical prelude sorts (Day, Month, Weekday ordinals) and reifies the temporal relationships (nth_wednesday_in_month, immediately_following_eligible_rebalance_day_after, strictly_before) as relations, which is standard a4v3 encoding. The constraint rebalance_day_definition correctly captures the disjunctive logic: either the scheduled day is eligible, or (if not) the next eligible day is chosen. All terms trace to source phrases or prelude infrastructure.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "IR introduces WeekdayOrdinal sort and FirstWeekdayOrdinal entity to formalize 'first' — this is canonical a4v3 lowering of ordinal language, not a semantic addition.",
+        "IR redefines Month as a sort with May and November as constructors, rather than using prelude Month entities directly. This is a deliberate structural choice to constrain the domain to the two relevant months; semantically equivalent to 'May or November'.",
+        "Relation names (nth_wednesday_in_month, immediately_following_eligible_rebalance_day_after, strictly_before) are descriptive and trace to source concepts; naming is clear and consistent.",
+        "The constraint structure uses existential quantification and logical connectives to express the conditional fallback logic, which is the standard formal encoding of 'if not eligible, then next eligible'."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2551,
+        "completion_tokens": 440,
+        "total_tokens": 2991
+      },
+      "latency_s": 6.0659050941467285
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 73.63132667541504
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR accurately formalizes the conditional definition of 'Rebalance Day' by separating the initial calendar target (first Wednesday in May/November) from the eligibility condition, and correctly encoding the fallback to the next eligible day. The auxiliary relations and constraints capture 'first Wednesday' and 'immediately following eligible day' without adding or omitting semantic content from the source.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces a 'ScheduledRebalanceDay' sort and separates the calendar calculation from the eligibility condition, which is a standard and deliberate formalization pattern for conditional definitions.",
+        "The 'Month' sort is locally restricted to 'May | November' to match the source scope, which is acceptable within this section's context.",
+        "The 'immediately_following_eligible_rebalance_day_after' relation is defined using a one-way implication rather than a biconditional, which is a common formalization choice for constraining relational properties."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2316,
+        "completion_tokens": 2775,
+        "total_tokens": 5091
+      },
+      "latency_s": 52.817625284194946
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 2,
+      "corresponds": 2
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.5,
+    "unanimous": false,
+    "mean_confidence": 0.925
+  }
+}

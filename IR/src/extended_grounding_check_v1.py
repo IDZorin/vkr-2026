@@ -173,7 +173,7 @@ def _load_generic_primitives() -> set[str]:
 def _provenance_vocabulary_names(provenance_text: str = "") -> set[str]:
     """Identifiers explicitly documented in provenance vocabulary_notes.
 
-    DZ provenance is the human-readable ledger for section-local vocabulary
+    methodology provenance is the human-readable ledger for section-local vocabulary
     choices. If an otherwise compact A4V3 name is listed there, extended
     grounding may treat it as intentionally source-grounded. Provenance lint
     separately guards against leaking these identifiers into back-translations.

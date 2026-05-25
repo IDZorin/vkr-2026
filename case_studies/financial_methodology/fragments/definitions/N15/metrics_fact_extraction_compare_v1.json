@@ -1,0 +1,52 @@
+{
+  "entry_id": "N15",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1632,
+    "completion_tokens": 138,
+    "total_tokens": 1770
+  },
+  "latency_s": 1.7310175895690918,
+  "raw_parsed": {
+    "source_facts": [
+      "Gbs Index Component is each security reflected in the GBS Index specified in Section 2.1."
+    ],
+    "render_facts": [
+      "N15 is the GBS Index specified in Section 2.1.",
+      "A Security is a component of N15 if and only if that Security is reflected in N15."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 1,
+        "match": "paraphrase"
+      }
+    ],
+    "render_only": [
+      0
+    ]
+  },
+  "summary": {
+    "n_source_facts": 1,
+    "n_render_facts": 2,
+    "matched_source": 1,
+    "matched_render": 1,
+    "render_only": 1,
+    "missing_source": 0,
+    "weaker_in_render": 0,
+    "stronger_in_render": 0,
+    "recall": 1.0,
+    "precision": 0.5,
+    "f1": 0.667,
+    "missing_source_facts": [],
+    "render_only_facts": [
+      {
+        "idx": 0,
+        "fact": "N15 is the GBS Index specified in Section 2.1."
+      }
+    ],
+    "weaker_pairs": [],
+    "stronger_pairs": []
+  }
+}

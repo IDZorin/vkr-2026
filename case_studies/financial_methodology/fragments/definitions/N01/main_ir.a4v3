@@ -1,0 +1,31 @@
+sort IndexComponent extends FinancialInstrument
+sort TradingDay extends Day
+sort SpecifiedPeriod extends Period
+sort DailyValueTraded extends Real
+sort AverageDailyValueTraded extends Real
+sort TradingDayCount extends Nat
+
+fun[required] daily_value_traded : IndexComponent, TradingDay -> DailyValueTraded
+fun[required] average_daily_value_traded : IndexComponent, SpecifiedPeriod -> AverageDailyValueTraded
+fun[required] daily_value_traded_sum_over_period : IndexComponent, SpecifiedPeriod -> DailyValueTraded
+fun[required] trading_day_count_in_period : SpecifiedPeriod -> TradingDayCount
+
+rel trading_day_falls_in_period : TradingDay, SpecifiedPeriod
+
+constraint daily_value_traded_sum_over_period_definition :
+  forall c: IndexComponent, forall p: SpecifiedPeriod,
+    daily_value_traded_sum_over_period(c, p)
+    =
+    sum(d in TradingDay where trading_day_falls_in_period(d, p), daily_value_traded(c, d))
+
+constraint trading_day_count_in_period_definition :
+  forall p: SpecifiedPeriod,
+    trading_day_count_in_period(p)
+    =
+    count(d in TradingDay where trading_day_falls_in_period(d, p))
+
+constraint average_daily_value_traded_divided_by_trading_day_count_definition :
+  forall c: IndexComponent, forall p: SpecifiedPeriod,
+    average_daily_value_traded(c, p)
+    =
+    daily_value_traded_sum_over_period(c, p) / trading_day_count_in_period(p)

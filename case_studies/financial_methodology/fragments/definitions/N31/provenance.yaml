@@ -1,0 +1,124 @@
+section: "N31 Definition: Trading Price"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  most_recent_published_trade_scope:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The \"Trading Price\" in respect of an Index Component and a Trading Day is the most recent published price at which the Index Component was traded on the respective Exchange."
+    back_translation: >
+      A trade that is the most recent published trade for an Index Component
+      and Trading Day is a published trade for that Index Component on that
+      Trading Day on the respective Exchange for that Index Component.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The phrase "in respect of" is scope glue and is represented by the
+      Index Component and Trading Day parameters.
+
+  most_recent_published_trade_temporal_ordering:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The \"Trading Price\" in respect of an Index Component and a Trading Day is the most recent published price at which the Index Component was traded on the respective Exchange."
+    back_translation: >
+      For the same Index Component, Trading Day, and respective Exchange, a
+      trade that is the most recent published trade for that Index Component
+      and Trading Day is at least as recent in time as any other published
+      trade.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This makes the comparative phrase "most recent" explicit rather than
+      leaving it only in a relation name.
+
+  most_recent_published_trade_uniqueness:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The \"Trading Price\" in respect of an Index Component and a Trading Day is the most recent published price at which the Index Component was traded on the respective Exchange."
+    back_translation: >
+      For the same Index Component, Trading Day, and respective Exchange,
+      there is at most one trade that is the most recent published trade for
+      that Index Component and Trading Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The definite phrase "the most recent published price" is represented as
+      a unique most-recent trade for the relevant component, day, and exchange.
+
+  trading_price_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The \"Trading Price\" in respect of an Index Component and a Trading Day is the most recent published price at which the Index Component was traded on the respective Exchange."
+    back_translation: >
+      For every Index Component and Trading Day, the Trading Price is the
+      price of the most recent published trade at which the Index Component
+      was traded on the respective Exchange.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source phrase "published price" is represented by the published
+      trade and its trade price, because the source also says the price is one
+      "at which the Index Component was traded".
+
+uncovered_source:
+  - quote: "(none -- source definition is covered; scope glue is documented in notes/waiver)"
+
+vocabulary_notes:
+  TradingPrice:
+    note: "Numeric sort for the source term \"Trading Price\"."
+    source_phrase: "Trading Price"
+  IndexComponent:
+    note: "Sort for the source phrase \"Index Component\"."
+    source_phrase: "Index Component"
+  TradingDay:
+    note: "Sort for the source phrase \"Trading Day\"."
+    source_phrase: "Trading Day"
+  Exchange:
+    note: "Sort for the source phrase \"Exchange\"."
+    source_phrase: "Exchange"
+  Trade:
+    note: "Reified event/object for the source phrase \"was traded\"."
+    source_phrase: "traded"
+  TradeTime:
+    note: "Numeric ordering carrier used to formalize the source phrase \"most recent\"."
+    source_phrase: "most recent"
+  trading_price:
+    note: "Function for the source term \"Trading Price\" in respect of an Index Component and Trading Day."
+    source_phrase: "Trading Price"
+  respective_exchange:
+    note: "Function for the source phrase \"respective Exchange\"."
+    source_phrase: "respective Exchange"
+  trade_price:
+    note: "Function for the price at which a trade occurred."
+    source_phrase: "price at which"
+  trade_time:
+    note: "Function used for temporal ordering of trades under the source phrase \"most recent\"."
+    source_phrase: "most recent"
+  published_trade:
+    note: "Predicate for the source phrase \"published\" applied to the trade whose price is published."
+    source_phrase: "published"
+  most_recent_published_trade_for:
+    note: "Contextual predicate for the source phrase \"most recent published\" in respect of an Index Component and Trading Day."
+    source_phrase: "most recent published"
+  trade_component:
+    note: "Relation linking a Trade to the Index Component that was traded; structural carrier for the source phrase \"the Index Component was traded\"."
+    source_phrase: "Index Component was traded"
+  trade_day:
+    note: "Relation linking a Trade to the Trading Day on which the trade occurred; structural carrier for the source phrase \"a Trading Day\"."
+    source_phrase: "Trading Day"
+  trade_exchange:
+    note: "Relation linking a Trade to the Exchange on which the trade occurred; structural carrier for the source phrase \"on the respective Exchange\"."
+    source_phrase: "on the respective Exchange"

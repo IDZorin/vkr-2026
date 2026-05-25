@@ -1,0 +1,37 @@
+section: "N28 Definition: Solactive"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+  solactive_meaning_defined_in_introduction:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Solactive\" shall have the meaning as defined in Section \"Introduction\"."
+    back_translation: >
+      The term "Solactive" shall have the meaning defined in Section
+      "Introduction".
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Cross-reference definition. The word "shall" is legal-definition
+      drafting here, not a deontic obligation; the IR records where the
+      meaning of the term is defined.
+
+uncovered_source:
+  - quote: "(none -- the single source sentence is the single IR claim)"
+
+vocabulary_notes:
+  SolactiveTerm:
+    note: IR entity for the quoted source term "Solactive".
+  IntroductionSection:
+    note: IR entity for the referenced source location Section "Introduction".
+  term_shall_have_meaning_defined_in_section:
+    note: >
+      Relation used by cross-reference definitions of the form "shall have
+      the meaning as defined in Section ...". It is a definitional reference,
+      not an obligation.

@@ -1,0 +1,48 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N23 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N23/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:IndexUniverse a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexUniverseRequirements a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+
+ex:TheIndexUniverse a ex:IndexUniverse, owl:NamedIndividual .
+ex:TheIndexUniverseRequirements a ex:IndexUniverseRequirements, owl:NamedIndividual .
+ex:financial_instrument_in_index_universe a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:financial_instrument_in_index_universe_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:FinancialInstrument .
+ex:financial_instrument_in_index_universe a4:argument ex:financial_instrument_in_index_universe_arg_0 .
+ex:financial_instrument_in_index_universe_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexUniverse .
+ex:financial_instrument_in_index_universe a4:argument ex:financial_instrument_in_index_universe_arg_1 .
+ex:fulfills_index_universe_requirements a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:fulfills_index_universe_requirements_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:FinancialInstrument .
+ex:fulfills_index_universe_requirements a4:argument ex:fulfills_index_universe_requirements_arg_0 .
+ex:fulfills_index_universe_requirements_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexUniverseRequirements .
+ex:fulfills_index_universe_requirements a4:argument ex:fulfills_index_universe_requirements_arg_1 .
+ex:index_universe_is_sum_of_financial_instruments_fulfilling_requirements a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_universe_is_sum_of_financial_instruments_fulfilling_requirements_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexUniverse .
+ex:index_universe_is_sum_of_financial_instruments_fulfilling_requirements a4:argument ex:index_universe_is_sum_of_financial_instruments_fulfilling_requirements_arg_0 .
+ex:index_universe_is_sum_of_financial_instruments_fulfilling_requirements_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexUniverseRequirements .
+ex:index_universe_is_sum_of_financial_instruments_fulfilling_requirements a4:argument ex:index_universe_is_sum_of_financial_instruments_fulfilling_requirements_arg_1 .
+
+ex:ASSERT_index_universe_sum_source_phrase a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "11"^^xsd:integer ;
+  a4:exprText "index_universe_is_sum_of_financial_instruments_fulfilling_requirements(TheIndexUniverse, TheIndexUniverseRequirements)" ;
+  a4:sourceText "fact index_universe_sum_source_phrase :\n  index_universe_is_sum_of_financial_instruments_fulfilling_requirements(TheIndexUniverse, TheIndexUniverseRequirements)" .
+ex:ASSERT_index_universe_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "14"^^xsd:integer ;
+  a4:exprText "forall fi: FinancialInstrument, (financial_instrument_in_index_universe(fi, TheIndexUniverse)) iff (fulfills_index_universe_requirements(fi, TheIndexUniverseRequirements))" ;
+  a4:sourceText "constraint index_universe_definition :\n  forall fi: FinancialInstrument,\n    financial_instrument_in_index_universe(fi, TheIndexUniverse)\n    iff fulfills_index_universe_requirements(fi, TheIndexUniverseRequirements)" .

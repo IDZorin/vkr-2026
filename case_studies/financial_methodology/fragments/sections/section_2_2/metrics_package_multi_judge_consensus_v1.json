@@ -1,0 +1,95 @@
+{
+  "entry_id": "section_2_2",
+  "skipped": false,
+  "judge_mode": "source_vs_full_package",
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "gpt-5.2"
+  ],
+  "package_files": {
+    "source": "source.md",
+    "main_ir": "main_ir.a4v3",
+    "repair": "repair.a4v3",
+    "provenance": "provenance.yaml",
+    "translator_notes": "translator_notes.md"
+  },
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The package captures the section’s core rules: universe-scoped selection, two-region classification, country-assignment mapping, descending ranking by free-float market capitalization, top-20 inclusion, the less-than-40 consequence, full rule-basis, and no discretionary decision by the administrator. The repair overlay adds only a documented derived cardinality contract that supports the top-20 reading without changing the source meaning.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses `EuropeRegion` to avoid name collision with the `Europe` country-assignment entity.",
+        "The source’s misspelling `Market Capizatlization` is preserved in the IR symbol name.",
+        "The package splits the top-20 cardinality support into `repair.a4v3`, which is a modeling choice rather than a semantic change."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 7684,
+        "completion_tokens": 220,
+        "total_tokens": 7904
+      },
+      "latency_s": 2.7873058319091797
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The package captures the source section’s meaning: securities in the Index Universe are classified into exactly the two stated regions by the stated country-assignment rules, ranked by descending free-float market capitalization within region, and selected as the top 20 per region, with the scarcity consequence that an underfilled regional bucket yields fewer than 40 total components. It also preserves that initial composition and ordinary rebalance selection are determined by these rules, that selection is fully rule-based, and that the Index Administrator cannot exercise discretion. The repair overlay is honestly documented as a derived cardinality contract rather than an independent source claim.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The entity name `EuropeRegion` is a naming disambiguation from the country-assignment value `Europe`; this is stylistic, not semantic.",
+        "The IR uses a local alias `eligible` for the section scope and equates it with `index_universe`; this is a modeling convenience consistent with the source scoping phrase.",
+        "The package splits the direct top-20 rule in main IR from the backend-safety cardinality contract in repair; given the provenance and notes, this is an acceptable package design choice.",
+        "There are spelling inconsistencies such as `Capizatlization`, but they do not affect meaning."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 7684,
+        "completion_tokens": 314,
+        "total_tokens": 7998
+      },
+      "latency_s": 6.489321231842041
+    },
+    {
+      "model": "gpt-5.2",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The package captures the core structure of the source: (i) a two-region classification tied to GBS country assignment, (ii) descending ranking by free-float market capitalization, (iii) selection via “top 20 per region”, (iv) a scarcity consequence yielding fewer than 40 components, and (v) a no-discretion governance statement. However, the formalization introduces semantic gaps/changes around (a) what “top 20” means under ties/rank non-uniqueness (even with the repair overlay it only enforces ≤20 selected, not that the selected set equals the top-20-by-order), (b) the scarcity antecedent is weakened from “less than 20 securities per region are eligible” (both regions) to “exists a region with <20 eligible”, and (c) the prohibition is not scoped to the selection process as in the source.",
+      "semantic_differences": [
+        "Top-20 semantics are not fully preserved: in main IR, selection is defined as rank<=20, but there is no constraint that ranks are unique/total or that rank is derived from the ordering; the repair overlay adds only an upper bound (≤20 selected per region) and still does not ensure that the selected securities are exactly the 20 highest by free-float market capitalization (e.g., arbitrary rank assignments can satisfy the constraints).",
+        "The scarcity clause antecedent differs: the source says “In case less than 20 securities per region are eligible” (naturally read as each region has <20 eligible), while the IR uses an existential condition (there exists a region with <20 eligible) to trigger the <40 conclusion, which is a weaker/more easily triggered condition than the per-region reading.",
+        "The prohibition on discretionary decisions is not explicitly scoped to “the selection of the Index Components”; the IR prohibition is a generic prohibition on an IndexAdministrator making a discretionary decision with a selection object in scope, but it does not tie that selection object to selection_of_index_components(d) or otherwise constrain it to the index-component selection context."
+      ],
+      "stylistic_notes": [
+        "Naming: “FreeFloatMarketCapizatlization” preserves the source typo; consistent but awkward.",
+        "Europe is split into EuropeRegion (Region) vs Europe (CountryAssignment), which is a reasonable disambiguation.",
+        "Using eligible(d,s) as an alias for index_universe(d,s) is a modeling choice documented in provenance; it does not by itself change meaning."
+      ],
+      "confidence": 0.74,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 7684,
+        "completion_tokens": 563,
+        "total_tokens": 8247
+      },
+      "latency_s": 10.241358995437622
+    }
+  ],
+  "summary": {
+    "n_responding": 3,
+    "verdict_distribution": {
+      "corresponds": 2,
+      "partially_corresponds": 1
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 0.667,
+    "unanimous": false,
+    "mean_confidence": 0.88
+  }
+}

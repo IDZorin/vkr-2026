@@ -1,0 +1,78 @@
+{
+  "entry_id": "section_2_2",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1984,
+    "completion_tokens": 351,
+    "total_tokens": 2335
+  },
+  "latency_s": 4.77370285987854,
+  "scenarios": [
+    {
+      "description": "On a Selection Day, a security eligible under the Index Universe has Country Assignment Canada, is classified into Americas, and is among the top 20 eligible securities in that region by Free Float Market Capizatlization. It is included as an Index Component for both the initial composition and an ordinary rebalance.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "On a Selection Day, a security eligible under the Index Universe has Country Assignment Europe but is classified into Americas, and it is selected for index inclusion anyway.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "On a Selection Day, there are fewer than 20 eligible securities in Europe, but the Index still contains exactly 40 Index Components because the remaining slots are filled from another region.",
+      "category": "scope_edge",
+      "source_verdict": "reject",
+      "ir_verdict": "ambiguous",
+      "agree": false,
+      "drift_explanation": "The source says that if fewer than 20 securities per region are eligible, the Index contains less than 40 Index Components in total. The IR only constrains the case where some region has fewer than 20 eligible securities, but it does not explicitly rule out filling to 40 from another region in this scenario."
+    },
+    {
+      "description": "An Index Administrator attempts to make a discretionary decision about the selection of index components after the Selection Day, but the selection itself is otherwise rule-based.",
+      "category": "modality_edge",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 3,
+    "agreement_rate": 0.75,
+    "drifts": [
+      {
+        "description": "On a Selection Day, there are fewer than 20 eligible securities in Europe, but the Index still contains exactly 40 Index Components because the remaining slots are filled from another region.",
+        "category": "scope_edge",
+        "source_verdict": "reject",
+        "ir_verdict": "ambiguous",
+        "agree": false,
+        "drift_explanation": "The source says that if fewer than 20 securities per region are eligible, the Index contains less than 40 Index Components in total. The IR only constrains the case where some region has fewer than 20 eligible securities, but it does not explicitly rule out filling to 40 from another region in this scenario."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 0
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

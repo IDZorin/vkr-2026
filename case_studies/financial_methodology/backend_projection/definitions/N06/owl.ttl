@@ -1,0 +1,25 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N06 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:CalculationTime a owl:Class .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:CloseOfBusiness a ex:CalculationTime, owl:NamedIndividual .
+ex:Section1_4 a ex:DocumentPart, owl:NamedIndividual .
+ex:calculation_time_of_closing_level_of_index a owl:ObjectProperty ;
+  rdfs:domain ex:CalculationTime ;
+  rdfs:range ex:Index .
+ex:outlined_in_section a owl:ObjectProperty ;
+  rdfs:domain ex:CalculationTime ;
+  rdfs:range ex:DocumentPart .
+
+ex:CloseOfBusiness ex:calculation_time_of_closing_level_of_index ex:TheIndex .
+ex:CloseOfBusiness ex:outlined_in_section ex:Section1_4 .

@@ -1,0 +1,1137 @@
+{
+  "entry_id": "N10",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 22,
+    "content_token_count": 13,
+    "covered_content_token_count": 12,
+    "uncovered_content_token_count": 1,
+    "ignored_stopword_count": 9,
+    "content_coverage_rate": 0.923
+  },
+  "tokens": [
+    {
+      "token": "exchange",
+      "surface_forms": [
+        "Exchange",
+        "exchange"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        },
+        {
+          "line": 1,
+          "column": 83
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Exchange",
+          "family": "TypeDecl.opaque",
+          "line": 3,
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "respective_exchange_for_index_component",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "respective_exchange_for_index_component"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "respective_exchange_for_index_component",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "listing_exchange",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "listing_exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "listing_exchange",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "exchange_definition",
+          "family": "AssertDecl.constraint",
+          "line": 16,
+          "matched_text": "exchange_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "line": 16,
+          "matched_text": "exchange_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[2].left",
+          "matched_text": "respective_exchange_for_index_component"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[2].right",
+          "matched_text": "listing_exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Exchange",
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "respective_exchange_for_index_component",
+          "matched_text": "respective exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_exchange",
+          "matched_text": "exchange where the Index Component has its listing"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 12
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "with",
+      "surface_forms": [
+        "with"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 15
+        },
+        {
+          "line": 1,
+          "column": 162
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "listing_determined_in_accordance_with_rules"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "listing_determined_in_accordance_with_rules"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "matched_text": "determined in accordance with the rules in Section 2"
+        }
+      ]
+    },
+    {
+      "token": "respect",
+      "surface_forms": [
+        "respect"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 20
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "to",
+      "surface_forms": [
+        "to"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 28
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 4,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 31
+        },
+        {
+          "line": 1,
+          "column": 68
+        },
+        {
+          "line": 1,
+          "column": 98
+        },
+        {
+          "line": 1,
+          "column": 167
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 7,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[2].left.args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Index",
+          "matched_text": "the Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndex",
+          "matched_text": "the Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_exchange",
+          "matched_text": "exchange where the Index Component has its listing"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "matched_text": "determined in accordance with the rules in Section 2"
+        }
+      ]
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 35
+        },
+        {
+          "line": 1,
+          "column": 51
+        },
+        {
+          "line": 1,
+          "column": 102
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Index",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 7,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 7,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "respective_exchange_for_index_component",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "respective_exchange_for_index_component"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "respective_exchange_for_index_component",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "respective_exchange_for_index_component",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "listing_component",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[2].left",
+          "matched_text": "respective_exchange_for_index_component"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[2].left.args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Index",
+          "matched_text": "the Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexComponent",
+          "matched_text": "Index Component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndex",
+          "matched_text": "the Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_component",
+          "matched_text": "Index Component has its listing"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_exchange",
+          "matched_text": "exchange where the Index Component has its listing"
+        }
+      ]
+    },
+    {
+      "token": "and",
+      "surface_forms": [
+        "and"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 41
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "everi",
+      "surface_forms": [
+        "every"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 45
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "universal_quantifier",
+          "marker": "forall"
+        }
+      ]
+    },
+    {
+      "token": "component",
+      "surface_forms": [
+        "Component"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 57
+        },
+        {
+          "line": 1,
+          "column": 108
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "respective_exchange_for_index_component",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "respective_exchange_for_index_component"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "respective_exchange_for_index_component",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "listing_component",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "listing_component"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "listing_component",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[0]",
+          "matched_text": "listing_component"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[2].left",
+          "matched_text": "respective_exchange_for_index_component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexComponent",
+          "matched_text": "Index Component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_component",
+          "matched_text": "Index Component has its listing"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_exchange",
+          "matched_text": "exchange where the Index Component has its listing"
+        }
+      ]
+    },
+    {
+      "token": "respective",
+      "surface_forms": [
+        "respective"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 72
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "respective_exchange_for_index_component",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "respective_exchange_for_index_component"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[2].left",
+          "matched_text": "respective_exchange_for_index_component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "respective_exchange_for_index_component",
+          "matched_text": "respective exchange"
+        }
+      ]
+    },
+    {
+      "token": "where",
+      "surface_forms": [
+        "where"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 92
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_exchange",
+          "matched_text": "exchange where the Index Component has its listing"
+        }
+      ]
+    },
+    {
+      "token": "has",
+      "surface_forms": [
+        "has"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 118
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_component",
+          "matched_text": "Index Component has its listing"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_exchange",
+          "matched_text": "exchange where the Index Component has its listing"
+        }
+      ]
+    },
+    {
+      "token": "its",
+      "surface_forms": [
+        "its"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 122
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_component",
+          "matched_text": "Index Component has its listing"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_exchange",
+          "matched_text": "exchange where the Index Component has its listing"
+        }
+      ]
+    },
+    {
+      "token": "list",
+      "surface_forms": [
+        "listing"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 126
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Listing",
+          "family": "TypeDecl.opaque",
+          "line": 4,
+          "matched_text": "Listing"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "listing_component",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "listing_component"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "listing_component",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "Listing"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "listing_exchange",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "listing_exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "listing_exchange",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "Listing"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "listing_determined_in_accordance_with_rules"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "Listing"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "Listing"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[0]",
+          "matched_text": "listing_component"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "listing_determined_in_accordance_with_rules"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[2].right",
+          "matched_text": "listing_exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Listing",
+          "matched_text": "listing"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_component",
+          "matched_text": "Index Component has its listing"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_exchange",
+          "matched_text": "exchange where the Index Component has its listing"
+        }
+      ]
+    },
+    {
+      "token": "as",
+      "surface_forms": [
+        "as"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 134
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "determin",
+      "surface_forms": [
+        "determined"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 137
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "listing_determined_in_accordance_with_rules"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "listing_determined_in_accordance_with_rules"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "matched_text": "determined in accordance with the rules in Section 2"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 148
+        },
+        {
+          "line": 1,
+          "column": 177
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "listing_determined_in_accordance_with_rules"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "listing_determined_in_accordance_with_rules"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Section2Rules",
+          "matched_text": "rules in Section 2"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "matched_text": "determined in accordance with the rules in Section 2"
+        }
+      ]
+    },
+    {
+      "token": "accordance",
+      "surface_forms": [
+        "accordance"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 151
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "listing_determined_in_accordance_with_rules"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "listing_determined_in_accordance_with_rules"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "matched_text": "determined in accordance with the rules in Section 2"
+        }
+      ]
+    },
+    {
+      "token": "rul",
+      "surface_forms": [
+        "rules"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 171
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Rules",
+          "family": "TypeDecl.opaque",
+          "line": 5,
+          "matched_text": "Rules"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Section2Rules",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "Section2Rules"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "Section2Rules",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "Rules"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "listing_determined_in_accordance_with_rules"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "Rules"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1]",
+          "matched_text": "listing_determined_in_accordance_with_rules"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1].args[1]",
+          "matched_text": "Section2Rules"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Section2Rules",
+          "matched_text": "rules in Section 2"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "matched_text": "determined in accordance with the rules in Section 2"
+        }
+      ]
+    },
+    {
+      "token": "section",
+      "surface_forms": [
+        "Section"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 180
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Section2Rules",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "Section2Rules"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1].args[1]",
+          "matched_text": "Section2Rules"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Section2Rules",
+          "matched_text": "rules in Section 2"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "matched_text": "determined in accordance with the rules in Section 2"
+        }
+      ]
+    },
+    {
+      "token": "2",
+      "surface_forms": [
+        "2"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 188
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Section2Rules",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "Section2Rules"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "exchange_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.args[1].args[1]",
+          "matched_text": "Section2Rules"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Section2Rules",
+          "matched_text": "rules in Section 2"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "listing_determined_in_accordance_with_rules",
+          "matched_text": "determined in accordance with the rules in Section 2"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "respect",
+      "surface_forms": [
+        "respect"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 20
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

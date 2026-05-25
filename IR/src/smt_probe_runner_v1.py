@@ -1,6 +1,6 @@
-"""smt_probe_runner_v1.py
+﻿"""smt_probe_runner_v1.py
 
-Sidecar SMT probe/witness layer for DZ local IR fragments.
+Sidecar SMT probe/witness layer for financial methodology local IR fragments.
 
 The runner extracts probe candidates from existing ``main_ir.a4v3`` files,
 emits SMT-LIB2 files for candidates supported by the shallow v1 compiler, and
@@ -8,9 +8,9 @@ optionally runs a local ``z3`` binary when available. Local IR files are never
 rewritten.
 
 CLI:
-    python IR/src/smt_probe_runner_v1.py --dz-root IR/outputs/runs/dz
-    python IR/src/smt_probe_runner_v1.py --dz-root IR/outputs/runs/dz --plan-only
-    python IR/src/smt_probe_runner_v1.py --dz-root IR/outputs/runs/dz --smt-mode hybrid
+    python IR/src/smt_probe_runner_v1.py --run-root case_studies/financial_methodology
+    python IR/src/smt_probe_runner_v1.py --run-root case_studies/financial_methodology --plan-only
+    python IR/src/smt_probe_runner_v1.py --run-root case_studies/financial_methodology --smt-mode hybrid
 """
 from __future__ import annotations
 
@@ -98,10 +98,10 @@ def _number_to_smt(name: str) -> str:
     return name
 
 
-def _discover_entries(dz_root: Path) -> list[dict[str, Any]]:
+def _discover_entries(run_root: Path) -> list[dict[str, Any]]:
     entries: list[dict[str, Any]] = []
     for group_dir_name, entry_kind in ENTRY_GROUPS:
-        group_dir = dz_root / group_dir_name
+        group_dir = run_root / group_dir_name
         if not group_dir.exists():
             continue
         for entry_dir in sorted(group_dir.iterdir(), key=lambda p: p.name.lower()):
@@ -115,7 +115,7 @@ def _discover_entries(dz_root: Path) -> list[dict[str, Any]]:
                     "entry_id": entry_dir.name,
                     "entry_kind": entry_kind,
                     "entry_dir": entry_dir,
-                    "relative_dir": str(entry_dir.relative_to(dz_root)),
+                    "relative_dir": str(entry_dir.relative_to(run_root)),
                 }
             )
     return entries
@@ -850,7 +850,7 @@ def _run_z3_file(z3_path: str, smt_path: Path, extra_commands: str = "") -> dict
     }
 
 
-def _find_z3(dz_root: Path) -> str | None:
+def _find_z3(run_root: Path) -> str | None:
     """Find a local Z3 executable.
 
     Windows project environments created by `uv` may expose `z3.exe` under
@@ -860,7 +860,7 @@ def _find_z3(dz_root: Path) -> str | None:
     if path := shutil.which("z3"):
         return path
     candidates: list[Path] = []
-    resolved = dz_root.resolve()
+    resolved = run_root.resolve()
     for base in [resolved, *resolved.parents]:
         candidates.extend(
             [
@@ -1113,12 +1113,12 @@ def _analyze_entry(
     }
 
 
-def analyze(dz_root: Path, plan_only: bool = False, smt_mode: str = "hybrid") -> dict[str, Any]:
-    out_dir = dz_root / "reasoning"
+def analyze(run_root: Path, plan_only: bool = False, smt_mode: str = "hybrid") -> dict[str, Any]:
+    out_dir = run_root / "reasoning"
     smt_dir = out_dir / "smt_probes"
     bounded_smt_dir = out_dir / "smt_probes_bounded"
-    entries = _discover_entries(dz_root)
-    z3_path = _find_z3(dz_root)
+    entries = _discover_entries(run_root)
+    z3_path = _find_z3(run_root)
 
     entry_reports = [_analyze_entry(entry, smt_dir, bounded_smt_dir, plan_only, z3_path, smt_mode) for entry in entries]
     all_specs = [probe for entry in entry_reports for probe in entry["probes"]]
@@ -1191,7 +1191,7 @@ def analyze(dz_root: Path, plan_only: bool = False, smt_mode: str = "hybrid") ->
 
     return {
         "schema": "smt_probe_results_v1",
-        "dz_root": str(dz_root),
+        "run_root": str(run_root),
         "plan_only": plan_only,
         "smt_mode": smt_mode,
         "z3_path": z3_path,
@@ -1307,7 +1307,7 @@ def _write_inventory(out_path: Path) -> None:
         """# SMT Probe Inventory v1
 
 This sidecar layer generates SMT probe/witness candidates from existing local
-DZ `main_ir.a4v3` files. It does not modify local IR.
+seed methodology `main_ir.a4v3` files. It does not modify local IR.
 
 ## Probe Types
 
@@ -1346,7 +1346,7 @@ future SMT coverage can grow.
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dz-root", default="IR/outputs/runs/dz")
+    ap.add_argument("--run-root", default="case_studies/financial_methodology")
     ap.add_argument("--out-dir", default=None)
     ap.add_argument("--plan-only", action="store_true")
     ap.add_argument(
@@ -1357,14 +1357,14 @@ def main() -> None:
     )
     args = ap.parse_args()
 
-    dz_root = Path(args.dz_root)
-    out_dir = Path(args.out_dir) if args.out_dir else dz_root / "reasoning"
+    run_root = Path(args.run_root)
+    out_dir = Path(args.out_dir) if args.out_dir else run_root / "reasoning"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    report = analyze(dz_root, plan_only=args.plan_only, smt_mode=args.smt_mode)
+    report = analyze(run_root, plan_only=args.plan_only, smt_mode=args.smt_mode)
     specs_report = {
         "schema": "smt_probe_specs_v1",
-        "dz_root": report["dz_root"],
+        "run_root": report["run_root"],
         "smt_mode": report["smt_mode"],
         "entry_count": report["entry_count"],
         "probe_count": report["probe_count"],

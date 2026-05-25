@@ -1,0 +1,51 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N26 a owl:Ontology .
+
+ex:RebalanceDay a owl:Class .
+ex:RebalanceDay rdfs:subClassOf ex:Day .
+ex:ScheduledRebalanceDay a owl:Class .
+ex:ScheduledRebalanceDay rdfs:subClassOf ex:Day .
+ex:WeekdayOrdinal a owl:Class .
+ex:WeekdayOrdinal rdfs:subClassOf ex:Nat .
+ex:Month a owl:Class ; owl:oneOf ( ex:May ex:November ) .
+ex:May a ex:Month, owl:NamedIndividual .
+ex:November a ex:Month, owl:NamedIndividual .
+
+ex:FirstWeekdayOrdinal a ex:WeekdayOrdinal, owl:NamedIndividual .
+ex:nth_wednesday_in_month a owl:Class, a4:NaryRelationClass .
+ex:nth_wednesday_in_month_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:nth_wednesday_in_month ;
+  rdfs:range ex:Day .
+ex:nth_wednesday_in_month_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:nth_wednesday_in_month ;
+  rdfs:range ex:Month .
+ex:nth_wednesday_in_month_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:nth_wednesday_in_month ;
+  rdfs:range ex:WeekdayOrdinal .
+ex:scheduled_rebalance_day a owl:Class ; rdfs:subClassOf ex:Day .
+ex:eligible_rebalance_day a owl:Class ; rdfs:subClassOf ex:Day .
+ex:rebalance_day a owl:Class ; rdfs:subClassOf ex:Day .
+ex:immediately_following_eligible_rebalance_day_after a owl:ObjectProperty ;
+  rdfs:domain ex:Day ;
+  rdfs:range ex:Day .
+ex:strictly_before a owl:ObjectProperty ;
+  rdfs:domain ex:Day ;
+  rdfs:range ex:Day .
+
+ex:FirstWeekdayOrdinal owl:sameAs "1"^^xsd:integer .
+ex:ASSERT_scheduled_rebalance_day_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: Day, (scheduled_rebalance_day(d)) iff ((nth_wednesday_in_month(d, May, FirstWeekdayOrdinal)) or (nth_wednesday_in_month(d, November, FirstWeekdayOrdinal)))" .
+ex:ASSERT_rebalance_day_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: Day, (rebalance_day(d)) iff (((scheduled_rebalance_day(d)) and (eligible_rebalance_day(d))) or (exists s: Day, (scheduled_rebalance_day(s)) and (not (eligible_rebalance_day(s))) and (eligible_rebalance_day(d)) and (immediately_following_eligible_rebalance_day_after(d, s))))" .
+ex:ASSERT_immediately_following_eligible_rebalance_day_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: Day, forall s: Day, (immediately_following_eligible_rebalance_day_after(d, s)) implies ((strictly_before(s, d)) and (eligible_rebalance_day(d)) and (forall e: Day, ((strictly_before(s, e)) and (strictly_before(e, d))) implies (not (eligible_rebalance_day(e)))))" .

@@ -1,0 +1,146 @@
+schema: role_annotations_v1
+entry_id: section_2_1
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  average_daily_value_traded:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: instrument}
+      3: {role: subject}
+    returns: {role: same_as_type}
+  company:
+    kind: fun
+    args:
+      1: {role: kind}
+    returns: {role: same_as_type}
+  determination_of_index_universe:
+    kind: fun
+    args:
+      1: {role: day}
+    returns: {role: same_as_type}
+  gbs_index_universe:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  gbs_index_universe_classification:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: instrument}
+    returns: {role: same_as_type}
+  isin:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  minimum_average_daily_value_traded:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: instrument}
+    returns: {role: same_as_type}
+  months_over:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  months_prior_including_selection_day:
+    kind: fun
+    args:
+      1: {role: value}
+      2: {role: day}
+    returns: {role: same_as_type}
+  part_component_of_gbs_index_universe:
+    kind: rel
+    args:
+      1: {role: day}
+      2: {role: instrument}
+      3: {role: subject}
+  rbics_subindustry_classification:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: instrument}
+    returns: {role: same_as_type}
+  share_class_with_highest_minimum_average_daily_value_traded:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: subject}
+    returns: {role: same_as_type}
+constraints:
+  appendix_rbics_subindustry_classification_definition:
+    frame: appendix_rbics_subindustry_classification_definition
+    variables:
+      cls: {role: kind, quantifier: forall}
+  company_currently_included_in_index_definition:
+    frame: company_currently_included_in_index_definition
+    variables:
+      d: {role: day, quantifier: forall}
+      co: {role: subject, quantifier: forall}
+      sc: {role: kind, quantifier: exists}
+  current_company_buffer_rule:
+    frame: current_company_buffer_rule
+    variables:
+      d: {role: day, quantifier: forall}
+      sc: {role: kind, quantifier: forall}
+      other: {role: kind, quantifier: forall}
+  eligible_for_index_universe_requirements:
+    frame: eligible_for_index_universe_requirements
+    variables:
+      d: {role: day, quantifier: forall}
+      sc: {role: kind, quantifier: forall}
+  highest_minimum_average_daily_value_traded_definition:
+    frame: highest_minimum_average_daily_value_traded_definition
+    variables:
+      d: {role: day, quantifier: forall}
+      co: {role: subject, quantifier: forall}
+      other: {role: kind, quantifier: forall}
+  highest_minimum_average_daily_value_traded_predicate:
+    frame: highest_minimum_average_daily_value_traded_predicate
+    variables:
+      d: {role: day, quantifier: forall}
+      sc: {role: kind, quantifier: forall}
+  highest_minimum_average_daily_value_traded_share_class_company:
+    frame: highest_minimum_average_daily_value_traded_share_class_company
+    variables:
+      d: {role: day, quantifier: forall}
+      co: {role: subject, quantifier: forall}
+  index_universe_bridge:
+    frame: index_universe_bridge
+    variables:
+      d: {role: day, quantifier: forall}
+      sc: {role: kind, quantifier: forall}
+  minimum_average_daily_value_traded_over_declared_lookback_windows:
+    frame: minimum_average_daily_value_traded_over_declared_lookback_windows
+    variables:
+      d: {role: day, quantifier: forall}
+      s: {role: instrument, quantifier: forall}
+  not_current_company_buffer_rule:
+    frame: not_current_company_buffer_rule
+    variables:
+      d: {role: day, quantifier: forall}
+      sc: {role: kind, quantifier: forall}
+  declared_lookback_windows:
+    frame: declared_lookback_windows
+    variables:
+      d: {role: day, quantifier: forall}
+  only_one_share_class_of_each_company:
+    frame: only_one_share_class_of_each_company
+    variables:
+      d: {role: day, quantifier: forall}
+      co: {role: subject, quantifier: forall}
+  share_class_satisfies_buffer_rule_definition:
+    frame: share_class_satisfies_buffer_rule_definition
+    variables:
+      d: {role: day, quantifier: forall}
+      sc: {role: kind, quantifier: forall}
+facts:
+  determination_of_index_universe_fully_rule_based:
+    frame: determination_of_index_universe_fully_rule_based
+    variables:
+      d: {role: day, quantifier: forall}
+  lookback_month_count_values:
+    frame: lookback_month_count_values

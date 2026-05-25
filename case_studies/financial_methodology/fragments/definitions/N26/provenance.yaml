@@ -1,0 +1,109 @@
+section: "N26 Definition: Rebalance Day"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  first_weekday_ordinal_value:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Rebalance Day\" is the first Wednesday in May and November."
+    back_translation: >
+      The weekday ordinal used for "first Wednesday" has numeric value 1.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The ordinal "first" is exposed as numeric value 1 rather than being
+      encoded only in a relation name.
+
+  scheduled_rebalance_day_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Rebalance Day\" is the first Wednesday in May and November."
+    back_translation: >
+      A scheduled Rebalance Day is the first Wednesday in May or the first
+      Wednesday in November.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The enum values May and November preserve the two months named in the
+      source. The source conjunction "May and November" is represented as the
+      two allowed scheduled-month alternatives.
+
+  rebalance_day_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Rebalance Day\" is the first Wednesday in May and November. If that day is not an Eligible Rebalance Day the Rebalance Day will be the immediately following Eligible Rebalance Day."
+    back_translation: >
+      A day is a Rebalance Day if and only if either it is a scheduled
+      Rebalance Day that is an Eligible Rebalance Day, or the scheduled
+      Rebalance Day is not an Eligible Rebalance Day and the Rebalance Day is
+      the immediately following Eligible Rebalance Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The negative condition in "is not an Eligible Rebalance Day" is modeled
+      by the explicit logical negation `not eligible_rebalance_day(s)`. The
+      source "will be" is procedural future in a definition, not a separate
+      deontic obligation.
+
+  immediately_following_eligible_rebalance_day_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "If that day is not an Eligible Rebalance Day the Rebalance Day will be the immediately following Eligible Rebalance Day."
+    back_translation: >
+      A day is immediately following a scheduled day as an Eligible Rebalance
+      Day only if the scheduled day is before it, that following day is an
+      Eligible Rebalance Day, and there is no Eligible Rebalance Day strictly
+      between the scheduled day and that following day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source phrase "immediately following" is represented structurally
+      rather than only by the relation name.
+
+uncovered_source:
+  - quote: "(none -- source definition is covered)"
+
+vocabulary_notes:
+  RebalanceDay:
+    note: "Sort for the source term \"Rebalance Day\"; the definition predicate ranges over Day so the term is defined by conditions rather than only within an already-typed subsort."
+    source_phrase: "Rebalance Day"
+  ScheduledRebalanceDay:
+    note: "Local carrier for the scheduled first-Wednesday candidate before the eligible-day fallback is applied; the scheduled predicate itself ranges over Day."
+    source_phrase: "first Wednesday in May and November"
+  May:
+    note: "Month enum value for the source phrase \"May\"."
+    source_phrase: "May"
+  November:
+    note: "Month enum value for the source phrase \"November\"."
+    source_phrase: "November"
+  WeekdayOrdinal:
+    note: "Numeric ordinal sort used to expose the source word \"first\" as value 1."
+    source_phrase: "first"
+  FirstWeekdayOrdinal:
+    note: "Entity for the source ordinal \"first\", with value 1."
+    source_phrase: "first"
+  nth_wednesday_in_month:
+    note: "Parameterized relation for Wednesday occurrence in a month; the source uses ordinal 1."
+    source_phrase: "first Wednesday"
+  eligible_rebalance_day:
+    note: "Predicate for the source phrase \"Eligible Rebalance Day\"."
+    source_phrase: "Eligible Rebalance Day"
+  immediately_following_eligible_rebalance_day_after:
+    note: "Relation for the source phrase \"immediately following Eligible Rebalance Day\"."
+    source_phrase: "immediately following Eligible Rebalance Day"
+  strictly_before:
+    note: "Temporal ordering relation used to make the source phrase \"immediately following\" structural."
+    source_phrase: "following"

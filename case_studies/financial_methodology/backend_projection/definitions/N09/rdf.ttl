@@ -1,0 +1,38 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N09 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N09/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:EligibleRebalanceDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:EligibleRebalanceDay rdfs:subClassOf ex:Day .
+ex:Exchange a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+
+ex:NewYorkStockExchange a ex:Exchange, owl:NamedIndividual .
+ex:LondonStockExchange a ex:Exchange, owl:NamedIndividual .
+ex:EUREXExchange a ex:Exchange, owl:NamedIndividual .
+ex:TokyoStockExchange a ex:Exchange, owl:NamedIndividual .
+ex:trading_day_at_exchange a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:trading_day_at_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:trading_day_at_exchange a4:argument ex:trading_day_at_exchange_arg_0 .
+ex:trading_day_at_exchange_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Exchange .
+ex:trading_day_at_exchange a4:argument ex:trading_day_at_exchange_arg_1 .
+ex:eligible_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:eligible_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:EligibleRebalanceDay .
+ex:eligible_rebalance_day a4:argument ex:eligible_rebalance_day_arg_0 .
+
+ex:ASSERT_eligible_rebalance_day_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "12"^^xsd:integer ;
+  a4:exprText "forall d: EligibleRebalanceDay, (eligible_rebalance_day(d)) iff ((trading_day_at_exchange(d, NewYorkStockExchange)) and (trading_day_at_exchange(d, LondonStockExchange)) and (trading_day_at_exchange(d, EUREXExchange)) and (trading_day_at_exchange(d, TokyoStockExchange)))" ;
+  a4:sourceText "constraint eligible_rebalance_day_definition :\n  forall d: EligibleRebalanceDay,\n    eligible_rebalance_day(d)\n    iff\n      trading_day_at_exchange(d, NewYorkStockExchange)\n      and trading_day_at_exchange(d, LondonStockExchange)\n      and trading_day_at_exchange(d, EUREXExchange)\n      and trading_day_at_exchange(d, TokyoStockExchange)" .

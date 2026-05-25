@@ -1,0 +1,20 @@
+sort Index
+sort IndexLevel extends Real
+sort RoundingPrecision
+sort DecimalPlaceCount extends Nat
+
+entity TheIndex : Index
+entity TwoDecimalPlaces : RoundingPrecision
+
+rel level_of_index : IndexLevel, Index
+rel rounded_to_precision : IndexLevel, RoundingPrecision
+
+fun[required] decimal_place_count : RoundingPrecision -> DecimalPlaceCount
+
+fact two_decimal_places_precision :
+  decimal_place_count(TwoDecimalPlaces) = 2
+
+constraint index_level_rounded_to_two_decimal_places :
+  forall l: IndexLevel,
+    level_of_index(l, TheIndex)
+    implies rounded_to_precision(l, TwoDecimalPlaces)

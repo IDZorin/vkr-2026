@@ -1,13 +1,13 @@
-"""process_reasoning_audit_v1.py
+﻿"""process_reasoning_audit_v1.py
 
-Deterministic reasoning probes for the DZ process/workflow layer.
+Deterministic reasoning probes for the financial methodology process/workflow layer.
 
 This audit validates the process files as a graph and grounding envelope. It
 does not rewrite A4V3 files and does not replace local IR, bridge, canonical
 ontology, or provenance.
 
 CLI:
-    python IR/src/process_reasoning_audit_v1.py --dz-root IR/outputs/runs/dz
+    python IR/src/process_reasoning_audit_v1.py --run-root case_studies/financial_methodology
 """
 from __future__ import annotations
 
@@ -202,8 +202,8 @@ def _is_external_input(input_name: str, input_kinds: dict[str, set[str]]) -> boo
     return _has_name_part(input_name, EXTERNAL_INPUT_NAME_PARTS)
 
 
-def analyze(dz_root: Path) -> dict[str, Any]:
-    process_dir = dz_root / "process"
+def analyze(run_root: Path) -> dict[str, Any]:
+    process_dir = run_root / "process"
     findings: list[dict[str, Any]] = []
     asts: dict[str, dict[str, Any]] = {}
     all_calls: list[dict[str, Any]] = []
@@ -600,7 +600,7 @@ def analyze(dz_root: Path) -> dict[str, Any]:
 
     return {
         "schema": "process_reasoning_audit_v1",
-        "dz_root": str(dz_root),
+        "run_root": str(run_root),
         "process_files": process_files,
         "process_step_count": len(process_steps),
         "workflow_count": len(workflows),
@@ -673,15 +673,15 @@ def _write_markdown(report: dict[str, Any], out_path: Path) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dz-root", default="IR/outputs/runs/dz")
+    ap.add_argument("--run-root", default="case_studies/financial_methodology")
     ap.add_argument("--out-dir", default=None)
     args = ap.parse_args()
 
-    dz_root = Path(args.dz_root)
-    out_dir = Path(args.out_dir) if args.out_dir else dz_root / "reasoning"
+    run_root = Path(args.run_root)
+    out_dir = Path(args.out_dir) if args.out_dir else run_root / "reasoning"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    report = analyze(dz_root)
+    report = analyze(run_root)
     json_path = out_dir / "process_reasoning_audit_v1.json"
     md_path = out_dir / "process_reasoning_audit_v1.md"
     json_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

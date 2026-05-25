@@ -1,0 +1,36 @@
+section: "N29 Definition: Start Date"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+  start_date_meaning_defined_in_section_1_3:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Start Date\" shall have the meaning as defined in Section 1.3."
+    back_translation: >
+      The term "Start Date" shall have the meaning defined in Section 1.3.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Cross-reference definition. The word "shall" is legal-definition
+      drafting here, not a deontic obligation; the IR records where the
+      meaning of the term is defined.
+
+uncovered_source:
+  - quote: "(none -- the single source sentence is the single IR claim)"
+
+vocabulary_notes:
+  StartDateTerm:
+    note: IR entity for the quoted source term "Start Date".
+  Section1_3:
+    note: IR entity for the referenced source location Section 1.3.
+  term_shall_have_meaning_defined_in_section:
+    note: >
+      Relation used by cross-reference definitions of the form "shall have
+      the meaning as defined in Section ...". It is a definitional reference,
+      not an obligation.

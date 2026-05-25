@@ -1,0 +1,120 @@
+{
+  "entry_id": "N11",
+  "schema": "semantic_claim_alignment_v1",
+  "generated_at": "2026-05-03T18:23:28",
+  "parse_error": null,
+  "summary": {
+    "claim_count": 1,
+    "strong_candidate_count": 1,
+    "partial_candidate_count": 0,
+    "weak_or_missing_candidate_count": 0,
+    "reviewed_count": 0,
+    "approved_count": 0,
+    "needs_revision_count": 0,
+    "average_top3_token_coverage": 1.0,
+    "all_claims_review_approved": false
+  },
+  "claims": [
+    {
+      "claim_id": "C01",
+      "text": "\"Fixing Day\" is Selection Day.",
+      "hash": "c126d28bb456",
+      "tokens": [
+        {
+          "token": "fix",
+          "surface_forms": [
+            "Fixing"
+          ],
+          "keys": [
+            "fix",
+            "fixing"
+          ]
+        },
+        {
+          "token": "day",
+          "surface_forms": [
+            "Day"
+          ],
+          "keys": [
+            "day"
+          ]
+        },
+        {
+          "token": "selection",
+          "surface_forms": [
+            "Selection"
+          ],
+          "keys": [
+            "selection"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:fixing_day_definition",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "fixing_day_definition",
+          "line": 4,
+          "token_recall": 1.0,
+          "token_precision": 0.364,
+          "score": 0.873,
+          "matched_claim_tokens": [
+            "day",
+            "fix",
+            "selection"
+          ],
+          "raw_excerpt": "constraint fixing_day_definition : forall d: Day, fixing_day(d) iff selection_day(d)"
+        },
+        {
+          "block_id": "declaration:rel:fixing_day",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "fixing_day",
+          "line": 1,
+          "token_recall": 0.667,
+          "token_precision": 0.6,
+          "score": 0.653,
+          "matched_claim_tokens": [
+            "day",
+            "fix"
+          ],
+          "raw_excerpt": "rel fixing_day : Day"
+        },
+        {
+          "block_id": "declaration:rel:selection_day",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "selection_day",
+          "line": 2,
+          "token_recall": 0.667,
+          "token_precision": 0.5,
+          "score": 0.633,
+          "matched_claim_tokens": [
+            "day",
+            "selection"
+          ],
+          "raw_excerpt": "rel selection_day : Day"
+        }
+      ],
+      "candidate_count": 3,
+      "covered_claim_tokens_by_top3": [
+        "day",
+        "fix",
+        "selection"
+      ],
+      "uncovered_claim_tokens_by_top3": [],
+      "top3_token_coverage": 1.0,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    }
+  ]
+}

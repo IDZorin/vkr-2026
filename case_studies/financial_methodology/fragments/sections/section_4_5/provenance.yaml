@@ -1,0 +1,351 @@
+section: "4.5 Corporate Actions"
+source_file: "source.md"
+schema_version: "v2"
+review_status: "draft_ir_to_text_user_review"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+# claim_origin: source_claim | bridge | plumbing | derived_invariant | verification_probe | source_correction
+# vocabulary_basis: source_only | mixed | ir_internal_bridge | ir_plumbing | ir_correction_alias
+
+claims:
+
+  index_maintenance_scope:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: plumbing
+    source_quotes:
+      - "As part of the Index maintenance"
+      - "in the calculation of the Index"
+    back_translation: >
+      The Index maintenance is the Index maintenance of the Index, and the
+      calculation of the Index is the calculation of the Index.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Local plumbing fact tying entity for "the Index maintenance" and
+      "the calculation of the Index" to the Index. Tautological surface
+      form reflects entity-binding facts.
+
+  equity_index_methodology_available_on_solactive_website:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the Equity Index Methodology, which is available on the Solactive website"
+    back_translation: >
+      The Equity Index Methodology is available on the Solactive website,
+      and the Solactive website is the website of Solactive.
+    vocabulary_basis: source_only
+    status: covered
+
+  corporate_action_treatment_methodology_aim:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "While Solactive aims at creating and maintaining its methodology for treatment of corporate actions as generic and transparent as possible and in line with regulatory requirements"
+      - "in accordance with the Equity Index Methodology to deviate from these standard procedures"
+    back_translation: >
+      Solactive aims at creating and aims at maintaining the Equity Index
+      Methodology, which is the methodology for treatment of corporate
+      actions, is generic as possible and transparent as possible, and is
+      in line with regulatory requirements; and the standard procedures
+      are in the Equity Index Methodology.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Nine conjuncts collected: aims at creating; aims at maintaining;
+      methodology for treatment of corporate actions; quality Generic;
+      Generic described by "as possible" (VagueTerm); quality Transparent;
+      Transparent described by "as possible"; in line with regulatory
+      requirements; standard procedures in methodology. The "as ... as
+      possible" hedge is encoded via a VagueTerm entity rather than a
+      bare unary flag, since the source phrase is a hedge without
+      operational definition.
+
+  relevant_corporate_action_list:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive considers following, but not conclusive, list of corporate actions as relevant for Index maintenance:"
+      - "Cash Distributions"
+      - "Stock distributions"
+      - "Stock distributions of another company"
+      - "Share splits"
+      - "Reverse splits"
+      - "Capital increases"
+      - "Share repurchases"
+      - "Spin-offs"
+      - "Mergers & Acquisitions"
+      - "Delistings"
+      - "Nationalization"
+      - "Insolvency"
+    back_translation: >
+      The list of corporate actions relevant for Index maintenance is not
+      conclusive, and Solactive considers each of the following corporate
+      actions as relevant for the Index maintenance, and the Equity Index
+      Methodology covers each: Cash Distributions, Stock distributions,
+      Stock distributions of another company, Share splits, Reverse
+      splits, Capital increases, Share repurchases, Spin-offs, Mergers &
+      Acquisitions, Delistings, Nationalization, and Insolvency.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Per the "Tabular section -> ontology" policy (small list, 12 items
+      below the per-row threshold): aggregated into one fact with three
+      conjuncts per kind (list_item, considers_relevant_for_maintenance,
+      methodology_covers) plus the single non_conclusive flag.
+      The parent sort CorporateActionKind remains open. This preserves
+      source vocabulary "but not conclusive" without treating the 12
+      listed kinds as a closed universe.
+
+  non_conclusive_means_not_conclusive:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "but not conclusive"
+    back_translation: >
+      A corporate action list is non-conclusive if and only if it is not
+      conclusive.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Polarity bridge for contradiction detection: the source phrase
+      contains explicit negation, so the IR keeps both the source-facing
+      predicate non_conclusive and the positive predicate conclusive, linked
+      by an explicit not. This lets later merged checks detect a conflict if
+      the same list is asserted conclusive elsewhere.
+
+  considered_corporate_actions_result_in_index_adjustment:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive will consider various events – also referred to as corporate actions – which result in an adjustment to the Index between two regular Rebalance Days."
+    back_translation: >
+      For every corporate action that Solactive considers for the Index
+      maintenance, the corporate action results in an adjustment to the
+      Index, and the adjustment is between two distinct regular Rebalance
+      Days.
+    vocabulary_basis: source_only
+    status: covered
+
+  considered_corporate_actions_have_material_impact:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Such events have a material impact on the price, weighting or overall integrity of Index Components."
+    back_translation: >
+      For every corporate action that Solactive considers for the Index
+      maintenance, the corporate action has a material impact on some
+      Index Component on either the price, the weighting, or the overall
+      integrity.
+    vocabulary_basis: source_only
+    status: covered
+
+  corporate_action_implementation_period_and_price_effect:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Corporate actions will be implemented from the cum-day to the ex-day of the corporate action, so that the adjustment to the Index coincides with the occurrence of the price effect of the respective corporate action."
+    back_translation: >
+      For every corporate action that Solactive considers for the Index
+      maintenance, the corporate action is implemented from its cum-day
+      to its ex-day, and the adjustment to the Index coincides with the
+      occurrence of the price effect of the corporate action.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      "Coincides with the occurrence of the price effect" is represented
+      as a direct coincidence relation between the adjustment and the
+      price-effect occurrence, not as equality of day-valued functions.
+      This avoids over-committing the prose to a specific temporal
+      representation.
+
+  equity_index_methodology_material_for_covered_corporate_actions:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "This document contains for each corporate action a brief definition and specifies the relevant adjustment to the Index variables."
+    back_translation: >
+      For every corporate action that the Equity Index Methodology covers,
+      the Equity Index Methodology contains a brief definition for the
+      corporate action, and the Equity Index Methodology specifies a
+      relevant adjustment to an Index variable for the corporate action.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The constraint is scoped via methodology_covers_corporate_action_kind,
+      which is asserted in the relevant_corporate_action_list fact for
+      each of the 12 listed kinds. For any other corporate action kinds
+      whose methodology coverage is asserted, the brief-definition and
+      variable-adjustment guarantee carries over.
+
+  corporate_action_deviation_conditions:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "it retains the right in accordance with the Equity Index Methodology to deviate from these standard procedures in case of any unusual or complex corporate action or if such a deviation is made to preserve the comparability and representativeness of the Index over time."
+    back_translation: >
+      Every such deviation from the standard procedures is in accordance
+      with the Equity Index Methodology and corresponds to some corporate
+      action that Solactive considers for the Index maintenance, where
+      either the corporate action is unusual, or the corporate action is
+      complex, or the deviation is made to preserve both the comparability
+      and the representativeness of the Index over time.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Defining-universal pattern: enumerates the structural conditions for
+      the subtype of deviations that qualifies under the source's
+      "retains the right" clause. The three OR-branches mirror the
+      source's three permission cases: (1) unusual corporate action,
+      (2) complex corporate action, (3) deviation made to preserve
+      comparability and representativeness over time.
+
+  account_for_corporate_action_in_index_calculation:
+    kind: obligation
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Therefore, they need to be accounted for in the calculation of the Index."
+    back_translation: >
+      Every corporate action considered for the Index maintenance is
+      obliged to be accounted for in the calculation of the Index.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Modal "need to be accounted for" read as obligation. The agent is
+      not specified in the source (passive voice), so the obligation
+      declaration carries only the corporate action parameter.
+
+  make_corporate_action_adjustment_in_compliance_with_equity_index_methodology:
+    kind: obligation
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Adjustments to the Index to account for corporate actions will be made in compliance with the Equity Index Methodology"
+    back_translation: >
+      Every corporate action adjustment is obliged to be made in
+      compliance with the Equity Index Methodology.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Modal "will be made in compliance with" read as obligation. The
+      agent is implicit (passive voice in source).
+
+  deviate_from_standard_procedures:
+    kind: permission
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "it retains the right in accordance with the Equity Index Methodology to deviate from these standard procedures"
+    back_translation: >
+      Solactive is permitted to deviate from the standard procedures, in
+      accordance with the Equity Index Methodology.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Modal "retains the right" read as permission. The qualifying
+      conditions on which deviations are permitted (unusual/complex
+      corporate action, or preserving comparability and representativeness)
+      are carried by the separate constraint
+      `corporate_action_deviation_conditions`, which defines the subtype
+      of deviations that qualify.
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  TheIndex:
+    note: >
+      Local entity for the section's references to "the Index".
+      Cross-section identity belongs to the merge layer.
+  Solactive:
+    note: >
+      Entity for the organization "Solactive". Typed as
+      SolactiveOrganization (a subtype of Organization) so that the
+      permission to deviate from standard procedures can be narrowed to
+      Solactive specifically rather than to any organization.
+  EquityIndexMethodology:
+    note: >
+      Entity for the source's "Equity Index Methodology". The methodology
+      is bound to several attributes: available on the Solactive website,
+      methodology for treatment of corporate actions, generic as possible,
+      transparent as possible, in line with regulatory requirements,
+      contains the standard procedures.
+  SolactiveWebsite:
+    note: >
+      Entity for "the Solactive website" with website_of link to Solactive.
+  CorporateActionStandardProcedures:
+    note: >
+      Entity for "these standard procedures" referenced in the third
+      paragraph. The standard procedures are in the Equity Index
+      Methodology and are the target of the deviation permission.
+  RegulatoryRequirements:
+    note: >
+      Entity for "regulatory requirements" with which the methodology is
+      in line.
+  AsPossible:
+    note: >
+      VagueTerm entity for the source hedge "as ... as possible". Used to
+      qualify the methodology qualities Generic and Transparent without
+      committing to a specific operational threshold for either quality.
+  RelevantCorporateActionList:
+    note: >
+      Entity for "the following list of corporate actions relevant for
+      Index maintenance". Carries the non_conclusive flag and the 12
+      list_item / considers_relevant / methodology_covers conjuncts.
+  IndexMaintenanceCorporateAction:
+    note: >
+      Subtype of CorporateAction. Used to scope the universals over
+      corporate actions Solactive considers as part of Index maintenance,
+      avoiding bare-universal anti-patterns over the global CorporateAction
+      sort. The actual binding to TheIndex is carried by the antecedent
+      `considers_for_index_maintenance(Solactive, ca, IndexMaintenanceOfTheIndex)`
+      in each constraint.
+  ListedCorporateActionKind:
+    note: >
+      Subtype of CorporateActionKind for the 12 corporate action kinds
+      enumerated in the source list. The parent sort CorporateActionKind
+      remains open, so the source's "but not conclusive" qualifier is
+      preserved structurally (other kinds may exist outside the listed
+      ones); the non_conclusive flag is a redundant explicit marker.
+  PermittedCorporateActionDeviation:
+    note: >
+      Subtype of CorporateActionDeviation. Defining-universal in
+      `corporate_action_deviation_conditions` enumerates what makes a
+      deviation a member of this subtype: in accordance with the Equity
+      Index Methodology, corresponds to a corporate action Solactive
+      considers, and the corporate action is unusual or complex or the
+      deviation preserves comparability and representativeness over time.
+  IndexComponentAttribute:
+    note: >
+      Enum with three values (Price, Weighting, OverallIntegrity) for the
+      source's "the price, weighting or overall integrity of Index
+      Components". Used as the third argument of material_impact_on.
+  IndexQuality:
+    note: >
+      Enum with two values (Comparability, Representativeness) for the
+      source's "comparability and representativeness of the Index over
+      time". Used as the third argument of
+      deviation_preserves_index_quality_over_time.
+  MethodologyQuality:
+    note: >
+      Enum with two values (Generic, Transparent) for the source's
+      "generic and transparent". Used as the second argument of
+      methodology_quality and methodology_quality_described_by, the latter
+      pairing the quality with a VagueTerm hedge such as AsPossible.
+  SolactiveOrganization:
+    note: >
+      Subtype of Organization with a single instance Solactive. Used as
+      the agent type of the deviation permission so the permission applies
+      only to Solactive rather than to arbitrary organizations.

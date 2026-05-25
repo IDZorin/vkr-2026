@@ -1,4 +1,4 @@
-"""Provenance / waivers / package-checks tools + KDR memo generator."""
+﻿"""Provenance / waivers / package-checks tools + KDR memo generator."""
 from __future__ import annotations
 
 import json
@@ -509,7 +509,7 @@ def tool_run_package_checks(env: ToolEnv, *, with_llm: bool = True,
             ),
         }
     env.phase = _PHASE_VERIFYING
-    cmd = [PYTHON, str(SRC / "run_dz_entry_checks_v1.py"), str(env.agent_run_dir)]
+    cmd = [PYTHON, str(SRC / "run_entry_checks_v1.py"), str(env.agent_run_dir)]
     if with_llm:
         cmd.append("--with-llm")
     use_corpus_aware = env.corpus_aware if corpus_aware is None else corpus_aware
@@ -517,7 +517,7 @@ def tool_run_package_checks(env: ToolEnv, *, with_llm: bool = True,
         cmd.append("--corpus-aware")
     cmd.extend(["--timeout-s", "300"])
     res = _run_subprocess(cmd, timeout_s=1500)
-    report = _load_json(env.agent_run_dir / "dz_entry_checks_v1.json")
+    report = _load_json(env.agent_run_dir / "entry_checks_v1.json")
     summary = report.get("summary", {})
 
     corpus_full = _load_json(env.agent_run_dir / "metrics_corpus_aware_multi_judge_v1.json")

@@ -1,0 +1,130 @@
+{
+  "entry_id": "N08",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core definition that Daily Value Traded is the product of closing price and traded volume for an Index Component on a Trading Day, but it introduces extra structure and a mismatch in the closing-price function signature. The source does not specify a separate Exchange-valued accessor or a fixed respective exchange, and the IR’s closing_price is declared with two arguments while the product uses it as if it were one-argument.",
+      "semantic_differences": [
+        "The source defines Daily Value Traded only in terms of an Index Component and a Trading Day; the IR adds a separate Exchange sort, a respective_exchange function, and an exchange-specific volume accessor not stated in the source.",
+        "The source says the volume is traded on the Exchange during the Trading Day, but the IR hardwires the exchange via respective_exchange(c), which is an additional semantic commitment.",
+        "The IR declares closing_price : IndexComponent, TradingDay -> ClosingPrice, but the defining equation uses closing_price(c, d) as if the source had explicitly made closing price depend on both the component and the trading day; the source only says 'the Closing Price of such Index Component.'"
+      ],
+      "stylistic_notes": [
+        "'Daily Value Traded' is rendered as daily_value_traded, which is a standard naming change.",
+        "'volume traded (measured as a number of shares)' is represented by VolumeNumberOfShares, which is a reasonable formalization choice.",
+        "The source phrase 'in respect of' is encoded by quantification over component and trading day."
+      ],
+      "confidence": 0.92,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1999,
+        "completion_tokens": 335,
+        "total_tokens": 2334
+      },
+      "latency_s": 5.0116286277771
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "one_way_implication",
+      "reason_short": "The IR captures the core definitional equation that Daily Value Traded for an index component and trading day equals closing price times traded volume on the exchange during that day. However, it strengthens the source by introducing a unique respective exchange per index component and by fixing the volume input to that derived exchange, whereas the source refers only to 'the Exchange' without explicitly defining this functional dependence in the phrase itself.",
+      "semantic_differences": [
+        "The IR adds a function respective_exchange : IndexComponent -> Exchange, which asserts that each index component has a single associated exchange; this uniqueness/functionality is not stated in the source phrase.",
+        "The source definition is phrased in respect of an Index Component and a Trading Day, with volume traded on the Exchange during such Trading Day; the IR hardwires the exchange argument to respective_exchange(c) rather than leaving the exchange reference purely descriptive, thereby making a stronger structural commitment than the source text alone."
+      ],
+      "stylistic_notes": [
+        "Using TradingDay as a subtype of Day and IndexComponent as a subtype of FinancialInstrument is a reasonable ontology choice.",
+        "The naming volume_traded_on_exchange_during_trading_day is verbose but semantically clear.",
+        "The IR uses MonetaryAmount and Nat without showing their declarations; if these come from the surrounding prelude or environment, that is just infrastructure rather than a semantic issue."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1999,
+        "completion_tokens": 331,
+        "total_tokens": 2330
+      },
+      "latency_s": 9.482486724853516
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully encodes the source definition of 'Daily Value Traded' as a product of closing price and volume traded. The source specifies that Daily Value Traded is computed for an Index Component and Trading Day as the product of (i) the Closing Price and (ii) the volume traded on the Exchange during that Trading Day. The IR captures this via the constraint `daily_value_traded(c, d) = closing_price(c, d) * volume_traded_on_exchange_during_trading_day(c, respective_exchange(c), d)`, where `respective_exchange(c)` encodes the implicit reference to 'the Exchange' (the exchange on which the Index Component trades). All sorts and functions are properly declared and the constraint correctly formalizes the multiplicative relationship stated in the source.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces `respective_exchange : IndexComponent -> Exchange` to capture the implicit reference to 'the Exchange' in the source. This is a reasonable design choice to make the exchange explicit in the formula, though the source leaves it implicit as a contextual property of the Index Component.",
+        "The IR declares `ClosingPrice` and `DailyValueTraded` as sorts extending `MonetaryAmount`, and `VolumeNumberOfShares` as extending `Nat`. These are reasonable type refinements not explicitly stated in the source but consistent with the semantic domain.",
+        "Function names are verbose but clear: `volume_traded_on_exchange_during_trading_day` fully captures the source phrase 'volume traded (measured as a number of shares) of such Index Component on the Exchange during such Trading Day'."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2294,
+        "completion_tokens": 430,
+        "total_tokens": 2724
+      },
+      "latency_s": 6.490561485290527
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR constraint captures the exact product definition from the source: daily value traded equals closing price times volume traded on the exchange during the trading day. All arguments (Index Component, Trading Day, volume, exchange) are correctly represented, and the equality assertion mirrors the 'means' definition.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses function name 'daily_value_traded' while source uses 'Daily Value Traded' (camelCase vs title case), but this is a common naming convention, not a semantic difference.",
+        "The volume function name 'volume_traded_on_exchange_during_trading_day' is a detailed encoding of the source phrase 'volume traded... on the Exchange during such Trading Day'.",
+        "The exchange is lifted into an explicit sort and function 'respective_exchange', which is an implementation detail not contradicting the source's implicit 'the Exchange'."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2111,
+        "completion_tokens": 983,
+        "total_tokens": 3094
+      },
+      "latency_s": 40.77240490913391
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR accurately formalizes the definition of 'Daily Value Traded' as the product of the closing price and the volume traded for a given index component and trading day. The introduction of `respective_exchange` to resolve 'the Exchange' is a standard and faithful modeling choice that preserves the source semantics. All sorts and functions directly map to source terms without adding or omitting meaning.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces explicit sorts for ClosingPrice, DailyValueTraded, and VolumeNumberOfShares, which are reasonable type refinements of the source concepts.",
+        "The function name `volume_traded_on_exchange_during_trading_day` is verbose but accurately reflects the source phrasing."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2129,
+        "completion_tokens": 2267,
+        "total_tokens": 4396
+      },
+      "latency_s": 44.37898278236389
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "partially_corresponds": 2,
+      "corresponds": 3
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 0.6,
+    "unanimous": false,
+    "mean_confidence": 0.938
+  }
+}

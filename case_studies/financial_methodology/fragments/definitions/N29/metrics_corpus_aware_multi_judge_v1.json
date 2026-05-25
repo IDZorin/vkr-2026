@@ -1,0 +1,172 @@
+﻿{
+  "schema": "corpus_aware_multi_judge_v1",
+  "generated_at": "2026-05-10T20:14:10+02:00",
+  "entry_id": "N29",
+  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N29",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "included_context": {
+    "entry": "N29",
+    "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N29",
+    "global_bridge": false,
+    "related_sections": [],
+    "artifacts": {
+      "source.md": true,
+      "normalized.md": true,
+      "main_ir.a4v3": true,
+      "repair.a4v3": false,
+      "provenance.yaml": true,
+      "translator_notes.md": true,
+      "waivers.yaml": false,
+      "waivers_v1.yaml": false
+    }
+  },
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR captures the quoted term as a defined term and records that its meaning is defined in Section 1.3, which matches the source sentence. The provenance and translator notes confirm that the relation is intended as a cross-reference definition rather than an obligation, with no added substantive content.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "Section 1.3 is represented as `Section1_3`, and the quoted term is normalized to `StartDateTerm`; these are naming choices only."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2020,
+        "completion_tokens": 163,
+        "total_tokens": 2183
+      },
+      "latency_s": 2.1273179054260254
+    },
+    {
+      "model": "gpt-5.4",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "none"
+      ],
+      "reason_short": "The local IR faithfully captures the sole source claim: the defined term \"Start Date\" has its meaning defined in Section 1.3. The IR does not add substantive Section 1.3 content or misread \"shall\" as an obligation; instead it records the cross-reference definition exactly as the source states.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses a normalized symbol `StartDateTerm` for the quoted term \"Start Date\".",
+        "`Section1_3` is a normalized entity name for the referenced document location Section 1.3.",
+        "The relation name `term_shall_have_meaning_defined_in_section` is slightly formalized wording but preserves the source meaning."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2020,
+        "completion_tokens": 199,
+        "total_tokens": 2219
+      },
+      "latency_s": 3.3828892707824707
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The source sentence is a cross-reference definition: '\"Start Date\" shall have the meaning as defined in Section 1.3.' The IR faithfully captures this by declaring StartDateTerm as a DefinedTerm, Section1_3 as a DocumentPart, and asserting the relation term_shall_have_meaning_defined_in_section(StartDateTerm, Section1_3). The provenance and translator notes confirm that 'shall' here is not a deontic obligation but a definitional pointer, and that the IR correctly avoids duplicating substantive content from Section 1.3. No semantic divergence exists between source and IR.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses the entity name StartDateTerm (camelCase) to represent the quoted source term \"Start Date\" (with quotes and space). This is standard IR naming convention and introduces no semantic drift.",
+        "The IR uses Section1_3 (camelCase, underscore) to represent the source reference 'Section 1.3'. Again, standard IR naming; no semantic issue."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2327,
+        "completion_tokens": 349,
+        "total_tokens": 2676
+      },
+      "latency_s": 4.5413947105407715
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "none"
+      ],
+      "reason_short": "The IR faithfully represents the source sentence as a cross-reference definition, using explicit entities for the term and section and a relation capturing the 'shall have the meaning as defined in' phrasing. No divergence or omission.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2147,
+        "completion_tokens": 734,
+        "total_tokens": 2881
+      },
+      "latency_s": 26.909178733825684
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR directly and accurately captures the source sentence by modeling the quoted term and the referenced section as entities linked by a relation that explicitly encodes the definitional cross-reference. The corpus context confirms that the relation name intentionally reflects legal drafting conventions without implying deontic obligation, fully aligning with the source intent.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The relation name term_shall_have_meaning_defined_in_section is verbose but precisely mirrors the source phrasing and correctly avoids deontic semantics."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2157,
+        "completion_tokens": 2632,
+        "total_tokens": 4789
+      },
+      "latency_s": 51.509883403778076
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "local_source_alignment_mode": "corresponds",
+    "local_source_alignment_distribution": {
+      "corresponds": 5
+    },
+    "local_source_alignment_agreement": 1.0,
+    "corpus_alignment_mode": "corresponds",
+    "corpus_alignment_distribution": {
+      "corresponds": 5
+    },
+    "corpus_alignment_agreement": 1.0,
+    "unanimous_corpus_alignment": true,
+    "needs_context_count": 0,
+    "mean_confidence": 0.984
+  }
+}

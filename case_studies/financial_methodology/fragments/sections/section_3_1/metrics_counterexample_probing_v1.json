@@ -1,0 +1,69 @@
+{
+  "entry_id": "section_3_1",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 2621,
+    "completion_tokens": 298,
+    "total_tokens": 2919
+  },
+  "latency_s": 3.014265298843384,
+  "scenarios": [
+    {
+      "description": "On the Rebalance Day after Close of Business, the Index is adjusted to reflect the new selection determined on the Selection Day. The implementation uses shares determined on the Fixing Day based on weights calculated on the Selection Day, and Solactive publishes the component changes on its Announcement section with sufficient notice before the Rebalance Day.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The Index is adjusted on the Rebalance Day before Close of Business, and Solactive does not publish any announcement about the component changes before that day.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A rebalance occurs, but the new selection was not determined in accordance with Section 2.1 and 2.2; instead it was determined under some other internal rule. All other timing and publication steps are followed.",
+      "category": "scope_edge",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "Solactive publishes the change notice on the website, but the notice is posted after the Rebalance Day rather than with sufficient notice before it.",
+      "category": "modality_edge",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 4,
+    "agreement_rate": 1.0,
+    "drifts": [],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 1
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

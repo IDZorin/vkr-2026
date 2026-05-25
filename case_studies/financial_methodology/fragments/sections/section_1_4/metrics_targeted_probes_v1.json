@@ -1,0 +1,48 @@
+{
+  "entry_id": "section_1_4",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1580,
+    "completion_tokens": 259,
+    "total_tokens": 1839
+  },
+  "latency_s": 2.2880611419677734,
+  "probes": {
+    "probe_scope": "yes",
+    "probe_scope_evidence": "\"on each Calculation Day\"",
+    "probe_scope_drift": "",
+    "probe_exception": "yes",
+    "probe_exception_evidence": "\"Should there be no current Trading Price for an Index Component\"",
+    "probe_exception_drift": "",
+    "probe_negation": "yes",
+    "probe_negation_evidence": "\"not listed in the Index Currency\"",
+    "probe_negation_drift": "",
+    "probe_counterfactual": "n_a",
+    "probe_counterfactual_evidence": "",
+    "probe_counterfactual_drift": "",
+    "probe_clarification": "yes",
+    "probe_clarification_evidence": "\"(i) the most recent Closing Price; or (ii) the last available Trading Price\"",
+    "probe_clarification_drift": "",
+    "probe_responsibility": "n_a",
+    "probe_responsibility_evidence": "",
+    "probe_responsibility_drift": "",
+    "probe_reference": "n_a",
+    "probe_reference_evidence": "",
+    "probe_reference_drift": "",
+    "probe_temporal_order": "yes",
+    "probe_temporal_order_evidence": "\"from 1:00 a.m. to 10:50 p.m. CET\"",
+    "probe_temporal_order_drift": "",
+    "probe_value_source": "yes",
+    "probe_value_source_evidence": "\"based on the Trading Prices on the Exchanges\"",
+    "probe_value_source_drift": ""
+  },
+  "summary": {
+    "yes": 6,
+    "no": 0,
+    "n_a": 3,
+    "preservation_rate": 1.0
+  },
+  "drifts": [],
+  "raw": null
+}

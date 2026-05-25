@@ -1,0 +1,60 @@
+{
+  "schema": "provenance_backtranslation_metrics_v1",
+  "entry_id": "N23",
+  "generated_at": "2026-05-12T15:11:14",
+  "status": "ok",
+  "semantic_requested": false,
+  "summary": {
+    "claim_count": 2,
+    "source_claim_count": 2,
+    "claims_with_warnings": 0,
+    "source_claims_with_warnings": 0,
+    "mean_deterministic_meaningfulness_score": 0.875,
+    "mean_source_claim_deterministic_meaningfulness_score": 0.875,
+    "mean_source_token_recall": 0.75,
+    "mean_back_translation_token_precision": 0.722,
+    "warning_counts": {}
+  },
+  "claims": [
+    {
+      "claim_id": "index_universe_sum_source_phrase",
+      "kind": "fact",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 103,
+      "back_translation_char_len": 104,
+      "source_token_count": 8,
+      "back_translation_token_count": 8,
+      "source_token_recall": 1.0,
+      "back_translation_token_precision": 1.0,
+      "token_jaccard": 1.0,
+      "number_preservation": null,
+      "url_preservation": null,
+      "modal_family_preservation": null,
+      "negation_preservation": null,
+      "deterministic_meaningfulness_score": 1.0,
+      "warnings": []
+    },
+    {
+      "claim_id": "index_universe_definition",
+      "kind": "constraint",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 103,
+      "back_translation_char_len": 142,
+      "source_token_count": 8,
+      "back_translation_token_count": 9,
+      "source_token_recall": 0.5,
+      "back_translation_token_precision": 0.444,
+      "token_jaccard": 0.308,
+      "number_preservation": null,
+      "url_preservation": null,
+      "modal_family_preservation": null,
+      "negation_preservation": null,
+      "deterministic_meaningfulness_score": 0.75,
+      "warnings": []
+    }
+  ]
+}

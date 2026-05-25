@@ -1,0 +1,56 @@
+{
+  "entry_id": "section_5_1",
+  "schema": "waiver_token_absorption_v1",
+  "generated_from": "metrics_token_provenance_v1.json",
+  "items": [
+    {
+      "token": "may",
+      "surface_forms": [
+        "may"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 22
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_by_qualifier_encoding",
+      "comment": "The source phrase 'may need to be exercised' is encoded by potential_need_to_exercise(d). The token 'may' is a possibility qualifier here, not a DeonticDecl.permission, so modeling it as permission would over-state the source.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "exercis",
+      "surface_forms": [
+        "exercised"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 37
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_by_qualifier_encoding",
+      "comment": "The surface verb 'exercised' is absorbed into potential_need_to_exercise(d), which represents the source qualifier 'may need to be exercised' for IndexDeterminationDiscretion.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "made",
+      "surface_forms": [
+        "made"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 284
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_by_deontic_action",
+      "comment": "The passive 'shall be made in accordance with' is represented by obligation make_index_determination_discretion_in_accordance_with_strict_rules with action make_in_accordance_with and target StrictRulesForDiscretionAndExpertJudgement. The morphology differs, but the deontic force and action are explicit.",
+      "reviewer": "human_approved"
+    }
+  ],
+  "stale_tokens_from_previous_file": []
+}

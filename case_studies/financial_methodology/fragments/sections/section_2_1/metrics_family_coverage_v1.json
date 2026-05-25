@@ -1,0 +1,104 @@
+{
+  "entry_id": "section_2_1",
+  "skipped": false,
+  "ir_innf_families_used": [
+    "AssertDecl",
+    "DeonticDecl",
+    "SymbolDecl",
+    "TypeDecl"
+  ],
+  "ir_fine_families_used": [
+    "AssertDecl.constraint",
+    "AssertDecl.fact",
+    "DeonticDecl.prohibition",
+    "SymbolDecl.entity",
+    "SymbolDecl.fun",
+    "SymbolDecl.rel",
+    "TypeDecl.sort_opaque",
+    "TypeDecl.sort_subtype"
+  ],
+  "ir_family_counts": {
+    "TypeDecl.sort_opaque": 10,
+    "TypeDecl.sort_subtype": 6,
+    "SymbolDecl.entity": 19,
+    "SymbolDecl.rel": 15,
+    "SymbolDecl.fun": 11,
+    "AssertDecl.fact": 10,
+    "AssertDecl.constraint": 11,
+    "DeonticDecl.prohibition": 1
+  },
+  "ir_expr_markers": {
+    "forall": 27,
+    "exists": 1,
+    "implies": 2,
+    "iff": 8,
+    "count": 1
+  },
+  "source_signals": {
+    "modality_obligation": {
+      "expected_family": "DeonticDecl",
+      "expectation_mode": "advisory",
+      "matches": [
+        "must"
+      ]
+    },
+    "modality_prohibition": {
+      "expected_family": "DeonticDecl",
+      "expectation_mode": "required",
+      "matches": [
+        "cannot"
+      ]
+    },
+    "quantifier_universal": {
+      "expected_family": "Formula_forall",
+      "expectation_mode": "required",
+      "matches": [
+        "All Cap",
+        "all financial",
+        "any discretionary",
+        "any other",
+        "each"
+      ]
+    }
+  },
+  "gaps": [],
+  "required_gaps": [],
+  "advisory_gaps": [],
+  "matches": [
+    {
+      "signal": "modality_obligation",
+      "expected_family": "DeonticDecl",
+      "expectation_mode": "advisory",
+      "evidence": [
+        "must"
+      ],
+      "satisfied": true
+    },
+    {
+      "signal": "modality_prohibition",
+      "expected_family": "DeonticDecl",
+      "expectation_mode": "required",
+      "evidence": [
+        "cannot"
+      ],
+      "satisfied": true
+    },
+    {
+      "signal": "quantifier_universal",
+      "expected_family": "Formula_forall",
+      "expectation_mode": "required",
+      "evidence": [
+        "All Cap",
+        "all financial",
+        "any discretionary",
+        "any other",
+        "each"
+      ],
+      "satisfied": true
+    }
+  ],
+  "n_gaps": 0,
+  "n_required_gaps": 0,
+  "n_advisory_gaps": 0,
+  "n_matches": 3
+}

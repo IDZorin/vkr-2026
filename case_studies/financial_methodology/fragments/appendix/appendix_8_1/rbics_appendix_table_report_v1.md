@@ -1,0 +1,63 @@
+# RBICS Appendix Table Report
+
+- Source rows parsed: 161
+- Unique rows modeled: 108
+- Duplicate rows skipped: 53
+- Code policy: strip comma separators and keep digits only
+- Classification levels: {6: 161}
+
+## Duplicate Rows
+
+- line 25 duplicates line 24: Fuel Cell Equipment and Technology Providers / 401015201510 / level 6
+- line 28 duplicates line 27: Photovoltaic and Solar Cells and Systems Providers / 401015201520 / level 6
+- line 30 duplicates line 29: Smart Grid Technology and Smart Meter Products / 401015201525 / level 6
+- line 32 duplicates line 31: Wind Energy Equipment Manufacturing / 401015201530 / level 6
+- line 43 duplicates line 42: Alternative Energy Infrastructure Construction / 401525103025 / level 6
+- line 57 duplicates line 56: United States Mixed Alternative Wholesale Power / 651010351010 / level 6
+- line 60 duplicates line 59: United States Industrial Decentralized Power / 651010351025 / level 6
+- line 62 duplicates line 61: United States Geothermal Wholesale Power / 651010351030 / level 6
+- line 64 duplicates line 63: United States Hydroelectric Wholesale Power / 651010351035 / level 6
+- line 66 duplicates line 65: United States Solar Wholesale Power / 651010351040 / level 6
+- line 68 duplicates line 67: United States Wind Wholesale Power / 651010351045 / level 6
+- line 70 duplicates line 69: United States Residential Decentralized Power / 651010351050 / level 6
+- line 74 duplicates line 73: Canada Mixed Alternative Wholesale Power / 651010401510 / level 6
+- line 77 duplicates line 76: Canada Industrial Decentralized Power / 651010401535 / level 6
+- line 79 duplicates line 78: Canada Geothermal Wholesale Power / 651010401540 / level 6
+- line 81 duplicates line 80: Canada Hydroelectric Wholesale Power / 651010401545 / level 6
+- line 83 duplicates line 82: Canada Solar Wholesale Power / 651010401550 / level 6
+- line 85 duplicates line 84: Canada Wind Wholesale Power / 651010401555 / level 6
+- line 88 duplicates line 87: Canada Residential Decentralized Wholesale Power / 651010401580 / level 6
+- line 92 duplicates line 91: Latin America Industrial Decentralized Power / 651010402035 / level 6
+- line 94 duplicates line 93: Latin America Geothermal Wholesale Power / 651010402040 / level 6
+- line 96 duplicates line 95: Latin America Hydroelectric Wholesale Power / 651010402045 / level 6
+- line 98 duplicates line 97: Latin America Solar Wholesale Power / 651010402050 / level 6
+- line 100 duplicates line 99: Latin America Wind Wholesale Power / 651010402055 / level 6
+- line 103 duplicates line 102: Latin America Residential Decentralized Power / 651010402080 / level 6
+- line 105 duplicates line 104: China Mixed Alternative Wholesale Power / 651010451510 / level 6
+- line 108 duplicates line 107: China Industrial Decentralized Power / 651010451535 / level 6
+- line 110 duplicates line 109: China Geothermal Wholesale Power / 651010451540 / level 6
+- line 112 duplicates line 111: China Hydroelectric Wholesale Power / 651010451545 / level 6
+- line 114 duplicates line 113: China Solar Wholesale Power / 651010451550 / level 6
+- line 116 duplicates line 115: China Wind Wholesale Power / 651010451555 / level 6
+- line 119 duplicates line 118: China Residential Decentralized Power / 651010451580 / level 6
+- line 121 duplicates line 120: Other Asia/Pacific Mixed Alt. Wholesale Power / 651010452010 / level 6
+- line 124 duplicates line 123: Other Asia/Pacific Industrial Decentralized Power / 651010452035 / level 6
+- line 126 duplicates line 125: Other Asia/Pacific Geothermal Wholesale Power / 651010452040 / level 6
+- line 128 duplicates line 127: Other Asia/Pacific Hydroelectric Wholesale Power / 651010452045 / level 6
+- line 130 duplicates line 129: Other Asia/Pacific Solar Wholesale Power / 651010452050 / level 6
+- line 132 duplicates line 131: Other Asia/Pacific Wind Wholesale Power / 651010452055 / level 6
+- line 135 duplicates line 134: Other Asia/Pacific Residential Decentralized Power / 651010452080 / level 6
+- line 137 duplicates line 136: Europe Mixed Alternative Wholesale Power / 651010501010 / level 6
+- line 140 duplicates line 139: Europe Industrial Decentralized Power / 651010501035 / level 6
+- line 142 duplicates line 141: Europe Geothermal Wholesale Power / 651010501040 / level 6
+- line 144 duplicates line 143: Europe Hydroelectric Wholesale Power / 651010501045 / level 6
+- line 146 duplicates line 145: Europe Solar Wholesale Power / 651010501050 / level 6
+- line 148 duplicates line 147: Europe Wind Wholesale Power / 651010501055 / level 6
+- line 151 duplicates line 150: Europe Residential Decentralized Power / 651010501080 / level 6
+- line 153 duplicates line 152: Middle East and Africa Mixed Alt. Wholesale Power / 651010501510 / level 6
+- line 156 duplicates line 155: Middle East/Africa Industrial Decentralized Power / 651010501535 / level 6
+- line 158 duplicates line 157: Middle East and Africa Geothermal Wholesale Power / 651010501540 / level 6
+- line 160 duplicates line 159: Middle East/Africa Hydroelectric Wholesale Power / 651010501545 / level 6
+- line 162 duplicates line 161: Middle East and Africa Solar Wholesale Power / 651010501550 / level 6
+- line 164 duplicates line 163: Middle East and Africa Wind Wholesale Power / 651010501555 / level 6
+- line 167 duplicates line 166: Middle East/Africa Residential Decentralized Power / 651010501580 / level 6

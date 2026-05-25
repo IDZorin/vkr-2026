@@ -1,0 +1,198 @@
+section: "1.3 Initial Level of the Index"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+# For each fact/constraint/obligation/permission/prohibition:
+#   kind             -- IR family
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | plumbing | derived_invariant | verification_probe
+#   source_quotes    -- verbatim source spans the element formalizes
+#   back_translation -- natural-language unfolding of the IR formula
+#   vocabulary_basis -- source_only | mixed | ir_internal_bridge | ir_plumbing
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+#   notes            -- optional clarification
+
+claims:
+
+  section_1_3_index_scope:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The initial level of the Index on the 05/08/2017, the Start Date, is 1000 (739.08 for Solactive Transatlantic Clean Energy EUR Index 50 AR)."
+      - "Levels of the Index published for a period prior to the Live Date have been back-tested."
+    back_translation: >
+      The Solactive Transatlantic Clean Energy EUR Index PR, NTR, TR, 50 AR,
+      and 5% AR are each within the section 1.3 index scope.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      Section 1.3 talks about "the Index" generically (initial level, historical
+      values, back-testing) and names "Solactive Transatlantic Clean Energy EUR
+      Index 50 AR" specifically. The IR interprets "the Index" as the five
+      published variants from Section 1.2 (PR, NTR, TR, 50 AR, 5% AR). The
+      `section_1_3_index` rel marks this scope. Mixed because "section 1.3
+      index scope" is the IR scoping concept, not a source phrase. Note:
+      this section uses Section 1.2 canonical entities directly (no bridge
+      file) because the source explicitly names "Solactive Transatlantic
+      Clean Energy EUR Index 50 AR" as a full canonical phrase.
+
+  start_and_live_dates:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the 05/08/2017, the Start Date"
+      - "the 29/09/2025, the Live Date"
+    back_translation: >
+      The date 05/08/2017 is the Start Date, and the date 29/09/2025 is the
+      Live Date.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Role-tagging facts: the IR rels `start_date` and `live_date` are unary
+      predicates that tag a Day entity with its named role from source. The
+      per-index association is captured implicitly through use of these date
+      entities in the initial-level and historical-value constraints.
+
+  article_8_of_bmr:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Article 8 of the BMR"
+    back_translation: >
+      Article 8 is part of the BMR, and its article number is 8.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The numeric "8" is captured both in the entity name (`Article8OfBMR`)
+      and explicitly via `article_number(Article8OfBMR) = 8` for first-class
+      grounding. `ArticleNumber extends Nat` makes the numeric basis explicit.
+
+  initial_level_default_on_start_date:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The initial level of the Index on the 05/08/2017, the Start Date, is 1000 (739.08 for Solactive Transatlantic Clean Energy EUR Index 50 AR)."
+    back_translation: >
+      For every section 1.3 index other than the Solactive Transatlantic
+      Clean Energy EUR Index 50 AR, the initial level on the Start Date
+      05/08/2017 is 1000.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      Default-with-exception pattern: the source clause "is 1000 (739.08 for
+      Solactive Transatlantic Clean Energy EUR Index 50 AR)" is encoded as
+      "all section 1.3 indices other than 50 AR have initial level 1000" in
+      this constraint, plus the explicit fact `initial_level_50_ar_on_start_date`
+      for the 50 AR exception. Mixed because "section 1.3 index" scope is IR
+      concept; the rest is verbatim source vocabulary.
+
+  initial_level_50_ar_on_start_date:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "(739.08 for Solactive Transatlantic Clean Energy EUR Index 50 AR)"
+    back_translation: >
+      The initial level of the Solactive Transatlantic Clean Energy EUR
+      Index 50 AR on the Start Date 05/08/2017 is 739.08.
+    vocabulary_basis: source_only
+    status: covered
+
+  historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Historical values from the 29/09/2025, the Live Date, will be recorded in accordance with Article 8 of the BMR."
+    back_translation: >
+      For every section 1.3 index, every Day, and every level, if that level
+      is a historical value of that index on that day, and that day is not
+      before the Live Date 29/09/2025, then that level will be recorded in
+      accordance with Article 8 of the BMR.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      "Historical values from the Live Date" is encoded as "historical values
+      on a day that is not before the Live Date" via the `day_before`
+      predicate from the prelude. The IR captures both the temporal
+      restriction and the Article 8 recording requirement.
+
+  levels_published_prior_to_live_date_back_tested:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Levels of the Index published for a period prior to the Live Date have been back-tested."
+    back_translation: >
+      For every section 1.3 index, every period prior to the Live Date
+      29/09/2025, and every level of that index published for that period,
+      that level has been back-tested.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      The source past-tense phrase "have been back-tested" is captured by the
+      unary predicate `back_tested(l)`. The "for a period prior to the Live
+      Date" condition uses the `period_prior_to` rel from the prelude.
+
+uncovered_source:
+  - quote: "(none -- all three source sentences map to at least one IR claim)"
+
+vocabulary_notes:
+  SolactiveTransatlanticCleanEnergyEURIndexPR:
+    note: >
+      Cross-section reuse from Section 1.2. Section 1.3 uses the canonical
+      Section 1.2 index entities directly (rather than declaring local
+      entities with a bridge layer) because the source uses full canonical
+      phrases like "Solactive Transatlantic Clean Energy EUR Index 50 AR".
+      All five published index entities (PR, NTR, TR, 50 AR, 5% AR) are in
+      `section_1_3_index_scope`.
+  SolactiveTransatlanticCleanEnergyEURIndexNTR:
+    note: >
+      Cross-section reuse from Section 1.2. See PR note above.
+  SolactiveTransatlanticCleanEnergyEURIndexTR:
+    note: >
+      Cross-section reuse from Section 1.2. The source name "Index TR" maps
+      to the IR entity that has type GrossTotalReturn (per Section 1.2 type
+      assignments).
+  SolactiveTransatlanticCleanEnergyEURIndex50AR:
+    note: >
+      Cross-section reuse from Section 1.2. Source explicitly names this in
+      Section 1.3 ("739.08 for Solactive Transatlantic Clean Energy EUR
+      Index 50 AR"). Subject of the default-with-exception pattern for
+      initial level (739.08 instead of 1000).
+  SolactiveTransatlanticCleanEnergyEURIndex5PercentAR:
+    note: >
+      Cross-section reuse from Section 1.2. Not named directly in Section 1.3
+      source, but included in scope as one of "the Index" variants per the
+      Section 1.2 universe.
+  StartDate05_08_2017:
+    note: >
+      Day entity for the Start Date 05/08/2017. Combined role-name and
+      date-value form for readability. The role is also tagged via the
+      `start_date` unary predicate in `start_and_live_dates`.
+  LiveDate29_09_2025:
+    note: >
+      Day entity for the Live Date 29/09/2025. Combined role-name and
+      date-value form. The role is also tagged via the `live_date` unary
+      predicate in `start_and_live_dates`.
+  BMR / Article8OfBMR:
+    note: >
+      External regulatory document and its Article 8 part. Source uses "the
+      BMR" (an established acronym for the EU Benchmark Regulation). The
+      article number 8 is grounded both in the entity name and in the
+      `article_number(Article8OfBMR) = 8` fact.
+  ArticleNumber:
+    note: >
+      Numeric sort (extends Nat) for article numbers in regulatory documents.
+      Used in `article_number(Article8OfBMR) = 8`.
+  IndexLevel:
+    note: >
+      Numeric sort (extends Real) for index level values. Used in `= 1000`
+      and `= 739.08` arithmetic comparisons in the initial-level facts.

@@ -1,0 +1,78 @@
+{
+  "entry_id": "N22",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1054,
+    "completion_tokens": 327,
+    "total_tokens": 1381
+  },
+  "latency_s": 2.9932994842529297,
+  "scenarios": [
+    {
+      "description": "A contract defines the defined term \"Index Universe Requirements\" as having the meaning set out in Section 2.1, and no other meaning is assigned to that term in the document.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document says \"Index Universe Requirements\" shall have the meaning as defined in Section 3.4, not Section 2.1.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document states that \"Index Universe Requirements\" has the meaning defined in Section 2.1, except when used in an appendix where it has a different meaning.",
+      "category": "scope_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "accept",
+      "agree": false,
+      "drift_explanation": "The source text only fixes the meaning in Section 2.1 and does not address exceptions or alternate scopes, so the scenario is outside what it clearly constrains. The IR only records that the term is defined in Section 2.1 and is silent about exceptions, so it would not reject the added appendix carve-out."
+    },
+    {
+      "description": "Section 2.1 is added later in the document, after the sentence using the term, and the document says the term shall have the meaning as defined there.",
+      "category": "modality_edge",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 3,
+    "agreement_rate": 0.75,
+    "drifts": [
+      {
+        "description": "The document states that \"Index Universe Requirements\" has the meaning defined in Section 2.1, except when used in an appendix where it has a different meaning.",
+        "category": "scope_edge",
+        "source_verdict": "ambiguous",
+        "ir_verdict": "accept",
+        "agree": false,
+        "drift_explanation": "The source text only fixes the meaning in Section 2.1 and does not address exceptions or alternate scopes, so the scenario is outside what it clearly constrains. The IR only records that the term is defined in Section 2.1 and is silent about exceptions, so it would not reject the added appendix carve-out."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 0
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+﻿{
+  "backend": "owl",
+  "artifact": "case_studies\\financial_methodology\\backend_projection\\sections\\section_2_3\\owl.ttl",
+  "diagnostic_count": 8,
+  "diagnostics": [
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "float_market_capizatlization",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "weight",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_relation_reified",
+      "symbol": "redistributes_weight_proportionally",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "weight_based_on_float_market_capizatlization"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "region_represents_exactly_50_percent"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "single_index_component_weight_capped"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "weight_redistribution_process_is_iterative"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "weights_redistributed_proportionally"
+    }
+  ],
+  "partial": true
+}

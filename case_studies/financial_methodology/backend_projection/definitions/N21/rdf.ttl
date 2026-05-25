@@ -1,0 +1,77 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N21 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N21/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Table a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:TableColumn a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexCurrencySpecification a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+
+ex:Section1_2 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section1_2IndexTable a ex:Table, owl:NamedIndividual .
+ex:CurrencyColumn a ex:TableColumn, owl:NamedIndividual .
+ex:index_currency a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_currency_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_currency a4:argument ex:index_currency_arg_0 .
+ex:index_currency_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Currency .
+ex:index_currency a4:argument ex:index_currency_arg_1 .
+ex:specification_for_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:specification_for_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexCurrencySpecification .
+ex:specification_for_index a4:argument ex:specification_for_index_arg_0 .
+ex:specification_for_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:specification_for_index a4:argument ex:specification_for_index_arg_1 .
+ex:specification_currency a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:specification_currency_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexCurrencySpecification .
+ex:specification_currency a4:argument ex:specification_currency_arg_0 .
+ex:specification_currency_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Currency .
+ex:specification_currency a4:argument ex:specification_currency_arg_1 .
+ex:specification_column a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:specification_column_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexCurrencySpecification .
+ex:specification_column a4:argument ex:specification_column_arg_0 .
+ex:specification_column_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TableColumn .
+ex:specification_column a4:argument ex:specification_column_arg_1 .
+ex:specification_table a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:specification_table_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexCurrencySpecification .
+ex:specification_table a4:argument ex:specification_table_arg_0 .
+ex:specification_table_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Table .
+ex:specification_table a4:argument ex:specification_table_arg_1 .
+ex:table_in_section a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:table_in_section_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Table .
+ex:table_in_section a4:argument ex:table_in_section_arg_0 .
+ex:table_in_section_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:table_in_section a4:argument ex:table_in_section_arg_1 .
+ex:column_of_table a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:column_of_table_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TableColumn .
+ex:column_of_table a4:argument ex:column_of_table_arg_0 .
+ex:column_of_table_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Table .
+ex:column_of_table a4:argument ex:column_of_table_arg_1 .
+
+ex:ASSERT_currency_column_in_section_1_2_table a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "18"^^xsd:integer ;
+  a4:exprText "(table_in_section(Section1_2IndexTable, Section1_2)) and (column_of_table(CurrencyColumn, Section1_2IndexTable))" ;
+  a4:sourceText "fact currency_column_in_section_1_2_table :\n  table_in_section(Section1_2IndexTable, Section1_2)\n  and column_of_table(CurrencyColumn, Section1_2IndexTable)" .
+ex:ASSERT_index_currency_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "22"^^xsd:integer ;
+  a4:exprText "forall i: Index, forall c: Currency, (index_currency(i, c)) iff (exists spec: IndexCurrencySpecification, (specification_for_index(spec, i)) and (specification_currency(spec, c)) and (specification_column(spec, CurrencyColumn)) and (specification_table(spec, Section1_2IndexTable)))" ;
+  a4:sourceText "constraint index_currency_definition :\n  forall i: Index, forall c: Currency,\n    index_currency(i, c)\n    iff\n      exists spec: IndexCurrencySpecification,\n        specification_for_index(spec, i)\n        and specification_currency(spec, c)\n        and specification_column(spec, CurrencyColumn)\n        and specification_table(spec, Section1_2IndexTable)" .

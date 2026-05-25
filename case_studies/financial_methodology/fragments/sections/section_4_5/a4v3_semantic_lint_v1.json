@@ -1,0 +1,130 @@
+{
+  "entry_id": "section_4_5",
+  "skipped": false,
+  "schema": "a4v3_semantic_lint_v1",
+  "summary": {
+    "total_findings": 5,
+    "strong_findings": 0,
+    "soft_findings": 5,
+    "style_findings": 0,
+    "advisory_findings": 0,
+    "unused_declaration_count": 0,
+    "arity_gt_5_count": 0,
+    "arity_gt_2_without_role_explanation_count": 5,
+    "sentence_literal_in_formula_count": 0,
+    "permission_source_asserts_concrete_event_instance_count": 0,
+    "deontic_role_parameter_not_bound_count": 0,
+    "deontic_parameter_type_is_entity_count": 0,
+    "unused_rel_fun_count": 0,
+    "unused_sort_entity_count": 0,
+    "self_referential_scope_count": 0,
+    "past_participle_obligation_name_count": 0,
+    "double_coded_deontic_norm_count": 0,
+    "temporal_rel_in_deontic_context_count": 0,
+    "vacuous_responsibility_implication_count": 0,
+    "bare_universal_predicate_constraint_count": 0,
+    "fact_like_universal_constraint_count": 0,
+    "numeric_operation_on_non_numeric_sort_count": 0,
+    "basis_relation_without_value_link_count": 0,
+    "shared_name_token_without_structural_carrier_count": 0,
+    "semantic_contract_gap_count": 0,
+    "semantic_contract_gap_strong_count": 0,
+    "repair_candidate_present_count": 0,
+    "top_k_contract_gap_count": 0,
+    "by_contract_class": {
+      "role_contract": 5
+    }
+  },
+  "by_check": {
+    "relation_or_function_arity_gt_2_without_role_explanation": 5
+  },
+  "by_severity": {
+    "soft": 5
+  },
+  "by_contract_class": {
+    "role_contract": 5
+  },
+  "unused_by_decl_kind": {},
+  "findings": [
+    {
+      "check": "relation_or_function_arity_gt_2_without_role_explanation",
+      "severity": "soft",
+      "decl_kind": "rel",
+      "symbol": "adjustment_between_regular_rebalance_days",
+      "line_no": 77,
+      "arity": 3,
+      "argument_sorts": [
+        "CorporateActionAdjustment",
+        "RegularRebalanceDay",
+        "RegularRebalanceDay"
+      ],
+      "raw_decl": "rel adjustment_between_regular_rebalance_days :",
+      "reason": "Relation/function arity is above 2. This is allowed for local IR, but roles must be clearly explained in translator_notes.md or provenance.yaml; otherwise prefer a carrier plus binary role relations.",
+      "contract_class": "role_contract"
+    },
+    {
+      "check": "relation_or_function_arity_gt_2_without_role_explanation",
+      "severity": "soft",
+      "decl_kind": "rel",
+      "symbol": "implemented_from_to",
+      "line_no": 81,
+      "arity": 3,
+      "argument_sorts": [
+        "IndexMaintenanceCorporateAction",
+        "Day",
+        "Day"
+      ],
+      "raw_decl": "rel implemented_from_to :",
+      "reason": "Relation/function arity is above 2. This is allowed for local IR, but roles must be clearly explained in translator_notes.md or provenance.yaml; otherwise prefer a carrier plus binary role relations.",
+      "contract_class": "role_contract"
+    },
+    {
+      "check": "relation_or_function_arity_gt_2_without_role_explanation",
+      "severity": "soft",
+      "decl_kind": "rel",
+      "symbol": "methodology_contains_definition",
+      "line_no": 91,
+      "arity": 3,
+      "argument_sorts": [
+        "Document",
+        "CorporateActionKind",
+        "BriefCorporateActionDefinition"
+      ],
+      "raw_decl": "rel methodology_contains_definition :",
+      "reason": "Relation/function arity is above 2. This is allowed for local IR, but roles must be clearly explained in translator_notes.md or provenance.yaml; otherwise prefer a carrier plus binary role relations.",
+      "contract_class": "role_contract"
+    },
+    {
+      "check": "relation_or_function_arity_gt_2_without_role_explanation",
+      "severity": "soft",
+      "decl_kind": "rel",
+      "symbol": "methodology_specifies_relevant_adjustment_to_index_variable",
+      "line_no": 93,
+      "arity": 3,
+      "argument_sorts": [
+        "Document",
+        "CorporateActionKind",
+        "IndexVariable"
+      ],
+      "raw_decl": "rel methodology_specifies_relevant_adjustment_to_index_variable :",
+      "reason": "Relation/function arity is above 2. This is allowed for local IR, but roles must be clearly explained in translator_notes.md or provenance.yaml; otherwise prefer a carrier plus binary role relations.",
+      "contract_class": "role_contract"
+    },
+    {
+      "check": "relation_or_function_arity_gt_2_without_role_explanation",
+      "severity": "soft",
+      "decl_kind": "rel",
+      "symbol": "considers_relevant_for_index_maintenance",
+      "line_no": 119,
+      "arity": 3,
+      "argument_sorts": [
+        "SolactiveOrganization",
+        "CorporateActionKind",
+        "IndexMaintenance"
+      ],
+      "raw_decl": "rel considers_relevant_for_index_maintenance :",
+      "reason": "Relation/function arity is above 2. This is allowed for local IR, but roles must be clearly explained in translator_notes.md or provenance.yaml; otherwise prefer a carrier plus binary role relations.",
+      "contract_class": "role_contract"
+    }
+  ]
+}

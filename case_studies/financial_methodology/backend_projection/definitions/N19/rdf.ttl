@@ -1,0 +1,37 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N19 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N19/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Security a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:index_component a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Security .
+ex:index_component a4:argument ex:index_component_arg_0 .
+ex:index_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:index_component a4:argument ex:index_component_arg_1 .
+ex:security_reflected_in_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:security_reflected_in_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Security .
+ex:security_reflected_in_index a4:argument ex:security_reflected_in_index_arg_0 .
+ex:security_reflected_in_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:security_reflected_in_index a4:argument ex:security_reflected_in_index_arg_1 .
+
+ex:ASSERT_index_component_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "9"^^xsd:integer ;
+  a4:exprText "forall s: Security, (index_component(s, TheIndex)) iff (security_reflected_in_index(s, TheIndex))" ;
+  a4:sourceText "constraint index_component_definition :\n  forall s: Security,\n    index_component(s, TheIndex)\n    iff security_reflected_in_index(s, TheIndex)" .

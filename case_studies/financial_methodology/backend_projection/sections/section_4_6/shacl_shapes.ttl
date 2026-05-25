@@ -1,0 +1,139 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_6 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:Effort a rdfs:Class .
+ex:EffortShape a sh:NodeShape ; sh:targetClass ex:Effort .
+ex:DeterminationProcess a rdfs:Class .
+ex:DeterminationProcessShape a sh:NodeShape ; sh:targetClass ex:DeterminationProcess .
+ex:Error a rdfs:Class .
+ex:Error rdfs:subClassOf ex:Event .
+ex:ErrorShape a sh:NodeShape ; sh:targetClass ex:Error .
+ex:ErrorPossibility a rdfs:Class .
+ex:ErrorPossibilityShape a sh:NodeShape ; sh:targetClass ex:ErrorPossibility .
+ex:Description a rdfs:Class .
+ex:DescriptionShape a sh:NodeShape ; sh:targetClass ex:Description .
+ex:IndexEffortGoal a rdfs:Class .
+ex:IndexEffortGoalShape a sh:NodeShape ; sh:targetClass ex:IndexEffortGoal .
+ex:AccurateCalculation a ex:IndexEffortGoal .
+ex:AccurateMaintenance a ex:IndexEffortGoal .
+ex:Reason a rdfs:Class .
+ex:ReasonShape a sh:NodeShape ; sh:targetClass ex:Reason .
+ex:Internal a ex:Reason .
+ex:External a ex:Reason .
+ex:Endeavor a rdfs:Class .
+ex:EndeavorShape a sh:NodeShape ; sh:targetClass ex:Endeavor .
+ex:Understanding a rdfs:Class .
+ex:UnderstandingShape a sh:NodeShape ; sh:targetClass ex:Understanding .
+ex:GeneralMeasure a rdfs:Class .
+ex:GeneralMeasureShape a sh:NodeShape ; sh:targetClass ex:GeneralMeasure .
+ex:UnderlyingDependency a rdfs:Class .
+ex:UnderlyingDependencyShape a sh:NodeShape ; sh:targetClass ex:UnderlyingDependency .
+ex:PolicySpecification a rdfs:Class .
+ex:PolicySpecificationShape a sh:NodeShape ; sh:targetClass ex:PolicySpecification .
+ex:Underlying a rdfs:Class .
+ex:UnderlyingShape a sh:NodeShape ; sh:targetClass ex:Underlying .
+ex:CorrectionPolicy a rdfs:Class .
+ex:CorrectionPolicy rdfs:subClassOf ex:Document .
+ex:CorrectionPolicyShape a sh:NodeShape ; sh:targetClass ex:CorrectionPolicy .
+
+ex:Solactive a ex:Organization .
+ex:SolactiveGreatestPossibleEfforts a ex:Effort .
+ex:SolactiveDeterminationProcess a ex:DeterminationProcess .
+ex:DeterminationProcessErrorPossibility a ex:ErrorPossibility .
+ex:DeterminationProcessErrorDescription a ex:Description .
+ex:ReasonablePeriodOfTime a ex:VagueTerm .
+ex:ReasonablePeriodOfTimeUnderstanding a ex:Understanding .
+ex:GeneralMeasuresToBeTaken a ex:GeneralMeasure .
+ex:FromTimeToTime a ex:VagueTerm .
+ex:VarietyReasons a ex:VagueTerm .
+ex:CannotBeCompletelyRuledOut a ex:VagueTerm .
+ex:PeriodAndMeasureUnderlyingDependency a ex:UnderlyingDependency .
+ex:CorrectionPolicySpecification a ex:PolicySpecification .
+ex:ThisGuideline a ex:Document .
+ex:SolactiveCorrectionPolicy a ex:CorrectionPolicy .
+ex:SolactiveWebsite a ex:WebResource .
+ex:index_of a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_of ; sh:class ex:Organization ] .
+ex:makes_effort a rdf:Property .
+ex:OrganizationShape sh:property [ sh:path ex:makes_effort ; sh:class ex:Effort ] .
+ex:greatest_possible a rdfs:Class ; rdfs:subClassOf ex:Effort .
+ex:effort_goal a rdfs:Class .
+ex:effort_goalShape a sh:NodeShape ; sh:targetClass ex:effort_goal .
+ex:effort_goalShape sh:property [ sh:path ex:effort_goal_arg_0 ; sh:class ex:Effort ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:effort_goalShape sh:property [ sh:path ex:effort_goal_arg_1 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:effort_goalShape sh:property [ sh:path ex:effort_goal_arg_2 ; sh:class ex:IndexEffortGoal ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:error_possibility_in_determination_process a rdf:Property .
+ex:ErrorPossibilityShape sh:property [ sh:path ex:error_possibility_in_determination_process ; sh:class ex:DeterminationProcess ] .
+ex:description_of_error_possibility a rdf:Property .
+ex:DescriptionShape sh:property [ sh:path ex:description_of_error_possibility ; sh:class ex:ErrorPossibility ] .
+ex:description_occurrence_term a rdf:Property .
+ex:DescriptionShape sh:property [ sh:path ex:description_occurrence_term ; sh:class ex:VagueTerm ] .
+ex:description_reason_term a rdf:Property .
+ex:DescriptionShape sh:property [ sh:path ex:description_reason_term ; sh:class ex:VagueTerm ] .
+ex:description_polarity_term a rdf:Property .
+ex:DescriptionShape sh:property [ sh:path ex:description_polarity_term ; sh:class ex:VagueTerm ] .
+ex:error_possibility_reason a rdf:Property .
+ex:ErrorPossibilityShape sh:property [ sh:path ex:error_possibility_reason ; sh:class ex:Reason ] .
+ex:completely_ruled_out a rdfs:Class ; rdfs:subClassOf ex:ErrorPossibility .
+ex:error_in_determination_process a rdf:Property .
+ex:ErrorShape sh:property [ sh:path ex:error_in_determination_process ; sh:class ex:DeterminationProcess ] .
+ex:identified a rdfs:Class ; rdfs:subClassOf ex:Error .
+ex:endeavor_by a rdf:Property .
+ex:EndeavorShape sh:property [ sh:path ex:endeavor_by ; sh:class ex:Organization ] .
+ex:endeavor_to_correct a rdf:Property .
+ex:EndeavorShape sh:property [ sh:path ex:endeavor_to_correct ; sh:class ex:Error ] .
+ex:endeavor_within a rdf:Property .
+ex:EndeavorShape sh:property [ sh:path ex:endeavor_within ; sh:class ex:Period ] .
+ex:reasonable_period_for_error a rdf:Property .
+ex:ErrorShape sh:property [ sh:path ex:reasonable_period_for_error ; sh:class ex:Period ] .
+ex:period_described_by a rdf:Property .
+ex:PeriodShape sh:property [ sh:path ex:period_described_by ; sh:class ex:VagueTerm ] .
+ex:understanding_of a rdf:Property .
+ex:UnderstandingShape sh:property [ sh:path ex:understanding_of ; sh:class ex:VagueTerm ] .
+ex:general_measure_to_be_taken a rdfs:Class ; rdfs:subClassOf ex:GeneralMeasure .
+ex:dependency_understanding a rdf:Property .
+ex:UnderlyingDependencyShape sh:property [ sh:path ex:dependency_understanding ; sh:class ex:Understanding ] .
+ex:dependency_general_measure a rdf:Property .
+ex:UnderlyingDependencyShape sh:property [ sh:path ex:dependency_general_measure ; sh:class ex:GeneralMeasure ] .
+ex:dependency_underlying a rdf:Property .
+ex:UnderlyingDependencyShape sh:property [ sh:path ex:dependency_underlying ; sh:class ex:Underlying ] .
+ex:generally_applies a rdfs:Class ; rdfs:subClassOf ex:UnderlyingDependency .
+ex:specification_understanding a rdf:Property .
+ex:PolicySpecificationShape sh:property [ sh:path ex:specification_understanding ; sh:class ex:Understanding ] .
+ex:specification_general_measure a rdf:Property .
+ex:PolicySpecificationShape sh:property [ sh:path ex:specification_general_measure ; sh:class ex:GeneralMeasure ] .
+ex:specification_policy a rdf:Property .
+ex:PolicySpecificationShape sh:property [ sh:path ex:specification_policy ; sh:class ex:CorrectionPolicy ] .
+ex:incorporated_by_reference_into a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:incorporated_by_reference_into ; sh:class ex:Document ] .
+ex:available_on a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:available_on ; sh:class ex:WebResource ] .
+ex:website_of a rdf:Property .
+ex:WebResourceShape sh:property [ sh:path ex:website_of ; sh:class ex:Organization ] .
+
+ex:Solactive ex:makes_effort ex:SolactiveGreatestPossibleEfforts .
+ex:SolactiveGreatestPossibleEfforts a ex:greatest_possible .
+ex:DeterminationProcessErrorPossibility ex:error_possibility_in_determination_process ex:SolactiveDeterminationProcess .
+ex:DeterminationProcessErrorDescription ex:description_of_error_possibility ex:DeterminationProcessErrorPossibility .
+ex:DeterminationProcessErrorDescription ex:description_occurrence_term ex:FromTimeToTime .
+ex:DeterminationProcessErrorDescription ex:description_reason_term ex:VarietyReasons .
+ex:DeterminationProcessErrorDescription ex:description_polarity_term ex:CannotBeCompletelyRuledOut .
+ex:DeterminationProcessErrorPossibility ex:error_possibility_reason ex:Internal .
+ex:DeterminationProcessErrorPossibility ex:error_possibility_reason ex:External .
+ex:ReasonablePeriodOfTimeUnderstanding ex:understanding_of ex:ReasonablePeriodOfTime .
+ex:GeneralMeasuresToBeTaken a ex:general_measure_to_be_taken .
+ex:CorrectionPolicySpecification ex:specification_understanding ex:ReasonablePeriodOfTimeUnderstanding .
+ex:CorrectionPolicySpecification ex:specification_general_measure ex:GeneralMeasuresToBeTaken .
+ex:CorrectionPolicySpecification ex:specification_policy ex:SolactiveCorrectionPolicy .
+ex:SolactiveCorrectionPolicy ex:incorporated_by_reference_into ex:ThisGuideline .
+ex:SolactiveCorrectionPolicy ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .

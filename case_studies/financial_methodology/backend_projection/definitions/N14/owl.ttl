@@ -1,0 +1,34 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N14 a owl:Ontology .
+
+ex:GbsIndexUniverse a owl:Class .
+ex:GbsIndex a owl:Class .
+
+ex:TheGbsIndexUniverse a ex:GbsIndexUniverse, owl:NamedIndividual .
+ex:GbsIndexSpecifiedInSection2_1 a ex:GbsIndex, owl:NamedIndividual .
+ex:Section2_1 a ex:DocumentPart, owl:NamedIndividual .
+ex:SolactiveGBSBenchmarkSeriesGuideline a ex:Document, owl:NamedIndividual .
+ex:HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf a ex:Url, owl:NamedIndividual .
+ex:gbs_index_specified_in_section a owl:ObjectProperty ;
+  rdfs:domain ex:GbsIndex ;
+  rdfs:range ex:DocumentPart .
+ex:index_universe_as_defined_in_guideline a owl:ObjectProperty ;
+  rdfs:domain ex:GbsIndexUniverse ;
+  rdfs:range ex:Document .
+ex:index_universe_for_gbs_index a owl:ObjectProperty ;
+  rdfs:domain ex:GbsIndexUniverse ;
+  rdfs:range ex:GbsIndex .
+
+ex:ASSERT_solactive_gbs_benchmark_series_guideline_url a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "document_url(SolactiveGBSBenchmarkSeriesGuideline, HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)" .
+ex:GbsIndexSpecifiedInSection2_1 ex:gbs_index_specified_in_section ex:Section2_1 .
+ex:TheGbsIndexUniverse ex:index_universe_as_defined_in_guideline ex:SolactiveGBSBenchmarkSeriesGuideline .
+ex:TheGbsIndexUniverse ex:index_universe_for_gbs_index ex:GbsIndexSpecifiedInSection2_1 .

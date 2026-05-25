@@ -1,0 +1,2676 @@
+{
+  "entry_id": "N12",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 45,
+    "content_token_count": 30,
+    "covered_content_token_count": 29,
+    "uncovered_content_token_count": 1,
+    "ignored_stopword_count": 15,
+    "content_coverage_rate": 0.967
+  },
+  "tokens": [
+    {
+      "token": "the",
+      "surface_forms": [
+        "The",
+        "the"
+      ],
+      "count": 5,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 1
+        },
+        {
+          "line": 1,
+          "column": 44
+        },
+        {
+          "line": 1,
+          "column": 70
+        },
+        {
+          "line": 1,
+          "column": 122
+        },
+        {
+          "line": 1,
+          "column": 159
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_component_requirements",
+          "matched_text": "securities fulfilling the Index Component Requirements"
+        }
+      ]
+    },
+    {
+      "token": "free",
+      "surface_forms": [
+        "Free"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 6
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "FreeFloat",
+          "family": "TypeDecl.subtype",
+          "line": 7,
+          "matched_text": "FreeFloat"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "free_float"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "FreeFloat"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_numerator",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "free_float_numerator"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "free_float_numerator",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "FreeFloat"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_denominator",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "free_float_denominator"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "free_float_denominator",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "FreeFloat"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "FreeFloat"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_definition",
+          "family": "AssertDecl.constraint",
+          "line": 22,
+          "matched_text": "free_float_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "line": 22,
+          "matched_text": "free_float_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].left",
+          "matched_text": "free_float_numerator"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].left.args[0]",
+          "matched_text": "free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].left",
+          "matched_text": "free_float_denominator"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].left.args[0]",
+          "matched_text": "free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].left",
+          "matched_text": "free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].right.left",
+          "matched_text": "free_float_numerator"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].right.left.args[0]",
+          "matched_text": "free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].right.right",
+          "matched_text": "free_float_denominator"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].right.right.args[0]",
+          "matched_text": "free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3].body.args[0]",
+          "matched_text": "free_float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "FreeFloat",
+          "matched_text": "Free Float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float",
+          "matched_text": "Free Float"
+        }
+      ]
+    },
+    {
+      "token": "float",
+      "surface_forms": [
+        "Float"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 11
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "FreeFloat",
+          "family": "TypeDecl.subtype",
+          "line": 7,
+          "matched_text": "FreeFloat"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "free_float"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "FreeFloat"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_numerator",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "free_float_numerator"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "free_float_numerator",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "FreeFloat"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_denominator",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "free_float_denominator"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "free_float_denominator",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "FreeFloat"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "FreeFloat"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_definition",
+          "family": "AssertDecl.constraint",
+          "line": 22,
+          "matched_text": "free_float_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "line": 22,
+          "matched_text": "free_float_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].left",
+          "matched_text": "free_float_numerator"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].left.args[0]",
+          "matched_text": "free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].left",
+          "matched_text": "free_float_denominator"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].left.args[0]",
+          "matched_text": "free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].left",
+          "matched_text": "free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].right.left",
+          "matched_text": "free_float_numerator"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].right.left.args[0]",
+          "matched_text": "free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].right.right",
+          "matched_text": "free_float_denominator"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].right.right.args[0]",
+          "matched_text": "free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3].body.args[0]",
+          "matched_text": "free_float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "FreeFloat",
+          "matched_text": "Free Float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float",
+          "matched_text": "Free Float"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 18
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "with",
+      "surface_forms": [
+        "with"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 21
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "regard",
+      "surface_forms": [
+        "regard"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 26
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "to",
+      "surface_forms": [
+        "to"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 33
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "each",
+      "surface_forms": [
+        "each"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 36
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "universal_quantifier",
+          "marker": "forall"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 4,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 41
+        },
+        {
+          "line": 1,
+          "column": 156
+        },
+        {
+          "line": 1,
+          "column": 176
+        },
+        {
+          "line": 1,
+          "column": 186
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "share_of_share_class",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "share_of_share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[0]",
+          "matched_text": "share_of_share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.predicate.args[0]",
+          "matched_text": "share_of_share_class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareCount",
+          "matched_text": "number of shares"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_denominator",
+          "matched_text": "total number of shares of such share class issued"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "share_of_share_class",
+          "matched_text": "of such share class"
+        }
+      ]
+    },
+    {
+      "token": "securiti",
+      "surface_forms": [
+        "securities"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 48
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Security",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "Security"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "Security"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "Security"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "Security"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "Security"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Security",
+          "matched_text": "securities"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_component_requirements",
+          "matched_text": "securities fulfilling the Index Component Requirements"
+        }
+      ]
+    },
+    {
+      "token": "fulfill",
+      "surface_forms": [
+        "fulfilling"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 59
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_component_requirements",
+          "matched_text": "securities fulfilling the Index Component Requirements"
+        }
+      ]
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 74
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_component_requirements",
+          "matched_text": "securities fulfilling the Index Component Requirements"
+        }
+      ]
+    },
+    {
+      "token": "component",
+      "surface_forms": [
+        "Component"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 80
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_component_requirements",
+          "matched_text": "securities fulfilling the Index Component Requirements"
+        }
+      ]
+    },
+    {
+      "token": "requirement",
+      "surface_forms": [
+        "Requirements"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 90
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_component_requirements",
+          "matched_text": "securities fulfilling the Index Component Requirements"
+        }
+      ]
+    },
+    {
+      "token": "on",
+      "surface_forms": [
+        "on"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 103
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "issued_share_on_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[1]",
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.predicate.args[1]",
+          "matched_text": "issued_share_on_selection_day"
+        }
+      ]
+    },
+    {
+      "token": "a",
+      "surface_forms": [
+        "a"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 106
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "selection",
+      "surface_forms": [
+        "Selection"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 108
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SelectionDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "issued_share_on_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "issued_share_on_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "available_for_trading_by_market_participants",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "locked_in_by_long_term_holders",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[1]",
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.predicate.args[1]",
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SelectionDay",
+          "matched_text": "Selection Day"
+        }
+      ]
+    },
+    {
+      "token": "day",
+      "surface_forms": [
+        "Day"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 118
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SelectionDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "SelectionDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "issued_share_on_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "issued_share_on_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "available_for_trading_by_market_participants",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "locked_in_by_long_term_holders",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[1]",
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.predicate.args[1]",
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SelectionDay",
+          "matched_text": "Selection Day"
+        }
+      ]
+    },
+    {
+      "token": "share",
+      "surface_forms": [
+        "share"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 126
+        },
+        {
+          "line": 1,
+          "column": 194
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ShareClass",
+          "family": "TypeDecl.opaque",
+          "line": 3,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Share",
+          "family": "TypeDecl.opaque",
+          "line": 4,
+          "matched_text": "Share"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ShareCount",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "ShareCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "free_float_numerator",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "ShareCount"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "free_float_denominator",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "ShareCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "share_of_share_class",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "share_of_share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "share_of_share_class",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "Share"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "share_of_share_class",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "issued_share_on_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "issued_share_on_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "Share"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "available_for_trading_by_market_participants",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "Share"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "locked_in_by_long_term_holders",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "Share"
+        },
+        {
+          "source": "formula",
+          "role": "count_binder_sort",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right",
+          "matched_text": "Share"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.binder.sort",
+          "matched_text": "Share"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[0]",
+          "matched_text": "share_of_share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[0].args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[1]",
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "count_binder_sort",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right",
+          "matched_text": "Share"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.binder.sort",
+          "matched_text": "Share"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.predicate.args[0]",
+          "matched_text": "share_of_share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.predicate.args[0].args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.predicate.args[1]",
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareCount",
+          "matched_text": "number of shares"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareClass",
+          "matched_text": "share class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Share",
+          "matched_text": "shares"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "share_class",
+          "matched_text": "such share class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_denominator",
+          "matched_text": "total number of shares of such share class issued"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "share_of_share_class",
+          "matched_text": "of such share class"
+        }
+      ]
+    },
+    {
+      "token": "cla",
+      "surface_forms": [
+        "class-specific",
+        "class"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 132
+        },
+        {
+          "line": 1,
+          "column": 200
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ShareClass",
+          "family": "TypeDecl.opaque",
+          "line": 3,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "share_of_share_class",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "share_of_share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "share_of_share_class",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[0]",
+          "matched_text": "share_of_share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[0].args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.predicate.args[0]",
+          "matched_text": "share_of_share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.predicate.args[0].args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareClass",
+          "matched_text": "share class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "share_class",
+          "matched_text": "such share class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_denominator",
+          "matched_text": "total number of shares of such share class issued"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "share_of_share_class",
+          "matched_text": "of such share class"
+        }
+      ]
+    },
+    {
+      "token": "fraction",
+      "surface_forms": [
+        "fraction"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 147
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Fraction",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "Fraction"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "FreeFloat",
+          "family": "TypeDecl.subtype",
+          "line": 7,
+          "matched_text": "Fraction"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Fraction",
+          "matched_text": "fraction"
+        }
+      ]
+    },
+    {
+      "token": "total",
+      "surface_forms": [
+        "total"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 163
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_denominator",
+          "matched_text": "total number of shares of such share class issued"
+        }
+      ]
+    },
+    {
+      "token": "number",
+      "surface_forms": [
+        "number"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 169
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareCount",
+          "matched_text": "number of shares"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_denominator",
+          "matched_text": "total number of shares of such share class issued"
+        }
+      ]
+    },
+    {
+      "token": "shar",
+      "surface_forms": [
+        "shares"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 179
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareCount",
+          "matched_text": "number of shares"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Share",
+          "matched_text": "shares"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_denominator",
+          "matched_text": "total number of shares of such share class issued"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ShareClass",
+          "family": "TypeDecl.opaque",
+          "line": 3,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Share",
+          "family": "TypeDecl.opaque",
+          "line": 4,
+          "matched_text": "Share"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ShareCount",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "ShareCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "free_float_numerator",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "ShareCount"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "free_float_denominator",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "ShareCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "share_of_share_class",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "share_of_share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "share_of_share_class",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "Share"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "share_of_share_class",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "issued_share_on_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "issued_share_on_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "Share"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "available_for_trading_by_market_participants",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "Share"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "locked_in_by_long_term_holders",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "Share"
+        },
+        {
+          "source": "formula",
+          "role": "count_binder_sort",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right",
+          "matched_text": "Share"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.binder.sort",
+          "matched_text": "Share"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[0]",
+          "matched_text": "share_of_share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[0].args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[1]",
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "count_binder_sort",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right",
+          "matched_text": "Share"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.binder.sort",
+          "matched_text": "Share"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.predicate.args[0]",
+          "matched_text": "share_of_share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.predicate.args[0].args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.predicate.args[1]",
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareClass",
+          "matched_text": "share class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "share_class",
+          "matched_text": "such share class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "share_of_share_class",
+          "matched_text": "of such share class"
+        }
+      ]
+    },
+    {
+      "token": "such",
+      "surface_forms": [
+        "such"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 189
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "share_class",
+          "matched_text": "such share class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_denominator",
+          "matched_text": "total number of shares of such share class issued"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "share_of_share_class",
+          "matched_text": "of such share class"
+        }
+      ]
+    },
+    {
+      "token": "issu",
+      "surface_forms": [
+        "issued"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 206
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "issued_share_on_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[1]",
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].right.predicate.args[1]",
+          "matched_text": "issued_share_on_selection_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_denominator",
+          "matched_text": "total number of shares of such share class issued"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "issued_share_on_selection_day",
+          "matched_text": "issued"
+        }
+      ]
+    },
+    {
+      "token": "that",
+      "surface_forms": [
+        "that"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 213
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "are",
+      "surface_forms": [
+        "are"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 218
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "available",
+      "surface_forms": [
+        "available"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 222
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "available_for_trading_by_market_participants",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "available_for_trading_by_market_participants"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[2]",
+          "matched_text": "available_for_trading_by_market_participants"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_numerator",
+          "matched_text": "available for trading by market participants and not locked-in by long term holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "available_for_trading_by_market_participants",
+          "matched_text": "available for trading by market participants"
+        }
+      ]
+    },
+    {
+      "token": "for",
+      "surface_forms": [
+        "for"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 232
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "available_for_trading_by_market_participants",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "available_for_trading_by_market_participants"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[2]",
+          "matched_text": "available_for_trading_by_market_participants"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_numerator",
+          "matched_text": "available for trading by market participants and not locked-in by long term holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "available_for_trading_by_market_participants",
+          "matched_text": "available for trading by market participants"
+        }
+      ]
+    },
+    {
+      "token": "trad",
+      "surface_forms": [
+        "trading"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 236
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "available_for_trading_by_market_participants",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "available_for_trading_by_market_participants"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[2]",
+          "matched_text": "available_for_trading_by_market_participants"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_numerator",
+          "matched_text": "available for trading by market participants and not locked-in by long term holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "available_for_trading_by_market_participants",
+          "matched_text": "available for trading by market participants"
+        }
+      ]
+    },
+    {
+      "token": "by",
+      "surface_forms": [
+        "by"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 244
+        },
+        {
+          "line": 1,
+          "column": 285
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "available_for_trading_by_market_participants",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "available_for_trading_by_market_participants"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "locked_in_by_long_term_holders",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "locked_in_by_long_term_holders"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[2]",
+          "matched_text": "available_for_trading_by_market_participants"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[3].arg",
+          "matched_text": "locked_in_by_long_term_holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_numerator",
+          "matched_text": "available for trading by market participants and not locked-in by long term holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "available_for_trading_by_market_participants",
+          "matched_text": "available for trading by market participants"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "locked_in_by_long_term_holders",
+          "matched_text": "locked-in by long term holders"
+        }
+      ]
+    },
+    {
+      "token": "market",
+      "surface_forms": [
+        "market"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 247
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "available_for_trading_by_market_participants",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "available_for_trading_by_market_participants"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[2]",
+          "matched_text": "available_for_trading_by_market_participants"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_numerator",
+          "matched_text": "available for trading by market participants and not locked-in by long term holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "available_for_trading_by_market_participants",
+          "matched_text": "available for trading by market participants"
+        }
+      ]
+    },
+    {
+      "token": "participant",
+      "surface_forms": [
+        "participants"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 254
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "available_for_trading_by_market_participants",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "available_for_trading_by_market_participants"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[2]",
+          "matched_text": "available_for_trading_by_market_participants"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_numerator",
+          "matched_text": "available for trading by market participants and not locked-in by long term holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "available_for_trading_by_market_participants",
+          "matched_text": "available for trading by market participants"
+        }
+      ]
+    },
+    {
+      "token": "and",
+      "surface_forms": [
+        "and"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 267
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_numerator",
+          "matched_text": "available for trading by market participants and not locked-in by long term holders"
+        }
+      ]
+    },
+    {
+      "token": "not",
+      "surface_forms": [
+        "not"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 271
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_numerator",
+          "matched_text": "available for trading by market participants and not locked-in by long term holders"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "locked-in"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 275
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "locked_in_by_long_term_holders",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "locked_in_by_long_term_holders"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[3].arg",
+          "matched_text": "locked_in_by_long_term_holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_numerator",
+          "matched_text": "available for trading by market participants and not locked-in by long term holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "locked_in_by_long_term_holders",
+          "matched_text": "locked-in by long term holders"
+        }
+      ]
+    },
+    {
+      "token": "long",
+      "surface_forms": [
+        "long"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 288
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "locked_in_by_long_term_holders",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "locked_in_by_long_term_holders"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[3].arg",
+          "matched_text": "locked_in_by_long_term_holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_numerator",
+          "matched_text": "available for trading by market participants and not locked-in by long term holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "locked_in_by_long_term_holders",
+          "matched_text": "locked-in by long term holders"
+        }
+      ]
+    },
+    {
+      "token": "term",
+      "surface_forms": [
+        "term"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 293
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "locked_in_by_long_term_holders",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "locked_in_by_long_term_holders"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[3].arg",
+          "matched_text": "locked_in_by_long_term_holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_numerator",
+          "matched_text": "available for trading by market participants and not locked-in by long term holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "locked_in_by_long_term_holders",
+          "matched_text": "locked-in by long term holders"
+        }
+      ]
+    },
+    {
+      "token": "holder",
+      "surface_forms": [
+        "holders"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 298
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "locked_in_by_long_term_holders",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "locked_in_by_long_term_holders"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.predicate.args[3].arg",
+          "matched_text": "locked_in_by_long_term_holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_numerator",
+          "matched_text": "available for trading by market participants and not locked-in by long term holders"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "locked_in_by_long_term_holders",
+          "matched_text": "locked-in by long term holders"
+        }
+      ]
+    },
+    {
+      "token": "as",
+      "surface_forms": [
+        "as"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 307
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "sourced_from_data_vendor",
+          "matched_text": "as sourced from data vendors"
+        }
+      ]
+    },
+    {
+      "token": "sourc",
+      "surface_forms": [
+        "sourced"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 310
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3].body",
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "sourced_from_data_vendor",
+          "matched_text": "as sourced from data vendors"
+        }
+      ]
+    },
+    {
+      "token": "from",
+      "surface_forms": [
+        "from"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 318
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3].body",
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "sourced_from_data_vendor",
+          "matched_text": "as sourced from data vendors"
+        }
+      ]
+    },
+    {
+      "token": "data",
+      "surface_forms": [
+        "data"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 323
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DataVendor",
+          "family": "TypeDecl.opaque",
+          "line": 8,
+          "matched_text": "DataVendor"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "DataVendor"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3].vars[0].sort",
+          "matched_text": "DataVendor"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3].body",
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DataVendor",
+          "matched_text": "data vendors"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "sourced_from_data_vendor",
+          "matched_text": "as sourced from data vendors"
+        }
+      ]
+    },
+    {
+      "token": "vendor",
+      "surface_forms": [
+        "vendors"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 328
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DataVendor",
+          "family": "TypeDecl.opaque",
+          "line": 8,
+          "matched_text": "DataVendor"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "DataVendor"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3].vars[0].sort",
+          "matched_text": "DataVendor"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3].body",
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "free_float_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3].body.args[1]",
+          "matched_text": "vendor"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DataVendor",
+          "matched_text": "data vendors"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "sourced_from_data_vendor",
+          "matched_text": "as sourced from data vendors"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "regard",
+      "surface_forms": [
+        "regard"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 26
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

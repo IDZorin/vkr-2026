@@ -1,0 +1,2011 @@
+{
+  "entry_id": "section_5_4",
+  "schema": "semantic_claim_alignment_v1",
+  "generated_at": "2026-05-03T18:23:28",
+  "parse_error": null,
+  "summary": {
+    "claim_count": 6,
+    "strong_candidate_count": 3,
+    "partial_candidate_count": 3,
+    "weak_or_missing_candidate_count": 0,
+    "reviewed_count": 0,
+    "approved_count": 0,
+    "needs_revision_count": 0,
+    "average_top3_token_coverage": 0.818,
+    "all_claims_review_approved": false
+  },
+  "claims": [
+    {
+      "claim_id": "C01",
+      "text": "Solactive makes the greatest possible efforts to ensure the resilience and continued integrity of its indices over time.",
+      "hash": "e36ccc4e686e",
+      "tokens": [
+        {
+          "token": "solactive",
+          "surface_forms": [
+            "Solactive"
+          ],
+          "keys": [
+            "solactive"
+          ]
+        },
+        {
+          "token": "mak",
+          "surface_forms": [
+            "makes"
+          ],
+          "keys": [
+            "mak",
+            "make",
+            "makes"
+          ]
+        },
+        {
+          "token": "greatest",
+          "surface_forms": [
+            "greatest"
+          ],
+          "keys": [
+            "greatest"
+          ]
+        },
+        {
+          "token": "possible",
+          "surface_forms": [
+            "possible"
+          ],
+          "keys": [
+            "possible"
+          ]
+        },
+        {
+          "token": "effort",
+          "surface_forms": [
+            "efforts"
+          ],
+          "keys": [
+            "effort",
+            "efforts"
+          ]
+        },
+        {
+          "token": "ensure",
+          "surface_forms": [
+            "ensure"
+          ],
+          "keys": [
+            "ensure"
+          ]
+        },
+        {
+          "token": "resilience",
+          "surface_forms": [
+            "resilience"
+          ],
+          "keys": [
+            "resilience"
+          ]
+        },
+        {
+          "token": "continu",
+          "surface_forms": [
+            "continued"
+          ],
+          "keys": [
+            "continu",
+            "continued"
+          ]
+        },
+        {
+          "token": "integriti",
+          "surface_forms": [
+            "integrity"
+          ],
+          "keys": [
+            "integriti",
+            "integrity"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "indices"
+          ],
+          "keys": [
+            "index",
+            "indic",
+            "indice",
+            "indices"
+          ]
+        },
+        {
+          "token": "over",
+          "surface_forms": [
+            "over"
+          ],
+          "keys": [
+            "over"
+          ]
+        },
+        {
+          "token": "time",
+          "surface_forms": [
+            "time"
+          ],
+          "keys": [
+            "time"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:solactive_efforts_for_resilience_and_integrity",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "solactive_efforts_for_resilience_and_integrity",
+          "line": 130,
+          "token_recall": 0.75,
+          "token_precision": 0.444,
+          "score": 0.689,
+          "matched_claim_tokens": [
+            "continu",
+            "effort",
+            "ensure",
+            "greatest",
+            "index",
+            "integriti",
+            "possible",
+            "resilience",
+            "solactive"
+          ],
+          "raw_excerpt": "constraint solactive_efforts_for_resilience_and_integrity : forall i: Index, index_of(i, Solactive) implies effort_to_ensure(SolactiveGreatestPossibleEfforts, i, Resilience) and effort_to_ensure( SolactiveGreatestPossibleEfforts, i, ContinuedIntegrity )"
+        },
+        {
+          "block_id": "assertion:fact:solactive_effort",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "solactive_effort",
+          "line": 125,
+          "token_recall": 0.5,
+          "token_precision": 0.467,
+          "score": 0.493,
+          "matched_claim_tokens": [
+            "effort",
+            "greatest",
+            "over",
+            "possible",
+            "solactive",
+            "time"
+          ],
+          "raw_excerpt": "fact solactive_effort : effort_by(SolactiveGreatestPossibleEfforts, Solactive) and greatest_possible(SolactiveGreatestPossibleEfforts) and over_time(SolactiveGreatestPossibleEfforts)"
+        },
+        {
+          "block_id": "declaration:entity:SolactiveGreatestPossibleEfforts",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "SolactiveGreatestPossibleEfforts",
+          "line": 28,
+          "token_recall": 0.333,
+          "token_precision": 0.625,
+          "score": 0.392,
+          "matched_claim_tokens": [
+            "effort",
+            "greatest",
+            "possible",
+            "solactive"
+          ],
+          "raw_excerpt": "entity SolactiveGreatestPossibleEfforts : Effort"
+        },
+        {
+          "block_id": "declaration:rel:greatest_possible",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "greatest_possible",
+          "line": 45,
+          "token_recall": 0.25,
+          "token_precision": 0.75,
+          "score": 0.35,
+          "matched_claim_tokens": [
+            "effort",
+            "greatest",
+            "possible"
+          ],
+          "raw_excerpt": "rel greatest_possible : Effort"
+        },
+        {
+          "block_id": "declaration:rel:over_time",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "over_time",
+          "line": 46,
+          "token_recall": 0.25,
+          "token_precision": 0.75,
+          "score": 0.35,
+          "matched_claim_tokens": [
+            "effort",
+            "over",
+            "time"
+          ],
+          "raw_excerpt": "rel over_time : Effort"
+        }
+      ],
+      "candidate_count": 53,
+      "covered_claim_tokens_by_top3": [
+        "continu",
+        "effort",
+        "ensure",
+        "greatest",
+        "index",
+        "integriti",
+        "over",
+        "possible",
+        "resilience",
+        "solactive",
+        "time"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "mak",
+          "surface_forms": [
+            "makes"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.917,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C02",
+      "text": "Where necessary, Solactive follows a clearly defined and transparent procedure to adapt Index methodologies to changing underlying markets (see Section 5.2 вЂњMethodology ReviewвЂќ) in order to maintain continued reliability and comparability of the indices.",
+      "hash": "13c3163ca33a",
+      "tokens": [
+        {
+          "token": "necessari",
+          "surface_forms": [
+            "necessary"
+          ],
+          "keys": [
+            "necessari",
+            "necessary"
+          ]
+        },
+        {
+          "token": "solactive",
+          "surface_forms": [
+            "Solactive"
+          ],
+          "keys": [
+            "solactive"
+          ]
+        },
+        {
+          "token": "follow",
+          "surface_forms": [
+            "follows"
+          ],
+          "keys": [
+            "follow",
+            "follows"
+          ]
+        },
+        {
+          "token": "clearli",
+          "surface_forms": [
+            "clearly"
+          ],
+          "keys": [
+            "clearli",
+            "clearly"
+          ]
+        },
+        {
+          "token": "defin",
+          "surface_forms": [
+            "defined"
+          ],
+          "keys": [
+            "defin",
+            "defined"
+          ]
+        },
+        {
+          "token": "transparent",
+          "surface_forms": [
+            "transparent"
+          ],
+          "keys": [
+            "transparent"
+          ]
+        },
+        {
+          "token": "procedure",
+          "surface_forms": [
+            "procedure"
+          ],
+          "keys": [
+            "procedure"
+          ]
+        },
+        {
+          "token": "adapt",
+          "surface_forms": [
+            "adapt"
+          ],
+          "keys": [
+            "adapt"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index",
+            "indices"
+          ],
+          "keys": [
+            "index",
+            "indic",
+            "indice",
+            "indices"
+          ]
+        },
+        {
+          "token": "methodologi",
+          "surface_forms": [
+            "methodologies",
+            "Methodology"
+          ],
+          "keys": [
+            "methodologi",
+            "methodologie",
+            "methodologies",
+            "methodology"
+          ]
+        },
+        {
+          "token": "chang",
+          "surface_forms": [
+            "changing"
+          ],
+          "keys": [
+            "chang",
+            "changing"
+          ]
+        },
+        {
+          "token": "underli",
+          "surface_forms": [
+            "underlying"
+          ],
+          "keys": [
+            "underli",
+            "underly",
+            "underlying"
+          ]
+        },
+        {
+          "token": "market",
+          "surface_forms": [
+            "markets"
+          ],
+          "keys": [
+            "market",
+            "markets"
+          ]
+        },
+        {
+          "token": "see",
+          "surface_forms": [
+            "see"
+          ],
+          "keys": [
+            "see"
+          ]
+        },
+        {
+          "token": "section",
+          "surface_forms": [
+            "Section"
+          ],
+          "keys": [
+            "section"
+          ]
+        },
+        {
+          "token": "5.2",
+          "surface_forms": [
+            "5.2"
+          ],
+          "keys": [
+            "5.2",
+            "section5_2"
+          ]
+        },
+        {
+          "token": "review",
+          "surface_forms": [
+            "Review"
+          ],
+          "keys": [
+            "review"
+          ]
+        },
+        {
+          "token": "order",
+          "surface_forms": [
+            "order"
+          ],
+          "keys": [
+            "order"
+          ]
+        },
+        {
+          "token": "maintain",
+          "surface_forms": [
+            "maintain"
+          ],
+          "keys": [
+            "maintain"
+          ]
+        },
+        {
+          "token": "continu",
+          "surface_forms": [
+            "continued"
+          ],
+          "keys": [
+            "continu",
+            "continued"
+          ]
+        },
+        {
+          "token": "reliabiliti",
+          "surface_forms": [
+            "reliability"
+          ],
+          "keys": [
+            "reliabiliti",
+            "reliability"
+          ]
+        },
+        {
+          "token": "comparabiliti",
+          "surface_forms": [
+            "comparability"
+          ],
+          "keys": [
+            "comparabiliti",
+            "comparability"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:methodology_adaptation_where_necessary",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "methodology_adaptation_where_necessary",
+          "line": 141,
+          "token_recall": 0.955,
+          "token_precision": 0.471,
+          "score": 0.858,
+          "matched_claim_tokens": [
+            "5.2",
+            "adapt",
+            "chang",
+            "clearli",
+            "comparabiliti",
+            "continu",
+            "defin",
+            "follow",
+            "index",
+            "maintain",
+            "market",
+            "methodologi",
+            "necessari",
+            "procedure",
+            "reliabiliti",
+            "review",
+            "section",
+            "see",
+            "solactive",
+            "transparent",
+            "underli"
+          ],
+          "raw_excerpt": "constraint methodology_adaptation_where_necessary : forall i: Index, forall m: IndexMethodology, forall u: UnderlyingMarket, index_of(i, Solactive) and methodology_of_index(m, i) and necessary_to_adapt_methodology(m, u) and changing_underlying_market(u) implies exists p: Procedure, follows(Solactive, p) and clearly_defined(p) and transparent(p) and adapts_index_methodology(p, m, u) and procedure_maintains(p, i, ContinuedReliability) and procedure_maintains(p, i, Comparability) and see(p, Section"
+        },
+        {
+          "block_id": "declaration:rel:necessary_to_adapt_methodology",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "necessary_to_adapt_methodology",
+          "line": 49,
+          "token_recall": 0.273,
+          "token_precision": 0.625,
+          "score": 0.343,
+          "matched_claim_tokens": [
+            "adapt",
+            "index",
+            "market",
+            "methodologi",
+            "necessari",
+            "underli"
+          ],
+          "raw_excerpt": "rel necessary_to_adapt_methodology : IndexMethodology, UnderlyingMarket"
+        },
+        {
+          "block_id": "declaration:rel:adapts_index_methodology",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "adapts_index_methodology",
+          "line": 55,
+          "token_recall": 0.273,
+          "token_precision": 0.6,
+          "score": 0.338,
+          "matched_claim_tokens": [
+            "adapt",
+            "index",
+            "market",
+            "methodologi",
+            "procedure",
+            "underli"
+          ],
+          "raw_excerpt": "rel adapts_index_methodology : Procedure, IndexMethodology, UnderlyingMarket"
+        },
+        {
+          "block_id": "declaration:rel:transparent",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "transparent",
+          "line": 54,
+          "token_recall": 0.091,
+          "token_precision": 1.0,
+          "score": 0.273,
+          "matched_claim_tokens": [
+            "procedure",
+            "transparent"
+          ],
+          "raw_excerpt": "rel transparent : Procedure"
+        },
+        {
+          "block_id": "declaration:rel:changing_underlying_market",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "changing_underlying_market",
+          "line": 51,
+          "token_recall": 0.136,
+          "token_precision": 0.75,
+          "score": 0.259,
+          "matched_claim_tokens": [
+            "chang",
+            "market",
+            "underli"
+          ],
+          "raw_excerpt": "rel changing_underlying_market : UnderlyingMarket"
+        }
+      ],
+      "candidate_count": 65,
+      "covered_claim_tokens_by_top3": [
+        "5.2",
+        "adapt",
+        "chang",
+        "clearli",
+        "comparabiliti",
+        "continu",
+        "defin",
+        "follow",
+        "index",
+        "maintain",
+        "market",
+        "methodologi",
+        "necessari",
+        "procedure",
+        "reliabiliti",
+        "review",
+        "section",
+        "see",
+        "solactive",
+        "transparent",
+        "underli"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "order",
+          "surface_forms": [
+            "order"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.955,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C03",
+      "text": "Nevertheless, if no other options are available the orderly cessation of the Index may be indicated.",
+      "hash": "1f4bebf6f718",
+      "tokens": [
+        {
+          "token": "neverthel",
+          "surface_forms": [
+            "Nevertheless"
+          ],
+          "keys": [
+            "neverthel",
+            "neverthele",
+            "nevertheles",
+            "nevertheless"
+          ]
+        },
+        {
+          "token": "other",
+          "surface_forms": [
+            "other"
+          ],
+          "keys": [
+            "other"
+          ]
+        },
+        {
+          "token": "option",
+          "surface_forms": [
+            "options"
+          ],
+          "keys": [
+            "option",
+            "options"
+          ]
+        },
+        {
+          "token": "available",
+          "surface_forms": [
+            "available"
+          ],
+          "keys": [
+            "available"
+          ]
+        },
+        {
+          "token": "orderli",
+          "surface_forms": [
+            "orderly"
+          ],
+          "keys": [
+            "orderli",
+            "orderly"
+          ]
+        },
+        {
+          "token": "cessate",
+          "surface_forms": [
+            "cessation"
+          ],
+          "keys": [
+            "cessate",
+            "cessation"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "may",
+          "surface_forms": [
+            "may"
+          ],
+          "keys": [
+            "may"
+          ]
+        },
+        {
+          "token": "indicat",
+          "surface_forms": [
+            "indicated"
+          ],
+          "keys": [
+            "indicat",
+            "indicated"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:orderly_cessation_indicated_if_no_options",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "orderly_cessation_indicated_if_no_options",
+          "line": 212,
+          "token_recall": 0.667,
+          "token_precision": 0.303,
+          "score": 0.594,
+          "matched_claim_tokens": [
+            "available",
+            "cessate",
+            "index",
+            "indicat",
+            "option",
+            "orderli"
+          ],
+          "raw_excerpt": "constraint orderly_cessation_indicated_if_no_options : forall i: Index, index_of(i, Solactive) and usual_case_for_cessation(i) and count(o in Option where available_option_for_index(o, i)) = 0 implies exists c: Cessation, cessation_of_index(c, i) and orderly(c) and indicated(c)"
+        },
+        {
+          "block_id": "declaration:rel:available_option_for_index",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "available_option_for_index",
+          "line": 60,
+          "token_recall": 0.333,
+          "token_precision": 0.6,
+          "score": 0.387,
+          "matched_claim_tokens": [
+            "available",
+            "index",
+            "option"
+          ],
+          "raw_excerpt": "rel available_option_for_index : Option, Index"
+        },
+        {
+          "block_id": "declaration:rel:orderly",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "orderly",
+          "line": 63,
+          "token_recall": 0.222,
+          "token_precision": 1.0,
+          "score": 0.378,
+          "matched_claim_tokens": [
+            "cessate",
+            "orderli"
+          ],
+          "raw_excerpt": "rel orderly : Cessation"
+        },
+        {
+          "block_id": "declaration:rel:indicated",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "indicated",
+          "line": 64,
+          "token_recall": 0.222,
+          "token_precision": 1.0,
+          "score": 0.378,
+          "matched_claim_tokens": [
+            "cessate",
+            "indicat"
+          ],
+          "raw_excerpt": "rel indicated : Cessation"
+        },
+        {
+          "block_id": "declaration:permission:indicate_orderly_cessation",
+          "role": "declaration",
+          "family": "DeonticDecl",
+          "kind": "permission",
+          "name": "indicate_orderly_cessation",
+          "line": 107,
+          "token_recall": 0.333,
+          "token_precision": 0.5,
+          "score": 0.367,
+          "matched_claim_tokens": [
+            "cessate",
+            "index",
+            "orderli"
+          ],
+          "raw_excerpt": "permission indicate_orderly_cessation(agent: Organization, target: Index) action: indicate scope: Cessation"
+        }
+      ],
+      "candidate_count": 51,
+      "covered_claim_tokens_by_top3": [
+        "available",
+        "cessate",
+        "index",
+        "indicat",
+        "option",
+        "orderli"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "neverthel",
+          "surface_forms": [
+            "Nevertheless"
+          ]
+        },
+        {
+          "token": "other",
+          "surface_forms": [
+            "other"
+          ]
+        },
+        {
+          "token": "may",
+          "surface_forms": [
+            "may"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.667,
+      "auto_status": "partial_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C04",
+      "text": "This is usually the case when the underlying market or economic reality, which an index is set to measure or to reflect, changes substantially and in a way not foreseeable at the time of inception of the index, the index rules, and particularly the selection criteria, can no longer be applied coherently or the index is no longer used as the underlying value for financial instruments, investment funds and financial contracts.",
+      "hash": "94f3b647e7ee",
+      "tokens": [
+        {
+          "token": "usual",
+          "surface_forms": [
+            "usually"
+          ],
+          "keys": [
+            "usual",
+            "usualli",
+            "usually"
+          ]
+        },
+        {
+          "token": "case",
+          "surface_forms": [
+            "case"
+          ],
+          "keys": [
+            "case"
+          ]
+        },
+        {
+          "token": "when",
+          "surface_forms": [
+            "when"
+          ],
+          "keys": [
+            "when"
+          ]
+        },
+        {
+          "token": "underli",
+          "surface_forms": [
+            "underlying"
+          ],
+          "keys": [
+            "underli",
+            "underly",
+            "underlying"
+          ]
+        },
+        {
+          "token": "market",
+          "surface_forms": [
+            "market"
+          ],
+          "keys": [
+            "market"
+          ]
+        },
+        {
+          "token": "economic",
+          "surface_forms": [
+            "economic"
+          ],
+          "keys": [
+            "economic"
+          ]
+        },
+        {
+          "token": "realiti",
+          "surface_forms": [
+            "reality"
+          ],
+          "keys": [
+            "realiti",
+            "reality"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "set",
+          "surface_forms": [
+            "set"
+          ],
+          "keys": [
+            "set"
+          ]
+        },
+        {
+          "token": "measure",
+          "surface_forms": [
+            "measure"
+          ],
+          "keys": [
+            "measure"
+          ]
+        },
+        {
+          "token": "reflect",
+          "surface_forms": [
+            "reflect"
+          ],
+          "keys": [
+            "reflect"
+          ]
+        },
+        {
+          "token": "chang",
+          "surface_forms": [
+            "changes"
+          ],
+          "keys": [
+            "chang",
+            "change",
+            "changes"
+          ]
+        },
+        {
+          "token": "substantialli",
+          "surface_forms": [
+            "substantially"
+          ],
+          "keys": [
+            "substantialli",
+            "substantially"
+          ]
+        },
+        {
+          "token": "way",
+          "surface_forms": [
+            "way"
+          ],
+          "keys": [
+            "way"
+          ]
+        },
+        {
+          "token": "foreseeable",
+          "surface_forms": [
+            "foreseeable"
+          ],
+          "keys": [
+            "foreseeable"
+          ]
+        },
+        {
+          "token": "time",
+          "surface_forms": [
+            "time"
+          ],
+          "keys": [
+            "time"
+          ]
+        },
+        {
+          "token": "inception",
+          "surface_forms": [
+            "inception"
+          ],
+          "keys": [
+            "inception"
+          ]
+        },
+        {
+          "token": "rul",
+          "surface_forms": [
+            "rules"
+          ],
+          "keys": [
+            "rul",
+            "rule",
+            "rules"
+          ]
+        },
+        {
+          "token": "particularli",
+          "surface_forms": [
+            "particularly"
+          ],
+          "keys": [
+            "particularli",
+            "particularly"
+          ]
+        },
+        {
+          "token": "selection",
+          "surface_forms": [
+            "selection"
+          ],
+          "keys": [
+            "selection"
+          ]
+        },
+        {
+          "token": "criteria",
+          "surface_forms": [
+            "criteria"
+          ],
+          "keys": [
+            "criteria"
+          ]
+        },
+        {
+          "token": "can",
+          "surface_forms": [
+            "can"
+          ],
+          "keys": [
+            "can"
+          ]
+        },
+        {
+          "token": "longer",
+          "surface_forms": [
+            "longer"
+          ],
+          "keys": [
+            "longer"
+          ]
+        },
+        {
+          "token": "appli",
+          "surface_forms": [
+            "applied"
+          ],
+          "keys": [
+            "appli",
+            "applied",
+            "apply"
+          ]
+        },
+        {
+          "token": "coherentli",
+          "surface_forms": [
+            "coherently"
+          ],
+          "keys": [
+            "coherentli",
+            "coherently"
+          ]
+        },
+        {
+          "token": "used",
+          "surface_forms": [
+            "used"
+          ],
+          "keys": [
+            "used"
+          ]
+        },
+        {
+          "token": "value",
+          "surface_forms": [
+            "value"
+          ],
+          "keys": [
+            "value"
+          ]
+        },
+        {
+          "token": "financial",
+          "surface_forms": [
+            "financial"
+          ],
+          "keys": [
+            "financial"
+          ]
+        },
+        {
+          "token": "instrument",
+          "surface_forms": [
+            "instruments"
+          ],
+          "keys": [
+            "instrument",
+            "instruments"
+          ]
+        },
+        {
+          "token": "investment",
+          "surface_forms": [
+            "investment"
+          ],
+          "keys": [
+            "investment"
+          ]
+        },
+        {
+          "token": "fund",
+          "surface_forms": [
+            "funds"
+          ],
+          "keys": [
+            "fund",
+            "funds"
+          ]
+        },
+        {
+          "token": "contract",
+          "surface_forms": [
+            "contracts"
+          ],
+          "keys": [
+            "contract",
+            "contracts"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:cessation_usual_when_underlying_market_changes",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "cessation_usual_when_underlying_market_changes",
+          "line": 157,
+          "token_recall": 0.406,
+          "token_precision": 0.391,
+          "score": 0.403,
+          "matched_claim_tokens": [
+            "case",
+            "chang",
+            "foreseeable",
+            "inception",
+            "index",
+            "market",
+            "measure",
+            "reflect",
+            "set",
+            "substantialli",
+            "underli",
+            "usual",
+            "when"
+          ],
+          "raw_excerpt": "constraint cessation_usual_when_underlying_market_changes : forall i: Index, ( exists u: UnderlyingMarket, ( index_set_to_measure_underlying_market(i, u) or index_set_to_reflect_underlying_market(i, u) ) and underlying_market_changes(u) and underlying_market_change_described_by(u, Substantially) and not underlying_market_change_foreseeable_at_inception(u, i) ) implies usual_case_for_cessation(i)"
+        },
+        {
+          "block_id": "assertion:constraint:cessation_usual_when_economic_reality_changes",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "cessation_usual_when_economic_reality_changes",
+          "line": 171,
+          "token_recall": 0.406,
+          "token_precision": 0.354,
+          "score": 0.396,
+          "matched_claim_tokens": [
+            "case",
+            "chang",
+            "economic",
+            "foreseeable",
+            "inception",
+            "index",
+            "measure",
+            "realiti",
+            "reflect",
+            "set",
+            "substantialli",
+            "usual",
+            "when"
+          ],
+          "raw_excerpt": "constraint cessation_usual_when_economic_reality_changes : forall i: Index, ( exists e: EconomicReality, ( index_set_to_measure_economic_reality(i, e) or index_set_to_reflect_economic_reality(i, e) ) and economic_reality_changes(e) and economic_reality_change_described_by(e, Substantially) and not economic_reality_change_foreseeable_at_inception(e, i) ) implies usual_case_for_cessation(i)"
+        },
+        {
+          "block_id": "assertion:constraint:cessation_usual_when_index_not_used_as_underlying_value",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "cessation_usual_when_index_not_used_as_underlying_value",
+          "line": 194,
+          "token_recall": 0.375,
+          "token_precision": 0.4,
+          "score": 0.38,
+          "matched_claim_tokens": [
+            "case",
+            "contract",
+            "financial",
+            "fund",
+            "index",
+            "instrument",
+            "investment",
+            "underli",
+            "used",
+            "usual",
+            "value",
+            "when"
+          ],
+          "raw_excerpt": "constraint cessation_usual_when_index_not_used_as_underlying_value : forall i: Index, ( not exists fi: FinancialInstrument, used_as_underlying_value_for_financial_instrument(i, fi) ) and ( not exists f: InvestmentFund, used_as_underlying_value_for_investment_fund(i, f) ) and ( not exists c: FinancialContract, used_as_underlying_value_for_financial_contract(i, c) ) implies usual_case_for_cessation(i)"
+        },
+        {
+          "block_id": "declaration:rel:underlying_market_change_foreseeable_at_inception",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "underlying_market_change_foreseeable_at_inception",
+          "line": 75,
+          "token_recall": 0.188,
+          "token_precision": 0.727,
+          "score": 0.295,
+          "matched_claim_tokens": [
+            "chang",
+            "foreseeable",
+            "inception",
+            "index",
+            "market",
+            "underli"
+          ],
+          "raw_excerpt": "rel underlying_market_change_foreseeable_at_inception : UnderlyingMarket, Index"
+        },
+        {
+          "block_id": "declaration:rel:used_as_underlying_value_for_financial_instrument",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "used_as_underlying_value_for_financial_instrument",
+          "line": 83,
+          "token_recall": 0.188,
+          "token_precision": 0.667,
+          "score": 0.283,
+          "matched_claim_tokens": [
+            "financial",
+            "index",
+            "instrument",
+            "underli",
+            "used",
+            "value"
+          ],
+          "raw_excerpt": "rel used_as_underlying_value_for_financial_instrument : Index, FinancialInstrument"
+        }
+      ],
+      "candidate_count": 48,
+      "covered_claim_tokens_by_top3": [
+        "case",
+        "chang",
+        "contract",
+        "economic",
+        "financial",
+        "foreseeable",
+        "fund",
+        "inception",
+        "index",
+        "instrument",
+        "investment",
+        "market",
+        "measure",
+        "realiti",
+        "reflect",
+        "set",
+        "substantialli",
+        "underli",
+        "used",
+        "usual",
+        "value",
+        "when"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "way",
+          "surface_forms": [
+            "way"
+          ]
+        },
+        {
+          "token": "time",
+          "surface_forms": [
+            "time"
+          ]
+        },
+        {
+          "token": "rul",
+          "surface_forms": [
+            "rules"
+          ]
+        },
+        {
+          "token": "particularli",
+          "surface_forms": [
+            "particularly"
+          ]
+        },
+        {
+          "token": "selection",
+          "surface_forms": [
+            "selection"
+          ]
+        },
+        {
+          "token": "criteria",
+          "surface_forms": [
+            "criteria"
+          ]
+        },
+        {
+          "token": "can",
+          "surface_forms": [
+            "can"
+          ]
+        },
+        {
+          "token": "longer",
+          "surface_forms": [
+            "longer"
+          ]
+        },
+        {
+          "token": "appli",
+          "surface_forms": [
+            "applied"
+          ]
+        },
+        {
+          "token": "coherentli",
+          "surface_forms": [
+            "coherently"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.688,
+      "auto_status": "partial_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C05",
+      "text": "Solactive has established and maintains clear guidelines on how to identify situations in which the cessation of an index is unavoidable, how stakeholders are to be informed and consulted and the procedures to be followed for a termination or the transition to an alternative index.",
+      "hash": "0e91a12a509c",
+      "tokens": [
+        {
+          "token": "solactive",
+          "surface_forms": [
+            "Solactive"
+          ],
+          "keys": [
+            "solactive"
+          ]
+        },
+        {
+          "token": "establish",
+          "surface_forms": [
+            "established"
+          ],
+          "keys": [
+            "establish",
+            "established"
+          ]
+        },
+        {
+          "token": "maintain",
+          "surface_forms": [
+            "maintains"
+          ],
+          "keys": [
+            "maintain",
+            "maintains"
+          ]
+        },
+        {
+          "token": "clear",
+          "surface_forms": [
+            "clear"
+          ],
+          "keys": [
+            "clear"
+          ]
+        },
+        {
+          "token": "guidelin",
+          "surface_forms": [
+            "guidelines"
+          ],
+          "keys": [
+            "guidelin",
+            "guideline",
+            "guidelines"
+          ]
+        },
+        {
+          "token": "how",
+          "surface_forms": [
+            "how"
+          ],
+          "keys": [
+            "how"
+          ]
+        },
+        {
+          "token": "identifi",
+          "surface_forms": [
+            "identify"
+          ],
+          "keys": [
+            "identifi",
+            "identify"
+          ]
+        },
+        {
+          "token": "situation",
+          "surface_forms": [
+            "situations"
+          ],
+          "keys": [
+            "situation",
+            "situations"
+          ]
+        },
+        {
+          "token": "cessate",
+          "surface_forms": [
+            "cessation"
+          ],
+          "keys": [
+            "cessate",
+            "cessation"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "unavoidable",
+          "surface_forms": [
+            "unavoidable"
+          ],
+          "keys": [
+            "unavoidable"
+          ]
+        },
+        {
+          "token": "stakeholder",
+          "surface_forms": [
+            "stakeholders"
+          ],
+          "keys": [
+            "stakeholder",
+            "stakeholders"
+          ]
+        },
+        {
+          "token": "inform",
+          "surface_forms": [
+            "informed"
+          ],
+          "keys": [
+            "inform",
+            "informed"
+          ]
+        },
+        {
+          "token": "consult",
+          "surface_forms": [
+            "consulted"
+          ],
+          "keys": [
+            "consult",
+            "consulted"
+          ]
+        },
+        {
+          "token": "procedur",
+          "surface_forms": [
+            "procedures"
+          ],
+          "keys": [
+            "procedur",
+            "procedure",
+            "procedures"
+          ]
+        },
+        {
+          "token": "follow",
+          "surface_forms": [
+            "followed"
+          ],
+          "keys": [
+            "follow",
+            "followed"
+          ]
+        },
+        {
+          "token": "terminate",
+          "surface_forms": [
+            "termination"
+          ],
+          "keys": [
+            "terminate",
+            "termination"
+          ]
+        },
+        {
+          "token": "transition",
+          "surface_forms": [
+            "transition"
+          ],
+          "keys": [
+            "transition"
+          ]
+        },
+        {
+          "token": "alternative",
+          "surface_forms": [
+            "alternative"
+          ],
+          "keys": [
+            "alternative"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:guidelines_include_transition_procedure",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "guidelines_include_transition_procedure",
+          "line": 243,
+          "token_recall": 0.368,
+          "token_precision": 0.385,
+          "score": 0.372,
+          "matched_claim_tokens": [
+            "alternative",
+            "cessate",
+            "guidelin",
+            "index",
+            "procedur",
+            "solactive",
+            "transition"
+          ],
+          "raw_excerpt": "constraint guidelines_include_transition_procedure : exists p: Procedure, exists a: AlternativeIndex, procedure_in_guidelines(SolactiveCessationGuidelines, p) and procedure_for_transition_to_alternative_index(p, a)"
+        },
+        {
+          "block_id": "assertion:constraint:guidelines_inform_and_consult_stakeholders",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "guidelines_inform_and_consult_stakeholders",
+          "line": 233,
+          "token_recall": 0.316,
+          "token_precision": 0.556,
+          "score": 0.364,
+          "matched_claim_tokens": [
+            "cessate",
+            "consult",
+            "guidelin",
+            "inform",
+            "solactive",
+            "stakeholder"
+          ],
+          "raw_excerpt": "constraint guidelines_inform_and_consult_stakeholders : forall s: Stakeholder, guidelines_inform(SolactiveCessationGuidelines, s) and guidelines_consult(SolactiveCessationGuidelines, s)"
+        },
+        {
+          "block_id": "assertion:fact:solactive_cessation_guidelines",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "solactive_cessation_guidelines",
+          "line": 223,
+          "token_recall": 0.316,
+          "token_precision": 0.455,
+          "score": 0.344,
+          "matched_claim_tokens": [
+            "cessate",
+            "clear",
+            "establish",
+            "guidelin",
+            "maintain",
+            "solactive"
+          ],
+          "raw_excerpt": "fact solactive_cessation_guidelines : established_by(SolactiveCessationGuidelines, Solactive) and maintained_by(SolactiveCessationGuidelines, Solactive) and clear(SolactiveCessationGuidelines)"
+        },
+        {
+          "block_id": "assertion:constraint:guidelines_identify_unavoidable_cessation_situations",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "guidelines_identify_unavoidable_cessation_situations",
+          "line": 228,
+          "token_recall": 0.316,
+          "token_precision": 0.44,
+          "score": 0.341,
+          "matched_claim_tokens": [
+            "cessate",
+            "guidelin",
+            "identifi",
+            "situation",
+            "solactive",
+            "unavoidable"
+          ],
+          "raw_excerpt": "constraint guidelines_identify_unavoidable_cessation_situations : forall s: CessationSituation, guidelines_identify(SolactiveCessationGuidelines, s) implies unavoidable(s)"
+        },
+        {
+          "block_id": "declaration:rel:guidelines_inform",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "guidelines_inform",
+          "line": 95,
+          "token_recall": 0.158,
+          "token_precision": 0.833,
+          "score": 0.293,
+          "matched_claim_tokens": [
+            "guidelin",
+            "inform",
+            "stakeholder"
+          ],
+          "raw_excerpt": "rel guidelines_inform : Guidelines, Stakeholder"
+        }
+      ],
+      "candidate_count": 72,
+      "covered_claim_tokens_by_top3": [
+        "alternative",
+        "cessate",
+        "clear",
+        "consult",
+        "establish",
+        "guidelin",
+        "index",
+        "inform",
+        "maintain",
+        "procedur",
+        "solactive",
+        "stakeholder",
+        "transition"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "how",
+          "surface_forms": [
+            "how"
+          ]
+        },
+        {
+          "token": "identifi",
+          "surface_forms": [
+            "identify"
+          ]
+        },
+        {
+          "token": "situation",
+          "surface_forms": [
+            "situations"
+          ]
+        },
+        {
+          "token": "unavoidable",
+          "surface_forms": [
+            "unavoidable"
+          ]
+        },
+        {
+          "token": "follow",
+          "surface_forms": [
+            "followed"
+          ]
+        },
+        {
+          "token": "terminate",
+          "surface_forms": [
+            "termination"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.684,
+      "auto_status": "partial_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C06",
+      "text": "Details are specified in the Solactive Termination Policy, which is incorporated by reference and available on the Solactive website: [https://www.solactive.com/documents/termination-policy/](https://www.solactive.com/documents/termination-policy/) .",
+      "hash": "c75cecee21e0",
+      "tokens": [
+        {
+          "token": "detail",
+          "surface_forms": [
+            "Details"
+          ],
+          "keys": [
+            "detail",
+            "details"
+          ]
+        },
+        {
+          "token": "specifi",
+          "surface_forms": [
+            "specified"
+          ],
+          "keys": [
+            "specifi",
+            "specified",
+            "specify"
+          ]
+        },
+        {
+          "token": "solactive",
+          "surface_forms": [
+            "Solactive",
+            "solactive"
+          ],
+          "keys": [
+            "solactive"
+          ]
+        },
+        {
+          "token": "terminate",
+          "surface_forms": [
+            "Termination"
+          ],
+          "keys": [
+            "terminate",
+            "termination"
+          ]
+        },
+        {
+          "token": "polici",
+          "surface_forms": [
+            "Policy",
+            "termination-policy"
+          ],
+          "keys": [
+            "polici",
+            "policy",
+            "terminate",
+            "termination"
+          ]
+        },
+        {
+          "token": "incorporat",
+          "surface_forms": [
+            "incorporated"
+          ],
+          "keys": [
+            "incorporat",
+            "incorporated"
+          ]
+        },
+        {
+          "token": "reference",
+          "surface_forms": [
+            "reference"
+          ],
+          "keys": [
+            "reference"
+          ]
+        },
+        {
+          "token": "available",
+          "surface_forms": [
+            "available"
+          ],
+          "keys": [
+            "available"
+          ]
+        },
+        {
+          "token": "website",
+          "surface_forms": [
+            "website"
+          ],
+          "keys": [
+            "website"
+          ]
+        },
+        {
+          "token": "http",
+          "surface_forms": [
+            "https"
+          ],
+          "keys": [
+            "http",
+            "https"
+          ]
+        },
+        {
+          "token": "www",
+          "surface_forms": [
+            "www"
+          ],
+          "keys": [
+            "www"
+          ]
+        },
+        {
+          "token": "com",
+          "surface_forms": [
+            "com"
+          ],
+          "keys": [
+            "com"
+          ]
+        },
+        {
+          "token": "document",
+          "surface_forms": [
+            "documents"
+          ],
+          "keys": [
+            "document",
+            "documents"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:fact:termination_policy_location",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "termination_policy_location",
+          "line": 117,
+          "token_recall": 0.692,
+          "token_precision": 0.464,
+          "score": 0.647,
+          "matched_claim_tokens": [
+            "available",
+            "com",
+            "document",
+            "http",
+            "polici",
+            "solactive",
+            "terminate",
+            "website",
+            "www"
+          ],
+          "raw_excerpt": "fact termination_policy_location : document_url( SolactiveTerminationPolicy, HttpsWwwSolactiveComDocumentsTerminationPolicy ) and available_on(SolactiveTerminationPolicy, SolactiveWebsite) and website_of(SolactiveWebsite, Solactive)"
+        },
+        {
+          "block_id": "declaration:entity:HttpsWwwSolactiveComDocumentsTerminationPolicy",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "HttpsWwwSolactiveComDocumentsTerminationPolicy",
+          "line": 39,
+          "token_recall": 0.538,
+          "token_precision": 0.733,
+          "score": 0.577,
+          "matched_claim_tokens": [
+            "com",
+            "document",
+            "http",
+            "polici",
+            "solactive",
+            "terminate",
+            "www"
+          ],
+          "raw_excerpt": "entity HttpsWwwSolactiveComDocumentsTerminationPolicy : Url"
+        },
+        {
+          "block_id": "assertion:fact:termination_policy_details",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "termination_policy_details",
+          "line": 248,
+          "token_recall": 0.538,
+          "token_precision": 0.448,
+          "score": 0.52,
+          "matched_claim_tokens": [
+            "detail",
+            "incorporat",
+            "polici",
+            "reference",
+            "solactive",
+            "specifi",
+            "terminate"
+          ],
+          "raw_excerpt": "fact termination_policy_details : details_specified_in( SolactiveCessationGuidelines, SolactiveTerminationPolicy ) and incorporated_by_reference(SolactiveTerminationPolicy)"
+        },
+        {
+          "block_id": "declaration:rel:incorporated_by_reference",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "incorporated_by_reference",
+          "line": 103,
+          "token_recall": 0.308,
+          "token_precision": 0.636,
+          "score": 0.373,
+          "matched_claim_tokens": [
+            "incorporat",
+            "polici",
+            "reference",
+            "terminate"
+          ],
+          "raw_excerpt": "rel incorporated_by_reference : TerminationPolicy"
+        },
+        {
+          "block_id": "declaration:rel:details_specified_in",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "details_specified_in",
+          "line": 102,
+          "token_recall": 0.308,
+          "token_precision": 0.562,
+          "score": 0.359,
+          "matched_claim_tokens": [
+            "detail",
+            "polici",
+            "specifi",
+            "terminate"
+          ],
+          "raw_excerpt": "rel details_specified_in : Guidelines, TerminationPolicy"
+        }
+      ],
+      "candidate_count": 28,
+      "covered_claim_tokens_by_top3": [
+        "available",
+        "com",
+        "detail",
+        "document",
+        "http",
+        "incorporat",
+        "polici",
+        "reference",
+        "solactive",
+        "specifi",
+        "terminate",
+        "website",
+        "www"
+      ],
+      "uncovered_claim_tokens_by_top3": [],
+      "top3_token_coverage": 1.0,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    }
+  ]
+}

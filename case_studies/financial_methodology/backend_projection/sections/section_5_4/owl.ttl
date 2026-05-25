@@ -1,0 +1,232 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_4 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:IndexMethodology a owl:Class .
+ex:UnderlyingMarket a owl:Class .
+ex:EconomicReality a owl:Class .
+ex:IndexRule a owl:Class .
+ex:SelectionCriteria a owl:Class .
+ex:SelectionCriteria rdfs:subClassOf ex:IndexRule .
+ex:Option a owl:Class .
+ex:Effort a owl:Class .
+ex:Procedure a owl:Class .
+ex:Guidelines a owl:Class .
+ex:Cessation a owl:Class .
+ex:CessationSituation a owl:Class .
+ex:Stakeholder a owl:Class .
+ex:TerminationPolicy a owl:Class .
+ex:TerminationPolicy rdfs:subClassOf ex:Document .
+ex:InvestmentFund a owl:Class .
+ex:FinancialContract a owl:Class .
+ex:AlternativeIndex a owl:Class .
+ex:AlternativeIndex rdfs:subClassOf ex:Index .
+ex:IndexQuality a owl:Class ; owl:oneOf ( ex:Resilience ex:ContinuedIntegrity ex:ContinuedReliability ex:Comparability ) .
+ex:Resilience a ex:IndexQuality, owl:NamedIndividual .
+ex:ContinuedIntegrity a ex:IndexQuality, owl:NamedIndividual .
+ex:ContinuedReliability a ex:IndexQuality, owl:NamedIndividual .
+ex:Comparability a ex:IndexQuality, owl:NamedIndividual .
+
+ex:Solactive a ex:Organization, owl:NamedIndividual .
+ex:SolactiveGreatestPossibleEfforts a ex:Effort, owl:NamedIndividual .
+ex:SolactiveCessationGuidelines a ex:Guidelines, owl:NamedIndividual .
+ex:SolactiveTerminationPolicy a ex:TerminationPolicy, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:Stakeholders a ex:Stakeholder, owl:NamedIndividual .
+ex:Substantially a ex:VagueTerm, owl:NamedIndividual .
+ex:Section5_2MethodologyReview a ex:DocumentPart, owl:NamedIndividual .
+ex:Section5_2MethodologyReviewLocator a ex:DocumentLocator, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComDocumentsTerminationPolicy a ex:Url, owl:NamedIndividual .
+ex:index_of a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:Organization .
+ex:methodology_of_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexMethodology ;
+  rdfs:range ex:Index .
+ex:effort_by a owl:ObjectProperty ;
+  rdfs:domain ex:Effort ;
+  rdfs:range ex:Organization .
+ex:greatest_possible a owl:Class ; rdfs:subClassOf ex:Effort .
+ex:over_time a owl:Class ; rdfs:subClassOf ex:Effort .
+ex:effort_to_ensure a owl:Class, a4:NaryRelationClass .
+ex:effort_to_ensure_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:effort_to_ensure ;
+  rdfs:range ex:Effort .
+ex:effort_to_ensure_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:effort_to_ensure ;
+  rdfs:range ex:Index .
+ex:effort_to_ensure_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:effort_to_ensure ;
+  rdfs:range ex:IndexQuality .
+ex:necessary_to_adapt_methodology a owl:ObjectProperty ;
+  rdfs:domain ex:IndexMethodology ;
+  rdfs:range ex:UnderlyingMarket .
+ex:changing_underlying_market a owl:Class ; rdfs:subClassOf ex:UnderlyingMarket .
+ex:follows a owl:ObjectProperty ;
+  rdfs:domain ex:Organization ;
+  rdfs:range ex:Procedure .
+ex:clearly_defined a owl:Class ; rdfs:subClassOf ex:Procedure .
+ex:transparent a owl:Class ; rdfs:subClassOf ex:Procedure .
+ex:adapts_index_methodology a owl:Class, a4:NaryRelationClass .
+ex:adapts_index_methodology_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:adapts_index_methodology ;
+  rdfs:range ex:Procedure .
+ex:adapts_index_methodology_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:adapts_index_methodology ;
+  rdfs:range ex:IndexMethodology .
+ex:adapts_index_methodology_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:adapts_index_methodology ;
+  rdfs:range ex:UnderlyingMarket .
+ex:procedure_maintains a owl:Class, a4:NaryRelationClass .
+ex:procedure_maintains_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:procedure_maintains ;
+  rdfs:range ex:Procedure .
+ex:procedure_maintains_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:procedure_maintains ;
+  rdfs:range ex:Index .
+ex:procedure_maintains_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:procedure_maintains ;
+  rdfs:range ex:IndexQuality .
+ex:see a owl:ObjectProperty ;
+  rdfs:domain ex:Procedure ;
+  rdfs:range ex:DocumentPart .
+ex:available_option_for_index a owl:ObjectProperty ;
+  rdfs:domain ex:Option ;
+  rdfs:range ex:Index .
+ex:usual_case_for_cessation a owl:Class ; rdfs:subClassOf ex:Index .
+ex:orderly_cessation_indication_available a owl:Class ; rdfs:subClassOf ex:Index .
+ex:index_set_to_measure_underlying_market a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:UnderlyingMarket .
+ex:index_set_to_reflect_underlying_market a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:UnderlyingMarket .
+ex:index_set_to_measure_economic_reality a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:EconomicReality .
+ex:index_set_to_reflect_economic_reality a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:EconomicReality .
+ex:underlying_market_changes a owl:Class ; rdfs:subClassOf ex:UnderlyingMarket .
+ex:economic_reality_changes a owl:Class ; rdfs:subClassOf ex:EconomicReality .
+ex:underlying_market_change_described_by a owl:ObjectProperty ;
+  rdfs:domain ex:UnderlyingMarket ;
+  rdfs:range ex:VagueTerm .
+ex:economic_reality_change_described_by a owl:ObjectProperty ;
+  rdfs:domain ex:EconomicReality ;
+  rdfs:range ex:VagueTerm .
+ex:underlying_market_change_foreseeable_at_inception a owl:ObjectProperty ;
+  rdfs:domain ex:UnderlyingMarket ;
+  rdfs:range ex:Index .
+ex:economic_reality_change_foreseeable_at_inception a owl:ObjectProperty ;
+  rdfs:domain ex:EconomicReality ;
+  rdfs:range ex:Index .
+ex:rule_of_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexRule ;
+  rdfs:range ex:Index .
+ex:applied_coherently a owl:ObjectProperty ;
+  rdfs:domain ex:IndexRule ;
+  rdfs:range ex:Index .
+ex:used_as_underlying_value_for_financial_instrument a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:FinancialInstrument .
+ex:used_as_underlying_value_for_investment_fund a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:InvestmentFund .
+ex:used_as_underlying_value_for_financial_contract a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:FinancialContract .
+ex:established_by a owl:ObjectProperty ;
+  rdfs:domain ex:Guidelines ;
+  rdfs:range ex:Organization .
+ex:maintained_by a owl:ObjectProperty ;
+  rdfs:domain ex:Guidelines ;
+  rdfs:range ex:Organization .
+ex:clear a owl:Class ; rdfs:subClassOf ex:Guidelines .
+ex:guidelines_identify a owl:ObjectProperty ;
+  rdfs:domain ex:Guidelines ;
+  rdfs:range ex:CessationSituation .
+ex:unavoidable a owl:Class ; rdfs:subClassOf ex:CessationSituation .
+ex:procedure_in_guidelines a owl:ObjectProperty ;
+  rdfs:domain ex:Guidelines ;
+  rdfs:range ex:Procedure .
+ex:procedure_for_informing a owl:ObjectProperty ;
+  rdfs:domain ex:Procedure ;
+  rdfs:range ex:Stakeholder .
+ex:procedure_for_consulting a owl:ObjectProperty ;
+  rdfs:domain ex:Procedure ;
+  rdfs:range ex:Stakeholder .
+ex:procedure_for_termination a owl:Class ; rdfs:subClassOf ex:Procedure .
+ex:procedure_for_transition_to_alternative_index a owl:ObjectProperty ;
+  rdfs:domain ex:Procedure ;
+  rdfs:range ex:AlternativeIndex .
+ex:details_specified_in a owl:ObjectProperty ;
+  rdfs:domain ex:Guidelines ;
+  rdfs:range ex:TerminationPolicy .
+ex:incorporated_by_reference a owl:Class ; rdfs:subClassOf ex:TerminationPolicy .
+ex:available_on a owl:ObjectProperty ;
+  rdfs:domain ex:Document ;
+  rdfs:range ex:WebResource .
+ex:website_of a owl:ObjectProperty ;
+  rdfs:domain ex:WebResource ;
+  rdfs:range ex:Organization .
+
+ex:ASSERT_section_5_2_methodology_review_reference a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "document_part_locator(Section5_2MethodologyReview, Section5_2MethodologyReviewLocator)" .
+ex:SolactiveTerminationPolicy ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:ASSERT_termination_policy_location a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(document_url(SolactiveTerminationPolicy, HttpsWwwSolactiveComDocumentsTerminationPolicy)) and (available_on(SolactiveTerminationPolicy, SolactiveWebsite)) and (website_of(SolactiveWebsite, Solactive))" .
+ex:SolactiveGreatestPossibleEfforts ex:effort_by ex:Solactive .
+ex:SolactiveGreatestPossibleEfforts a ex:greatest_possible .
+ex:SolactiveGreatestPossibleEfforts a ex:over_time .
+ex:ASSERT_solactive_efforts_for_resilience_and_integrity a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, (index_of(i, Solactive)) implies ((effort_to_ensure(SolactiveGreatestPossibleEfforts, i, Resilience)) and (effort_to_ensure(SolactiveGreatestPossibleEfforts, i, ContinuedIntegrity)))" .
+ex:ASSERT_methodology_adaptation_where_necessary a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, forall m: IndexMethodology, forall u: UnderlyingMarket, ((index_of(i, Solactive)) and (methodology_of_index(m, i)) and (necessary_to_adapt_methodology(m, u)) and (changing_underlying_market(u))) implies (exists p: Procedure, (follows(Solactive, p)) and (clearly_defined(p)) and (transparent(p)) and (adapts_index_methodology(p, m, u)) and (procedure_maintains(p, i, ContinuedReliability)) and (procedure_maintains(p, i, Comparability)) and (see(p, Section5_2MethodologyReview)))" .
+ex:ASSERT_cessation_usual_when_underlying_market_changes a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, (exists u: UnderlyingMarket, ((index_set_to_measure_underlying_market(i, u)) or (index_set_to_reflect_underlying_market(i, u))) and (underlying_market_changes(u)) and (underlying_market_change_described_by(u, Substantially)) and (not (underlying_market_change_foreseeable_at_inception(u, i)))) implies (usual_case_for_cessation(i))" .
+ex:ASSERT_cessation_usual_when_economic_reality_changes a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, (exists e: EconomicReality, ((index_set_to_measure_economic_reality(i, e)) or (index_set_to_reflect_economic_reality(i, e))) and (economic_reality_changes(e)) and (economic_reality_change_described_by(e, Substantially)) and (not (economic_reality_change_foreseeable_at_inception(e, i)))) implies (usual_case_for_cessation(i))" .
+ex:ASSERT_cessation_usual_when_rules_not_applied_coherently a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, (exists r: IndexRule, (rule_of_index(r, i)) and (not (applied_coherently(r, i)))) implies (usual_case_for_cessation(i))" .
+ex:ASSERT_cessation_usual_when_selection_criteria_not_applied_coherently a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, (exists sc: SelectionCriteria, (rule_of_index(sc, i)) and (not (applied_coherently(sc, i)))) implies (usual_case_for_cessation(i))" .
+ex:ASSERT_cessation_usual_when_index_not_used_as_underlying_value a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, ((not (exists fi: FinancialInstrument, used_as_underlying_value_for_financial_instrument(i, fi))) and (not (exists f: InvestmentFund, used_as_underlying_value_for_investment_fund(i, f))) and (not (exists c: FinancialContract, used_as_underlying_value_for_financial_contract(i, c)))) implies (usual_case_for_cessation(i))" .
+ex:ASSERT_orderly_cessation_indication_available_if_no_options a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, ((index_of(i, Solactive)) and (usual_case_for_cessation(i)) and ((<count>) = (0))) implies (orderly_cessation_indication_available(i))" .
+ex:SolactiveCessationGuidelines ex:established_by ex:Solactive .
+ex:SolactiveCessationGuidelines ex:maintained_by ex:Solactive .
+ex:SolactiveCessationGuidelines a ex:clear .
+ex:ASSERT_guidelines_identify_unavoidable_cessation_situations a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall s: CessationSituation, (guidelines_identify(SolactiveCessationGuidelines, s)) implies (unavoidable(s))" .
+ex:ASSERT_guidelines_include_stakeholder_information_and_consultation_procedures a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "exists p: Procedure, (procedure_in_guidelines(SolactiveCessationGuidelines, p)) and (procedure_for_informing(p, Stakeholders)) and (exists q: Procedure, (procedure_in_guidelines(SolactiveCessationGuidelines, q)) and (procedure_for_consulting(q, Stakeholders)))" .
+ex:ASSERT_guidelines_include_termination_procedure a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "exists p: Procedure, (procedure_in_guidelines(SolactiveCessationGuidelines, p)) and (procedure_for_termination(p))" .
+ex:ASSERT_guidelines_include_transition_procedure a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "exists p: Procedure, exists a: AlternativeIndex, (procedure_in_guidelines(SolactiveCessationGuidelines, p)) and (procedure_for_transition_to_alternative_index(p, a))" .
+ex:SolactiveCessationGuidelines ex:details_specified_in ex:SolactiveTerminationPolicy .
+ex:SolactiveTerminationPolicy a ex:incorporated_by_reference .

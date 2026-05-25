@@ -1,0 +1,17 @@
+sort GbsIndex
+sort Security extends FinancialInstrument
+
+entity GbsIndexSpecifiedInSection2_1 : GbsIndex
+entity Section2_1 : DocumentPart
+
+rel gbs_index_component : Security, GbsIndex
+rel security_reflected_in_gbs_index : Security, GbsIndex
+rel gbs_index_specified_in_section : GbsIndex, DocumentPart
+
+fact gbs_index_specified_in_section_2_1 :
+  gbs_index_specified_in_section(GbsIndexSpecifiedInSection2_1, Section2_1)
+
+constraint gbs_index_component_definition :
+  forall s: Security,
+    gbs_index_component(s, GbsIndexSpecifiedInSection2_1)
+    iff security_reflected_in_gbs_index(s, GbsIndexSpecifiedInSection2_1)

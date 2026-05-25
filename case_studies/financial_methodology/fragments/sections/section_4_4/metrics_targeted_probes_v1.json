@@ -1,0 +1,54 @@
+{
+  "entry_id": "section_4_4",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1481,
+    "completion_tokens": 347,
+    "total_tokens": 1828
+  },
+  "latency_s": 2.4958603382110596,
+  "probes": {
+    "probe_scope": "yes",
+    "probe_scope_evidence": "Under certain circumstances",
+    "probe_scope_drift": "",
+    "probe_exception": "no",
+    "probe_exception_evidence": "if a corporate action (as specified in Section 4.4 below) in relation of an Index Component occurs",
+    "probe_exception_drift": "The source's conditional carve-out tied to a corporate action is rephrased as a general requirement and the specific exception-like framing is weakened.",
+    "probe_negation": "n_a",
+    "probe_negation_evidence": "",
+    "probe_negation_drift": "",
+    "probe_counterfactual": "n_a",
+    "probe_counterfactual_evidence": "",
+    "probe_counterfactual_drift": "",
+    "probe_clarification": "yes",
+    "probe_clarification_evidence": "(as specified in Section 4.4 below)",
+    "probe_clarification_drift": "",
+    "probe_responsibility": "yes",
+    "probe_responsibility_evidence": "Solactive will announce the Index adjustment",
+    "probe_responsibility_drift": "",
+    "probe_reference": "yes",
+    "probe_reference_evidence": "as specified in Section 4.4 below",
+    "probe_reference_drift": "",
+    "probe_temporal_order": "yes",
+    "probe_temporal_order_evidence": "between two regular Rebalance Days",
+    "probe_temporal_order_drift": "",
+    "probe_value_source": "n_a",
+    "probe_value_source_evidence": "",
+    "probe_value_source_drift": ""
+  },
+  "summary": {
+    "yes": 5,
+    "no": 1,
+    "n_a": 3,
+    "preservation_rate": 0.833
+  },
+  "drifts": [
+    {
+      "probe": "exception",
+      "evidence": "if a corporate action (as specified in Section 4.4 below) in relation of an Index Component occurs",
+      "drift": "The source's conditional carve-out tied to a corporate action is rephrased as a general requirement and the specific exception-like framing is weakened."
+    }
+  ],
+  "raw": null
+}

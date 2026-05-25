@@ -1,0 +1,11 @@
+sort Index
+sort Rebalance
+sort ExtraordinaryRebalance extends Rebalance
+
+entity TheIndex : Index
+
+rel rebalance_of_index : Rebalance, Index
+
+constraint index_not_rebalanced_extraordinarily :
+  forall r: ExtraordinaryRebalance,
+    not rebalance_of_index(r, TheIndex)

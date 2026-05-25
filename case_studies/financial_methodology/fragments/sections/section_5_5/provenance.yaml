@@ -1,0 +1,223 @@
+section: "5.5 Oversight Committee and Amendment Governance"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+# Top-level sections:
+#   claims        -- assertion-family entries (fact, constraint, obligation, ...)
+#   uncovered_source -- source phrases not directly mapped to any IR claim
+#   vocabulary_notes -- IR-introduced sorts/entities that need explanation
+#   corrections   -- non-claim IR overlays (sort_alias, source-typo fix-ups)
+#                    that live in repair.a4v3
+#
+# For claim entries:
+#   kind             -- IR family (fact | constraint | obligation | permission | prohibition)
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | plumbing | derived_invariant | verification_probe
+#   source_quotes    -- verbatim spans from source.md that the element formalizes
+#   back_translation -- natural-language unfolding of the IR formula
+#   vocabulary_basis -- source_only | mixed | ir_internal_bridge | ir_plumbing
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+
+claims:
+
+  methodology_policy_location:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the Methodology Policy ... which is available on the Solactive website: https://www.solactive.com/documents/methodology-policy/"
+    back_translation: >
+      The Methodology Policy is at
+      https://www.solactive.com/documents/methodology-policy/, is available
+      on the Solactive website, and the website belongs to Solactive.
+    vocabulary_basis: source_only
+    status: covered
+
+  oversight_committee_has_staff:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "An oversight committee composed of staff from Solactive and its subsidiaries"
+    back_translation: >
+      The Oversight Committee is composed of some staff.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Existential witness for the composition relation. The "from Solactive
+      or subsidiaries" qualification is enforced by the separate constraint
+      `oversight_committee_staff_from_solactive_or_subsidiary`.
+
+  oversight_committee_staff_from_solactive_or_subsidiary:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "An oversight committee composed of staff from Solactive and its subsidiaries"
+    back_translation: >
+      Every staff member that the Oversight Committee is composed of is
+      either from Solactive or from some subsidiary of Solactive.
+    vocabulary_basis: source_only
+    status: covered
+
+  index_rule_amendment_scope:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "amendments to the rules of the Index"
+    back_translation: >
+      Every amendment to a rule of the Index amends some rule of the Index.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Domain constraint: the IR sort `IndexRuleAmendment` only contains
+      amendments that target a rule of TheIndex. Source defines the scope
+      via the genitive "amendments to the rules of the Index".
+
+  oversight_committee_responsible_for_index_rule_amendment_decisions:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "is responsible for decisions regarding any amendments to the rules of the Index"
+    back_translation: >
+      If an amendment amends a rule of the Index, then the Oversight Committee
+      is responsible for decisions regarding that amendment.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Direct responsibility reading: source assigns the responsibility
+      relation to the Oversight Committee and the amendment-decision topic
+      without requiring a concrete Decision instance for every amendment.
+
+  index_rule_amendments_may_result_in_guideline_amendment:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Any such amendment, which may result in an amendment of the Guideline"
+    back_translation: >
+      Every amendment to a rule of the Index may result in some amendment of
+      the Guideline, and that possible resulting amendment amends the
+      Guideline.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The "may" modality is preserved by the `may_result_in` relation; the
+      existential witness represents a possible resulting Guideline amendment,
+      not an actually realized amendment.
+
+  oversight_committee_prior_approval:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "must be submitted to the Oversight Committee for prior approval"
+    back_translation: >
+      The prior approval used for the submission requirement is approval by
+      the Oversight Committee.
+    vocabulary_basis: source_only
+    status: covered
+
+  submit_index_rule_amendment_for_prior_approval:
+    kind: obligation
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Any such amendment ... must be submitted to the Oversight Committee for prior approval"
+    back_translation: >
+      Every amendment to a rule of the Index must be submitted to the Oversight
+      Committee for prior approval.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      DeonticDecl (obligation) chosen over hard constraint to preserve
+      "must"-modality with violation semantics. The target is the amendment
+      being submitted, while the scope `OversightCommitteePriorApproval`
+      carries the destination/approval context.
+
+  make_index_rule_amendment_in_compliance_with_methodology_policy:
+    kind: obligation
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Any such amendment ... will be made in compliance with the Methodology Policy"
+    back_translation: >
+      Every amendment to a rule of the Index must be made in compliance with the
+      Methodology Policy.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      DeonticDecl (obligation) chosen over hard constraint, parallel to
+      the submission obligation. Source modal "will be made" carries
+      legal/procedural force closer to deontic norm than to logical
+      invariant. See translator_notes 2026-05-06T17:39:59+02:00 entry.
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  TheIndex:
+    note: >
+      Entity for the contextual "the Index" reference in source. Source
+      uses bare "the Index" throughout; IR names it `TheIndex` as the
+      single named instance for the local section context. Cross-section
+      identification belongs to the merge layer.
+  OversightCommittee:
+    note: >
+      Entity for "the Oversight Committee" (named in source as the
+      defined term in parentheses: "(the 'Oversight Committee')").
+      Source-faithful entity name.
+  MethodologyPolicy:
+    note: >
+      Entity for "the Methodology Policy" (named in source as the linked
+      document). Source-faithful entity name.
+  PriorApproval:
+    note: >
+      Subtype of Approval. Captures the source phrase "prior approval"
+      via the type system rather than via a separate temporal relation.
+      Used as the scope of the submission obligation.
+  OversightCommitteePriorApproval:
+    note: >
+      Entity for the prior approval by the Oversight Committee required by
+      the source phrase "submitted to the Oversight Committee for prior
+      approval".
+  Policy:
+    note: >
+      IR sort (subtype of Document) for policy documents. Used by
+      MethodologyPolicy entity. Source uses "Methodology Policy" as a
+      named instance; the abstract `Policy` sort is IR-introduced for
+      future merge with other policy documents.
+  Committee:
+    note: >
+      IR sort (subtype of Organization) for committees. Source uses
+      "an oversight committee" descriptively; IR introduces `Committee`
+      as a generic sort with `OversightCommittee` as the named instance.
+  IndexRuleAmendment:
+    note: >
+      Subtype of Amendment. Captures source phrase "amendments to the
+      rules of the Index"; the scope is enforced by
+      `index_rule_amendment_scope` constraint.
+  GuidelineAmendment:
+    note: >
+      Subtype of Amendment. Captures source phrase "an amendment of the
+      Guideline"; the scope is enforced by
+      `index_rule_amendments_may_result_in_guideline_amendment`
+      constraint.
+  responsible_for_decisions_regarding:
+    note: >
+      Relation for the source phrase "responsible for decisions regarding".
+      It links the Oversight Committee directly to the amendment-decision
+      topic without inventing a concrete decision instance.
+  may_result_in:
+    note: >
+      Possibility relation for the source phrase "may result in"; this is
+      outcome possibility, not deontic permission.
+  approval_by:
+    note: >
+      Relation linking the prior approval context to the Oversight Committee
+      named as the submission destination in the source.

@@ -1,0 +1,924 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:appendix_8_1 a a4:ProjectionTarget ;
+  a4:relativePath "appendix/appendix_8_1/main_ir.a4v3" ;
+  a4:targetKind "appendix" .
+
+ex:Appendix a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:RbicsClassificationSystem a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:RbicsSubindustry a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:RbicsNumberCode a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:RbicsSubindustryName a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:RbicsClassificationLevel a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:RbicsClassificationLevel6 a ex:RbicsClassificationLevel, a4:EnumMember, owl:NamedIndividual .
+ex:RbicsClassificationLevel a4:enumMember ex:RbicsClassificationLevel6 .
+
+ex:Appendix8 a ex:Appendix, owl:NamedIndividual .
+ex:RBICS a ex:RbicsClassificationSystem, owl:NamedIndividual .
+ex:RbicsSubindustry101025153010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry101025201010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry101025301010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry101025301510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry101025302015 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry101025303010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry101025304010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry201015151015 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry201015151515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry201020101025 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry202010151020 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry202010152015 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry202010152515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry251010351010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry252010101010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015101545 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015151510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201520 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201525 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201530 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201535 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201540 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401020101030 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401020151550 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401020152525 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401025101520 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401025101525 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401025102020 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401025102025 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401525103025 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401525151515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401525152515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451010101520 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451010101530 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451010101540 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451010101545 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451010151510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451010151525 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451510203010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451510203020 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry551010151515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry551030101530 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351020 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351025 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351030 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351035 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351040 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351045 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351050 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351520 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401530 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401535 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401540 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401545 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401550 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401555 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401560 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401580 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402030 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402035 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402040 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402045 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402050 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402055 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402060 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402080 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451530 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451535 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451540 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451545 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451550 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451555 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451560 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451580 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452030 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452035 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452040 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452045 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452050 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452055 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452060 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452080 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501030 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501035 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501040 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501045 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501050 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501055 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501060 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501080 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501530 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501535 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501540 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501545 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501550 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501555 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501560 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501580 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsNumberCode101025153010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode101025201010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode101025301010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode101025301510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode101025302015 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode101025303010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode101025304010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode201015151015 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode201015151515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode201020101025 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode202010151020 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode202010152015 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode202010152515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode251010351010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode252010101010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015101545 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015151510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201520 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201525 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201530 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201535 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201540 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401020101030 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401020151550 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401020152525 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401025101520 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401025101525 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401025102020 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401025102025 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401525103025 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401525151515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401525152515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451010101520 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451010101530 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451010101540 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451010101545 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451010151510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451010151525 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451510203010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451510203020 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode551010151515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode551030101530 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351020 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351025 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351030 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351035 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351040 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351045 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351050 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351520 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401530 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401535 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401540 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401545 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401550 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401555 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401560 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401580 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402030 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402035 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402040 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402045 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402050 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402055 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402060 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402080 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451530 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451535 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451540 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451545 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451550 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451555 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451560 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451580 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452030 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452035 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452040 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452045 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452050 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452055 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452060 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452080 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501030 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501035 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501040 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501045 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501050 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501055 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501060 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501080 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501530 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501535 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501540 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501545 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501550 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501555 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501560 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501580 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNameAltEnergyAutonomousHeavyDutyTruckMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAltEnergyAutonomousTransitVehicleProduction a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAltEnergyMotorHomesAndCampersRvsMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAltEnergyRecreationVehicleManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAlternativeEnergyBoatsMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAlternativeEnergyCarManufacturers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAlternativeEnergyHeavyDutyTrucksMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAlternativeEnergyInfrastructureConstruction a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAlternativeEnergyMotorcyclesMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAlternativeEnergyTransitVehiclesMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaMixedAlternativeWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaResidentialDecentralizedWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCarbonCaptureServicesAndTechnologies a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaMixedAlternativeWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaResidentialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCommercialAlternativeEnergyContractors a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameDiversifiedIndustrialGasManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameElectricVehicleBatteriesManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEnergyEfficientLightingAndLEDManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEnvironmentalConsulting a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEnvironmentalRestorationServices a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEnvironmentalServices a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeMixedAlternativeWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeResidentialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameFuelCellEquipmentAndTechnologyProviders a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameGasificationAlternativeFuelManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameGeothermalEnergyEquipmentManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameHydroelectricPowerGenerationEquipmentProviders a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameHydrogenFuelManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameHydrogenGasManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameIntegratedOilAndGasExplorationAndProduction a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaMixedAlternativeWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaResidentialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAfricaHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAfricaIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAfricaResidentialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAndAfricaBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAndAfricaGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAndAfricaMixedAltWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAndAfricaNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAndAfricaSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAndAfricaWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMinimillsManufacturingFlats a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMinimillsMixedProductManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMixedEnvironmentalControlMachineManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMixedRenewableEnergyGenerationManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMultiTypeHomeFurnishingsMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameNuclearWasteHandlingAndDisposal a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAlternativeFuelManufacturers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificMixedAltWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificResidentialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherWasteServices a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNamePhotovoltaicAndSolarCellsAndSystemsProviders a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNamePhotovoltaicPowerModuleSubassemblyComponents a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNamePhotovoltaicProductionEquipmentManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNamePhotovoltaicWafers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameResidentialAlternativeEnergyContractors a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameSmartGridTechnologyAndSmartMeterProducts a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameThermalAndChemicalProcessingMachineryMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUSMixedTraditionalFuelWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesMixedAlternativeWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesResidentialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUraniumFuelManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUraniumMining a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameWasteToEnergyServices a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameWindEnergyEquipmentManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:appendix_includes_rbics_subindustry a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:appendix_includes_rbics_subindustry_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Appendix .
+ex:appendix_includes_rbics_subindustry a4:argument ex:appendix_includes_rbics_subindustry_arg_0 .
+ex:appendix_includes_rbics_subindustry_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RbicsSubindustry .
+ex:appendix_includes_rbics_subindustry a4:argument ex:appendix_includes_rbics_subindustry_arg_1 .
+ex:rbics_classifies_subindustry a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:rbics_classifies_subindustry_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RbicsClassificationSystem .
+ex:rbics_classifies_subindustry a4:argument ex:rbics_classifies_subindustry_arg_0 .
+ex:rbics_classifies_subindustry_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RbicsSubindustry .
+ex:rbics_classifies_subindustry a4:argument ex:rbics_classifies_subindustry_arg_1 .
+ex:rbics_number_code a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:rbics_number_code_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RbicsSubindustry .
+ex:rbics_number_code a4:argument ex:rbics_number_code_arg_0 .
+ex:rbics_number_code a4:resultSort ex:RbicsNumberCode .
+ex:rbics_number_code a4:functionFlag "required" .
+ex:rbics_subindustry_name a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:rbics_subindustry_name_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RbicsSubindustry .
+ex:rbics_subindustry_name a4:argument ex:rbics_subindustry_name_arg_0 .
+ex:rbics_subindustry_name a4:resultSort ex:RbicsSubindustryName .
+ex:rbics_subindustry_name a4:functionFlag "required" .
+ex:rbics_classification_level a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:rbics_classification_level_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RbicsSubindustry .
+ex:rbics_classification_level a4:argument ex:rbics_classification_level_arg_0 .
+ex:rbics_classification_level a4:resultSort ex:RbicsClassificationLevel .
+ex:rbics_classification_level a4:functionFlag "required" .
+
+ex:ASSERT_rbics_subindustry_101025153010 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "347"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025153010)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry101025153010)) and ((rbics_number_code(RbicsSubindustry101025153010)) = (RbicsNumberCode101025153010)) and ((rbics_subindustry_name(RbicsSubindustry101025153010)) = (RbicsNameNuclearWasteHandlingAndDisposal)) and ((rbics_classification_level(RbicsSubindustry101025153010)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_101025153010 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025153010)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry101025153010)\n  and rbics_number_code(RbicsSubindustry101025153010) = RbicsNumberCode101025153010\n  and rbics_subindustry_name(RbicsSubindustry101025153010) = RbicsNameNuclearWasteHandlingAndDisposal\n  and rbics_classification_level(RbicsSubindustry101025153010) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_101025201010 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "354"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025201010)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry101025201010)) and ((rbics_number_code(RbicsSubindustry101025201010)) = (RbicsNumberCode101025201010)) and ((rbics_subindustry_name(RbicsSubindustry101025201010)) = (RbicsNameOtherWasteServices)) and ((rbics_classification_level(RbicsSubindustry101025201010)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_101025201010 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025201010)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry101025201010)\n  and rbics_number_code(RbicsSubindustry101025201010) = RbicsNumberCode101025201010\n  and rbics_subindustry_name(RbicsSubindustry101025201010) = RbicsNameOtherWasteServices\n  and rbics_classification_level(RbicsSubindustry101025201010) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_101025301010 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "361"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025301010)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry101025301010)) and ((rbics_number_code(RbicsSubindustry101025301010)) = (RbicsNumberCode101025301010)) and ((rbics_subindustry_name(RbicsSubindustry101025301010)) = (RbicsNameEnvironmentalServices)) and ((rbics_classification_level(RbicsSubindustry101025301010)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_101025301010 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025301010)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry101025301010)\n  and rbics_number_code(RbicsSubindustry101025301010) = RbicsNumberCode101025301010\n  and rbics_subindustry_name(RbicsSubindustry101025301010) = RbicsNameEnvironmentalServices\n  and rbics_classification_level(RbicsSubindustry101025301010) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_101025301510 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "368"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025301510)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry101025301510)) and ((rbics_number_code(RbicsSubindustry101025301510)) = (RbicsNumberCode101025301510)) and ((rbics_subindustry_name(RbicsSubindustry101025301510)) = (RbicsNameEnvironmentalConsulting)) and ((rbics_classification_level(RbicsSubindustry101025301510)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_101025301510 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025301510)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry101025301510)\n  and rbics_number_code(RbicsSubindustry101025301510) = RbicsNumberCode101025301510\n  and rbics_subindustry_name(RbicsSubindustry101025301510) = RbicsNameEnvironmentalConsulting\n  and rbics_classification_level(RbicsSubindustry101025301510) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_101025302015 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "375"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025302015)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry101025302015)) and ((rbics_number_code(RbicsSubindustry101025302015)) = (RbicsNumberCode101025302015)) and ((rbics_subindustry_name(RbicsSubindustry101025302015)) = (RbicsNameCarbonCaptureServicesAndTechnologies)) and ((rbics_classification_level(RbicsSubindustry101025302015)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_101025302015 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025302015)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry101025302015)\n  and rbics_number_code(RbicsSubindustry101025302015) = RbicsNumberCode101025302015\n  and rbics_subindustry_name(RbicsSubindustry101025302015) = RbicsNameCarbonCaptureServicesAndTechnologies\n  and rbics_classification_level(RbicsSubindustry101025302015) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_101025303010 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "382"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025303010)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry101025303010)) and ((rbics_number_code(RbicsSubindustry101025303010)) = (RbicsNumberCode101025303010)) and ((rbics_subindustry_name(RbicsSubindustry101025303010)) = (RbicsNameWasteToEnergyServices)) and ((rbics_classification_level(RbicsSubindustry101025303010)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_101025303010 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025303010)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry101025303010)\n  and rbics_number_code(RbicsSubindustry101025303010) = RbicsNumberCode101025303010\n  and rbics_subindustry_name(RbicsSubindustry101025303010) = RbicsNameWasteToEnergyServices\n  and rbics_classification_level(RbicsSubindustry101025303010) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_101025304010 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "389"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025304010)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry101025304010)) and ((rbics_number_code(RbicsSubindustry101025304010)) = (RbicsNumberCode101025304010)) and ((rbics_subindustry_name(RbicsSubindustry101025304010)) = (RbicsNameEnvironmentalRestorationServices)) and ((rbics_classification_level(RbicsSubindustry101025304010)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_101025304010 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry101025304010)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry101025304010)\n  and rbics_number_code(RbicsSubindustry101025304010) = RbicsNumberCode101025304010\n  and rbics_subindustry_name(RbicsSubindustry101025304010) = RbicsNameEnvironmentalRestorationServices\n  and rbics_classification_level(RbicsSubindustry101025304010) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_201015151015 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "396"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry201015151015)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry201015151015)) and ((rbics_number_code(RbicsSubindustry201015151015)) = (RbicsNumberCode201015151015)) and ((rbics_subindustry_name(RbicsSubindustry201015151015)) = (RbicsNameAlternativeEnergyBoatsMakers)) and ((rbics_classification_level(RbicsSubindustry201015151015)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_201015151015 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry201015151015)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry201015151015)\n  and rbics_number_code(RbicsSubindustry201015151015) = RbicsNumberCode201015151015\n  and rbics_subindustry_name(RbicsSubindustry201015151015) = RbicsNameAlternativeEnergyBoatsMakers\n  and rbics_classification_level(RbicsSubindustry201015151015) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_201015151515 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "403"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry201015151515)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry201015151515)) and ((rbics_number_code(RbicsSubindustry201015151515)) = (RbicsNumberCode201015151515)) and ((rbics_subindustry_name(RbicsSubindustry201015151515)) = (RbicsNameAltEnergyRecreationVehicleManufacturing)) and ((rbics_classification_level(RbicsSubindustry201015151515)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_201015151515 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry201015151515)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry201015151515)\n  and rbics_number_code(RbicsSubindustry201015151515) = RbicsNumberCode201015151515\n  and rbics_subindustry_name(RbicsSubindustry201015151515) = RbicsNameAltEnergyRecreationVehicleManufacturing\n  and rbics_classification_level(RbicsSubindustry201015151515) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_201020101025 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "410"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry201020101025)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry201020101025)) and ((rbics_number_code(RbicsSubindustry201020101025)) = (RbicsNumberCode201020101025)) and ((rbics_subindustry_name(RbicsSubindustry201020101025)) = (RbicsNameMultiTypeHomeFurnishingsMakers)) and ((rbics_classification_level(RbicsSubindustry201020101025)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_201020101025 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry201020101025)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry201020101025)\n  and rbics_number_code(RbicsSubindustry201020101025) = RbicsNumberCode201020101025\n  and rbics_subindustry_name(RbicsSubindustry201020101025) = RbicsNameMultiTypeHomeFurnishingsMakers\n  and rbics_classification_level(RbicsSubindustry201020101025) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_202010151020 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "417"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry202010151020)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry202010151020)) and ((rbics_number_code(RbicsSubindustry202010151020)) = (RbicsNumberCode202010151020)) and ((rbics_subindustry_name(RbicsSubindustry202010151020)) = (RbicsNameAlternativeEnergyCarManufacturers)) and ((rbics_classification_level(RbicsSubindustry202010151020)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_202010151020 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry202010151020)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry202010151020)\n  and rbics_number_code(RbicsSubindustry202010151020) = RbicsNumberCode202010151020\n  and rbics_subindustry_name(RbicsSubindustry202010151020) = RbicsNameAlternativeEnergyCarManufacturers\n  and rbics_classification_level(RbicsSubindustry202010151020) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_202010152015 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "424"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry202010152015)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry202010152015)) and ((rbics_number_code(RbicsSubindustry202010152015)) = (RbicsNumberCode202010152015)) and ((rbics_subindustry_name(RbicsSubindustry202010152015)) = (RbicsNameAlternativeEnergyMotorcyclesMakers)) and ((rbics_classification_level(RbicsSubindustry202010152015)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_202010152015 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry202010152015)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry202010152015)\n  and rbics_number_code(RbicsSubindustry202010152015) = RbicsNumberCode202010152015\n  and rbics_subindustry_name(RbicsSubindustry202010152015) = RbicsNameAlternativeEnergyMotorcyclesMakers\n  and rbics_classification_level(RbicsSubindustry202010152015) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_202010152515 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "431"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry202010152515)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry202010152515)) and ((rbics_number_code(RbicsSubindustry202010152515)) = (RbicsNumberCode202010152515)) and ((rbics_subindustry_name(RbicsSubindustry202010152515)) = (RbicsNameAltEnergyMotorHomesAndCampersRvsMakers)) and ((rbics_classification_level(RbicsSubindustry202010152515)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_202010152515 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry202010152515)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry202010152515)\n  and rbics_number_code(RbicsSubindustry202010152515) = RbicsNumberCode202010152515\n  and rbics_subindustry_name(RbicsSubindustry202010152515) = RbicsNameAltEnergyMotorHomesAndCampersRvsMakers\n  and rbics_classification_level(RbicsSubindustry202010152515) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_251010351010 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "438"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry251010351010)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry251010351010)) and ((rbics_number_code(RbicsSubindustry251010351010)) = (RbicsNumberCode251010351010)) and ((rbics_subindustry_name(RbicsSubindustry251010351010)) = (RbicsNameUraniumMining)) and ((rbics_classification_level(RbicsSubindustry251010351010)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_251010351010 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry251010351010)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry251010351010)\n  and rbics_number_code(RbicsSubindustry251010351010) = RbicsNumberCode251010351010\n  and rbics_subindustry_name(RbicsSubindustry251010351010) = RbicsNameUraniumMining\n  and rbics_classification_level(RbicsSubindustry251010351010) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_252010101010 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "445"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry252010101010)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry252010101010)) and ((rbics_number_code(RbicsSubindustry252010101010)) = (RbicsNumberCode252010101010)) and ((rbics_subindustry_name(RbicsSubindustry252010101010)) = (RbicsNameIntegratedOilAndGasExplorationAndProduction)) and ((rbics_classification_level(RbicsSubindustry252010101010)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_252010101010 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry252010101010)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry252010101010)\n  and rbics_number_code(RbicsSubindustry252010101010) = RbicsNumberCode252010101010\n  and rbics_subindustry_name(RbicsSubindustry252010101010) = RbicsNameIntegratedOilAndGasExplorationAndProduction\n  and rbics_classification_level(RbicsSubindustry252010101010) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401015101545 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "452"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015101545)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401015101545)) and ((rbics_number_code(RbicsSubindustry401015101545)) = (RbicsNumberCode401015101545)) and ((rbics_subindustry_name(RbicsSubindustry401015101545)) = (RbicsNameElectricVehicleBatteriesManufacturing)) and ((rbics_classification_level(RbicsSubindustry401015101545)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401015101545 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015101545)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401015101545)\n  and rbics_number_code(RbicsSubindustry401015101545) = RbicsNumberCode401015101545\n  and rbics_subindustry_name(RbicsSubindustry401015101545) = RbicsNameElectricVehicleBatteriesManufacturing\n  and rbics_classification_level(RbicsSubindustry401015101545) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401015151510 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "459"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015151510)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401015151510)) and ((rbics_number_code(RbicsSubindustry401015151510)) = (RbicsNumberCode401015151510)) and ((rbics_subindustry_name(RbicsSubindustry401015151510)) = (RbicsNameEnergyEfficientLightingAndLEDManufacturing)) and ((rbics_classification_level(RbicsSubindustry401015151510)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401015151510 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015151510)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401015151510)\n  and rbics_number_code(RbicsSubindustry401015151510) = RbicsNumberCode401015151510\n  and rbics_subindustry_name(RbicsSubindustry401015151510) = RbicsNameEnergyEfficientLightingAndLEDManufacturing\n  and rbics_classification_level(RbicsSubindustry401015151510) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401015201510 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "466"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201510)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201510)) and ((rbics_number_code(RbicsSubindustry401015201510)) = (RbicsNumberCode401015201510)) and ((rbics_subindustry_name(RbicsSubindustry401015201510)) = (RbicsNameFuelCellEquipmentAndTechnologyProviders)) and ((rbics_classification_level(RbicsSubindustry401015201510)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401015201510 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201510)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201510)\n  and rbics_number_code(RbicsSubindustry401015201510) = RbicsNumberCode401015201510\n  and rbics_subindustry_name(RbicsSubindustry401015201510) = RbicsNameFuelCellEquipmentAndTechnologyProviders\n  and rbics_classification_level(RbicsSubindustry401015201510) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401015201515 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "473"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201515)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201515)) and ((rbics_number_code(RbicsSubindustry401015201515)) = (RbicsNumberCode401015201515)) and ((rbics_subindustry_name(RbicsSubindustry401015201515)) = (RbicsNameMixedRenewableEnergyGenerationManufacturing)) and ((rbics_classification_level(RbicsSubindustry401015201515)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401015201515 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201515)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201515)\n  and rbics_number_code(RbicsSubindustry401015201515) = RbicsNumberCode401015201515\n  and rbics_subindustry_name(RbicsSubindustry401015201515) = RbicsNameMixedRenewableEnergyGenerationManufacturing\n  and rbics_classification_level(RbicsSubindustry401015201515) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401015201520 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "480"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201520)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201520)) and ((rbics_number_code(RbicsSubindustry401015201520)) = (RbicsNumberCode401015201520)) and ((rbics_subindustry_name(RbicsSubindustry401015201520)) = (RbicsNamePhotovoltaicAndSolarCellsAndSystemsProviders)) and ((rbics_classification_level(RbicsSubindustry401015201520)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401015201520 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201520)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201520)\n  and rbics_number_code(RbicsSubindustry401015201520) = RbicsNumberCode401015201520\n  and rbics_subindustry_name(RbicsSubindustry401015201520) = RbicsNamePhotovoltaicAndSolarCellsAndSystemsProviders\n  and rbics_classification_level(RbicsSubindustry401015201520) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401015201525 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "487"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201525)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201525)) and ((rbics_number_code(RbicsSubindustry401015201525)) = (RbicsNumberCode401015201525)) and ((rbics_subindustry_name(RbicsSubindustry401015201525)) = (RbicsNameSmartGridTechnologyAndSmartMeterProducts)) and ((rbics_classification_level(RbicsSubindustry401015201525)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401015201525 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201525)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201525)\n  and rbics_number_code(RbicsSubindustry401015201525) = RbicsNumberCode401015201525\n  and rbics_subindustry_name(RbicsSubindustry401015201525) = RbicsNameSmartGridTechnologyAndSmartMeterProducts\n  and rbics_classification_level(RbicsSubindustry401015201525) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401015201530 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "494"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201530)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201530)) and ((rbics_number_code(RbicsSubindustry401015201530)) = (RbicsNumberCode401015201530)) and ((rbics_subindustry_name(RbicsSubindustry401015201530)) = (RbicsNameWindEnergyEquipmentManufacturing)) and ((rbics_classification_level(RbicsSubindustry401015201530)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401015201530 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201530)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201530)\n  and rbics_number_code(RbicsSubindustry401015201530) = RbicsNumberCode401015201530\n  and rbics_subindustry_name(RbicsSubindustry401015201530) = RbicsNameWindEnergyEquipmentManufacturing\n  and rbics_classification_level(RbicsSubindustry401015201530) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401015201535 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "501"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201535)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201535)) and ((rbics_number_code(RbicsSubindustry401015201535)) = (RbicsNumberCode401015201535)) and ((rbics_subindustry_name(RbicsSubindustry401015201535)) = (RbicsNameHydroelectricPowerGenerationEquipmentProviders)) and ((rbics_classification_level(RbicsSubindustry401015201535)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401015201535 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201535)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201535)\n  and rbics_number_code(RbicsSubindustry401015201535) = RbicsNumberCode401015201535\n  and rbics_subindustry_name(RbicsSubindustry401015201535) = RbicsNameHydroelectricPowerGenerationEquipmentProviders\n  and rbics_classification_level(RbicsSubindustry401015201535) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401015201540 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "508"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201540)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201540)) and ((rbics_number_code(RbicsSubindustry401015201540)) = (RbicsNumberCode401015201540)) and ((rbics_subindustry_name(RbicsSubindustry401015201540)) = (RbicsNameGeothermalEnergyEquipmentManufacturing)) and ((rbics_classification_level(RbicsSubindustry401015201540)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401015201540 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401015201540)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401015201540)\n  and rbics_number_code(RbicsSubindustry401015201540) = RbicsNumberCode401015201540\n  and rbics_subindustry_name(RbicsSubindustry401015201540) = RbicsNameGeothermalEnergyEquipmentManufacturing\n  and rbics_classification_level(RbicsSubindustry401015201540) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401020101030 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "515"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401020101030)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401020101030)) and ((rbics_number_code(RbicsSubindustry401020101030)) = (RbicsNumberCode401020101030)) and ((rbics_subindustry_name(RbicsSubindustry401020101030)) = (RbicsNameMixedEnvironmentalControlMachineManufacturing)) and ((rbics_classification_level(RbicsSubindustry401020101030)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401020101030 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401020101030)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401020101030)\n  and rbics_number_code(RbicsSubindustry401020101030) = RbicsNumberCode401020101030\n  and rbics_subindustry_name(RbicsSubindustry401020101030) = RbicsNameMixedEnvironmentalControlMachineManufacturing\n  and rbics_classification_level(RbicsSubindustry401020101030) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401020151550 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "522"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401020151550)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401020151550)) and ((rbics_number_code(RbicsSubindustry401020151550)) = (RbicsNumberCode401020151550)) and ((rbics_subindustry_name(RbicsSubindustry401020151550)) = (RbicsNamePhotovoltaicProductionEquipmentManufacturing)) and ((rbics_classification_level(RbicsSubindustry401020151550)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401020151550 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401020151550)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401020151550)\n  and rbics_number_code(RbicsSubindustry401020151550) = RbicsNumberCode401020151550\n  and rbics_subindustry_name(RbicsSubindustry401020151550) = RbicsNamePhotovoltaicProductionEquipmentManufacturing\n  and rbics_classification_level(RbicsSubindustry401020151550) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401020152525 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "529"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401020152525)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401020152525)) and ((rbics_number_code(RbicsSubindustry401020152525)) = (RbicsNumberCode401020152525)) and ((rbics_subindustry_name(RbicsSubindustry401020152525)) = (RbicsNameThermalAndChemicalProcessingMachineryMakers)) and ((rbics_classification_level(RbicsSubindustry401020152525)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401020152525 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401020152525)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401020152525)\n  and rbics_number_code(RbicsSubindustry401020152525) = RbicsNumberCode401020152525\n  and rbics_subindustry_name(RbicsSubindustry401020152525) = RbicsNameThermalAndChemicalProcessingMachineryMakers\n  and rbics_classification_level(RbicsSubindustry401020152525) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401025101520 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "536"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401025101520)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401025101520)) and ((rbics_number_code(RbicsSubindustry401025101520)) = (RbicsNumberCode401025101520)) and ((rbics_subindustry_name(RbicsSubindustry401025101520)) = (RbicsNameAlternativeEnergyTransitVehiclesMakers)) and ((rbics_classification_level(RbicsSubindustry401025101520)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401025101520 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401025101520)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401025101520)\n  and rbics_number_code(RbicsSubindustry401025101520) = RbicsNumberCode401025101520\n  and rbics_subindustry_name(RbicsSubindustry401025101520) = RbicsNameAlternativeEnergyTransitVehiclesMakers\n  and rbics_classification_level(RbicsSubindustry401025101520) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401025101525 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "543"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401025101525)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401025101525)) and ((rbics_number_code(RbicsSubindustry401025101525)) = (RbicsNumberCode401025101525)) and ((rbics_subindustry_name(RbicsSubindustry401025101525)) = (RbicsNameAltEnergyAutonomousTransitVehicleProduction)) and ((rbics_classification_level(RbicsSubindustry401025101525)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401025101525 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401025101525)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401025101525)\n  and rbics_number_code(RbicsSubindustry401025101525) = RbicsNumberCode401025101525\n  and rbics_subindustry_name(RbicsSubindustry401025101525) = RbicsNameAltEnergyAutonomousTransitVehicleProduction\n  and rbics_classification_level(RbicsSubindustry401025101525) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401025102020 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "550"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401025102020)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401025102020)) and ((rbics_number_code(RbicsSubindustry401025102020)) = (RbicsNumberCode401025102020)) and ((rbics_subindustry_name(RbicsSubindustry401025102020)) = (RbicsNameAlternativeEnergyHeavyDutyTrucksMakers)) and ((rbics_classification_level(RbicsSubindustry401025102020)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401025102020 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401025102020)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401025102020)\n  and rbics_number_code(RbicsSubindustry401025102020) = RbicsNumberCode401025102020\n  and rbics_subindustry_name(RbicsSubindustry401025102020) = RbicsNameAlternativeEnergyHeavyDutyTrucksMakers\n  and rbics_classification_level(RbicsSubindustry401025102020) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401025102025 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "557"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401025102025)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401025102025)) and ((rbics_number_code(RbicsSubindustry401025102025)) = (RbicsNumberCode401025102025)) and ((rbics_subindustry_name(RbicsSubindustry401025102025)) = (RbicsNameAltEnergyAutonomousHeavyDutyTruckMakers)) and ((rbics_classification_level(RbicsSubindustry401025102025)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401025102025 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401025102025)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401025102025)\n  and rbics_number_code(RbicsSubindustry401025102025) = RbicsNumberCode401025102025\n  and rbics_subindustry_name(RbicsSubindustry401025102025) = RbicsNameAltEnergyAutonomousHeavyDutyTruckMakers\n  and rbics_classification_level(RbicsSubindustry401025102025) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401525103025 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "564"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401525103025)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401525103025)) and ((rbics_number_code(RbicsSubindustry401525103025)) = (RbicsNumberCode401525103025)) and ((rbics_subindustry_name(RbicsSubindustry401525103025)) = (RbicsNameAlternativeEnergyInfrastructureConstruction)) and ((rbics_classification_level(RbicsSubindustry401525103025)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401525103025 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401525103025)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401525103025)\n  and rbics_number_code(RbicsSubindustry401525103025) = RbicsNumberCode401525103025\n  and rbics_subindustry_name(RbicsSubindustry401525103025) = RbicsNameAlternativeEnergyInfrastructureConstruction\n  and rbics_classification_level(RbicsSubindustry401525103025) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401525151515 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "571"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401525151515)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401525151515)) and ((rbics_number_code(RbicsSubindustry401525151515)) = (RbicsNumberCode401525151515)) and ((rbics_subindustry_name(RbicsSubindustry401525151515)) = (RbicsNameCommercialAlternativeEnergyContractors)) and ((rbics_classification_level(RbicsSubindustry401525151515)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401525151515 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401525151515)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401525151515)\n  and rbics_number_code(RbicsSubindustry401525151515) = RbicsNumberCode401525151515\n  and rbics_subindustry_name(RbicsSubindustry401525151515) = RbicsNameCommercialAlternativeEnergyContractors\n  and rbics_classification_level(RbicsSubindustry401525151515) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_401525152515 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "578"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401525152515)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry401525152515)) and ((rbics_number_code(RbicsSubindustry401525152515)) = (RbicsNumberCode401525152515)) and ((rbics_subindustry_name(RbicsSubindustry401525152515)) = (RbicsNameResidentialAlternativeEnergyContractors)) and ((rbics_classification_level(RbicsSubindustry401525152515)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_401525152515 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry401525152515)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry401525152515)\n  and rbics_number_code(RbicsSubindustry401525152515) = RbicsNumberCode401525152515\n  and rbics_subindustry_name(RbicsSubindustry401525152515) = RbicsNameResidentialAlternativeEnergyContractors\n  and rbics_classification_level(RbicsSubindustry401525152515) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_451010101520 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "585"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451010101520)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry451010101520)) and ((rbics_number_code(RbicsSubindustry451010101520)) = (RbicsNumberCode451010101520)) and ((rbics_subindustry_name(RbicsSubindustry451010101520)) = (RbicsNameGasificationAlternativeFuelManufacturing)) and ((rbics_classification_level(RbicsSubindustry451010101520)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_451010101520 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451010101520)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry451010101520)\n  and rbics_number_code(RbicsSubindustry451010101520) = RbicsNumberCode451010101520\n  and rbics_subindustry_name(RbicsSubindustry451010101520) = RbicsNameGasificationAlternativeFuelManufacturing\n  and rbics_classification_level(RbicsSubindustry451010101520) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_451010101530 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "592"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451010101530)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry451010101530)) and ((rbics_number_code(RbicsSubindustry451010101530)) = (RbicsNumberCode451010101530)) and ((rbics_subindustry_name(RbicsSubindustry451010101530)) = (RbicsNameOtherAlternativeFuelManufacturers)) and ((rbics_classification_level(RbicsSubindustry451010101530)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_451010101530 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451010101530)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry451010101530)\n  and rbics_number_code(RbicsSubindustry451010101530) = RbicsNumberCode451010101530\n  and rbics_subindustry_name(RbicsSubindustry451010101530) = RbicsNameOtherAlternativeFuelManufacturers\n  and rbics_classification_level(RbicsSubindustry451010101530) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_451010101540 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "599"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451010101540)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry451010101540)) and ((rbics_number_code(RbicsSubindustry451010101540)) = (RbicsNumberCode451010101540)) and ((rbics_subindustry_name(RbicsSubindustry451010101540)) = (RbicsNameUraniumFuelManufacturing)) and ((rbics_classification_level(RbicsSubindustry451010101540)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_451010101540 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451010101540)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry451010101540)\n  and rbics_number_code(RbicsSubindustry451010101540) = RbicsNumberCode451010101540\n  and rbics_subindustry_name(RbicsSubindustry451010101540) = RbicsNameUraniumFuelManufacturing\n  and rbics_classification_level(RbicsSubindustry451010101540) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_451010101545 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "606"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451010101545)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry451010101545)) and ((rbics_number_code(RbicsSubindustry451010101545)) = (RbicsNumberCode451010101545)) and ((rbics_subindustry_name(RbicsSubindustry451010101545)) = (RbicsNameHydrogenFuelManufacturing)) and ((rbics_classification_level(RbicsSubindustry451010101545)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_451010101545 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451010101545)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry451010101545)\n  and rbics_number_code(RbicsSubindustry451010101545) = RbicsNumberCode451010101545\n  and rbics_subindustry_name(RbicsSubindustry451010101545) = RbicsNameHydrogenFuelManufacturing\n  and rbics_classification_level(RbicsSubindustry451010101545) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_451010151510 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "613"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451010151510)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry451010151510)) and ((rbics_number_code(RbicsSubindustry451010151510)) = (RbicsNumberCode451010151510)) and ((rbics_subindustry_name(RbicsSubindustry451010151510)) = (RbicsNameDiversifiedIndustrialGasManufacturing)) and ((rbics_classification_level(RbicsSubindustry451010151510)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_451010151510 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451010151510)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry451010151510)\n  and rbics_number_code(RbicsSubindustry451010151510) = RbicsNumberCode451010151510\n  and rbics_subindustry_name(RbicsSubindustry451010151510) = RbicsNameDiversifiedIndustrialGasManufacturing\n  and rbics_classification_level(RbicsSubindustry451010151510) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_451010151525 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "620"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451010151525)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry451010151525)) and ((rbics_number_code(RbicsSubindustry451010151525)) = (RbicsNumberCode451010151525)) and ((rbics_subindustry_name(RbicsSubindustry451010151525)) = (RbicsNameHydrogenGasManufacturing)) and ((rbics_classification_level(RbicsSubindustry451010151525)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_451010151525 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451010151525)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry451010151525)\n  and rbics_number_code(RbicsSubindustry451010151525) = RbicsNumberCode451010151525\n  and rbics_subindustry_name(RbicsSubindustry451010151525) = RbicsNameHydrogenGasManufacturing\n  and rbics_classification_level(RbicsSubindustry451010151525) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_451510203010 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "627"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451510203010)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry451510203010)) and ((rbics_number_code(RbicsSubindustry451510203010)) = (RbicsNumberCode451510203010)) and ((rbics_subindustry_name(RbicsSubindustry451510203010)) = (RbicsNameMinimillsManufacturingFlats)) and ((rbics_classification_level(RbicsSubindustry451510203010)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_451510203010 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451510203010)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry451510203010)\n  and rbics_number_code(RbicsSubindustry451510203010) = RbicsNumberCode451510203010\n  and rbics_subindustry_name(RbicsSubindustry451510203010) = RbicsNameMinimillsManufacturingFlats\n  and rbics_classification_level(RbicsSubindustry451510203010) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_451510203020 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "634"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451510203020)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry451510203020)) and ((rbics_number_code(RbicsSubindustry451510203020)) = (RbicsNumberCode451510203020)) and ((rbics_subindustry_name(RbicsSubindustry451510203020)) = (RbicsNameMinimillsMixedProductManufacturing)) and ((rbics_classification_level(RbicsSubindustry451510203020)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_451510203020 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry451510203020)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry451510203020)\n  and rbics_number_code(RbicsSubindustry451510203020) = RbicsNumberCode451510203020\n  and rbics_subindustry_name(RbicsSubindustry451510203020) = RbicsNameMinimillsMixedProductManufacturing\n  and rbics_classification_level(RbicsSubindustry451510203020) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_551010151515 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "641"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry551010151515)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry551010151515)) and ((rbics_number_code(RbicsSubindustry551010151515)) = (RbicsNumberCode551010151515)) and ((rbics_subindustry_name(RbicsSubindustry551010151515)) = (RbicsNamePhotovoltaicPowerModuleSubassemblyComponents)) and ((rbics_classification_level(RbicsSubindustry551010151515)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_551010151515 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry551010151515)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry551010151515)\n  and rbics_number_code(RbicsSubindustry551010151515) = RbicsNumberCode551010151515\n  and rbics_subindustry_name(RbicsSubindustry551010151515) = RbicsNamePhotovoltaicPowerModuleSubassemblyComponents\n  and rbics_classification_level(RbicsSubindustry551010151515) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_551030101530 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "648"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry551030101530)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry551030101530)) and ((rbics_number_code(RbicsSubindustry551030101530)) = (RbicsNumberCode551030101530)) and ((rbics_subindustry_name(RbicsSubindustry551030101530)) = (RbicsNamePhotovoltaicWafers)) and ((rbics_classification_level(RbicsSubindustry551030101530)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_551030101530 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry551030101530)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry551030101530)\n  and rbics_number_code(RbicsSubindustry551030101530) = RbicsNumberCode551030101530\n  and rbics_subindustry_name(RbicsSubindustry551030101530) = RbicsNamePhotovoltaicWafers\n  and rbics_classification_level(RbicsSubindustry551030101530) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010351010 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "655"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351010)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351010)) and ((rbics_number_code(RbicsSubindustry651010351010)) = (RbicsNumberCode651010351010)) and ((rbics_subindustry_name(RbicsSubindustry651010351010)) = (RbicsNameUnitedStatesMixedAlternativeWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010351010)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010351010 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351010)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351010)\n  and rbics_number_code(RbicsSubindustry651010351010) = RbicsNumberCode651010351010\n  and rbics_subindustry_name(RbicsSubindustry651010351010) = RbicsNameUnitedStatesMixedAlternativeWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010351010) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010351020 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "662"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351020)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351020)) and ((rbics_number_code(RbicsSubindustry651010351020)) = (RbicsNumberCode651010351020)) and ((rbics_subindustry_name(RbicsSubindustry651010351020)) = (RbicsNameUnitedStatesBiomassWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010351020)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010351020 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351020)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351020)\n  and rbics_number_code(RbicsSubindustry651010351020) = RbicsNumberCode651010351020\n  and rbics_subindustry_name(RbicsSubindustry651010351020) = RbicsNameUnitedStatesBiomassWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010351020) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010351025 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "669"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351025)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351025)) and ((rbics_number_code(RbicsSubindustry651010351025)) = (RbicsNumberCode651010351025)) and ((rbics_subindustry_name(RbicsSubindustry651010351025)) = (RbicsNameUnitedStatesIndustrialDecentralizedPower)) and ((rbics_classification_level(RbicsSubindustry651010351025)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010351025 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351025)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351025)\n  and rbics_number_code(RbicsSubindustry651010351025) = RbicsNumberCode651010351025\n  and rbics_subindustry_name(RbicsSubindustry651010351025) = RbicsNameUnitedStatesIndustrialDecentralizedPower\n  and rbics_classification_level(RbicsSubindustry651010351025) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010351030 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "676"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351030)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351030)) and ((rbics_number_code(RbicsSubindustry651010351030)) = (RbicsNumberCode651010351030)) and ((rbics_subindustry_name(RbicsSubindustry651010351030)) = (RbicsNameUnitedStatesGeothermalWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010351030)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010351030 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351030)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351030)\n  and rbics_number_code(RbicsSubindustry651010351030) = RbicsNumberCode651010351030\n  and rbics_subindustry_name(RbicsSubindustry651010351030) = RbicsNameUnitedStatesGeothermalWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010351030) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010351035 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "683"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351035)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351035)) and ((rbics_number_code(RbicsSubindustry651010351035)) = (RbicsNumberCode651010351035)) and ((rbics_subindustry_name(RbicsSubindustry651010351035)) = (RbicsNameUnitedStatesHydroelectricWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010351035)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010351035 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351035)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351035)\n  and rbics_number_code(RbicsSubindustry651010351035) = RbicsNumberCode651010351035\n  and rbics_subindustry_name(RbicsSubindustry651010351035) = RbicsNameUnitedStatesHydroelectricWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010351035) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010351040 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "690"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351040)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351040)) and ((rbics_number_code(RbicsSubindustry651010351040)) = (RbicsNumberCode651010351040)) and ((rbics_subindustry_name(RbicsSubindustry651010351040)) = (RbicsNameUnitedStatesSolarWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010351040)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010351040 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351040)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351040)\n  and rbics_number_code(RbicsSubindustry651010351040) = RbicsNumberCode651010351040\n  and rbics_subindustry_name(RbicsSubindustry651010351040) = RbicsNameUnitedStatesSolarWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010351040) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010351045 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "697"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351045)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351045)) and ((rbics_number_code(RbicsSubindustry651010351045)) = (RbicsNumberCode651010351045)) and ((rbics_subindustry_name(RbicsSubindustry651010351045)) = (RbicsNameUnitedStatesWindWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010351045)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010351045 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351045)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351045)\n  and rbics_number_code(RbicsSubindustry651010351045) = RbicsNumberCode651010351045\n  and rbics_subindustry_name(RbicsSubindustry651010351045) = RbicsNameUnitedStatesWindWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010351045) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010351050 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "704"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351050)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351050)) and ((rbics_number_code(RbicsSubindustry651010351050)) = (RbicsNumberCode651010351050)) and ((rbics_subindustry_name(RbicsSubindustry651010351050)) = (RbicsNameUnitedStatesResidentialDecentralizedPower)) and ((rbics_classification_level(RbicsSubindustry651010351050)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010351050 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351050)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351050)\n  and rbics_number_code(RbicsSubindustry651010351050) = RbicsNumberCode651010351050\n  and rbics_subindustry_name(RbicsSubindustry651010351050) = RbicsNameUnitedStatesResidentialDecentralizedPower\n  and rbics_classification_level(RbicsSubindustry651010351050) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010351515 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "711"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351515)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351515)) and ((rbics_number_code(RbicsSubindustry651010351515)) = (RbicsNumberCode651010351515)) and ((rbics_subindustry_name(RbicsSubindustry651010351515)) = (RbicsNameUSMixedTraditionalFuelWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010351515)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010351515 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351515)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351515)\n  and rbics_number_code(RbicsSubindustry651010351515) = RbicsNumberCode651010351515\n  and rbics_subindustry_name(RbicsSubindustry651010351515) = RbicsNameUSMixedTraditionalFuelWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010351515) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010351520 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "718"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351520)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351520)) and ((rbics_number_code(RbicsSubindustry651010351520)) = (RbicsNumberCode651010351520)) and ((rbics_subindustry_name(RbicsSubindustry651010351520)) = (RbicsNameUnitedStatesNuclearWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010351520)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010351520 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010351520)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010351520)\n  and rbics_number_code(RbicsSubindustry651010351520) = RbicsNumberCode651010351520\n  and rbics_subindustry_name(RbicsSubindustry651010351520) = RbicsNameUnitedStatesNuclearWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010351520) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010401510 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "725"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401510)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401510)) and ((rbics_number_code(RbicsSubindustry651010401510)) = (RbicsNumberCode651010401510)) and ((rbics_subindustry_name(RbicsSubindustry651010401510)) = (RbicsNameCanadaMixedAlternativeWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010401510)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010401510 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401510)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401510)\n  and rbics_number_code(RbicsSubindustry651010401510) = RbicsNumberCode651010401510\n  and rbics_subindustry_name(RbicsSubindustry651010401510) = RbicsNameCanadaMixedAlternativeWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010401510) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010401530 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "732"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401530)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401530)) and ((rbics_number_code(RbicsSubindustry651010401530)) = (RbicsNumberCode651010401530)) and ((rbics_subindustry_name(RbicsSubindustry651010401530)) = (RbicsNameCanadaBiomassWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010401530)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010401530 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401530)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401530)\n  and rbics_number_code(RbicsSubindustry651010401530) = RbicsNumberCode651010401530\n  and rbics_subindustry_name(RbicsSubindustry651010401530) = RbicsNameCanadaBiomassWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010401530) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010401535 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "739"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401535)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401535)) and ((rbics_number_code(RbicsSubindustry651010401535)) = (RbicsNumberCode651010401535)) and ((rbics_subindustry_name(RbicsSubindustry651010401535)) = (RbicsNameCanadaIndustrialDecentralizedPower)) and ((rbics_classification_level(RbicsSubindustry651010401535)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010401535 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401535)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401535)\n  and rbics_number_code(RbicsSubindustry651010401535) = RbicsNumberCode651010401535\n  and rbics_subindustry_name(RbicsSubindustry651010401535) = RbicsNameCanadaIndustrialDecentralizedPower\n  and rbics_classification_level(RbicsSubindustry651010401535) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010401540 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "746"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401540)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401540)) and ((rbics_number_code(RbicsSubindustry651010401540)) = (RbicsNumberCode651010401540)) and ((rbics_subindustry_name(RbicsSubindustry651010401540)) = (RbicsNameCanadaGeothermalWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010401540)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010401540 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401540)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401540)\n  and rbics_number_code(RbicsSubindustry651010401540) = RbicsNumberCode651010401540\n  and rbics_subindustry_name(RbicsSubindustry651010401540) = RbicsNameCanadaGeothermalWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010401540) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010401545 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "753"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401545)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401545)) and ((rbics_number_code(RbicsSubindustry651010401545)) = (RbicsNumberCode651010401545)) and ((rbics_subindustry_name(RbicsSubindustry651010401545)) = (RbicsNameCanadaHydroelectricWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010401545)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010401545 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401545)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401545)\n  and rbics_number_code(RbicsSubindustry651010401545) = RbicsNumberCode651010401545\n  and rbics_subindustry_name(RbicsSubindustry651010401545) = RbicsNameCanadaHydroelectricWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010401545) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010401550 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "760"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401550)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401550)) and ((rbics_number_code(RbicsSubindustry651010401550)) = (RbicsNumberCode651010401550)) and ((rbics_subindustry_name(RbicsSubindustry651010401550)) = (RbicsNameCanadaSolarWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010401550)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010401550 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401550)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401550)\n  and rbics_number_code(RbicsSubindustry651010401550) = RbicsNumberCode651010401550\n  and rbics_subindustry_name(RbicsSubindustry651010401550) = RbicsNameCanadaSolarWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010401550) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010401555 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "767"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401555)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401555)) and ((rbics_number_code(RbicsSubindustry651010401555)) = (RbicsNumberCode651010401555)) and ((rbics_subindustry_name(RbicsSubindustry651010401555)) = (RbicsNameCanadaWindWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010401555)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010401555 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401555)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401555)\n  and rbics_number_code(RbicsSubindustry651010401555) = RbicsNumberCode651010401555\n  and rbics_subindustry_name(RbicsSubindustry651010401555) = RbicsNameCanadaWindWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010401555) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010401560 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "774"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401560)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401560)) and ((rbics_number_code(RbicsSubindustry651010401560)) = (RbicsNumberCode651010401560)) and ((rbics_subindustry_name(RbicsSubindustry651010401560)) = (RbicsNameCanadaNuclearWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010401560)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010401560 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401560)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401560)\n  and rbics_number_code(RbicsSubindustry651010401560) = RbicsNumberCode651010401560\n  and rbics_subindustry_name(RbicsSubindustry651010401560) = RbicsNameCanadaNuclearWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010401560) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010401580 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "781"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401580)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401580)) and ((rbics_number_code(RbicsSubindustry651010401580)) = (RbicsNumberCode651010401580)) and ((rbics_subindustry_name(RbicsSubindustry651010401580)) = (RbicsNameCanadaResidentialDecentralizedWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010401580)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010401580 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010401580)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010401580)\n  and rbics_number_code(RbicsSubindustry651010401580) = RbicsNumberCode651010401580\n  and rbics_subindustry_name(RbicsSubindustry651010401580) = RbicsNameCanadaResidentialDecentralizedWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010401580) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010402010 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "788"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402010)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402010)) and ((rbics_number_code(RbicsSubindustry651010402010)) = (RbicsNumberCode651010402010)) and ((rbics_subindustry_name(RbicsSubindustry651010402010)) = (RbicsNameLatinAmericaMixedAlternativeWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010402010)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010402010 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402010)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402010)\n  and rbics_number_code(RbicsSubindustry651010402010) = RbicsNumberCode651010402010\n  and rbics_subindustry_name(RbicsSubindustry651010402010) = RbicsNameLatinAmericaMixedAlternativeWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010402010) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010402030 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "795"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402030)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402030)) and ((rbics_number_code(RbicsSubindustry651010402030)) = (RbicsNumberCode651010402030)) and ((rbics_subindustry_name(RbicsSubindustry651010402030)) = (RbicsNameLatinAmericaBiomassWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010402030)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010402030 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402030)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402030)\n  and rbics_number_code(RbicsSubindustry651010402030) = RbicsNumberCode651010402030\n  and rbics_subindustry_name(RbicsSubindustry651010402030) = RbicsNameLatinAmericaBiomassWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010402030) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010402035 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "802"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402035)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402035)) and ((rbics_number_code(RbicsSubindustry651010402035)) = (RbicsNumberCode651010402035)) and ((rbics_subindustry_name(RbicsSubindustry651010402035)) = (RbicsNameLatinAmericaIndustrialDecentralizedPower)) and ((rbics_classification_level(RbicsSubindustry651010402035)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010402035 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402035)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402035)\n  and rbics_number_code(RbicsSubindustry651010402035) = RbicsNumberCode651010402035\n  and rbics_subindustry_name(RbicsSubindustry651010402035) = RbicsNameLatinAmericaIndustrialDecentralizedPower\n  and rbics_classification_level(RbicsSubindustry651010402035) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010402040 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "809"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402040)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402040)) and ((rbics_number_code(RbicsSubindustry651010402040)) = (RbicsNumberCode651010402040)) and ((rbics_subindustry_name(RbicsSubindustry651010402040)) = (RbicsNameLatinAmericaGeothermalWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010402040)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010402040 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402040)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402040)\n  and rbics_number_code(RbicsSubindustry651010402040) = RbicsNumberCode651010402040\n  and rbics_subindustry_name(RbicsSubindustry651010402040) = RbicsNameLatinAmericaGeothermalWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010402040) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010402045 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "816"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402045)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402045)) and ((rbics_number_code(RbicsSubindustry651010402045)) = (RbicsNumberCode651010402045)) and ((rbics_subindustry_name(RbicsSubindustry651010402045)) = (RbicsNameLatinAmericaHydroelectricWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010402045)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010402045 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402045)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402045)\n  and rbics_number_code(RbicsSubindustry651010402045) = RbicsNumberCode651010402045\n  and rbics_subindustry_name(RbicsSubindustry651010402045) = RbicsNameLatinAmericaHydroelectricWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010402045) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010402050 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "823"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402050)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402050)) and ((rbics_number_code(RbicsSubindustry651010402050)) = (RbicsNumberCode651010402050)) and ((rbics_subindustry_name(RbicsSubindustry651010402050)) = (RbicsNameLatinAmericaSolarWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010402050)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010402050 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402050)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402050)\n  and rbics_number_code(RbicsSubindustry651010402050) = RbicsNumberCode651010402050\n  and rbics_subindustry_name(RbicsSubindustry651010402050) = RbicsNameLatinAmericaSolarWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010402050) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010402055 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "830"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402055)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402055)) and ((rbics_number_code(RbicsSubindustry651010402055)) = (RbicsNumberCode651010402055)) and ((rbics_subindustry_name(RbicsSubindustry651010402055)) = (RbicsNameLatinAmericaWindWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010402055)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010402055 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402055)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402055)\n  and rbics_number_code(RbicsSubindustry651010402055) = RbicsNumberCode651010402055\n  and rbics_subindustry_name(RbicsSubindustry651010402055) = RbicsNameLatinAmericaWindWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010402055) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010402060 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "837"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402060)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402060)) and ((rbics_number_code(RbicsSubindustry651010402060)) = (RbicsNumberCode651010402060)) and ((rbics_subindustry_name(RbicsSubindustry651010402060)) = (RbicsNameLatinAmericaNuclearWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010402060)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010402060 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402060)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402060)\n  and rbics_number_code(RbicsSubindustry651010402060) = RbicsNumberCode651010402060\n  and rbics_subindustry_name(RbicsSubindustry651010402060) = RbicsNameLatinAmericaNuclearWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010402060) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010402080 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "844"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402080)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402080)) and ((rbics_number_code(RbicsSubindustry651010402080)) = (RbicsNumberCode651010402080)) and ((rbics_subindustry_name(RbicsSubindustry651010402080)) = (RbicsNameLatinAmericaResidentialDecentralizedPower)) and ((rbics_classification_level(RbicsSubindustry651010402080)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010402080 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010402080)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010402080)\n  and rbics_number_code(RbicsSubindustry651010402080) = RbicsNumberCode651010402080\n  and rbics_subindustry_name(RbicsSubindustry651010402080) = RbicsNameLatinAmericaResidentialDecentralizedPower\n  and rbics_classification_level(RbicsSubindustry651010402080) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010451510 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "851"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451510)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451510)) and ((rbics_number_code(RbicsSubindustry651010451510)) = (RbicsNumberCode651010451510)) and ((rbics_subindustry_name(RbicsSubindustry651010451510)) = (RbicsNameChinaMixedAlternativeWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010451510)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010451510 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451510)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451510)\n  and rbics_number_code(RbicsSubindustry651010451510) = RbicsNumberCode651010451510\n  and rbics_subindustry_name(RbicsSubindustry651010451510) = RbicsNameChinaMixedAlternativeWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010451510) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010451530 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "858"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451530)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451530)) and ((rbics_number_code(RbicsSubindustry651010451530)) = (RbicsNumberCode651010451530)) and ((rbics_subindustry_name(RbicsSubindustry651010451530)) = (RbicsNameChinaBiomassWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010451530)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010451530 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451530)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451530)\n  and rbics_number_code(RbicsSubindustry651010451530) = RbicsNumberCode651010451530\n  and rbics_subindustry_name(RbicsSubindustry651010451530) = RbicsNameChinaBiomassWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010451530) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010451535 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "865"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451535)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451535)) and ((rbics_number_code(RbicsSubindustry651010451535)) = (RbicsNumberCode651010451535)) and ((rbics_subindustry_name(RbicsSubindustry651010451535)) = (RbicsNameChinaIndustrialDecentralizedPower)) and ((rbics_classification_level(RbicsSubindustry651010451535)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010451535 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451535)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451535)\n  and rbics_number_code(RbicsSubindustry651010451535) = RbicsNumberCode651010451535\n  and rbics_subindustry_name(RbicsSubindustry651010451535) = RbicsNameChinaIndustrialDecentralizedPower\n  and rbics_classification_level(RbicsSubindustry651010451535) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010451540 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "872"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451540)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451540)) and ((rbics_number_code(RbicsSubindustry651010451540)) = (RbicsNumberCode651010451540)) and ((rbics_subindustry_name(RbicsSubindustry651010451540)) = (RbicsNameChinaGeothermalWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010451540)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010451540 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451540)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451540)\n  and rbics_number_code(RbicsSubindustry651010451540) = RbicsNumberCode651010451540\n  and rbics_subindustry_name(RbicsSubindustry651010451540) = RbicsNameChinaGeothermalWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010451540) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010451545 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "879"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451545)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451545)) and ((rbics_number_code(RbicsSubindustry651010451545)) = (RbicsNumberCode651010451545)) and ((rbics_subindustry_name(RbicsSubindustry651010451545)) = (RbicsNameChinaHydroelectricWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010451545)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010451545 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451545)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451545)\n  and rbics_number_code(RbicsSubindustry651010451545) = RbicsNumberCode651010451545\n  and rbics_subindustry_name(RbicsSubindustry651010451545) = RbicsNameChinaHydroelectricWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010451545) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010451550 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "886"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451550)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451550)) and ((rbics_number_code(RbicsSubindustry651010451550)) = (RbicsNumberCode651010451550)) and ((rbics_subindustry_name(RbicsSubindustry651010451550)) = (RbicsNameChinaSolarWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010451550)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010451550 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451550)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451550)\n  and rbics_number_code(RbicsSubindustry651010451550) = RbicsNumberCode651010451550\n  and rbics_subindustry_name(RbicsSubindustry651010451550) = RbicsNameChinaSolarWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010451550) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010451555 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "893"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451555)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451555)) and ((rbics_number_code(RbicsSubindustry651010451555)) = (RbicsNumberCode651010451555)) and ((rbics_subindustry_name(RbicsSubindustry651010451555)) = (RbicsNameChinaWindWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010451555)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010451555 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451555)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451555)\n  and rbics_number_code(RbicsSubindustry651010451555) = RbicsNumberCode651010451555\n  and rbics_subindustry_name(RbicsSubindustry651010451555) = RbicsNameChinaWindWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010451555) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010451560 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "900"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451560)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451560)) and ((rbics_number_code(RbicsSubindustry651010451560)) = (RbicsNumberCode651010451560)) and ((rbics_subindustry_name(RbicsSubindustry651010451560)) = (RbicsNameChinaNuclearWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010451560)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010451560 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451560)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451560)\n  and rbics_number_code(RbicsSubindustry651010451560) = RbicsNumberCode651010451560\n  and rbics_subindustry_name(RbicsSubindustry651010451560) = RbicsNameChinaNuclearWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010451560) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010451580 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "907"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451580)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451580)) and ((rbics_number_code(RbicsSubindustry651010451580)) = (RbicsNumberCode651010451580)) and ((rbics_subindustry_name(RbicsSubindustry651010451580)) = (RbicsNameChinaResidentialDecentralizedPower)) and ((rbics_classification_level(RbicsSubindustry651010451580)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010451580 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010451580)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010451580)\n  and rbics_number_code(RbicsSubindustry651010451580) = RbicsNumberCode651010451580\n  and rbics_subindustry_name(RbicsSubindustry651010451580) = RbicsNameChinaResidentialDecentralizedPower\n  and rbics_classification_level(RbicsSubindustry651010451580) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010452010 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "914"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452010)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452010)) and ((rbics_number_code(RbicsSubindustry651010452010)) = (RbicsNumberCode651010452010)) and ((rbics_subindustry_name(RbicsSubindustry651010452010)) = (RbicsNameOtherAsiaPacificMixedAltWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010452010)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010452010 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452010)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452010)\n  and rbics_number_code(RbicsSubindustry651010452010) = RbicsNumberCode651010452010\n  and rbics_subindustry_name(RbicsSubindustry651010452010) = RbicsNameOtherAsiaPacificMixedAltWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010452010) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010452030 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "921"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452030)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452030)) and ((rbics_number_code(RbicsSubindustry651010452030)) = (RbicsNumberCode651010452030)) and ((rbics_subindustry_name(RbicsSubindustry651010452030)) = (RbicsNameOtherAsiaPacificBiomassWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010452030)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010452030 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452030)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452030)\n  and rbics_number_code(RbicsSubindustry651010452030) = RbicsNumberCode651010452030\n  and rbics_subindustry_name(RbicsSubindustry651010452030) = RbicsNameOtherAsiaPacificBiomassWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010452030) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010452035 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "928"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452035)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452035)) and ((rbics_number_code(RbicsSubindustry651010452035)) = (RbicsNumberCode651010452035)) and ((rbics_subindustry_name(RbicsSubindustry651010452035)) = (RbicsNameOtherAsiaPacificIndustrialDecentralizedPower)) and ((rbics_classification_level(RbicsSubindustry651010452035)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010452035 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452035)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452035)\n  and rbics_number_code(RbicsSubindustry651010452035) = RbicsNumberCode651010452035\n  and rbics_subindustry_name(RbicsSubindustry651010452035) = RbicsNameOtherAsiaPacificIndustrialDecentralizedPower\n  and rbics_classification_level(RbicsSubindustry651010452035) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010452040 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "935"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452040)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452040)) and ((rbics_number_code(RbicsSubindustry651010452040)) = (RbicsNumberCode651010452040)) and ((rbics_subindustry_name(RbicsSubindustry651010452040)) = (RbicsNameOtherAsiaPacificGeothermalWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010452040)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010452040 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452040)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452040)\n  and rbics_number_code(RbicsSubindustry651010452040) = RbicsNumberCode651010452040\n  and rbics_subindustry_name(RbicsSubindustry651010452040) = RbicsNameOtherAsiaPacificGeothermalWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010452040) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010452045 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "942"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452045)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452045)) and ((rbics_number_code(RbicsSubindustry651010452045)) = (RbicsNumberCode651010452045)) and ((rbics_subindustry_name(RbicsSubindustry651010452045)) = (RbicsNameOtherAsiaPacificHydroelectricWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010452045)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010452045 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452045)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452045)\n  and rbics_number_code(RbicsSubindustry651010452045) = RbicsNumberCode651010452045\n  and rbics_subindustry_name(RbicsSubindustry651010452045) = RbicsNameOtherAsiaPacificHydroelectricWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010452045) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010452050 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "949"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452050)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452050)) and ((rbics_number_code(RbicsSubindustry651010452050)) = (RbicsNumberCode651010452050)) and ((rbics_subindustry_name(RbicsSubindustry651010452050)) = (RbicsNameOtherAsiaPacificSolarWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010452050)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010452050 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452050)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452050)\n  and rbics_number_code(RbicsSubindustry651010452050) = RbicsNumberCode651010452050\n  and rbics_subindustry_name(RbicsSubindustry651010452050) = RbicsNameOtherAsiaPacificSolarWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010452050) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010452055 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "956"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452055)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452055)) and ((rbics_number_code(RbicsSubindustry651010452055)) = (RbicsNumberCode651010452055)) and ((rbics_subindustry_name(RbicsSubindustry651010452055)) = (RbicsNameOtherAsiaPacificWindWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010452055)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010452055 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452055)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452055)\n  and rbics_number_code(RbicsSubindustry651010452055) = RbicsNumberCode651010452055\n  and rbics_subindustry_name(RbicsSubindustry651010452055) = RbicsNameOtherAsiaPacificWindWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010452055) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010452060 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "963"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452060)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452060)) and ((rbics_number_code(RbicsSubindustry651010452060)) = (RbicsNumberCode651010452060)) and ((rbics_subindustry_name(RbicsSubindustry651010452060)) = (RbicsNameOtherAsiaPacificNuclearWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010452060)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010452060 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452060)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452060)\n  and rbics_number_code(RbicsSubindustry651010452060) = RbicsNumberCode651010452060\n  and rbics_subindustry_name(RbicsSubindustry651010452060) = RbicsNameOtherAsiaPacificNuclearWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010452060) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010452080 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "970"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452080)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452080)) and ((rbics_number_code(RbicsSubindustry651010452080)) = (RbicsNumberCode651010452080)) and ((rbics_subindustry_name(RbicsSubindustry651010452080)) = (RbicsNameOtherAsiaPacificResidentialDecentralizedPower)) and ((rbics_classification_level(RbicsSubindustry651010452080)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010452080 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010452080)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010452080)\n  and rbics_number_code(RbicsSubindustry651010452080) = RbicsNumberCode651010452080\n  and rbics_subindustry_name(RbicsSubindustry651010452080) = RbicsNameOtherAsiaPacificResidentialDecentralizedPower\n  and rbics_classification_level(RbicsSubindustry651010452080) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501010 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "977"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501010)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501010)) and ((rbics_number_code(RbicsSubindustry651010501010)) = (RbicsNumberCode651010501010)) and ((rbics_subindustry_name(RbicsSubindustry651010501010)) = (RbicsNameEuropeMixedAlternativeWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501010)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501010 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501010)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501010)\n  and rbics_number_code(RbicsSubindustry651010501010) = RbicsNumberCode651010501010\n  and rbics_subindustry_name(RbicsSubindustry651010501010) = RbicsNameEuropeMixedAlternativeWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501010) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501030 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "984"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501030)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501030)) and ((rbics_number_code(RbicsSubindustry651010501030)) = (RbicsNumberCode651010501030)) and ((rbics_subindustry_name(RbicsSubindustry651010501030)) = (RbicsNameEuropeBiomassWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501030)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501030 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501030)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501030)\n  and rbics_number_code(RbicsSubindustry651010501030) = RbicsNumberCode651010501030\n  and rbics_subindustry_name(RbicsSubindustry651010501030) = RbicsNameEuropeBiomassWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501030) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501035 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "991"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501035)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501035)) and ((rbics_number_code(RbicsSubindustry651010501035)) = (RbicsNumberCode651010501035)) and ((rbics_subindustry_name(RbicsSubindustry651010501035)) = (RbicsNameEuropeIndustrialDecentralizedPower)) and ((rbics_classification_level(RbicsSubindustry651010501035)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501035 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501035)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501035)\n  and rbics_number_code(RbicsSubindustry651010501035) = RbicsNumberCode651010501035\n  and rbics_subindustry_name(RbicsSubindustry651010501035) = RbicsNameEuropeIndustrialDecentralizedPower\n  and rbics_classification_level(RbicsSubindustry651010501035) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501040 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "998"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501040)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501040)) and ((rbics_number_code(RbicsSubindustry651010501040)) = (RbicsNumberCode651010501040)) and ((rbics_subindustry_name(RbicsSubindustry651010501040)) = (RbicsNameEuropeGeothermalWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501040)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501040 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501040)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501040)\n  and rbics_number_code(RbicsSubindustry651010501040) = RbicsNumberCode651010501040\n  and rbics_subindustry_name(RbicsSubindustry651010501040) = RbicsNameEuropeGeothermalWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501040) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501045 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1005"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501045)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501045)) and ((rbics_number_code(RbicsSubindustry651010501045)) = (RbicsNumberCode651010501045)) and ((rbics_subindustry_name(RbicsSubindustry651010501045)) = (RbicsNameEuropeHydroelectricWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501045)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501045 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501045)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501045)\n  and rbics_number_code(RbicsSubindustry651010501045) = RbicsNumberCode651010501045\n  and rbics_subindustry_name(RbicsSubindustry651010501045) = RbicsNameEuropeHydroelectricWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501045) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501050 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1012"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501050)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501050)) and ((rbics_number_code(RbicsSubindustry651010501050)) = (RbicsNumberCode651010501050)) and ((rbics_subindustry_name(RbicsSubindustry651010501050)) = (RbicsNameEuropeSolarWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501050)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501050 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501050)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501050)\n  and rbics_number_code(RbicsSubindustry651010501050) = RbicsNumberCode651010501050\n  and rbics_subindustry_name(RbicsSubindustry651010501050) = RbicsNameEuropeSolarWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501050) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501055 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1019"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501055)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501055)) and ((rbics_number_code(RbicsSubindustry651010501055)) = (RbicsNumberCode651010501055)) and ((rbics_subindustry_name(RbicsSubindustry651010501055)) = (RbicsNameEuropeWindWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501055)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501055 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501055)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501055)\n  and rbics_number_code(RbicsSubindustry651010501055) = RbicsNumberCode651010501055\n  and rbics_subindustry_name(RbicsSubindustry651010501055) = RbicsNameEuropeWindWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501055) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501060 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1026"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501060)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501060)) and ((rbics_number_code(RbicsSubindustry651010501060)) = (RbicsNumberCode651010501060)) and ((rbics_subindustry_name(RbicsSubindustry651010501060)) = (RbicsNameEuropeNuclearWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501060)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501060 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501060)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501060)\n  and rbics_number_code(RbicsSubindustry651010501060) = RbicsNumberCode651010501060\n  and rbics_subindustry_name(RbicsSubindustry651010501060) = RbicsNameEuropeNuclearWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501060) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501080 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1033"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501080)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501080)) and ((rbics_number_code(RbicsSubindustry651010501080)) = (RbicsNumberCode651010501080)) and ((rbics_subindustry_name(RbicsSubindustry651010501080)) = (RbicsNameEuropeResidentialDecentralizedPower)) and ((rbics_classification_level(RbicsSubindustry651010501080)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501080 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501080)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501080)\n  and rbics_number_code(RbicsSubindustry651010501080) = RbicsNumberCode651010501080\n  and rbics_subindustry_name(RbicsSubindustry651010501080) = RbicsNameEuropeResidentialDecentralizedPower\n  and rbics_classification_level(RbicsSubindustry651010501080) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501510 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1040"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501510)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501510)) and ((rbics_number_code(RbicsSubindustry651010501510)) = (RbicsNumberCode651010501510)) and ((rbics_subindustry_name(RbicsSubindustry651010501510)) = (RbicsNameMiddleEastAndAfricaMixedAltWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501510)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501510 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501510)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501510)\n  and rbics_number_code(RbicsSubindustry651010501510) = RbicsNumberCode651010501510\n  and rbics_subindustry_name(RbicsSubindustry651010501510) = RbicsNameMiddleEastAndAfricaMixedAltWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501510) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501530 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1047"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501530)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501530)) and ((rbics_number_code(RbicsSubindustry651010501530)) = (RbicsNumberCode651010501530)) and ((rbics_subindustry_name(RbicsSubindustry651010501530)) = (RbicsNameMiddleEastAndAfricaBiomassWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501530)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501530 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501530)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501530)\n  and rbics_number_code(RbicsSubindustry651010501530) = RbicsNumberCode651010501530\n  and rbics_subindustry_name(RbicsSubindustry651010501530) = RbicsNameMiddleEastAndAfricaBiomassWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501530) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501535 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1054"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501535)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501535)) and ((rbics_number_code(RbicsSubindustry651010501535)) = (RbicsNumberCode651010501535)) and ((rbics_subindustry_name(RbicsSubindustry651010501535)) = (RbicsNameMiddleEastAfricaIndustrialDecentralizedPower)) and ((rbics_classification_level(RbicsSubindustry651010501535)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501535 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501535)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501535)\n  and rbics_number_code(RbicsSubindustry651010501535) = RbicsNumberCode651010501535\n  and rbics_subindustry_name(RbicsSubindustry651010501535) = RbicsNameMiddleEastAfricaIndustrialDecentralizedPower\n  and rbics_classification_level(RbicsSubindustry651010501535) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501540 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1061"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501540)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501540)) and ((rbics_number_code(RbicsSubindustry651010501540)) = (RbicsNumberCode651010501540)) and ((rbics_subindustry_name(RbicsSubindustry651010501540)) = (RbicsNameMiddleEastAndAfricaGeothermalWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501540)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501540 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501540)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501540)\n  and rbics_number_code(RbicsSubindustry651010501540) = RbicsNumberCode651010501540\n  and rbics_subindustry_name(RbicsSubindustry651010501540) = RbicsNameMiddleEastAndAfricaGeothermalWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501540) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501545 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1068"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501545)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501545)) and ((rbics_number_code(RbicsSubindustry651010501545)) = (RbicsNumberCode651010501545)) and ((rbics_subindustry_name(RbicsSubindustry651010501545)) = (RbicsNameMiddleEastAfricaHydroelectricWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501545)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501545 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501545)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501545)\n  and rbics_number_code(RbicsSubindustry651010501545) = RbicsNumberCode651010501545\n  and rbics_subindustry_name(RbicsSubindustry651010501545) = RbicsNameMiddleEastAfricaHydroelectricWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501545) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501550 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1075"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501550)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501550)) and ((rbics_number_code(RbicsSubindustry651010501550)) = (RbicsNumberCode651010501550)) and ((rbics_subindustry_name(RbicsSubindustry651010501550)) = (RbicsNameMiddleEastAndAfricaSolarWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501550)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501550 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501550)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501550)\n  and rbics_number_code(RbicsSubindustry651010501550) = RbicsNumberCode651010501550\n  and rbics_subindustry_name(RbicsSubindustry651010501550) = RbicsNameMiddleEastAndAfricaSolarWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501550) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501555 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1082"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501555)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501555)) and ((rbics_number_code(RbicsSubindustry651010501555)) = (RbicsNumberCode651010501555)) and ((rbics_subindustry_name(RbicsSubindustry651010501555)) = (RbicsNameMiddleEastAndAfricaWindWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501555)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501555 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501555)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501555)\n  and rbics_number_code(RbicsSubindustry651010501555) = RbicsNumberCode651010501555\n  and rbics_subindustry_name(RbicsSubindustry651010501555) = RbicsNameMiddleEastAndAfricaWindWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501555) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501560 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1089"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501560)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501560)) and ((rbics_number_code(RbicsSubindustry651010501560)) = (RbicsNumberCode651010501560)) and ((rbics_subindustry_name(RbicsSubindustry651010501560)) = (RbicsNameMiddleEastAndAfricaNuclearWholesalePower)) and ((rbics_classification_level(RbicsSubindustry651010501560)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501560 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501560)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501560)\n  and rbics_number_code(RbicsSubindustry651010501560) = RbicsNumberCode651010501560\n  and rbics_subindustry_name(RbicsSubindustry651010501560) = RbicsNameMiddleEastAndAfricaNuclearWholesalePower\n  and rbics_classification_level(RbicsSubindustry651010501560) = RbicsClassificationLevel6" .
+ex:ASSERT_rbics_subindustry_651010501580 a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "1096"^^xsd:integer ;
+  a4:exprText "(appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501580)) and (rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501580)) and ((rbics_number_code(RbicsSubindustry651010501580)) = (RbicsNumberCode651010501580)) and ((rbics_subindustry_name(RbicsSubindustry651010501580)) = (RbicsNameMiddleEastAfricaResidentialDecentralizedPower)) and ((rbics_classification_level(RbicsSubindustry651010501580)) = (RbicsClassificationLevel6))" ;
+  a4:sourceText "fact rbics_subindustry_651010501580 :\n  appendix_includes_rbics_subindustry(Appendix8, RbicsSubindustry651010501580)\n  and rbics_classifies_subindustry(RBICS, RbicsSubindustry651010501580)\n  and rbics_number_code(RbicsSubindustry651010501580) = RbicsNumberCode651010501580\n  and rbics_subindustry_name(RbicsSubindustry651010501580) = RbicsNameMiddleEastAfricaResidentialDecentralizedPower\n  and rbics_classification_level(RbicsSubindustry651010501580) = RbicsClassificationLevel6" .

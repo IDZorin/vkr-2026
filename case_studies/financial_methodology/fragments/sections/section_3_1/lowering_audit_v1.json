@@ -1,0 +1,39 @@
+{
+  "entry_id": "section_3_1",
+  "skipped": false,
+  "n_decls": 52,
+  "n_smells": 2,
+  "by_candidate_family": {
+    "TemporalDecl.temporal_marker": 2
+  },
+  "by_matched": {
+    "before": 1,
+    "after": 1
+  },
+  "smells": [
+    {
+      "entry_id": "section_3_1",
+      "decl_kind": "entity",
+      "symbol": "SufficientNoticeBeforeRebalanceDay",
+      "line_no": 27,
+      "matched_token_or_phrase": "before",
+      "candidate_family": "TemporalDecl",
+      "candidate_kind": "temporal_marker",
+      "spec_ref": "#29",
+      "match_kind": "token",
+      "raw_decl": "entity SufficientNoticeBeforeRebalanceDay : VagueTerm"
+    },
+    {
+      "entry_id": "section_3_1",
+      "decl_kind": "constraint",
+      "symbol": "ordinary_rebalance_adjusts_index_after_close_of_business",
+      "line_no": 105,
+      "matched_token_or_phrase": "after",
+      "candidate_family": "TemporalDecl",
+      "candidate_kind": "temporal_marker",
+      "spec_ref": "#29",
+      "match_kind": "token",
+      "raw_decl": "constraint ordinary_rebalance_adjusts_index_after_close_of_business :"
+    }
+  ]
+}

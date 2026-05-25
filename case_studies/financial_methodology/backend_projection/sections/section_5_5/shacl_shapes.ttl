@@ -1,0 +1,73 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_5 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:IndexRule a rdfs:Class .
+ex:IndexRuleShape a sh:NodeShape ; sh:targetClass ex:IndexRule .
+ex:Amendment a rdfs:Class .
+ex:AmendmentShape a sh:NodeShape ; sh:targetClass ex:Amendment .
+ex:IndexRuleAmendment a rdfs:Class .
+ex:IndexRuleAmendment rdfs:subClassOf ex:Amendment .
+ex:IndexRuleAmendmentShape a sh:NodeShape ; sh:targetClass ex:IndexRuleAmendment .
+ex:GuidelineAmendment a rdfs:Class .
+ex:GuidelineAmendment rdfs:subClassOf ex:Amendment .
+ex:GuidelineAmendmentShape a sh:NodeShape ; sh:targetClass ex:GuidelineAmendment .
+ex:Committee a rdfs:Class .
+ex:Committee rdfs:subClassOf ex:Organization .
+ex:CommitteeShape a sh:NodeShape ; sh:targetClass ex:Committee .
+ex:Staff a rdfs:Class .
+ex:StaffShape a sh:NodeShape ; sh:targetClass ex:Staff .
+ex:Subsidiary a rdfs:Class .
+ex:Subsidiary rdfs:subClassOf ex:Organization .
+ex:SubsidiaryShape a sh:NodeShape ; sh:targetClass ex:Subsidiary .
+ex:Approval a rdfs:Class .
+ex:ApprovalShape a sh:NodeShape ; sh:targetClass ex:Approval .
+ex:PriorApproval a rdfs:Class .
+ex:PriorApproval rdfs:subClassOf ex:Approval .
+ex:PriorApprovalShape a sh:NodeShape ; sh:targetClass ex:PriorApproval .
+ex:Policy a rdfs:Class .
+ex:Policy rdfs:subClassOf ex:Document .
+ex:PolicyShape a sh:NodeShape ; sh:targetClass ex:Policy .
+
+ex:Solactive a ex:Organization .
+ex:TheIndex a ex:Index .
+ex:Guideline a ex:Document .
+ex:MethodologyPolicy a ex:Policy .
+ex:OversightCommittee a ex:Committee .
+ex:OversightCommitteePriorApproval a ex:PriorApproval .
+ex:SolactiveWebsite a ex:WebResource .
+ex:HttpsWwwSolactiveComDocumentsMethodologyPolicy a ex:Url .
+ex:composed_of a rdf:Property .
+ex:CommitteeShape sh:property [ sh:path ex:composed_of ; sh:class ex:Staff ] .
+ex:staff_from a rdf:Property .
+ex:StaffShape sh:property [ sh:path ex:staff_from ; sh:class ex:Organization ] .
+ex:subsidiary_of a rdf:Property .
+ex:SubsidiaryShape sh:property [ sh:path ex:subsidiary_of ; sh:class ex:Organization ] .
+ex:rule_of a rdf:Property .
+ex:IndexRuleShape sh:property [ sh:path ex:rule_of ; sh:class ex:Index ] .
+ex:amendment_of_rule a rdf:Property .
+ex:IndexRuleAmendmentShape sh:property [ sh:path ex:amendment_of_rule ; sh:class ex:IndexRule ] .
+ex:amendment_of_document a rdf:Property .
+ex:GuidelineAmendmentShape sh:property [ sh:path ex:amendment_of_document ; sh:class ex:Document ] .
+ex:may_result_in a rdf:Property .
+ex:IndexRuleAmendmentShape sh:property [ sh:path ex:may_result_in ; sh:class ex:GuidelineAmendment ] .
+ex:responsible_for_decisions_regarding a rdf:Property .
+ex:CommitteeShape sh:property [ sh:path ex:responsible_for_decisions_regarding ; sh:class ex:IndexRuleAmendment ] .
+ex:approval_by a rdf:Property .
+ex:PriorApprovalShape sh:property [ sh:path ex:approval_by ; sh:class ex:Committee ] .
+ex:available_on a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:available_on ; sh:class ex:WebResource ] .
+ex:website_of a rdf:Property .
+ex:WebResourceShape sh:property [ sh:path ex:website_of ; sh:class ex:Organization ] .
+
+ex:MethodologyPolicy ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:OversightCommitteePriorApproval ex:approval_by ex:OversightCommittee .

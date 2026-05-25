@@ -1,0 +1,123 @@
+{
+  "entry_id": "section_1_5",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core idea that Solactive issues licenses for using the Index as an underlying value and that the licenses relate to the listed recipient and use categories. However, it adds a permission for an agent to issue a license, which is not stated in the source, and it narrows the source’s broad “may be issued to” wording into a more specific class/instance structure.",
+      "semantic_differences": [
+        "The source says licenses may be issued to stock exchanges, banks, financial services providers and investment houses by Solactive; the IR adds an explicit permission rule for an agent to issue a license, which is not stated in the source.",
+        "The source speaks generally about licenses to use the Index as the underlying value for financial instruments, investment funds and financial contracts; the IR encodes this as a specific license class and a specific license issuance instance, which is a stronger structural commitment than the source text itself.",
+        "The source does not state that there is exactly one such license class or issuance event, but the IR introduces singular named entities for them."
+      ],
+      "stylistic_notes": [
+        "“underlying value” is rendered as a license class relation to the Index, which is a modeling choice rather than source wording.",
+        "The recipient groups and use groups are represented as enumerated categories, which is a formalization of the source list."
+      ],
+      "confidence": 0.89,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2301,
+        "completion_tokens": 297,
+        "total_tokens": 2598
+      },
+      "latency_s": 3.0622541904449463
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "one_way_implication",
+      "reason_short": "The IR captures the main idea that Solactive may issue licenses concerning use of the Index as an underlying value, and it reflects the listed use domains and recipient categories. However, it strengthens and reshapes the source by asserting a specific issuance event covering all recipient categories and by granting a broad permission to issue any such license without constraining recipients or use categories in the deontic statement.",
+      "semantic_differences": [
+        "The source says such licenses may be issued to certain categories of recipients; the IR asserts a concrete issuance object/event that is to all four recipient categories, which is stronger and more specific than the source's generic possibility statement.",
+        "The source ties the licenses to use of the Index as underlying value for financial instruments, investment funds, and financial contracts; the permission statement in the IR allows Solactive to issue any IndexUnderlyingValueLicense but does not itself restrict issuance to the listed recipient categories or use categories.",
+        "The source speaks about licenses in general ('Licenses ... may be issued'); the IR additionally states that every instance of IndexUnderlyingValueLicense is of one specific class, which introduces a universal classification claim not stated in the source."
+      ],
+      "stylistic_notes": [
+        "Reifying the licensing statement into LicenseClass and LicenseIssuance structures is acceptable formalization style.",
+        "Using recipient/use category enums is a reasonable normalization of the listed noun phrases.",
+        "The singular named issuance entity makes the encoding read like one canonical issuance record rather than a generic licensing policy."
+      ],
+      "confidence": 0.88,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2301,
+        "completion_tokens": 356,
+        "total_tokens": 2657
+      },
+      "latency_s": 6.025452136993408
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR correctly captures the core claim that Solactive may issue licenses for using the Index as underlying value in financial instruments, investment funds, and financial contracts to specified recipient categories. However, the IR introduces significant structural elaboration—including explicit sorts for LicenseClass, LicenseIssuance, and LicenseUseCategory/LicenseRecipientCategory enums—that goes beyond what the source text states. The source makes a simple modal claim (licenses 'may be issued'); the IR reifies this into a complex ontology with facts asserting specific scope relationships and a permission declaration. While the reification is reasonable a4v3 methodology, it adds semantic structure (e.g., the distinction between license classes and instances, the explicit issuance entity, the enumerated categories as first-class sorts) that the source does not justify.",
+      "semantic_differences": [
+        "Source states licenses 'may be issued' (a simple modal claim about possibility); IR introduces an explicit LicenseIssuance entity and reifies the issuance as a structured event with relations to recipient categories and license classes. This is ontological elaboration beyond the source.",
+        "Source lists recipient types inline ('stock exchanges, banks, financial services providers and investment houses'); IR elevates these to a formal enum sort (LicenseRecipientCategory) with distinct entity constructors. The source does not justify treating these as a closed enumeration type.",
+        "Source does not distinguish between a 'license class' and individual 'license instances'; IR introduces both LicenseClass and IndexUnderlyingValueLicense as separate sorts with an instance-of relation. This distinction is not present in the source.",
+        "Source does not explicitly state that all three use categories (financial instruments, investment funds, financial contracts) are part of a single license class; IR asserts this via the fact index_underlying_value_license_class_scope, which conjoins all three categories to a single LicensesToUseIndexAsUnderlyingValue entity. The source lists them as alternative uses, not necessarily unified under one license class.",
+        "IR includes a permission declaration (permission issue_index_underlying_value_license) that formalizes Solactive's right to issue licenses. The source uses 'may be issued' (passive voice, modal), which is weaker than an explicit permission grant to an agent."
+      ],
+      "stylistic_notes": [
+        "The IR uses 'IndexUnderlyingValueLicense' and 'IndexUnderlyingValueLicenseIssuance' as entity names, which are verbose but trace to the source phrase 'Licenses to use the Index as the underlying value'.",
+        "The IR introduces 'TheIndex' as a canonical entity, which is reasonable given the document's focus, but the source does not explicitly name or reify 'the Index' as a distinct entity.",
+        "The use of 'SolactiveOrganization extends Organization' is a reasonable prelude-based encoding of 'Solactive' as an organization, consistent with design decision (1).",
+        "The permission declaration uses 'action: issue' and 'target: license', which is a standard a4v3 deontic lowering, but the source's passive voice ('may be issued') does not explicitly assign agency to Solactive in the way the permission declaration does."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2852,
+        "completion_tokens": 796,
+        "total_tokens": 3648
+      },
+      "latency_s": 9.655890941619873
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 71.35192131996155
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR accurately captures the permission modality ('may be issued'), the license's intended use cases (three financial categories), the authorized recipient categories (four entity types), and the designated issuer (Solactive). The structural decomposition into license classes, issuance events, and categorical relations follows standard a4v3 canonical lowering without adding or omitting semantic content.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The formalization introduces substantial ontological scaffolding (e.g., LicenseClass, LicenseIssuance, categorical sorts) to represent a single sentence, which is typical for a4v3 but increases structural complexity relative to the source.",
+        "The use of facts to bind the license class to its scope, use categories, and recipient categories is a canonical grounding technique that faithfully reflects the source's descriptive clause."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2464,
+        "completion_tokens": 2809,
+        "total_tokens": 5273
+      },
+      "latency_s": 52.43584680557251
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.86
+  }
+}

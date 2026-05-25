@@ -1,0 +1,320 @@
+{
+  "entry_id": "N05",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 9,
+    "content_token_count": 6,
+    "covered_content_token_count": 6,
+    "uncovered_content_token_count": 0,
+    "ignored_stopword_count": 3,
+    "content_coverage_rate": 1.0
+  },
+  "tokens": [
+    {
+      "token": "calculate",
+      "surface_forms": [
+        "Calculation"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_day",
+          "family": "SymbolDecl.rel",
+          "line": 1,
+          "matched_text": "calculation_day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 3,
+          "matched_text": "calculation_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "calculation_day_definition",
+          "assertion_kind": "constraint",
+          "line": 3,
+          "matched_text": "calculation_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "calculation_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "calculation_day",
+          "matched_text": "Calculation Day"
+        }
+      ]
+    },
+    {
+      "token": "day",
+      "surface_forms": [
+        "Day"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 14
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_day",
+          "family": "SymbolDecl.rel",
+          "line": 1,
+          "matched_text": "calculation_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculation_day",
+          "family": "SymbolDecl.rel",
+          "line": 1,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 3,
+          "matched_text": "calculation_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "calculation_day_definition",
+          "assertion_kind": "constraint",
+          "line": 3,
+          "matched_text": "calculation_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "calculation_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "calculation_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "calculation_day",
+          "matched_text": "Calculation Day"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 19
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "everi",
+      "surface_forms": [
+        "every"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 22
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "universal_quantifier",
+          "marker": "forall"
+        }
+      ]
+    },
+    {
+      "token": "weekdai",
+      "surface_forms": [
+        "weekday"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 28
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0].left",
+          "matched_text": "WeekdayOf"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].left",
+          "matched_text": "WeekdayOf"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[2].left",
+          "matched_text": "WeekdayOf"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[3].left",
+          "matched_text": "WeekdayOf"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[4].left",
+          "matched_text": "WeekdayOf"
+        }
+      ]
+    },
+    {
+      "token": "from",
+      "surface_forms": [
+        "from"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 36
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "mondai",
+      "surface_forms": [
+        "Monday"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 41
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "calculation_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0].right",
+          "matched_text": "Monday"
+        }
+      ]
+    },
+    {
+      "token": "to",
+      "surface_forms": [
+        "to"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 48
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "fridai",
+      "surface_forms": [
+        "Friday"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 51
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "calculation_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[4].right",
+          "matched_text": "Friday"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

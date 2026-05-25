@@ -1,0 +1,392 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_4 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:IndexComponent a owl:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:CalculationDay a owl:Class .
+ex:CalculationDay rdfs:subClassOf ex:Day .
+ex:TradingDay a owl:Class .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:Exchange a owl:Class .
+ex:CalculationTime a owl:Class .
+ex:CalculationMode a owl:Class .
+ex:TimeOfDay a owl:Class .
+ex:TimeZone a owl:Class .
+ex:IndexLevel a owl:Class .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:Price a owl:Class .
+ex:Price rdfs:subClassOf ex:MonetaryAmount .
+ex:TradingPrice a owl:Class .
+ex:TradingPrice rdfs:subClassOf ex:Price .
+ex:ClosingPrice a owl:Class .
+ex:ClosingPrice rdfs:subClassOf ex:Price .
+ex:ForeignExchangeRate a owl:Class .
+ex:SpotForeignExchangeRate a owl:Class .
+ex:SpotForeignExchangeRate rdfs:subClassOf ex:ForeignExchangeRate .
+ex:WMFixing a owl:Class .
+ex:WMFixing rdfs:subClassOf ex:ForeignExchangeRate .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:Time1_00AMCET a ex:TimeOfDay, owl:NamedIndividual .
+ex:Time10_50PMCET a ex:TimeOfDay, owl:NamedIndividual .
+ex:Time04_00PMLondon a ex:TimeOfDay, owl:NamedIndividual .
+ex:IntradayCalculation a ex:CalculationMode, owl:NamedIndividual .
+ex:CET a ex:TimeZone, owl:NamedIndividual .
+ex:LondonTime a ex:TimeZone, owl:NamedIndividual .
+ex:IntercontinentalExchange a ex:Organization, owl:NamedIndividual .
+ex:ICE a ex:Organization, owl:NamedIndividual .
+ex:Reuters a ex:Organization, owl:NamedIndividual .
+ex:index_currency a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:Currency .
+ex:intraday_level a owl:Class, a4:NaryRelationClass .
+ex:intraday_level_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:intraday_level ;
+  rdfs:range ex:Index .
+ex:intraday_level_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:intraday_level ;
+  rdfs:range ex:CalculationDay .
+ex:intraday_level_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:intraday_level ;
+  rdfs:range ex:CalculationTime .
+ex:intraday_level_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:intraday_level ;
+  rdfs:range ex:IndexLevel .
+ex:closing_level a owl:Class, a4:NaryRelationClass .
+ex:closing_level_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:closing_level ;
+  rdfs:range ex:Index .
+ex:closing_level_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:closing_level ;
+  rdfs:range ex:CalculationDay .
+ex:closing_level_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:closing_level ;
+  rdfs:range ex:IndexLevel .
+ex:intraday_source_price a owl:Class, a4:NaryRelationClass .
+ex:intraday_source_price_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:intraday_source_price ;
+  rdfs:range ex:IndexComponent .
+ex:intraday_source_price_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:intraday_source_price ;
+  rdfs:range ex:CalculationDay .
+ex:intraday_source_price_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:intraday_source_price ;
+  rdfs:range ex:CalculationTime .
+ex:intraday_source_price_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:intraday_source_price ;
+  rdfs:range ex:Price .
+ex:intraday_calculation_price a owl:Class, a4:NaryRelationClass .
+ex:intraday_calculation_price_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:intraday_calculation_price ;
+  rdfs:range ex:IndexComponent .
+ex:intraday_calculation_price_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:intraday_calculation_price ;
+  rdfs:range ex:CalculationDay .
+ex:intraday_calculation_price_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:intraday_calculation_price ;
+  rdfs:range ex:CalculationTime .
+ex:intraday_calculation_price_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:intraday_calculation_price ;
+  rdfs:range ex:Price .
+ex:current_trading_price a owl:Class, a4:NaryRelationClass .
+ex:current_trading_price_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:current_trading_price ;
+  rdfs:range ex:IndexComponent .
+ex:current_trading_price_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:current_trading_price ;
+  rdfs:range ex:CalculationDay .
+ex:current_trading_price_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:current_trading_price ;
+  rdfs:range ex:CalculationTime .
+ex:current_trading_price_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:current_trading_price ;
+  rdfs:range ex:TradingPrice .
+ex:most_recent_closing_price a owl:Class, a4:NaryRelationClass .
+ex:most_recent_closing_price_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:most_recent_closing_price ;
+  rdfs:range ex:IndexComponent .
+ex:most_recent_closing_price_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:most_recent_closing_price ;
+  rdfs:range ex:CalculationDay .
+ex:most_recent_closing_price_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:most_recent_closing_price ;
+  rdfs:range ex:CalculationTime .
+ex:most_recent_closing_price_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:most_recent_closing_price ;
+  rdfs:range ex:ClosingPrice .
+ex:preceding_trading_day a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:CalculationDay ;
+  rdfs:range ex:TradingDay .
+ex:last_available_trading_price a owl:Class, a4:NaryRelationClass .
+ex:last_available_trading_price_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:last_available_trading_price ;
+  rdfs:range ex:IndexComponent .
+ex:last_available_trading_price_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:last_available_trading_price ;
+  rdfs:range ex:TradingDay .
+ex:last_available_trading_price_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:last_available_trading_price ;
+  rdfs:range ex:TradingPrice .
+ex:later_of a owl:Class, a4:NaryRelationClass .
+ex:later_of_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:later_of ;
+  rdfs:range ex:Price .
+ex:later_of_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:later_of ;
+  rdfs:range ex:Price .
+ex:later_of_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:later_of ;
+  rdfs:range ex:Price .
+ex:closing_price a owl:Class, a4:NaryRelationClass .
+ex:closing_price_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:closing_price ;
+  rdfs:range ex:IndexComponent .
+ex:closing_price_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:closing_price ;
+  rdfs:range ex:CalculationDay .
+ex:closing_price_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:closing_price ;
+  rdfs:range ex:ClosingPrice .
+ex:closing_calculation_price a owl:Class, a4:NaryRelationClass .
+ex:closing_calculation_price_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:closing_calculation_price ;
+  rdfs:range ex:IndexComponent .
+ex:closing_calculation_price_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:closing_calculation_price ;
+  rdfs:range ex:CalculationDay .
+ex:closing_calculation_price_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:closing_calculation_price ;
+  rdfs:range ex:Price .
+ex:listed_currency a owl:Class, a4:NaryRelationClass .
+ex:listed_currency_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:listed_currency ;
+  rdfs:range ex:CalculationDay .
+ex:listed_currency_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:listed_currency ;
+  rdfs:range ex:IndexComponent .
+ex:listed_currency_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:listed_currency ;
+  rdfs:range ex:Currency .
+ex:current_ice_spot_foreign_exchange_rate a owl:Class, a4:NaryRelationClass .
+ex:current_ice_spot_foreign_exchange_rate_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:current_ice_spot_foreign_exchange_rate ;
+  rdfs:range ex:Currency .
+ex:current_ice_spot_foreign_exchange_rate_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:current_ice_spot_foreign_exchange_rate ;
+  rdfs:range ex:Currency .
+ex:current_ice_spot_foreign_exchange_rate_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:current_ice_spot_foreign_exchange_rate ;
+  rdfs:range ex:CalculationDay .
+ex:current_ice_spot_foreign_exchange_rate_arg_3 a owl:ObjectProperty ;
+  rdfs:domain ex:current_ice_spot_foreign_exchange_rate ;
+  rdfs:range ex:CalculationTime .
+ex:current_ice_spot_foreign_exchange_rate_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:current_ice_spot_foreign_exchange_rate ;
+  rdfs:range ex:SpotForeignExchangeRate .
+ex:wm_fixing_4pm_london a owl:Class, a4:NaryRelationClass .
+ex:wm_fixing_4pm_london_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:wm_fixing_4pm_london ;
+  rdfs:range ex:Currency .
+ex:wm_fixing_4pm_london_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:wm_fixing_4pm_london ;
+  rdfs:range ex:Currency .
+ex:wm_fixing_4pm_london_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:wm_fixing_4pm_london ;
+  rdfs:range ex:CalculationDay .
+ex:wm_fixing_4pm_london_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:wm_fixing_4pm_london ;
+  rdfs:range ex:WMFixing .
+ex:last_available_wm_fixing_4pm_london a owl:Class, a4:NaryRelationClass .
+ex:last_available_wm_fixing_4pm_london_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:last_available_wm_fixing_4pm_london ;
+  rdfs:range ex:Currency .
+ex:last_available_wm_fixing_4pm_london_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:last_available_wm_fixing_4pm_london ;
+  rdfs:range ex:Currency .
+ex:last_available_wm_fixing_4pm_london_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:last_available_wm_fixing_4pm_london ;
+  rdfs:range ex:CalculationDay .
+ex:last_available_wm_fixing_4pm_london_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:last_available_wm_fixing_4pm_london ;
+  rdfs:range ex:WMFixing .
+ex:wm_fixing_for_closing_level a owl:Class, a4:NaryRelationClass .
+ex:wm_fixing_for_closing_level_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:wm_fixing_for_closing_level ;
+  rdfs:range ex:Currency .
+ex:wm_fixing_for_closing_level_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:wm_fixing_for_closing_level ;
+  rdfs:range ex:Currency .
+ex:wm_fixing_for_closing_level_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:wm_fixing_for_closing_level ;
+  rdfs:range ex:CalculationDay .
+ex:wm_fixing_for_closing_level_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:wm_fixing_for_closing_level ;
+  rdfs:range ex:WMFixing .
+ex:index_component a owl:ObjectProperty ;
+  rdfs:domain ex:CalculationDay ;
+  rdfs:range ex:IndexComponent .
+ex:intraday_calculation_time a owl:ObjectProperty ;
+  rdfs:domain ex:CalculationDay ;
+  rdfs:range ex:CalculationTime .
+ex:calculation_mode a owl:ObjectProperty ;
+  rdfs:domain ex:CalculationTime ;
+  rdfs:range ex:CalculationMode .
+ex:calculation_time_from_to a owl:Class, a4:NaryRelationClass .
+ex:calculation_time_from_to_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:calculation_time_from_to ;
+  rdfs:range ex:CalculationTime .
+ex:calculation_time_from_to_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:calculation_time_from_to ;
+  rdfs:range ex:TimeOfDay .
+ex:calculation_time_from_to_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:calculation_time_from_to ;
+  rdfs:range ex:TimeOfDay .
+ex:calculation_time_from_to_arg_3 a owl:ObjectProperty ;
+  rdfs:domain ex:calculation_time_from_to ;
+  rdfs:range ex:TimeZone .
+ex:listed_on_exchanges a owl:Class, a4:NaryRelationClass .
+ex:listed_on_exchanges_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:listed_on_exchanges ;
+  rdfs:range ex:CalculationDay .
+ex:listed_on_exchanges_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:listed_on_exchanges ;
+  rdfs:range ex:IndexComponent .
+ex:listed_on_exchanges_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:listed_on_exchanges ;
+  rdfs:range ex:Exchange .
+ex:price_on_exchange a owl:ObjectProperty ;
+  rdfs:domain ex:Price ;
+  rdfs:range ex:Exchange .
+ex:intraday_level_calculated_on a owl:Class, a4:NaryRelationClass .
+ex:intraday_level_calculated_on_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:intraday_level_calculated_on ;
+  rdfs:range ex:IndexLevel .
+ex:intraday_level_calculated_on_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:intraday_level_calculated_on ;
+  rdfs:range ex:CalculationDay .
+ex:intraday_level_calculated_on_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:intraday_level_calculated_on ;
+  rdfs:range ex:CalculationTime .
+ex:closing_level_calculated_on a owl:ObjectProperty ;
+  rdfs:domain ex:IndexLevel ;
+  rdfs:range ex:CalculationDay .
+ex:price_used_for_level a owl:Class, a4:NaryRelationClass .
+ex:price_used_for_level_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:price_used_for_level ;
+  rdfs:range ex:IndexLevel .
+ex:price_used_for_level_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:price_used_for_level ;
+  rdfs:range ex:IndexComponent .
+ex:price_used_for_level_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:price_used_for_level ;
+  rdfs:range ex:Price .
+ex:current_trading_price_available a owl:Class, a4:NaryRelationClass .
+ex:current_trading_price_available_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:current_trading_price_available ;
+  rdfs:range ex:IndexComponent .
+ex:current_trading_price_available_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:current_trading_price_available ;
+  rdfs:range ex:CalculationDay .
+ex:current_trading_price_available_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:current_trading_price_available ;
+  rdfs:range ex:CalculationTime .
+ex:price_selection_order a owl:ObjectProperty ;
+  rdfs:domain ex:Price ;
+  rdfs:range ex:Price .
+ex:converted_from_using a owl:Class, a4:NaryRelationClass .
+ex:converted_from_using_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:converted_from_using ;
+  rdfs:range ex:Price .
+ex:converted_from_using_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:converted_from_using ;
+  rdfs:range ex:Price .
+ex:converted_from_using_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:converted_from_using ;
+  rdfs:range ex:ForeignExchangeRate .
+ex:foreign_exchange_rate_provider a owl:ObjectProperty ;
+  rdfs:domain ex:ForeignExchangeRate ;
+  rdfs:range ex:Organization .
+ex:wm_fixing_4pm_london_available a owl:Class, a4:NaryRelationClass .
+ex:wm_fixing_4pm_london_available_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:wm_fixing_4pm_london_available ;
+  rdfs:range ex:Currency .
+ex:wm_fixing_4pm_london_available_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:wm_fixing_4pm_london_available ;
+  rdfs:range ex:Currency .
+ex:wm_fixing_4pm_london_available_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:wm_fixing_4pm_london_available ;
+  rdfs:range ex:CalculationDay .
+ex:wm_fixing_quoted_by a owl:ObjectProperty ;
+  rdfs:domain ex:WMFixing ;
+  rdfs:range ex:Organization .
+ex:fixing_time a owl:Class, a4:NaryRelationClass .
+ex:fixing_time_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:fixing_time ;
+  rdfs:range ex:WMFixing .
+ex:fixing_time_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:fixing_time ;
+  rdfs:range ex:TimeOfDay .
+ex:fixing_time_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:fixing_time ;
+  rdfs:range ex:TimeZone .
+
+ex:ICE owl:sameAs ex:IntercontinentalExchange .
+ex:ASSERT_intraday_calculation_window a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, (intraday_calculation_time(d, t)) implies ((calculation_mode(t, IntradayCalculation)) and (calculation_time_from_to(t, Time1_00AMCET, Time10_50PMCET, CET)) and (intraday_level_calculated_on(intraday_level(TheIndex, d, t), d, t)))" .
+ex:ASSERT_intraday_level_uses_exchange_trading_prices a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent, ((intraday_calculation_time(d, t)) and (index_component(d, c))) implies (exists e: Exchange, (listed_on_exchanges(d, c, e)) and (price_on_exchange(intraday_source_price(c, d, t), e)) and (price_used_for_level(intraday_level(TheIndex, d, t), c, intraday_calculation_price(c, d, t))))" .
+ex:ASSERT_current_trading_price_used_when_available a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent, ((intraday_calculation_time(d, t)) and (index_component(d, c)) and (current_trading_price_available(c, d, t))) implies ((intraday_source_price(c, d, t)) = (current_trading_price(c, d, t)))" .
+ex:ASSERT_no_current_trading_price_fallback a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent, ((intraday_calculation_time(d, t)) and (index_component(d, c)) and (not (current_trading_price_available(c, d, t)))) implies ((intraday_source_price(c, d, t)) = (later_of(most_recent_closing_price(c, d, t), last_available_trading_price(c, preceding_trading_day(d)))))" .
+ex:ASSERT_fallback_price_candidates_are_temporally_comparable a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent, ((intraday_calculation_time(d, t)) and (index_component(d, c))) implies ((price_selection_order(most_recent_closing_price(c, d, t), last_available_trading_price(c, preceding_trading_day(d)))) or (price_selection_order(last_available_trading_price(c, preceding_trading_day(d)), most_recent_closing_price(c, d, t))))" .
+ex:ASSERT_later_of_returns_a_candidate a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall p1: Price, forall p2: Price, ((later_of(p1, p2)) = (p1)) or ((later_of(p1, p2)) = (p2))" .
+ex:ASSERT_later_of_selects_temporally_later_candidate a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall p1: Price, forall p2: Price, ((price_selection_order(p1, p2)) implies ((later_of(p1, p2)) = (p1))) and ((price_selection_order(p2, p1)) implies ((later_of(p1, p2)) = (p2)))" .
+ex:ASSERT_intraday_price_kept_when_listed_in_index_currency a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent, ((intraday_calculation_time(d, t)) and (index_component(d, c)) and ((listed_currency(d, c)) = (index_currency(TheIndex)))) implies ((intraday_calculation_price(c, d, t)) = (intraday_source_price(c, d, t)))" .
+ex:ASSERT_intraday_price_converted_when_not_listed_in_index_currency a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent, ((intraday_calculation_time(d, t)) and (index_component(d, c)) and (not ((listed_currency(d, c)) = (index_currency(TheIndex))))) implies (converted_from_using(intraday_calculation_price(c, d, t), intraday_source_price(c, d, t), current_ice_spot_foreign_exchange_rate(listed_currency(d, c), index_currency(TheIndex), d, t)))" .
+ex:ASSERT_current_ice_spot_foreign_exchange_rate_source a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall src: Currency, forall tgt: Currency, forall d: CalculationDay, forall t: CalculationTime, foreign_exchange_rate_provider(current_ice_spot_foreign_exchange_rate(src, tgt, d, t), IntercontinentalExchange)" .
+ex:ASSERT_closing_level_calculated_each_calculation_day a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall d: CalculationDay, closing_level_calculated_on(closing_level(TheIndex, d), d)" .
+ex:ASSERT_closing_level_based_on_closing_prices a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: CalculationDay, forall c: IndexComponent, (index_component(d, c)) implies (exists e: Exchange, (listed_on_exchanges(d, c, e)) and (price_on_exchange(closing_price(c, d), e)) and (price_used_for_level(closing_level(TheIndex, d), c, closing_calculation_price(c, d))))" .
+ex:ASSERT_closing_price_kept_when_listed_in_index_currency a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: CalculationDay, forall c: IndexComponent, ((index_component(d, c)) and ((listed_currency(d, c)) = (index_currency(TheIndex)))) implies ((closing_calculation_price(c, d)) = (closing_price(c, d)))" .
+ex:ASSERT_closing_price_converted_with_available_wm_fixing a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: CalculationDay, forall c: IndexComponent, ((index_component(d, c)) and (not ((listed_currency(d, c)) = (index_currency(TheIndex)))) and (wm_fixing_4pm_london_available(listed_currency(d, c), index_currency(TheIndex), d))) implies (((wm_fixing_for_closing_level(listed_currency(d, c), index_currency(TheIndex), d)) = (wm_fixing_4pm_london(listed_currency(d, c), index_currency(TheIndex), d))) and (converted_from_using(closing_calculation_price(c, d), closing_price(c, d), wm_fixing_for_closing_level(listed_currency(d, c), index_currency(TheIndex), d))))" .
+ex:ASSERT_closing_price_converted_with_last_available_wm_fixing a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: CalculationDay, forall c: IndexComponent, ((index_component(d, c)) and (not ((listed_currency(d, c)) = (index_currency(TheIndex)))) and (not (wm_fixing_4pm_london_available(listed_currency(d, c), index_currency(TheIndex), d)))) implies (((wm_fixing_for_closing_level(listed_currency(d, c), index_currency(TheIndex), d)) = (last_available_wm_fixing_4pm_london(listed_currency(d, c), index_currency(TheIndex), d))) and (converted_from_using(closing_calculation_price(c, d), closing_price(c, d), wm_fixing_for_closing_level(listed_currency(d, c), index_currency(TheIndex), d))))" .
+ex:ASSERT_wm_fixing_4pm_london_quoted_by_reuters a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall src: Currency, forall tgt: Currency, forall d: CalculationDay, (wm_fixing_quoted_by(wm_fixing_4pm_london(src, tgt, d), Reuters)) and (fixing_time(wm_fixing_4pm_london(src, tgt, d), Time04_00PMLondon, LondonTime))" .
+ex:ASSERT_last_available_wm_fixing_4pm_london_quoted_by_reuters a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall src: Currency, forall tgt: Currency, forall d: CalculationDay, (wm_fixing_quoted_by(last_available_wm_fixing_4pm_london(src, tgt, d), Reuters)) and (fixing_time(last_available_wm_fixing_4pm_london(src, tgt, d), Time04_00PMLondon, LondonTime))" .

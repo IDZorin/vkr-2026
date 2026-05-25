@@ -1,0 +1,98 @@
+{
+  "entry_id": "section_4_4",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1918,
+    "completion_tokens": 430,
+    "total_tokens": 2348
+  },
+  "latency_s": 3.139831304550171,
+  "raw_parsed": {
+    "source_facts": [
+      "An Index adjustment may be necessary between two regular Rebalance Days.",
+      "An adjustment is required if a corporate action occurs in relation to an Index Component.",
+      "An adjustment may affect an Index Component, the number of Index Components, or the weighting of certain Index Components.",
+      "The adjustment will comply with the Solactive Equity Index Methodology.",
+      "Solactive will announce the Index adjustment on the Solactive website under Announcements.",
+      "Solactive will give at least two Trading Days' notice for the affected Index Component.",
+      "The Index adjustment will be implemented on the effective day specified in the notice."
+    ],
+    "render_facts": [
+      "Adjustments to the Index may be necessary in certain circumstances between regular rebalance days.",
+      "Any such adjustment is made in compliance with the Solactive Equity Index Methodology and is announced by Solactive in the Announcements section of the Solactive Website.",
+      "A corporate action specified in Section 4.4 that relates to an Index Component gives rise to a required Index Adjustment for the Index, affecting that component and falling within a Rebalance Interval.",
+      "The effect of a required adjustment may relate to the component relation, component number, or component weighting, and the weighting effect is described with respect to certain Index Components.",
+      "The relevant notice states the effective day for the adjustment.",
+      "The adjustment is implemented on that effective day.",
+      "The notice is published by Solactive on the Solactive Website in the Announcements section and provides a notice period of at least two Trading Days for the affected component."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 0,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 1,
+        "render_idx": 2,
+        "match": "stronger"
+      },
+      {
+        "src_idx": 2,
+        "render_idx": 3,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 3,
+        "render_idx": 1,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 4,
+        "render_idx": 1,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 5,
+        "render_idx": 6,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 6,
+        "render_idx": 5,
+        "match": "paraphrase"
+      }
+    ],
+    "render_only": [
+      4
+    ]
+  },
+  "summary": {
+    "n_source_facts": 7,
+    "n_render_facts": 7,
+    "matched_source": 7,
+    "matched_render": 6,
+    "render_only": 1,
+    "missing_source": 0,
+    "weaker_in_render": 0,
+    "stronger_in_render": 1,
+    "recall": 1.0,
+    "precision": 0.857,
+    "f1": 0.923,
+    "missing_source_facts": [],
+    "render_only_facts": [
+      {
+        "idx": 4,
+        "fact": "The relevant notice states the effective day for the adjustment."
+      }
+    ],
+    "weaker_pairs": [],
+    "stronger_pairs": [
+      {
+        "src": "An adjustment is required if a corporate action occurs in relation to an Index Component.",
+        "render": "A corporate action specified in Section 4.4 that relates to an Index Component gives rise to a required Index Adjustment for the Index, affecting that component and falling within a Rebalance Interval."
+      }
+    ]
+  }
+}

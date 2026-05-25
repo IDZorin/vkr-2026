@@ -1,0 +1,9 @@
+sort DefinedTerm
+
+entity LiveDateTerm : DefinedTerm
+entity Section1_3 : DocumentPart
+
+rel term_shall_have_meaning_defined_in_section : DefinedTerm, DocumentPart
+
+fact live_date_meaning_defined_in_section_1_3 :
+  term_shall_have_meaning_defined_in_section(LiveDateTerm, Section1_3)

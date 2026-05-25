@@ -1,0 +1,421 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_4 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_1_4/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexComponent a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:CalculationDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CalculationDay rdfs:subClassOf ex:Day .
+ex:TradingDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:Exchange a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CalculationTime a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CalculationMode a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:TimeOfDay a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:TimeZone a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexLevel a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:Price a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Price rdfs:subClassOf ex:MonetaryAmount .
+ex:TradingPrice a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TradingPrice rdfs:subClassOf ex:Price .
+ex:ClosingPrice a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ClosingPrice rdfs:subClassOf ex:Price .
+ex:ForeignExchangeRate a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:SpotForeignExchangeRate a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SpotForeignExchangeRate rdfs:subClassOf ex:ForeignExchangeRate .
+ex:WMFixing a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:WMFixing rdfs:subClassOf ex:ForeignExchangeRate .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:Time1_00AMCET a ex:TimeOfDay, owl:NamedIndividual .
+ex:Time10_50PMCET a ex:TimeOfDay, owl:NamedIndividual .
+ex:Time04_00PMLondon a ex:TimeOfDay, owl:NamedIndividual .
+ex:IntradayCalculation a ex:CalculationMode, owl:NamedIndividual .
+ex:CET a ex:TimeZone, owl:NamedIndividual .
+ex:LondonTime a ex:TimeZone, owl:NamedIndividual .
+ex:IntercontinentalExchange a ex:Organization, owl:NamedIndividual .
+ex:ICE a ex:Organization, owl:NamedIndividual .
+ex:Reuters a ex:Organization, owl:NamedIndividual .
+ex:index_currency a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:index_currency_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_currency a4:argument ex:index_currency_arg_0 .
+ex:index_currency a4:resultSort ex:Currency .
+ex:index_currency a4:functionFlag "required" .
+ex:intraday_level a rdf:Property, a4:FunSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:intraday_level_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:intraday_level a4:argument ex:intraday_level_arg_0 .
+ex:intraday_level_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:intraday_level a4:argument ex:intraday_level_arg_1 .
+ex:intraday_level_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:CalculationTime .
+ex:intraday_level a4:argument ex:intraday_level_arg_2 .
+ex:intraday_level a4:resultSort ex:IndexLevel .
+ex:intraday_level a4:functionFlag "required" .
+ex:closing_level a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:closing_level_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:closing_level a4:argument ex:closing_level_arg_0 .
+ex:closing_level_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:closing_level a4:argument ex:closing_level_arg_1 .
+ex:closing_level a4:resultSort ex:IndexLevel .
+ex:closing_level a4:functionFlag "required" .
+ex:intraday_source_price a rdf:Property, a4:FunSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:intraday_source_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:intraday_source_price a4:argument ex:intraday_source_price_arg_0 .
+ex:intraday_source_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:intraday_source_price a4:argument ex:intraday_source_price_arg_1 .
+ex:intraday_source_price_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:CalculationTime .
+ex:intraday_source_price a4:argument ex:intraday_source_price_arg_2 .
+ex:intraday_source_price a4:resultSort ex:Price .
+ex:intraday_source_price a4:functionFlag "required" .
+ex:intraday_calculation_price a rdf:Property, a4:FunSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:intraday_calculation_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:intraday_calculation_price a4:argument ex:intraday_calculation_price_arg_0 .
+ex:intraday_calculation_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:intraday_calculation_price a4:argument ex:intraday_calculation_price_arg_1 .
+ex:intraday_calculation_price_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:CalculationTime .
+ex:intraday_calculation_price a4:argument ex:intraday_calculation_price_arg_2 .
+ex:intraday_calculation_price a4:resultSort ex:Price .
+ex:intraday_calculation_price a4:functionFlag "required" .
+ex:current_trading_price a rdf:Property, a4:FunSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:current_trading_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:current_trading_price a4:argument ex:current_trading_price_arg_0 .
+ex:current_trading_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:current_trading_price a4:argument ex:current_trading_price_arg_1 .
+ex:current_trading_price_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:CalculationTime .
+ex:current_trading_price a4:argument ex:current_trading_price_arg_2 .
+ex:current_trading_price a4:resultSort ex:TradingPrice .
+ex:current_trading_price a4:functionFlag "required" .
+ex:most_recent_closing_price a rdf:Property, a4:FunSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:most_recent_closing_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:most_recent_closing_price a4:argument ex:most_recent_closing_price_arg_0 .
+ex:most_recent_closing_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:most_recent_closing_price a4:argument ex:most_recent_closing_price_arg_1 .
+ex:most_recent_closing_price_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:CalculationTime .
+ex:most_recent_closing_price a4:argument ex:most_recent_closing_price_arg_2 .
+ex:most_recent_closing_price a4:resultSort ex:ClosingPrice .
+ex:most_recent_closing_price a4:functionFlag "required" .
+ex:preceding_trading_day a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:preceding_trading_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:preceding_trading_day a4:argument ex:preceding_trading_day_arg_0 .
+ex:preceding_trading_day a4:resultSort ex:TradingDay .
+ex:preceding_trading_day a4:functionFlag "required" .
+ex:last_available_trading_price a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:last_available_trading_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:last_available_trading_price a4:argument ex:last_available_trading_price_arg_0 .
+ex:last_available_trading_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:last_available_trading_price a4:argument ex:last_available_trading_price_arg_1 .
+ex:last_available_trading_price a4:resultSort ex:TradingPrice .
+ex:last_available_trading_price a4:functionFlag "required" .
+ex:later_of a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:later_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Price .
+ex:later_of a4:argument ex:later_of_arg_0 .
+ex:later_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Price .
+ex:later_of a4:argument ex:later_of_arg_1 .
+ex:later_of a4:resultSort ex:Price .
+ex:later_of a4:functionFlag "required" .
+ex:closing_price a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:closing_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:closing_price a4:argument ex:closing_price_arg_0 .
+ex:closing_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:closing_price a4:argument ex:closing_price_arg_1 .
+ex:closing_price a4:resultSort ex:ClosingPrice .
+ex:closing_price a4:functionFlag "required" .
+ex:closing_calculation_price a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:closing_calculation_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:closing_calculation_price a4:argument ex:closing_calculation_price_arg_0 .
+ex:closing_calculation_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:closing_calculation_price a4:argument ex:closing_calculation_price_arg_1 .
+ex:closing_calculation_price a4:resultSort ex:Price .
+ex:closing_calculation_price a4:functionFlag "required" .
+ex:listed_currency a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:listed_currency_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:listed_currency a4:argument ex:listed_currency_arg_0 .
+ex:listed_currency_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:listed_currency a4:argument ex:listed_currency_arg_1 .
+ex:listed_currency a4:resultSort ex:Currency .
+ex:listed_currency a4:functionFlag "required" .
+ex:current_ice_spot_foreign_exchange_rate a rdf:Property, a4:FunSymbol ;
+  a4:arity "4"^^xsd:integer .
+ex:current_ice_spot_foreign_exchange_rate_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Currency .
+ex:current_ice_spot_foreign_exchange_rate a4:argument ex:current_ice_spot_foreign_exchange_rate_arg_0 .
+ex:current_ice_spot_foreign_exchange_rate_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Currency .
+ex:current_ice_spot_foreign_exchange_rate a4:argument ex:current_ice_spot_foreign_exchange_rate_arg_1 .
+ex:current_ice_spot_foreign_exchange_rate_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:current_ice_spot_foreign_exchange_rate a4:argument ex:current_ice_spot_foreign_exchange_rate_arg_2 .
+ex:current_ice_spot_foreign_exchange_rate_arg_3 a a4:Argument ; a4:position "3"^^xsd:integer ; a4:sort ex:CalculationTime .
+ex:current_ice_spot_foreign_exchange_rate a4:argument ex:current_ice_spot_foreign_exchange_rate_arg_3 .
+ex:current_ice_spot_foreign_exchange_rate a4:resultSort ex:SpotForeignExchangeRate .
+ex:current_ice_spot_foreign_exchange_rate a4:functionFlag "required" .
+ex:wm_fixing_4pm_london a rdf:Property, a4:FunSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:wm_fixing_4pm_london_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Currency .
+ex:wm_fixing_4pm_london a4:argument ex:wm_fixing_4pm_london_arg_0 .
+ex:wm_fixing_4pm_london_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Currency .
+ex:wm_fixing_4pm_london a4:argument ex:wm_fixing_4pm_london_arg_1 .
+ex:wm_fixing_4pm_london_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:wm_fixing_4pm_london a4:argument ex:wm_fixing_4pm_london_arg_2 .
+ex:wm_fixing_4pm_london a4:resultSort ex:WMFixing .
+ex:wm_fixing_4pm_london a4:functionFlag "required" .
+ex:last_available_wm_fixing_4pm_london a rdf:Property, a4:FunSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:last_available_wm_fixing_4pm_london_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Currency .
+ex:last_available_wm_fixing_4pm_london a4:argument ex:last_available_wm_fixing_4pm_london_arg_0 .
+ex:last_available_wm_fixing_4pm_london_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Currency .
+ex:last_available_wm_fixing_4pm_london a4:argument ex:last_available_wm_fixing_4pm_london_arg_1 .
+ex:last_available_wm_fixing_4pm_london_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:last_available_wm_fixing_4pm_london a4:argument ex:last_available_wm_fixing_4pm_london_arg_2 .
+ex:last_available_wm_fixing_4pm_london a4:resultSort ex:WMFixing .
+ex:last_available_wm_fixing_4pm_london a4:functionFlag "required" .
+ex:wm_fixing_for_closing_level a rdf:Property, a4:FunSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:wm_fixing_for_closing_level_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Currency .
+ex:wm_fixing_for_closing_level a4:argument ex:wm_fixing_for_closing_level_arg_0 .
+ex:wm_fixing_for_closing_level_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Currency .
+ex:wm_fixing_for_closing_level a4:argument ex:wm_fixing_for_closing_level_arg_1 .
+ex:wm_fixing_for_closing_level_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:wm_fixing_for_closing_level a4:argument ex:wm_fixing_for_closing_level_arg_2 .
+ex:wm_fixing_for_closing_level a4:resultSort ex:WMFixing .
+ex:wm_fixing_for_closing_level a4:functionFlag "required" .
+ex:index_component a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:index_component a4:argument ex:index_component_arg_0 .
+ex:index_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:index_component a4:argument ex:index_component_arg_1 .
+ex:intraday_calculation_time a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:intraday_calculation_time_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:intraday_calculation_time a4:argument ex:intraday_calculation_time_arg_0 .
+ex:intraday_calculation_time_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationTime .
+ex:intraday_calculation_time a4:argument ex:intraday_calculation_time_arg_1 .
+ex:calculation_mode a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:calculation_mode_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalculationTime .
+ex:calculation_mode a4:argument ex:calculation_mode_arg_0 .
+ex:calculation_mode_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationMode .
+ex:calculation_mode a4:argument ex:calculation_mode_arg_1 .
+ex:calculation_time_from_to a rdf:Property, a4:RelSymbol ;
+  a4:arity "4"^^xsd:integer .
+ex:calculation_time_from_to_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalculationTime .
+ex:calculation_time_from_to a4:argument ex:calculation_time_from_to_arg_0 .
+ex:calculation_time_from_to_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TimeOfDay .
+ex:calculation_time_from_to a4:argument ex:calculation_time_from_to_arg_1 .
+ex:calculation_time_from_to_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:TimeOfDay .
+ex:calculation_time_from_to a4:argument ex:calculation_time_from_to_arg_2 .
+ex:calculation_time_from_to_arg_3 a a4:Argument ; a4:position "3"^^xsd:integer ; a4:sort ex:TimeZone .
+ex:calculation_time_from_to a4:argument ex:calculation_time_from_to_arg_3 .
+ex:listed_on_exchanges a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:listed_on_exchanges_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:listed_on_exchanges a4:argument ex:listed_on_exchanges_arg_0 .
+ex:listed_on_exchanges_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:listed_on_exchanges a4:argument ex:listed_on_exchanges_arg_1 .
+ex:listed_on_exchanges_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:Exchange .
+ex:listed_on_exchanges a4:argument ex:listed_on_exchanges_arg_2 .
+ex:price_on_exchange a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:price_on_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Price .
+ex:price_on_exchange a4:argument ex:price_on_exchange_arg_0 .
+ex:price_on_exchange_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Exchange .
+ex:price_on_exchange a4:argument ex:price_on_exchange_arg_1 .
+ex:intraday_level_calculated_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:intraday_level_calculated_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexLevel .
+ex:intraday_level_calculated_on a4:argument ex:intraday_level_calculated_on_arg_0 .
+ex:intraday_level_calculated_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:intraday_level_calculated_on a4:argument ex:intraday_level_calculated_on_arg_1 .
+ex:intraday_level_calculated_on_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:CalculationTime .
+ex:intraday_level_calculated_on a4:argument ex:intraday_level_calculated_on_arg_2 .
+ex:closing_level_calculated_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:closing_level_calculated_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexLevel .
+ex:closing_level_calculated_on a4:argument ex:closing_level_calculated_on_arg_0 .
+ex:closing_level_calculated_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:closing_level_calculated_on a4:argument ex:closing_level_calculated_on_arg_1 .
+ex:price_used_for_level a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:price_used_for_level_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexLevel .
+ex:price_used_for_level a4:argument ex:price_used_for_level_arg_0 .
+ex:price_used_for_level_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:price_used_for_level a4:argument ex:price_used_for_level_arg_1 .
+ex:price_used_for_level_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:Price .
+ex:price_used_for_level a4:argument ex:price_used_for_level_arg_2 .
+ex:current_trading_price_available a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:current_trading_price_available_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:current_trading_price_available a4:argument ex:current_trading_price_available_arg_0 .
+ex:current_trading_price_available_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:current_trading_price_available a4:argument ex:current_trading_price_available_arg_1 .
+ex:current_trading_price_available_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:CalculationTime .
+ex:current_trading_price_available a4:argument ex:current_trading_price_available_arg_2 .
+ex:price_selection_order a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:price_selection_order_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Price .
+ex:price_selection_order a4:argument ex:price_selection_order_arg_0 .
+ex:price_selection_order_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Price .
+ex:price_selection_order a4:argument ex:price_selection_order_arg_1 .
+ex:converted_from_using a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:converted_from_using_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Price .
+ex:converted_from_using a4:argument ex:converted_from_using_arg_0 .
+ex:converted_from_using_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Price .
+ex:converted_from_using a4:argument ex:converted_from_using_arg_1 .
+ex:converted_from_using_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ForeignExchangeRate .
+ex:converted_from_using a4:argument ex:converted_from_using_arg_2 .
+ex:foreign_exchange_rate_provider a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:foreign_exchange_rate_provider_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ForeignExchangeRate .
+ex:foreign_exchange_rate_provider a4:argument ex:foreign_exchange_rate_provider_arg_0 .
+ex:foreign_exchange_rate_provider_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:foreign_exchange_rate_provider a4:argument ex:foreign_exchange_rate_provider_arg_1 .
+ex:wm_fixing_4pm_london_available a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:wm_fixing_4pm_london_available_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Currency .
+ex:wm_fixing_4pm_london_available a4:argument ex:wm_fixing_4pm_london_available_arg_0 .
+ex:wm_fixing_4pm_london_available_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Currency .
+ex:wm_fixing_4pm_london_available a4:argument ex:wm_fixing_4pm_london_available_arg_1 .
+ex:wm_fixing_4pm_london_available_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:wm_fixing_4pm_london_available a4:argument ex:wm_fixing_4pm_london_available_arg_2 .
+ex:wm_fixing_quoted_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:wm_fixing_quoted_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:WMFixing .
+ex:wm_fixing_quoted_by a4:argument ex:wm_fixing_quoted_by_arg_0 .
+ex:wm_fixing_quoted_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:wm_fixing_quoted_by a4:argument ex:wm_fixing_quoted_by_arg_1 .
+ex:fixing_time a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:fixing_time_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:WMFixing .
+ex:fixing_time a4:argument ex:fixing_time_arg_0 .
+ex:fixing_time_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TimeOfDay .
+ex:fixing_time a4:argument ex:fixing_time_arg_1 .
+ex:fixing_time_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:TimeZone .
+ex:fixing_time a4:argument ex:fixing_time_arg_2 .
+
+ex:ASSERT_ice_alias a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "76"^^xsd:integer ;
+  a4:exprText "(ICE) = (IntercontinentalExchange)" ;
+  a4:sourceText "fact ice_alias :\n  ICE = IntercontinentalExchange" .
+ex:ASSERT_intraday_calculation_window a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "79"^^xsd:integer ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, (intraday_calculation_time(d, t)) implies ((calculation_mode(t, IntradayCalculation)) and (calculation_time_from_to(t, Time1_00AMCET, Time10_50PMCET, CET)) and (intraday_level_calculated_on(intraday_level(TheIndex, d, t), d, t)))" ;
+  a4:sourceText "fact intraday_calculation_window :\n  forall d: CalculationDay, forall t: CalculationTime,\n    intraday_calculation_time(d, t)\n    implies\n      calculation_mode(t, IntradayCalculation)\n      and calculation_time_from_to(t, Time1_00AMCET, Time10_50PMCET, CET)\n      and intraday_level_calculated_on(intraday_level(TheIndex, d, t), d, t)" .
+ex:ASSERT_intraday_level_uses_exchange_trading_prices a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "87"^^xsd:integer ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent, ((intraday_calculation_time(d, t)) and (index_component(d, c))) implies (exists e: Exchange, (listed_on_exchanges(d, c, e)) and (price_on_exchange(intraday_source_price(c, d, t), e)) and (price_used_for_level(intraday_level(TheIndex, d, t), c, intraday_calculation_price(c, d, t))))" ;
+  a4:sourceText "constraint intraday_level_uses_exchange_trading_prices :\n  forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent,\n    intraday_calculation_time(d, t)\n    and index_component(d, c)\n    implies\n      exists e: Exchange,\n        listed_on_exchanges(d, c, e)\n        and price_on_exchange(intraday_source_price(c, d, t), e)\n        and price_used_for_level(\n          intraday_level(TheIndex, d, t),\n          c,\n          intraday_calculation_price(c, d, t)\n        )" .
+ex:ASSERT_current_trading_price_used_when_available a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "101"^^xsd:integer ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent, ((intraday_calculation_time(d, t)) and (index_component(d, c)) and (current_trading_price_available(c, d, t))) implies ((intraday_source_price(c, d, t)) = (current_trading_price(c, d, t)))" ;
+  a4:sourceText "constraint current_trading_price_used_when_available :\n  forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent,\n    intraday_calculation_time(d, t)\n    and index_component(d, c)\n    and current_trading_price_available(c, d, t)\n    implies\n      intraday_source_price(c, d, t) = current_trading_price(c, d, t)" .
+ex:ASSERT_no_current_trading_price_fallback a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "109"^^xsd:integer ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent, ((intraday_calculation_time(d, t)) and (index_component(d, c)) and (not (current_trading_price_available(c, d, t)))) implies ((intraday_source_price(c, d, t)) = (later_of(most_recent_closing_price(c, d, t), last_available_trading_price(c, preceding_trading_day(d)))))" ;
+  a4:sourceText "constraint no_current_trading_price_fallback :\n  forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent,\n    intraday_calculation_time(d, t)\n    and index_component(d, c)\n    and not current_trading_price_available(c, d, t)\n    implies\n      intraday_source_price(c, d, t) =\n        later_of(\n          most_recent_closing_price(c, d, t),\n          last_available_trading_price(c, preceding_trading_day(d))\n        )" .
+ex:ASSERT_fallback_price_candidates_are_temporally_comparable a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "121"^^xsd:integer ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent, ((intraday_calculation_time(d, t)) and (index_component(d, c))) implies ((price_selection_order(most_recent_closing_price(c, d, t), last_available_trading_price(c, preceding_trading_day(d)))) or (price_selection_order(last_available_trading_price(c, preceding_trading_day(d)), most_recent_closing_price(c, d, t))))" ;
+  a4:sourceText "constraint fallback_price_candidates_are_temporally_comparable :\n  forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent,\n    intraday_calculation_time(d, t)\n    and index_component(d, c)\n    implies\n      price_selection_order(\n        most_recent_closing_price(c, d, t),\n        last_available_trading_price(c, preceding_trading_day(d))\n      )\n      or\n      price_selection_order(\n        last_available_trading_price(c, preceding_trading_day(d)),\n        most_recent_closing_price(c, d, t)\n      )" .
+ex:ASSERT_later_of_returns_a_candidate a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "136"^^xsd:integer ;
+  a4:exprText "forall p1: Price, forall p2: Price, ((later_of(p1, p2)) = (p1)) or ((later_of(p1, p2)) = (p2))" ;
+  a4:sourceText "constraint later_of_returns_a_candidate :\n  forall p1: Price, forall p2: Price,\n    later_of(p1, p2) = p1\n    or\n    later_of(p1, p2) = p2" .
+ex:ASSERT_later_of_selects_temporally_later_candidate a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "142"^^xsd:integer ;
+  a4:exprText "forall p1: Price, forall p2: Price, ((price_selection_order(p1, p2)) implies ((later_of(p1, p2)) = (p1))) and ((price_selection_order(p2, p1)) implies ((later_of(p1, p2)) = (p2)))" ;
+  a4:sourceText "constraint later_of_selects_temporally_later_candidate :\n  forall p1: Price, forall p2: Price,\n    (price_selection_order(p1, p2) implies later_of(p1, p2) = p1)\n    and\n    (price_selection_order(p2, p1) implies later_of(p1, p2) = p2)" .
+ex:ASSERT_intraday_price_kept_when_listed_in_index_currency a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "148"^^xsd:integer ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent, ((intraday_calculation_time(d, t)) and (index_component(d, c)) and ((listed_currency(d, c)) = (index_currency(TheIndex)))) implies ((intraday_calculation_price(c, d, t)) = (intraday_source_price(c, d, t)))" ;
+  a4:sourceText "constraint intraday_price_kept_when_listed_in_index_currency :\n  forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent,\n    intraday_calculation_time(d, t)\n    and index_component(d, c)\n    and listed_currency(d, c) = index_currency(TheIndex)\n    implies\n      intraday_calculation_price(c, d, t) = intraday_source_price(c, d, t)" .
+ex:ASSERT_intraday_price_converted_when_not_listed_in_index_currency a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "156"^^xsd:integer ;
+  a4:exprText "forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent, ((intraday_calculation_time(d, t)) and (index_component(d, c)) and (not ((listed_currency(d, c)) = (index_currency(TheIndex))))) implies (converted_from_using(intraday_calculation_price(c, d, t), intraday_source_price(c, d, t), current_ice_spot_foreign_exchange_rate(listed_currency(d, c), index_currency(TheIndex), d, t)))" ;
+  a4:sourceText "constraint intraday_price_converted_when_not_listed_in_index_currency :\n  forall d: CalculationDay, forall t: CalculationTime, forall c: IndexComponent,\n    intraday_calculation_time(d, t)\n    and index_component(d, c)\n    and listed_currency(d, c) != index_currency(TheIndex)\n    implies\n      converted_from_using(\n        intraday_calculation_price(c, d, t),\n        intraday_source_price(c, d, t),\n        current_ice_spot_foreign_exchange_rate(\n          listed_currency(d, c),\n          index_currency(TheIndex),\n          d,\n          t\n        )\n      )" .
+ex:ASSERT_current_ice_spot_foreign_exchange_rate_source a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "173"^^xsd:integer ;
+  a4:exprText "forall src: Currency, forall tgt: Currency, forall d: CalculationDay, forall t: CalculationTime, foreign_exchange_rate_provider(current_ice_spot_foreign_exchange_rate(src, tgt, d, t), IntercontinentalExchange)" ;
+  a4:sourceText "fact current_ice_spot_foreign_exchange_rate_source :\n  forall src: Currency, forall tgt: Currency,\n  forall d: CalculationDay, forall t: CalculationTime,\n    foreign_exchange_rate_provider(\n      current_ice_spot_foreign_exchange_rate(src, tgt, d, t),\n      IntercontinentalExchange\n    )" .
+ex:ASSERT_closing_level_calculated_each_calculation_day a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "181"^^xsd:integer ;
+  a4:exprText "forall d: CalculationDay, closing_level_calculated_on(closing_level(TheIndex, d), d)" ;
+  a4:sourceText "fact closing_level_calculated_each_calculation_day :\n  forall d: CalculationDay,\n    closing_level_calculated_on(closing_level(TheIndex, d), d)" .
+ex:ASSERT_closing_level_based_on_closing_prices a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "185"^^xsd:integer ;
+  a4:exprText "forall d: CalculationDay, forall c: IndexComponent, (index_component(d, c)) implies (exists e: Exchange, (listed_on_exchanges(d, c, e)) and (price_on_exchange(closing_price(c, d), e)) and (price_used_for_level(closing_level(TheIndex, d), c, closing_calculation_price(c, d))))" ;
+  a4:sourceText "constraint closing_level_based_on_closing_prices :\n  forall d: CalculationDay, forall c: IndexComponent,\n    index_component(d, c)\n    implies\n      exists e: Exchange,\n        listed_on_exchanges(d, c, e)\n        and price_on_exchange(closing_price(c, d), e)\n        and price_used_for_level(\n          closing_level(TheIndex, d),\n          c,\n          closing_calculation_price(c, d)\n        )" .
+ex:ASSERT_closing_price_kept_when_listed_in_index_currency a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "198"^^xsd:integer ;
+  a4:exprText "forall d: CalculationDay, forall c: IndexComponent, ((index_component(d, c)) and ((listed_currency(d, c)) = (index_currency(TheIndex)))) implies ((closing_calculation_price(c, d)) = (closing_price(c, d)))" ;
+  a4:sourceText "constraint closing_price_kept_when_listed_in_index_currency :\n  forall d: CalculationDay, forall c: IndexComponent,\n    index_component(d, c)\n    and listed_currency(d, c) = index_currency(TheIndex)\n    implies\n      closing_calculation_price(c, d) = closing_price(c, d)" .
+ex:ASSERT_closing_price_converted_with_available_wm_fixing a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "205"^^xsd:integer ;
+  a4:exprText "forall d: CalculationDay, forall c: IndexComponent, ((index_component(d, c)) and (not ((listed_currency(d, c)) = (index_currency(TheIndex)))) and (wm_fixing_4pm_london_available(listed_currency(d, c), index_currency(TheIndex), d))) implies (((wm_fixing_for_closing_level(listed_currency(d, c), index_currency(TheIndex), d)) = (wm_fixing_4pm_london(listed_currency(d, c), index_currency(TheIndex), d))) and (converted_from_using(closing_calculation_price(c, d), closing_price(c, d), wm_fixing_for_closing_level(listed_currency(d, c), index_currency(TheIndex), d))))" ;
+  a4:sourceText "constraint closing_price_converted_with_available_wm_fixing :\n  forall d: CalculationDay, forall c: IndexComponent,\n    index_component(d, c)\n    and listed_currency(d, c) != index_currency(TheIndex)\n    and wm_fixing_4pm_london_available(\n      listed_currency(d, c),\n      index_currency(TheIndex),\n      d\n    )\n    implies\n      wm_fixing_for_closing_level(\n        listed_currency(d, c),\n        index_currency(TheIndex),\n        d\n      ) =\n        wm_fixing_4pm_london(\n          listed_currency(d, c),\n          index_currency(TheIndex),\n          d\n        )\n      and\n      converted_from_using(\n        closing_calculation_price(c, d),\n        closing_price(c, d),\n        wm_fixing_for_closing_level(\n          listed_currency(d, c),\n          index_currency(TheIndex),\n          d\n        )\n      )" .
+ex:ASSERT_closing_price_converted_with_last_available_wm_fixing a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "236"^^xsd:integer ;
+  a4:exprText "forall d: CalculationDay, forall c: IndexComponent, ((index_component(d, c)) and (not ((listed_currency(d, c)) = (index_currency(TheIndex)))) and (not (wm_fixing_4pm_london_available(listed_currency(d, c), index_currency(TheIndex), d)))) implies (((wm_fixing_for_closing_level(listed_currency(d, c), index_currency(TheIndex), d)) = (last_available_wm_fixing_4pm_london(listed_currency(d, c), index_currency(TheIndex), d))) and (converted_from_using(closing_calculation_price(c, d), closing_price(c, d), wm_fixing_for_closing_level(listed_currency(d, c), index_currency(TheIndex), d))))" ;
+  a4:sourceText "constraint closing_price_converted_with_last_available_wm_fixing :\n  forall d: CalculationDay, forall c: IndexComponent,\n    index_component(d, c)\n    and listed_currency(d, c) != index_currency(TheIndex)\n    and not wm_fixing_4pm_london_available(\n      listed_currency(d, c),\n      index_currency(TheIndex),\n      d\n    )\n    implies\n      wm_fixing_for_closing_level(\n        listed_currency(d, c),\n        index_currency(TheIndex),\n        d\n      ) =\n        last_available_wm_fixing_4pm_london(\n          listed_currency(d, c),\n          index_currency(TheIndex),\n          d\n        )\n      and\n      converted_from_using(\n        closing_calculation_price(c, d),\n        closing_price(c, d),\n        wm_fixing_for_closing_level(\n          listed_currency(d, c),\n          index_currency(TheIndex),\n          d\n        )\n      )" .
+ex:ASSERT_wm_fixing_4pm_london_quoted_by_reuters a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "267"^^xsd:integer ;
+  a4:exprText "forall src: Currency, forall tgt: Currency, forall d: CalculationDay, (wm_fixing_quoted_by(wm_fixing_4pm_london(src, tgt, d), Reuters)) and (fixing_time(wm_fixing_4pm_london(src, tgt, d), Time04_00PMLondon, LondonTime))" ;
+  a4:sourceText "fact wm_fixing_4pm_london_quoted_by_reuters :\n  forall src: Currency, forall tgt: Currency, forall d: CalculationDay,\n    wm_fixing_quoted_by(wm_fixing_4pm_london(src, tgt, d), Reuters)\n    and fixing_time(wm_fixing_4pm_london(src, tgt, d), Time04_00PMLondon, LondonTime)" .
+ex:ASSERT_last_available_wm_fixing_4pm_london_quoted_by_reuters a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "272"^^xsd:integer ;
+  a4:exprText "forall src: Currency, forall tgt: Currency, forall d: CalculationDay, (wm_fixing_quoted_by(last_available_wm_fixing_4pm_london(src, tgt, d), Reuters)) and (fixing_time(last_available_wm_fixing_4pm_london(src, tgt, d), Time04_00PMLondon, LondonTime))" ;
+  a4:sourceText "fact last_available_wm_fixing_4pm_london_quoted_by_reuters :\n  forall src: Currency, forall tgt: Currency, forall d: CalculationDay,\n    wm_fixing_quoted_by(last_available_wm_fixing_4pm_london(src, tgt, d), Reuters)\n    and fixing_time(\n      last_available_wm_fixing_4pm_london(src, tgt, d),\n      Time04_00PMLondon,\n      LondonTime\n    )" .

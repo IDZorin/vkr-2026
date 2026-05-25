@@ -1,0 +1,152 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N30 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:Security a owl:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:IndexComponent a owl:Class .
+ex:IndexComponent rdfs:subClassOf ex:Security .
+ex:RebalanceDay a owl:Class .
+ex:RebalanceDay rdfs:subClassOf ex:Day .
+ex:CalculationDay a owl:Class .
+ex:CalculationDay rdfs:subClassOf ex:Day .
+ex:Exchange a owl:Class .
+ex:IndexAdministrator a owl:Class .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:IndexAdministratorForThisIndex a owl:Class .
+ex:IndexAdministratorForThisIndex rdfs:subClassOf ex:IndexAdministrator .
+ex:IndexComponentInclusion a owl:Class .
+ex:TradingDayContext a owl:Class .
+ex:TradingDayDetermination a owl:Class .
+ex:ExchangeClosingTime a owl:Class .
+ex:TradingCessationPossibility a owl:Class .
+ex:ScheduledShortenedPeriod a owl:Class .
+ex:ScheduledShortenedPeriod rdfs:subClassOf ex:Period .
+ex:CloseOfTrading a owl:Class .
+ex:CloseOfTrading rdfs:subClassOf ex:Event .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:TheIndexAdministrator a ex:IndexAdministratorForThisIndex, owl:NamedIndividual .
+ex:relevant_exchange a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:IndexComponent ;
+  rdfs:range ex:Exchange .
+ex:scheduled_exchange_closing_time a owl:Class, a4:NaryRelationClass .
+ex:scheduled_exchange_closing_time_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:scheduled_exchange_closing_time ;
+  rdfs:range ex:Exchange .
+ex:scheduled_exchange_closing_time_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:scheduled_exchange_closing_time ;
+  rdfs:range ex:Day .
+ex:scheduled_exchange_closing_time_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:scheduled_exchange_closing_time ;
+  rdfs:range ex:ExchangeClosingTime .
+ex:inclusion_component a owl:ObjectProperty ;
+  rdfs:domain ex:IndexComponentInclusion ;
+  rdfs:range ex:IndexComponent .
+ex:inclusion_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexComponentInclusion ;
+  rdfs:range ex:Index .
+ex:inclusion_day a owl:ObjectProperty ;
+  rdfs:domain ex:IndexComponentInclusion ;
+  rdfs:range ex:Day .
+ex:calculation_day_immediately_following_rebalance_day a owl:ObjectProperty ;
+  rdfs:domain ex:CalculationDay ;
+  rdfs:range ex:RebalanceDay .
+ex:context_rebalance_day a owl:ObjectProperty ;
+  rdfs:domain ex:TradingDayContext ;
+  rdfs:range ex:RebalanceDay .
+ex:context_day a owl:ObjectProperty ;
+  rdfs:domain ex:TradingDayContext ;
+  rdfs:range ex:Day .
+ex:context_component a owl:ObjectProperty ;
+  rdfs:domain ex:TradingDayContext ;
+  rdfs:range ex:IndexComponent .
+ex:context_exchange a owl:ObjectProperty ;
+  rdfs:domain ex:TradingDayContext ;
+  rdfs:range ex:Exchange .
+ex:valid_trading_day_context a owl:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:context_component_included_at_rebalance_day a owl:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:context_component_included_at_following_calculation_day a owl:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:context_satisfies_open_for_trading_condition a owl:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:context_satisfies_market_disruption_counterfactual a owl:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:context_excluded_by_prior_to_close_cessation a owl:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:context_excluded_by_scheduled_shortened_period a owl:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:trading_day a owl:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:exchange_open_for_trading a owl:ObjectProperty ;
+  rdfs:domain ex:Exchange ;
+  rdfs:range ex:Day .
+ex:market_disruption_occurred a owl:ObjectProperty ;
+  rdfs:domain ex:Exchange ;
+  rdfs:range ex:Day .
+ex:would_have_been_open_for_trading_without_market_disruption a owl:ObjectProperty ;
+  rdfs:domain ex:Exchange ;
+  rdfs:range ex:Day .
+ex:cessation_possibility_exchange a owl:ObjectProperty ;
+  rdfs:domain ex:TradingCessationPossibility ;
+  rdfs:range ex:Exchange .
+ex:cessation_possibility_day a owl:ObjectProperty ;
+  rdfs:domain ex:TradingCessationPossibility ;
+  rdfs:range ex:Day .
+ex:prior_to a owl:ObjectProperty ;
+  rdfs:domain ex:TradingCessationPossibility ;
+  rdfs:range ex:ExchangeClosingTime .
+ex:shortened_period_exchange a owl:ObjectProperty ;
+  rdfs:domain ex:ScheduledShortenedPeriod ;
+  rdfs:range ex:Exchange .
+ex:shortened_period_day a owl:ObjectProperty ;
+  rdfs:domain ex:ScheduledShortenedPeriod ;
+  rdfs:range ex:Day .
+ex:security_to_be_included_in_index_as_new_index_component a owl:ObjectProperty ;
+  rdfs:domain ex:Security ;
+  rdfs:range ex:Index .
+ex:close_of_trading_exchange a owl:ObjectProperty ;
+  rdfs:domain ex:CloseOfTrading ;
+  rdfs:range ex:Exchange .
+ex:close_of_trading_rebalance_day a owl:ObjectProperty ;
+  rdfs:domain ex:CloseOfTrading ;
+  rdfs:range ex:RebalanceDay .
+ex:context_captures_new_index_component_close_of_trading a owl:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:determination_decides_whether_context_is_trading_day a owl:ObjectProperty ;
+  rdfs:domain ex:TradingDayDetermination ;
+  rdfs:range ex:TradingDayContext .
+ex:ultimately_responsible_for_trading_day_determination a owl:ObjectProperty ;
+  rdfs:domain ex:IndexAdministratorForThisIndex ;
+  rdfs:range ex:TradingDayDetermination .
+
+ex:ASSERT_trading_day_context_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall ctx: TradingDayContext, (valid_trading_day_context(ctx)) iff (exists rd: RebalanceDay, exists d: Day, exists c: IndexComponent, (context_rebalance_day(ctx, rd)) and (context_day(ctx, d)) and (context_component(ctx, c)) and (context_exchange(ctx, relevant_exchange(c))) and ((context_component_included_at_rebalance_day(ctx)) or (context_component_included_at_following_calculation_day(ctx))))" .
+ex:ASSERT_rebalance_day_component_scope a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall ctx: TradingDayContext, (context_component_included_at_rebalance_day(ctx)) iff (exists rd: RebalanceDay, exists c: IndexComponent, exists inc: IndexComponentInclusion, (context_rebalance_day(ctx, rd)) and (context_component(ctx, c)) and (inclusion_component(inc, c)) and (inclusion_index(inc, TheIndex)) and (inclusion_day(inc, rd)))" .
+ex:ASSERT_following_calculation_day_component_scope a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall ctx: TradingDayContext, (context_component_included_at_following_calculation_day(ctx)) iff (exists rd: RebalanceDay, exists cd: CalculationDay, exists c: IndexComponent, exists inc: IndexComponentInclusion, (context_rebalance_day(ctx, rd)) and (calculation_day_immediately_following_rebalance_day(cd, rd)) and (context_component(ctx, c)) and (inclusion_component(inc, c)) and (inclusion_index(inc, TheIndex)) and (inclusion_day(inc, cd)))" .
+ex:ASSERT_open_for_trading_condition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall ctx: TradingDayContext, (context_satisfies_open_for_trading_condition(ctx)) iff (exists d: Day, exists ex: Exchange, (context_day(ctx, d)) and (context_exchange(ctx, ex)) and (exchange_open_for_trading(ex, d)))" .
+ex:ASSERT_market_disruption_counterfactual_condition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall ctx: TradingDayContext, (context_satisfies_market_disruption_counterfactual(ctx)) iff (exists d: Day, exists ex: Exchange, (context_day(ctx, d)) and (context_exchange(ctx, ex)) and (market_disruption_occurred(ex, d)) and (would_have_been_open_for_trading_without_market_disruption(ex, d)))" .
+ex:ASSERT_early_cessation_exclusion a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall ctx: TradingDayContext, (context_excluded_by_prior_to_close_cessation(ctx)) iff (exists d: Day, exists ex: Exchange, exists cp: TradingCessationPossibility, (context_day(ctx, d)) and (context_exchange(ctx, ex)) and (cessation_possibility_exchange(cp, ex)) and (cessation_possibility_day(cp, d)) and (prior_to(cp, scheduled_exchange_closing_time(ex, d))))" .
+ex:ASSERT_scheduled_shortened_period_exclusion a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall ctx: TradingDayContext, (context_excluded_by_scheduled_shortened_period(ctx)) iff (exists d: Day, exists ex: Exchange, exists sp: ScheduledShortenedPeriod, (context_day(ctx, d)) and (context_exchange(ctx, ex)) and (shortened_period_exchange(sp, ex)) and (shortened_period_day(sp, d)))" .
+ex:ASSERT_trading_day_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall ctx: TradingDayContext, (valid_trading_day_context(ctx)) implies ((trading_day(ctx)) iff (((context_satisfies_open_for_trading_condition(ctx)) or (context_satisfies_market_disruption_counterfactual(ctx))) and (not (context_excluded_by_prior_to_close_cessation(ctx))) and (not (context_excluded_by_scheduled_shortened_period(ctx)))))" .
+ex:ASSERT_new_index_components_close_of_trading_clarification a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall ctx: TradingDayContext, (context_captures_new_index_component_close_of_trading(ctx)) iff (exists rd: RebalanceDay, exists c: IndexComponent, exists close: CloseOfTrading, (context_rebalance_day(ctx, rd)) and (context_component(ctx, c)) and (security_to_be_included_in_index_as_new_index_component(c, TheIndex)) and (close_of_trading_exchange(close, relevant_exchange(c))) and (close_of_trading_rebalance_day(close, rd)))" .
+ex:ASSERT_index_administrator_responsibility_for_trading_day_determination a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall det: TradingDayDetermination, forall ctx: TradingDayContext, ((determination_decides_whether_context_is_trading_day(det, ctx)) and (valid_trading_day_context(ctx))) implies (ultimately_responsible_for_trading_day_determination(TheIndexAdministrator, det))" .

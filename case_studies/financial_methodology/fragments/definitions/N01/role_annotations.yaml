@@ -1,0 +1,42 @@
+schema: role_annotations_v1
+entry_id: N01
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  average_daily_value_traded:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: time}
+    returns: {role: same_as_type}
+  daily_value_traded:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+    returns: {role: same_as_type}
+  daily_value_traded_sum_over_period:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: time}
+    returns: {role: same_as_type}
+  trading_day_count_in_period:
+    kind: fun
+    args:
+      1: {role: time}
+    returns: {role: same_as_type}
+constraints:
+  average_daily_value_traded_divided_by_trading_day_count_definition:
+    frame: average_daily_value_traded_divided_by_trading_day_count_definition
+    variables:
+      c: {role: component, quantifier: forall}
+      p: {role: time, quantifier: forall}
+  daily_value_traded_sum_over_period_definition:
+    frame: daily_value_traded_sum_over_period_definition
+    variables:
+      c: {role: component, quantifier: forall}
+      p: {role: time, quantifier: forall}
+  trading_day_count_in_period_definition:
+    frame: trading_day_count_in_period_definition
+    variables:
+      p: {role: time, quantifier: forall}

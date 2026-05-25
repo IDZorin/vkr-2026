@@ -1,0 +1,152 @@
+{
+  "entry_id": "section_2_2",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "gpt-5.2",
+    "~anthropic/claude-haiku-latest",
+    "~anthropic/claude-sonnet-latest"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main selection mechanics: two-region classification, ranking by free-float market cap, top 20 selection per region, and the no-discretion requirement. However, it also introduces several stronger or different formal claims, especially around eligibility, region assignment, and the handling of the \"less than 20 eligible\" case, so it is not an exact match.",
+      "semantic_differences": [
+        "The source says each security is classified into one of two regions; the IR makes this conditional on `eligible(d, s)` and does not state an unconditional classification for each security.",
+        "The source specifies the regions as Americas and Europe, but the IR uses `EuropeRegion` as the entity name and does not directly identify it as the source's Europe region in the classification rule.",
+        "The source says the top 20 securities for each region are selected, and if fewer than 20 securities per region are eligible, the Index contains fewer than 40 Index Components in total; the IR instead states a weaker implication from the existence of some region with fewer than 20 eligible securities to total index components being under 40, which is not equivalent to the source's per-region condition.",
+        "The source refers to the initial composition of the Index and any ordinary rebalance selection being determined on the Selection Day; the IR splits this into separate predicates but does not explicitly state that these are the same determination process described in the source.",
+        "The source says the selection of the Index Components is fully rule-based; the IR encodes this as a fact about `selection_of_index_components(d)` rather than directly stating that the selection itself is fully rule-based.",
+        "The source says the Index Administrator cannot make any discretionary decision; the IR models this as a prohibition on making a discretionary decision, which is close but not identical in form to the source's broad inability statement."
+      ],
+      "stylistic_notes": [
+        "The IR preserves the source's misspelling `MarketCapizatlization`, which is stylistically odd but not a semantic issue.",
+        "The IR uses `EuropeRegion` instead of `Europe`, which is a naming difference.",
+        "The IR introduces several helper predicates and functions (`eligible`, `rank`, `selection_of_index_components`) as formalization scaffolding."
+      ],
+      "confidence": 0.91,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2786,
+        "completion_tokens": 514,
+        "total_tokens": 3300
+      },
+      "latency_s": 5.014460325241089
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures much of the source: regional classification rules, ranking by free-float market capitalization, selection of top 20 per region, the possibility of fewer than 40 components, and the rule-based/non-discretionary character. However, it also changes or weakens some meanings: it equates eligibility with membership in the Index Universe, does not enforce classification into exactly one of the two regions, and its fewer-than-40 rule is only one-way and existential rather than tied to each of the two stated regions.",
+      "semantic_differences": [
+        "The source says each security is classified into one of the two regions, but the IR only gives two implication rules from certain country assignments to regions; it does not ensure every relevant security is classified, nor that classification is into exactly one of those two regions.",
+        "The source conditions the regional classification on Country Assignment under the Gbs Index Universe framework, while the IR introduces a separate predicate eligible and then equates eligible with index_universe membership; this adds a stronger identification between eligibility and Index Universe membership that is not stated in the source.",
+        "The source says the top 20 securities for each region are selected. The IR defines selection as rank <= 20 for any region value returned by region(d,s), without restricting the possible regions to exactly Americas and EuropeRegion.",
+        "The source says if less than 20 securities per region are eligible, the Index contains less than 40 Index Components in total, referring to the two stated regions. The IR instead says if there exists some region with fewer than 20 eligible securities, then total index components are fewer than 40; this is a different condition and weaker alignment to the stated two-region setup.",
+        "The source says the initial composition of the Index as well as any selection for an ordinary rebalance is determined on the Selection Day based on the Index Universe in accordance with the rules. The IR makes initial_composition and ordinary_rebalance_selection exactly identical to selected_for_index_inclusion for every SelectionDay, which may collapse distinctions the source leaves as contextual applications of the same rules."
+      ],
+      "stylistic_notes": [
+        "The IR preserves the source typo-like term 'Capizatlization'; this is wording rather than semantics.",
+        "Using EuropeRegion in IR for the region and Europe for the country assignment is a reasonable naming disambiguation.",
+        "Reifying selection_of_index_components and fully_rule_based is acceptable formalization infrastructure."
+      ],
+      "confidence": 0.91,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2786,
+        "completion_tokens": 546,
+        "total_tokens": 3332
+      },
+      "latency_s": 10.550240516662598
+    },
+    {
+      "model": "gpt-5.2",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main mechanics: classification into Americas/Europe based on country assignment, ranking by free-float market capitalization in descending order, selecting the top 20 per region, and the non-discretionary/rule-based nature of selection. However, it introduces or misstates several semantics: it equates eligibility with being in the Index Universe (not stated), it does not enforce that every eligible security is classified into exactly one of the two regions, it does not ensure exactly 20 are selected when at least 20 are eligible in a region (ties/total-order issues), and its “<40 components” condition is weaker/different from the source’s “if less than 20 per region are eligible, the Index contains less than 40 in total.”",
+      "semantic_differences": [
+        "Eligibility is defined as equivalent to being in the Index Universe (eligible(d,s) iff index_universe(d,s)), but the source only says selection is based on the Index Universe; it does not state that all universe securities are eligible or that eligibility equals universe membership.",
+        "The source says each security is classified into one of two regions; the IR only provides implications for certain country assignments and does not enforce totality/exhaustiveness (every eligible security gets a region) nor exclusivity (cannot be both), nor that only those two regions exist for classification.",
+        "The source selects the top 20 securities for each region; the IR defines selection as rank <= 20 but does not guarantee that (when there are at least 20 eligible in a region) exactly 20 are selected, because rank is only partially constrained (no uniqueness/total-order/tie-handling constraints).",
+        "The source condition is: if less than 20 securities per region are eligible, then the index contains less than 40 components in total; the IR uses an existential over regions (exists r with eligible count < 20) implying total components < 40, which is not the same as the source’s 'per region' condition and can trigger in cases the source does not specify."
+      ],
+      "stylistic_notes": [
+        "Spelling in FreeFloatMarketCapizatlization matches the source typo but is nonstandard.",
+        "Europe is represented both as a CountryAssignment entity and EuropeRegion as a Region entity; naming is slightly confusing but not inherently wrong.",
+        "The prohibition about discretionary decisions is modeled with an abstract action/target/scope structure not grounded in the source’s exact phrasing, though it aims to encode 'cannot make any discretionary decision.'"
+      ],
+      "confidence": 0.74,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2786,
+        "completion_tokens": 569,
+        "total_tokens": 3355
+      },
+      "latency_s": 10.986907720565796
+    },
+    {
+      "model": "~anthropic/claude-haiku-latest",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core selection logic (classification by region, ranking by market cap, top-20 selection) and the rule-based nature of the process. However, there are semantic gaps: (1) the IR introduces `CountryAssignment` as a sort with entities, but the source treats country assignment as a classification framework attribute, not a first-class entity type; (2) the IR reifies `DiscretionaryDecision` and uses a prohibition with `make_discretionary_decision` action, but the source simply states the administrator \"cannot make any discretionary decision\"—this is a negative assertion about capability, not a prohibition on a specific action type; (3) the IR's `eligible` relation is defined as equivalent to `index_universe`, but the source uses \"Index Universe\" as a dataset/framework from which securities are drawn, not as a binary eligibility predicate; (4) the IR introduces `MonetaryAmount` (not in prelude) as a parent sort for market cap, which is reasonable but not explicitly sourced.",
+      "semantic_differences": [
+        "CountryAssignment is reified as a sort with entities (Canada, UnitedStates, Europe), but source treats country assignment as an attribute/classification within the GBS framework, not as a standalone entity type.",
+        "The prohibition on discretionary decisions is formalized as a DeonticDecl with action `make_discretionary_decision` and target `DiscretionaryDecision`, but source states a negative capability (\"cannot make\"), not a prohibition on a specific action—the IR's formalization presupposes an action type that source does not define.",
+        "The `index_universe` relation is used as a binary predicate `index_universe(d, s)` equivalent to eligibility, but source describes \"Index Universe\" as a dataset/framework from which the initial composition is determined, not as a predicate that classifies individual securities.",
+        "MonetaryAmount is introduced as a parent sort for FreeFloatMarketCapizatlization, but MonetaryAmount is not in the prelude and is not explicitly mentioned in source."
+      ],
+      "stylistic_notes": [
+        "Entity naming: `EuropeRegion` is used instead of `Europe` for the region entity, likely to avoid collision with the `Europe` CountryAssignment entity. This is a reasonable disambiguation but adds naming complexity not present in source.",
+        "The IR introduces `SelectionOfIndexComponents` as a sort and reifies it as the output of `selection_of_index_components(d)`, which is a standard a4v3 encoding of a process, but source does not explicitly name this as a reifiable object.",
+        "The IR uses `fully_rule_based` as a unary predicate on `SelectionOfIndexComponents`, whereas source states \"the selection of the Index Components is fully rule-based\" as a property of the process itself—the IR's encoding is reasonable but shifts the assertion from process to object.",
+        "Rank is defined as extending Nat, which is reasonable for a numeric ordering, but source does not explicitly define rank as a numeric type."
+      ],
+      "confidence": 0.68,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3287,
+        "completion_tokens": 748,
+        "total_tokens": 4035
+      },
+      "latency_s": 8.884119510650635
+    },
+    {
+      "model": "~anthropic/claude-sonnet-latest",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures most of the source's intent well: region classification, descending rank by free-float market cap, top-20 selection per region, the less-than-40 fallback, the rule-based nature, and the prohibition on discretionary decisions. However, there are two notable semantic divergences: (1) the IR's 'selected_top_20_for_each_region' constraint uses a simple rank ≤ 20 condition without ensuring ranks are assigned only to eligible securities within the same region, which could allow ties or rank collisions to silently violate the 'top 20' intent, but more critically (2) the 'less_than_20_per_region_less_than_40_index_components' constraint only fires when at least one region has fewer than 20 eligible securities, but the source says the total is less than 40 whenever any region contributes fewer than 20 — the IR's formulation is actually consistent with the source on this point. A genuine divergence is that the IR equates 'eligible' with 'index_universe' membership, but the source says the Index Universe is the basis from which selection is made — eligibility and universe membership may not be identical (the source implies eligibility is a precondition derived from the universe, not necessarily identical to it). Additionally, the IR does not capture that the two regions (Americas and Europe) are exhaustive and mutually exclusive — a security not assigned to Americas or Europe is left unclassified without constraint.",
+      "semantic_differences": [
+        "The IR defines 'eligible(d, s) iff index_universe(d, s)', treating eligibility as identical to Index Universe membership. The source says selection is 'based on the Index Universe' and uses 'eligible' as a separate concept (e.g., 'less than 20 securities per region are eligible'), implying eligibility may be a subset or derived condition, not a strict biconditional with universe membership.",
+        "The IR does not enforce that the two regions (Americas and EuropeRegion) are exhaustive and mutually exclusive for all eligible securities. The source implies every security is classified into exactly one of the two regions, but the IR only provides one-directional implications for classification, leaving securities with other country assignments unclassified.",
+        "The 'descending_order_by_free_float_market_capizatlization' constraint only establishes a partial order on ranks but does not ensure ranks are unique integers or that every eligible security in a region receives exactly one rank, which is necessary for the 'top 20' selection to be well-defined."
+      ],
+      "stylistic_notes": [
+        "The typo 'Capizatlization' from the source is preserved in the IR identifiers, which is consistent but worth noting.",
+        "'EuropeRegion' is used instead of 'Europe' to avoid collision with the CountryAssignment entity 'Europe'; this is a reasonable naming choice.",
+        "The prohibition declaration's syntax with 'action: make_discretionary_decision' and 'target/scope' fields is a reasonable a4v3 encoding of the no-discretion rule.",
+        "Splitting 'selected_for_index_inclusion' and 'index_component' into two separate relations that are then equated by biconditional is redundant but not semantically wrong."
+      ],
+      "confidence": 0.75,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3288,
+        "completion_tokens": 802,
+        "total_tokens": 4090
+      },
+      "latency_s": 21.339402198791504
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "partially_corresponds": 5
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 1.0,
+    "unanimous": true,
+    "mean_confidence": 0.798
+  }
+}

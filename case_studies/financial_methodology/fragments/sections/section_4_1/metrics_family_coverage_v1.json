@@ -1,0 +1,65 @@
+{
+  "entry_id": "section_4_1",
+  "skipped": false,
+  "ir_innf_families_used": [
+    "AssertDecl",
+    "SymbolDecl",
+    "TypeDecl"
+  ],
+  "ir_fine_families_used": [
+    "AssertDecl.constraint",
+    "AssertDecl.fact",
+    "SymbolDecl.entity",
+    "SymbolDecl.fun",
+    "SymbolDecl.rel",
+    "TypeDecl.sort_enum",
+    "TypeDecl.sort_opaque",
+    "TypeDecl.sort_subtype"
+  ],
+  "ir_family_counts": {
+    "TypeDecl.sort_opaque": 8,
+    "TypeDecl.sort_enum": 1,
+    "TypeDecl.sort_subtype": 11,
+    "SymbolDecl.entity": 11,
+    "SymbolDecl.rel": 22,
+    "SymbolDecl.fun": 18,
+    "AssertDecl.fact": 8,
+    "AssertDecl.constraint": 2
+  },
+  "ir_expr_markers": {
+    "forall": 11,
+    "implies": 6,
+    "temporal_order_static_relation_call": 2
+  },
+  "source_signals": {
+    "quantifier_universal": {
+      "expected_family": "Formula_forall",
+      "expectation_mode": "required",
+      "matches": [
+        "Any dividends",
+        "any currency",
+        "each"
+      ]
+    }
+  },
+  "gaps": [],
+  "required_gaps": [],
+  "advisory_gaps": [],
+  "matches": [
+    {
+      "signal": "quantifier_universal",
+      "expected_family": "Formula_forall",
+      "expectation_mode": "required",
+      "evidence": [
+        "Any dividends",
+        "any currency",
+        "each"
+      ],
+      "satisfied": true
+    }
+  ],
+  "n_gaps": 0,
+  "n_required_gaps": 0,
+  "n_advisory_gaps": 0,
+  "n_matches": 1
+}

@@ -1,0 +1,67 @@
+{
+  "entry_id": "section_5_3",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR captures the source’s core claims: the Index Administrator must apply the described method for composition and calculation, may make necessary/desirable changes for the listed reasons or to fix obvious/demonstrable errors or incorrect terms, is not obliged to provide information about such changes, and must take appropriate steps to keep the calculation method consistent with the described method. The final and binding characterization is also represented.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses formalized entities like MethodApplication, DeemedModificationOrChange, and AppropriateSteps to encode the source’s procedural language.",
+        "The source’s phrasing about changes being required by market, supervisory, legal, financial, or tax reasons is represented via a reason sort and a potential-requirement relation."
+      ],
+      "confidence": 0.93,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3027,
+        "completion_tokens": 208,
+        "total_tokens": 3235
+      },
+      "latency_s": 2.6690523624420166
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures most core points: final and binding application, obligation to apply the described method, possible change reasons, permission to make certain changes, no obligation to provide information, and a duty to take appropriate steps toward consistency. However, it overconstrains some conditions, weakens or shifts others, and omits the source’s limitation that the administrator may change only what it deems necessary and desirable.",
+      "semantic_differences": [
+        "The permission to make changes is too broad in actor scope: the source says 'The Index Administrator may also make changes', but the IR grants the permission to any IndexAdministrator rather than specifically TheIndexAdministrator tied to this Index.",
+        "The IR requires every DeemedModificationOrChange to be deemed both Necessary and Desirable, whereas the source says the administrator may make changes that it deems necessary and desirable; this is a condition on the permitted changes, not a universal characterization of all such changes unless they are in that special class.",
+        "The source allows changes to 'the terms and conditions of the Index and the method applied to calculate the Index' as a conjunctive description of what may be changed; the IR encodes this as an inclusive disjunction, allowing a change to affect only one side.",
+        "The source permits changes 'in order to prevent obvious or demonstrable error or to remedy, correct or supplement incorrect terms and conditions'; the IR models prevention only as preventing an Error described by Obvious or Demonstrable, which can read as requiring the error itself to bear that descriptor rather than the broader source phrasing.",
+        "The source says market environment, supervisory, legal, financial, or tax reasons may require changes to be made to the method; the IR records only that each reason potentially requires change to the described method, but does not connect this to actual possible modifications or to the administrator’s authority/response.",
+        "The source says the administrator will take appropriate steps to ensure that a calculation method is applied that is consistent with the method described above despite modifications and changes; the IR obligation is parameterized by any ModificationOrChange but does not explicitly condition the duty on the existence of modifications and changes, and the supporting fact only states one fixed AppropriateSteps item ensures consistency, not that a consistent calculation method is applied."
+      ],
+      "stylistic_notes": [
+        "Using reified entities like DescribedMethodApplication and AppropriateSteps is a reasonable formalization choice.",
+        "The naming around 'deemed' and 'DeemedModificationOrChange' is somewhat awkward but understandable.",
+        "The IR distinguishes DescribedMethod from calculation_method_applied(TheIndex), which is a plausible modeling choice though the terminology is slightly heavier than the source."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3027,
+        "completion_tokens": 593,
+        "total_tokens": 3620
+      },
+      "latency_s": 9.568387508392334
+    }
+  ],
+  "summary": {
+    "n_responding": 2,
+    "verdict_distribution": {
+      "corresponds": 1,
+      "partially_corresponds": 1
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 0.5,
+    "unanimous": false,
+    "mean_confidence": 0.885
+  }
+}

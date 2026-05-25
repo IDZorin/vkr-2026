@@ -1,0 +1,69 @@
+{
+  "entry_id": "N18",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1040,
+    "completion_tokens": 240,
+    "total_tokens": 1280
+  },
+  "latency_s": 2.253512144088745,
+  "scenarios": [
+    {
+      "description": "The document uses the term \"Index Administrator\" and treats it as having the meaning defined in Section \"Introduction\".",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document uses \"Index Administrator\" but says its meaning is defined in Section \"Definitions\" instead of Section \"Introduction\".",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document says \"Index Administrator\" has a meaning defined in Section \"Introduction\" and also says no other section may define that term.",
+      "category": "scope_edge",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "Before Section \"Introduction\" appears, the document already uses \"Index Administrator\" as if its meaning were fixed, and only later states the definition in Section \"Introduction\".",
+      "category": "modality_edge",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 4,
+    "agreement_rate": 1.0,
+    "drifts": [],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 1
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+schema: role_annotations_v1
+entry_id: section_1_2
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  guideline_amendment_publication_in_relation_to_index:
+    kind: rel
+    args:
+      1: {role: subject}
+      2: {role: reference}
+      3: {role: subject}
+  index_currency:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  index_isin:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  index_name:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  index_ric:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  index_type:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  index_type_identifier:
+    kind: fun
+    args:
+      1: {role: kind}
+    returns: {role: same_as_type}
+constraints:
+  bbg_ticker_at_most_one:
+    frame: bbg_ticker_at_most_one
+    variables:
+      i: {role: subject, quantifier: forall}
+  index_publications_available_at_announcements_website:
+    frame: index_publications_available_at_announcements_website
+    variables:
+      p: {role: subject, quantifier: forall}
+      i: {role: subject, quantifier: forall}
+facts:
+  vendor_decides_distribution_or_display:
+    frame: vendor_decides_distribution_or_display
+    variables:
+      v: {role: agent, quantifier: forall}
+      i: {role: subject, quantifier: forall}
+      d: {role: subject, quantifier: exists}
+      s: {role: subject, quantifier: exists}

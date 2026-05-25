@@ -1,0 +1,50 @@
+sort IndexComponent extends FinancialInstrument
+sort TradingDay extends Day
+sort Exchange
+sort Price extends Real
+sort TradingPrice extends Price
+sort Trade
+sort TradeTime extends Real
+
+fun[required] trading_price : IndexComponent, TradingDay -> TradingPrice
+fun[required] respective_exchange : IndexComponent -> Exchange
+fun[required] trade_price : Trade -> Price
+fun[required] trade_time : Trade -> TradeTime
+
+rel trade_component : Trade, IndexComponent
+rel trade_day : Trade, TradingDay
+rel trade_exchange : Trade, Exchange
+rel published_trade : Trade
+rel most_recent_published_trade_for : Trade, IndexComponent, TradingDay
+
+constraint most_recent_published_trade_scope :
+  forall t: Trade, forall c: IndexComponent, forall d: TradingDay,
+    most_recent_published_trade_for(t, c, d)
+    implies
+      published_trade(t)
+      and trade_component(t, c)
+      and trade_day(t, d)
+      and trade_exchange(t, respective_exchange(c))
+
+constraint most_recent_published_trade_temporal_ordering :
+  forall t: Trade, forall other: Trade, forall c: IndexComponent, forall d: TradingDay,
+    most_recent_published_trade_for(t, c, d)
+    and published_trade(other)
+    and trade_component(other, c)
+    and trade_day(other, d)
+    and trade_exchange(other, respective_exchange(c))
+    implies
+      trade_time(t) >= trade_time(other)
+
+constraint most_recent_published_trade_uniqueness :
+  forall t1: Trade, forall t2: Trade, forall c: IndexComponent, forall d: TradingDay,
+    most_recent_published_trade_for(t1, c, d)
+    and most_recent_published_trade_for(t2, c, d)
+    implies
+      t1 = t2
+
+constraint trading_price_definition :
+  forall c: IndexComponent, forall d: TradingDay,
+    exists t: Trade,
+      most_recent_published_trade_for(t, c, d)
+      and trading_price(c, d) = trade_price(t)

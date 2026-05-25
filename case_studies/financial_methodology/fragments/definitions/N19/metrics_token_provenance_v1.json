@@ -1,0 +1,456 @@
+{
+  "entry_id": "N19",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 8,
+    "content_token_count": 4,
+    "covered_content_token_count": 4,
+    "uncovered_content_token_count": 0,
+    "ignored_stopword_count": 4,
+    "content_coverage_rate": 1.0
+  },
+  "tokens": [
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        },
+        {
+          "line": 1,
+          "column": 53
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Index",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_component",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "index_component"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_component",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "security_reflected_in_index",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "security_reflected_in_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "security_reflected_in_index",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_component_definition",
+          "family": "AssertDecl.constraint",
+          "line": 9,
+          "matched_text": "index_component_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_component_definition",
+          "assertion_kind": "constraint",
+          "line": 9,
+          "matched_text": "index_component_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_component_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "index_component"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_component_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_component_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "security_reflected_in_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_component_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_component",
+          "matched_text": "Index Component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "security_reflected_in_index",
+          "matched_text": "reflected in the Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndex",
+          "matched_text": "the Index"
+        }
+      ]
+    },
+    {
+      "token": "component",
+      "surface_forms": [
+        "Component"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 8
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_component",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "index_component"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_component_definition",
+          "family": "AssertDecl.constraint",
+          "line": 9,
+          "matched_text": "index_component_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_component_definition",
+          "assertion_kind": "constraint",
+          "line": 9,
+          "matched_text": "index_component_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_component_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "index_component"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_component",
+          "matched_text": "Index Component"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 19
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "each",
+      "surface_forms": [
+        "each"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 22
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "universal_quantifier",
+          "marker": "forall"
+        }
+      ]
+    },
+    {
+      "token": "securiti",
+      "surface_forms": [
+        "security"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 27
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Security",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "Security"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_component",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "Security"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "security_reflected_in_index",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "security_reflected_in_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "security_reflected_in_index",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "Security"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_component_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Security"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_component_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "security_reflected_in_index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Security",
+          "matched_text": "security"
+        }
+      ]
+    },
+    {
+      "token": "reflect",
+      "surface_forms": [
+        "reflected"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 36
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "security_reflected_in_index",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "security_reflected_in_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_component_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "security_reflected_in_index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "security_reflected_in_index",
+          "matched_text": "reflected in the Index"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 46
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "security_reflected_in_index",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "security_reflected_in_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_component_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "security_reflected_in_index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "security_reflected_in_index",
+          "matched_text": "reflected in the Index"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 49
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_component_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_component_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "security_reflected_in_index",
+          "matched_text": "reflected in the Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndex",
+          "matched_text": "the Index"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

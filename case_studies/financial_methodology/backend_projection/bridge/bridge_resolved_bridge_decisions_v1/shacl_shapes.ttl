@@ -1,0 +1,175 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:bridge_resolved_bridge_decisions_v1 a a4:ShaclProjectionTarget .
+
+ex:BridgeSymbol a rdfs:Class .
+ex:BridgeSymbolShape a sh:NodeShape ; sh:targetClass ex:BridgeSymbol .
+ex:BridgeRelation a rdfs:Class .
+ex:BridgeRelation rdfs:subClassOf ex:BridgeSymbol .
+ex:BridgeRelationShape a sh:NodeShape ; sh:targetClass ex:BridgeRelation .
+ex:BridgeFamily a rdfs:Class .
+ex:BridgeFamilyShape a sh:NodeShape ; sh:targetClass ex:BridgeFamily .
+ex:BridgeResolutionPolicy a rdfs:Class .
+ex:BridgeResolutionPolicyShape a sh:NodeShape ; sh:targetClass ex:BridgeResolutionPolicy .
+ex:EquivalentClassResolution a ex:BridgeResolutionPolicy .
+ex:SameAsResolution a ex:BridgeResolutionPolicy .
+ex:EquivalentPropertyResolution a ex:BridgeResolutionPolicy .
+ex:InverseAdapterResolution a ex:BridgeResolutionPolicy .
+ex:ScopedProjectionAdapterResolution a ex:BridgeResolutionPolicy .
+ex:PairwiseSignatureEquivalenceResolution a ex:BridgeResolutionPolicy .
+ex:ProjectionFamilyResolution a ex:BridgeResolutionPolicy .
+ex:FamilySplitResolution a ex:BridgeResolutionPolicy .
+ex:DomainSpecializedRelationResolution a ex:BridgeResolutionPolicy .
+ex:NonIdentityRelatedConceptResolution a ex:BridgeResolutionPolicy .
+ex:BridgeAdapterKind a rdfs:Class .
+ex:BridgeAdapterKindShape a sh:NodeShape ; sh:targetClass ex:BridgeAdapterKind .
+ex:NoAdapter a ex:BridgeAdapterKind .
+ex:InversePropertyAdapter a ex:BridgeAdapterKind .
+ex:ScopedProjectionAdapter a ex:BridgeAdapterKind .
+ex:SignatureEquivalenceAdapter a ex:BridgeAdapterKind .
+ex:ProjectionFrameAdapter a ex:BridgeAdapterKind .
+ex:FamilySplitAdapter a ex:BridgeAdapterKind .
+ex:DomainSpecializationAdapter a ex:BridgeAdapterKind .
+ex:RelatedConceptAdapter a ex:BridgeAdapterKind .
+
+ex:N07_respective_exchange a ex:BridgeRelation .
+ex:N10_respective_exchange_for_index_component a ex:BridgeRelation .
+ex:N27_selection_day_for_rebalance_day a ex:BridgeRelation .
+ex:Section3_1_selection_day_of_rebalance a ex:BridgeRelation .
+ex:Section2_1_rbics_subindustry_classification_in_appendix a ex:BridgeRelation .
+ex:Appendix8_1_appendix_includes_rbics_subindustry a ex:BridgeRelation .
+ex:Section2_1_rbics_subindustry_classification_of_system a ex:BridgeRelation .
+ex:Appendix8_1_rbics_classifies_subindustry a ex:BridgeRelation .
+ex:GenericDocumentAvailabilityRelationFamily a ex:BridgeFamily .
+ex:SectionReferenceEntityFamily a ex:BridgeFamily .
+ex:AverageDailyValueTradedFamily a ex:BridgeFamily .
+ex:BusinessDayProcessFamily a ex:BridgeFamily .
+ex:CloseOfBusinessProcessFamily a ex:BridgeFamily .
+ex:DailyValueTradedFamily a ex:BridgeFamily .
+ex:FixingDayProcessFamily a ex:BridgeFamily .
+ex:CanonicalIndexComponentRelationFamily a ex:BridgeFamily .
+ex:AnnouncementOnRelationFamily a ex:BridgeFamily .
+ex:CanadaClassificationFamily a ex:BridgeFamily .
+ex:CanonicalIndexUniverseRelationFamily a ex:BridgeFamily .
+ex:FullyRuleBasedRelationFamily a ex:BridgeFamily .
+ex:GbsIndexSpecifiedInSectionRelationFamily a ex:BridgeFamily .
+ex:GreatestPossibleRelationFamily a ex:BridgeFamily .
+ex:IndexAdjustmentRelationReviewFamily a ex:BridgeFamily .
+ex:IndexComponentRequirementsRelationFamily a ex:BridgeFamily .
+ex:IndexCurrencyFunctionFamily a ex:BridgeFamily .
+ex:IndexOfRelationFamily a ex:BridgeFamily .
+ex:IndexQualitySortFamily a ex:BridgeFamily .
+ex:IndexTypeFunctionFamily a ex:BridgeFamily .
+ex:LegacyIncorporatedByReferenceRelationFamily a ex:BridgeFamily .
+ex:MethodologyOfIndexRelationFamily a ex:BridgeFamily .
+ex:RegionFunctionFamily a ex:BridgeFamily .
+ex:SectionLocalIndexScopeRelationReviewFamily a ex:BridgeFamily .
+ex:SecurityReflectedRelationReviewFamily a ex:BridgeFamily .
+ex:UnitedStatesClassificationFamily a ex:BridgeFamily .
+ex:bridge_pair_resolved_as a rdfs:Class .
+ex:bridge_pair_resolved_asShape a sh:NodeShape ; sh:targetClass ex:bridge_pair_resolved_as .
+ex:bridge_pair_resolved_asShape sh:property [ sh:path ex:bridge_pair_resolved_as_arg_0 ; sh:class ex:BridgeSymbol ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:bridge_pair_resolved_asShape sh:property [ sh:path ex:bridge_pair_resolved_as_arg_1 ; sh:class ex:BridgeSymbol ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:bridge_pair_resolved_asShape sh:property [ sh:path ex:bridge_pair_resolved_as_arg_2 ; sh:class ex:BridgeResolutionPolicy ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:bridge_pair_adapter_kind a rdfs:Class .
+ex:bridge_pair_adapter_kindShape a sh:NodeShape ; sh:targetClass ex:bridge_pair_adapter_kind .
+ex:bridge_pair_adapter_kindShape sh:property [ sh:path ex:bridge_pair_adapter_kind_arg_0 ; sh:class ex:BridgeSymbol ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:bridge_pair_adapter_kindShape sh:property [ sh:path ex:bridge_pair_adapter_kind_arg_1 ; sh:class ex:BridgeSymbol ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:bridge_pair_adapter_kindShape sh:property [ sh:path ex:bridge_pair_adapter_kind_arg_2 ; sh:class ex:BridgeAdapterKind ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:bridge_family_resolved_as a rdf:Property .
+ex:BridgeFamilyShape sh:property [ sh:path ex:bridge_family_resolved_as ; sh:class ex:BridgeResolutionPolicy ] .
+ex:bridge_family_adapter_kind a rdf:Property .
+ex:BridgeFamilyShape sh:property [ sh:path ex:bridge_family_adapter_kind ; sh:class ex:BridgeAdapterKind ] .
+
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_0 a ex:bridge_pair_resolved_as .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_0 ex:bridge_pair_resolved_as_arg_0 ex:N07_respective_exchange .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_0 ex:bridge_pair_resolved_as_arg_1 ex:N10_respective_exchange_for_index_component .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_0 ex:bridge_pair_resolved_as_arg_2 ex:ScopedProjectionAdapterResolution .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_1 a ex:bridge_pair_adapter_kind .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_1 ex:bridge_pair_adapter_kind_arg_0 ex:N07_respective_exchange .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_1 ex:bridge_pair_adapter_kind_arg_1 ex:N10_respective_exchange_for_index_component .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_1 ex:bridge_pair_adapter_kind_arg_2 ex:ScopedProjectionAdapter .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_2 a ex:bridge_pair_resolved_as .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_2 ex:bridge_pair_resolved_as_arg_0 ex:N27_selection_day_for_rebalance_day .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_2 ex:bridge_pair_resolved_as_arg_1 ex:Section3_1_selection_day_of_rebalance .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_2 ex:bridge_pair_resolved_as_arg_2 ex:InverseAdapterResolution .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_3 a ex:bridge_pair_adapter_kind .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_3 ex:bridge_pair_adapter_kind_arg_0 ex:N27_selection_day_for_rebalance_day .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_3 ex:bridge_pair_adapter_kind_arg_1 ex:Section3_1_selection_day_of_rebalance .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_3 ex:bridge_pair_adapter_kind_arg_2 ex:InversePropertyAdapter .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_4 a ex:bridge_pair_resolved_as .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_4 ex:bridge_pair_resolved_as_arg_0 ex:Section2_1_rbics_subindustry_classification_in_appendix .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_4 ex:bridge_pair_resolved_as_arg_1 ex:Appendix8_1_appendix_includes_rbics_subindustry .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_4 ex:bridge_pair_resolved_as_arg_2 ex:InverseAdapterResolution .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_5 a ex:bridge_pair_adapter_kind .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_5 ex:bridge_pair_adapter_kind_arg_0 ex:Section2_1_rbics_subindustry_classification_in_appendix .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_5 ex:bridge_pair_adapter_kind_arg_1 ex:Appendix8_1_appendix_includes_rbics_subindustry .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_5 ex:bridge_pair_adapter_kind_arg_2 ex:InversePropertyAdapter .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_6 a ex:bridge_pair_resolved_as .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_6 ex:bridge_pair_resolved_as_arg_0 ex:Section2_1_rbics_subindustry_classification_of_system .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_6 ex:bridge_pair_resolved_as_arg_1 ex:Appendix8_1_rbics_classifies_subindustry .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_resolved_as_6 ex:bridge_pair_resolved_as_arg_2 ex:InverseAdapterResolution .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_7 a ex:bridge_pair_adapter_kind .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_7 ex:bridge_pair_adapter_kind_arg_0 ex:Section2_1_rbics_subindustry_classification_of_system .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_7 ex:bridge_pair_adapter_kind_arg_1 ex:Appendix8_1_rbics_classifies_subindustry .
+ex:FACT_direct_adapter_resolution_decisions_bridge_pair_adapter_kind_7 ex:bridge_pair_adapter_kind_arg_2 ex:InversePropertyAdapter .
+ex:GenericDocumentAvailabilityRelationFamily ex:bridge_family_resolved_as ex:PairwiseSignatureEquivalenceResolution .
+ex:GenericDocumentAvailabilityRelationFamily ex:bridge_family_adapter_kind ex:SignatureEquivalenceAdapter .
+ex:GbsIndexSpecifiedInSectionRelationFamily ex:bridge_family_resolved_as ex:PairwiseSignatureEquivalenceResolution .
+ex:GbsIndexSpecifiedInSectionRelationFamily ex:bridge_family_adapter_kind ex:SignatureEquivalenceAdapter .
+ex:GreatestPossibleRelationFamily ex:bridge_family_resolved_as ex:PairwiseSignatureEquivalenceResolution .
+ex:GreatestPossibleRelationFamily ex:bridge_family_adapter_kind ex:SignatureEquivalenceAdapter .
+ex:IndexComponentRequirementsRelationFamily ex:bridge_family_resolved_as ex:PairwiseSignatureEquivalenceResolution .
+ex:IndexComponentRequirementsRelationFamily ex:bridge_family_adapter_kind ex:SignatureEquivalenceAdapter .
+ex:IndexCurrencyFunctionFamily ex:bridge_family_resolved_as ex:PairwiseSignatureEquivalenceResolution .
+ex:IndexCurrencyFunctionFamily ex:bridge_family_adapter_kind ex:SignatureEquivalenceAdapter .
+ex:IndexOfRelationFamily ex:bridge_family_resolved_as ex:PairwiseSignatureEquivalenceResolution .
+ex:IndexOfRelationFamily ex:bridge_family_adapter_kind ex:SignatureEquivalenceAdapter .
+ex:IndexTypeFunctionFamily ex:bridge_family_resolved_as ex:PairwiseSignatureEquivalenceResolution .
+ex:IndexTypeFunctionFamily ex:bridge_family_adapter_kind ex:SignatureEquivalenceAdapter .
+ex:MethodologyOfIndexRelationFamily ex:bridge_family_resolved_as ex:PairwiseSignatureEquivalenceResolution .
+ex:MethodologyOfIndexRelationFamily ex:bridge_family_adapter_kind ex:SignatureEquivalenceAdapter .
+ex:AverageDailyValueTradedFamily ex:bridge_family_resolved_as ex:ProjectionFamilyResolution .
+ex:AverageDailyValueTradedFamily ex:bridge_family_adapter_kind ex:ProjectionFrameAdapter .
+ex:CanonicalIndexComponentRelationFamily ex:bridge_family_resolved_as ex:ProjectionFamilyResolution .
+ex:CanonicalIndexComponentRelationFamily ex:bridge_family_adapter_kind ex:ProjectionFrameAdapter .
+ex:CanonicalIndexUniverseRelationFamily ex:bridge_family_resolved_as ex:ProjectionFamilyResolution .
+ex:CanonicalIndexUniverseRelationFamily ex:bridge_family_adapter_kind ex:ProjectionFrameAdapter .
+ex:IndexAdjustmentRelationReviewFamily ex:bridge_family_resolved_as ex:ProjectionFamilyResolution .
+ex:IndexAdjustmentRelationReviewFamily ex:bridge_family_adapter_kind ex:ProjectionFrameAdapter .
+ex:RegionFunctionFamily ex:bridge_family_resolved_as ex:ProjectionFamilyResolution .
+ex:RegionFunctionFamily ex:bridge_family_adapter_kind ex:ProjectionFrameAdapter .
+ex:GenericDocumentAvailabilityRelationFamily ex:bridge_family_resolved_as ex:FamilySplitResolution .
+ex:GenericDocumentAvailabilityRelationFamily ex:bridge_family_adapter_kind ex:FamilySplitAdapter .
+ex:AnnouncementOnRelationFamily ex:bridge_family_resolved_as ex:DomainSpecializedRelationResolution .
+ex:AnnouncementOnRelationFamily ex:bridge_family_adapter_kind ex:DomainSpecializationAdapter .
+ex:FullyRuleBasedRelationFamily ex:bridge_family_resolved_as ex:DomainSpecializedRelationResolution .
+ex:FullyRuleBasedRelationFamily ex:bridge_family_adapter_kind ex:DomainSpecializationAdapter .
+ex:SectionReferenceEntityFamily ex:bridge_family_resolved_as ex:NonIdentityRelatedConceptResolution .
+ex:SectionReferenceEntityFamily ex:bridge_family_adapter_kind ex:RelatedConceptAdapter .
+ex:BusinessDayProcessFamily ex:bridge_family_resolved_as ex:NonIdentityRelatedConceptResolution .
+ex:BusinessDayProcessFamily ex:bridge_family_adapter_kind ex:RelatedConceptAdapter .
+ex:CloseOfBusinessProcessFamily ex:bridge_family_resolved_as ex:NonIdentityRelatedConceptResolution .
+ex:CloseOfBusinessProcessFamily ex:bridge_family_adapter_kind ex:RelatedConceptAdapter .
+ex:DailyValueTradedFamily ex:bridge_family_resolved_as ex:NonIdentityRelatedConceptResolution .
+ex:DailyValueTradedFamily ex:bridge_family_adapter_kind ex:RelatedConceptAdapter .
+ex:FixingDayProcessFamily ex:bridge_family_resolved_as ex:NonIdentityRelatedConceptResolution .
+ex:FixingDayProcessFamily ex:bridge_family_adapter_kind ex:RelatedConceptAdapter .
+ex:CanadaClassificationFamily ex:bridge_family_resolved_as ex:NonIdentityRelatedConceptResolution .
+ex:CanadaClassificationFamily ex:bridge_family_adapter_kind ex:RelatedConceptAdapter .
+ex:IndexQualitySortFamily ex:bridge_family_resolved_as ex:NonIdentityRelatedConceptResolution .
+ex:IndexQualitySortFamily ex:bridge_family_adapter_kind ex:RelatedConceptAdapter .
+ex:LegacyIncorporatedByReferenceRelationFamily ex:bridge_family_resolved_as ex:NonIdentityRelatedConceptResolution .
+ex:LegacyIncorporatedByReferenceRelationFamily ex:bridge_family_adapter_kind ex:RelatedConceptAdapter .
+ex:SectionLocalIndexScopeRelationReviewFamily ex:bridge_family_resolved_as ex:NonIdentityRelatedConceptResolution .
+ex:SectionLocalIndexScopeRelationReviewFamily ex:bridge_family_adapter_kind ex:RelatedConceptAdapter .
+ex:SecurityReflectedRelationReviewFamily ex:bridge_family_resolved_as ex:NonIdentityRelatedConceptResolution .
+ex:SecurityReflectedRelationReviewFamily ex:bridge_family_adapter_kind ex:RelatedConceptAdapter .
+ex:UnitedStatesClassificationFamily ex:bridge_family_resolved_as ex:NonIdentityRelatedConceptResolution .
+ex:UnitedStatesClassificationFamily ex:bridge_family_adapter_kind ex:RelatedConceptAdapter .

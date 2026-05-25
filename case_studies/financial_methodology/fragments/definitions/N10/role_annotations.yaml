@@ -1,0 +1,16 @@
+schema: role_annotations_v1
+entry_id: N10
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  respective_exchange_for_index_component:
+    kind: fun
+    args:
+      1: {role: subject}
+      2: {role: component}
+    returns: {role: same_as_type}
+constraints:
+  exchange_definition:
+    frame: exchange_definition
+    variables:
+      c: {role: component, quantifier: forall}
+      l: {role: instrument, quantifier: exists}

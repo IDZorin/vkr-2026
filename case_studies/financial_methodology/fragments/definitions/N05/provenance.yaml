@@ -1,0 +1,62 @@
+section: "N05 Definition: Calculation Day"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  calculation_day_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Calculation Day\" is every weekday from Monday to Friday."
+    back_translation: >
+      For every day, that day is a Calculation Day if and only if the
+      weekday of that day is Monday, Tuesday, Wednesday, Thursday, or
+      Friday.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Pure definitional claim. The source phrase "from Monday to Friday"
+      is expanded into the five weekday values included by that range.
+      The biconditional is used because the source defines the term
+      "Calculation Day", not only a sufficient condition.
+      The definition is intentionally duplicated from N04's weekday pattern
+      rather than represented as an alias to Business Day; cross-definition
+      aliasing belongs to the merge/bridge layer.
+
+uncovered_source:
+  - quote: "(none -- the single source sentence is the single IR claim)"
+
+vocabulary_notes:
+  calculation_day:
+    note: >
+      IR predicate for the source term "Calculation Day" (quoted in source
+      as the term being defined). Back-translation uses the spaced source
+      phrase "Calculation Day", not the IR identifier.
+    source_phrase: "Calculation Day"
+  WeekdayOf:
+    note: >
+      Prelude function from Day to Weekday. Used to make the weekday
+      component explicit instead of hiding it in the predicate name.
+  Monday:
+    note: >
+      Prelude weekday entity matching the source phrase "Monday".
+  Tuesday:
+    note: >
+      Prelude weekday entity included by the source range "from Monday to
+      Friday".
+  Wednesday:
+    note: >
+      Prelude weekday entity included by the source range "from Monday to
+      Friday".
+  Thursday:
+    note: >
+      Prelude weekday entity included by the source range "from Monday to
+      Friday".
+  Friday:
+    note: >
+      Prelude weekday entity matching the source phrase "Friday".

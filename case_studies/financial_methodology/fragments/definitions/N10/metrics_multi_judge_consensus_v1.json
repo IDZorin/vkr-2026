@@ -1,0 +1,117 @@
+{
+  "entry_id": "N10",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR captures that, for the Index and each Index Component, the relevant exchange is the exchange of the component’s listing, and that this listing is determined in accordance with Section 2 rules. The added Index parameter and the explicit Listing structure are faithful encodings of the source phrasing.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses a formal Listing relation and a named Section2Rules entity to encode the source’s informal reference to rules in Section 2.",
+        "The source says \"with respect to the Index and every Index Component\" while the IR expresses this via a function of Index and IndexComponent."
+      ],
+      "confidence": 0.93,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1938,
+        "completion_tokens": 157,
+        "total_tokens": 2095
+      },
+      "latency_s": 2.862459421157837
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "one_way_implication",
+      "reason_short": "The IR captures the core idea that for each Index Component, the relevant exchange is the exchange of a listing determined under Section 2 rules. However, the source is a definition of the term “Exchange” with respect to the Index and every Index Component, while the IR only asserts existence of at least one such listing per component and maps to one exchange; it does not fully capture the definitional/uniqueness aspect of “the respective exchange where the Index Component has its listing.”",
+      "semantic_differences": [
+        "The source defines the term “Exchange”; the IR instead introduces a function from (Index, IndexComponent) to Exchange without explicitly stating that this function is exactly the meaning of the defined term “Exchange.”",
+        "The IR only requires that for each Index Component there exists some listing determined in accordance with Section 2 whose exchange matches the function value; it does not ensure uniqueness of the relevant listing or exchange, whereas the source wording suggests the respective exchange of the component's listing.",
+        "The source phrase is framed 'with respect to the Index and every Index Component'; the IR quantifies only over Index Components and uses a single constant TheIndex, so it does not represent any broader definitional dependence on arbitrary indexes."
+      ],
+      "stylistic_notes": [
+        "Using a reified Listing object with relations to component, exchange, and rules is a reasonable formalization choice.",
+        "The symbol name respective_exchange_for_index_component is somewhat verbose but understandable.",
+        "Section 2 is represented as Section2Rules rather than literally as a section/document reference; this is a modeling/naming choice."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1938,
+        "completion_tokens": 379,
+        "total_tokens": 2317
+      },
+      "latency_s": 8.3370680809021
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core concept that each Index Component has an exchange determined by Section 2 rules, but introduces structural elements (Listing as a reified entity, the functional dependency on both Index and IndexComponent) that are not explicitly stated in the source. The source describes a simpler relationship: for each Index Component, there is an exchange determined by rules. The IR's constraint requires a Listing entity to mediate this relationship, which adds ontological structure beyond what the source text warrants.",
+      "semantic_differences": [
+        "Source states exchange is determined 'in accordance with the rules in Section 2' without reifying a Listing entity; IR introduces Listing as a mediating entity with three separate relations, adding structural complexity not present in source.",
+        "Source describes a direct relationship between IndexComponent and Exchange; IR makes this relationship indirect through a Listing entity, changing the logical structure.",
+        "IR's respective_exchange_for_index_component function takes both Index and IndexComponent as arguments; source text does not indicate that the exchange determination depends on which Index is being considered—it treats 'the Index' as a fixed context."
+      ],
+      "stylistic_notes": [
+        "IR uses 'respective_exchange_for_index_component' as a function name, which is reasonable but verbose; source uses the simpler phrasing 'the respective exchange'.",
+        "IR declares Section2Rules as an entity of sort Rules; source refers to 'the rules in Section 2' without reifying rules as a first-class entity.",
+        "The constraint uses existential quantification over Listing, which is a valid encoding pattern but not explicitly suggested by source phrasing."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2209,
+        "completion_tokens": 421,
+        "total_tokens": 2630
+      },
+      "latency_s": 6.105443239212036
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 67.38339257240295
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures the source definition by introducing a function that maps an Index and IndexComponent to an Exchange, and constraining it to equal the exchange associated with a listing determined by Section 2 rules. The reification of 'listing' and 'rules' into explicit sorts and relations follows standard a4v3 practices for handling implicit entities and prepositional modifiers, preserving the original meaning without semantic drift.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "Reification of 'listing' and 'rules' into dedicated sorts and relations is a standard a4v3 technique for modeling prepositional phrases and determiners.",
+        "The use of fixed entities `TheIndex` and `Section2Rules` appropriately captures the definite references ('the Index', 'Section 2') in the source text.",
+        "The `exists` quantifier over `Listing` correctly formalizes the presupposition in 'where the Index Component has its listing'."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2069,
+        "completion_tokens": 2456,
+        "total_tokens": 4525
+      },
+      "latency_s": 46.70688581466675
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "corresponds": 2,
+      "partially_corresponds": 2
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 0.5,
+    "unanimous": false,
+    "mean_confidence": 0.86
+  }
+}

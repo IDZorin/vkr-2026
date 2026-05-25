@@ -1,0 +1,63 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_5 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:License a rdfs:Class .
+ex:LicenseShape a sh:NodeShape ; sh:targetClass ex:License .
+ex:IndexUnderlyingValueLicense a rdfs:Class .
+ex:IndexUnderlyingValueLicense rdfs:subClassOf ex:License .
+ex:IndexUnderlyingValueLicenseShape a sh:NodeShape ; sh:targetClass ex:IndexUnderlyingValueLicense .
+ex:LicenseClass a rdfs:Class .
+ex:LicenseClassShape a sh:NodeShape ; sh:targetClass ex:LicenseClass .
+ex:LicenseIssuance a rdfs:Class .
+ex:LicenseIssuanceShape a sh:NodeShape ; sh:targetClass ex:LicenseIssuance .
+ex:LicenseUseCategory a rdfs:Class .
+ex:LicenseUseCategoryShape a sh:NodeShape ; sh:targetClass ex:LicenseUseCategory .
+ex:FinancialInstrumentUse a ex:LicenseUseCategory .
+ex:InvestmentFundUse a ex:LicenseUseCategory .
+ex:FinancialContractUse a ex:LicenseUseCategory .
+ex:LicenseRecipientCategory a rdfs:Class .
+ex:LicenseRecipientCategoryShape a sh:NodeShape ; sh:targetClass ex:LicenseRecipientCategory .
+ex:StockExchangeRecipient a ex:LicenseRecipientCategory .
+ex:BankRecipient a ex:LicenseRecipientCategory .
+ex:FinancialServicesProviderRecipient a ex:LicenseRecipientCategory .
+ex:InvestmentHouseRecipient a ex:LicenseRecipientCategory .
+ex:SolactiveOrganization a rdfs:Class .
+ex:SolactiveOrganization rdfs:subClassOf ex:Organization .
+ex:SolactiveOrganizationShape a sh:NodeShape ; sh:targetClass ex:SolactiveOrganization .
+
+ex:TheIndex a ex:Index .
+ex:Solactive a ex:SolactiveOrganization .
+ex:LicensesToUseIndexAsUnderlyingValue a ex:LicenseClass .
+ex:IndexUnderlyingValueLicenseIssuance a ex:LicenseIssuance .
+ex:license_class_uses_index_as_underlying_value a rdf:Property .
+ex:LicenseClassShape sh:property [ sh:path ex:license_class_uses_index_as_underlying_value ; sh:class ex:Index ] .
+ex:license_class_use_category a rdf:Property .
+ex:LicenseClassShape sh:property [ sh:path ex:license_class_use_category ; sh:class ex:LicenseUseCategory ] .
+ex:license_instance_of_class a rdf:Property .
+ex:IndexUnderlyingValueLicenseShape sh:property [ sh:path ex:license_instance_of_class ; sh:class ex:LicenseClass ] .
+ex:issuance_of_license_class a rdf:Property .
+ex:LicenseIssuanceShape sh:property [ sh:path ex:issuance_of_license_class ; sh:class ex:LicenseClass ] .
+ex:issuance_to_recipient_category a rdf:Property .
+ex:LicenseIssuanceShape sh:property [ sh:path ex:issuance_to_recipient_category ; sh:class ex:LicenseRecipientCategory ] .
+ex:issuance_by a rdf:Property .
+ex:LicenseIssuanceShape sh:property [ sh:path ex:issuance_by ; sh:class ex:SolactiveOrganization ] .
+
+ex:LicensesToUseIndexAsUnderlyingValue ex:license_class_uses_index_as_underlying_value ex:TheIndex .
+ex:LicensesToUseIndexAsUnderlyingValue ex:license_class_use_category ex:FinancialInstrumentUse .
+ex:LicensesToUseIndexAsUnderlyingValue ex:license_class_use_category ex:InvestmentFundUse .
+ex:LicensesToUseIndexAsUnderlyingValue ex:license_class_use_category ex:FinancialContractUse .
+ex:IndexUnderlyingValueLicenseIssuance ex:issuance_of_license_class ex:LicensesToUseIndexAsUnderlyingValue .
+ex:IndexUnderlyingValueLicenseIssuance ex:issuance_to_recipient_category ex:StockExchangeRecipient .
+ex:IndexUnderlyingValueLicenseIssuance ex:issuance_to_recipient_category ex:BankRecipient .
+ex:IndexUnderlyingValueLicenseIssuance ex:issuance_to_recipient_category ex:FinancialServicesProviderRecipient .
+ex:IndexUnderlyingValueLicenseIssuance ex:issuance_to_recipient_category ex:InvestmentHouseRecipient .
+ex:IndexUnderlyingValueLicenseIssuance ex:issuance_by ex:Solactive .

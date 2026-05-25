@@ -1,0 +1,128 @@
+{
+  "entry_id": "section_2_2",
+  "schema": "waiver_token_absorption_v1",
+  "generated_from": "metrics_token_provenance_v1.json",
+  "items": [
+    {
+      "token": "accordance",
+      "surface_forms": [
+        "accordance"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 156
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "Служебное слово: означает \"по правилам\", а сами правила уже представлены отдельными constraint.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "follow",
+      "surface_forms": [
+        "following"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 176
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "Указатель на список ниже; отдельной семантики не добавляет, список раскрыт в формулах.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "under",
+      "surface_forms": [
+        "under"
+      ],
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 63
+        },
+        {
+          "line": 7,
+          "column": 44
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "Указывает область применения GBS framework; в IR это поглощено функцией gbs_country_assignment.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "framework",
+      "surface_forms": [
+        "framework"
+      ],
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 92
+        },
+        {
+          "line": 7,
+          "column": 73
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "Не моделируется как отдельный объект, потому что нужен только как квалификатор gbs_country_assignment.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "case",
+      "surface_forms": [
+        "case"
+      ],
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 164
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "Дискурсивный маркер условия \"in case\"; условие выражено формулой exists r ... count(...) < 20 implies count(...) < 40.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "contain",
+      "surface_forms": [
+        "contains"
+      ],
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 228
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "Глагол естественного языка; формально выражен через index_component(d, s) и подсчёт компонентов.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "total",
+      "surface_forms": [
+        "total"
+      ],
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 270
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "Модификатор \"in total\"; поглощён глобальным count(s in Security where index_component(d, s)) < 40, то есть счёт идёт по всему индексу, не по региону.",
+      "reviewer": "human_approved"
+    }
+  ],
+  "stale_tokens_from_previous_file": []
+}

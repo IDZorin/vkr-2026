@@ -1,8 +1,8 @@
-# 40-Methodology Pilot — Results & Analysis v1
+﻿# 40-Methodology Pilot — Results & Analysis v1
 
 End-to-end run of the A4V3 IR translation pipeline against the top 42
 methodologies of the Solactive corpus (`data/corpus/corpus.csv` rows
-sorted by priority field #2, with DZ used as the seed). This document
+sorted by priority field #2, with the seed methodology used as the seed). This document
 aggregates everything produced by the pilot for thesis chapter
 material.
 
@@ -10,7 +10,7 @@ material.
 
 | Item | Value |
 |---|---|
-| Methodologies translated | **40** (priorities 3-42) + 1 SGMOBAU + 1 DZ seed |
+| Methodologies translated | **40** (priorities 3-42) + 1 SGMOBAU + 1 financial methodology seed |
 | Total fragments (sections + definitions + appendix) | **1973** |
 | Distinct sections + definitions per methodology | 40-55 |
 | LLM model used | `deepseek-v4-pro` |
@@ -30,7 +30,7 @@ M.md  ──splitter──▶  M/sections/<X>/source.md  +  M/definitions/<Y>/so
                                   │
                                   ▼
                   ┌──── match against cumulative pool ────┐
-                  │      (DZ + all earlier methodologies)  │
+                  │      (financial methodology + all earlier methodologies)  │
                   └────────────────┬───────────────────────┘
                                    │
               ┌────────────────────┼────────────────────┐
@@ -77,8 +77,8 @@ mode, `--reference-base IR/outputs/runs`).
 
 | Batch | Priorities | Pool size at start | copy% | patch% | agent% | LLM tokens / methodology | LLM time / methodology |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Seed (SGMOBAU) | 2 | 1 (DZ) | 62.0% | 20.0% | 18.0% | 71 257 | 1647 s |
-| **A** (DZ-only baseline) | 3-12 | 1 | **42.6%** | 30.2% | 27.2% | 98 277 | 2415 s |
+| Seed (SGMOBAU) | 2 | 1 (seed methodology) | 62.0% | 20.0% | 18.0% | 71 257 | 1647 s |
+| **A** (seed-only baseline) | 3-12 | 1 | **42.6%** | 30.2% | 27.2% | 98 277 | 2415 s |
 | **B** (cumulative) | 13-22 | ~12 | **71.5%** | 19.4% | 9.2% | 41 144 | 982 s |
 | **C** (cumulative) | 23-32 | ~22 | **77.2%** | 16.2% | 6.7% | 33 898 | 814 s |
 | **D** (cumulative) | 33-42 | ~32 | **82.7%** | 12.7% | 4.6% | 22 523 | 506 s |
@@ -87,7 +87,7 @@ Reading the curve:
 
 - **A → B is the biggest jump (+28.9 pp copy share)** — adding the
   first 10 cumulative methodologies expands the reuse pool from 1
-  (DZ alone) to ~12. Most Solactive boilerplate is now covered.
+  (seed methodology alone) to ~12. Most Solactive boilerplate is now covered.
 - **B → C → D shows clear saturation** (+5.7 pp, +5.5 pp). As the pool
   grows, marginal copies are harder to find — the remaining gaps
   are genuinely methodology-specific content.
@@ -102,20 +102,20 @@ saturation behaviour.
 ## 3. Cross-workspace match distribution
 
 The `cumulative pool` mode means a target fragment can match against
-ANY workspace, not just DZ. Distribution of `best_match_workspace`
+ANY workspace, not just seed methodology. Distribution of `best_match_workspace`
 across all 1973 fragments shows the corpus genuinely self-references:
 
 | Source workspace | Times chosen as best match | Methodologies it served |
 |---|---:|---:|
-| dz | ~440 | 40 |
+| financial_methodology | ~440 | 40 |
 | sgmobau | ~110 | 40 |
 | canada_energy_top_4_equal_weight_index | ~120 | 25+ |
 | europe_600_energy_focus_capped_index | ~70 | 20+ |
 | solbtec | ~30 | 5+ |
 | ... (40 more sources contribute) | | |
 
-DZ still dominates (it has the most fragments and is the seed) but
-**non-DZ workspaces contribute ~70% of all matches** in the final
+seed methodology still dominates (it has the most fragments and is the seed) but
+**non-seed workspaces contribute ~70% of all matches** in the final
 batch. The corpus is genuinely a self-improving reuse pool.
 
 ## 4. Deterministic checks — 2025 fragments across 42 workspaces
@@ -125,7 +125,7 @@ All checks ran without LLM (pure Python).
 | Check | Total | Notes |
 |---|---:|---|
 | **A4V3 parser (strict)** | 2025 / 2025 = **100%** | Every produced IR is syntactically valid A4V3 |
-| Semantic lint findings (all severities) | 1461 | 0.72 per fragment avg; mostly soft warnings inherited from DZ baseline (e.g. `relation_or_function_arity_gt_2_without_role_explanation`) |
+| Semantic lint findings (all severities) | 1461 | 0.72 per fragment avg; mostly soft warnings inherited from the seed baseline (e.g. `relation_or_function_arity_gt_2_without_role_explanation`) |
 | Lowering smells (total) | 1529 | Pattern smells from `lowering_audit_v1` |
 | **Lowering smells blocking** | **0** | No fragment has a problem the lowering pipeline would refuse |
 | Modal/temporal alarms total | 3481 | See breakdown below |
@@ -139,7 +139,7 @@ All checks ran without LLM (pure Python).
 
 **Acknowledged limitations:**
 - No back-translation step ⇒ source→render comparison not available
-- Lint findings (soft warnings) inherited from DZ baseline ⇒ not introduced by reuse layer
+- Lint findings (soft warnings) inherited from the seed baseline ⇒ not introduced by reuse layer
 
 ## 5. Matcher fix — `COPY_THRESHOLD` 0.01 → 0.0
 
@@ -257,7 +257,7 @@ publication of any individual fragment without further review.
 | Wall-clock (4 parallel batches) | ~3 h total |
 | Estimated LLM cost (deepseek-v4-pro) | $2-4 |
 
-### Agent v2 path (for reference, 1 successful run on DZ section_1_5)
+### Agent v2 path (for reference, 1 successful run on the seed methodology section_1_5)
 
 | Metric | Value |
 |---|---:|
@@ -288,7 +288,7 @@ publication of any individual fragment without further review.
    5-vendor panel × 1973 fragments would be ~$100-200.
 4. **Quality bar = parser + lint + sample judge**. Production-grade
    ВКР work should additionally require multi-judge `corresponds` on
-   100% of fragments, like the DZ section_1_5 baseline.
+   100% of fragments, like the seed methodology section_1_5 baseline.
 5. **Constraint identifier names may carry over from neighbour**
    (e.g. `selected_top_10` constraint name kept after value changed
    to 30). Semantics correct, identifier nominal — a soft cosmetic
@@ -336,10 +336,10 @@ Aggregate reports are at the root of `IR/outputs/runs/`:
    end-to-end on 40 unseen Solactive methodologies, producing
    syntactically valid A4V3 IR for 100% of 2025 fragments.
 2. **Saturation is empirically observed**: copy share grows from
-   42.6% (A, DZ-only pool) to 82.7% (D, ~32-workspace pool). Per-
+   42.6% (A, seed-only pool) to 82.7% (D, ~32-workspace pool). Per-
    methodology LLM cost drops 4.4× across these four batches.
 3. **Cross-workspace reuse is real**: by batch D, ~70% of matches
-   come from non-DZ workspaces — the engine genuinely learns from
+   come from non-seed workspaces — the engine genuinely learns from
    its own output.
 4. **Quality at sample (5%, single-judge): 78.6% strict-corresponds,
    89.8% OK rate**. Real T4-trans defect rate ≈ 3% of fragments.

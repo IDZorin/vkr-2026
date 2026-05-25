@@ -1,0 +1,129 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_4 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:SolactiveOrganization a rdfs:Class .
+ex:SolactiveOrganization rdfs:subClassOf ex:Organization .
+ex:SolactiveOrganizationShape a sh:NodeShape ; sh:targetClass ex:SolactiveOrganization .
+ex:IndexComponent a rdfs:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:IndexComponentShape a sh:NodeShape ; sh:targetClass ex:IndexComponent .
+ex:CorporateAction a rdfs:Class .
+ex:CorporateAction rdfs:subClassOf ex:Event .
+ex:CorporateActionShape a sh:NodeShape ; sh:targetClass ex:CorporateAction .
+ex:IndexAdjustment a rdfs:Class .
+ex:IndexAdjustmentShape a sh:NodeShape ; sh:targetClass ex:IndexAdjustment .
+ex:RequiredIndexAdjustment a rdfs:Class .
+ex:RequiredIndexAdjustment rdfs:subClassOf ex:IndexAdjustment .
+ex:RequiredIndexAdjustmentShape a sh:NodeShape ; sh:targetClass ex:RequiredIndexAdjustment .
+ex:IndexAdjustmentPossibility a rdfs:Class .
+ex:IndexAdjustmentPossibilityShape a sh:NodeShape ; sh:targetClass ex:IndexAdjustmentPossibility .
+ex:IndexAdjustmentEffect a rdfs:Class .
+ex:IndexAdjustmentEffectShape a sh:NodeShape ; sh:targetClass ex:IndexAdjustmentEffect .
+ex:ComponentRelationEffect a ex:IndexAdjustmentEffect .
+ex:ComponentNumberEffect a ex:IndexAdjustmentEffect .
+ex:ComponentWeightingEffect a ex:IndexAdjustmentEffect .
+ex:RebalanceDay a rdfs:Class .
+ex:RebalanceDay rdfs:subClassOf ex:Day .
+ex:RebalanceDayShape a sh:NodeShape ; sh:targetClass ex:RebalanceDay .
+ex:RegularRebalanceDay a rdfs:Class .
+ex:RegularRebalanceDay rdfs:subClassOf ex:RebalanceDay .
+ex:RegularRebalanceDayShape a sh:NodeShape ; sh:targetClass ex:RegularRebalanceDay .
+ex:RebalanceInterval a rdfs:Class .
+ex:RebalanceIntervalShape a sh:NodeShape ; sh:targetClass ex:RebalanceInterval .
+ex:TradingDay a rdfs:Class .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:TradingDayShape a sh:NodeShape ; sh:targetClass ex:TradingDay .
+ex:EffectiveDay a rdfs:Class .
+ex:EffectiveDay rdfs:subClassOf ex:Day .
+ex:EffectiveDayShape a sh:NodeShape ; sh:targetClass ex:EffectiveDay .
+ex:Notice a rdfs:Class .
+ex:Notice rdfs:subClassOf ex:Document .
+ex:NoticeShape a sh:NodeShape ; sh:targetClass ex:Notice .
+ex:NoticePeriod a rdfs:Class .
+ex:NoticePeriodShape a sh:NodeShape ; sh:targetClass ex:NoticePeriod .
+ex:EquityIndexMethodology a rdfs:Class .
+ex:EquityIndexMethodology rdfs:subClassOf ex:Document .
+ex:EquityIndexMethodologyShape a sh:NodeShape ; sh:targetClass ex:EquityIndexMethodology .
+
+ex:TheIndex a ex:Index .
+ex:Solactive a ex:SolactiveOrganization .
+ex:SolactiveEquityIndexMethodology a ex:EquityIndexMethodology .
+ex:ThisGuideline a ex:Document .
+ex:SolactiveWebsite a ex:WebResource .
+ex:AnnouncementsSection a ex:DocumentPart .
+ex:Section4_4Below a ex:DocumentPart .
+ex:CertainCircumstances a ex:VagueTerm .
+ex:MayBeNecessary a ex:VagueTerm .
+ex:MayHaveToBeDone a ex:VagueTerm .
+ex:CertainIndexComponents a ex:VagueTerm .
+ex:adjustment_possibility_of_index a rdf:Property .
+ex:IndexAdjustmentPossibilityShape sh:property [ sh:path ex:adjustment_possibility_of_index ; sh:class ex:Index ] .
+ex:adjustment_possibility_described_by a rdf:Property .
+ex:IndexAdjustmentPossibilityShape sh:property [ sh:path ex:adjustment_possibility_described_by ; sh:class ex:VagueTerm ] .
+ex:adjustment_possibility_between_interval a rdf:Property .
+ex:IndexAdjustmentPossibilityShape sh:property [ sh:path ex:adjustment_possibility_between_interval ; sh:class ex:RebalanceInterval ] .
+ex:interval_start_rebalance_day a rdf:Property .
+ex:RebalanceIntervalShape sh:property [ sh:path ex:interval_start_rebalance_day ; sh:class ex:RegularRebalanceDay ] .
+ex:interval_end_rebalance_day a rdf:Property .
+ex:RebalanceIntervalShape sh:property [ sh:path ex:interval_end_rebalance_day ; sh:class ex:RegularRebalanceDay ] .
+ex:adjustment_of_index a rdf:Property .
+ex:IndexAdjustmentShape sh:property [ sh:path ex:adjustment_of_index ; sh:class ex:Index ] .
+ex:adjustment_required_due_to_corporate_action a rdf:Property .
+ex:RequiredIndexAdjustmentShape sh:property [ sh:path ex:adjustment_required_due_to_corporate_action ; sh:class ex:CorporateAction ] .
+ex:adjustment_between_interval a rdf:Property .
+ex:IndexAdjustmentShape sh:property [ sh:path ex:adjustment_between_interval ; sh:class ex:RebalanceInterval ] .
+ex:affected_index_component a rdf:Property .
+ex:IndexAdjustmentShape sh:property [ sh:path ex:affected_index_component ; sh:class ex:IndexComponent ] .
+ex:specified_in a rdf:Property .
+ex:CorporateActionShape sh:property [ sh:path ex:specified_in ; sh:class ex:DocumentPart ] .
+ex:corporate_action_in_relation_to_component a rdf:Property .
+ex:CorporateActionShape sh:property [ sh:path ex:corporate_action_in_relation_to_component ; sh:class ex:IndexComponent ] .
+ex:possible_adjustment_effect a rdf:Property .
+ex:IndexAdjustmentShape sh:property [ sh:path ex:possible_adjustment_effect ; sh:class ex:IndexAdjustmentEffect ] .
+ex:adjustment_effect_described_by a rdf:Property .
+ex:IndexAdjustmentEffectShape sh:property [ sh:path ex:adjustment_effect_described_by ; sh:class ex:VagueTerm ] .
+ex:adjustment_effect_scope_described_by a rdf:Property .
+ex:IndexAdjustmentShape sh:property [ sh:path ex:adjustment_effect_scope_described_by ; sh:class ex:VagueTerm ] .
+ex:incorporated_by_reference_into a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:incorporated_by_reference_into ; sh:class ex:Document ] .
+ex:available_on a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:available_on ; sh:class ex:WebResource ] .
+ex:website_of a rdf:Property .
+ex:WebResourceShape sh:property [ sh:path ex:website_of ; sh:class ex:Organization ] .
+ex:section_of_website a rdf:Property .
+ex:DocumentPartShape sh:property [ sh:path ex:section_of_website ; sh:class ex:WebResource ] .
+ex:notice_for_index_adjustment a rdf:Property .
+ex:NoticeShape sh:property [ sh:path ex:notice_for_index_adjustment ; sh:class ex:RequiredIndexAdjustment ] .
+ex:announced_by a rdf:Property .
+ex:NoticeShape sh:property [ sh:path ex:announced_by ; sh:class ex:Organization ] .
+ex:announced_on a rdf:Property .
+ex:NoticeShape sh:property [ sh:path ex:announced_on ; sh:class ex:WebResource ] .
+ex:announced_under_section a rdf:Property .
+ex:NoticeShape sh:property [ sh:path ex:announced_under_section ; sh:class ex:DocumentPart ] .
+ex:notice_gives_notice_period a rdf:Property .
+ex:NoticeShape sh:property [ sh:path ex:notice_gives_notice_period ; sh:class ex:NoticePeriod ] .
+ex:notice_period_with_respect_to_component a rdf:Property .
+ex:NoticePeriodShape sh:property [ sh:path ex:notice_period_with_respect_to_component ; sh:class ex:IndexComponent ] .
+ex:notice_period_day a rdf:Property .
+ex:NoticePeriodShape sh:property [ sh:path ex:notice_period_day ; sh:class ex:TradingDay ] .
+ex:trading_day_with_respect_to a rdf:Property .
+ex:TradingDayShape sh:property [ sh:path ex:trading_day_with_respect_to ; sh:class ex:IndexComponent ] .
+ex:effective_day_specified_in_respective_notice a rdf:Property .
+ex:NoticeShape sh:property [ sh:path ex:effective_day_specified_in_respective_notice ; sh:class ex:EffectiveDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:implemented_on a rdf:Property .
+ex:IndexAdjustmentShape sh:property [ sh:path ex:implemented_on ; sh:class ex:Day ] .
+
+ex:SolactiveEquityIndexMethodology ex:incorporated_by_reference_into ex:ThisGuideline .
+ex:SolactiveEquityIndexMethodology ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:AnnouncementsSection ex:section_of_website ex:SolactiveWebsite .
+ex:ComponentWeightingEffect ex:adjustment_effect_described_by ex:CertainIndexComponents .

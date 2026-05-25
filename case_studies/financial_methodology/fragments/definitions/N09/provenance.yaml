@@ -1,0 +1,47 @@
+section: "N09 Definition: Eligible Rebalance Day"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  eligible_rebalance_day_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Eligible Rebalance Day\" is each day that is a Trading Day at the New York Stock Exchange, the London Stock Exchange, the EUREX Exchange and the Tokyo Stock Exchange."
+    back_translation: >
+      For every day, that day is an Eligible Rebalance Day if and only if it
+      is a Trading Day at the New York Stock Exchange, the London Stock
+      Exchange, the EUREX Exchange, and the Tokyo Stock Exchange.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The four exchanges are conjunctive because the source says the day must
+      be a Trading Day at all four named exchanges.
+
+uncovered_source:
+  - quote: "(none -- source definition is covered)"
+
+vocabulary_notes:
+  EligibleRebalanceDay:
+    note: "Sort and predicate target for the source term \"Eligible Rebalance Day\"."
+    source_phrase: "Eligible Rebalance Day"
+  trading_day_at_exchange:
+    note: "Relation for the source phrase \"Trading Day at\" a named exchange."
+    source_phrase: "Trading Day at"
+  NewYorkStockExchange:
+    note: "Entity for the source phrase \"New York Stock Exchange\"."
+    source_phrase: "New York Stock Exchange"
+  LondonStockExchange:
+    note: "Entity for the source phrase \"London Stock Exchange\"."
+    source_phrase: "London Stock Exchange"
+  EUREXExchange:
+    note: "Entity for the source phrase \"EUREX Exchange\"."
+    source_phrase: "EUREX Exchange"
+  TokyoStockExchange:
+    note: "Entity for the source phrase \"Tokyo Stock Exchange\"."
+    source_phrase: "Tokyo Stock Exchange"

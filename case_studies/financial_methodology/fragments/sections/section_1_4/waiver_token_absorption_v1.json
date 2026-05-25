@@ -1,0 +1,88 @@
+{
+  "entry_id": "section_1_4",
+  "schema": "waiver_token_absorption_v1",
+  "generated_from": "metrics_token_provenance_v1.json",
+  "items": [
+    {
+      "token": "frequenci",
+      "surface_forms": [
+        "frequency"
+      ],
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 24
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_by_section_scope",
+      "comment": "The title token 'frequency' is absorbed by the explicit calculation cadence in the IR: intraday calculation times are bounded by Time1_00AMCET and Time10_50PMCET, and the closing level is calculated for each CalculationDay. No separate frequency symbol is needed.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "should",
+      "surface_forms": [
+        "Should"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 342
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_by_conditional",
+      "comment": "The conditional marker 'Should' is represented by the hard conditional in no_current_trading_price_fallback: not current_trading_price_available(...) implies use of later_of(most_recent_closing_price, last_available_trading_price).",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "addition",
+      "surface_forms": [
+        "addition"
+      ],
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 4
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "discourse_marker",
+      "comment": "The phrase 'In addition to' only introduces a second calculation flow. The IR captures this by separate intraday and closing-level claims, especially closing_level_calculated_each_calculation_day and closing_level_based_on_closing_prices.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "respective",
+      "surface_forms": [
+        "respective"
+      ],
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 197
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_by_variable_binding",
+      "comment": "The token 'respective' is represented by the shared Exchange variable in closing_level_based_on_closing_prices: the closing price and listing relation use the same e for the same component/day.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "relevant",
+      "surface_forms": [
+        "relevant"
+      ],
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 464
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_by_variable_binding",
+      "comment": "The token 'relevant' is represented by the bound CalculationDay d in closing_price_converted_with_last_available_wm_fixing: the availability test, fallback WM fixing, and closing-level conversion all refer to the same d.",
+      "reviewer": "human_approved"
+    }
+  ],
+  "stale_tokens_from_previous_file": []
+}

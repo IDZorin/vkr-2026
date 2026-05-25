@@ -1,0 +1,73 @@
+section: "N13 Definition: Free Float Market Capitalization"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  free_float_market_capitalization_calculated_as_multiplication_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The \"Free Float Market Capitalization\" is with regard to each of the securities fulfilling the Index Component Requirements on a Selection Day the share class-specific free float market capitalization. It is calculated as the multiplication of the shares outstanding in Free Float (as sourced from data vendors) with the Closing Price of the share class as of the respective Selection Day."
+    back_translation: >
+      For every Selection Day and security that fulfills the Index Component
+      Requirements, the Free Float Market Capitalization is the shares
+      outstanding in Free Float of that security's share class multiplied by
+      the Closing Price of that share class as of the Selection Day, and the
+      shares outstanding in Free Float are sourced from a data vendor.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source verb "is calculated as the multiplication" is represented
+      by the definitional product equation. "Share class-specific" is
+      preserved by projecting the security to its share class and keying
+      both share-count and closing-price functions on the share class. The
+      plural "data vendors" is represented as an existential over DataVendor.
+
+uncovered_source:
+  - quote: "(none -- source definition is covered)"
+
+vocabulary_notes:
+  FreeFloatMarketCapitalization:
+    note: "Numeric monetary sort for the source term \"Free Float Market Capitalization\"."
+    source_phrase: "Free Float Market Capitalization"
+  ClosingPrice:
+    note: "Numeric monetary sort for the source phrase \"Closing Price\"."
+    source_phrase: "Closing Price"
+  ShareCount:
+    note: "Numeric count sort for the source phrase \"shares outstanding in Free Float\"."
+    source_phrase: "shares outstanding in Free Float"
+  SelectionDay:
+    note: "Sort for the source phrase \"Selection Day\"."
+    source_phrase: "Selection Day"
+  Security:
+    note: "Sort for the source phrase \"the securities\"."
+    source_phrase: "securities"
+  ShareClass:
+    note: "Sort for the source phrase \"share class\"."
+    source_phrase: "share class"
+  DataVendor:
+    note: "Sort for the source phrase \"data vendors\"."
+    source_phrase: "data vendors"
+  share_class:
+    note: "Function projecting a security to its share class for the source phrase \"share class-specific\"."
+    source_phrase: "share class-specific"
+  free_float_market_capitalization:
+    note: "Function for the source term \"Free Float Market Capitalization\"."
+    source_phrase: "Free Float Market Capitalization"
+  shares_outstanding_in_free_float:
+    note: "Function for the source phrase \"shares outstanding in Free Float\" of a share class on a Selection Day."
+    source_phrase: "shares outstanding in Free Float"
+  closing_price_of_share_class:
+    note: "Function for the source phrase \"the Closing Price of the share class as of the respective Selection Day\"."
+    source_phrase: "Closing Price of the share class as of the respective Selection Day"
+  fulfills_index_component_requirements:
+    note: "Relation for the source phrase \"securities fulfilling the Index Component Requirements\"."
+    source_phrase: "securities fulfilling the Index Component Requirements"
+  sourced_from_data_vendor:
+    note: "Relation for the source phrase \"as sourced from data vendors\"."
+    source_phrase: "as sourced from data vendors"

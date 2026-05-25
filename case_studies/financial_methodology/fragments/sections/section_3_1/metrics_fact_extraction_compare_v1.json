@@ -1,0 +1,97 @@
+{
+  "entry_id": "section_3_1",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1919,
+    "completion_tokens": 402,
+    "total_tokens": 2321
+  },
+  "latency_s": 3.2608323097229004,
+  "raw_parsed": {
+    "source_facts": [
+      "The Index is adjusted on the Rebalance Day after Close of Business.",
+      "The adjustment reflects the new selection of the Index Components determined on the Selection Day.",
+      "The selection is determined in accordance with Sections 2.1 and 2.2.",
+      "The adjustment is carried out by implementing the shares determined on the Fixing Day.",
+      "The shares are based on the weights calculated on the Selection Day.",
+      "Solactive will publish changes to the Index Components with sufficient notice before the Rebalance Day.",
+      "Solactive will publish the changes on the Solactive website under Announcement."
+    ],
+    "render_facts": [
+      "An Ordinary Rebalance is carried out on a Rebalance Day.",
+      "On the Selection Day for that Rebalance Day, the new selection for the Index is determined in accordance with Sections 2.1 and 2.2.",
+      "The Ordinary Rebalance adjusts the Index after the close of business on that day and reflects the new selection.",
+      "It is implemented by shares determined on the Fixing Day, with those shares based on the weights calculated on the Selection Day.",
+      "Section 3.1 Index Component Changes relate to the Index and to an Index Component.",
+      "Solactive publishes a notice for each such change with sufficient notice, on the Solactive Website, under the Announcement Section, no later than the day before the relevant Rebalance Day."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 2,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 1,
+        "render_idx": 2,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 2,
+        "render_idx": 1,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 3,
+        "render_idx": 3,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 4,
+        "render_idx": 3,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 5,
+        "render_idx": 5,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 6,
+        "render_idx": 5,
+        "match": "paraphrase"
+      }
+    ],
+    "render_only": [
+      0,
+      4
+    ]
+  },
+  "summary": {
+    "n_source_facts": 7,
+    "n_render_facts": 6,
+    "matched_source": 7,
+    "matched_render": 4,
+    "render_only": 2,
+    "missing_source": 0,
+    "weaker_in_render": 0,
+    "stronger_in_render": 0,
+    "recall": 1.0,
+    "precision": 0.667,
+    "f1": 0.8,
+    "missing_source_facts": [],
+    "render_only_facts": [
+      {
+        "idx": 0,
+        "fact": "An Ordinary Rebalance is carried out on a Rebalance Day."
+      },
+      {
+        "idx": 4,
+        "fact": "Section 3.1 Index Component Changes relate to the Index and to an Index Component."
+      }
+    ],
+    "weaker_pairs": [],
+    "stronger_pairs": []
+  }
+}

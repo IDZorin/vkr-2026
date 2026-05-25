@@ -1,0 +1,49 @@
+section: "N11 Definition: Fixing Day"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+# For each fact/constraint/obligation/permission/prohibition:
+#   kind             -- IR family
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | plumbing | derived_invariant | verification_probe
+#   source_quotes    -- verbatim spans from source.md that the element formalizes
+#   back_translation -- natural-language unfolding of the IR formula
+#   vocabulary_basis -- source_only | mixed | ir_internal_bridge | ir_plumbing
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+#   notes            -- optional clarification
+
+claims:
+
+  fixing_day_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Fixing Day\" is Selection Day."
+    back_translation: >
+      For every day, that day is a Fixing Day if and only if it is a Selection Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Pure aliasing definition. Source defines "Fixing Day" as a synonym for
+      "Selection Day"; the IR captures this as a biconditional between the two
+      day-level predicates. The constraint IS the source claim (both directions
+      of the iff are symmetric and source-justified by the equality "is").
+
+uncovered_source:
+  - quote: "(none -- the single source sentence is the single IR claim)"
+
+vocabulary_notes:
+  fixing_day:
+    note: >
+      IR predicate for the source term "Fixing Day" (quoted in source as
+      the term being defined). Lowercase identifier; back-translation uses
+      the source phrasing "Fixing Day".
+  selection_day:
+    note: >
+      IR predicate for the source term "Selection Day". Defined elsewhere
+      in the corpus (used widely across sections 2.x); appears here as the
+      definiens of "Fixing Day".

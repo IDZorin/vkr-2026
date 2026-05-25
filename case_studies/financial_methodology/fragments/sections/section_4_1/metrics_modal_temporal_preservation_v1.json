@@ -1,0 +1,263 @@
+{
+  "entry_id": "section_4_1",
+  "has_source": true,
+  "has_normalized": true,
+  "has_render": true,
+  "has_ir": true,
+  "source": {
+    "modals": {
+      "can": 1,
+      "will": 1
+    },
+    "negated_modals": {},
+    "temporal": {},
+    "quantifiers": {
+      "any": 2,
+      "each": 2
+    },
+    "numeric_literals": [
+      "1.2",
+      "5",
+      "50",
+      "1",
+      "1",
+      "1",
+      "360",
+      "1",
+      "1",
+      "1",
+      "1",
+      "50",
+      "1",
+      "1"
+    ],
+    "_token_count": 334
+  },
+  "normalized": {
+    "modals": {
+      "can": 1,
+      "will": 1
+    },
+    "negated_modals": {},
+    "temporal": {},
+    "quantifiers": {
+      "any": 2,
+      "each": 2
+    },
+    "numeric_literals": [
+      "1.2",
+      "5",
+      "50",
+      "1",
+      "1",
+      "1",
+      "360",
+      "1",
+      "1",
+      "1",
+      "1",
+      "50",
+      "1",
+      "1"
+    ],
+    "_token_count": 334
+  },
+  "render": {
+    "modals": {},
+    "negated_modals": {},
+    "temporal": {},
+    "quantifiers": {
+      "each": 3
+    },
+    "numeric_literals": [
+      "4.1",
+      "5",
+      "50"
+    ],
+    "_token_count": 238
+  },
+  "ir_logical": {
+    "implies_count": 6,
+    "iff_count": 0,
+    "forall_count": 11,
+    "exists_count": 0,
+    "not_count": 2,
+    "and_count": 32,
+    "or_count": 0,
+    "numeric_literals": [
+      "4.1",
+      "1.2",
+      "5",
+      "50",
+      "360"
+    ]
+  },
+  "drifts": {
+    "source_to_render": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 2,
+        "added": {},
+        "removed": {
+          "will": 1,
+          "can": 1
+        }
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 1,
+        "removed_count": 2,
+        "added": {
+          "each": 1
+        },
+        "removed": {
+          "any": 2
+        }
+      },
+      "numeric_literals": {
+        "added_count": 1,
+        "removed_count": 12,
+        "added": {
+          "4.1": 1
+        },
+        "removed": {
+          "1.2": 1,
+          "50": 1,
+          "1": 9,
+          "360": 1
+        }
+      }
+    },
+    "source_to_normalized": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "numeric_literals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      }
+    },
+    "normalized_to_render": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 2,
+        "added": {},
+        "removed": {
+          "will": 1,
+          "can": 1
+        }
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 1,
+        "removed_count": 2,
+        "added": {
+          "each": 1
+        },
+        "removed": {
+          "any": 2
+        }
+      },
+      "numeric_literals": {
+        "added_count": 1,
+        "removed_count": 12,
+        "added": {
+          "4.1": 1
+        },
+        "removed": {
+          "1.2": 1,
+          "50": 1,
+          "1": 9,
+          "360": 1
+        }
+      }
+    }
+  },
+  "alarms": [
+    {
+      "kind": "modals_lost_in_render",
+      "removed": {
+        "will": 1,
+        "can": 1
+      },
+      "count": 2
+    },
+    {
+      "kind": "quantifiers_lost_in_render",
+      "removed": {
+        "any": 2
+      },
+      "count": 2
+    },
+    {
+      "kind": "quantifiers_added_in_render",
+      "added": {
+        "each": 1
+      },
+      "count": 1
+    },
+    {
+      "kind": "numeric_literals_lost_in_render",
+      "removed": {
+        "1.2": 1,
+        "50": 1,
+        "1": 9,
+        "360": 1
+      },
+      "count": 12
+    },
+    {
+      "kind": "numeric_literals_added_in_render",
+      "added": {
+        "4.1": 1
+      },
+      "count": 1
+    }
+  ],
+  "alarm_count": 5
+}

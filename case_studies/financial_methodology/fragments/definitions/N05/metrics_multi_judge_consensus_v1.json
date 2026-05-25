@@ -1,0 +1,116 @@
+{
+  "entry_id": "N05",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR states that Calculation Day holds exactly for days whose weekday is Monday through Friday, which matches the source phrase \"every weekday from Monday to Friday.\"",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses a predicate over Day with WeekdayOf rather than the natural-language label \"Calculation Day,\" which is a standard formalization choice.",
+        "The source uses quoted terminology; the IR uses a lowercase relation name."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1849,
+        "completion_tokens": 117,
+        "total_tokens": 1966
+      },
+      "latency_s": 2.2282142639160156
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR defines Calculation Day exactly as those days whose weekday is Monday through Friday, which matches the source statement that a Calculation Day is every weekday from Monday to Friday.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR expands 'every weekday from Monday to Friday' into an explicit disjunction over Monday through Friday rather than using a more compact range expression.",
+        "The source uses the quoted term 'Calculation Day' while the IR uses the predicate name calculation_day."
+      ],
+      "confidence": 0.99,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1849,
+        "completion_tokens": 125,
+        "total_tokens": 1974
+      },
+      "latency_s": 3.7320961952209473
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR correctly formalizes the source definition by introducing a relation `calculation_day : Day` and constraining it to hold exactly when the day's weekday is one of Monday through Friday. The disjunction of five weekday equalities is the canonical a4v3 lowering of the English phrase 'every weekday from Monday to Friday.' The use of `WeekdayOf` function and prelude Weekday entities (Monday, Tuesday, etc.) is standard infrastructure. The biconditional captures the 'is' (definition) relationship in the source.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses `WeekdayOf(d)` function to extract the weekday of a day; this is a reasonable formalization choice not explicitly named in source but standard for temporal reasoning.",
+        "The disjunctive form (five separate `or` clauses) is verbose but semantically equivalent to a more compact set-membership notation; this is a stylistic choice within a4v3."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2109,
+        "completion_tokens": 282,
+        "total_tokens": 2391
+      },
+      "latency_s": 4.686796426773071
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR definition states that a day is a Calculation Day if and only if its weekday is Monday, Tuesday, Wednesday, Thursday, or Friday, which exactly matches the source statement that Calculation Day is every weekday from Monday to Friday.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "IR relation name 'calculation_day' uses lowercase instead of the source's capitalized 'Calculation Day'."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1959,
+        "completion_tokens": 521,
+        "total_tokens": 2480
+      },
+      "latency_s": 19.0206196308136
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR precisely captures the source definition by constraining the calculation_day relation to hold if and only if the day's weekday falls within the Monday-to-Friday range. The logical structure, quantification, and boundary conditions align perfectly with the natural language statement.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces a WeekdayOf projection function to map a Day to a Weekday entity, which is a standard formalization technique not explicitly named in the source but required for the constraint."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1978,
+        "completion_tokens": 1438,
+        "total_tokens": 3416
+      },
+      "latency_s": 27.816081762313843
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "corresponds": 5
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 1.0,
+    "unanimous": true,
+    "mean_confidence": 0.99
+  }
+}

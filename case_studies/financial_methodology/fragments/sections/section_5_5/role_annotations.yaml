@@ -1,0 +1,31 @@
+schema: role_annotations_v1
+entry_id: section_5_5
+annotation_status: compact_pre_merge_roles_v1
+constraints:
+  index_rule_amendment_scope:
+    frame: index_rule_amendment_scope
+    variables:
+      a: {role: subject, quantifier: forall}
+      r: {role: subject, quantifier: exists}
+  oversight_committee_responsible_for_index_rule_amendment_decisions:
+    frame: oversight_committee_responsible_for_index_rule_amendment_decisions
+    variables:
+      a: {role: subject, quantifier: forall}
+      r: {role: subject, quantifier: forall}
+  oversight_committee_staff_from_solactive_or_subsidiary:
+    frame: oversight_committee_staff_from_solactive_or_subsidiary
+    variables:
+      s: {role: subject, quantifier: forall}
+      sub: {role: agent, quantifier: exists}
+  index_rule_amendments_may_result_in_guideline_amendment:
+    frame: index_rule_amendments_may_result_in_guideline_amendment
+    variables:
+      a: {role: subject, quantifier: forall}
+      g: {role: reference, quantifier: exists}
+facts:
+  oversight_committee_has_staff:
+    frame: oversight_committee_has_staff
+    variables:
+      s: {role: subject, quantifier: exists}
+  oversight_committee_prior_approval:
+    frame: oversight_committee_prior_approval

@@ -1,0 +1,66 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_3 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:IndexLevel a rdfs:Class .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:IndexLevelShape a sh:NodeShape ; sh:targetClass ex:IndexLevel .
+ex:ArticleNumber a rdfs:Class .
+ex:ArticleNumber rdfs:subClassOf ex:Nat .
+ex:ArticleNumberShape a sh:NodeShape ; sh:targetClass ex:ArticleNumber .
+
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR a ex:Index .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR a ex:Index .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR a ex:Index .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR a ex:Index .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR a ex:Index .
+ex:StartDate05_08_2017 a ex:Day .
+ex:LiveDate29_09_2025 a ex:Day .
+ex:BMR a ex:Document .
+ex:Article8OfBMR a ex:DocumentPart .
+ex:section_1_3_index a rdfs:Class ; rdfs:subClassOf ex:Index .
+ex:start_date a rdfs:Class ; rdfs:subClassOf ex:Day .
+ex:live_date a rdfs:Class ; rdfs:subClassOf ex:Day .
+ex:historical_value a rdfs:Class .
+ex:historical_valueShape a sh:NodeShape ; sh:targetClass ex:historical_value .
+ex:historical_valueShape sh:property [ sh:path ex:historical_value_arg_0 ; sh:class ex:IndexLevel ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:historical_valueShape sh:property [ sh:path ex:historical_value_arg_1 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:historical_valueShape sh:property [ sh:path ex:historical_value_arg_2 ; sh:class ex:Day ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:recorded_in_accordance_with a rdf:Property .
+ex:IndexLevelShape sh:property [ sh:path ex:recorded_in_accordance_with ; sh:class ex:DocumentPart ] .
+ex:published_level_for_period a rdfs:Class .
+ex:published_level_for_periodShape a sh:NodeShape ; sh:targetClass ex:published_level_for_period .
+ex:published_level_for_periodShape sh:property [ sh:path ex:published_level_for_period_arg_0 ; sh:class ex:IndexLevel ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:published_level_for_periodShape sh:property [ sh:path ex:published_level_for_period_arg_1 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:published_level_for_periodShape sh:property [ sh:path ex:published_level_for_period_arg_2 ; sh:class ex:Period ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:period_prior_to a rdf:Property .
+ex:PeriodShape sh:property [ sh:path ex:period_prior_to ; sh:class ex:Day ] .
+ex:back_tested a rdfs:Class ; rdfs:subClassOf ex:IndexLevel .
+ex:initial_level a rdfs:Class .
+ex:initial_levelShape a sh:NodeShape ; sh:targetClass ex:initial_level .
+ex:initial_levelShape sh:property [ sh:path ex:initial_level_arg_0 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:initial_levelShape sh:property [ sh:path ex:initial_level_arg_1 ; sh:class ex:Day ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:initial_levelShape sh:property [ sh:path ex:initial_level_result ; sh:class ex:IndexLevel ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:article_number a rdf:Property .
+ex:DocumentPartShape sh:property [ sh:path ex:article_number ; sh:class ex:ArticleNumber ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR a ex:section_1_3_index .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR a ex:section_1_3_index .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR a ex:section_1_3_index .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR a ex:section_1_3_index .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR a ex:section_1_3_index .
+ex:StartDate05_08_2017 a ex:start_date .
+ex:LiveDate29_09_2025 a ex:live_date .
+ex:Article8OfBMR ex:article_number "8"^^xsd:integer .
+ex:FACT_initial_level_50_ar_on_start_date_initial_level_0 a ex:initial_level .
+ex:FACT_initial_level_50_ar_on_start_date_initial_level_0 ex:initial_level_arg_0 ex:SolactiveTransatlanticCleanEnergyEURIndex50AR .
+ex:FACT_initial_level_50_ar_on_start_date_initial_level_0 ex:initial_level_arg_1 ex:StartDate05_08_2017 .
+ex:FACT_initial_level_50_ar_on_start_date_initial_level_0 ex:initial_level_result "739.08"^^xsd:decimal .

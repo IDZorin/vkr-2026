@@ -1,0 +1,2153 @@
+{
+  "entry_id": "N14",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 23,
+    "content_token_count": 17,
+    "covered_content_token_count": 17,
+    "uncovered_content_token_count": 0,
+    "ignored_stopword_count": 6,
+    "content_coverage_rate": 1.0
+  },
+  "tokens": [
+    {
+      "token": "gbs",
+      "surface_forms": [
+        "Gbs"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndexUniverse",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndex",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "GbsIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheGbsIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheGbsIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "GbsIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_specified_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 11,
+          "matched_text": "gbs_index_specified_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "gbs_index_specified_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 11,
+          "matched_text": "GbsIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_for_gbs_index",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "index_universe_for_gbs_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_for_gbs_index",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_for_gbs_index",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "GbsIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_gbs_benchmark_series_guideline_url",
+          "family": "AssertDecl.fact",
+          "line": 15,
+          "matched_text": "solactive_gbs_benchmark_series_guideline_url"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_specified_in_section_2_1",
+          "family": "AssertDecl.fact",
+          "line": 21,
+          "matched_text": "gbs_index_specified_in_section_2_1"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_universe_definition",
+          "family": "AssertDecl.fact",
+          "line": 24,
+          "matched_text": "gbs_index_universe_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "line": 15,
+          "matched_text": "solactive_gbs_benchmark_series_guideline_url"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "line": 21,
+          "matched_text": "gbs_index_specified_in_section_2_1"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "gbs_index_specified_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "line": 24,
+          "matched_text": "gbs_index_universe_definition"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "index_universe_for_gbs_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndexUniverse",
+          "matched_text": "Gbs Index Universe"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndex",
+          "matched_text": "GBS Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheGbsIndexUniverse",
+          "matched_text": "Gbs Index Universe"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "matched_text": "the GBS Index specified in Section 2.1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "matched_text": "https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "gbs_index_specified_in_section",
+          "matched_text": "GBS Index specified in"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_for_gbs_index",
+          "matched_text": "for the GBS Index"
+        }
+      ]
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 6
+        },
+        {
+          "line": 1,
+          "column": 29
+        },
+        {
+          "line": 1,
+          "column": 214
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndexUniverse",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndex",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "GbsIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheGbsIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheGbsIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "GbsIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_specified_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 11,
+          "matched_text": "gbs_index_specified_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "gbs_index_specified_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 11,
+          "matched_text": "GbsIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_for_gbs_index",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "index_universe_for_gbs_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_for_gbs_index",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_for_gbs_index",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "GbsIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_specified_in_section_2_1",
+          "family": "AssertDecl.fact",
+          "line": 21,
+          "matched_text": "gbs_index_specified_in_section_2_1"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_universe_definition",
+          "family": "AssertDecl.fact",
+          "line": 24,
+          "matched_text": "gbs_index_universe_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "line": 21,
+          "matched_text": "gbs_index_specified_in_section_2_1"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "gbs_index_specified_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "line": 24,
+          "matched_text": "gbs_index_universe_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "index_universe_for_gbs_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndexUniverse",
+          "matched_text": "Gbs Index Universe"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndex",
+          "matched_text": "GBS Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheGbsIndexUniverse",
+          "matched_text": "Gbs Index Universe"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "matched_text": "the GBS Index specified in Section 2.1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "gbs_index_specified_in_section",
+          "matched_text": "GBS Index specified in"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "matched_text": "Index Universe as defined in the guideline"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_for_gbs_index",
+          "matched_text": "for the GBS Index"
+        }
+      ]
+    },
+    {
+      "token": "universe",
+      "surface_forms": [
+        "Universe"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 12
+        },
+        {
+          "line": 1,
+          "column": 35
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndexUniverse",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheGbsIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheGbsIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_for_gbs_index",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "index_universe_for_gbs_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_for_gbs_index",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_universe_definition",
+          "family": "AssertDecl.fact",
+          "line": 24,
+          "matched_text": "gbs_index_universe_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "line": 24,
+          "matched_text": "gbs_index_universe_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "index_universe_for_gbs_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndexUniverse",
+          "matched_text": "Gbs Index Universe"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheGbsIndexUniverse",
+          "matched_text": "Gbs Index Universe"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "matched_text": "Index Universe as defined in the guideline"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 22
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 5,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 25
+        },
+        {
+          "line": 1,
+          "column": 58
+        },
+        {
+          "line": 1,
+          "column": 75
+        },
+        {
+          "line": 1,
+          "column": 198
+        },
+        {
+          "line": 1,
+          "column": 206
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheGbsIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "matched_text": "the GBS Index specified in Section 2.1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveGBSBenchmarkSeriesGuideline",
+          "matched_text": "the guideline of the Solactive Global Benchmark Series"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "matched_text": "Index Universe as defined in the guideline"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_for_gbs_index",
+          "matched_text": "for the GBS Index"
+        }
+      ]
+    },
+    {
+      "token": "as",
+      "surface_forms": [
+        "as"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 44
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "matched_text": "Index Universe as defined in the guideline"
+        }
+      ]
+    },
+    {
+      "token": "defin",
+      "surface_forms": [
+        "defined"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 47
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "matched_text": "Index Universe as defined in the guideline"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 55
+        },
+        {
+          "line": 1,
+          "column": 230
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_specified_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 11,
+          "matched_text": "gbs_index_specified_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_specified_in_section_2_1",
+          "family": "AssertDecl.fact",
+          "line": 21,
+          "matched_text": "gbs_index_specified_in_section_2_1"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "line": 21,
+          "matched_text": "gbs_index_specified_in_section_2_1"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "gbs_index_specified_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "matched_text": "the GBS Index specified in Section 2.1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "gbs_index_specified_in_section",
+          "matched_text": "GBS Index specified in"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "matched_text": "Index Universe as defined in the guideline"
+        }
+      ]
+    },
+    {
+      "token": "guideline",
+      "surface_forms": [
+        "guideline"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 62
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveGBSBenchmarkSeriesGuideline",
+          "family": "SymbolDecl.entity",
+          "line": 7,
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_gbs_benchmark_series_guideline_url",
+          "family": "AssertDecl.fact",
+          "line": 15,
+          "matched_text": "solactive_gbs_benchmark_series_guideline_url"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "line": 15,
+          "matched_text": "solactive_gbs_benchmark_series_guideline_url"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveGBSBenchmarkSeriesGuideline",
+          "matched_text": "the guideline of the Solactive Global Benchmark Series"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "matched_text": "https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "matched_text": "Index Universe as defined in the guideline"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 72
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveGBSBenchmarkSeriesGuideline",
+          "matched_text": "the guideline of the Solactive Global Benchmark Series"
+        }
+      ]
+    },
+    {
+      "token": "solactive",
+      "surface_forms": [
+        "Solactive",
+        "solactive"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 79
+        },
+        {
+          "line": 1,
+          "column": 123
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveGBSBenchmarkSeriesGuideline",
+          "family": "SymbolDecl.entity",
+          "line": 7,
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_gbs_benchmark_series_guideline_url",
+          "family": "AssertDecl.fact",
+          "line": 15,
+          "matched_text": "solactive_gbs_benchmark_series_guideline_url"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "line": 15,
+          "matched_text": "solactive_gbs_benchmark_series_guideline_url"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveGBSBenchmarkSeriesGuideline",
+          "matched_text": "the guideline of the Solactive Global Benchmark Series"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "matched_text": "https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf"
+        }
+      ]
+    },
+    {
+      "token": "global",
+      "surface_forms": [
+        "Global"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 89
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveGBSBenchmarkSeriesGuideline",
+          "matched_text": "the guideline of the Solactive Global Benchmark Series"
+        }
+      ]
+    },
+    {
+      "token": "benchmark",
+      "surface_forms": [
+        "Benchmark"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 96
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveGBSBenchmarkSeriesGuideline",
+          "family": "SymbolDecl.entity",
+          "line": 7,
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_gbs_benchmark_series_guideline_url",
+          "family": "AssertDecl.fact",
+          "line": 15,
+          "matched_text": "solactive_gbs_benchmark_series_guideline_url"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "line": 15,
+          "matched_text": "solactive_gbs_benchmark_series_guideline_url"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveGBSBenchmarkSeriesGuideline",
+          "matched_text": "the guideline of the Solactive Global Benchmark Series"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "matched_text": "https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf"
+        }
+      ]
+    },
+    {
+      "token": "seri",
+      "surface_forms": [
+        "Series"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 106
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveGBSBenchmarkSeriesGuideline",
+          "family": "SymbolDecl.entity",
+          "line": 7,
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_gbs_benchmark_series_guideline_url",
+          "family": "AssertDecl.fact",
+          "line": 15,
+          "matched_text": "solactive_gbs_benchmark_series_guideline_url"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "line": 15,
+          "matched_text": "solactive_gbs_benchmark_series_guideline_url"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveGBSBenchmarkSeriesGuideline",
+          "matched_text": "the guideline of the Solactive Global Benchmark Series"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "matched_text": "https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf"
+        }
+      ]
+    },
+    {
+      "token": "http",
+      "surface_forms": [
+        "https"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 115
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "matched_text": "https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf"
+        }
+      ]
+    },
+    {
+      "token": "com",
+      "surface_forms": [
+        "com"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 133
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "matched_text": "https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf"
+        }
+      ]
+    },
+    {
+      "token": "download",
+      "surface_forms": [
+        "downloads"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 137
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "matched_text": "https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf"
+        }
+      ]
+    },
+    {
+      "token": "b",
+      "surface_forms": [
+        "Guideline-Solactive-GBS-Benchmark-Series",
+        "GBS"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 147
+        },
+        {
+          "line": 1,
+          "column": 210
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveGBSBenchmarkSeriesGuideline",
+          "family": "SymbolDecl.entity",
+          "line": 7,
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "SolactiveGBSBenchmarkSeriesGuideline"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndex",
+          "matched_text": "GBS Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "matched_text": "the GBS Index specified in Section 2.1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "matched_text": "https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "gbs_index_specified_in_section",
+          "matched_text": "GBS Index specified in"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_for_gbs_index",
+          "matched_text": "for the GBS Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_gbs_benchmark_series_guideline_url",
+          "family": "AssertDecl.fact",
+          "line": 15,
+          "matched_text": "solactive_gbs_benchmark_series_guideline_url"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "line": 15,
+          "matched_text": "solactive_gbs_benchmark_series_guideline_url"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveGBSBenchmarkSeriesGuideline",
+          "matched_text": "the guideline of the Solactive Global Benchmark Series"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndexUniverse",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndex",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "GbsIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheGbsIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheGbsIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "GbsIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_specified_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 11,
+          "matched_text": "gbs_index_specified_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "gbs_index_specified_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 11,
+          "matched_text": "GbsIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_for_gbs_index",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "index_universe_for_gbs_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_for_gbs_index",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "GbsIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_for_gbs_index",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "GbsIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_specified_in_section_2_1",
+          "family": "AssertDecl.fact",
+          "line": 21,
+          "matched_text": "gbs_index_specified_in_section_2_1"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_universe_definition",
+          "family": "AssertDecl.fact",
+          "line": 24,
+          "matched_text": "gbs_index_universe_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "line": 21,
+          "matched_text": "gbs_index_specified_in_section_2_1"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "gbs_index_specified_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "line": 24,
+          "matched_text": "gbs_index_universe_definition"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "index_universe_for_gbs_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "TheGbsIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndexUniverse",
+          "matched_text": "Gbs Index Universe"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheGbsIndexUniverse",
+          "matched_text": "Gbs Index Universe"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "family": "SymbolDecl.rel",
+          "line": 12,
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "index_universe_as_defined_in_guideline"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_as_defined_in_guideline",
+          "matched_text": "Index Universe as defined in the guideline"
+        }
+      ]
+    },
+    {
+      "token": "pdf",
+      "surface_forms": [
+        "pdf"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 188
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_gbs_benchmark_series_guideline_url",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "matched_text": "https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf"
+        }
+      ]
+    },
+    {
+      "token": "for",
+      "surface_forms": [
+        "for"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 194
+        },
+        {
+          "line": 1,
+          "column": 202
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_for_gbs_index",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "index_universe_for_gbs_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "index_universe_for_gbs_index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_for_gbs_index",
+          "matched_text": "for the GBS Index"
+        }
+      ]
+    },
+    {
+      "token": "specifi",
+      "surface_forms": [
+        "specified"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 220
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_specified_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 11,
+          "matched_text": "gbs_index_specified_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_specified_in_section_2_1",
+          "family": "AssertDecl.fact",
+          "line": 21,
+          "matched_text": "gbs_index_specified_in_section_2_1"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "line": 21,
+          "matched_text": "gbs_index_specified_in_section_2_1"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "gbs_index_specified_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "matched_text": "the GBS Index specified in Section 2.1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "gbs_index_specified_in_section",
+          "matched_text": "GBS Index specified in"
+        }
+      ]
+    },
+    {
+      "token": "section",
+      "surface_forms": [
+        "Section"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 233
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Section2_1",
+          "family": "SymbolDecl.entity",
+          "line": 6,
+          "matched_text": "Section2_1"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_specified_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 11,
+          "matched_text": "gbs_index_specified_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "gbs_index_specified_in_section_2_1",
+          "family": "AssertDecl.fact",
+          "line": 21,
+          "matched_text": "gbs_index_specified_in_section_2_1"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "line": 21,
+          "matched_text": "gbs_index_specified_in_section_2_1"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "gbs_index_specified_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "Section2_1"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "matched_text": "the GBS Index specified in Section 2.1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Section2_1",
+          "matched_text": "Section 2.1"
+        }
+      ]
+    },
+    {
+      "token": "2.1",
+      "surface_forms": [
+        "2.1"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 241
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Section2_1",
+          "family": "SymbolDecl.entity",
+          "line": 6,
+          "matched_text": "Section2_1"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_specified_in_section_2_1",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "Section2_1"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "gbs_index_universe_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "GbsIndexSpecifiedInSection2_1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "GbsIndexSpecifiedInSection2_1",
+          "matched_text": "the GBS Index specified in Section 2.1"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Section2_1",
+          "matched_text": "Section 2.1"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 1,
+      "covered_url_count": 1,
+      "missing_url_count": 0,
+      "url_coverage_rate": 1.0
+    },
+    "urls": [
+      {
+        "url": "https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf",
+        "count": 1,
+        "status": "covered_exact",
+        "source_locations": [
+          {
+            "source": "source.md",
+            "line": 1,
+            "column": 115
+          }
+        ],
+        "provenance": [
+          {
+            "source": "ir_surface",
+            "role": "exact_url_literal_or_comment",
+            "matched_text": "https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf"
+          }
+        ]
+      }
+    ],
+    "missing_urls": []
+  }
+}

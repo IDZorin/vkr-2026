@@ -1,0 +1,62 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N08 a owl:Ontology .
+
+ex:IndexComponent a owl:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:TradingDay a owl:Class .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:Exchange a owl:Class .
+ex:ClosingPrice a owl:Class .
+ex:ClosingPrice rdfs:subClassOf ex:MonetaryAmount .
+ex:DailyValueTraded a owl:Class .
+ex:DailyValueTraded rdfs:subClassOf ex:MonetaryAmount .
+ex:VolumeNumberOfShares a owl:Class .
+ex:VolumeNumberOfShares rdfs:subClassOf ex:Nat .
+
+ex:closing_price a owl:Class, a4:NaryRelationClass .
+ex:closing_price_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:closing_price ;
+  rdfs:range ex:IndexComponent .
+ex:closing_price_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:closing_price ;
+  rdfs:range ex:TradingDay .
+ex:closing_price_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:closing_price ;
+  rdfs:range ex:ClosingPrice .
+ex:daily_value_traded a owl:Class, a4:NaryRelationClass .
+ex:daily_value_traded_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:daily_value_traded ;
+  rdfs:range ex:IndexComponent .
+ex:daily_value_traded_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:daily_value_traded ;
+  rdfs:range ex:TradingDay .
+ex:daily_value_traded_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:daily_value_traded ;
+  rdfs:range ex:DailyValueTraded .
+ex:volume_traded_on_exchange_during_trading_day a owl:Class, a4:NaryRelationClass .
+ex:volume_traded_on_exchange_during_trading_day_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:volume_traded_on_exchange_during_trading_day ;
+  rdfs:range ex:IndexComponent .
+ex:volume_traded_on_exchange_during_trading_day_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:volume_traded_on_exchange_during_trading_day ;
+  rdfs:range ex:Exchange .
+ex:volume_traded_on_exchange_during_trading_day_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:volume_traded_on_exchange_during_trading_day ;
+  rdfs:range ex:TradingDay .
+ex:volume_traded_on_exchange_during_trading_day_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:volume_traded_on_exchange_during_trading_day ;
+  rdfs:range ex:VolumeNumberOfShares .
+ex:respective_exchange a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:IndexComponent ;
+  rdfs:range ex:Exchange .
+
+ex:ASSERT_daily_value_traded_product_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall c: IndexComponent, forall d: TradingDay, (daily_value_traded(c, d)) = ((closing_price(c, d)) * (volume_traded_on_exchange_during_trading_day(c, respective_exchange(c), d)))" .

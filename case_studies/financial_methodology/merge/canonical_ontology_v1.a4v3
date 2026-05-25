@@ -1,0 +1,426 @@
+﻿-- seed methodology canonical ontology v1.
+-- This file is a merge-preparation ontology, not a source-local section IR.
+-- Local main_ir.a4v3 files remain the source-faithful gold translations.
+
+sort CanonicalConcept
+sort CanonicalSort extends CanonicalConcept
+sort CanonicalEntity extends CanonicalConcept
+sort CanonicalRelation extends CanonicalConcept
+sort CanonicalFunction extends CanonicalConcept
+sort CanonicalFrame extends CanonicalConcept
+sort CanonicalRole extends CanonicalConcept
+sort CanonicalDecisionStatus =
+  Accepted
+| NeedsHumanReview
+| FutureRefinement
+
+sort CanonicalScope =
+  AppliesToIndexFamily
+| AppliesToIndexVariant
+| AppliesToLocalPlaceholder
+| AppliesToDocumentInfrastructure
+| AppliesToDefinitionPointer
+
+sort IndexFamily
+sort Index
+sort IndexVariant extends Index
+sort PublishedIndexVariant extends IndexVariant
+sort ReturnTreatment =
+  PriceReturn
+| NetTotalReturn
+| GrossTotalReturn
+| AdjustedReturn
+sort DecrementTreatment =
+  NoDecrement
+| FivePercentAnnualDecrement
+
+sort Security extends FinancialInstrument
+sort ShareClass extends Security
+sort IndexComponentRoleAssignment
+sort IndexComponent extends IndexComponentRoleAssignment
+sort IndexComponentMembership
+sort GenericIndexComponentMembership extends IndexComponentMembership
+sort SelectionDayIndexComponentMembership extends IndexComponentMembership
+sort CalculationDayIndexComponentMembership extends IndexComponentMembership
+sort IndexComponentMembershipState =
+  GenericMembership
+| SelectedMembership
+| CalculationMembership
+| ImplementedMembership
+
+sort IndexMethodology extends Document
+sort EquityIndexMethodology extends IndexMethodology
+sort MethodologyPolicy extends Document
+sort CorrectionPolicy extends Document
+sort DisruptionPolicy extends Document
+sort Guideline extends Document
+sort Website
+sort WebsiteSection extends DocumentPart
+
+sort IndexAdministrator extends Organization
+sort SolactiveOrganization extends IndexAdministrator
+
+sort IndexDay extends Day
+sort BusinessDay extends IndexDay
+sort CalculationDay extends IndexDay
+sort TradingDay extends IndexDay
+sort SelectionDay extends IndexDay
+sort FixingDay extends IndexDay
+sort RebalanceDay extends IndexDay
+sort RegularRebalanceDay extends RebalanceDay
+sort EligibleRebalanceDay extends IndexDay
+sort StartDate extends IndexDay
+sort LiveDate extends IndexDay
+
+sort Price extends MonetaryAmount
+sort TradingPrice extends Price
+sort ClosingPrice extends Price
+sort ComponentPrice extends Price
+sort PriceChange extends Real
+sort ComponentWeight extends Percent
+sort IndexLevel extends Real
+sort CurrencyValue extends Currency
+sort Exchange
+sort DataVendor
+sort Region
+sort ShareCount extends Real
+sort FreeFloat extends Percentage
+sort FreeFloatMarketCapitalization extends MonetaryAmount
+sort DailyValueTraded extends MonetaryAmount
+sort AverageDailyValueTraded extends MonetaryAmount
+
+sort Observation
+sort ValueObservation extends Observation
+sort PriceObservation extends ValueObservation
+sort TradingPriceObservation extends PriceObservation
+sort ClosingPriceObservation extends PriceObservation
+sort ComponentPriceObservation extends PriceObservation
+sort PriceChangeObservation extends ValueObservation
+sort ComponentWeightObservation extends ValueObservation
+sort RegionClassificationObservation extends ValueObservation
+sort DailyValueTradedObservation extends ValueObservation
+sort AverageDailyValueTradedObservation extends ValueObservation
+sort IndexLevelObservation extends ValueObservation
+sort InitialIndexLevelObservation extends IndexLevelObservation
+sort FreeFloatObservation extends ValueObservation
+sort ShareCountObservation extends ValueObservation
+sort FreeFloatMarketCapitalizationObservation extends ValueObservation
+sort IndexCurrencyObservation extends ValueObservation
+sort ExchangeObservation extends ValueObservation
+
+sort IndexUniverse
+sort GbsIndexUniverse extends IndexUniverse
+sort IndexComponentRequirements
+sort IndexUniverseRequirements
+sort RBICSClassificationSystem
+sort RBICSSubindustryClassification
+
+sort CorporateAction extends Event
+sort CorporateActionAdjustment extends Event
+sort IndexCalculation extends Event
+sort IndexRebalance extends Event
+sort IndexReview extends Event
+sort IndexTermination extends Event
+sort Notice extends Document
+sort Announcement extends Event
+sort Error extends Event
+sort DiscretionaryDecision extends Event
+
+sort CanonicalBridgeRelation =
+  ExactSame
+| AliasOf
+| SubtypeOf
+| InstanceOf
+| VariantOf
+| GenericRuleAppliesToVariant
+| RelatedButNotMerged
+| LocalOnly
+
+entity Canonicalseed methodologyOntology : CanonicalEntity
+
+entity SolactiveTransatlanticCleanEnergyEURIndexFamily : IndexFamily
+entity SolactiveTransatlanticCleanEnergyEURIndexPR : PublishedIndexVariant
+entity SolactiveTransatlanticCleanEnergyEURIndexNTR : PublishedIndexVariant
+entity SolactiveTransatlanticCleanEnergyEURIndexTR : PublishedIndexVariant
+entity SolactiveTransatlanticCleanEnergyEURIndex5PercentAR : PublishedIndexVariant
+entity SolactiveTransatlanticCleanEnergyEURIndex50AR : PublishedIndexVariant
+
+entity Solactive : SolactiveOrganization
+entity SolactiveWebsite : Website
+entity ThisGuideline : Guideline
+entity CanonicalEquityIndexMethodology : EquityIndexMethodology
+entity CanonicalSolactiveMethodologyPolicy : MethodologyPolicy
+entity CanonicalSolactiveCorrectionPolicy : CorrectionPolicy
+entity CanonicalSolactiveDisruptionPolicy : DisruptionPolicy
+entity AnnouncementSection : WebsiteSection
+
+entity FactSetRevereBusinessIndustryClassificationSystem : RBICSClassificationSystem
+entity IndexGuidelineAppendix : DocumentPart
+entity CanonicalRBICSLevel6SubindustryClassification : RBICSSubindustryClassification
+
+entity TradingPriceObservationFrame : CanonicalFrame
+entity ClosingPriceObservationFrame : CanonicalFrame
+entity ComponentPriceObservationFrame : CanonicalFrame
+entity PriceChangeObservationFrame : CanonicalFrame
+entity ComponentWeightObservationFrame : CanonicalFrame
+entity RegionClassificationObservationFrame : CanonicalFrame
+entity DailyValueTradedObservationFrame : CanonicalFrame
+entity AverageDailyValueTradedObservationFrame : CanonicalFrame
+entity IndexLevelObservationFrame : CanonicalFrame
+entity InitialIndexLevelObservationFrame : CanonicalFrame
+entity FreeFloatObservationFrame : CanonicalFrame
+entity ShareCountObservationFrame : CanonicalFrame
+entity FreeFloatMarketCapitalizationObservationFrame : CanonicalFrame
+entity IndexCurrencyObservationFrame : CanonicalFrame
+entity ExchangeObservationFrame : CanonicalFrame
+entity GenericIndexComponentMembershipFrame : CanonicalFrame
+entity SelectionDayIndexComponentMembershipFrame : CanonicalFrame
+entity CalculationDayIndexComponentMembershipFrame : CanonicalFrame
+
+entity ObservationSubjectRole : CanonicalRole
+entity ObservationIndexRole : CanonicalRole
+entity ObservationDayContextRole : CanonicalRole
+entity ObservationSelectionDayContextRole : CanonicalRole
+entity ObservationPeriodContextRole : CanonicalRole
+entity ObservationTimeContextRole : CanonicalRole
+entity ObservationCalculationRole : CanonicalRole
+entity ObservedPriceRole : CanonicalRole
+entity ObservedTradingPriceRole : CanonicalRole
+entity ObservedClosingPriceRole : CanonicalRole
+entity ObservedComponentPriceRole : CanonicalRole
+entity ObservedPriceChangeRole : CanonicalRole
+entity ObservedComponentWeightRole : CanonicalRole
+entity ObservedRegionRole : CanonicalRole
+entity ObservedDailyValueTradedRole : CanonicalRole
+entity ObservedAverageDailyValueTradedRole : CanonicalRole
+entity ObservedIndexLevelRole : CanonicalRole
+entity ObservedFreeFloatRole : CanonicalRole
+entity ObservedShareCountRole : CanonicalRole
+entity ObservedFreeFloatMarketCapitalizationRole : CanonicalRole
+entity ObservedCurrencyRole : CanonicalRole
+entity ObservedExchangeRole : CanonicalRole
+entity MembershipSecurityRole : CanonicalRole
+entity MembershipComponentAssignmentRole : CanonicalRole
+entity MembershipIndexRole : CanonicalRole
+entity MembershipSelectionDayRole : CanonicalRole
+entity MembershipCalculationDayRole : CanonicalRole
+entity MembershipStateRole : CanonicalRole
+
+rel canonical_concept_status : CanonicalConcept, CanonicalDecisionStatus
+rel canonical_concept_scope : CanonicalConcept, CanonicalScope
+rel canonical_bridge_relation : CanonicalConcept, CanonicalConcept, CanonicalBridgeRelation
+rel frame_has_role : CanonicalFrame, CanonicalRole
+rel frame_primary_value_role : CanonicalFrame, CanonicalRole
+
+rel variant_of_index_family : IndexVariant, IndexFamily
+rel return_treatment_of_variant : IndexVariant, ReturnTreatment
+rel decrement_treatment_of_variant : IndexVariant, DecrementTreatment
+rel generic_index_rule_applies_to_variant : IndexFamily, IndexVariant
+
+rel administered_by : IndexFamily, IndexAdministrator
+rel methodology_of_index_family : IndexMethodology, IndexFamily
+rel website_of : Website, Organization
+rel section_of_website : WebsiteSection, Website
+rel incorporated_by_reference_into : Document, Document
+rel available_on : Document, Website
+
+rel index_component_security : IndexComponent, Security
+rel index_component_index : IndexComponent, Index
+rel security_reflected_in_index : Security, Index
+rel index_universe_member : IndexUniverse, Security
+rel fulfills_index_component_requirements : Security, IndexComponentRequirements
+rel fulfills_index_universe_requirements : FinancialInstrument, IndexUniverseRequirements
+rel membership_role_assignment : IndexComponentMembership, IndexComponent
+rel membership_component : IndexComponentMembership, Security
+rel membership_index : IndexComponentMembership, Index
+rel membership_selection_day : IndexComponentMembership, SelectionDay
+rel membership_calculation_day : IndexComponentMembership, CalculationDay
+rel membership_state : IndexComponentMembership, IndexComponentMembershipState
+
+rel selection_day_for_rebalance_day : SelectionDay, RebalanceDay
+rel fixing_day_for_rebalance_day : FixingDay, RebalanceDay
+rel calculation_day_of_index : CalculationDay, Index
+rel trading_day_for_component : TradingDay, IndexComponent
+rel eligible_rebalance_day : Day
+rel scheduled_rebalance_day : Day
+
+rel respective_exchange_for_index_component : IndexComponent, Exchange
+rel trading_price_of_component_on_day : IndexComponent, TradingDay, TradingPrice
+rel closing_price_of_component_on_day : IndexComponent, TradingDay, ClosingPrice
+rel average_daily_value_traded_over_period : IndexComponent, Period, AverageDailyValueTraded
+rel daily_value_traded_on_day : IndexComponent, TradingDay, DailyValueTraded
+rel index_currency : Index, Currency
+rel index_level_on_day : Index, Day, IndexLevel
+
+rel observation_subject : ValueObservation, Security
+rel observation_index : ValueObservation, Index
+rel observation_day_context : ValueObservation, Day
+rel observation_selection_day_context : ValueObservation, SelectionDay
+rel observation_period_context : ValueObservation, Period
+rel observation_time_context : ValueObservation, Time
+rel observation_calculation : ValueObservation, IndexCalculation
+rel observed_price : PriceObservation, Price
+rel observed_trading_price : TradingPriceObservation, TradingPrice
+rel observed_closing_price : ClosingPriceObservation, ClosingPrice
+rel observed_component_price : ComponentPriceObservation, Price
+rel observed_price_change : PriceChangeObservation, PriceChange
+rel observed_component_weight : ComponentWeightObservation, ComponentWeight
+rel observed_region : RegionClassificationObservation, Region
+rel observed_daily_value_traded : DailyValueTradedObservation, DailyValueTraded
+rel observed_average_daily_value_traded : AverageDailyValueTradedObservation, AverageDailyValueTraded
+rel observed_index_level : IndexLevelObservation, IndexLevel
+rel observed_free_float : FreeFloatObservation, FreeFloat
+rel observed_share_count : ShareCountObservation, ShareCount
+rel observed_free_float_market_capitalization : FreeFloatMarketCapitalizationObservation, FreeFloatMarketCapitalization
+rel observed_currency : IndexCurrencyObservation, Currency
+rel observed_exchange : ExchangeObservation, Exchange
+
+rel free_float_of_share_class_on_selection_day : ShareClass, SelectionDay, FreeFloat
+rel share_count_of_share_class_on_selection_day : ShareClass, SelectionDay, ShareCount
+rel free_float_market_capitalization : ShareClass, SelectionDay, FreeFloatMarketCapitalization
+
+rel rbics_subindustry_classification_of_system : RBICSSubindustryClassification, RBICSClassificationSystem
+rel rbics_subindustry_classification_in_appendix : RBICSSubindustryClassification, DocumentPart
+
+fact canonical_index_variants :
+  variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndexPR, SolactiveTransatlanticCleanEnergyEURIndexFamily)
+  and variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndexNTR, SolactiveTransatlanticCleanEnergyEURIndexFamily)
+  and variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndexTR, SolactiveTransatlanticCleanEnergyEURIndexFamily)
+  and variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, SolactiveTransatlanticCleanEnergyEURIndexFamily)
+  and variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndex50AR, SolactiveTransatlanticCleanEnergyEURIndexFamily)
+  and return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexPR, PriceReturn)
+  and return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexNTR, NetTotalReturn)
+  and return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexTR, GrossTotalReturn)
+  and return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, AdjustedReturn)
+  and return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndex50AR, AdjustedReturn)
+  and decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexPR, NoDecrement)
+  and decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexNTR, NoDecrement)
+  and decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexTR, NoDecrement)
+  and decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, FivePercentAnnualDecrement)
+  and decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndex50AR, NoDecrement)
+
+fact generic_methodology_rules_apply_to_published_variants :
+  generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndexPR)
+  and generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndexNTR)
+  and generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndexTR)
+  and generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndex5PercentAR)
+  and generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndex50AR)
+
+fact canonical_document_infrastructure :
+  administered_by(SolactiveTransatlanticCleanEnergyEURIndexFamily, Solactive)
+  and methodology_of_index_family(CanonicalEquityIndexMethodology, SolactiveTransatlanticCleanEnergyEURIndexFamily)
+  and website_of(SolactiveWebsite, Solactive)
+  and section_of_website(AnnouncementSection, SolactiveWebsite)
+  and incorporated_by_reference_into(CanonicalEquityIndexMethodology, ThisGuideline)
+  and incorporated_by_reference_into(CanonicalSolactiveMethodologyPolicy, ThisGuideline)
+  and incorporated_by_reference_into(CanonicalSolactiveCorrectionPolicy, ThisGuideline)
+  and incorporated_by_reference_into(CanonicalSolactiveDisruptionPolicy, ThisGuideline)
+  and available_on(CanonicalEquityIndexMethodology, SolactiveWebsite)
+  and available_on(CanonicalSolactiveMethodologyPolicy, SolactiveWebsite)
+  and available_on(CanonicalSolactiveCorrectionPolicy, SolactiveWebsite)
+  and available_on(CanonicalSolactiveDisruptionPolicy, SolactiveWebsite)
+
+fact canonical_rbics_infrastructure :
+  rbics_subindustry_classification_of_system(CanonicalRBICSLevel6SubindustryClassification, FactSetRevereBusinessIndustryClassificationSystem)
+  and rbics_subindustry_classification_in_appendix(CanonicalRBICSLevel6SubindustryClassification, IndexGuidelineAppendix)
+
+fact canonical_observation_frames :
+  canonical_concept_status(TradingPriceObservationFrame, Accepted)
+  and canonical_concept_status(ClosingPriceObservationFrame, Accepted)
+  and canonical_concept_status(ComponentPriceObservationFrame, Accepted)
+  and canonical_concept_status(PriceChangeObservationFrame, Accepted)
+  and canonical_concept_status(ComponentWeightObservationFrame, Accepted)
+  and canonical_concept_status(RegionClassificationObservationFrame, Accepted)
+  and canonical_concept_status(DailyValueTradedObservationFrame, Accepted)
+  and canonical_concept_status(AverageDailyValueTradedObservationFrame, Accepted)
+  and canonical_concept_status(IndexLevelObservationFrame, Accepted)
+  and canonical_concept_status(InitialIndexLevelObservationFrame, Accepted)
+  and canonical_concept_status(FreeFloatObservationFrame, Accepted)
+  and canonical_concept_status(ShareCountObservationFrame, Accepted)
+  and canonical_concept_status(FreeFloatMarketCapitalizationObservationFrame, Accepted)
+  and canonical_concept_status(IndexCurrencyObservationFrame, Accepted)
+  and canonical_concept_status(ExchangeObservationFrame, Accepted)
+  and frame_has_role(TradingPriceObservationFrame, ObservationSubjectRole)
+  and frame_has_role(TradingPriceObservationFrame, ObservationDayContextRole)
+  and frame_has_role(TradingPriceObservationFrame, ObservationTimeContextRole)
+  and frame_has_role(TradingPriceObservationFrame, ObservedTradingPriceRole)
+  and frame_primary_value_role(TradingPriceObservationFrame, ObservedTradingPriceRole)
+  and frame_has_role(ClosingPriceObservationFrame, ObservationSubjectRole)
+  and frame_has_role(ClosingPriceObservationFrame, ObservationDayContextRole)
+  and frame_has_role(ClosingPriceObservationFrame, ObservationSelectionDayContextRole)
+  and frame_has_role(ClosingPriceObservationFrame, ObservedClosingPriceRole)
+  and frame_primary_value_role(ClosingPriceObservationFrame, ObservedClosingPriceRole)
+  and frame_has_role(ComponentPriceObservationFrame, ObservationSubjectRole)
+  and frame_has_role(ComponentPriceObservationFrame, ObservationDayContextRole)
+  and frame_has_role(ComponentPriceObservationFrame, ObservedComponentPriceRole)
+  and frame_primary_value_role(ComponentPriceObservationFrame, ObservedComponentPriceRole)
+  and frame_has_role(PriceChangeObservationFrame, ObservationSubjectRole)
+  and frame_has_role(PriceChangeObservationFrame, ObservationDayContextRole)
+  and frame_has_role(PriceChangeObservationFrame, ObservedPriceChangeRole)
+  and frame_primary_value_role(PriceChangeObservationFrame, ObservedPriceChangeRole)
+  and frame_has_role(ComponentWeightObservationFrame, ObservationSubjectRole)
+  and frame_has_role(ComponentWeightObservationFrame, ObservationIndexRole)
+  and frame_has_role(ComponentWeightObservationFrame, ObservationDayContextRole)
+  and frame_has_role(ComponentWeightObservationFrame, ObservationSelectionDayContextRole)
+  and frame_has_role(ComponentWeightObservationFrame, ObservedComponentWeightRole)
+  and frame_primary_value_role(ComponentWeightObservationFrame, ObservedComponentWeightRole)
+  and frame_has_role(RegionClassificationObservationFrame, ObservationSubjectRole)
+  and frame_has_role(RegionClassificationObservationFrame, ObservationSelectionDayContextRole)
+  and frame_has_role(RegionClassificationObservationFrame, ObservedRegionRole)
+  and frame_primary_value_role(RegionClassificationObservationFrame, ObservedRegionRole)
+  and frame_has_role(DailyValueTradedObservationFrame, ObservationSubjectRole)
+  and frame_has_role(DailyValueTradedObservationFrame, ObservationDayContextRole)
+  and frame_has_role(DailyValueTradedObservationFrame, ObservedDailyValueTradedRole)
+  and frame_primary_value_role(DailyValueTradedObservationFrame, ObservedDailyValueTradedRole)
+  and frame_has_role(AverageDailyValueTradedObservationFrame, ObservationSubjectRole)
+  and frame_has_role(AverageDailyValueTradedObservationFrame, ObservationSelectionDayContextRole)
+  and frame_has_role(AverageDailyValueTradedObservationFrame, ObservationPeriodContextRole)
+  and frame_has_role(AverageDailyValueTradedObservationFrame, ObservedAverageDailyValueTradedRole)
+  and frame_primary_value_role(AverageDailyValueTradedObservationFrame, ObservedAverageDailyValueTradedRole)
+  and frame_has_role(IndexLevelObservationFrame, ObservationIndexRole)
+  and frame_has_role(IndexLevelObservationFrame, ObservationDayContextRole)
+  and frame_has_role(IndexLevelObservationFrame, ObservationCalculationRole)
+  and frame_has_role(IndexLevelObservationFrame, ObservedIndexLevelRole)
+  and frame_primary_value_role(IndexLevelObservationFrame, ObservedIndexLevelRole)
+  and frame_has_role(InitialIndexLevelObservationFrame, ObservationIndexRole)
+  and frame_has_role(InitialIndexLevelObservationFrame, ObservationDayContextRole)
+  and frame_has_role(InitialIndexLevelObservationFrame, ObservedIndexLevelRole)
+  and frame_primary_value_role(InitialIndexLevelObservationFrame, ObservedIndexLevelRole)
+  and frame_has_role(FreeFloatObservationFrame, ObservationSubjectRole)
+  and frame_has_role(FreeFloatObservationFrame, ObservationSelectionDayContextRole)
+  and frame_has_role(FreeFloatObservationFrame, ObservedFreeFloatRole)
+  and frame_primary_value_role(FreeFloatObservationFrame, ObservedFreeFloatRole)
+  and frame_has_role(ShareCountObservationFrame, ObservationSubjectRole)
+  and frame_has_role(ShareCountObservationFrame, ObservationSelectionDayContextRole)
+  and frame_has_role(ShareCountObservationFrame, ObservedShareCountRole)
+  and frame_primary_value_role(ShareCountObservationFrame, ObservedShareCountRole)
+  and frame_has_role(FreeFloatMarketCapitalizationObservationFrame, ObservationSubjectRole)
+  and frame_has_role(FreeFloatMarketCapitalizationObservationFrame, ObservationSelectionDayContextRole)
+  and frame_has_role(FreeFloatMarketCapitalizationObservationFrame, ObservedFreeFloatMarketCapitalizationRole)
+  and frame_primary_value_role(FreeFloatMarketCapitalizationObservationFrame, ObservedFreeFloatMarketCapitalizationRole)
+  and frame_has_role(IndexCurrencyObservationFrame, ObservationIndexRole)
+  and frame_has_role(IndexCurrencyObservationFrame, ObservedCurrencyRole)
+  and frame_primary_value_role(IndexCurrencyObservationFrame, ObservedCurrencyRole)
+  and frame_has_role(ExchangeObservationFrame, ObservationSubjectRole)
+  and frame_has_role(ExchangeObservationFrame, ObservationIndexRole)
+  and frame_has_role(ExchangeObservationFrame, ObservedExchangeRole)
+  and frame_primary_value_role(ExchangeObservationFrame, ObservedExchangeRole)
+
+fact canonical_index_component_membership_frames :
+  canonical_concept_status(GenericIndexComponentMembershipFrame, Accepted)
+  and canonical_concept_status(SelectionDayIndexComponentMembershipFrame, Accepted)
+  and canonical_concept_status(CalculationDayIndexComponentMembershipFrame, Accepted)
+  and frame_has_role(GenericIndexComponentMembershipFrame, MembershipSecurityRole)
+  and frame_has_role(GenericIndexComponentMembershipFrame, MembershipComponentAssignmentRole)
+  and frame_has_role(GenericIndexComponentMembershipFrame, MembershipIndexRole)
+  and frame_has_role(GenericIndexComponentMembershipFrame, MembershipStateRole)
+  and frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipSecurityRole)
+  and frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipComponentAssignmentRole)
+  and frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipIndexRole)
+  and frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipSelectionDayRole)
+  and frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipStateRole)
+  and frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipSecurityRole)
+  and frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipComponentAssignmentRole)
+  and frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipIndexRole)
+  and frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipCalculationDayRole)
+  and frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipStateRole)

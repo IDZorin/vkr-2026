@@ -1,0 +1,163 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_4 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:IndexMethodology a rdfs:Class .
+ex:IndexMethodologyShape a sh:NodeShape ; sh:targetClass ex:IndexMethodology .
+ex:UnderlyingMarket a rdfs:Class .
+ex:UnderlyingMarketShape a sh:NodeShape ; sh:targetClass ex:UnderlyingMarket .
+ex:EconomicReality a rdfs:Class .
+ex:EconomicRealityShape a sh:NodeShape ; sh:targetClass ex:EconomicReality .
+ex:IndexRule a rdfs:Class .
+ex:IndexRuleShape a sh:NodeShape ; sh:targetClass ex:IndexRule .
+ex:SelectionCriteria a rdfs:Class .
+ex:SelectionCriteria rdfs:subClassOf ex:IndexRule .
+ex:SelectionCriteriaShape a sh:NodeShape ; sh:targetClass ex:SelectionCriteria .
+ex:Option a rdfs:Class .
+ex:OptionShape a sh:NodeShape ; sh:targetClass ex:Option .
+ex:Effort a rdfs:Class .
+ex:EffortShape a sh:NodeShape ; sh:targetClass ex:Effort .
+ex:Procedure a rdfs:Class .
+ex:ProcedureShape a sh:NodeShape ; sh:targetClass ex:Procedure .
+ex:Guidelines a rdfs:Class .
+ex:GuidelinesShape a sh:NodeShape ; sh:targetClass ex:Guidelines .
+ex:Cessation a rdfs:Class .
+ex:CessationShape a sh:NodeShape ; sh:targetClass ex:Cessation .
+ex:CessationSituation a rdfs:Class .
+ex:CessationSituationShape a sh:NodeShape ; sh:targetClass ex:CessationSituation .
+ex:Stakeholder a rdfs:Class .
+ex:StakeholderShape a sh:NodeShape ; sh:targetClass ex:Stakeholder .
+ex:TerminationPolicy a rdfs:Class .
+ex:TerminationPolicy rdfs:subClassOf ex:Document .
+ex:TerminationPolicyShape a sh:NodeShape ; sh:targetClass ex:TerminationPolicy .
+ex:InvestmentFund a rdfs:Class .
+ex:InvestmentFundShape a sh:NodeShape ; sh:targetClass ex:InvestmentFund .
+ex:FinancialContract a rdfs:Class .
+ex:FinancialContractShape a sh:NodeShape ; sh:targetClass ex:FinancialContract .
+ex:AlternativeIndex a rdfs:Class .
+ex:AlternativeIndex rdfs:subClassOf ex:Index .
+ex:AlternativeIndexShape a sh:NodeShape ; sh:targetClass ex:AlternativeIndex .
+ex:IndexQuality a rdfs:Class .
+ex:IndexQualityShape a sh:NodeShape ; sh:targetClass ex:IndexQuality .
+ex:Resilience a ex:IndexQuality .
+ex:ContinuedIntegrity a ex:IndexQuality .
+ex:ContinuedReliability a ex:IndexQuality .
+ex:Comparability a ex:IndexQuality .
+
+ex:Solactive a ex:Organization .
+ex:SolactiveGreatestPossibleEfforts a ex:Effort .
+ex:SolactiveCessationGuidelines a ex:Guidelines .
+ex:SolactiveTerminationPolicy a ex:TerminationPolicy .
+ex:SolactiveWebsite a ex:WebResource .
+ex:Stakeholders a ex:Stakeholder .
+ex:Substantially a ex:VagueTerm .
+ex:Section5_2MethodologyReview a ex:DocumentPart .
+ex:Section5_2MethodologyReviewLocator a ex:DocumentLocator .
+ex:HttpsWwwSolactiveComDocumentsTerminationPolicy a ex:Url .
+ex:index_of a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_of ; sh:class ex:Organization ] .
+ex:methodology_of_index a rdf:Property .
+ex:IndexMethodologyShape sh:property [ sh:path ex:methodology_of_index ; sh:class ex:Index ] .
+ex:effort_by a rdf:Property .
+ex:EffortShape sh:property [ sh:path ex:effort_by ; sh:class ex:Organization ] .
+ex:greatest_possible a rdfs:Class ; rdfs:subClassOf ex:Effort .
+ex:over_time a rdfs:Class ; rdfs:subClassOf ex:Effort .
+ex:effort_to_ensure a rdfs:Class .
+ex:effort_to_ensureShape a sh:NodeShape ; sh:targetClass ex:effort_to_ensure .
+ex:effort_to_ensureShape sh:property [ sh:path ex:effort_to_ensure_arg_0 ; sh:class ex:Effort ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:effort_to_ensureShape sh:property [ sh:path ex:effort_to_ensure_arg_1 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:effort_to_ensureShape sh:property [ sh:path ex:effort_to_ensure_arg_2 ; sh:class ex:IndexQuality ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:necessary_to_adapt_methodology a rdf:Property .
+ex:IndexMethodologyShape sh:property [ sh:path ex:necessary_to_adapt_methodology ; sh:class ex:UnderlyingMarket ] .
+ex:changing_underlying_market a rdfs:Class ; rdfs:subClassOf ex:UnderlyingMarket .
+ex:follows a rdf:Property .
+ex:OrganizationShape sh:property [ sh:path ex:follows ; sh:class ex:Procedure ] .
+ex:clearly_defined a rdfs:Class ; rdfs:subClassOf ex:Procedure .
+ex:transparent a rdfs:Class ; rdfs:subClassOf ex:Procedure .
+ex:adapts_index_methodology a rdfs:Class .
+ex:adapts_index_methodologyShape a sh:NodeShape ; sh:targetClass ex:adapts_index_methodology .
+ex:adapts_index_methodologyShape sh:property [ sh:path ex:adapts_index_methodology_arg_0 ; sh:class ex:Procedure ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:adapts_index_methodologyShape sh:property [ sh:path ex:adapts_index_methodology_arg_1 ; sh:class ex:IndexMethodology ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:adapts_index_methodologyShape sh:property [ sh:path ex:adapts_index_methodology_arg_2 ; sh:class ex:UnderlyingMarket ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:procedure_maintains a rdfs:Class .
+ex:procedure_maintainsShape a sh:NodeShape ; sh:targetClass ex:procedure_maintains .
+ex:procedure_maintainsShape sh:property [ sh:path ex:procedure_maintains_arg_0 ; sh:class ex:Procedure ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:procedure_maintainsShape sh:property [ sh:path ex:procedure_maintains_arg_1 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:procedure_maintainsShape sh:property [ sh:path ex:procedure_maintains_arg_2 ; sh:class ex:IndexQuality ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:see a rdf:Property .
+ex:ProcedureShape sh:property [ sh:path ex:see ; sh:class ex:DocumentPart ] .
+ex:available_option_for_index a rdf:Property .
+ex:OptionShape sh:property [ sh:path ex:available_option_for_index ; sh:class ex:Index ] .
+ex:usual_case_for_cessation a rdfs:Class ; rdfs:subClassOf ex:Index .
+ex:orderly_cessation_indication_available a rdfs:Class ; rdfs:subClassOf ex:Index .
+ex:index_set_to_measure_underlying_market a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_set_to_measure_underlying_market ; sh:class ex:UnderlyingMarket ] .
+ex:index_set_to_reflect_underlying_market a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_set_to_reflect_underlying_market ; sh:class ex:UnderlyingMarket ] .
+ex:index_set_to_measure_economic_reality a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_set_to_measure_economic_reality ; sh:class ex:EconomicReality ] .
+ex:index_set_to_reflect_economic_reality a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_set_to_reflect_economic_reality ; sh:class ex:EconomicReality ] .
+ex:underlying_market_changes a rdfs:Class ; rdfs:subClassOf ex:UnderlyingMarket .
+ex:economic_reality_changes a rdfs:Class ; rdfs:subClassOf ex:EconomicReality .
+ex:underlying_market_change_described_by a rdf:Property .
+ex:UnderlyingMarketShape sh:property [ sh:path ex:underlying_market_change_described_by ; sh:class ex:VagueTerm ] .
+ex:economic_reality_change_described_by a rdf:Property .
+ex:EconomicRealityShape sh:property [ sh:path ex:economic_reality_change_described_by ; sh:class ex:VagueTerm ] .
+ex:underlying_market_change_foreseeable_at_inception a rdf:Property .
+ex:UnderlyingMarketShape sh:property [ sh:path ex:underlying_market_change_foreseeable_at_inception ; sh:class ex:Index ] .
+ex:economic_reality_change_foreseeable_at_inception a rdf:Property .
+ex:EconomicRealityShape sh:property [ sh:path ex:economic_reality_change_foreseeable_at_inception ; sh:class ex:Index ] .
+ex:rule_of_index a rdf:Property .
+ex:IndexRuleShape sh:property [ sh:path ex:rule_of_index ; sh:class ex:Index ] .
+ex:applied_coherently a rdf:Property .
+ex:IndexRuleShape sh:property [ sh:path ex:applied_coherently ; sh:class ex:Index ] .
+ex:used_as_underlying_value_for_financial_instrument a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:used_as_underlying_value_for_financial_instrument ; sh:class ex:FinancialInstrument ] .
+ex:used_as_underlying_value_for_investment_fund a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:used_as_underlying_value_for_investment_fund ; sh:class ex:InvestmentFund ] .
+ex:used_as_underlying_value_for_financial_contract a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:used_as_underlying_value_for_financial_contract ; sh:class ex:FinancialContract ] .
+ex:established_by a rdf:Property .
+ex:GuidelinesShape sh:property [ sh:path ex:established_by ; sh:class ex:Organization ] .
+ex:maintained_by a rdf:Property .
+ex:GuidelinesShape sh:property [ sh:path ex:maintained_by ; sh:class ex:Organization ] .
+ex:clear a rdfs:Class ; rdfs:subClassOf ex:Guidelines .
+ex:guidelines_identify a rdf:Property .
+ex:GuidelinesShape sh:property [ sh:path ex:guidelines_identify ; sh:class ex:CessationSituation ] .
+ex:unavoidable a rdfs:Class ; rdfs:subClassOf ex:CessationSituation .
+ex:procedure_in_guidelines a rdf:Property .
+ex:GuidelinesShape sh:property [ sh:path ex:procedure_in_guidelines ; sh:class ex:Procedure ] .
+ex:procedure_for_informing a rdf:Property .
+ex:ProcedureShape sh:property [ sh:path ex:procedure_for_informing ; sh:class ex:Stakeholder ] .
+ex:procedure_for_consulting a rdf:Property .
+ex:ProcedureShape sh:property [ sh:path ex:procedure_for_consulting ; sh:class ex:Stakeholder ] .
+ex:procedure_for_termination a rdfs:Class ; rdfs:subClassOf ex:Procedure .
+ex:procedure_for_transition_to_alternative_index a rdf:Property .
+ex:ProcedureShape sh:property [ sh:path ex:procedure_for_transition_to_alternative_index ; sh:class ex:AlternativeIndex ] .
+ex:details_specified_in a rdf:Property .
+ex:GuidelinesShape sh:property [ sh:path ex:details_specified_in ; sh:class ex:TerminationPolicy ] .
+ex:incorporated_by_reference a rdfs:Class ; rdfs:subClassOf ex:TerminationPolicy .
+ex:available_on a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:available_on ; sh:class ex:WebResource ] .
+ex:website_of a rdf:Property .
+ex:WebResourceShape sh:property [ sh:path ex:website_of ; sh:class ex:Organization ] .
+
+ex:SolactiveTerminationPolicy ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:SolactiveGreatestPossibleEfforts ex:effort_by ex:Solactive .
+ex:SolactiveGreatestPossibleEfforts a ex:greatest_possible .
+ex:SolactiveGreatestPossibleEfforts a ex:over_time .
+ex:SolactiveCessationGuidelines ex:established_by ex:Solactive .
+ex:SolactiveCessationGuidelines ex:maintained_by ex:Solactive .
+ex:SolactiveCessationGuidelines a ex:clear .
+ex:SolactiveCessationGuidelines ex:details_specified_in ex:SolactiveTerminationPolicy .
+ex:SolactiveTerminationPolicy a ex:incorporated_by_reference .

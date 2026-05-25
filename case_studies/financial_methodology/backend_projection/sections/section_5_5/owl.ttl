@@ -1,0 +1,91 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_5 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:IndexRule a owl:Class .
+ex:Amendment a owl:Class .
+ex:IndexRuleAmendment a owl:Class .
+ex:IndexRuleAmendment rdfs:subClassOf ex:Amendment .
+ex:GuidelineAmendment a owl:Class .
+ex:GuidelineAmendment rdfs:subClassOf ex:Amendment .
+ex:Committee a owl:Class .
+ex:Committee rdfs:subClassOf ex:Organization .
+ex:Staff a owl:Class .
+ex:Subsidiary a owl:Class .
+ex:Subsidiary rdfs:subClassOf ex:Organization .
+ex:Approval a owl:Class .
+ex:PriorApproval a owl:Class .
+ex:PriorApproval rdfs:subClassOf ex:Approval .
+ex:Policy a owl:Class .
+ex:Policy rdfs:subClassOf ex:Document .
+
+ex:Solactive a ex:Organization, owl:NamedIndividual .
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:Guideline a ex:Document, owl:NamedIndividual .
+ex:MethodologyPolicy a ex:Policy, owl:NamedIndividual .
+ex:OversightCommittee a ex:Committee, owl:NamedIndividual .
+ex:OversightCommitteePriorApproval a ex:PriorApproval, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComDocumentsMethodologyPolicy a ex:Url, owl:NamedIndividual .
+ex:composed_of a owl:ObjectProperty ;
+  rdfs:domain ex:Committee ;
+  rdfs:range ex:Staff .
+ex:staff_from a owl:ObjectProperty ;
+  rdfs:domain ex:Staff ;
+  rdfs:range ex:Organization .
+ex:subsidiary_of a owl:ObjectProperty ;
+  rdfs:domain ex:Subsidiary ;
+  rdfs:range ex:Organization .
+ex:rule_of a owl:ObjectProperty ;
+  rdfs:domain ex:IndexRule ;
+  rdfs:range ex:Index .
+ex:amendment_of_rule a owl:ObjectProperty ;
+  rdfs:domain ex:IndexRuleAmendment ;
+  rdfs:range ex:IndexRule .
+ex:amendment_of_document a owl:ObjectProperty ;
+  rdfs:domain ex:GuidelineAmendment ;
+  rdfs:range ex:Document .
+ex:may_result_in a owl:ObjectProperty ;
+  rdfs:domain ex:IndexRuleAmendment ;
+  rdfs:range ex:GuidelineAmendment .
+ex:responsible_for_decisions_regarding a owl:ObjectProperty ;
+  rdfs:domain ex:Committee ;
+  rdfs:range ex:IndexRuleAmendment .
+ex:approval_by a owl:ObjectProperty ;
+  rdfs:domain ex:PriorApproval ;
+  rdfs:range ex:Committee .
+ex:available_on a owl:ObjectProperty ;
+  rdfs:domain ex:Document ;
+  rdfs:range ex:WebResource .
+ex:website_of a owl:ObjectProperty ;
+  rdfs:domain ex:WebResource ;
+  rdfs:range ex:Organization .
+
+ex:MethodologyPolicy ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:ASSERT_methodology_policy_location a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(document_url(MethodologyPolicy, HttpsWwwSolactiveComDocumentsMethodologyPolicy)) and (available_on(MethodologyPolicy, SolactiveWebsite)) and (website_of(SolactiveWebsite, Solactive))" .
+ex:ASSERT_oversight_committee_has_staff a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "exists s: Staff, composed_of(OversightCommittee, s)" .
+ex:OversightCommitteePriorApproval ex:approval_by ex:OversightCommittee .
+ex:ASSERT_oversight_committee_staff_from_solactive_or_subsidiary a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall s: Staff, (composed_of(OversightCommittee, s)) implies ((staff_from(s, Solactive)) or (exists sub: Subsidiary, (subsidiary_of(sub, Solactive)) and (staff_from(s, sub))))" .
+ex:ASSERT_index_rule_amendment_scope a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall a: IndexRuleAmendment, exists r: IndexRule, (amendment_of_rule(a, r)) and (rule_of(r, TheIndex))" .
+ex:ASSERT_oversight_committee_responsible_for_index_rule_amendment_decisions a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall a: IndexRuleAmendment, forall r: IndexRule, ((amendment_of_rule(a, r)) and (rule_of(r, TheIndex))) implies (responsible_for_decisions_regarding(OversightCommittee, a))" .
+ex:ASSERT_index_rule_amendments_may_result_in_guideline_amendment a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall a: IndexRuleAmendment, exists g: GuidelineAmendment, (may_result_in(a, g)) and (amendment_of_document(g, Guideline))" .

@@ -1,0 +1,175 @@
+﻿{
+  "schema": "corpus_aware_multi_judge_v1",
+  "generated_at": "2026-05-10T20:06:05+02:00",
+  "entry_id": "N24",
+  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N24",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "included_context": {
+    "entry": "N24",
+    "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N24",
+    "global_bridge": false,
+    "related_sections": [],
+    "artifacts": {
+      "source.md": true,
+      "normalized.md": true,
+      "main_ir.a4v3": true,
+      "repair.a4v3": false,
+      "provenance.yaml": true,
+      "translator_notes.md": true,
+      "waivers.yaml": false,
+      "waivers_v1.yaml": false
+    }
+  },
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR captures the source as a cross-reference definition: the quoted term is modeled as a defined term, Section 1.3 as the referenced document part, and the fact states that the term’s meaning is defined there. This matches the source sentence and the documented translation intent.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses a normalized entity name `LiveDateTerm` for the quoted source term \"Live Date\".",
+        "`Section1_3` is a structural identifier for the cited section, not a semantic change."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2021,
+        "completion_tokens": 172,
+        "total_tokens": 2193
+      },
+      "latency_s": 2.236685037612915
+    },
+    {
+      "model": "gpt-5.4",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "none"
+      ],
+      "reason_short": "The local IR captures the sole source claim: the defined term \"Live Date\" has its meaning defined in Section 1.3. The IR does not add substantive Section 1.3 content or misread \"shall\" as an obligation; instead it records the definitional cross-reference expressed in the source sentence.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses the normalized symbol name LiveDateTerm for the quoted term \"Live Date\".",
+        "Section1_3 is a symbolic identifier for the referenced document location Section 1.3.",
+        "The relation name term_shall_have_meaning_defined_in_section is slightly formalized but matches the legal drafting function of the source sentence."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2021,
+        "completion_tokens": 197,
+        "total_tokens": 2218
+      },
+      "latency_s": 3.926361322402954
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The source sentence is a single cross-reference definition: the term 'Live Date' is defined elsewhere in Section 1.3. The IR faithfully captures this by introducing DefinedTerm and DocumentPart entities and a relation stating that the term's meaning is defined in that section. The provenance and translator notes confirm this is the intended reading and explicitly reject alternative interpretations (deontic obligation, duplication of substantive content). No semantic divergence exists between source and IR.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses entity names LiveDateTerm and Section1_3 (snake_case) to represent the quoted term and section reference; these are conventional IR naming choices and do not alter meaning.",
+        "The relation name term_shall_have_meaning_defined_in_section is verbose but explicit; it clarifies that 'shall' here is definitional, not deontic."
+      ],
+      "confidence": 0.99,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2327,
+        "completion_tokens": 306,
+        "total_tokens": 2633
+      },
+      "latency_s": 4.4138853549957275
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "none"
+      ],
+      "reason_short": "The IR directly encodes the source statement as a fact relating a DefinedTerm entity (LiveDateTerm) and a DocumentPart entity (Section1_3) via a relation that captures the definitional cross-reference.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The relation name 'term_shall_have_meaning_defined_in_section' is a literal rendering of the source phrasing, which is stylistically acceptable."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2147,
+        "completion_tokens": 1349,
+        "total_tokens": 3496
+      },
+      "latency_s": 45.9295654296875
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR accurately captures the source sentence as a cross-reference definition, mapping the quoted term to a DefinedTerm entity, the target location to a DocumentPart, and the definitional link to a dedicated relation. The corpus context explicitly validates the decision to treat 'shall' as non-deontic legal drafting and to defer substantive definition content to the referenced section. No semantic divergence exists between the source and the IR.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The relation name `term_shall_have_meaning_defined_in_section` is highly specific to this exact phrasing; a more generalized name like `term_defined_in` could improve reusability if this pattern recurs, but the current naming is precise and unambiguous."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2158,
+        "completion_tokens": 2114,
+        "total_tokens": 4272
+      },
+      "latency_s": 40.56721091270447
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "local_source_alignment_mode": "corresponds",
+    "local_source_alignment_distribution": {
+      "corresponds": 5
+    },
+    "local_source_alignment_agreement": 1.0,
+    "corpus_alignment_mode": "corresponds",
+    "corpus_alignment_distribution": {
+      "corresponds": 5
+    },
+    "corpus_alignment_agreement": 1.0,
+    "unanimous_corpus_alignment": true,
+    "needs_context_count": 0,
+    "mean_confidence": 0.99
+  }
+}

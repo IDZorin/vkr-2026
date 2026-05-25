@@ -1,0 +1,69 @@
+{
+  "entry_id": "section_1_4",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 3676,
+    "completion_tokens": 331,
+    "total_tokens": 4007
+  },
+  "latency_s": 3.4188671112060547,
+  "scenarios": [
+    {
+      "description": "On a Calculation Day at 09:00 CET, an Index Component listed on an Exchange is also listed in the Index Currency, and a current Trading Price is available. The intraday level uses that current Trading Price directly.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "On a Calculation Day at 09:00 CET, an Index Component is not listed in the Index Currency, but the intraday calculation uses its unconverted local Trading Price as if no FX conversion were needed.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "For an Index Component with no current Trading Price on a Calculation Day, the calculation uses the later of the most recent Closing Price and the last available Trading Price for the preceding Trading Day. The scenario does not specify which of the two is later.",
+      "category": "scope_edge",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "For a non-Index-Currency component at the closing level, the 04:00 p.m. London WM Fixing is unavailable on the relevant Calculation Day, so the last available 04:00 p.m. London WM Fixing is used instead; the fixing is quoted by Reuters and tied to London time.",
+      "category": "modality_edge",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 4,
+    "agreement_rate": 1.0,
+    "drifts": [],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 1
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

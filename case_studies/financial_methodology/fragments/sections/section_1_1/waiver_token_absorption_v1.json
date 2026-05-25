@@ -1,0 +1,40 @@
+{
+  "entry_id": "section_1_1",
+  "schema": "waiver_token_absorption_v1",
+  "generated_from": "metrics_token_provenance_v1.json",
+  "items": [
+    {
+      "token": "categori",
+      "surface_forms": [
+        "Category"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 3
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "table_header_not_rule_content",
+      "comment": "The token 'Category' is a Markdown table column header, not a source claim about the Index. The row categories are modeled by the corresponding IR attributes.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "description",
+      "surface_forms": [
+        "Description"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 27
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "table_header_not_rule_content",
+      "comment": "The token 'Description' is a Markdown table column header, not a source claim about the Index. The description-cell content is modeled by the corresponding IR facts and constraint.",
+      "reviewer": "human_approved"
+    }
+  ],
+  "stale_tokens_from_previous_file": []
+}

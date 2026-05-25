@@ -1,6 +1,6 @@
-"""provenance_lint_v1.py
+﻿"""provenance_lint_v1.py
 
-Deterministic lint checks for DZ provenance.yaml files.
+Deterministic lint checks for methodology provenance.yaml files.
 
 The first check catches a recurring translator error: leaking A4V3 CamelCase
 identifiers into the human-readable back_translation field. Back-translations
@@ -247,7 +247,7 @@ def write_report(entry_dir: pathlib.Path, report: dict[str, Any]) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("target", help="DZ entry dir or run root")
+    ap.add_argument("target", help="seed methodology entry dir or run root")
     args = ap.parse_args()
     target = pathlib.Path(args.target)
     entries = _entry_dirs(target)

@@ -1,0 +1,24 @@
+﻿{
+  "backend": "owl",
+  "artifact": "case_studies\\financial_methodology\\backend_projection\\definitions\\N27\\owl.ttl",
+  "diagnostic_count": 3,
+  "diagnostics": [
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "business_day_count_before",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "selection_day_definition"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "rebalance_day_change_disregarded_for_selection_day"
+    }
+  ],
+  "partial": true
+}

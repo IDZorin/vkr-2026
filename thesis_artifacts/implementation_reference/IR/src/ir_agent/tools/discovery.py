@@ -1,4 +1,4 @@
-"""Discovery / retrieval tools: read corpus, search, schema lookup, curator."""
+﻿"""Discovery / retrieval tools: read corpus, search, schema lookup, curator."""
 from __future__ import annotations
 
 import json
@@ -149,7 +149,7 @@ def tool_list_sections(env: ToolEnv) -> dict[str, Any]:
 
 def _scope_paths(env: ToolEnv, scope: str) -> list[pathlib.Path]:
     """Per-corpus scope expansion. Reads paths from env.corpus_paths so
-    the agent stays corpus-agnostic — no hardcoded `dz` anywhere."""
+    the agent stays corpus-agnostic — no hardcoded corpus id anywhere."""
     cp = env.corpus_paths
     if scope == "sections" and cp.sections_root and cp.sections_root.exists():
         return [d / fname for d in sorted(cp.sections_root.iterdir()) if d.is_dir()

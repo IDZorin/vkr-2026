@@ -1,0 +1,114 @@
+{
+  "entry_id": "section_2_2",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1925,
+    "completion_tokens": 448,
+    "total_tokens": 2373
+  },
+  "latency_s": 3.12361478805542,
+  "raw_parsed": {
+    "source_facts": [
+      "Selection is fully rule-based.",
+      "Index Administrator cannot make discretionary decisions.",
+      "Selection is based on the Index Universe.",
+      "Initial composition and ordinary rebalance selection are determined on the Selection Day.",
+      "Each security is classified into Americas or Europe.",
+      "Canada or United States maps to Americas.",
+      "Europe country assignment maps to Europe.",
+      "Securities are ranked descending by Free Float Market Cap.",
+      "Top 20 securities per region are selected for inclusion.",
+      "Fewer than 20 eligible securities in a region yields fewer than 40 components total."
+    ],
+    "render_facts": [
+      "Selection of index components is fully rule-based.",
+      "Eligible securities are drawn from the index universe.",
+      "Securities with Canada or United States assignment are classified to the Americas region.",
+      "Securities with Europe assignment are classified to the Europe Region.",
+      "Within each region, eligible securities are ranked in descending order by free-float market capitalization.",
+      "Securities selected for index inclusion are the eligible securities ranked 20 or better in their region.",
+      "No more than 20 securities may be selected in any region.",
+      "Index components, the initial composition, and the ordinary rebalance selection are determined by the securities selected for index inclusion.",
+      "If any region has fewer than 20 eligible securities, the number of index components is less than 40.",
+      "The Index Administrator may not make a discretionary decision in relation to the selection."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 0,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 1,
+        "render_idx": 9,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 2,
+        "render_idx": 1,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 3,
+        "render_idx": 7,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 4,
+        "render_idx": 2,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 5,
+        "render_idx": 2,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 6,
+        "render_idx": 3,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 7,
+        "render_idx": 4,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 8,
+        "render_idx": 5,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 9,
+        "render_idx": 8,
+        "match": "paraphrase"
+      }
+    ],
+    "render_only": [
+      6
+    ]
+  },
+  "summary": {
+    "n_source_facts": 10,
+    "n_render_facts": 10,
+    "matched_source": 10,
+    "matched_render": 9,
+    "render_only": 1,
+    "missing_source": 0,
+    "weaker_in_render": 0,
+    "stronger_in_render": 0,
+    "recall": 1.0,
+    "precision": 0.9,
+    "f1": 0.947,
+    "missing_source_facts": [],
+    "render_only_facts": [
+      {
+        "idx": 6,
+        "fact": "No more than 20 securities may be selected in any region."
+      }
+    ],
+    "weaker_pairs": [],
+    "stronger_pairs": []
+  }
+}

@@ -1,0 +1,44 @@
+schema: role_annotations_v1
+entry_id: section_5_3
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  calculation_method_applied:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  deemed_by:
+    kind: rel
+    args:
+      1: {role: event}
+      2: {role: agent}
+      3: {role: qualifier}
+  information_withheld_on_modification_or_change:
+    kind: rel
+    args:
+      1: {role: agent}
+      2: {role: event}
+      3: {role: subject}
+  provide_information_on_modification_or_change:
+    kind: rel
+    args:
+      1: {role: agent}
+      2: {role: event}
+      3: {role: subject}
+  step_ensures_consistency_with:
+    kind: rel
+    args:
+      1: {role: subject}
+      2: {role: event}
+      3: {role: subject}
+constraints:
+  deemed_modification_or_change_scope:
+    frame: deemed_modification_or_change_scope
+    variables:
+      ch: {role: event, quantifier: forall}
+      e: {role: event, quantifier: exists}
+  information_withheld_means_information_not_provided:
+    frame: information_withheld_means_information_not_provided
+    variables:
+      a: {role: agent, quantifier: forall}
+      ch: {role: event, quantifier: forall}

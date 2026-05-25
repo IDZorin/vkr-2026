@@ -1,0 +1,53 @@
+sort RebalanceDay extends Day
+sort ScheduledRebalanceDay extends Day
+sort WeekdayOrdinal extends Nat
+sort Month =
+  May
+  | November
+
+entity FirstWeekdayOrdinal : WeekdayOrdinal
+
+fact first_weekday_ordinal_value :
+  FirstWeekdayOrdinal = 1
+
+rel nth_wednesday_in_month : Day, Month, WeekdayOrdinal
+rel scheduled_rebalance_day : Day
+rel eligible_rebalance_day : Day
+rel rebalance_day : Day
+rel immediately_following_eligible_rebalance_day_after : Day, Day
+rel strictly_before : Day, Day
+
+constraint scheduled_rebalance_day_definition :
+  forall d: Day,
+    scheduled_rebalance_day(d)
+    iff
+      nth_wednesday_in_month(d, May, FirstWeekdayOrdinal)
+      or nth_wednesday_in_month(d, November, FirstWeekdayOrdinal)
+
+constraint rebalance_day_definition :
+  forall d: Day,
+    rebalance_day(d)
+    iff
+      (
+        scheduled_rebalance_day(d)
+        and eligible_rebalance_day(d)
+      )
+      or
+      (
+        exists s: Day,
+          scheduled_rebalance_day(s)
+          and not eligible_rebalance_day(s)
+          and eligible_rebalance_day(d)
+          and immediately_following_eligible_rebalance_day_after(d, s)
+      )
+
+constraint immediately_following_eligible_rebalance_day_definition :
+  forall d: Day, forall s: Day,
+    immediately_following_eligible_rebalance_day_after(d, s)
+    implies
+      strictly_before(s, d)
+      and eligible_rebalance_day(d)
+      and forall e: Day,
+        strictly_before(s, e)
+        and strictly_before(e, d)
+        implies not eligible_rebalance_day(e)

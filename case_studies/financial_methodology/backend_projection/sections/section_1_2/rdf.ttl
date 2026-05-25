@@ -1,0 +1,315 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_2 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_1_2/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexName a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ISIN a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:RIC a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:BBGTicker a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexType a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:PriceReturn a ex:IndexType, a4:EnumMember, owl:NamedIndividual .
+ex:IndexType a4:enumMember ex:PriceReturn .
+ex:NetTotalReturn a ex:IndexType, a4:EnumMember, owl:NamedIndividual .
+ex:IndexType a4:enumMember ex:NetTotalReturn .
+ex:GrossTotalReturn a ex:IndexType, a4:EnumMember, owl:NamedIndividual .
+ex:IndexType a4:enumMember ex:GrossTotalReturn .
+ex:AdjustedReturnIndex a ex:IndexType, a4:EnumMember, owl:NamedIndividual .
+ex:IndexType a4:enumMember ex:AdjustedReturnIndex .
+ex:IndexTypeIdentifier a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:PR a ex:IndexTypeIdentifier, a4:EnumMember, owl:NamedIndividual .
+ex:IndexTypeIdentifier a4:enumMember ex:PR .
+ex:NTR a ex:IndexTypeIdentifier, a4:EnumMember, owl:NamedIndividual .
+ex:IndexTypeIdentifier a4:enumMember ex:NTR .
+ex:GTR a ex:IndexTypeIdentifier, a4:EnumMember, owl:NamedIndividual .
+ex:IndexTypeIdentifier a4:enumMember ex:GTR .
+ex:AR a ex:IndexTypeIdentifier, a4:EnumMember, owl:NamedIndividual .
+ex:IndexTypeIdentifier a4:enumMember ex:AR .
+ex:IndexAdministrator a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:PriceMarketingServices a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Vendor a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Vendor rdfs:subClassOf ex:Organization .
+ex:AffiliatedVendor a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:AffiliatedVendor rdfs:subClassOf ex:Vendor .
+ex:InformationSystem a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:VendorDistributionOrDisplayDecision a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexPublication a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+
+ex:Solactive a ex:IndexAdministrator, owl:NamedIndividual .
+ex:BoerseStuttgartGmbH a ex:Organization, owl:NamedIndividual .
+ex:BoerseStuttgartGmbHPriceMarketingServices a ex:PriceMarketingServices, owl:NamedIndividual .
+ex:EUR a ex:Currency, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPRName a ex:IndexName, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTRName a ex:IndexName, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTRName a ex:IndexName, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50ARName a ex:IndexName, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentARName a ex:IndexName, owl:NamedIndividual .
+ex:DE000SL0R4B4 a ex:ISIN, owl:NamedIndividual .
+ex:DE000SL0R4C2 a ex:ISIN, owl:NamedIndividual .
+ex:DE000SL0R4D0 a ex:ISIN, owl:NamedIndividual .
+ex:DE000SL0R4E8 a ex:ISIN, owl:NamedIndividual .
+ex:DE000SL0R4F5 a ex:ISIN, owl:NamedIndividual .
+ex:DotSOLTCEYP a ex:RIC, owl:NamedIndividual .
+ex:DotSOLTCEYN a ex:RIC, owl:NamedIndividual .
+ex:DotSOLTCEYT a ex:RIC, owl:NamedIndividual .
+ex:DotSOLTCA50 a ex:RIC, owl:NamedIndividual .
+ex:DotSOLTCEA5 a ex:RIC, owl:NamedIndividual .
+ex:SOLTCEYP a ex:BBGTicker, owl:NamedIndividual .
+ex:SOLTCEYT a ex:BBGTicker, owl:NamedIndividual .
+ex:SOLTCA50 a ex:BBGTicker, owl:NamedIndividual .
+ex:SOLTCEA5 a ex:BBGTicker, owl:NamedIndividual .
+ex:Guideline a ex:Document, owl:NamedIndividual .
+ex:EquityIndexMethodology a ex:Document, owl:NamedIndividual .
+ex:Section4 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section4Locator a ex:DocumentLocator, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:IndexAdministratorAnnouncementsWebsite a ex:WebResource, owl:NamedIndividual .
+ex:HttpsWwwSolactiveCom a ex:Url, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComDocumentsEquityIndexMethodology a ex:Url, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComNewsAnnouncements a ex:Url, owl:NamedIndividual .
+ex:index_name a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:index_name_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_name a4:argument ex:index_name_arg_0 .
+ex:index_name a4:resultSort ex:IndexName .
+ex:index_name a4:functionFlag "optional" .
+ex:index_isin a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:index_isin_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_isin a4:argument ex:index_isin_arg_0 .
+ex:index_isin a4:resultSort ex:ISIN .
+ex:index_isin a4:functionFlag "optional" .
+ex:index_currency a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:index_currency_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_currency a4:argument ex:index_currency_arg_0 .
+ex:index_currency a4:resultSort ex:Currency .
+ex:index_currency a4:functionFlag "optional" .
+ex:index_type a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:index_type_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_type a4:argument ex:index_type_arg_0 .
+ex:index_type a4:resultSort ex:IndexType .
+ex:index_type a4:functionFlag "optional" .
+ex:index_type_identifier a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:index_type_identifier_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexType .
+ex:index_type_identifier a4:argument ex:index_type_identifier_arg_0 .
+ex:index_type_identifier a4:resultSort ex:IndexTypeIdentifier .
+ex:index_type_identifier a4:functionFlag "optional" .
+ex:index_ric a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:index_ric_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_ric a4:argument ex:index_ric_arg_0 .
+ex:index_ric a4:resultSort ex:RIC .
+ex:index_ric a4:functionFlag "optional" .
+ex:bbg_ticker a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:bbg_ticker_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:bbg_ticker a4:argument ex:bbg_ticker_arg_0 .
+ex:bbg_ticker_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:BBGTicker .
+ex:bbg_ticker a4:argument ex:bbg_ticker_arg_1 .
+ex:published_under_following_identifiers a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:published_under_following_identifiers_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:published_under_following_identifiers a4:argument ex:published_under_following_identifiers_arg_0 .
+ex:calculation_described_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:calculation_described_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:calculation_described_in a4:argument ex:calculation_described_in_arg_0 .
+ex:calculation_described_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Document .
+ex:calculation_described_in a4:argument ex:calculation_described_in_arg_1 .
+ex:formula_specified_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:formula_specified_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:formula_specified_in a4:argument ex:formula_specified_in_arg_0 .
+ex:formula_specified_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:formula_specified_in a4:argument ex:formula_specified_in_arg_1 .
+ex:website_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:website_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:WebResource .
+ex:website_of a4:argument ex:website_of_arg_0 .
+ex:website_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:website_of a4:argument ex:website_of_arg_1 .
+ex:price_marketing_services_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:price_marketing_services_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:PriceMarketingServices .
+ex:price_marketing_services_of a4:argument ex:price_marketing_services_of_arg_0 .
+ex:price_marketing_services_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:price_marketing_services_of a4:argument ex:price_marketing_services_of_arg_1 .
+ex:published_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:published_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:published_on a4:argument ex:published_on_arg_0 .
+ex:published_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:WebResource .
+ex:published_on a4:argument ex:published_on_arg_1 .
+ex:available_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:available_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Document .
+ex:available_on a4:argument ex:available_on_arg_0 .
+ex:available_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:WebResource .
+ex:available_on a4:argument ex:available_on_arg_1 .
+ex:available_via a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:available_via_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:available_via a4:argument ex:available_via_arg_0 .
+ex:available_via_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:PriceMarketingServices .
+ex:available_via a4:argument ex:available_via_arg_1 .
+ex:vendor_information_system a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:vendor_information_system_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Vendor .
+ex:vendor_information_system a4:argument ex:vendor_information_system_arg_0 .
+ex:vendor_information_system_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:InformationSystem .
+ex:vendor_information_system a4:argument ex:vendor_information_system_arg_1 .
+ex:distribution_or_display_decision_for_vendor a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:distribution_or_display_decision_for_vendor_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:VendorDistributionOrDisplayDecision .
+ex:distribution_or_display_decision_for_vendor a4:argument ex:distribution_or_display_decision_for_vendor_arg_0 .
+ex:distribution_or_display_decision_for_vendor_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Vendor .
+ex:distribution_or_display_decision_for_vendor a4:argument ex:distribution_or_display_decision_for_vendor_arg_1 .
+ex:distribution_or_display_decision_for_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:distribution_or_display_decision_for_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:VendorDistributionOrDisplayDecision .
+ex:distribution_or_display_decision_for_index a4:argument ex:distribution_or_display_decision_for_index_arg_0 .
+ex:distribution_or_display_decision_for_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:distribution_or_display_decision_for_index a4:argument ex:distribution_or_display_decision_for_index_arg_1 .
+ex:decision_on_individual_basis a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:decision_on_individual_basis_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:VendorDistributionOrDisplayDecision .
+ex:decision_on_individual_basis a4:argument ex:decision_on_individual_basis_arg_0 .
+ex:decision_via_information_system a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:decision_via_information_system_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:VendorDistributionOrDisplayDecision .
+ex:decision_via_information_system a4:argument ex:decision_via_information_system_arg_0 .
+ex:decision_via_information_system_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:InformationSystem .
+ex:decision_via_information_system a4:argument ex:decision_via_information_system_arg_1 .
+ex:publication_in_relation_to_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:publication_in_relation_to_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexPublication .
+ex:publication_in_relation_to_index a4:argument ex:publication_in_relation_to_index_arg_0 .
+ex:publication_in_relation_to_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:publication_in_relation_to_index a4:argument ex:publication_in_relation_to_index_arg_1 .
+ex:notice_publication_in_relation_to_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:notice_publication_in_relation_to_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexPublication .
+ex:notice_publication_in_relation_to_index a4:argument ex:notice_publication_in_relation_to_index_arg_0 .
+ex:notice_publication_in_relation_to_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:notice_publication_in_relation_to_index a4:argument ex:notice_publication_in_relation_to_index_arg_1 .
+ex:guideline_amendment_publication_in_relation_to_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:guideline_amendment_publication_in_relation_to_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexPublication .
+ex:guideline_amendment_publication_in_relation_to_index a4:argument ex:guideline_amendment_publication_in_relation_to_index_arg_0 .
+ex:guideline_amendment_publication_in_relation_to_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Document .
+ex:guideline_amendment_publication_in_relation_to_index a4:argument ex:guideline_amendment_publication_in_relation_to_index_arg_1 .
+ex:guideline_amendment_publication_in_relation_to_index_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:Index .
+ex:guideline_amendment_publication_in_relation_to_index a4:argument ex:guideline_amendment_publication_in_relation_to_index_arg_2 .
+ex:available_at a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:available_at_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexPublication .
+ex:available_at a4:argument ex:available_at_arg_0 .
+ex:available_at_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:WebResource .
+ex:available_at a4:argument ex:available_at_arg_1 .
+
+ex:ASSERT_index_type_identifier_meanings a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "95"^^xsd:integer ;
+  a4:exprText "((index_type_identifier(PriceReturn)) = (PR)) and ((index_type_identifier(NetTotalReturn)) = (NTR)) and ((index_type_identifier(GrossTotalReturn)) = (GTR)) and ((index_type_identifier(AdjustedReturnIndex)) = (AR))" ;
+  a4:sourceText "fact index_type_identifier_meanings :\nindex_type_identifier(PriceReturn) = PR\nand index_type_identifier(NetTotalReturn) = NTR\nand index_type_identifier(GrossTotalReturn) = GTR\nand index_type_identifier(AdjustedReturnIndex) = AR" .
+ex:ASSERT_solactive_website a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "101"^^xsd:integer ;
+  a4:exprText "(has_url(SolactiveWebsite, HttpsWwwSolactiveCom)) and (website_of(SolactiveWebsite, Solactive))" ;
+  a4:sourceText "fact solactive_website :\nhas_url(SolactiveWebsite, HttpsWwwSolactiveCom)\nand website_of(SolactiveWebsite, Solactive)" .
+ex:ASSERT_equity_index_methodology_location a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "105"^^xsd:integer ;
+  a4:exprText "(document_url(EquityIndexMethodology, HttpsWwwSolactiveComDocumentsEquityIndexMethodology)) and (available_on(EquityIndexMethodology, SolactiveWebsite))" ;
+  a4:sourceText "fact equity_index_methodology_location :\ndocument_url(EquityIndexMethodology, HttpsWwwSolactiveComDocumentsEquityIndexMethodology)\nand available_on(EquityIndexMethodology, SolactiveWebsite)" .
+ex:ASSERT_section_4_location a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "109"^^xsd:integer ;
+  a4:exprText "(part_of_document(Section4, Guideline)) and (document_part_locator(Section4, Section4Locator))" ;
+  a4:sourceText "fact section_4_location :\npart_of_document(Section4, Guideline)\nand document_part_locator(Section4, Section4Locator)" .
+ex:ASSERT_announcements_website a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "113"^^xsd:integer ;
+  a4:exprText "(has_url(IndexAdministratorAnnouncementsWebsite, HttpsWwwSolactiveComNewsAnnouncements)) and (website_of(IndexAdministratorAnnouncementsWebsite, Solactive))" ;
+  a4:sourceText "fact announcements_website :\nhas_url(IndexAdministratorAnnouncementsWebsite, HttpsWwwSolactiveComNewsAnnouncements)\nand website_of(IndexAdministratorAnnouncementsWebsite, Solactive)" .
+ex:ASSERT_boerse_stuttgart_price_marketing_services a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "117"^^xsd:integer ;
+  a4:exprText "price_marketing_services_of(BoerseStuttgartGmbHPriceMarketingServices, BoerseStuttgartGmbH)" ;
+  a4:sourceText "fact boerse_stuttgart_price_marketing_services :\nprice_marketing_services_of(BoerseStuttgartGmbHPriceMarketingServices, BoerseStuttgartGmbH)" .
+ex:ASSERT_index_pr_identifiers a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "120"^^xsd:integer ;
+  a4:exprText "(published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexPR)) and ((index_name(SolactiveTransatlanticCleanEnergyEURIndexPR)) = (SolactiveTransatlanticCleanEnergyEURIndexPRName)) and ((index_isin(SolactiveTransatlanticCleanEnergyEURIndexPR)) = (DE000SL0R4B4)) and ((index_currency(SolactiveTransatlanticCleanEnergyEURIndexPR)) = (EUR)) and ((index_type(SolactiveTransatlanticCleanEnergyEURIndexPR)) = (PriceReturn)) and ((index_ric(SolactiveTransatlanticCleanEnergyEURIndexPR)) = (DotSOLTCEYP)) and (bbg_ticker(SolactiveTransatlanticCleanEnergyEURIndexPR, SOLTCEYP)) and (calculation_described_in(SolactiveTransatlanticCleanEnergyEURIndexPR, EquityIndexMethodology))" ;
+  a4:sourceText "fact index_pr_identifiers :\npublished_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexPR)\nand index_name(SolactiveTransatlanticCleanEnergyEURIndexPR) = SolactiveTransatlanticCleanEnergyEURIndexPRName\nand index_isin(SolactiveTransatlanticCleanEnergyEURIndexPR) = DE000SL0R4B4\nand index_currency(SolactiveTransatlanticCleanEnergyEURIndexPR) = EUR\nand index_type(SolactiveTransatlanticCleanEnergyEURIndexPR) = PriceReturn\nand index_ric(SolactiveTransatlanticCleanEnergyEURIndexPR) = DotSOLTCEYP\nand bbg_ticker(SolactiveTransatlanticCleanEnergyEURIndexPR, SOLTCEYP)\nand calculation_described_in(SolactiveTransatlanticCleanEnergyEURIndexPR, EquityIndexMethodology)" .
+ex:ASSERT_index_ntr_identifiers a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "130"^^xsd:integer ;
+  a4:exprText "(published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexNTR)) and ((index_name(SolactiveTransatlanticCleanEnergyEURIndexNTR)) = (SolactiveTransatlanticCleanEnergyEURIndexNTRName)) and ((index_isin(SolactiveTransatlanticCleanEnergyEURIndexNTR)) = (DE000SL0R4C2)) and ((index_currency(SolactiveTransatlanticCleanEnergyEURIndexNTR)) = (EUR)) and ((index_type(SolactiveTransatlanticCleanEnergyEURIndexNTR)) = (NetTotalReturn)) and ((index_ric(SolactiveTransatlanticCleanEnergyEURIndexNTR)) = (DotSOLTCEYN)) and (calculation_described_in(SolactiveTransatlanticCleanEnergyEURIndexNTR, EquityIndexMethodology))" ;
+  a4:sourceText "fact index_ntr_identifiers :\npublished_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexNTR)\nand index_name(SolactiveTransatlanticCleanEnergyEURIndexNTR) = SolactiveTransatlanticCleanEnergyEURIndexNTRName\nand index_isin(SolactiveTransatlanticCleanEnergyEURIndexNTR) = DE000SL0R4C2\nand index_currency(SolactiveTransatlanticCleanEnergyEURIndexNTR) = EUR\nand index_type(SolactiveTransatlanticCleanEnergyEURIndexNTR) = NetTotalReturn\nand index_ric(SolactiveTransatlanticCleanEnergyEURIndexNTR) = DotSOLTCEYN\nand calculation_described_in(SolactiveTransatlanticCleanEnergyEURIndexNTR, EquityIndexMethodology)" .
+ex:ASSERT_index_tr_identifiers a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "139"^^xsd:integer ;
+  a4:exprText "(published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexTR)) and ((index_name(SolactiveTransatlanticCleanEnergyEURIndexTR)) = (SolactiveTransatlanticCleanEnergyEURIndexTRName)) and ((index_isin(SolactiveTransatlanticCleanEnergyEURIndexTR)) = (DE000SL0R4D0)) and ((index_currency(SolactiveTransatlanticCleanEnergyEURIndexTR)) = (EUR)) and ((index_type(SolactiveTransatlanticCleanEnergyEURIndexTR)) = (GrossTotalReturn)) and ((index_ric(SolactiveTransatlanticCleanEnergyEURIndexTR)) = (DotSOLTCEYT)) and (bbg_ticker(SolactiveTransatlanticCleanEnergyEURIndexTR, SOLTCEYT)) and (calculation_described_in(SolactiveTransatlanticCleanEnergyEURIndexTR, EquityIndexMethodology))" ;
+  a4:sourceText "fact index_tr_identifiers :\npublished_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndexTR)\nand index_name(SolactiveTransatlanticCleanEnergyEURIndexTR) = SolactiveTransatlanticCleanEnergyEURIndexTRName\nand index_isin(SolactiveTransatlanticCleanEnergyEURIndexTR) = DE000SL0R4D0\nand index_currency(SolactiveTransatlanticCleanEnergyEURIndexTR) = EUR\nand index_type(SolactiveTransatlanticCleanEnergyEURIndexTR) = GrossTotalReturn\nand index_ric(SolactiveTransatlanticCleanEnergyEURIndexTR) = DotSOLTCEYT\nand bbg_ticker(SolactiveTransatlanticCleanEnergyEURIndexTR, SOLTCEYT)\nand calculation_described_in(SolactiveTransatlanticCleanEnergyEURIndexTR, EquityIndexMethodology)" .
+ex:ASSERT_index_50_ar_identifiers a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "149"^^xsd:integer ;
+  a4:exprText "(published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndex50AR)) and ((index_name(SolactiveTransatlanticCleanEnergyEURIndex50AR)) = (SolactiveTransatlanticCleanEnergyEURIndex50ARName)) and ((index_isin(SolactiveTransatlanticCleanEnergyEURIndex50AR)) = (DE000SL0R4E8)) and ((index_currency(SolactiveTransatlanticCleanEnergyEURIndex50AR)) = (EUR)) and ((index_type(SolactiveTransatlanticCleanEnergyEURIndex50AR)) = (AdjustedReturnIndex)) and ((index_ric(SolactiveTransatlanticCleanEnergyEURIndex50AR)) = (DotSOLTCA50)) and (bbg_ticker(SolactiveTransatlanticCleanEnergyEURIndex50AR, SOLTCA50)) and (formula_specified_in(SolactiveTransatlanticCleanEnergyEURIndex50AR, Section4))" ;
+  a4:sourceText "fact index_50_ar_identifiers :\npublished_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndex50AR)\nand index_name(SolactiveTransatlanticCleanEnergyEURIndex50AR) = SolactiveTransatlanticCleanEnergyEURIndex50ARName\nand index_isin(SolactiveTransatlanticCleanEnergyEURIndex50AR) = DE000SL0R4E8\nand index_currency(SolactiveTransatlanticCleanEnergyEURIndex50AR) = EUR\nand index_type(SolactiveTransatlanticCleanEnergyEURIndex50AR) = AdjustedReturnIndex\nand index_ric(SolactiveTransatlanticCleanEnergyEURIndex50AR) = DotSOLTCA50\nand bbg_ticker(SolactiveTransatlanticCleanEnergyEURIndex50AR, SOLTCA50)\nand formula_specified_in(SolactiveTransatlanticCleanEnergyEURIndex50AR, Section4)" .
+ex:ASSERT_index_5_percent_ar_identifiers a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "159"^^xsd:integer ;
+  a4:exprText "(published_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR)) and ((index_name(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR)) = (SolactiveTransatlanticCleanEnergyEURIndex5PercentARName)) and ((index_isin(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR)) = (DE000SL0R4F5)) and ((index_currency(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR)) = (EUR)) and ((index_type(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR)) = (AdjustedReturnIndex)) and ((index_ric(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR)) = (DotSOLTCEA5)) and (bbg_ticker(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, SOLTCEA5)) and (calculation_described_in(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, EquityIndexMethodology))" ;
+  a4:sourceText "fact index_5_percent_ar_identifiers :\npublished_under_following_identifiers(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR)\nand index_name(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = SolactiveTransatlanticCleanEnergyEURIndex5PercentARName\nand index_isin(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = DE000SL0R4F5\nand index_currency(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = EUR\nand index_type(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = AdjustedReturnIndex\nand index_ric(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR) = DotSOLTCEA5\nand bbg_ticker(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, SOLTCEA5)\nand calculation_described_in(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, EquityIndexMethodology)" .
+ex:ASSERT_bbg_ticker_at_most_one a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "169"^^xsd:integer ;
+  a4:exprText "forall i: Index, (<count>) <= (1)" ;
+  a4:sourceText "constraint bbg_ticker_at_most_one :\nforall i: Index,\ncount(t in BBGTicker where bbg_ticker(i, t)) <= 1" .
+ex:ASSERT_listed_indices_publication_channels a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "173"^^xsd:integer ;
+  a4:exprText "(published_on(SolactiveTransatlanticCleanEnergyEURIndexPR, SolactiveWebsite)) and (available_via(SolactiveTransatlanticCleanEnergyEURIndexPR, BoerseStuttgartGmbHPriceMarketingServices)) and (published_on(SolactiveTransatlanticCleanEnergyEURIndexNTR, SolactiveWebsite)) and (available_via(SolactiveTransatlanticCleanEnergyEURIndexNTR, BoerseStuttgartGmbHPriceMarketingServices)) and (published_on(SolactiveTransatlanticCleanEnergyEURIndexTR, SolactiveWebsite)) and (available_via(SolactiveTransatlanticCleanEnergyEURIndexTR, BoerseStuttgartGmbHPriceMarketingServices)) and (published_on(SolactiveTransatlanticCleanEnergyEURIndex50AR, SolactiveWebsite)) and (available_via(SolactiveTransatlanticCleanEnergyEURIndex50AR, BoerseStuttgartGmbHPriceMarketingServices)) and (published_on(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, SolactiveWebsite)) and (available_via(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, BoerseStuttgartGmbHPriceMarketingServices))" ;
+  a4:sourceText "fact listed_indices_publication_channels :\npublished_on(SolactiveTransatlanticCleanEnergyEURIndexPR, SolactiveWebsite)\nand available_via(SolactiveTransatlanticCleanEnergyEURIndexPR, BoerseStuttgartGmbHPriceMarketingServices)\nand published_on(SolactiveTransatlanticCleanEnergyEURIndexNTR, SolactiveWebsite)\nand available_via(SolactiveTransatlanticCleanEnergyEURIndexNTR, BoerseStuttgartGmbHPriceMarketingServices)\nand published_on(SolactiveTransatlanticCleanEnergyEURIndexTR, SolactiveWebsite)\nand available_via(SolactiveTransatlanticCleanEnergyEURIndexTR, BoerseStuttgartGmbHPriceMarketingServices)\nand published_on(SolactiveTransatlanticCleanEnergyEURIndex50AR, SolactiveWebsite)\nand available_via(SolactiveTransatlanticCleanEnergyEURIndex50AR, BoerseStuttgartGmbHPriceMarketingServices)\nand published_on(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, SolactiveWebsite)\nand available_via(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, BoerseStuttgartGmbHPriceMarketingServices)" .
+ex:ASSERT_vendor_decides_distribution_or_display a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "189"^^xsd:integer ;
+  a4:exprText "forall v: AffiliatedVendor, forall i: Index, (published_under_following_identifiers(i)) implies (exists d: VendorDistributionOrDisplayDecision, exists s: InformationSystem, (distribution_or_display_decision_for_vendor(d, v)) and (distribution_or_display_decision_for_index(d, i)) and (decision_on_individual_basis(d)) and (vendor_information_system(v, s)) and (decision_via_information_system(d, s)))" ;
+  a4:sourceText "fact vendor_decides_distribution_or_display :\nforall v: AffiliatedVendor, forall i: Index,\npublished_under_following_identifiers(i)\nimplies\nexists d: VendorDistributionOrDisplayDecision, exists s: InformationSystem,\n  distribution_or_display_decision_for_vendor(d, v)\n  and distribution_or_display_decision_for_index(d, i)\n  and decision_on_individual_basis(d)\n  and vendor_information_system(v, s)\n  and decision_via_information_system(d, s)" .
+ex:ASSERT_index_publications_available_at_announcements_website a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "200"^^xsd:integer ;
+  a4:exprText "forall p: IndexPublication, forall i: Index, ((publication_in_relation_to_index(p, i)) or (notice_publication_in_relation_to_index(p, i)) or (guideline_amendment_publication_in_relation_to_index(p, Guideline, i))) implies (available_at(p, IndexAdministratorAnnouncementsWebsite))" ;
+  a4:sourceText "constraint index_publications_available_at_announcements_website :\nforall p: IndexPublication, forall i: Index,\n(\n  publication_in_relation_to_index(p, i)\n  or notice_publication_in_relation_to_index(p, i)\n  or guideline_amendment_publication_in_relation_to_index(p, Guideline, i)\n)\nimplies available_at(p, IndexAdministratorAnnouncementsWebsite)" .

@@ -1,0 +1,1888 @@
+{
+  "entry_id": "section_1_1",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 33,
+    "content_token_count": 27,
+    "covered_content_token_count": 25,
+    "uncovered_content_token_count": 2,
+    "ignored_stopword_count": 6,
+    "content_coverage_rate": 0.926
+  },
+  "tokens": [
+    {
+      "token": "scope",
+      "surface_forms": [
+        "Scope"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 1
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_scope_table_attributes",
+          "family": "AssertDecl.fact",
+          "line": 37,
+          "matched_text": "index_scope_table_attributes"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "line": 37,
+          "matched_text": "index_scope_table_attributes"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 7
+        },
+        {
+          "line": 6,
+          "column": 42
+        },
+        {
+          "line": 6,
+          "column": 99
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "strategy_representation_of_security",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "strategy_representation_of_security"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "strategy_representation_of_security"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 10
+        },
+        {
+          "line": 6,
+          "column": 89
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 23,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].left.args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3].args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4].args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[5].left.args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[6].left.args[0]",
+          "matched_text": "TheIndex"
+        }
+      ]
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 14
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Index",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexStrategy",
+          "family": "TypeDecl.opaque",
+          "line": 7,
+          "matched_text": "IndexStrategy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 23,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 23,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "CleanEnergyBusinessOperationsStrategy",
+          "family": "SymbolDecl.entity",
+          "line": 24,
+          "matched_text": "IndexStrategy"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "asset_class",
+          "family": "SymbolDecl.fun",
+          "line": 26,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rebalancing_fee_status",
+          "family": "SymbolDecl.fun",
+          "line": 27,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rebalancing_frequency",
+          "family": "SymbolDecl.fun",
+          "line": 28,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_strategy",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "index_strategy"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_strategy",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_strategy",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "IndexStrategy"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "regional_allocation",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rebalancing_fee_charged",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "strategy_representation_of_security",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "IndexStrategy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_scope_table_attributes",
+          "family": "AssertDecl.fact",
+          "line": 37,
+          "matched_text": "index_scope_table_attributes"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "line": 37,
+          "matched_text": "index_scope_table_attributes"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].left.args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "index_strategy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3].args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4].args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[5].left.args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[6].left.args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "no_rebalancing_fee_means_rebalancing_fee_not_charged",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Index"
+        }
+      ]
+    },
+    {
+      "token": "categori",
+      "surface_forms": [
+        "Category"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 3
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "description",
+      "surface_forms": [
+        "Description"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 27
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "asset",
+      "surface_forms": [
+        "Asset"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 3
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AssetClass",
+          "family": "TypeDecl.enum",
+          "line": 4,
+          "matched_text": "AssetClass"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "asset_class",
+          "family": "SymbolDecl.fun",
+          "line": 26,
+          "matched_text": "asset_class"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "asset_class",
+          "family": "SymbolDecl.fun",
+          "line": 26,
+          "matched_text": "AssetClass"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].left",
+          "matched_text": "asset_class"
+        }
+      ]
+    },
+    {
+      "token": "cla",
+      "surface_forms": [
+        "Class"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 9
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AssetClass",
+          "family": "TypeDecl.enum",
+          "line": 4,
+          "matched_text": "AssetClass"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "asset_class",
+          "family": "SymbolDecl.fun",
+          "line": 26,
+          "matched_text": "asset_class"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "asset_class",
+          "family": "SymbolDecl.fun",
+          "line": 26,
+          "matched_text": "AssetClass"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].left",
+          "matched_text": "asset_class"
+        }
+      ]
+    },
+    {
+      "token": "equiti",
+      "surface_forms": [
+        "Equity"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 27
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "AssetClass",
+          "family": "TypeDecl.enum",
+          "line": 4,
+          "matched_text": "Equity"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].right",
+          "matched_text": "Equity"
+        }
+      ]
+    },
+    {
+      "token": "strategi",
+      "surface_forms": [
+        "Strategy"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 3
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexStrategy",
+          "family": "TypeDecl.opaque",
+          "line": 7,
+          "matched_text": "IndexStrategy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "CleanEnergyBusinessOperationsStrategy",
+          "family": "SymbolDecl.entity",
+          "line": 24,
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "CleanEnergyBusinessOperationsStrategy",
+          "family": "SymbolDecl.entity",
+          "line": 24,
+          "matched_text": "IndexStrategy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_strategy",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "index_strategy"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_strategy",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "IndexStrategy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "strategy_representation_of_security",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "strategy_representation_of_security"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "strategy_representation_of_security",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "IndexStrategy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "clean_energy_strategy_represents_clean_energy_securities",
+          "family": "AssertDecl.constraint",
+          "line": 46,
+          "matched_text": "clean_energy_strategy_represents_clean_energy_securities"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "index_strategy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "line": 46,
+          "matched_text": "clean_energy_strategy_represents_clean_energy_securities"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "strategy_representation_of_security"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0]",
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        }
+      ]
+    },
+    {
+      "token": "representate",
+      "surface_forms": [
+        "Representation"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 27
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "strategy_representation_of_security",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "strategy_representation_of_security"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "strategy_representation_of_security"
+        }
+      ]
+    },
+    {
+      "token": "securiti",
+      "surface_forms": [
+        "securities"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 45
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Security",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "Security"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "strategy_representation_of_security",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "strategy_representation_of_security"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "strategy_representation_of_security",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "Security"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "security_has_business_operations_in",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "security_has_business_operations_in"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "security_has_business_operations_in",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "Security"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "clean_energy_strategy_represents_clean_energy_securities",
+          "family": "AssertDecl.constraint",
+          "line": 46,
+          "matched_text": "clean_energy_strategy_represents_clean_energy_securities"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "line": 46,
+          "matched_text": "clean_energy_strategy_represents_clean_energy_securities"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Security"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "strategy_representation_of_security"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "security_has_business_operations_in"
+        }
+      ]
+    },
+    {
+      "token": "that",
+      "surface_forms": [
+        "that"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 56
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "have",
+      "surface_forms": [
+        "have"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 61
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "busin",
+      "surface_forms": [
+        "business"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 66
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "BusinessField",
+          "family": "TypeDecl.enum",
+          "line": 9,
+          "matched_text": "BusinessField"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "CleanEnergyBusinessOperationsStrategy",
+          "family": "SymbolDecl.entity",
+          "line": 24,
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "security_has_business_operations_in",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "security_has_business_operations_in"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "security_has_business_operations_in",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "BusinessField"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0]",
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "security_has_business_operations_in"
+        }
+      ]
+    },
+    {
+      "token": "operation",
+      "surface_forms": [
+        "operations"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 75
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "CleanEnergyBusinessOperationsStrategy",
+          "family": "SymbolDecl.entity",
+          "line": 24,
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "security_has_business_operations_in",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "security_has_business_operations_in"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0]",
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "security_has_business_operations_in"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 86
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "security_has_business_operations_in",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "security_has_business_operations_in"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "security_has_business_operations_in"
+        }
+      ]
+    },
+    {
+      "token": "field",
+      "surface_forms": [
+        "field"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 93
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "BusinessField",
+          "family": "TypeDecl.enum",
+          "line": 9,
+          "matched_text": "BusinessField"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "security_has_business_operations_in",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "BusinessField"
+        }
+      ]
+    },
+    {
+      "token": "clean",
+      "surface_forms": [
+        "clean"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 102
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "BusinessField",
+          "family": "TypeDecl.enum",
+          "line": 9,
+          "matched_text": "CleanEnergy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "CleanEnergyBusinessOperationsStrategy",
+          "family": "SymbolDecl.entity",
+          "line": 24,
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "clean_energy_strategy_represents_clean_energy_securities",
+          "family": "AssertDecl.constraint",
+          "line": 46,
+          "matched_text": "clean_energy_strategy_represents_clean_energy_securities"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "line": 46,
+          "matched_text": "clean_energy_strategy_represents_clean_energy_securities"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0]",
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1]",
+          "matched_text": "CleanEnergy"
+        }
+      ]
+    },
+    {
+      "token": "energi",
+      "surface_forms": [
+        "energy"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 6,
+          "column": 108
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "BusinessField",
+          "family": "TypeDecl.enum",
+          "line": 9,
+          "matched_text": "CleanEnergy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "CleanEnergyBusinessOperationsStrategy",
+          "family": "SymbolDecl.entity",
+          "line": 24,
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "clean_energy_strategy_represents_clean_energy_securities",
+          "family": "AssertDecl.constraint",
+          "line": 46,
+          "matched_text": "clean_energy_strategy_represents_clean_energy_securities"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "line": 46,
+          "matched_text": "clean_energy_strategy_represents_clean_energy_securities"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0]",
+          "matched_text": "CleanEnergyBusinessOperationsStrategy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "clean_energy_strategy_represents_clean_energy_securities",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1]",
+          "matched_text": "CleanEnergy"
+        }
+      ]
+    },
+    {
+      "token": "regional",
+      "surface_forms": [
+        "Regional"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 3
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "RegionalAllocation",
+          "family": "TypeDecl.enum",
+          "line": 12,
+          "matched_text": "RegionalAllocation"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "regional_allocation",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "regional_allocation"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "regional_allocation",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "RegionalAllocation"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "regional_allocation"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3]",
+          "matched_text": "regional_allocation"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4]",
+          "matched_text": "regional_allocation"
+        }
+      ]
+    },
+    {
+      "token": "allocate",
+      "surface_forms": [
+        "Allocation"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 12
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "RegionalAllocation",
+          "family": "TypeDecl.enum",
+          "line": 12,
+          "matched_text": "RegionalAllocation"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "regional_allocation",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "regional_allocation"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "regional_allocation",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "RegionalAllocation"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "regional_allocation"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3]",
+          "matched_text": "regional_allocation"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4]",
+          "matched_text": "regional_allocation"
+        }
+      ]
+    },
+    {
+      "token": "develop",
+      "surface_forms": [
+        "Developed"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 27
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "RegionalAllocation",
+          "family": "TypeDecl.enum",
+          "line": 12,
+          "matched_text": "DevelopedMarketsEurope"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "DevelopedMarketsEurope"
+        }
+      ]
+    },
+    {
+      "token": "market",
+      "surface_forms": [
+        "Markets"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 37
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "RegionalAllocation",
+          "family": "TypeDecl.enum",
+          "line": 12,
+          "matched_text": "DevelopedMarketsEurope"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "DevelopedMarketsEurope"
+        }
+      ]
+    },
+    {
+      "token": "europe",
+      "surface_forms": [
+        "Europe"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 45
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "RegionalAllocation",
+          "family": "TypeDecl.enum",
+          "line": 12,
+          "matched_text": "DevelopedMarketsEurope"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "DevelopedMarketsEurope"
+        }
+      ]
+    },
+    {
+      "token": "unit",
+      "surface_forms": [
+        "United"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 53
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "RegionalAllocation",
+          "family": "TypeDecl.enum",
+          "line": 12,
+          "matched_text": "UnitedStates"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3].args[1]",
+          "matched_text": "UnitedStates"
+        }
+      ]
+    },
+    {
+      "token": "stat",
+      "surface_forms": [
+        "States"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 60
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "RegionalAllocation",
+          "family": "TypeDecl.enum",
+          "line": 12,
+          "matched_text": "UnitedStates"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3].args[1]",
+          "matched_text": "UnitedStates"
+        }
+      ]
+    },
+    {
+      "token": "and",
+      "surface_forms": [
+        "and"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 67
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "canada",
+      "surface_forms": [
+        "Canada"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 71
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "RegionalAllocation",
+          "family": "TypeDecl.enum",
+          "line": 12,
+          "matched_text": "Canada"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4].args[1]",
+          "matched_text": "Canada"
+        }
+      ]
+    },
+    {
+      "token": "rebalanc",
+      "surface_forms": [
+        "Rebalancing"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 3
+        },
+        {
+          "line": 9,
+          "column": 3
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "RebalancingFeeStatus",
+          "family": "TypeDecl.enum",
+          "line": 17,
+          "matched_text": "RebalancingFeeStatus"
+        },
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "RebalancingFeeStatus",
+          "family": "TypeDecl.enum",
+          "line": 17,
+          "matched_text": "NoRebalancingFee"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "RebalancingFrequency",
+          "family": "TypeDecl.enum",
+          "line": 20,
+          "matched_text": "RebalancingFrequency"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalancing_fee_status",
+          "family": "SymbolDecl.fun",
+          "line": 27,
+          "matched_text": "rebalancing_fee_status"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "rebalancing_fee_status",
+          "family": "SymbolDecl.fun",
+          "line": 27,
+          "matched_text": "RebalancingFeeStatus"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalancing_frequency",
+          "family": "SymbolDecl.fun",
+          "line": 28,
+          "matched_text": "rebalancing_frequency"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "rebalancing_frequency",
+          "family": "SymbolDecl.fun",
+          "line": 28,
+          "matched_text": "RebalancingFrequency"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalancing_fee_charged",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "rebalancing_fee_charged"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "no_rebalancing_fee_means_rebalancing_fee_not_charged",
+          "family": "AssertDecl.constraint",
+          "line": 51,
+          "matched_text": "no_rebalancing_fee_means_rebalancing_fee_not_charged"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[5].left",
+          "matched_text": "rebalancing_fee_status"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[5].right",
+          "matched_text": "NoRebalancingFee"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[6].left",
+          "matched_text": "rebalancing_frequency"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "no_rebalancing_fee_means_rebalancing_fee_not_charged",
+          "assertion_kind": "constraint",
+          "line": 51,
+          "matched_text": "no_rebalancing_fee_means_rebalancing_fee_not_charged"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "no_rebalancing_fee_means_rebalancing_fee_not_charged",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.left",
+          "matched_text": "rebalancing_fee_status"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "no_rebalancing_fee_means_rebalancing_fee_not_charged",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.right",
+          "matched_text": "NoRebalancingFee"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "no_rebalancing_fee_means_rebalancing_fee_not_charged",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.arg",
+          "matched_text": "rebalancing_fee_charged"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "rebalancing_fee_charged",
+          "matched_text": "Rebalancing Fee"
+        }
+      ]
+    },
+    {
+      "token": "fee",
+      "surface_forms": [
+        "Fee"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 15
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "RebalancingFeeStatus",
+          "family": "TypeDecl.enum",
+          "line": 17,
+          "matched_text": "RebalancingFeeStatus"
+        },
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "RebalancingFeeStatus",
+          "family": "TypeDecl.enum",
+          "line": 17,
+          "matched_text": "NoRebalancingFee"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalancing_fee_status",
+          "family": "SymbolDecl.fun",
+          "line": 27,
+          "matched_text": "rebalancing_fee_status"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "rebalancing_fee_status",
+          "family": "SymbolDecl.fun",
+          "line": 27,
+          "matched_text": "RebalancingFeeStatus"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalancing_fee_charged",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "rebalancing_fee_charged"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "no_rebalancing_fee_means_rebalancing_fee_not_charged",
+          "family": "AssertDecl.constraint",
+          "line": 51,
+          "matched_text": "no_rebalancing_fee_means_rebalancing_fee_not_charged"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[5].left",
+          "matched_text": "rebalancing_fee_status"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[5].right",
+          "matched_text": "NoRebalancingFee"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "no_rebalancing_fee_means_rebalancing_fee_not_charged",
+          "assertion_kind": "constraint",
+          "line": 51,
+          "matched_text": "no_rebalancing_fee_means_rebalancing_fee_not_charged"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "no_rebalancing_fee_means_rebalancing_fee_not_charged",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.left",
+          "matched_text": "rebalancing_fee_status"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "no_rebalancing_fee_means_rebalancing_fee_not_charged",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.right",
+          "matched_text": "NoRebalancingFee"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "no_rebalancing_fee_means_rebalancing_fee_not_charged",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.arg",
+          "matched_text": "rebalancing_fee_charged"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "rebalancing_fee_charged",
+          "matched_text": "Rebalancing Fee"
+        }
+      ]
+    },
+    {
+      "token": "frequenci",
+      "surface_forms": [
+        "Frequency"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 9,
+          "column": 15
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "RebalancingFrequency",
+          "family": "TypeDecl.enum",
+          "line": 20,
+          "matched_text": "RebalancingFrequency"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalancing_frequency",
+          "family": "SymbolDecl.fun",
+          "line": 28,
+          "matched_text": "rebalancing_frequency"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "rebalancing_frequency",
+          "family": "SymbolDecl.fun",
+          "line": 28,
+          "matched_text": "RebalancingFrequency"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[6].left",
+          "matched_text": "rebalancing_frequency"
+        }
+      ]
+    },
+    {
+      "token": "annual",
+      "surface_forms": [
+        "Semi-annual"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 9,
+          "column": 27
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "RebalancingFrequency",
+          "family": "TypeDecl.enum",
+          "line": 20,
+          "matched_text": "SemiAnnual"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_scope_table_attributes",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[6].right",
+          "matched_text": "SemiAnnual"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "categori",
+      "surface_forms": [
+        "Category"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 3
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "description",
+      "surface_forms": [
+        "Description"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 27
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

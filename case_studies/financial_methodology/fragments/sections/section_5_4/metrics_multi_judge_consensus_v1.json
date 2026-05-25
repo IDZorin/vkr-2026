@@ -1,0 +1,127 @@
+{
+  "entry_id": "section_5_4",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main claims about efforts to preserve index resilience/integrity, adapting methodologies via a clear and transparent procedure, cessation being indicated when no other options exist, and the existence of cessation guidelines and a termination policy. However, it also adds several stronger or more specific conditions not stated in the source, especially the detailed formal triggers for cessation and the exact procedural contents of the guidelines.",
+      "semantic_differences": [
+        "The source says orderly cessation may be indicated if no other options are available; the IR strengthens this into a formal implication from a specific set of conditions to cessation being the usual case.",
+        "The source mentions changing underlying markets, inability to apply index rules and particularly selection criteria coherently, and the index no longer being used as an underlying value; the IR turns these into multiple separate universal constraints with precise logical triggers that are more specific than the prose.",
+        "The source says Solactive has established and maintains clear guidelines on how to identify unavoidable cessation situations, how stakeholders are to be informed and consulted, and procedures for termination or transition; the IR additionally asserts existence of specific procedures and an alternative index entity, which are not explicitly stated in the source text.",
+        "The source says details are specified in the termination policy; the IR formalizes this as incorporation by reference and a website availability fact, which goes beyond the source's wording."
+      ],
+      "stylistic_notes": [
+        "Use of formal predicates and quantified constraints is a canonical IR encoding of the prose.",
+        "The source's 'greatest possible efforts' and 'continued integrity/reliability/comparability' are represented with abstract quality symbols and effort relations, which is a wording/encoding choice rather than a semantic issue.",
+        "The source's reference to Section 5.2 is encoded via a document part and locator fact, which is stylistic/structural rather than divergent."
+      ],
+      "confidence": 0.86,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3965,
+        "completion_tokens": 393,
+        "total_tokens": 4358
+      },
+      "latency_s": 3.9995293617248535
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures much of the source: Solactive’s efforts toward resilience/integrity, the existence of a clearly defined transparent adaptation procedure, the usual cessation-trigger situations, the existence of guidelines, and the termination policy reference and URL. However, it also strengthens or alters several source claims, especially by turning indicative/possibility language into stronger implications, requiring complete non-use across all three product categories, and treating guideline contents as existentially present rather than as guidance on how such procedures are to be followed.",
+      "semantic_differences": [
+        "The source says orderly cessation 'may be indicated' if no other options are available; the IR states that if usual cessation conditions hold and the count of available options is zero, then orderly cessation indication is available. This adds the extra prerequisite 'usual_case_for_cessation(i)' and changes the modal nuance from a possibility statement tied to no other options into a stronger conditional availability claim.",
+        "The source presents the listed circumstances as cases in which cessation is usually indicated, with the underlying-market/economic-reality change clause combined with additional alternatives ('or' rules cannot be applied coherently, or index is no longer used...). The IR splits these into separate sufficient conditions, which can overstate the source by making each isolated condition independently imply the usual case without preserving the full sentence-level grouping ambiguity.",
+        "For non-use as an underlying value, the source says the index 'is no longer used as the underlying value for financial instruments, investment funds and financial contracts.' The IR formalizes this as absence of use in all three categories simultaneously. Depending on reading, the source could mean no longer used for any of these categories collectively, but the IR fixes the strongest conjunctive reading.",
+        "The source says Solactive has established and maintains clear guidelines on how to identify unavoidable cessation situations, how stakeholders are to be informed and consulted, and the procedures to be followed for termination or transition. The IR instead asserts existence of procedures in the guidelines for informing, consulting, termination, and transition, which is not exactly the same as guidelines describing how these are to be done or followed.",
+        "The source says details are specified in the Solactive Termination Policy and that the policy is available on the Solactive website. The IR links the details specifically from the guidelines to the policy ('details_specified_in(Guidelines, Policy)'), which is a more specific relational structure than the source explicitly states."
+      ],
+      "stylistic_notes": [
+        "Using separate sorts such as UnderlyingMarket, EconomicReality, Procedure, and Guidelines is a reasonable ontology choice.",
+        "The duplication between 'rules not applied coherently' and 'selection criteria not applied coherently' mirrors the source emphasis on selection criteria, though it may be somewhat redundant since SelectionCriteria extends IndexRule.",
+        "The permission declaration for indicating orderly cessation is awkwardly aligned with the source, which is descriptive rather than explicitly normative."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3965,
+        "completion_tokens": 636,
+        "total_tokens": 4601
+      },
+      "latency_s": 11.714163780212402
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main structural elements and logical relationships from the source text (Solactive's efforts to maintain indices, conditions for cessation, guidelines and termination policy). However, there are several semantic divergences: (1) the IR introduces multiple distinct sorts (UnderlyingMarket, EconomicReality) and relations that treat these as separate entities, whereas the source uses them interchangeably as aspects of the same phenomenon; (2) the IR encodes cessation conditions as separate constraints implying 'usual_case_for_cessation', but the source presents these as alternative conditions within a single logical structure ('if...changes substantially...OR...rules can no longer be applied...OR...no longer used'); (3) the IR's treatment of 'no other options available' as a precondition for orderly cessation indication diverges from the source's phrasing that cessation 'may be indicated' when conditions hold, without explicit quantification over exhausted options.",
+      "semantic_differences": [
+        "Source treats 'underlying market or economic reality' as a unified concept that can change; IR reifies these as two separate sorts (UnderlyingMarket, EconomicReality) with parallel but independent relations, implying they are distinct entities rather than alternative framings of the same phenomenon.",
+        "Source presents cessation conditions as a disjunction within a single conditional ('if [condition A] OR [condition B] OR [condition C], then cessation may be indicated'); IR encodes these as separate constraints, each independently implying 'usual_case_for_cessation', which changes the logical structure from a single multi-branch conditional to multiple independent implications.",
+        "Source states 'if no other options are available the orderly cessation of the Index may be indicated'; IR encodes this as a constraint requiring count(options) = 0 as a precondition for 'orderly_cessation_indication_available', whereas source uses 'may be indicated' (permission/possibility), not a strict logical requirement.",
+        "Source's phrase 'the index rules, and particularly the selection criteria, can no longer be applied coherently' suggests selection criteria are a subset of index rules; IR treats SelectionCriteria as extending IndexRule but then creates a separate constraint for selection criteria, implying they are checked independently rather than as a special case of rule coherence."
+      ],
+      "stylistic_notes": [
+        "IR introduces entity 'Substantially' as a VagueTerm and uses it in relations like 'underlying_market_change_described_by(u, Substantially)', whereas source uses 'substantially' as an adverbial modifier; this is a reasonable formalization but shifts the syntactic role.",
+        "IR uses 'usual_case_for_cessation(i)' as a predicate, whereas source uses 'usually the case' as a modal qualifier; the IR's reification is standard a4v3 practice but changes the surface form.",
+        "IR introduces 'orderly_cessation_indication_available' as a relation, whereas source uses 'may be indicated' (deontic modality); the IR's choice to use a relation rather than a permission is a design decision that affects readability.",
+        "IR names the effort entity 'SolactiveGreatestPossibleEfforts' (plural), whereas source says 'greatest possible efforts' (plural noun phrase); naming is consistent with prelude conventions but slightly verbose.",
+        "IR uses separate relations 'used_as_underlying_value_for_financial_instrument', 'used_as_underlying_value_for_investment_fund', 'used_as_underlying_value_for_financial_contract' where source uses a single phrase 'no longer used as the underlying value for financial instruments, investment funds and financial contracts'; this is a reasonable expansion for formal clarity."
+      ],
+      "confidence": 0.68,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4915,
+        "completion_tokens": 904,
+        "total_tokens": 5819
+      },
+      "latency_s": 11.729693412780762
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 68.42541432380676
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures all conditions, modalities, and procedural requirements stated in the source text. Disjunctive conditions for 'usually the case' are correctly split into separate constraints implying the same predicate, and negative conditions ('no longer used for...') are accurately formalized using conjunctions of existential negations. Deontic modality ('may be indicated') is properly lowered to a permission declaration.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The source's disjunctive list of conditions for 'usually the case' is split into multiple independent constraints for modularity, which is a standard a4v3 structural choice and does not alter semantics.",
+        "The 'no other options' condition is formalized using a count equality constraint, which precisely captures the source's intent."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4240,
+        "completion_tokens": 3643,
+        "total_tokens": 7883
+      },
+      "latency_s": 67.81367683410645
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.84
+  }
+}

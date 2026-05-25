@@ -1,0 +1,8 @@
+{
+  "backend": "shacl",
+  "status": "ok",
+  "triple_count": 32,
+  "message": "pySHACL conforms=False",
+  "conforms": false,
+  "report_text": "Validation Report\nConforms: False\nResults (1):\nConstraint Violation in ClassConstraintComponent (http://www.w3.org/ns/shacl#ClassConstraintComponent):\n\tSeverity: sh:Violation\n\tSource Shape: [ sh:class ex:DecimalPlaceCount ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path ex:decimal_place_count ]\n\tFocus Node: ex:TwoDecimalPlaces\n\tValue Node: Literal(\"2\", datatype=xsd:integer)\n\tResult Path: ex:decimal_place_count\n\tMessage: Value does not have class ex:DecimalPlaceCount\n"
+}

@@ -1,0 +1,75 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_2_2 a a4:ShaclProjectionTarget .
+
+ex:SelectionDay a rdfs:Class .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:SelectionDayShape a sh:NodeShape ; sh:targetClass ex:SelectionDay .
+ex:Security a rdfs:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:SecurityShape a sh:NodeShape ; sh:targetClass ex:Security .
+ex:Region a rdfs:Class .
+ex:RegionShape a sh:NodeShape ; sh:targetClass ex:Region .
+ex:CountryAssignment a rdfs:Class .
+ex:CountryAssignmentShape a sh:NodeShape ; sh:targetClass ex:CountryAssignment .
+ex:FreeFloatMarketCapizatlization a rdfs:Class .
+ex:FreeFloatMarketCapizatlization rdfs:subClassOf ex:MonetaryAmount .
+ex:FreeFloatMarketCapizatlizationShape a sh:NodeShape ; sh:targetClass ex:FreeFloatMarketCapizatlization .
+ex:Rank a rdfs:Class .
+ex:Rank rdfs:subClassOf ex:Nat .
+ex:RankShape a sh:NodeShape ; sh:targetClass ex:Rank .
+ex:IndexAdministrator a rdfs:Class .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:IndexAdministratorShape a sh:NodeShape ; sh:targetClass ex:IndexAdministrator .
+ex:SelectionOfIndexComponents a rdfs:Class .
+ex:SelectionOfIndexComponentsShape a sh:NodeShape ; sh:targetClass ex:SelectionOfIndexComponents .
+ex:DiscretionaryDecision a rdfs:Class .
+ex:DiscretionaryDecisionShape a sh:NodeShape ; sh:targetClass ex:DiscretionaryDecision .
+
+ex:Americas a ex:Region .
+ex:EuropeRegion a ex:Region .
+ex:Canada a ex:CountryAssignment .
+ex:UnitedStates a ex:CountryAssignment .
+ex:Europe a ex:CountryAssignment .
+ex:index_universe a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:index_universe ; sh:class ex:Security ] .
+ex:eligible a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:eligible ; sh:class ex:Security ] .
+ex:selection_of_index_components a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:selection_of_index_components ; sh:class ex:SelectionOfIndexComponents ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:gbs_country_assignment a rdfs:Class .
+ex:gbs_country_assignmentShape a sh:NodeShape ; sh:targetClass ex:gbs_country_assignment .
+ex:gbs_country_assignmentShape sh:property [ sh:path ex:gbs_country_assignment_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:gbs_country_assignmentShape sh:property [ sh:path ex:gbs_country_assignment_arg_1 ; sh:class ex:Security ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:gbs_country_assignmentShape sh:property [ sh:path ex:gbs_country_assignment_result ; sh:class ex:CountryAssignment ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:region a rdfs:Class .
+ex:regionShape a sh:NodeShape ; sh:targetClass ex:region .
+ex:regionShape sh:property [ sh:path ex:region_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:regionShape sh:property [ sh:path ex:region_arg_1 ; sh:class ex:Security ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:regionShape sh:property [ sh:path ex:region_result ; sh:class ex:Region ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float_market_capizatlization a rdfs:Class .
+ex:free_float_market_capizatlizationShape a sh:NodeShape ; sh:targetClass ex:free_float_market_capizatlization .
+ex:free_float_market_capizatlizationShape sh:property [ sh:path ex:free_float_market_capizatlization_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float_market_capizatlizationShape sh:property [ sh:path ex:free_float_market_capizatlization_arg_1 ; sh:class ex:Security ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float_market_capizatlizationShape sh:property [ sh:path ex:free_float_market_capizatlization_result ; sh:class ex:FreeFloatMarketCapizatlization ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:rank a rdfs:Class .
+ex:rankShape a sh:NodeShape ; sh:targetClass ex:rank .
+ex:rankShape sh:property [ sh:path ex:rank_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:rankShape sh:property [ sh:path ex:rank_arg_1 ; sh:class ex:Region ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:rankShape sh:property [ sh:path ex:rank_arg_2 ; sh:class ex:Security ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:rankShape sh:property [ sh:path ex:rank_result ; sh:class ex:Rank ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:selected_for_index_inclusion a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:selected_for_index_inclusion ; sh:class ex:Security ] .
+ex:index_component a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:index_component ; sh:class ex:Security ] .
+ex:initial_composition a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:initial_composition ; sh:class ex:Security ] .
+ex:ordinary_rebalance_selection a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:ordinary_rebalance_selection ; sh:class ex:Security ] .
+ex:fully_rule_based a rdfs:Class ; rdfs:subClassOf ex:SelectionOfIndexComponents .

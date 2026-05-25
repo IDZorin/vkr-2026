@@ -1,0 +1,412 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_4 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_5_4/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexMethodology a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:UnderlyingMarket a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:EconomicReality a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexRule a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:SelectionCriteria a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SelectionCriteria rdfs:subClassOf ex:IndexRule .
+ex:Option a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Effort a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Procedure a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Guidelines a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Cessation a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CessationSituation a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Stakeholder a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:TerminationPolicy a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TerminationPolicy rdfs:subClassOf ex:Document .
+ex:InvestmentFund a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:FinancialContract a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:AlternativeIndex a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:AlternativeIndex rdfs:subClassOf ex:Index .
+ex:IndexQuality a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:Resilience a ex:IndexQuality, a4:EnumMember, owl:NamedIndividual .
+ex:IndexQuality a4:enumMember ex:Resilience .
+ex:ContinuedIntegrity a ex:IndexQuality, a4:EnumMember, owl:NamedIndividual .
+ex:IndexQuality a4:enumMember ex:ContinuedIntegrity .
+ex:ContinuedReliability a ex:IndexQuality, a4:EnumMember, owl:NamedIndividual .
+ex:IndexQuality a4:enumMember ex:ContinuedReliability .
+ex:Comparability a ex:IndexQuality, a4:EnumMember, owl:NamedIndividual .
+ex:IndexQuality a4:enumMember ex:Comparability .
+
+ex:Solactive a ex:Organization, owl:NamedIndividual .
+ex:SolactiveGreatestPossibleEfforts a ex:Effort, owl:NamedIndividual .
+ex:SolactiveCessationGuidelines a ex:Guidelines, owl:NamedIndividual .
+ex:SolactiveTerminationPolicy a ex:TerminationPolicy, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:Stakeholders a ex:Stakeholder, owl:NamedIndividual .
+ex:Substantially a ex:VagueTerm, owl:NamedIndividual .
+ex:Section5_2MethodologyReview a ex:DocumentPart, owl:NamedIndividual .
+ex:Section5_2MethodologyReviewLocator a ex:DocumentLocator, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComDocumentsTerminationPolicy a ex:Url, owl:NamedIndividual .
+ex:index_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_of a4:argument ex:index_of_arg_0 .
+ex:index_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:index_of a4:argument ex:index_of_arg_1 .
+ex:methodology_of_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:methodology_of_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexMethodology .
+ex:methodology_of_index a4:argument ex:methodology_of_index_arg_0 .
+ex:methodology_of_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:methodology_of_index a4:argument ex:methodology_of_index_arg_1 .
+ex:effort_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:effort_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Effort .
+ex:effort_by a4:argument ex:effort_by_arg_0 .
+ex:effort_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:effort_by a4:argument ex:effort_by_arg_1 .
+ex:greatest_possible a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:greatest_possible_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Effort .
+ex:greatest_possible a4:argument ex:greatest_possible_arg_0 .
+ex:over_time a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:over_time_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Effort .
+ex:over_time a4:argument ex:over_time_arg_0 .
+ex:effort_to_ensure a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:effort_to_ensure_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Effort .
+ex:effort_to_ensure a4:argument ex:effort_to_ensure_arg_0 .
+ex:effort_to_ensure_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:effort_to_ensure a4:argument ex:effort_to_ensure_arg_1 .
+ex:effort_to_ensure_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:IndexQuality .
+ex:effort_to_ensure a4:argument ex:effort_to_ensure_arg_2 .
+ex:necessary_to_adapt_methodology a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:necessary_to_adapt_methodology_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexMethodology .
+ex:necessary_to_adapt_methodology a4:argument ex:necessary_to_adapt_methodology_arg_0 .
+ex:necessary_to_adapt_methodology_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:UnderlyingMarket .
+ex:necessary_to_adapt_methodology a4:argument ex:necessary_to_adapt_methodology_arg_1 .
+ex:changing_underlying_market a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:changing_underlying_market_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:UnderlyingMarket .
+ex:changing_underlying_market a4:argument ex:changing_underlying_market_arg_0 .
+ex:follows a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:follows_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Organization .
+ex:follows a4:argument ex:follows_arg_0 .
+ex:follows_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Procedure .
+ex:follows a4:argument ex:follows_arg_1 .
+ex:clearly_defined a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:clearly_defined_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Procedure .
+ex:clearly_defined a4:argument ex:clearly_defined_arg_0 .
+ex:transparent a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:transparent_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Procedure .
+ex:transparent a4:argument ex:transparent_arg_0 .
+ex:adapts_index_methodology a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:adapts_index_methodology_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Procedure .
+ex:adapts_index_methodology a4:argument ex:adapts_index_methodology_arg_0 .
+ex:adapts_index_methodology_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexMethodology .
+ex:adapts_index_methodology a4:argument ex:adapts_index_methodology_arg_1 .
+ex:adapts_index_methodology_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:UnderlyingMarket .
+ex:adapts_index_methodology a4:argument ex:adapts_index_methodology_arg_2 .
+ex:procedure_maintains a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:procedure_maintains_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Procedure .
+ex:procedure_maintains a4:argument ex:procedure_maintains_arg_0 .
+ex:procedure_maintains_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:procedure_maintains a4:argument ex:procedure_maintains_arg_1 .
+ex:procedure_maintains_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:IndexQuality .
+ex:procedure_maintains a4:argument ex:procedure_maintains_arg_2 .
+ex:see a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:see_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Procedure .
+ex:see a4:argument ex:see_arg_0 .
+ex:see_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:see a4:argument ex:see_arg_1 .
+ex:available_option_for_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:available_option_for_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Option .
+ex:available_option_for_index a4:argument ex:available_option_for_index_arg_0 .
+ex:available_option_for_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:available_option_for_index a4:argument ex:available_option_for_index_arg_1 .
+ex:usual_case_for_cessation a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:usual_case_for_cessation_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:usual_case_for_cessation a4:argument ex:usual_case_for_cessation_arg_0 .
+ex:orderly_cessation_indication_available a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:orderly_cessation_indication_available_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:orderly_cessation_indication_available a4:argument ex:orderly_cessation_indication_available_arg_0 .
+ex:index_set_to_measure_underlying_market a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_set_to_measure_underlying_market_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_set_to_measure_underlying_market a4:argument ex:index_set_to_measure_underlying_market_arg_0 .
+ex:index_set_to_measure_underlying_market_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:UnderlyingMarket .
+ex:index_set_to_measure_underlying_market a4:argument ex:index_set_to_measure_underlying_market_arg_1 .
+ex:index_set_to_reflect_underlying_market a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_set_to_reflect_underlying_market_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_set_to_reflect_underlying_market a4:argument ex:index_set_to_reflect_underlying_market_arg_0 .
+ex:index_set_to_reflect_underlying_market_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:UnderlyingMarket .
+ex:index_set_to_reflect_underlying_market a4:argument ex:index_set_to_reflect_underlying_market_arg_1 .
+ex:index_set_to_measure_economic_reality a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_set_to_measure_economic_reality_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_set_to_measure_economic_reality a4:argument ex:index_set_to_measure_economic_reality_arg_0 .
+ex:index_set_to_measure_economic_reality_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:EconomicReality .
+ex:index_set_to_measure_economic_reality a4:argument ex:index_set_to_measure_economic_reality_arg_1 .
+ex:index_set_to_reflect_economic_reality a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_set_to_reflect_economic_reality_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_set_to_reflect_economic_reality a4:argument ex:index_set_to_reflect_economic_reality_arg_0 .
+ex:index_set_to_reflect_economic_reality_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:EconomicReality .
+ex:index_set_to_reflect_economic_reality a4:argument ex:index_set_to_reflect_economic_reality_arg_1 .
+ex:underlying_market_changes a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:underlying_market_changes_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:UnderlyingMarket .
+ex:underlying_market_changes a4:argument ex:underlying_market_changes_arg_0 .
+ex:economic_reality_changes a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:economic_reality_changes_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:EconomicReality .
+ex:economic_reality_changes a4:argument ex:economic_reality_changes_arg_0 .
+ex:underlying_market_change_described_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:underlying_market_change_described_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:UnderlyingMarket .
+ex:underlying_market_change_described_by a4:argument ex:underlying_market_change_described_by_arg_0 .
+ex:underlying_market_change_described_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:VagueTerm .
+ex:underlying_market_change_described_by a4:argument ex:underlying_market_change_described_by_arg_1 .
+ex:economic_reality_change_described_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:economic_reality_change_described_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:EconomicReality .
+ex:economic_reality_change_described_by a4:argument ex:economic_reality_change_described_by_arg_0 .
+ex:economic_reality_change_described_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:VagueTerm .
+ex:economic_reality_change_described_by a4:argument ex:economic_reality_change_described_by_arg_1 .
+ex:underlying_market_change_foreseeable_at_inception a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:underlying_market_change_foreseeable_at_inception_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:UnderlyingMarket .
+ex:underlying_market_change_foreseeable_at_inception a4:argument ex:underlying_market_change_foreseeable_at_inception_arg_0 .
+ex:underlying_market_change_foreseeable_at_inception_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:underlying_market_change_foreseeable_at_inception a4:argument ex:underlying_market_change_foreseeable_at_inception_arg_1 .
+ex:economic_reality_change_foreseeable_at_inception a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:economic_reality_change_foreseeable_at_inception_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:EconomicReality .
+ex:economic_reality_change_foreseeable_at_inception a4:argument ex:economic_reality_change_foreseeable_at_inception_arg_0 .
+ex:economic_reality_change_foreseeable_at_inception_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:economic_reality_change_foreseeable_at_inception a4:argument ex:economic_reality_change_foreseeable_at_inception_arg_1 .
+ex:rule_of_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:rule_of_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexRule .
+ex:rule_of_index a4:argument ex:rule_of_index_arg_0 .
+ex:rule_of_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:rule_of_index a4:argument ex:rule_of_index_arg_1 .
+ex:applied_coherently a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:applied_coherently_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexRule .
+ex:applied_coherently a4:argument ex:applied_coherently_arg_0 .
+ex:applied_coherently_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:applied_coherently a4:argument ex:applied_coherently_arg_1 .
+ex:used_as_underlying_value_for_financial_instrument a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:used_as_underlying_value_for_financial_instrument_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:used_as_underlying_value_for_financial_instrument a4:argument ex:used_as_underlying_value_for_financial_instrument_arg_0 .
+ex:used_as_underlying_value_for_financial_instrument_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:FinancialInstrument .
+ex:used_as_underlying_value_for_financial_instrument a4:argument ex:used_as_underlying_value_for_financial_instrument_arg_1 .
+ex:used_as_underlying_value_for_investment_fund a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:used_as_underlying_value_for_investment_fund_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:used_as_underlying_value_for_investment_fund a4:argument ex:used_as_underlying_value_for_investment_fund_arg_0 .
+ex:used_as_underlying_value_for_investment_fund_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:InvestmentFund .
+ex:used_as_underlying_value_for_investment_fund a4:argument ex:used_as_underlying_value_for_investment_fund_arg_1 .
+ex:used_as_underlying_value_for_financial_contract a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:used_as_underlying_value_for_financial_contract_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:used_as_underlying_value_for_financial_contract a4:argument ex:used_as_underlying_value_for_financial_contract_arg_0 .
+ex:used_as_underlying_value_for_financial_contract_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:FinancialContract .
+ex:used_as_underlying_value_for_financial_contract a4:argument ex:used_as_underlying_value_for_financial_contract_arg_1 .
+ex:established_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:established_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Guidelines .
+ex:established_by a4:argument ex:established_by_arg_0 .
+ex:established_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:established_by a4:argument ex:established_by_arg_1 .
+ex:maintained_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:maintained_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Guidelines .
+ex:maintained_by a4:argument ex:maintained_by_arg_0 .
+ex:maintained_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:maintained_by a4:argument ex:maintained_by_arg_1 .
+ex:clear a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:clear_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Guidelines .
+ex:clear a4:argument ex:clear_arg_0 .
+ex:guidelines_identify a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:guidelines_identify_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Guidelines .
+ex:guidelines_identify a4:argument ex:guidelines_identify_arg_0 .
+ex:guidelines_identify_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CessationSituation .
+ex:guidelines_identify a4:argument ex:guidelines_identify_arg_1 .
+ex:unavoidable a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:unavoidable_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CessationSituation .
+ex:unavoidable a4:argument ex:unavoidable_arg_0 .
+ex:procedure_in_guidelines a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:procedure_in_guidelines_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Guidelines .
+ex:procedure_in_guidelines a4:argument ex:procedure_in_guidelines_arg_0 .
+ex:procedure_in_guidelines_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Procedure .
+ex:procedure_in_guidelines a4:argument ex:procedure_in_guidelines_arg_1 .
+ex:procedure_for_informing a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:procedure_for_informing_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Procedure .
+ex:procedure_for_informing a4:argument ex:procedure_for_informing_arg_0 .
+ex:procedure_for_informing_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Stakeholder .
+ex:procedure_for_informing a4:argument ex:procedure_for_informing_arg_1 .
+ex:procedure_for_consulting a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:procedure_for_consulting_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Procedure .
+ex:procedure_for_consulting a4:argument ex:procedure_for_consulting_arg_0 .
+ex:procedure_for_consulting_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Stakeholder .
+ex:procedure_for_consulting a4:argument ex:procedure_for_consulting_arg_1 .
+ex:procedure_for_termination a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:procedure_for_termination_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Procedure .
+ex:procedure_for_termination a4:argument ex:procedure_for_termination_arg_0 .
+ex:procedure_for_transition_to_alternative_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:procedure_for_transition_to_alternative_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Procedure .
+ex:procedure_for_transition_to_alternative_index a4:argument ex:procedure_for_transition_to_alternative_index_arg_0 .
+ex:procedure_for_transition_to_alternative_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:AlternativeIndex .
+ex:procedure_for_transition_to_alternative_index a4:argument ex:procedure_for_transition_to_alternative_index_arg_1 .
+ex:details_specified_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:details_specified_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Guidelines .
+ex:details_specified_in a4:argument ex:details_specified_in_arg_0 .
+ex:details_specified_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TerminationPolicy .
+ex:details_specified_in a4:argument ex:details_specified_in_arg_1 .
+ex:incorporated_by_reference a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:incorporated_by_reference_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TerminationPolicy .
+ex:incorporated_by_reference a4:argument ex:incorporated_by_reference_arg_0 .
+ex:available_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:available_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Document .
+ex:available_on a4:argument ex:available_on_arg_0 .
+ex:available_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:WebResource .
+ex:available_on a4:argument ex:available_on_arg_1 .
+ex:website_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:website_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:WebResource .
+ex:website_of a4:argument ex:website_of_arg_0 .
+ex:website_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:website_of a4:argument ex:website_of_arg_1 .
+
+ex:ASSERT_section_5_2_methodology_review_reference a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "110"^^xsd:integer ;
+  a4:exprText "document_part_locator(Section5_2MethodologyReview, Section5_2MethodologyReviewLocator)" ;
+  a4:sourceText "fact section_5_2_methodology_review_reference :\ndocument_part_locator(\n  Section5_2MethodologyReview,\n  Section5_2MethodologyReviewLocator\n)" .
+ex:ASSERT_termination_policy_location a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "116"^^xsd:integer ;
+  a4:exprText "(document_url(SolactiveTerminationPolicy, HttpsWwwSolactiveComDocumentsTerminationPolicy)) and (available_on(SolactiveTerminationPolicy, SolactiveWebsite)) and (website_of(SolactiveWebsite, Solactive))" ;
+  a4:sourceText "fact termination_policy_location :\ndocument_url(\n  SolactiveTerminationPolicy,\n  HttpsWwwSolactiveComDocumentsTerminationPolicy\n)\nand available_on(SolactiveTerminationPolicy, SolactiveWebsite)\nand website_of(SolactiveWebsite, Solactive)" .
+ex:ASSERT_solactive_effort a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "124"^^xsd:integer ;
+  a4:exprText "(effort_by(SolactiveGreatestPossibleEfforts, Solactive)) and (greatest_possible(SolactiveGreatestPossibleEfforts)) and (over_time(SolactiveGreatestPossibleEfforts))" ;
+  a4:sourceText "fact solactive_effort :\neffort_by(SolactiveGreatestPossibleEfforts, Solactive)\nand greatest_possible(SolactiveGreatestPossibleEfforts)\nand over_time(SolactiveGreatestPossibleEfforts)" .
+ex:ASSERT_solactive_efforts_for_resilience_and_integrity a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "129"^^xsd:integer ;
+  a4:exprText "forall i: Index, (index_of(i, Solactive)) implies ((effort_to_ensure(SolactiveGreatestPossibleEfforts, i, Resilience)) and (effort_to_ensure(SolactiveGreatestPossibleEfforts, i, ContinuedIntegrity)))" ;
+  a4:sourceText "constraint solactive_efforts_for_resilience_and_integrity :\nforall i: Index,\n  index_of(i, Solactive)\n  implies\n    effort_to_ensure(SolactiveGreatestPossibleEfforts, i, Resilience)\n    and effort_to_ensure(\n      SolactiveGreatestPossibleEfforts,\n      i,\n      ContinuedIntegrity\n    )" .
+ex:ASSERT_methodology_adaptation_where_necessary a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "140"^^xsd:integer ;
+  a4:exprText "forall i: Index, forall m: IndexMethodology, forall u: UnderlyingMarket, ((index_of(i, Solactive)) and (methodology_of_index(m, i)) and (necessary_to_adapt_methodology(m, u)) and (changing_underlying_market(u))) implies (exists p: Procedure, (follows(Solactive, p)) and (clearly_defined(p)) and (transparent(p)) and (adapts_index_methodology(p, m, u)) and (procedure_maintains(p, i, ContinuedReliability)) and (procedure_maintains(p, i, Comparability)) and (see(p, Section5_2MethodologyReview)))" ;
+  a4:sourceText "constraint methodology_adaptation_where_necessary :\nforall i: Index, forall m: IndexMethodology, forall u: UnderlyingMarket,\n  index_of(i, Solactive)\n  and methodology_of_index(m, i)\n  and necessary_to_adapt_methodology(m, u)\n  and changing_underlying_market(u)\n  implies\n    exists p: Procedure,\n      follows(Solactive, p)\n      and clearly_defined(p)\n      and transparent(p)\n      and adapts_index_methodology(p, m, u)\n      and procedure_maintains(p, i, ContinuedReliability)\n      and procedure_maintains(p, i, Comparability)\n      and see(p, Section5_2MethodologyReview)" .
+ex:ASSERT_cessation_usual_when_underlying_market_changes a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "156"^^xsd:integer ;
+  a4:exprText "forall i: Index, (exists u: UnderlyingMarket, ((index_set_to_measure_underlying_market(i, u)) or (index_set_to_reflect_underlying_market(i, u))) and (underlying_market_changes(u)) and (underlying_market_change_described_by(u, Substantially)) and (not (underlying_market_change_foreseeable_at_inception(u, i)))) implies (usual_case_for_cessation(i))" ;
+  a4:sourceText "constraint cessation_usual_when_underlying_market_changes :\nforall i: Index,\n  (\n    exists u: UnderlyingMarket,\n      (\n        index_set_to_measure_underlying_market(i, u)\n        or index_set_to_reflect_underlying_market(i, u)\n      )\n      and underlying_market_changes(u)\n      and underlying_market_change_described_by(u, Substantially)\n      and not underlying_market_change_foreseeable_at_inception(u, i)\n  )\n  implies usual_case_for_cessation(i)" .
+ex:ASSERT_cessation_usual_when_economic_reality_changes a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "170"^^xsd:integer ;
+  a4:exprText "forall i: Index, (exists e: EconomicReality, ((index_set_to_measure_economic_reality(i, e)) or (index_set_to_reflect_economic_reality(i, e))) and (economic_reality_changes(e)) and (economic_reality_change_described_by(e, Substantially)) and (not (economic_reality_change_foreseeable_at_inception(e, i)))) implies (usual_case_for_cessation(i))" ;
+  a4:sourceText "constraint cessation_usual_when_economic_reality_changes :\nforall i: Index,\n  (\n    exists e: EconomicReality,\n      (\n        index_set_to_measure_economic_reality(i, e)\n        or index_set_to_reflect_economic_reality(i, e)\n      )\n      and economic_reality_changes(e)\n      and economic_reality_change_described_by(e, Substantially)\n      and not economic_reality_change_foreseeable_at_inception(e, i)\n  )\n  implies usual_case_for_cessation(i)" .
+ex:ASSERT_cessation_usual_when_rules_not_applied_coherently a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "184"^^xsd:integer ;
+  a4:exprText "forall i: Index, (exists r: IndexRule, (rule_of_index(r, i)) and (not (applied_coherently(r, i)))) implies (usual_case_for_cessation(i))" ;
+  a4:sourceText "constraint cessation_usual_when_rules_not_applied_coherently :\nforall i: Index,\n  (\n    exists r: IndexRule,\n      rule_of_index(r, i)\n      and not applied_coherently(r, i)\n  )\n  implies usual_case_for_cessation(i)" .
+ex:ASSERT_cessation_usual_when_selection_criteria_not_applied_coherently a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "193"^^xsd:integer ;
+  a4:exprText "forall i: Index, (exists sc: SelectionCriteria, (rule_of_index(sc, i)) and (not (applied_coherently(sc, i)))) implies (usual_case_for_cessation(i))" ;
+  a4:sourceText "constraint cessation_usual_when_selection_criteria_not_applied_coherently :\nforall i: Index,\n  (\n    exists sc: SelectionCriteria,\n      rule_of_index(sc, i)\n      and not applied_coherently(sc, i)\n  )\n  implies usual_case_for_cessation(i)" .
+ex:ASSERT_cessation_usual_when_index_not_used_as_underlying_value a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "202"^^xsd:integer ;
+  a4:exprText "forall i: Index, ((not (exists fi: FinancialInstrument, used_as_underlying_value_for_financial_instrument(i, fi))) and (not (exists f: InvestmentFund, used_as_underlying_value_for_investment_fund(i, f))) and (not (exists c: FinancialContract, used_as_underlying_value_for_financial_contract(i, c)))) implies (usual_case_for_cessation(i))" ;
+  a4:sourceText "constraint cessation_usual_when_index_not_used_as_underlying_value :\nforall i: Index,\n  (\n    not exists fi: FinancialInstrument,\n      used_as_underlying_value_for_financial_instrument(i, fi)\n  )\n  and\n  (\n    not exists f: InvestmentFund,\n      used_as_underlying_value_for_investment_fund(i, f)\n  )\n  and\n  (\n    not exists c: FinancialContract,\n      used_as_underlying_value_for_financial_contract(i, c)\n  )\n  implies usual_case_for_cessation(i)" .
+ex:ASSERT_orderly_cessation_indication_available_if_no_options a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "220"^^xsd:integer ;
+  a4:exprText "forall i: Index, ((index_of(i, Solactive)) and (usual_case_for_cessation(i)) and ((<count>) = (0))) implies (orderly_cessation_indication_available(i))" ;
+  a4:sourceText "constraint orderly_cessation_indication_available_if_no_options :\nforall i: Index,\n  index_of(i, Solactive)\n  and usual_case_for_cessation(i)\n  and count(o in Option where available_option_for_index(o, i)) = 0\n  implies orderly_cessation_indication_available(i)" .
+ex:ASSERT_solactive_cessation_guidelines a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "227"^^xsd:integer ;
+  a4:exprText "(established_by(SolactiveCessationGuidelines, Solactive)) and (maintained_by(SolactiveCessationGuidelines, Solactive)) and (clear(SolactiveCessationGuidelines))" ;
+  a4:sourceText "fact solactive_cessation_guidelines :\nestablished_by(SolactiveCessationGuidelines, Solactive)\nand maintained_by(SolactiveCessationGuidelines, Solactive)\nand clear(SolactiveCessationGuidelines)" .
+ex:ASSERT_guidelines_identify_unavoidable_cessation_situations a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "232"^^xsd:integer ;
+  a4:exprText "forall s: CessationSituation, (guidelines_identify(SolactiveCessationGuidelines, s)) implies (unavoidable(s))" ;
+  a4:sourceText "constraint guidelines_identify_unavoidable_cessation_situations :\nforall s: CessationSituation,\n  guidelines_identify(SolactiveCessationGuidelines, s)\n  implies unavoidable(s)" .
+ex:ASSERT_guidelines_include_stakeholder_information_and_consultation_procedures a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "237"^^xsd:integer ;
+  a4:exprText "exists p: Procedure, (procedure_in_guidelines(SolactiveCessationGuidelines, p)) and (procedure_for_informing(p, Stakeholders)) and (exists q: Procedure, (procedure_in_guidelines(SolactiveCessationGuidelines, q)) and (procedure_for_consulting(q, Stakeholders)))" ;
+  a4:sourceText "fact guidelines_include_stakeholder_information_and_consultation_procedures :\nexists p: Procedure,\n  procedure_in_guidelines(SolactiveCessationGuidelines, p)\n  and procedure_for_informing(p, Stakeholders)\nand\nexists q: Procedure,\n  procedure_in_guidelines(SolactiveCessationGuidelines, q)\n  and procedure_for_consulting(q, Stakeholders)" .
+ex:ASSERT_guidelines_include_termination_procedure a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "246"^^xsd:integer ;
+  a4:exprText "exists p: Procedure, (procedure_in_guidelines(SolactiveCessationGuidelines, p)) and (procedure_for_termination(p))" ;
+  a4:sourceText "fact guidelines_include_termination_procedure :\nexists p: Procedure,\n  procedure_in_guidelines(SolactiveCessationGuidelines, p)\n  and procedure_for_termination(p)" .
+ex:ASSERT_guidelines_include_transition_procedure a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "251"^^xsd:integer ;
+  a4:exprText "exists p: Procedure, exists a: AlternativeIndex, (procedure_in_guidelines(SolactiveCessationGuidelines, p)) and (procedure_for_transition_to_alternative_index(p, a))" ;
+  a4:sourceText "fact guidelines_include_transition_procedure :\nexists p: Procedure, exists a: AlternativeIndex,\n  procedure_in_guidelines(SolactiveCessationGuidelines, p)\n  and procedure_for_transition_to_alternative_index(p, a)" .
+ex:ASSERT_termination_policy_details a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "256"^^xsd:integer ;
+  a4:exprText "(details_specified_in(SolactiveCessationGuidelines, SolactiveTerminationPolicy)) and (incorporated_by_reference(SolactiveTerminationPolicy))" ;
+  a4:sourceText "fact termination_policy_details :\ndetails_specified_in(\n  SolactiveCessationGuidelines,\n  SolactiveTerminationPolicy\n)\nand incorporated_by_reference(SolactiveTerminationPolicy)" .

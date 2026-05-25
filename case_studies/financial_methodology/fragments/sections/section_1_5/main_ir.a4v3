@@ -1,0 +1,54 @@
+sort Index
+sort License
+sort IndexUnderlyingValueLicense extends License
+sort LicenseClass
+sort LicenseIssuance
+
+sort LicenseUseCategory =
+  FinancialInstrumentUse
+  | InvestmentFundUse
+  | FinancialContractUse
+
+sort LicenseRecipientCategory =
+  StockExchangeRecipient
+  | BankRecipient
+  | FinancialServicesProviderRecipient
+  | InvestmentHouseRecipient
+
+sort SolactiveOrganization extends Organization
+
+entity TheIndex : Index
+entity Solactive : SolactiveOrganization
+entity LicensesToUseIndexAsUnderlyingValue : LicenseClass
+entity IndexUnderlyingValueLicenseIssuance : LicenseIssuance
+
+rel license_class_uses_index_as_underlying_value : LicenseClass, Index
+rel license_class_use_category : LicenseClass, LicenseUseCategory
+rel license_instance_of_class : IndexUnderlyingValueLicense, LicenseClass
+rel issuance_of_license_class : LicenseIssuance, LicenseClass
+rel issuance_to_recipient_category : LicenseIssuance, LicenseRecipientCategory
+rel issuance_by : LicenseIssuance, SolactiveOrganization
+
+fact index_underlying_value_license_class_scope :
+  license_class_uses_index_as_underlying_value(LicensesToUseIndexAsUnderlyingValue, TheIndex)
+  and license_class_use_category(LicensesToUseIndexAsUnderlyingValue, FinancialInstrumentUse)
+  and license_class_use_category(LicensesToUseIndexAsUnderlyingValue, InvestmentFundUse)
+  and license_class_use_category(LicensesToUseIndexAsUnderlyingValue, FinancialContractUse)
+  and issuance_of_license_class(IndexUnderlyingValueLicenseIssuance, LicensesToUseIndexAsUnderlyingValue)
+  and issuance_to_recipient_category(IndexUnderlyingValueLicenseIssuance, StockExchangeRecipient)
+  and issuance_to_recipient_category(IndexUnderlyingValueLicenseIssuance, BankRecipient)
+  and issuance_to_recipient_category(IndexUnderlyingValueLicenseIssuance, FinancialServicesProviderRecipient)
+  and issuance_to_recipient_category(IndexUnderlyingValueLicenseIssuance, InvestmentHouseRecipient)
+  and issuance_by(IndexUnderlyingValueLicenseIssuance, Solactive)
+
+fact index_underlying_value_license_instance_class :
+  forall l: IndexUnderlyingValueLicense,
+    license_instance_of_class(l, LicensesToUseIndexAsUnderlyingValue)
+
+permission issue_index_underlying_value_license(
+  agent: SolactiveOrganization,
+  license: IndexUnderlyingValueLicense
+)
+  action: issue
+  target: license
+  scope: IndexUnderlyingValueLicenseIssuance

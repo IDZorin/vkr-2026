@@ -1,0 +1,659 @@
+﻿@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:merge_canonical_ontology_v1 a a4:ShaclProjectionTarget .
+
+ex:CanonicalConcept a rdfs:Class .
+ex:CanonicalConceptShape a sh:NodeShape ; sh:targetClass ex:CanonicalConcept .
+ex:CanonicalSort a rdfs:Class .
+ex:CanonicalSort rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalSortShape a sh:NodeShape ; sh:targetClass ex:CanonicalSort .
+ex:CanonicalEntity a rdfs:Class .
+ex:CanonicalEntity rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalEntityShape a sh:NodeShape ; sh:targetClass ex:CanonicalEntity .
+ex:CanonicalRelation a rdfs:Class .
+ex:CanonicalRelation rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalRelationShape a sh:NodeShape ; sh:targetClass ex:CanonicalRelation .
+ex:CanonicalFunction a rdfs:Class .
+ex:CanonicalFunction rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalFunctionShape a sh:NodeShape ; sh:targetClass ex:CanonicalFunction .
+ex:CanonicalFrame a rdfs:Class .
+ex:CanonicalFrame rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalFrameShape a sh:NodeShape ; sh:targetClass ex:CanonicalFrame .
+ex:CanonicalRole a rdfs:Class .
+ex:CanonicalRole rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalRoleShape a sh:NodeShape ; sh:targetClass ex:CanonicalRole .
+ex:CanonicalDecisionStatus a rdfs:Class .
+ex:CanonicalDecisionStatusShape a sh:NodeShape ; sh:targetClass ex:CanonicalDecisionStatus .
+ex:Accepted a ex:CanonicalDecisionStatus .
+ex:NeedsHumanReview a ex:CanonicalDecisionStatus .
+ex:FutureRefinement a ex:CanonicalDecisionStatus .
+ex:CanonicalScope a rdfs:Class .
+ex:CanonicalScopeShape a sh:NodeShape ; sh:targetClass ex:CanonicalScope .
+ex:AppliesToIndexFamily a ex:CanonicalScope .
+ex:AppliesToIndexVariant a ex:CanonicalScope .
+ex:AppliesToLocalPlaceholder a ex:CanonicalScope .
+ex:AppliesToDocumentInfrastructure a ex:CanonicalScope .
+ex:AppliesToDefinitionPointer a ex:CanonicalScope .
+ex:IndexFamily a rdfs:Class .
+ex:IndexFamilyShape a sh:NodeShape ; sh:targetClass ex:IndexFamily .
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:IndexVariant a rdfs:Class .
+ex:IndexVariant rdfs:subClassOf ex:Index .
+ex:IndexVariantShape a sh:NodeShape ; sh:targetClass ex:IndexVariant .
+ex:PublishedIndexVariant a rdfs:Class .
+ex:PublishedIndexVariant rdfs:subClassOf ex:IndexVariant .
+ex:PublishedIndexVariantShape a sh:NodeShape ; sh:targetClass ex:PublishedIndexVariant .
+ex:ReturnTreatment a rdfs:Class .
+ex:ReturnTreatmentShape a sh:NodeShape ; sh:targetClass ex:ReturnTreatment .
+ex:PriceReturn a ex:ReturnTreatment .
+ex:NetTotalReturn a ex:ReturnTreatment .
+ex:GrossTotalReturn a ex:ReturnTreatment .
+ex:AdjustedReturn a ex:ReturnTreatment .
+ex:DecrementTreatment a rdfs:Class .
+ex:DecrementTreatmentShape a sh:NodeShape ; sh:targetClass ex:DecrementTreatment .
+ex:NoDecrement a ex:DecrementTreatment .
+ex:FivePercentAnnualDecrement a ex:DecrementTreatment .
+ex:Security a rdfs:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:SecurityShape a sh:NodeShape ; sh:targetClass ex:Security .
+ex:ShareClass a rdfs:Class .
+ex:ShareClass rdfs:subClassOf ex:Security .
+ex:ShareClassShape a sh:NodeShape ; sh:targetClass ex:ShareClass .
+ex:IndexComponentRoleAssignment a rdfs:Class .
+ex:IndexComponentRoleAssignmentShape a sh:NodeShape ; sh:targetClass ex:IndexComponentRoleAssignment .
+ex:IndexComponent a rdfs:Class .
+ex:IndexComponent rdfs:subClassOf ex:IndexComponentRoleAssignment .
+ex:IndexComponentShape a sh:NodeShape ; sh:targetClass ex:IndexComponent .
+ex:IndexComponentMembership a rdfs:Class .
+ex:IndexComponentMembershipShape a sh:NodeShape ; sh:targetClass ex:IndexComponentMembership .
+ex:GenericIndexComponentMembership a rdfs:Class .
+ex:GenericIndexComponentMembership rdfs:subClassOf ex:IndexComponentMembership .
+ex:GenericIndexComponentMembershipShape a sh:NodeShape ; sh:targetClass ex:GenericIndexComponentMembership .
+ex:SelectionDayIndexComponentMembership a rdfs:Class .
+ex:SelectionDayIndexComponentMembership rdfs:subClassOf ex:IndexComponentMembership .
+ex:SelectionDayIndexComponentMembershipShape a sh:NodeShape ; sh:targetClass ex:SelectionDayIndexComponentMembership .
+ex:CalculationDayIndexComponentMembership a rdfs:Class .
+ex:CalculationDayIndexComponentMembership rdfs:subClassOf ex:IndexComponentMembership .
+ex:CalculationDayIndexComponentMembershipShape a sh:NodeShape ; sh:targetClass ex:CalculationDayIndexComponentMembership .
+ex:IndexComponentMembershipState a rdfs:Class .
+ex:IndexComponentMembershipStateShape a sh:NodeShape ; sh:targetClass ex:IndexComponentMembershipState .
+ex:GenericMembership a ex:IndexComponentMembershipState .
+ex:SelectedMembership a ex:IndexComponentMembershipState .
+ex:CalculationMembership a ex:IndexComponentMembershipState .
+ex:ImplementedMembership a ex:IndexComponentMembershipState .
+ex:IndexMethodology a rdfs:Class .
+ex:IndexMethodology rdfs:subClassOf ex:Document .
+ex:IndexMethodologyShape a sh:NodeShape ; sh:targetClass ex:IndexMethodology .
+ex:EquityIndexMethodology a rdfs:Class .
+ex:EquityIndexMethodology rdfs:subClassOf ex:IndexMethodology .
+ex:EquityIndexMethodologyShape a sh:NodeShape ; sh:targetClass ex:EquityIndexMethodology .
+ex:MethodologyPolicy a rdfs:Class .
+ex:MethodologyPolicy rdfs:subClassOf ex:Document .
+ex:MethodologyPolicyShape a sh:NodeShape ; sh:targetClass ex:MethodologyPolicy .
+ex:CorrectionPolicy a rdfs:Class .
+ex:CorrectionPolicy rdfs:subClassOf ex:Document .
+ex:CorrectionPolicyShape a sh:NodeShape ; sh:targetClass ex:CorrectionPolicy .
+ex:DisruptionPolicy a rdfs:Class .
+ex:DisruptionPolicy rdfs:subClassOf ex:Document .
+ex:DisruptionPolicyShape a sh:NodeShape ; sh:targetClass ex:DisruptionPolicy .
+ex:Guideline a rdfs:Class .
+ex:Guideline rdfs:subClassOf ex:Document .
+ex:GuidelineShape a sh:NodeShape ; sh:targetClass ex:Guideline .
+ex:Website a rdfs:Class .
+ex:WebsiteShape a sh:NodeShape ; sh:targetClass ex:Website .
+ex:WebsiteSection a rdfs:Class .
+ex:WebsiteSection rdfs:subClassOf ex:DocumentPart .
+ex:WebsiteSectionShape a sh:NodeShape ; sh:targetClass ex:WebsiteSection .
+ex:IndexAdministrator a rdfs:Class .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:IndexAdministratorShape a sh:NodeShape ; sh:targetClass ex:IndexAdministrator .
+ex:SolactiveOrganization a rdfs:Class .
+ex:SolactiveOrganization rdfs:subClassOf ex:IndexAdministrator .
+ex:SolactiveOrganizationShape a sh:NodeShape ; sh:targetClass ex:SolactiveOrganization .
+ex:IndexDay a rdfs:Class .
+ex:IndexDay rdfs:subClassOf ex:Day .
+ex:IndexDayShape a sh:NodeShape ; sh:targetClass ex:IndexDay .
+ex:BusinessDay a rdfs:Class .
+ex:BusinessDay rdfs:subClassOf ex:IndexDay .
+ex:BusinessDayShape a sh:NodeShape ; sh:targetClass ex:BusinessDay .
+ex:CalculationDay a rdfs:Class .
+ex:CalculationDay rdfs:subClassOf ex:IndexDay .
+ex:CalculationDayShape a sh:NodeShape ; sh:targetClass ex:CalculationDay .
+ex:TradingDay a rdfs:Class .
+ex:TradingDay rdfs:subClassOf ex:IndexDay .
+ex:TradingDayShape a sh:NodeShape ; sh:targetClass ex:TradingDay .
+ex:SelectionDay a rdfs:Class .
+ex:SelectionDay rdfs:subClassOf ex:IndexDay .
+ex:SelectionDayShape a sh:NodeShape ; sh:targetClass ex:SelectionDay .
+ex:FixingDay a rdfs:Class .
+ex:FixingDay rdfs:subClassOf ex:IndexDay .
+ex:FixingDayShape a sh:NodeShape ; sh:targetClass ex:FixingDay .
+ex:RebalanceDay a rdfs:Class .
+ex:RebalanceDay rdfs:subClassOf ex:IndexDay .
+ex:RebalanceDayShape a sh:NodeShape ; sh:targetClass ex:RebalanceDay .
+ex:RegularRebalanceDay a rdfs:Class .
+ex:RegularRebalanceDay rdfs:subClassOf ex:RebalanceDay .
+ex:RegularRebalanceDayShape a sh:NodeShape ; sh:targetClass ex:RegularRebalanceDay .
+ex:EligibleRebalanceDay a rdfs:Class .
+ex:EligibleRebalanceDay rdfs:subClassOf ex:IndexDay .
+ex:EligibleRebalanceDayShape a sh:NodeShape ; sh:targetClass ex:EligibleRebalanceDay .
+ex:StartDate a rdfs:Class .
+ex:StartDate rdfs:subClassOf ex:IndexDay .
+ex:StartDateShape a sh:NodeShape ; sh:targetClass ex:StartDate .
+ex:LiveDate a rdfs:Class .
+ex:LiveDate rdfs:subClassOf ex:IndexDay .
+ex:LiveDateShape a sh:NodeShape ; sh:targetClass ex:LiveDate .
+ex:Price a rdfs:Class .
+ex:Price rdfs:subClassOf ex:MonetaryAmount .
+ex:PriceShape a sh:NodeShape ; sh:targetClass ex:Price .
+ex:TradingPrice a rdfs:Class .
+ex:TradingPrice rdfs:subClassOf ex:Price .
+ex:TradingPriceShape a sh:NodeShape ; sh:targetClass ex:TradingPrice .
+ex:ClosingPrice a rdfs:Class .
+ex:ClosingPrice rdfs:subClassOf ex:Price .
+ex:ClosingPriceShape a sh:NodeShape ; sh:targetClass ex:ClosingPrice .
+ex:ComponentPrice a rdfs:Class .
+ex:ComponentPrice rdfs:subClassOf ex:Price .
+ex:ComponentPriceShape a sh:NodeShape ; sh:targetClass ex:ComponentPrice .
+ex:PriceChange a rdfs:Class .
+ex:PriceChange rdfs:subClassOf ex:Real .
+ex:PriceChangeShape a sh:NodeShape ; sh:targetClass ex:PriceChange .
+ex:ComponentWeight a rdfs:Class .
+ex:ComponentWeight rdfs:subClassOf ex:Percent .
+ex:ComponentWeightShape a sh:NodeShape ; sh:targetClass ex:ComponentWeight .
+ex:IndexLevel a rdfs:Class .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:IndexLevelShape a sh:NodeShape ; sh:targetClass ex:IndexLevel .
+ex:CurrencyValue a rdfs:Class .
+ex:CurrencyValue rdfs:subClassOf ex:Currency .
+ex:CurrencyValueShape a sh:NodeShape ; sh:targetClass ex:CurrencyValue .
+ex:Exchange a rdfs:Class .
+ex:ExchangeShape a sh:NodeShape ; sh:targetClass ex:Exchange .
+ex:DataVendor a rdfs:Class .
+ex:DataVendorShape a sh:NodeShape ; sh:targetClass ex:DataVendor .
+ex:Region a rdfs:Class .
+ex:RegionShape a sh:NodeShape ; sh:targetClass ex:Region .
+ex:ShareCount a rdfs:Class .
+ex:ShareCount rdfs:subClassOf ex:Real .
+ex:ShareCountShape a sh:NodeShape ; sh:targetClass ex:ShareCount .
+ex:FreeFloat a rdfs:Class .
+ex:FreeFloat rdfs:subClassOf ex:Percentage .
+ex:FreeFloatShape a sh:NodeShape ; sh:targetClass ex:FreeFloat .
+ex:FreeFloatMarketCapitalization a rdfs:Class .
+ex:FreeFloatMarketCapitalization rdfs:subClassOf ex:MonetaryAmount .
+ex:FreeFloatMarketCapitalizationShape a sh:NodeShape ; sh:targetClass ex:FreeFloatMarketCapitalization .
+ex:DailyValueTraded a rdfs:Class .
+ex:DailyValueTraded rdfs:subClassOf ex:MonetaryAmount .
+ex:DailyValueTradedShape a sh:NodeShape ; sh:targetClass ex:DailyValueTraded .
+ex:AverageDailyValueTraded a rdfs:Class .
+ex:AverageDailyValueTraded rdfs:subClassOf ex:MonetaryAmount .
+ex:AverageDailyValueTradedShape a sh:NodeShape ; sh:targetClass ex:AverageDailyValueTraded .
+ex:Observation a rdfs:Class .
+ex:ObservationShape a sh:NodeShape ; sh:targetClass ex:Observation .
+ex:ValueObservation a rdfs:Class .
+ex:ValueObservation rdfs:subClassOf ex:Observation .
+ex:ValueObservationShape a sh:NodeShape ; sh:targetClass ex:ValueObservation .
+ex:PriceObservation a rdfs:Class .
+ex:PriceObservation rdfs:subClassOf ex:ValueObservation .
+ex:PriceObservationShape a sh:NodeShape ; sh:targetClass ex:PriceObservation .
+ex:TradingPriceObservation a rdfs:Class .
+ex:TradingPriceObservation rdfs:subClassOf ex:PriceObservation .
+ex:TradingPriceObservationShape a sh:NodeShape ; sh:targetClass ex:TradingPriceObservation .
+ex:ClosingPriceObservation a rdfs:Class .
+ex:ClosingPriceObservation rdfs:subClassOf ex:PriceObservation .
+ex:ClosingPriceObservationShape a sh:NodeShape ; sh:targetClass ex:ClosingPriceObservation .
+ex:ComponentPriceObservation a rdfs:Class .
+ex:ComponentPriceObservation rdfs:subClassOf ex:PriceObservation .
+ex:ComponentPriceObservationShape a sh:NodeShape ; sh:targetClass ex:ComponentPriceObservation .
+ex:PriceChangeObservation a rdfs:Class .
+ex:PriceChangeObservation rdfs:subClassOf ex:ValueObservation .
+ex:PriceChangeObservationShape a sh:NodeShape ; sh:targetClass ex:PriceChangeObservation .
+ex:ComponentWeightObservation a rdfs:Class .
+ex:ComponentWeightObservation rdfs:subClassOf ex:ValueObservation .
+ex:ComponentWeightObservationShape a sh:NodeShape ; sh:targetClass ex:ComponentWeightObservation .
+ex:RegionClassificationObservation a rdfs:Class .
+ex:RegionClassificationObservation rdfs:subClassOf ex:ValueObservation .
+ex:RegionClassificationObservationShape a sh:NodeShape ; sh:targetClass ex:RegionClassificationObservation .
+ex:DailyValueTradedObservation a rdfs:Class .
+ex:DailyValueTradedObservation rdfs:subClassOf ex:ValueObservation .
+ex:DailyValueTradedObservationShape a sh:NodeShape ; sh:targetClass ex:DailyValueTradedObservation .
+ex:AverageDailyValueTradedObservation a rdfs:Class .
+ex:AverageDailyValueTradedObservation rdfs:subClassOf ex:ValueObservation .
+ex:AverageDailyValueTradedObservationShape a sh:NodeShape ; sh:targetClass ex:AverageDailyValueTradedObservation .
+ex:IndexLevelObservation a rdfs:Class .
+ex:IndexLevelObservation rdfs:subClassOf ex:ValueObservation .
+ex:IndexLevelObservationShape a sh:NodeShape ; sh:targetClass ex:IndexLevelObservation .
+ex:InitialIndexLevelObservation a rdfs:Class .
+ex:InitialIndexLevelObservation rdfs:subClassOf ex:IndexLevelObservation .
+ex:InitialIndexLevelObservationShape a sh:NodeShape ; sh:targetClass ex:InitialIndexLevelObservation .
+ex:FreeFloatObservation a rdfs:Class .
+ex:FreeFloatObservation rdfs:subClassOf ex:ValueObservation .
+ex:FreeFloatObservationShape a sh:NodeShape ; sh:targetClass ex:FreeFloatObservation .
+ex:ShareCountObservation a rdfs:Class .
+ex:ShareCountObservation rdfs:subClassOf ex:ValueObservation .
+ex:ShareCountObservationShape a sh:NodeShape ; sh:targetClass ex:ShareCountObservation .
+ex:FreeFloatMarketCapitalizationObservation a rdfs:Class .
+ex:FreeFloatMarketCapitalizationObservation rdfs:subClassOf ex:ValueObservation .
+ex:FreeFloatMarketCapitalizationObservationShape a sh:NodeShape ; sh:targetClass ex:FreeFloatMarketCapitalizationObservation .
+ex:IndexCurrencyObservation a rdfs:Class .
+ex:IndexCurrencyObservation rdfs:subClassOf ex:ValueObservation .
+ex:IndexCurrencyObservationShape a sh:NodeShape ; sh:targetClass ex:IndexCurrencyObservation .
+ex:ExchangeObservation a rdfs:Class .
+ex:ExchangeObservation rdfs:subClassOf ex:ValueObservation .
+ex:ExchangeObservationShape a sh:NodeShape ; sh:targetClass ex:ExchangeObservation .
+ex:IndexUniverse a rdfs:Class .
+ex:IndexUniverseShape a sh:NodeShape ; sh:targetClass ex:IndexUniverse .
+ex:GbsIndexUniverse a rdfs:Class .
+ex:GbsIndexUniverse rdfs:subClassOf ex:IndexUniverse .
+ex:GbsIndexUniverseShape a sh:NodeShape ; sh:targetClass ex:GbsIndexUniverse .
+ex:IndexComponentRequirements a rdfs:Class .
+ex:IndexComponentRequirementsShape a sh:NodeShape ; sh:targetClass ex:IndexComponentRequirements .
+ex:IndexUniverseRequirements a rdfs:Class .
+ex:IndexUniverseRequirementsShape a sh:NodeShape ; sh:targetClass ex:IndexUniverseRequirements .
+ex:RBICSClassificationSystem a rdfs:Class .
+ex:RBICSClassificationSystemShape a sh:NodeShape ; sh:targetClass ex:RBICSClassificationSystem .
+ex:RBICSSubindustryClassification a rdfs:Class .
+ex:RBICSSubindustryClassificationShape a sh:NodeShape ; sh:targetClass ex:RBICSSubindustryClassification .
+ex:CorporateAction a rdfs:Class .
+ex:CorporateAction rdfs:subClassOf ex:Event .
+ex:CorporateActionShape a sh:NodeShape ; sh:targetClass ex:CorporateAction .
+ex:CorporateActionAdjustment a rdfs:Class .
+ex:CorporateActionAdjustment rdfs:subClassOf ex:Event .
+ex:CorporateActionAdjustmentShape a sh:NodeShape ; sh:targetClass ex:CorporateActionAdjustment .
+ex:IndexCalculation a rdfs:Class .
+ex:IndexCalculation rdfs:subClassOf ex:Event .
+ex:IndexCalculationShape a sh:NodeShape ; sh:targetClass ex:IndexCalculation .
+ex:IndexRebalance a rdfs:Class .
+ex:IndexRebalance rdfs:subClassOf ex:Event .
+ex:IndexRebalanceShape a sh:NodeShape ; sh:targetClass ex:IndexRebalance .
+ex:IndexReview a rdfs:Class .
+ex:IndexReview rdfs:subClassOf ex:Event .
+ex:IndexReviewShape a sh:NodeShape ; sh:targetClass ex:IndexReview .
+ex:IndexTermination a rdfs:Class .
+ex:IndexTermination rdfs:subClassOf ex:Event .
+ex:IndexTerminationShape a sh:NodeShape ; sh:targetClass ex:IndexTermination .
+ex:Notice a rdfs:Class .
+ex:Notice rdfs:subClassOf ex:Document .
+ex:NoticeShape a sh:NodeShape ; sh:targetClass ex:Notice .
+ex:Announcement a rdfs:Class .
+ex:Announcement rdfs:subClassOf ex:Event .
+ex:AnnouncementShape a sh:NodeShape ; sh:targetClass ex:Announcement .
+ex:Error a rdfs:Class .
+ex:Error rdfs:subClassOf ex:Event .
+ex:ErrorShape a sh:NodeShape ; sh:targetClass ex:Error .
+ex:DiscretionaryDecision a rdfs:Class .
+ex:DiscretionaryDecision rdfs:subClassOf ex:Event .
+ex:DiscretionaryDecisionShape a sh:NodeShape ; sh:targetClass ex:DiscretionaryDecision .
+ex:CanonicalBridgeRelation a rdfs:Class .
+ex:CanonicalBridgeRelationShape a sh:NodeShape ; sh:targetClass ex:CanonicalBridgeRelation .
+ex:ExactSame a ex:CanonicalBridgeRelation .
+ex:AliasOf a ex:CanonicalBridgeRelation .
+ex:SubtypeOf a ex:CanonicalBridgeRelation .
+ex:InstanceOf a ex:CanonicalBridgeRelation .
+ex:VariantOf a ex:CanonicalBridgeRelation .
+ex:GenericRuleAppliesToVariant a ex:CanonicalBridgeRelation .
+ex:RelatedButNotMerged a ex:CanonicalBridgeRelation .
+ex:LocalOnly a ex:CanonicalBridgeRelation .
+
+ex:Canonicalseed methodologyOntology a ex:CanonicalEntity .
+ex:SolactiveTransatlanticCleanEnergyEURIndexFamily a ex:IndexFamily .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR a ex:PublishedIndexVariant .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR a ex:PublishedIndexVariant .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR a ex:PublishedIndexVariant .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR a ex:PublishedIndexVariant .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR a ex:PublishedIndexVariant .
+ex:Solactive a ex:SolactiveOrganization .
+ex:SolactiveWebsite a ex:Website .
+ex:ThisGuideline a ex:Guideline .
+ex:CanonicalEquityIndexMethodology a ex:EquityIndexMethodology .
+ex:CanonicalSolactiveMethodologyPolicy a ex:MethodologyPolicy .
+ex:CanonicalSolactiveCorrectionPolicy a ex:CorrectionPolicy .
+ex:CanonicalSolactiveDisruptionPolicy a ex:DisruptionPolicy .
+ex:AnnouncementSection a ex:WebsiteSection .
+ex:FactSetRevereBusinessIndustryClassificationSystem a ex:RBICSClassificationSystem .
+ex:IndexGuidelineAppendix a ex:DocumentPart .
+ex:CanonicalRBICSLevel6SubindustryClassification a ex:RBICSSubindustryClassification .
+ex:TradingPriceObservationFrame a ex:CanonicalFrame .
+ex:ClosingPriceObservationFrame a ex:CanonicalFrame .
+ex:ComponentPriceObservationFrame a ex:CanonicalFrame .
+ex:PriceChangeObservationFrame a ex:CanonicalFrame .
+ex:ComponentWeightObservationFrame a ex:CanonicalFrame .
+ex:RegionClassificationObservationFrame a ex:CanonicalFrame .
+ex:DailyValueTradedObservationFrame a ex:CanonicalFrame .
+ex:AverageDailyValueTradedObservationFrame a ex:CanonicalFrame .
+ex:IndexLevelObservationFrame a ex:CanonicalFrame .
+ex:InitialIndexLevelObservationFrame a ex:CanonicalFrame .
+ex:FreeFloatObservationFrame a ex:CanonicalFrame .
+ex:ShareCountObservationFrame a ex:CanonicalFrame .
+ex:FreeFloatMarketCapitalizationObservationFrame a ex:CanonicalFrame .
+ex:IndexCurrencyObservationFrame a ex:CanonicalFrame .
+ex:ExchangeObservationFrame a ex:CanonicalFrame .
+ex:GenericIndexComponentMembershipFrame a ex:CanonicalFrame .
+ex:SelectionDayIndexComponentMembershipFrame a ex:CanonicalFrame .
+ex:CalculationDayIndexComponentMembershipFrame a ex:CanonicalFrame .
+ex:ObservationSubjectRole a ex:CanonicalRole .
+ex:ObservationIndexRole a ex:CanonicalRole .
+ex:ObservationDayContextRole a ex:CanonicalRole .
+ex:ObservationSelectionDayContextRole a ex:CanonicalRole .
+ex:ObservationPeriodContextRole a ex:CanonicalRole .
+ex:ObservationTimeContextRole a ex:CanonicalRole .
+ex:ObservationCalculationRole a ex:CanonicalRole .
+ex:ObservedPriceRole a ex:CanonicalRole .
+ex:ObservedTradingPriceRole a ex:CanonicalRole .
+ex:ObservedClosingPriceRole a ex:CanonicalRole .
+ex:ObservedComponentPriceRole a ex:CanonicalRole .
+ex:ObservedPriceChangeRole a ex:CanonicalRole .
+ex:ObservedComponentWeightRole a ex:CanonicalRole .
+ex:ObservedRegionRole a ex:CanonicalRole .
+ex:ObservedDailyValueTradedRole a ex:CanonicalRole .
+ex:ObservedAverageDailyValueTradedRole a ex:CanonicalRole .
+ex:ObservedIndexLevelRole a ex:CanonicalRole .
+ex:ObservedFreeFloatRole a ex:CanonicalRole .
+ex:ObservedShareCountRole a ex:CanonicalRole .
+ex:ObservedFreeFloatMarketCapitalizationRole a ex:CanonicalRole .
+ex:ObservedCurrencyRole a ex:CanonicalRole .
+ex:ObservedExchangeRole a ex:CanonicalRole .
+ex:MembershipSecurityRole a ex:CanonicalRole .
+ex:MembershipComponentAssignmentRole a ex:CanonicalRole .
+ex:MembershipIndexRole a ex:CanonicalRole .
+ex:MembershipSelectionDayRole a ex:CanonicalRole .
+ex:MembershipCalculationDayRole a ex:CanonicalRole .
+ex:MembershipStateRole a ex:CanonicalRole .
+ex:canonical_concept_status a rdf:Property .
+ex:CanonicalConceptShape sh:property [ sh:path ex:canonical_concept_status ; sh:class ex:CanonicalDecisionStatus ] .
+ex:canonical_concept_scope a rdf:Property .
+ex:CanonicalConceptShape sh:property [ sh:path ex:canonical_concept_scope ; sh:class ex:CanonicalScope ] .
+ex:canonical_bridge_relation a rdfs:Class .
+ex:canonical_bridge_relationShape a sh:NodeShape ; sh:targetClass ex:canonical_bridge_relation .
+ex:canonical_bridge_relationShape sh:property [ sh:path ex:canonical_bridge_relation_arg_0 ; sh:class ex:CanonicalConcept ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:canonical_bridge_relationShape sh:property [ sh:path ex:canonical_bridge_relation_arg_1 ; sh:class ex:CanonicalConcept ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:canonical_bridge_relationShape sh:property [ sh:path ex:canonical_bridge_relation_arg_2 ; sh:class ex:CanonicalBridgeRelation ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:frame_has_role a rdf:Property .
+ex:CanonicalFrameShape sh:property [ sh:path ex:frame_has_role ; sh:class ex:CanonicalRole ] .
+ex:frame_primary_value_role a rdf:Property .
+ex:CanonicalFrameShape sh:property [ sh:path ex:frame_primary_value_role ; sh:class ex:CanonicalRole ] .
+ex:variant_of_index_family a rdf:Property .
+ex:IndexVariantShape sh:property [ sh:path ex:variant_of_index_family ; sh:class ex:IndexFamily ] .
+ex:return_treatment_of_variant a rdf:Property .
+ex:IndexVariantShape sh:property [ sh:path ex:return_treatment_of_variant ; sh:class ex:ReturnTreatment ] .
+ex:decrement_treatment_of_variant a rdf:Property .
+ex:IndexVariantShape sh:property [ sh:path ex:decrement_treatment_of_variant ; sh:class ex:DecrementTreatment ] .
+ex:generic_index_rule_applies_to_variant a rdf:Property .
+ex:IndexFamilyShape sh:property [ sh:path ex:generic_index_rule_applies_to_variant ; sh:class ex:IndexVariant ] .
+ex:administered_by a rdf:Property .
+ex:IndexFamilyShape sh:property [ sh:path ex:administered_by ; sh:class ex:IndexAdministrator ] .
+ex:methodology_of_index_family a rdf:Property .
+ex:IndexMethodologyShape sh:property [ sh:path ex:methodology_of_index_family ; sh:class ex:IndexFamily ] .
+ex:website_of a rdf:Property .
+ex:WebsiteShape sh:property [ sh:path ex:website_of ; sh:class ex:Organization ] .
+ex:section_of_website a rdf:Property .
+ex:WebsiteSectionShape sh:property [ sh:path ex:section_of_website ; sh:class ex:Website ] .
+ex:incorporated_by_reference_into a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:incorporated_by_reference_into ; sh:class ex:Document ] .
+ex:available_on a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:available_on ; sh:class ex:Website ] .
+ex:index_component_security a rdf:Property .
+ex:IndexComponentShape sh:property [ sh:path ex:index_component_security ; sh:class ex:Security ] .
+ex:index_component_index a rdf:Property .
+ex:IndexComponentShape sh:property [ sh:path ex:index_component_index ; sh:class ex:Index ] .
+ex:security_reflected_in_index a rdf:Property .
+ex:SecurityShape sh:property [ sh:path ex:security_reflected_in_index ; sh:class ex:Index ] .
+ex:index_universe_member a rdf:Property .
+ex:IndexUniverseShape sh:property [ sh:path ex:index_universe_member ; sh:class ex:Security ] .
+ex:fulfills_index_component_requirements a rdf:Property .
+ex:SecurityShape sh:property [ sh:path ex:fulfills_index_component_requirements ; sh:class ex:IndexComponentRequirements ] .
+ex:fulfills_index_universe_requirements a rdf:Property .
+ex:FinancialInstrumentShape sh:property [ sh:path ex:fulfills_index_universe_requirements ; sh:class ex:IndexUniverseRequirements ] .
+ex:membership_role_assignment a rdf:Property .
+ex:IndexComponentMembershipShape sh:property [ sh:path ex:membership_role_assignment ; sh:class ex:IndexComponent ] .
+ex:membership_component a rdf:Property .
+ex:IndexComponentMembershipShape sh:property [ sh:path ex:membership_component ; sh:class ex:Security ] .
+ex:membership_index a rdf:Property .
+ex:IndexComponentMembershipShape sh:property [ sh:path ex:membership_index ; sh:class ex:Index ] .
+ex:membership_selection_day a rdf:Property .
+ex:IndexComponentMembershipShape sh:property [ sh:path ex:membership_selection_day ; sh:class ex:SelectionDay ] .
+ex:membership_calculation_day a rdf:Property .
+ex:IndexComponentMembershipShape sh:property [ sh:path ex:membership_calculation_day ; sh:class ex:CalculationDay ] .
+ex:membership_state a rdf:Property .
+ex:IndexComponentMembershipShape sh:property [ sh:path ex:membership_state ; sh:class ex:IndexComponentMembershipState ] .
+ex:selection_day_for_rebalance_day a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:selection_day_for_rebalance_day ; sh:class ex:RebalanceDay ] .
+ex:fixing_day_for_rebalance_day a rdf:Property .
+ex:FixingDayShape sh:property [ sh:path ex:fixing_day_for_rebalance_day ; sh:class ex:RebalanceDay ] .
+ex:calculation_day_of_index a rdf:Property .
+ex:CalculationDayShape sh:property [ sh:path ex:calculation_day_of_index ; sh:class ex:Index ] .
+ex:trading_day_for_component a rdf:Property .
+ex:TradingDayShape sh:property [ sh:path ex:trading_day_for_component ; sh:class ex:IndexComponent ] .
+ex:eligible_rebalance_day a rdfs:Class ; rdfs:subClassOf ex:Day .
+ex:scheduled_rebalance_day a rdfs:Class ; rdfs:subClassOf ex:Day .
+ex:respective_exchange_for_index_component a rdf:Property .
+ex:IndexComponentShape sh:property [ sh:path ex:respective_exchange_for_index_component ; sh:class ex:Exchange ] .
+ex:trading_price_of_component_on_day a rdfs:Class .
+ex:trading_price_of_component_on_dayShape a sh:NodeShape ; sh:targetClass ex:trading_price_of_component_on_day .
+ex:trading_price_of_component_on_dayShape sh:property [ sh:path ex:trading_price_of_component_on_day_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trading_price_of_component_on_dayShape sh:property [ sh:path ex:trading_price_of_component_on_day_arg_1 ; sh:class ex:TradingDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trading_price_of_component_on_dayShape sh:property [ sh:path ex:trading_price_of_component_on_day_arg_2 ; sh:class ex:TradingPrice ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_price_of_component_on_day a rdfs:Class .
+ex:closing_price_of_component_on_dayShape a sh:NodeShape ; sh:targetClass ex:closing_price_of_component_on_day .
+ex:closing_price_of_component_on_dayShape sh:property [ sh:path ex:closing_price_of_component_on_day_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_price_of_component_on_dayShape sh:property [ sh:path ex:closing_price_of_component_on_day_arg_1 ; sh:class ex:TradingDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_price_of_component_on_dayShape sh:property [ sh:path ex:closing_price_of_component_on_day_arg_2 ; sh:class ex:ClosingPrice ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:average_daily_value_traded_over_period a rdfs:Class .
+ex:average_daily_value_traded_over_periodShape a sh:NodeShape ; sh:targetClass ex:average_daily_value_traded_over_period .
+ex:average_daily_value_traded_over_periodShape sh:property [ sh:path ex:average_daily_value_traded_over_period_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:average_daily_value_traded_over_periodShape sh:property [ sh:path ex:average_daily_value_traded_over_period_arg_1 ; sh:class ex:Period ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:average_daily_value_traded_over_periodShape sh:property [ sh:path ex:average_daily_value_traded_over_period_arg_2 ; sh:class ex:AverageDailyValueTraded ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:daily_value_traded_on_day a rdfs:Class .
+ex:daily_value_traded_on_dayShape a sh:NodeShape ; sh:targetClass ex:daily_value_traded_on_day .
+ex:daily_value_traded_on_dayShape sh:property [ sh:path ex:daily_value_traded_on_day_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:daily_value_traded_on_dayShape sh:property [ sh:path ex:daily_value_traded_on_day_arg_1 ; sh:class ex:TradingDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:daily_value_traded_on_dayShape sh:property [ sh:path ex:daily_value_traded_on_day_arg_2 ; sh:class ex:DailyValueTraded ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:index_currency a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_currency ; sh:class ex:Currency ] .
+ex:index_level_on_day a rdfs:Class .
+ex:index_level_on_dayShape a sh:NodeShape ; sh:targetClass ex:index_level_on_day .
+ex:index_level_on_dayShape sh:property [ sh:path ex:index_level_on_day_arg_0 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:index_level_on_dayShape sh:property [ sh:path ex:index_level_on_day_arg_1 ; sh:class ex:Day ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:index_level_on_dayShape sh:property [ sh:path ex:index_level_on_day_arg_2 ; sh:class ex:IndexLevel ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:observation_subject a rdf:Property .
+ex:ValueObservationShape sh:property [ sh:path ex:observation_subject ; sh:class ex:Security ] .
+ex:observation_index a rdf:Property .
+ex:ValueObservationShape sh:property [ sh:path ex:observation_index ; sh:class ex:Index ] .
+ex:observation_day_context a rdf:Property .
+ex:ValueObservationShape sh:property [ sh:path ex:observation_day_context ; sh:class ex:Day ] .
+ex:observation_selection_day_context a rdf:Property .
+ex:ValueObservationShape sh:property [ sh:path ex:observation_selection_day_context ; sh:class ex:SelectionDay ] .
+ex:observation_period_context a rdf:Property .
+ex:ValueObservationShape sh:property [ sh:path ex:observation_period_context ; sh:class ex:Period ] .
+ex:observation_time_context a rdf:Property .
+ex:ValueObservationShape sh:property [ sh:path ex:observation_time_context ; sh:class ex:Time ] .
+ex:observation_calculation a rdf:Property .
+ex:ValueObservationShape sh:property [ sh:path ex:observation_calculation ; sh:class ex:IndexCalculation ] .
+ex:observed_price a rdf:Property .
+ex:PriceObservationShape sh:property [ sh:path ex:observed_price ; sh:class ex:Price ] .
+ex:observed_trading_price a rdf:Property .
+ex:TradingPriceObservationShape sh:property [ sh:path ex:observed_trading_price ; sh:class ex:TradingPrice ] .
+ex:observed_closing_price a rdf:Property .
+ex:ClosingPriceObservationShape sh:property [ sh:path ex:observed_closing_price ; sh:class ex:ClosingPrice ] .
+ex:observed_component_price a rdf:Property .
+ex:ComponentPriceObservationShape sh:property [ sh:path ex:observed_component_price ; sh:class ex:Price ] .
+ex:observed_price_change a rdf:Property .
+ex:PriceChangeObservationShape sh:property [ sh:path ex:observed_price_change ; sh:class ex:PriceChange ] .
+ex:observed_component_weight a rdf:Property .
+ex:ComponentWeightObservationShape sh:property [ sh:path ex:observed_component_weight ; sh:class ex:ComponentWeight ] .
+ex:observed_region a rdf:Property .
+ex:RegionClassificationObservationShape sh:property [ sh:path ex:observed_region ; sh:class ex:Region ] .
+ex:observed_daily_value_traded a rdf:Property .
+ex:DailyValueTradedObservationShape sh:property [ sh:path ex:observed_daily_value_traded ; sh:class ex:DailyValueTraded ] .
+ex:observed_average_daily_value_traded a rdf:Property .
+ex:AverageDailyValueTradedObservationShape sh:property [ sh:path ex:observed_average_daily_value_traded ; sh:class ex:AverageDailyValueTraded ] .
+ex:observed_index_level a rdf:Property .
+ex:IndexLevelObservationShape sh:property [ sh:path ex:observed_index_level ; sh:class ex:IndexLevel ] .
+ex:observed_free_float a rdf:Property .
+ex:FreeFloatObservationShape sh:property [ sh:path ex:observed_free_float ; sh:class ex:FreeFloat ] .
+ex:observed_share_count a rdf:Property .
+ex:ShareCountObservationShape sh:property [ sh:path ex:observed_share_count ; sh:class ex:ShareCount ] .
+ex:observed_free_float_market_capitalization a rdf:Property .
+ex:FreeFloatMarketCapitalizationObservationShape sh:property [ sh:path ex:observed_free_float_market_capitalization ; sh:class ex:FreeFloatMarketCapitalization ] .
+ex:observed_currency a rdf:Property .
+ex:IndexCurrencyObservationShape sh:property [ sh:path ex:observed_currency ; sh:class ex:Currency ] .
+ex:observed_exchange a rdf:Property .
+ex:ExchangeObservationShape sh:property [ sh:path ex:observed_exchange ; sh:class ex:Exchange ] .
+ex:free_float_of_share_class_on_selection_day a rdfs:Class .
+ex:free_float_of_share_class_on_selection_dayShape a sh:NodeShape ; sh:targetClass ex:free_float_of_share_class_on_selection_day .
+ex:free_float_of_share_class_on_selection_dayShape sh:property [ sh:path ex:free_float_of_share_class_on_selection_day_arg_0 ; sh:class ex:ShareClass ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float_of_share_class_on_selection_dayShape sh:property [ sh:path ex:free_float_of_share_class_on_selection_day_arg_1 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float_of_share_class_on_selection_dayShape sh:property [ sh:path ex:free_float_of_share_class_on_selection_day_arg_2 ; sh:class ex:FreeFloat ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:share_count_of_share_class_on_selection_day a rdfs:Class .
+ex:share_count_of_share_class_on_selection_dayShape a sh:NodeShape ; sh:targetClass ex:share_count_of_share_class_on_selection_day .
+ex:share_count_of_share_class_on_selection_dayShape sh:property [ sh:path ex:share_count_of_share_class_on_selection_day_arg_0 ; sh:class ex:ShareClass ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:share_count_of_share_class_on_selection_dayShape sh:property [ sh:path ex:share_count_of_share_class_on_selection_day_arg_1 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:share_count_of_share_class_on_selection_dayShape sh:property [ sh:path ex:share_count_of_share_class_on_selection_day_arg_2 ; sh:class ex:ShareCount ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float_market_capitalization a rdfs:Class .
+ex:free_float_market_capitalizationShape a sh:NodeShape ; sh:targetClass ex:free_float_market_capitalization .
+ex:free_float_market_capitalizationShape sh:property [ sh:path ex:free_float_market_capitalization_arg_0 ; sh:class ex:ShareClass ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float_market_capitalizationShape sh:property [ sh:path ex:free_float_market_capitalization_arg_1 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float_market_capitalizationShape sh:property [ sh:path ex:free_float_market_capitalization_arg_2 ; sh:class ex:FreeFloatMarketCapitalization ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:rbics_subindustry_classification_of_system a rdf:Property .
+ex:RBICSSubindustryClassificationShape sh:property [ sh:path ex:rbics_subindustry_classification_of_system ; sh:class ex:RBICSClassificationSystem ] .
+ex:rbics_subindustry_classification_in_appendix a rdf:Property .
+ex:RBICSSubindustryClassificationShape sh:property [ sh:path ex:rbics_subindustry_classification_in_appendix ; sh:class ex:DocumentPart ] .
+
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:variant_of_index_family ex:SolactiveTransatlanticCleanEnergyEURIndexFamily .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:variant_of_index_family ex:SolactiveTransatlanticCleanEnergyEURIndexFamily .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:variant_of_index_family ex:SolactiveTransatlanticCleanEnergyEURIndexFamily .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:variant_of_index_family ex:SolactiveTransatlanticCleanEnergyEURIndexFamily .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:variant_of_index_family ex:SolactiveTransatlanticCleanEnergyEURIndexFamily .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:return_treatment_of_variant ex:PriceReturn .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:return_treatment_of_variant ex:NetTotalReturn .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:return_treatment_of_variant ex:GrossTotalReturn .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:return_treatment_of_variant ex:AdjustedReturn .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:return_treatment_of_variant ex:AdjustedReturn .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:decrement_treatment_of_variant ex:NoDecrement .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:decrement_treatment_of_variant ex:NoDecrement .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:decrement_treatment_of_variant ex:NoDecrement .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:decrement_treatment_of_variant ex:FivePercentAnnualDecrement .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:decrement_treatment_of_variant ex:NoDecrement .
+ex:SolactiveTransatlanticCleanEnergyEURIndexFamily ex:generic_index_rule_applies_to_variant ex:SolactiveTransatlanticCleanEnergyEURIndexPR .
+ex:SolactiveTransatlanticCleanEnergyEURIndexFamily ex:generic_index_rule_applies_to_variant ex:SolactiveTransatlanticCleanEnergyEURIndexNTR .
+ex:SolactiveTransatlanticCleanEnergyEURIndexFamily ex:generic_index_rule_applies_to_variant ex:SolactiveTransatlanticCleanEnergyEURIndexTR .
+ex:SolactiveTransatlanticCleanEnergyEURIndexFamily ex:generic_index_rule_applies_to_variant ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR .
+ex:SolactiveTransatlanticCleanEnergyEURIndexFamily ex:generic_index_rule_applies_to_variant ex:SolactiveTransatlanticCleanEnergyEURIndex50AR .
+ex:SolactiveTransatlanticCleanEnergyEURIndexFamily ex:administered_by ex:Solactive .
+ex:CanonicalEquityIndexMethodology ex:methodology_of_index_family ex:SolactiveTransatlanticCleanEnergyEURIndexFamily .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:AnnouncementSection ex:section_of_website ex:SolactiveWebsite .
+ex:CanonicalEquityIndexMethodology ex:incorporated_by_reference_into ex:ThisGuideline .
+ex:CanonicalSolactiveMethodologyPolicy ex:incorporated_by_reference_into ex:ThisGuideline .
+ex:CanonicalSolactiveCorrectionPolicy ex:incorporated_by_reference_into ex:ThisGuideline .
+ex:CanonicalSolactiveDisruptionPolicy ex:incorporated_by_reference_into ex:ThisGuideline .
+ex:CanonicalEquityIndexMethodology ex:available_on ex:SolactiveWebsite .
+ex:CanonicalSolactiveMethodologyPolicy ex:available_on ex:SolactiveWebsite .
+ex:CanonicalSolactiveCorrectionPolicy ex:available_on ex:SolactiveWebsite .
+ex:CanonicalSolactiveDisruptionPolicy ex:available_on ex:SolactiveWebsite .
+ex:CanonicalRBICSLevel6SubindustryClassification ex:rbics_subindustry_classification_of_system ex:FactSetRevereBusinessIndustryClassificationSystem .
+ex:CanonicalRBICSLevel6SubindustryClassification ex:rbics_subindustry_classification_in_appendix ex:IndexGuidelineAppendix .
+ex:TradingPriceObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:ClosingPriceObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:ComponentPriceObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:PriceChangeObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:ComponentWeightObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:RegionClassificationObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:DailyValueTradedObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:AverageDailyValueTradedObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:IndexLevelObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:InitialIndexLevelObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:FreeFloatObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:ShareCountObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:FreeFloatMarketCapitalizationObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:IndexCurrencyObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:ExchangeObservationFrame ex:canonical_concept_status ex:Accepted .
+ex:TradingPriceObservationFrame ex:frame_has_role ex:ObservationSubjectRole .
+ex:TradingPriceObservationFrame ex:frame_has_role ex:ObservationDayContextRole .
+ex:TradingPriceObservationFrame ex:frame_has_role ex:ObservationTimeContextRole .
+ex:TradingPriceObservationFrame ex:frame_has_role ex:ObservedTradingPriceRole .
+ex:TradingPriceObservationFrame ex:frame_primary_value_role ex:ObservedTradingPriceRole .
+ex:ClosingPriceObservationFrame ex:frame_has_role ex:ObservationSubjectRole .
+ex:ClosingPriceObservationFrame ex:frame_has_role ex:ObservationDayContextRole .
+ex:ClosingPriceObservationFrame ex:frame_has_role ex:ObservationSelectionDayContextRole .
+ex:ClosingPriceObservationFrame ex:frame_has_role ex:ObservedClosingPriceRole .
+ex:ClosingPriceObservationFrame ex:frame_primary_value_role ex:ObservedClosingPriceRole .
+ex:ComponentPriceObservationFrame ex:frame_has_role ex:ObservationSubjectRole .
+ex:ComponentPriceObservationFrame ex:frame_has_role ex:ObservationDayContextRole .
+ex:ComponentPriceObservationFrame ex:frame_has_role ex:ObservedComponentPriceRole .
+ex:ComponentPriceObservationFrame ex:frame_primary_value_role ex:ObservedComponentPriceRole .
+ex:PriceChangeObservationFrame ex:frame_has_role ex:ObservationSubjectRole .
+ex:PriceChangeObservationFrame ex:frame_has_role ex:ObservationDayContextRole .
+ex:PriceChangeObservationFrame ex:frame_has_role ex:ObservedPriceChangeRole .
+ex:PriceChangeObservationFrame ex:frame_primary_value_role ex:ObservedPriceChangeRole .
+ex:ComponentWeightObservationFrame ex:frame_has_role ex:ObservationSubjectRole .
+ex:ComponentWeightObservationFrame ex:frame_has_role ex:ObservationIndexRole .
+ex:ComponentWeightObservationFrame ex:frame_has_role ex:ObservationDayContextRole .
+ex:ComponentWeightObservationFrame ex:frame_has_role ex:ObservationSelectionDayContextRole .
+ex:ComponentWeightObservationFrame ex:frame_has_role ex:ObservedComponentWeightRole .
+ex:ComponentWeightObservationFrame ex:frame_primary_value_role ex:ObservedComponentWeightRole .
+ex:RegionClassificationObservationFrame ex:frame_has_role ex:ObservationSubjectRole .
+ex:RegionClassificationObservationFrame ex:frame_has_role ex:ObservationSelectionDayContextRole .
+ex:RegionClassificationObservationFrame ex:frame_has_role ex:ObservedRegionRole .
+ex:RegionClassificationObservationFrame ex:frame_primary_value_role ex:ObservedRegionRole .
+ex:DailyValueTradedObservationFrame ex:frame_has_role ex:ObservationSubjectRole .
+ex:DailyValueTradedObservationFrame ex:frame_has_role ex:ObservationDayContextRole .
+ex:DailyValueTradedObservationFrame ex:frame_has_role ex:ObservedDailyValueTradedRole .
+ex:DailyValueTradedObservationFrame ex:frame_primary_value_role ex:ObservedDailyValueTradedRole .
+ex:AverageDailyValueTradedObservationFrame ex:frame_has_role ex:ObservationSubjectRole .
+ex:AverageDailyValueTradedObservationFrame ex:frame_has_role ex:ObservationSelectionDayContextRole .
+ex:AverageDailyValueTradedObservationFrame ex:frame_has_role ex:ObservationPeriodContextRole .
+ex:AverageDailyValueTradedObservationFrame ex:frame_has_role ex:ObservedAverageDailyValueTradedRole .
+ex:AverageDailyValueTradedObservationFrame ex:frame_primary_value_role ex:ObservedAverageDailyValueTradedRole .
+ex:IndexLevelObservationFrame ex:frame_has_role ex:ObservationIndexRole .
+ex:IndexLevelObservationFrame ex:frame_has_role ex:ObservationDayContextRole .
+ex:IndexLevelObservationFrame ex:frame_has_role ex:ObservationCalculationRole .
+ex:IndexLevelObservationFrame ex:frame_has_role ex:ObservedIndexLevelRole .
+ex:IndexLevelObservationFrame ex:frame_primary_value_role ex:ObservedIndexLevelRole .
+ex:InitialIndexLevelObservationFrame ex:frame_has_role ex:ObservationIndexRole .
+ex:InitialIndexLevelObservationFrame ex:frame_has_role ex:ObservationDayContextRole .
+ex:InitialIndexLevelObservationFrame ex:frame_has_role ex:ObservedIndexLevelRole .
+ex:InitialIndexLevelObservationFrame ex:frame_primary_value_role ex:ObservedIndexLevelRole .
+ex:FreeFloatObservationFrame ex:frame_has_role ex:ObservationSubjectRole .
+ex:FreeFloatObservationFrame ex:frame_has_role ex:ObservationSelectionDayContextRole .
+ex:FreeFloatObservationFrame ex:frame_has_role ex:ObservedFreeFloatRole .
+ex:FreeFloatObservationFrame ex:frame_primary_value_role ex:ObservedFreeFloatRole .
+ex:ShareCountObservationFrame ex:frame_has_role ex:ObservationSubjectRole .
+ex:ShareCountObservationFrame ex:frame_has_role ex:ObservationSelectionDayContextRole .
+ex:ShareCountObservationFrame ex:frame_has_role ex:ObservedShareCountRole .
+ex:ShareCountObservationFrame ex:frame_primary_value_role ex:ObservedShareCountRole .
+ex:FreeFloatMarketCapitalizationObservationFrame ex:frame_has_role ex:ObservationSubjectRole .
+ex:FreeFloatMarketCapitalizationObservationFrame ex:frame_has_role ex:ObservationSelectionDayContextRole .
+ex:FreeFloatMarketCapitalizationObservationFrame ex:frame_has_role ex:ObservedFreeFloatMarketCapitalizationRole .
+ex:FreeFloatMarketCapitalizationObservationFrame ex:frame_primary_value_role ex:ObservedFreeFloatMarketCapitalizationRole .
+ex:IndexCurrencyObservationFrame ex:frame_has_role ex:ObservationIndexRole .
+ex:IndexCurrencyObservationFrame ex:frame_has_role ex:ObservedCurrencyRole .
+ex:IndexCurrencyObservationFrame ex:frame_primary_value_role ex:ObservedCurrencyRole .
+ex:ExchangeObservationFrame ex:frame_has_role ex:ObservationSubjectRole .
+ex:ExchangeObservationFrame ex:frame_has_role ex:ObservationIndexRole .
+ex:ExchangeObservationFrame ex:frame_has_role ex:ObservedExchangeRole .
+ex:ExchangeObservationFrame ex:frame_primary_value_role ex:ObservedExchangeRole .
+ex:GenericIndexComponentMembershipFrame ex:canonical_concept_status ex:Accepted .
+ex:SelectionDayIndexComponentMembershipFrame ex:canonical_concept_status ex:Accepted .
+ex:CalculationDayIndexComponentMembershipFrame ex:canonical_concept_status ex:Accepted .
+ex:GenericIndexComponentMembershipFrame ex:frame_has_role ex:MembershipSecurityRole .
+ex:GenericIndexComponentMembershipFrame ex:frame_has_role ex:MembershipComponentAssignmentRole .
+ex:GenericIndexComponentMembershipFrame ex:frame_has_role ex:MembershipIndexRole .
+ex:GenericIndexComponentMembershipFrame ex:frame_has_role ex:MembershipStateRole .
+ex:SelectionDayIndexComponentMembershipFrame ex:frame_has_role ex:MembershipSecurityRole .
+ex:SelectionDayIndexComponentMembershipFrame ex:frame_has_role ex:MembershipComponentAssignmentRole .
+ex:SelectionDayIndexComponentMembershipFrame ex:frame_has_role ex:MembershipIndexRole .
+ex:SelectionDayIndexComponentMembershipFrame ex:frame_has_role ex:MembershipSelectionDayRole .
+ex:SelectionDayIndexComponentMembershipFrame ex:frame_has_role ex:MembershipStateRole .
+ex:CalculationDayIndexComponentMembershipFrame ex:frame_has_role ex:MembershipSecurityRole .
+ex:CalculationDayIndexComponentMembershipFrame ex:frame_has_role ex:MembershipComponentAssignmentRole .
+ex:CalculationDayIndexComponentMembershipFrame ex:frame_has_role ex:MembershipIndexRole .
+ex:CalculationDayIndexComponentMembershipFrame ex:frame_has_role ex:MembershipCalculationDayRole .
+ex:CalculationDayIndexComponentMembershipFrame ex:frame_has_role ex:MembershipStateRole .

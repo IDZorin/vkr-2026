@@ -1,0 +1,40 @@
+{
+  "entry_id": "section_3_1",
+  "schema": "waiver_token_absorption_v1",
+  "generated_from": "metrics_token_provenance_v1.json",
+  "items": [
+    {
+      "token": "order",
+      "surface_forms": [
+        "order"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 4
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "discourse_marker_absorbed",
+      "comment": "Source phrase 'In order to reflect...' uses 'order' only as part of the discourse-purpose marker 'in order to'. The purpose/content is already captured by reflects_new_selection in ordinary_rebalance_adjusts_index_after_close_of_business; no standalone IR token is needed.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "please",
+      "surface_forms": [
+        "please"
+      ],
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 49
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "courtesy_legal_drafting_absorbed",
+      "comment": "Source phrase 'please refer to' is a courtesy/legal-drafting cross-reference, not a deontic obligation. The substantive reference is captured structurally by procedure_information_in and the Equity Index Methodology fact.",
+      "reviewer": "human_approved"
+    }
+  ],
+  "stale_tokens_from_previous_file": []
+}

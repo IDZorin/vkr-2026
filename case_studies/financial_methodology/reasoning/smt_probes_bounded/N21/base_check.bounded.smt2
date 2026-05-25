@@ -1,0 +1,28 @@
+(set-logic ALL)
+(set-option :produce-unsat-cores true)
+
+(declare-sort Currency 0)
+(declare-sort DocumentPart 0)
+(declare-sort Index 0)
+(declare-sort IndexCurrencySpecification 0)
+(declare-sort Table 0)
+(declare-sort TableColumn 0)
+
+(declare-const CurrencyColumn TableColumn)
+(declare-const Section1_2 DocumentPart)
+(declare-const Section1_2IndexTable Table)
+(declare-const W_c_Currency Currency)
+(declare-const W_i_Index Index)
+(declare-const W_spec_IndexCurrencySpecification IndexCurrencySpecification)
+
+(declare-fun column_of_table (TableColumn Table) Bool)
+(declare-fun index_currency (Index Currency) Bool)
+(declare-fun specification_column (IndexCurrencySpecification TableColumn) Bool)
+(declare-fun specification_currency (IndexCurrencySpecification Currency) Bool)
+(declare-fun specification_for_index (IndexCurrencySpecification Index) Bool)
+(declare-fun specification_table (IndexCurrencySpecification Table) Bool)
+(declare-fun table_in_section (Table DocumentPart) Bool)
+
+(assert (! (and (table_in_section Section1_2IndexTable Section1_2) (column_of_table CurrencyColumn Section1_2IndexTable)) :named BOUNDED_TEXT_currency_column_in_section_1_2_table))
+(assert (! (= (index_currency W_i_Index W_c_Currency) (and (specification_for_index W_spec_IndexCurrencySpecification W_i_Index) (specification_currency W_spec_IndexCurrencySpecification W_c_Currency) (specification_column W_spec_IndexCurrencySpecification CurrencyColumn) (specification_table W_spec_IndexCurrencySpecification Section1_2IndexTable))) :named BOUNDED_TEXT_index_currency_definition))
+(check-sat)

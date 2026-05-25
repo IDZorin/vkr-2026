@@ -1,0 +1,56 @@
+schema: role_annotations_v1
+entry_id: section_3_1
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  new_selection_for_rebalance:
+    kind: fun
+    args:
+      1: {role: day}
+    returns: {role: same_as_type}
+  rebalance_day_of_change:
+    kind: fun
+    args:
+      1: {role: event}
+    returns: {role: same_as_type}
+  shares_on_fixing_day:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: component}
+    returns: {role: same_as_type}
+  weight_on_selection_day:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: component}
+    returns: {role: same_as_type}
+constraints:
+  new_selection_determined_in_accordance_with_sections:
+    frame: new_selection_determined_in_accordance_with_sections
+    variables:
+      rd: {role: day, quantifier: forall}
+      sd: {role: day, quantifier: forall}
+  ordinary_rebalance_adjusts_index_after_close_of_business:
+    frame: ordinary_rebalance_adjusts_index_after_close_of_business
+    variables:
+      rd: {role: day, quantifier: forall}
+      r: {role: event, quantifier: exists}
+      cob: {role: event, quantifier: exists}
+  ordinary_rebalance_implements_fixing_day_shares:
+    frame: ordinary_rebalance_implements_fixing_day_shares
+    variables:
+      rd: {role: day, quantifier: forall}
+      fd: {role: day, quantifier: forall}
+      sd: {role: day, quantifier: forall}
+      c: {role: component, quantifier: forall}
+      r: {role: event, quantifier: exists}
+  section_3_1_index_component_change_scope:
+    frame: section_3_1_index_component_change_scope
+    variables:
+      ch: {role: event, quantifier: forall}
+      c: {role: component, quantifier: exists}
+  solactive_publishes_index_component_changes_with_notice:
+    frame: solactive_publishes_index_component_changes_with_notice
+    variables:
+      ch: {role: event, quantifier: forall}
+      n: {role: reference, quantifier: exists}

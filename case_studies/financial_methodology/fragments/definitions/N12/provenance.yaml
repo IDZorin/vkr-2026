@@ -1,0 +1,92 @@
+section: "N12 Definition: Free Float"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  free_float_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The \"Free Float\" is with regard to each of the securities fulfilling the Index Component Requirements on a Selection Day the share class-specific fraction of the total number of shares of such share class issued that are available for trading by market participants and not locked-in by long term holders, as sourced from data vendors."
+    back_translation: >
+      For every Selection Day and security that fulfills the Index Component
+      Requirements, the Free Float numerator is the count of shares of that
+      security's share class that have been issued as of the Selection Day,
+      are available for trading by market participants, and are not locked-in
+      by long term holders; the Free Float denominator is the count of shares
+      of that share class that have been issued as of the Selection Day; the
+      Free Float is the numerator divided by the denominator; and the Free
+      Float is sourced from a data vendor.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source describes a single fraction; the IR splits it into typed
+      numerator and denominator share-counts so the "share class-specific
+      fraction" can be machine-checked against the four share-level
+      conditions named in the source. The plural "data vendors" is
+      represented as an existential over DataVendor since the source asserts
+      at least one such vendor as the source.
+
+uncovered_source:
+  - quote: "(none -- source definition is covered)"
+
+vocabulary_notes:
+  FreeFloat:
+    note: "Numeric fraction sort for the source term \"Free Float\"."
+    source_phrase: "Free Float"
+  Fraction:
+    note: "Numeric supertype for the source phrase \"share class-specific fraction\"."
+    source_phrase: "fraction"
+  ShareCount:
+    note: "Numeric count sort for the source phrase \"total number of shares\"."
+    source_phrase: "number of shares"
+  SelectionDay:
+    note: "Sort for the source phrase \"a Selection Day\"."
+    source_phrase: "Selection Day"
+  Security:
+    note: "Sort for the source phrase \"the securities\"."
+    source_phrase: "securities"
+  ShareClass:
+    note: "Sort for the source phrase \"share class\"."
+    source_phrase: "share class"
+  Share:
+    note: "Sort for individual shares ranged over by the share-count aggregates."
+    source_phrase: "shares"
+  DataVendor:
+    note: "Sort for the source phrase \"data vendors\"."
+    source_phrase: "data vendors"
+  share_class:
+    note: "Function projecting a security to its share class for the source phrase \"such share class\"."
+    source_phrase: "such share class"
+  free_float:
+    note: "Function for the source term \"Free Float\" in respect of a security on a Selection Day."
+    source_phrase: "Free Float"
+  free_float_numerator:
+    note: "Function for the source phrase \"shares ... available for trading by market participants and not locked-in by long term holders\"."
+    source_phrase: "available for trading by market participants and not locked-in by long term holders"
+  free_float_denominator:
+    note: "Function for the source phrase \"total number of shares of such share class issued\"."
+    source_phrase: "total number of shares of such share class issued"
+  fulfills_index_component_requirements:
+    note: "Relation for the source phrase \"securities fulfilling the Index Component Requirements\"."
+    source_phrase: "securities fulfilling the Index Component Requirements"
+  share_of_share_class:
+    note: "Relation linking a share to its share class; structural carrier for \"of such share class\"."
+    source_phrase: "of such share class"
+  issued_share_on_selection_day:
+    note: "Relation for the source phrase \"shares ... issued\" on the Selection Day."
+    source_phrase: "issued"
+  available_for_trading_by_market_participants:
+    note: "Relation for the source phrase \"available for trading by market participants\"."
+    source_phrase: "available for trading by market participants"
+  locked_in_by_long_term_holders:
+    note: "Relation for the source phrase \"locked-in by long term holders\"."
+    source_phrase: "locked-in by long term holders"
+  sourced_from_data_vendor:
+    note: "Relation for the source phrase \"as sourced from data vendors\"."
+    source_phrase: "as sourced from data vendors"

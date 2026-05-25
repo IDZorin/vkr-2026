@@ -1,0 +1,90 @@
+{
+  "entry_id": "section_4_4",
+  "skipped": false,
+  "n_decls": 54,
+  "n_smells": 6,
+  "by_candidate_family": {
+    "ExpressionGrammar.epistemic_possibility": 2,
+    "DeonticDecl.permission": 1,
+    "DeonticDecl.obligation": 3
+  },
+  "by_matched": {
+    "may_be_necessary": 2,
+    "may": 1,
+    "required": 3
+  },
+  "smells": [
+    {
+      "entry_id": "section_4_4",
+      "decl_kind": "entity",
+      "symbol": "MayBeNecessary",
+      "line_no": 29,
+      "matched_token_or_phrase": "may_be_necessary",
+      "candidate_family": "ExpressionGrammar",
+      "candidate_kind": "epistemic_possibility",
+      "spec_ref": "expr#exists/eventually",
+      "match_kind": "phrase",
+      "raw_decl": "entity MayBeNecessary : VagueTerm"
+    },
+    {
+      "entry_id": "section_4_4",
+      "decl_kind": "entity",
+      "symbol": "MayHaveToBeDone",
+      "line_no": 30,
+      "matched_token_or_phrase": "may",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "permission",
+      "spec_ref": "#32",
+      "match_kind": "token",
+      "raw_decl": "entity MayHaveToBeDone : VagueTerm"
+    },
+    {
+      "entry_id": "section_4_4",
+      "decl_kind": "rel",
+      "symbol": "adjustment_required_due_to_corporate_action",
+      "line_no": 42,
+      "matched_token_or_phrase": "required",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "obligation",
+      "spec_ref": "#31",
+      "match_kind": "token",
+      "raw_decl": "rel adjustment_required_due_to_corporate_action : RequiredIndexAdjustment, CorporateAction"
+    },
+    {
+      "entry_id": "section_4_4",
+      "decl_kind": "fact",
+      "symbol": "index_adjustment_may_be_necessary_between_regular_rebalance_days",
+      "line_no": 102,
+      "matched_token_or_phrase": "may_be_necessary",
+      "candidate_family": "ExpressionGrammar",
+      "candidate_kind": "epistemic_possibility",
+      "spec_ref": "expr#exists/eventually",
+      "match_kind": "phrase",
+      "raw_decl": "fact index_adjustment_may_be_necessary_between_regular_rebalance_days :"
+    },
+    {
+      "entry_id": "section_4_4",
+      "decl_kind": "constraint",
+      "symbol": "corporate_action_creates_required_index_adjustment",
+      "line_no": 118,
+      "matched_token_or_phrase": "required",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "obligation",
+      "spec_ref": "#31",
+      "match_kind": "token",
+      "raw_decl": "constraint corporate_action_creates_required_index_adjustment :"
+    },
+    {
+      "entry_id": "section_4_4",
+      "decl_kind": "constraint",
+      "symbol": "required_adjustment_effect_scope",
+      "line_no": 133,
+      "matched_token_or_phrase": "required",
+      "candidate_family": "DeonticDecl",
+      "candidate_kind": "obligation",
+      "spec_ref": "#31",
+      "match_kind": "token",
+      "raw_decl": "constraint required_adjustment_effect_scope :"
+    }
+  ]
+}

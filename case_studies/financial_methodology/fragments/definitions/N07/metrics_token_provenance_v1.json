@@ -1,0 +1,2142 @@
+{
+  "entry_id": "N07",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 36,
+    "content_token_count": 20,
+    "covered_content_token_count": 19,
+    "uncovered_content_token_count": 1,
+    "ignored_stopword_count": 16,
+    "content_coverage_rate": 0.95
+  },
+  "tokens": [
+    {
+      "token": "the",
+      "surface_forms": [
+        "The",
+        "the"
+      ],
+      "count": 6,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 1
+        },
+        {
+          "line": 1,
+          "column": 135
+        },
+        {
+          "line": 1,
+          "column": 182
+        },
+        {
+          "line": 1,
+          "column": 211
+        },
+        {
+          "line": 1,
+          "column": 287
+        },
+        {
+          "line": 1,
+          "column": 330
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "respective_exchange",
+          "matched_text": "the Exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "last_trading_price",
+          "matched_text": "the last Trading Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "price_published_by_exchange",
+          "matched_text": "published by the Exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_available",
+          "matched_text": "the Exchange has no or has not published a Closing Price"
+        }
+      ]
+    },
+    {
+      "token": "clo",
+      "surface_forms": [
+        "Closing"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 6
+        },
+        {
+          "line": 1,
+          "column": 254
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ClosingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 7,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "final_regular_hours_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 15,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price_available",
+          "family": "SymbolDecl.rel",
+          "line": 21,
+          "matched_text": "closing_price_available"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price_definition_when_published",
+          "family": "AssertDecl.constraint",
+          "line": 23,
+          "matched_text": "closing_price_definition_when_published"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "last_trading_price_used_when_closing_price_not_published",
+          "family": "AssertDecl.constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "line": 23,
+          "matched_text": "closing_price_definition_when_published"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "closing_price_available"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].left",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].args[0]",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].args[0]",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3].args[0]",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[4].args[0]",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.arg",
+          "matched_text": "closing_price_available"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ClosingPrice",
+          "matched_text": "Closing Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price",
+          "matched_text": "Closing Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_available",
+          "matched_text": "the Exchange has no or has not published a Closing Price"
+        }
+      ]
+    },
+    {
+      "token": "price",
+      "surface_forms": [
+        "Price"
+      ],
+      "count": 4,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 14
+        },
+        {
+          "line": 1,
+          "column": 116
+        },
+        {
+          "line": 1,
+          "column": 262
+        },
+        {
+          "line": 1,
+          "column": 347
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Price",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "Price"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "TradingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "TradingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "Price"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ClosingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 7,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "ClosingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 7,
+          "matched_text": "TradingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "final_regular_hours_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 15,
+          "matched_text": "final_regular_hours_trading_price"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "final_regular_hours_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 15,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "last_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 16,
+          "matched_text": "last_trading_price"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "last_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 16,
+          "matched_text": "TradingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_published_by_exchange",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "price_published_by_exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_published_by_exchange",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "Price"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_determined",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "price_determined"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_determined",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "Price"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "in_accordance_with",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "Price"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price_available",
+          "family": "SymbolDecl.rel",
+          "line": 21,
+          "matched_text": "closing_price_available"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price_definition_when_published",
+          "family": "AssertDecl.constraint",
+          "line": 23,
+          "matched_text": "closing_price_definition_when_published"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "last_trading_price_used_when_closing_price_not_published",
+          "family": "AssertDecl.constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "line": 23,
+          "matched_text": "closing_price_definition_when_published"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "closing_price_available"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].left",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right",
+          "matched_text": "final_regular_hours_trading_price"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "price_published_by_exchange"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].args[0]",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2]",
+          "matched_text": "price_determined"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].args[0]",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3].args[0]",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[4].args[0]",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.arg",
+          "matched_text": "closing_price_available"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "closing_price"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "last_trading_price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ClosingPrice",
+          "matched_text": "Closing Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradingPrice",
+          "matched_text": "Trading Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Price",
+          "matched_text": "price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price",
+          "matched_text": "Closing Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "final_regular_hours_trading_price",
+          "matched_text": "final regular-hours Trading Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "last_trading_price",
+          "matched_text": "the last Trading Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_available",
+          "matched_text": "the Exchange has no or has not published a Closing Price"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 21
+        },
+        {
+          "line": 1,
+          "column": 163
+        },
+        {
+          "line": 1,
+          "column": 268
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "in_accordance_with",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "in_accordance_with"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3]",
+          "matched_text": "in_accordance_with"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[4]",
+          "matched_text": "in_accordance_with"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "in_accordance_with",
+          "matched_text": "in accordance with"
+        }
+      ]
+    },
+    {
+      "token": "respect",
+      "surface_forms": [
+        "respect"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 24
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 32
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "an",
+      "surface_forms": [
+        "an"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 35
+        },
+        {
+          "line": 1,
+          "column": 310
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 38
+        },
+        {
+          "line": 1,
+          "column": 313
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "respective_exchange",
+          "family": "SymbolDecl.fun",
+          "line": 14,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "final_regular_hours_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 15,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "last_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 16,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price_available",
+          "family": "SymbolDecl.rel",
+          "line": 21,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexComponent",
+          "matched_text": "Index Component"
+        }
+      ]
+    },
+    {
+      "token": "component",
+      "surface_forms": [
+        "Component"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 44
+        },
+        {
+          "line": 1,
+          "column": 319
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "respective_exchange",
+          "family": "SymbolDecl.fun",
+          "line": 14,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "final_regular_hours_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 15,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "last_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 16,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price_available",
+          "family": "SymbolDecl.rel",
+          "line": 21,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexComponent",
+          "matched_text": "Index Component"
+        }
+      ]
+    },
+    {
+      "token": "and",
+      "surface_forms": [
+        "and"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 54
+        },
+        {
+          "line": 1,
+          "column": 148
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "a",
+      "surface_forms": [
+        "a"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 58
+        },
+        {
+          "line": 1,
+          "column": 75
+        },
+        {
+          "line": 1,
+          "column": 252
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_available",
+          "matched_text": "the Exchange has no or has not published a Closing Price"
+        }
+      ]
+    },
+    {
+      "token": "trad",
+      "surface_forms": [
+        "Trading"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 60
+        },
+        {
+          "line": 1,
+          "column": 108
+        },
+        {
+          "line": 1,
+          "column": 339
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingDay",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "TradingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "ClosingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 7,
+          "matched_text": "TradingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "final_regular_hours_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 15,
+          "matched_text": "final_regular_hours_trading_price"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "final_regular_hours_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 15,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "last_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 16,
+          "matched_text": "last_trading_price"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "last_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 16,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "last_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 16,
+          "matched_text": "TradingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price_available",
+          "family": "SymbolDecl.rel",
+          "line": 21,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "last_trading_price_used_when_closing_price_not_published",
+          "family": "AssertDecl.constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right",
+          "matched_text": "final_regular_hours_trading_price"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "last_trading_price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradingPrice",
+          "matched_text": "Trading Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradingDay",
+          "matched_text": "Trading Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "final_regular_hours_trading_price",
+          "matched_text": "final regular-hours Trading Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "last_trading_price",
+          "matched_text": "the last Trading Price"
+        }
+      ]
+    },
+    {
+      "token": "day",
+      "surface_forms": [
+        "Day"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 68
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingDay",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "TradingDay",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price",
+          "family": "SymbolDecl.fun",
+          "line": 13,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "final_regular_hours_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 15,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "last_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 16,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price_available",
+          "family": "SymbolDecl.rel",
+          "line": 21,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradingDay",
+          "matched_text": "Trading Day"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 72
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "securiti",
+      "surface_forms": [
+        "security"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 77
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Security",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "Security"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "Security"
+        }
+      ]
+    },
+    {
+      "token": "s",
+      "surface_forms": [
+        "s"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 86
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "final",
+      "surface_forms": [
+        "final"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 88
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "final_regular_hours_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 15,
+          "matched_text": "final_regular_hours_trading_price"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right",
+          "matched_text": "final_regular_hours_trading_price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "final_regular_hours_trading_price",
+          "matched_text": "final regular-hours Trading Price"
+        }
+      ]
+    },
+    {
+      "token": "hour",
+      "surface_forms": [
+        "regular-hours"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 94
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "final_regular_hours_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 15,
+          "matched_text": "final_regular_hours_trading_price"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right",
+          "matched_text": "final_regular_hours_trading_price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "final_regular_hours_trading_price",
+          "matched_text": "final regular-hours Trading Price"
+        }
+      ]
+    },
+    {
+      "token": "publish",
+      "surface_forms": [
+        "published"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 122
+        },
+        {
+          "line": 1,
+          "column": 242
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_published_by_exchange",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "price_published_by_exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price_definition_when_published",
+          "family": "AssertDecl.constraint",
+          "line": 23,
+          "matched_text": "closing_price_definition_when_published"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "last_trading_price_used_when_closing_price_not_published",
+          "family": "AssertDecl.constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "line": 23,
+          "matched_text": "closing_price_definition_when_published"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "price_published_by_exchange"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "price_published_by_exchange",
+          "matched_text": "published by the Exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_available",
+          "matched_text": "the Exchange has no or has not published a Closing Price"
+        }
+      ]
+    },
+    {
+      "token": "by",
+      "surface_forms": [
+        "by"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 132
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_published_by_exchange",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "price_published_by_exchange"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "price_published_by_exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "price_published_by_exchange",
+          "matched_text": "published by the Exchange"
+        }
+      ]
+    },
+    {
+      "token": "exchange",
+      "surface_forms": [
+        "Exchange"
+      ],
+      "count": 4,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 139
+        },
+        {
+          "line": 1,
+          "column": 186
+        },
+        {
+          "line": 1,
+          "column": 215
+        },
+        {
+          "line": 1,
+          "column": 291
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Exchange",
+          "family": "TypeDecl.opaque",
+          "line": 4,
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ExchangeRules",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "ExchangeRules"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ExchangeRegulations",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "ExchangeRegulations"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "respective_exchange",
+          "family": "SymbolDecl.fun",
+          "line": 14,
+          "matched_text": "respective_exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "respective_exchange",
+          "family": "SymbolDecl.fun",
+          "line": 14,
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_published_by_exchange",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "price_published_by_exchange"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_published_by_exchange",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "price_published_by_exchange"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].args[1]",
+          "matched_text": "respective_exchange"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3].args[1]",
+          "matched_text": "ExchangeRules"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[4].args[1]",
+          "matched_text": "ExchangeRegulations"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Exchange",
+          "matched_text": "Exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AccordanceStandard",
+          "matched_text": "Exchange rules"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AccordanceStandard",
+          "matched_text": "Exchange regulations"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ExchangeRules",
+          "matched_text": "Exchange rules"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ExchangeRegulations",
+          "matched_text": "Exchange regulations"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "respective_exchange",
+          "matched_text": "the Exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "price_published_by_exchange",
+          "matched_text": "published by the Exchange"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_available",
+          "matched_text": "the Exchange has no or has not published a Closing Price"
+        }
+      ]
+    },
+    {
+      "token": "determin",
+      "surface_forms": [
+        "determined"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 152
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_determined",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "price_determined"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2]",
+          "matched_text": "price_determined"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "price_determined",
+          "matched_text": "determined"
+        }
+      ]
+    },
+    {
+      "token": "accordance",
+      "surface_forms": [
+        "accordance"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 166
+        },
+        {
+          "line": 1,
+          "column": 271
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AccordanceStandard",
+          "family": "TypeDecl.opaque",
+          "line": 8,
+          "matched_text": "AccordanceStandard"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "ExchangeRules",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "AccordanceStandard"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "ExchangeRegulations",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "AccordanceStandard"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "in_accordance_with",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "in_accordance_with"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "in_accordance_with",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "AccordanceStandard"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3]",
+          "matched_text": "in_accordance_with"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[4]",
+          "matched_text": "in_accordance_with"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "in_accordance_with",
+          "matched_text": "in accordance with"
+        }
+      ]
+    },
+    {
+      "token": "with",
+      "surface_forms": [
+        "with"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 177
+        },
+        {
+          "line": 1,
+          "column": 282
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "in_accordance_with",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "in_accordance_with"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3]",
+          "matched_text": "in_accordance_with"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[4]",
+          "matched_text": "in_accordance_with"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "in_accordance_with",
+          "matched_text": "in accordance with"
+        }
+      ]
+    },
+    {
+      "token": "regulation",
+      "surface_forms": [
+        "regulations"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 195
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ExchangeRegulations",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "ExchangeRegulations"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[4].args[1]",
+          "matched_text": "ExchangeRegulations"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AccordanceStandard",
+          "matched_text": "Exchange regulations"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ExchangeRegulations",
+          "matched_text": "Exchange regulations"
+        }
+      ]
+    },
+    {
+      "token": "if",
+      "surface_forms": [
+        "If"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 208
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "has",
+      "surface_forms": [
+        "has"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 224
+        },
+        {
+          "line": 1,
+          "column": 234
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_available",
+          "matched_text": "the Exchange has no or has not published a Closing Price"
+        }
+      ]
+    },
+    {
+      "token": "no",
+      "surface_forms": [
+        "no"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 228
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_available",
+          "matched_text": "the Exchange has no or has not published a Closing Price"
+        }
+      ]
+    },
+    {
+      "token": "or",
+      "surface_forms": [
+        "or"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 231
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_available",
+          "matched_text": "the Exchange has no or has not published a Closing Price"
+        }
+      ]
+    },
+    {
+      "token": "not",
+      "surface_forms": [
+        "not"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 238
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "last_trading_price_used_when_closing_price_not_published",
+          "family": "AssertDecl.constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_available",
+          "matched_text": "the Exchange has no or has not published a Closing Price"
+        }
+      ]
+    },
+    {
+      "token": "rul",
+      "surface_forms": [
+        "rules"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 300
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ExchangeRules",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "ExchangeRules"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "closing_price_definition_when_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[3].args[1]",
+          "matched_text": "ExchangeRules"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AccordanceStandard",
+          "matched_text": "Exchange rules"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ExchangeRules",
+          "matched_text": "Exchange rules"
+        }
+      ]
+    },
+    {
+      "token": "for",
+      "surface_forms": [
+        "for"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 306
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "last",
+      "surface_forms": [
+        "last"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 334
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "last_trading_price",
+          "family": "SymbolDecl.fun",
+          "line": 16,
+          "matched_text": "last_trading_price"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "last_trading_price_used_when_closing_price_not_published",
+          "family": "AssertDecl.constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "last_trading_price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "last_trading_price",
+          "matched_text": "the last Trading Price"
+        }
+      ]
+    },
+    {
+      "token": "will",
+      "surface_forms": [
+        "will"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 353
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "legal_future_or_procedural_future"
+        }
+      ]
+    },
+    {
+      "token": "be",
+      "surface_forms": [
+        "be"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 358
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "used",
+      "surface_forms": [
+        "used"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 361
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "last_trading_price_used_when_closing_price_not_published",
+          "family": "AssertDecl.constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "last_trading_price_used_when_closing_price_not_published",
+          "assertion_kind": "constraint",
+          "line": 33,
+          "matched_text": "last_trading_price_used_when_closing_price_not_published"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "respect",
+      "surface_forms": [
+        "respect"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 24
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

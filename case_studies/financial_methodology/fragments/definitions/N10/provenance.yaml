@@ -1,0 +1,61 @@
+section: "N10 Definition: Exchange"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  exchange_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Exchange\" is with respect to the Index and every Index Component, the respective exchange where the Index Component has its listing as determined in accordance with the rules in Section 2."
+    back_translation: >
+      For every Index Component, there is a listing of that Index Component
+      determined in accordance with the rules in Section 2, and the respective
+      Exchange for the Index and that Index Component is the exchange of that
+      listing.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source phrase "with respect to the Index and every Index Component"
+      is represented by the Index and Index Component parameters. The source
+      word "where" is relative-clause glue linking the listing to its exchange.
+
+uncovered_source:
+  - quote: "(none -- the definition is covered; relative-clause glue is documented in notes/waiver)"
+
+vocabulary_notes:
+  Exchange:
+    note: "Sort for the source term \"Exchange\"."
+    source_phrase: "Exchange"
+  Index:
+    note: "Sort for the source phrase \"the Index\"."
+    source_phrase: "the Index"
+  IndexComponent:
+    note: "Sort for the source phrase \"Index Component\"."
+    source_phrase: "Index Component"
+  TheIndex:
+    note: "Local entity for the source phrase \"the Index\"."
+    source_phrase: "the Index"
+  Listing:
+    note: "Sort for the source phrase \"listing\"."
+    source_phrase: "listing"
+  Section2Rules:
+    note: "Local entity for the source phrase \"rules in Section 2\"."
+    source_phrase: "rules in Section 2"
+  respective_exchange_for_index_component:
+    note: "Function for the source phrase \"the respective exchange\" with respect to the Index and an Index Component."
+    source_phrase: "respective exchange"
+  listing_component:
+    note: "Role relation linking a listing to the Index Component that has that listing."
+    source_phrase: "Index Component has its listing"
+  listing_exchange:
+    note: "Role relation linking a listing to the exchange where that listing is held."
+    source_phrase: "exchange where the Index Component has its listing"
+  listing_determined_in_accordance_with_rules:
+    note: "Relation for the source phrase \"listing as determined in accordance with the rules in Section 2\"."
+    source_phrase: "determined in accordance with the rules in Section 2"

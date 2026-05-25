@@ -1,0 +1,2431 @@
+{
+  "entry_id": "section_5_1",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 35,
+    "content_token_count": 24,
+    "covered_content_token_count": 21,
+    "uncovered_content_token_count": 3,
+    "ignored_stopword_count": 11,
+    "content_coverage_rate": 0.875
+  },
+  "tokens": [
+    {
+      "token": "any",
+      "surface_forms": [
+        "Any",
+        "any"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 1
+        },
+        {
+          "line": 3,
+          "column": 220
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "universal_quantifier",
+          "marker": "forall"
+        }
+      ]
+    },
+    {
+      "token": "discretion",
+      "surface_forms": [
+        "discretion"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 5
+        },
+        {
+          "line": 3,
+          "column": 347
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Discretion",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "Discretion"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexDeterminationDiscretion",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "IndexDeterminationDiscretion",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "Discretion"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "StrictRulesForDiscretionAndExpertJudgement",
+          "family": "SymbolDecl.entity",
+          "line": 17,
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "potential_need_to_exercise",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "discretion_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "discretion_in_relation_to_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "discretion_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "discretion_in_relation_to_matter",
+          "family": "SymbolDecl.rel",
+          "line": 22,
+          "matched_text": "discretion_in_relation_to_matter"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "discretion_in_relation_to_matter",
+          "family": "SymbolDecl.rel",
+          "line": 22,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_determination_discretion_scope",
+          "family": "AssertDecl.constraint",
+          "line": 30,
+          "matched_text": "index_determination_discretion_scope"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "strict_rules_for_discretion_or_expert_judgement",
+          "family": "AssertDecl.fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_in_accordance_with target: StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "declaration",
+          "role": "scope",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "discretion"
+        },
+        {
+          "source": "declaration",
+          "role": "param_name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "discretion"
+        },
+        {
+          "source": "declaration",
+          "role": "param_type",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "line": 30,
+          "matched_text": "index_determination_discretion_scope"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[1]",
+          "matched_text": "discretion_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[2].body",
+          "matched_text": "discretion_in_relation_to_matter"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "ExerciseOfDiscretion"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "target",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "scope",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "discretion"
+        }
+      ]
+    },
+    {
+      "token": "which",
+      "surface_forms": [
+        "which"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 16
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "may",
+      "surface_forms": [
+        "may"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 22
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "need",
+      "surface_forms": [
+        "need"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 26
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "potential_need_to_exercise",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "potential_need_to_exercise"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[0]",
+          "matched_text": "potential_need_to_exercise"
+        }
+      ]
+    },
+    {
+      "token": "to",
+      "surface_forms": [
+        "to"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 31
+        },
+        {
+          "line": 3,
+          "column": 59
+        },
+        {
+          "line": 3,
+          "column": 261
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "potential_need_to_exercise",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "potential_need_to_exercise"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "discretion_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "discretion_in_relation_to_index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "discretion_in_relation_to_matter",
+          "family": "SymbolDecl.rel",
+          "line": 22,
+          "matched_text": "discretion_in_relation_to_matter"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_relevant_decision_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[0]",
+          "matched_text": "potential_need_to_exercise"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[1]",
+          "matched_text": "discretion_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[2].body",
+          "matched_text": "discretion_in_relation_to_matter"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "OtherRelevantDecisionInRelationToIndex"
+        }
+      ]
+    },
+    {
+      "token": "be",
+      "surface_forms": [
+        "be"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 34
+        },
+        {
+          "line": 3,
+          "column": 281
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "exercis",
+      "surface_forms": [
+        "exercised"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 37
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 47
+        },
+        {
+          "line": 3,
+          "column": 249
+        },
+        {
+          "line": 3,
+          "column": 289
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "discretion_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "discretion_in_relation_to_index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "discretion_in_relation_to_matter",
+          "family": "SymbolDecl.rel",
+          "line": 22,
+          "matched_text": "discretion_in_relation_to_matter"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_relevant_decision_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_in_accordance_with target: StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[1]",
+          "matched_text": "discretion_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[2].body",
+          "matched_text": "discretion_in_relation_to_matter"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "OtherRelevantDecisionInRelationToIndex"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "action",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_in_accordance_with"
+        }
+      ]
+    },
+    {
+      "token": "relate",
+      "surface_forms": [
+        "relation"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 50
+        },
+        {
+          "line": 3,
+          "column": 252
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "discretion_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "discretion_in_relation_to_index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "discretion_in_relation_to_matter",
+          "family": "SymbolDecl.rel",
+          "line": 22,
+          "matched_text": "discretion_in_relation_to_matter"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_relevant_decision_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[1]",
+          "matched_text": "discretion_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[2].body",
+          "matched_text": "discretion_in_relation_to_matter"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "OtherRelevantDecisionInRelationToIndex"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 8,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 62
+        },
+        {
+          "line": 3,
+          "column": 83
+        },
+        {
+          "line": 3,
+          "column": 106
+        },
+        {
+          "line": 3,
+          "column": 127
+        },
+        {
+          "line": 3,
+          "column": 163
+        },
+        {
+          "line": 3,
+          "column": 180
+        },
+        {
+          "line": 3,
+          "column": 264
+        },
+        {
+          "line": 3,
+          "column": 331
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 16,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[1].args[1]",
+          "matched_text": "TheIndex"
+        }
+      ]
+    },
+    {
+      "token": "determinate",
+      "surface_forms": [
+        "determination"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 66
+        },
+        {
+          "line": 3,
+          "column": 110
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexDeterminationDiscretion",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexDeterminationMatter",
+          "family": "TypeDecl.enum",
+          "line": 6,
+          "matched_text": "IndexDeterminationMatter"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "potential_need_to_exercise",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "discretion_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "discretion_in_relation_to_matter",
+          "family": "SymbolDecl.rel",
+          "line": 22,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "discretion_in_relation_to_matter",
+          "family": "SymbolDecl.rel",
+          "line": 22,
+          "matched_text": "IndexDeterminationMatter"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "if_applicable",
+          "family": "SymbolDecl.rel",
+          "line": 24,
+          "matched_text": "IndexDeterminationMatter"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "other_relevant_decision_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "IndexDeterminationMatter"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_determination_discretion_scope",
+          "family": "AssertDecl.constraint",
+          "line": 30,
+          "matched_text": "index_determination_discretion_scope"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "declaration",
+          "role": "param_type",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "line": 30,
+          "matched_text": "index_determination_discretion_scope"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[2].vars[0].sort",
+          "matched_text": "IndexDeterminationMatter"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "DeterminationOfIndexUniverse"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 4,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 80
+        },
+        {
+          "line": 3,
+          "column": 124
+        },
+        {
+          "line": 3,
+          "column": 177
+        },
+        {
+          "line": 3,
+          "column": 344
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "DeterminationOfIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SelectionOfIndexComponents"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "ExerciseOfDiscretion"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "ExerciseOfExpertJudgement"
+        }
+      ]
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 4,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 87
+        },
+        {
+          "line": 3,
+          "column": 131
+        },
+        {
+          "line": 3,
+          "column": 184
+        },
+        {
+          "line": 3,
+          "column": 268
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Index",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexDeterminationDiscretion",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexDeterminationMatter",
+          "family": "TypeDecl.enum",
+          "line": 6,
+          "matched_text": "IndexDeterminationMatter"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 16,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 16,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "potential_need_to_exercise",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "discretion_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "discretion_in_relation_to_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "discretion_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "discretion_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "discretion_in_relation_to_matter",
+          "family": "SymbolDecl.rel",
+          "line": 22,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "discretion_in_relation_to_matter",
+          "family": "SymbolDecl.rel",
+          "line": 22,
+          "matched_text": "IndexDeterminationMatter"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "if_applicable",
+          "family": "SymbolDecl.rel",
+          "line": 24,
+          "matched_text": "IndexDeterminationMatter"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_relevant_decision_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "other_relevant_decision_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "IndexDeterminationMatter"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_determination_discretion_scope",
+          "family": "AssertDecl.constraint",
+          "line": 30,
+          "matched_text": "index_determination_discretion_scope"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "declaration",
+          "role": "param_type",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "line": 30,
+          "matched_text": "index_determination_discretion_scope"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexDeterminationDiscretion"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[1]",
+          "matched_text": "discretion_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[1].args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[2].vars[0].sort",
+          "matched_text": "IndexDeterminationMatter"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "DeterminationOfIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SelectionOfIndexComponents"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "OtherRelevantDecisionInRelationToIndex"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        }
+      ]
+    },
+    {
+      "token": "for",
+      "surface_forms": [
+        "for"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 94
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "StrictRulesForDiscretionAndExpertJudgement",
+          "family": "SymbolDecl.entity",
+          "line": 17,
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "strict_rules_for_discretion_or_expert_judgement",
+          "family": "AssertDecl.fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_in_accordance_with target: StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "target",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        }
+      ]
+    },
+    {
+      "token": "example",
+      "surface_forms": [
+        "example"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 98
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "applicable_example_matters",
+          "family": "AssertDecl.fact",
+          "line": 37,
+          "matched_text": "applicable_example_matters"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "line": 37,
+          "matched_text": "applicable_example_matters"
+        }
+      ]
+    },
+    {
+      "token": "universe",
+      "surface_forms": [
+        "Universe"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 137
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "DeterminationOfIndexUniverse"
+        }
+      ]
+    },
+    {
+      "token": "if",
+      "surface_forms": [
+        "if"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 147
+        },
+        {
+          "line": 3,
+          "column": 202
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "if_applicable",
+          "family": "SymbolDecl.rel",
+          "line": 24,
+          "matched_text": "if_applicable"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "if_applicable"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "if_applicable"
+        }
+      ]
+    },
+    {
+      "token": "applicable",
+      "surface_forms": [
+        "applicable"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 150
+        },
+        {
+          "line": 3,
+          "column": 205
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "if_applicable",
+          "family": "SymbolDecl.rel",
+          "line": 24,
+          "matched_text": "if_applicable"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "applicable_example_matters",
+          "family": "AssertDecl.fact",
+          "line": 37,
+          "matched_text": "applicable_example_matters"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "line": 37,
+          "matched_text": "applicable_example_matters"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "if_applicable"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "if_applicable"
+        }
+      ]
+    },
+    {
+      "token": "selection",
+      "surface_forms": [
+        "selection"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 167
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SelectionOfIndexComponents"
+        }
+      ]
+    },
+    {
+      "token": "component",
+      "surface_forms": [
+        "Components"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 190
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SelectionOfIndexComponents"
+        }
+      ]
+    },
+    {
+      "token": "or",
+      "surface_forms": [
+        "or"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 217
+        },
+        {
+          "line": 3,
+          "column": 358
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "strict_rules_for_discretion_or_expert_judgement",
+          "family": "AssertDecl.fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        }
+      ]
+    },
+    {
+      "token": "other",
+      "surface_forms": [
+        "other"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 224
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_relevant_decision_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "OtherRelevantDecisionInRelationToIndex"
+        }
+      ]
+    },
+    {
+      "token": "relevant",
+      "surface_forms": [
+        "relevant"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 230
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_relevant_decision_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "OtherRelevantDecisionInRelationToIndex"
+        }
+      ]
+    },
+    {
+      "token": "decision",
+      "surface_forms": [
+        "decisions"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 239
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_relevant_decision_in_relation_to_index",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "other_relevant_decision_in_relation_to_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "applicable_example_matters",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "OtherRelevantDecisionInRelationToIndex"
+        }
+      ]
+    },
+    {
+      "token": "shall",
+      "surface_forms": [
+        "shall"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 275
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "modal_obligation",
+          "family": "DeonticDecl.obligation"
+        },
+        {
+          "source": "family_signal",
+          "role": "hard_constraint_obligation",
+          "assertion_kind": "constraint"
+        }
+      ]
+    },
+    {
+      "token": "made",
+      "surface_forms": [
+        "made"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 284
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "accordance",
+      "surface_forms": [
+        "accordance"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 292
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_in_accordance_with target: StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "action",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_in_accordance_with"
+        }
+      ]
+    },
+    {
+      "token": "with",
+      "surface_forms": [
+        "with"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 303
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_in_accordance_with target: StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "action",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_in_accordance_with"
+        }
+      ]
+    },
+    {
+      "token": "strict",
+      "surface_forms": [
+        "strict"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 308
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "StrictRule",
+          "family": "TypeDecl.opaque",
+          "line": 4,
+          "matched_text": "StrictRule"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "StrictRulesForDiscretionAndExpertJudgement",
+          "family": "SymbolDecl.entity",
+          "line": 17,
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "StrictRulesForDiscretionAndExpertJudgement",
+          "family": "SymbolDecl.entity",
+          "line": 17,
+          "matched_text": "StrictRule"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "strict_rules",
+          "family": "SymbolDecl.rel",
+          "line": 27,
+          "matched_text": "strict_rules"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "strict_rules",
+          "family": "SymbolDecl.rel",
+          "line": 27,
+          "matched_text": "StrictRule"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rules_regarding_exercise",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "StrictRule"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "strict_rules_for_discretion_or_expert_judgement",
+          "family": "AssertDecl.fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_in_accordance_with target: StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "strict_rules"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "target",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        }
+      ]
+    },
+    {
+      "token": "rul",
+      "surface_forms": [
+        "rules"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 315
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "StrictRulesForDiscretionAndExpertJudgement",
+          "family": "SymbolDecl.entity",
+          "line": 17,
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "strict_rules",
+          "family": "SymbolDecl.rel",
+          "line": 27,
+          "matched_text": "strict_rules"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rules_regarding_exercise",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "rules_regarding_exercise"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "strict_rules_for_discretion_or_expert_judgement",
+          "family": "AssertDecl.fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_in_accordance_with target: StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "strict_rules"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "rules_regarding_exercise"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "rules_regarding_exercise"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_index_determination_discretion_in_accordance_with_strict_rules"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "target",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "StrictRule",
+          "family": "TypeDecl.opaque",
+          "line": 4,
+          "matched_text": "StrictRule"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "StrictRulesForDiscretionAndExpertJudgement",
+          "family": "SymbolDecl.entity",
+          "line": 17,
+          "matched_text": "StrictRule"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "strict_rules",
+          "family": "SymbolDecl.rel",
+          "line": 27,
+          "matched_text": "StrictRule"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rules_regarding_exercise",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "StrictRule"
+        }
+      ]
+    },
+    {
+      "token": "regard",
+      "surface_forms": [
+        "regarding"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 321
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rules_regarding_exercise",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "rules_regarding_exercise"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "rules_regarding_exercise"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "rules_regarding_exercise"
+        }
+      ]
+    },
+    {
+      "token": "exercise",
+      "surface_forms": [
+        "exercise"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 335
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ExerciseBasis",
+          "family": "TypeDecl.enum",
+          "line": 12,
+          "matched_text": "ExerciseBasis"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "potential_need_to_exercise",
+          "family": "SymbolDecl.rel",
+          "line": 19,
+          "matched_text": "potential_need_to_exercise"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rules_regarding_exercise",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "rules_regarding_exercise"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rules_regarding_exercise",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "ExerciseBasis"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_discretion_scope",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.args[0]",
+          "matched_text": "potential_need_to_exercise"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "rules_regarding_exercise"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "ExerciseOfDiscretion"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "rules_regarding_exercise"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "ExerciseOfExpertJudgement"
+        }
+      ]
+    },
+    {
+      "token": "expert",
+      "surface_forms": [
+        "expert"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 361
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "StrictRulesForDiscretionAndExpertJudgement",
+          "family": "SymbolDecl.entity",
+          "line": 17,
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "strict_rules_for_discretion_or_expert_judgement",
+          "family": "AssertDecl.fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_in_accordance_with target: StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "ExerciseOfExpertJudgement"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "target",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        }
+      ]
+    },
+    {
+      "token": "judgement",
+      "surface_forms": [
+        "judgement"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 368
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "StrictRulesForDiscretionAndExpertJudgement",
+          "family": "SymbolDecl.entity",
+          "line": 17,
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "strict_rules_for_discretion_or_expert_judgement",
+          "family": "AssertDecl.fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "make_in_accordance_with target: StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "line": 44,
+          "matched_text": "strict_rules_for_discretion_or_expert_judgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "strict_rules_for_discretion_or_expert_judgement",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "ExerciseOfExpertJudgement"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "target",
+          "symbol": "make_index_determination_discretion_in_accordance_with_strict_rules",
+          "family": "DeonticDecl.obligation",
+          "line": 55,
+          "matched_text": "StrictRulesForDiscretionAndExpertJudgement"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "may",
+      "surface_forms": [
+        "may"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 22
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "exercis",
+      "surface_forms": [
+        "exercised"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 37
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "made",
+      "surface_forms": [
+        "made"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 284
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

@@ -1,0 +1,21 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N19 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:Security a rdfs:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:SecurityShape a sh:NodeShape ; sh:targetClass ex:Security .
+
+ex:TheIndex a ex:Index .
+ex:index_component a rdf:Property .
+ex:SecurityShape sh:property [ sh:path ex:index_component ; sh:class ex:Index ] .
+ex:security_reflected_in_index a rdf:Property .
+ex:SecurityShape sh:property [ sh:path ex:security_reflected_in_index ; sh:class ex:Index ] .

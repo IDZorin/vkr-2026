@@ -1,0 +1,129 @@
+{
+  "entry_id": "section_4_5",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main ideas of Section 4.5: corporate actions are considered for index maintenance, can require index adjustments between rebalance days, are implemented from cum-day to ex-day, and Solactive may deviate from standard procedures in unusual or complex cases or to preserve index quality. However, it also adds stronger formal commitments not stated in the source, especially by making the listed corporate actions and methodology coverage look exhaustive rather than explicitly non-conclusive, and by turning the descriptive list into a set of asserted methodology coverage facts.",
+      "semantic_differences": [
+        "The source says the list of corporate actions is “following, but not conclusive”; the IR asserts a fixed `RelevantCorporateActionList` with `non_conclusive(...)` plus explicit `list_item(...)` facts for each item, which is a stronger and more structured commitment than the source text itself.",
+        "The source says Solactive considers the listed corporate actions as relevant for index maintenance; the IR additionally asserts `methodology_covers_corporate_action_kind(EquityIndexMethodology, k)` for each listed item, which is not stated in this section.",
+        "The source says adjustments are made in compliance with the Equity Index Methodology and that the document contains a brief definition and specifies the relevant adjustment; the IR formalizes this as universal constraints over all covered corporate action kinds, which goes beyond the section’s explicit wording.",
+        "The source says Solactive retains the right to deviate in accordance with the Equity Index Methodology; the IR narrows this into a permission over a `PermittedCorporateActionDeviation` object and conditions tied to specific index-quality predicates, which is a formalization stronger than the prose.",
+        "The source mentions that corporate actions have a material impact on the price, weighting or overall integrity of Index Components; the IR encodes this as an existential requirement for each considered action, which preserves the gist but is more rigid than the prose’s general statement."
+      ],
+      "stylistic_notes": [
+        "`SolactiveOrganization` is a naming choice for the organization mentioned in the source.",
+        "`ShareSplits`, `ReverseSplits`, and similar camel-cased entities are stylistic normalizations of the bullet list items.",
+        "`RegularRebalanceDay` is a canonicalized encoding of “Rebalance Days.”",
+        "`AsPossible` and `MethodologyQuality` are formalized abstractions of the prose phrase “as generic and transparent as possible.”"
+      ],
+      "confidence": 0.88,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4576,
+        "completion_tokens": 514,
+        "total_tokens": 5090
+      },
+      "latency_s": 4.369964361190796
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures much of the section: corporate actions considered for index maintenance, their implementation from cum-day to ex-day, compliance with the Equity Index Methodology, the possibility of deviation in unusual/complex cases or to preserve comparability and representativeness, and the non-conclusive list of relevant corporate actions. However, several source nuances are weakened or altered, especially the requirement that the events themselves result in an adjustment, the specific impact attributes, and the statement that the methodology contains definitions and adjustment specifications for each corporate action.",
+      "semantic_differences": [
+        "The source says the relevant events 'result in an adjustment to the Index'; the IR only states that considered corporate actions imply the existence of an adjustment to the index, not that the events themselves are the ones that result in that adjustment.",
+        "The source says such events have a material impact on the price, weighting or overall integrity of Index Components; the IR weakens this to existence of some component and some attribute impacted, rather than preserving the explicit listed alternatives as the relevant impact dimensions.",
+        "The source says the Equity Index Methodology 'contains for each corporate action a brief definition and specifies the relevant adjustment to the Index variables'; the IR applies this to every covered corporate action kind, which is close, but it does not explicitly tie the specified adjustment to the same corporate action beyond coverage and only requires existence of an index variable.",
+        "The source says corporate actions need to be accounted for in the calculation of the Index; the IR models this as an obligation targeting the index calculation without an explicit agent, which leaves the bearer of the requirement underspecified compared with the prose context.",
+        "The source says deviations may occur 'in case of any unusual or complex corporate action or if such a deviation is made to preserve the comparability and representativeness of the Index over time'; the IR encodes preservation of both comparability and representativeness conjunctively, which is plausible, but the source wording can also be read more loosely as preserving those qualities generally rather than requiring both as separate formal predicates."
+      ],
+      "stylistic_notes": [
+        "The IR introduces many ontology items not directly used in formulas, such as separate sorts for definitions, deviations, and qualities; this is mostly catalog structure rather than semantic mismatch.",
+        "Using a deontic obligation for 'need to be accounted for' is a modeling choice; the main issue is underspecification of agent rather than wording alone.",
+        "The relation name 'equity_index_methodology_material_for_covered_corporate_actions' is awkwardly named relative to what the constraint actually states."
+      ],
+      "confidence": 0.79,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4576,
+        "completion_tokens": 576,
+        "total_tokens": 5152
+      },
+      "latency_s": 9.276421308517456
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core structural elements of the source (corporate actions, index maintenance, adjustments, methodology, deviations) and encodes them as a4v3 declarations. However, there are several semantic divergences: (1) the source states deviations are permitted 'in case of any unusual or complex corporate action OR if such a deviation is made to preserve comparability/representativeness', but the IR constraint requires ALL three conditions (unusual OR complex OR (both qualities)), conflating 'or' with conjunction; (2) the source describes a non-exhaustive list ('following, but not conclusive'), but the IR treats each listed item as independently relevant for index maintenance without capturing the non-exhaustiveness semantics; (3) the source's statement that adjustments 'need to be accounted for' is encoded as an obligation, but the constraint formulation suggests a logical implication rather than a deontic requirement; (4) the IR introduces numerous sorts and relations (e.g., IndexQuality, MethodologyQuality, PriceEffect as Event) that are reasonable formalizations but go beyond explicit source claims.",
+      "semantic_differences": [
+        "Deviation conditions: source says 'in case of any unusual or complex corporate action OR if such a deviation is made to preserve comparability and representativeness', implying three independent sufficient conditions (unusual, complex, or preservation). IR constraint uses (unusual OR complex OR (both preservation conditions)), which is logically equivalent but the parenthesization suggests the preservation clause is a single alternative, not two separate conditions. More critically, the source's 'or if such a deviation is made to preserve...' suggests preservation alone is sufficient; IR requires both Comparability AND Representativeness together.",
+        "Non-conclusive list semantics: source explicitly states 'following, but not conclusive, list of corporate actions as relevant for Index maintenance'. IR encodes each listed item as independently relevant (considers_relevant_for_index_maintenance for each kind), but does not capture that the list is explicitly non-exhaustive and that other corporate actions may exist and be relevant.",
+        "Obligation vs. constraint: source says corporate actions 'need to be accounted for in the calculation of the Index'. IR encodes this as an obligation (account_for_corporate_action_in_index_calculation), but also as a constraint (considered_corporate_actions_result_in_index_adjustment). The constraint formulation treats it as a logical implication (if considered, then adjusted), whereas the obligation treats it as a deontic requirement. These are subtly different semantic claims.",
+        "Price effect reification: source describes 'the adjustment to the Index coincides with the occurrence of the price effect of the respective corporate action'. IR reifies PriceEffect as an Event sort and uses a function price_effect : IndexMaintenanceCorporateAction -> PriceEffect. The source does not explicitly introduce 'price effect' as a distinct entity type; it is a phenomenon described in natural language."
+      ],
+      "stylistic_notes": [
+        "Naming: 'SolactiveOrganization' extends Organization (prelude), which is reasonable but source simply says 'Solactive'. Using a sort extension is a4v3 best practice.",
+        "Reification of qualities: IndexQuality (Comparability, Representativeness) and MethodologyQuality (Generic, Transparent) are introduced as sorts with enumerated values. Source uses these as adjectives/adverbs ('generic and transparent', 'comparability and representativeness'). The reification is standard a4v3 practice but adds ontological structure not explicit in source.",
+        "VagueTerm usage: 'AsPossible' is declared as a VagueTerm entity and used in methodology_quality_described_by relations to capture 'as generic and transparent as possible'. This is a reasonable encoding of the intensifier 'as possible', using prelude infrastructure.",
+        "Obligation action/target naming: 'account_for' and 'make_in_compliance_with' are action names; source uses 'need to be accounted for' and 'will be made in compliance with'. The IR normalizes these to agent-action-target form, which is standard a4v3 deontic encoding.",
+        "Constraint formulation: constraint names like 'considered_corporate_actions_result_in_index_adjustment' are descriptive but source uses passive voice ('adjustments will be made'). The IR converts to active logical form."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 5793,
+        "completion_tokens": 1054,
+        "total_tokens": 6847
+      },
+      "latency_s": 13.044507503509521
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 71.53156423568726
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR accurately captures all semantic claims from the source text, including the conditions for corporate action adjustments, the material impact on index components, the implementation period (cum-day to ex-day), the compliance with the Equity Index Methodology, the non-conclusive list of relevant actions, and the permission to deviate under specific conditions. All modalities ('need to be accounted for', 'retains the right') are correctly lowered to obligations and permissions. The ontology appropriately reifies source concepts using canonical prelude sorts and explicit quality/attribute sorts.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The phrase 'as generic and transparent as possible' is explicitly modeled using a VagueTerm entity and a descriptive relation, which is a precise formalization of the source's hedging.",
+        "The list of corporate actions is exhaustively enumerated in facts, matching the source's bulleted list while correctly marking it as non-conclusive."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4803,
+        "completion_tokens": 3657,
+        "total_tokens": 8460
+      },
+      "latency_s": 67.7651903629303
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.842
+  }
+}

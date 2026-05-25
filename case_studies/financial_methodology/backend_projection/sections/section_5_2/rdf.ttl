@@ -1,0 +1,249 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_2 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_5_2/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexMethodology a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:MethodologyReview a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:MethodologyChangeNeed a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:MethodologyChange a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ReviewIdentifiedMethodologyChange a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ReviewIdentifiedMethodologyChange rdfs:subClassOf ex:MethodologyChange .
+ex:MethodologyPolicy a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:MethodologyPolicy rdfs:subClassOf ex:Document .
+ex:IndexAmendment a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:MethodologyChangeNeedExampleCondition a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:UnderlyingMarketChange a ex:MethodologyChangeNeedExampleCondition, a4:EnumMember, owl:NamedIndividual .
+ex:MethodologyChangeNeedExampleCondition a4:enumMember ex:UnderlyingMarketChange .
+ex:EconomicRealityChange a ex:MethodologyChangeNeedExampleCondition, a4:EnumMember, owl:NamedIndividual .
+ex:MethodologyChangeNeedExampleCondition a4:enumMember ex:EconomicRealityChange .
+ex:ObsoleteAssumption a ex:MethodologyChangeNeedExampleCondition, a4:EnumMember, owl:NamedIndividual .
+ex:MethodologyChangeNeedExampleCondition a4:enumMember ex:ObsoleteAssumption .
+ex:ObsoleteFactor a ex:MethodologyChangeNeedExampleCondition, a4:EnumMember, owl:NamedIndividual .
+ex:MethodologyChangeNeedExampleCondition a4:enumMember ex:ObsoleteFactor .
+ex:NoLongerReflectsReality a ex:MethodologyChangeNeedExampleCondition, a4:EnumMember, owl:NamedIndividual .
+ex:MethodologyChangeNeedExampleCondition a4:enumMember ex:NoLongerReflectsReality .
+ex:ReflectionQuality a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:Accuracy a ex:ReflectionQuality, a4:EnumMember, owl:NamedIndividual .
+ex:ReflectionQuality a4:enumMember ex:Accuracy .
+ex:Reliability a ex:ReflectionQuality, a4:EnumMember, owl:NamedIndividual .
+ex:ReflectionQuality a4:enumMember ex:Reliability .
+ex:Appropriateness a ex:ReflectionQuality, a4:EnumMember, owl:NamedIndividual .
+ex:ReflectionQuality a4:enumMember ex:Appropriateness .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:TheIndexMethodology a ex:IndexMethodology, owl:NamedIndividual .
+ex:Solactive a ex:Organization, owl:NamedIndividual .
+ex:Guideline a ex:Document, owl:NamedIndividual .
+ex:SolactiveMethodologyPolicy a ex:MethodologyPolicy, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:AnnouncementSection a ex:DocumentPart, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComDocumentsMethodologyPolicy a ex:Url, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComNewsAnnouncements a ex:Url, owl:NamedIndividual .
+ex:methodology_of_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:methodology_of_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexMethodology .
+ex:methodology_of_index a4:argument ex:methodology_of_index_arg_0 .
+ex:methodology_of_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:methodology_of_index a4:argument ex:methodology_of_index_arg_1 .
+ex:review_of_methodology a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:review_of_methodology_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodologyReview .
+ex:review_of_methodology a4:argument ex:review_of_methodology_arg_0 .
+ex:review_of_methodology_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexMethodology .
+ex:review_of_methodology a4:argument ex:review_of_methodology_arg_1 .
+ex:regular a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:regular_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodologyReview .
+ex:regular a4:argument ex:regular_arg_0 .
+ex:at_least_annually a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:at_least_annually_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodologyReview .
+ex:at_least_annually a4:argument ex:at_least_annually_arg_0 .
+ex:change_need_of_methodology a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:change_need_of_methodology_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodologyChangeNeed .
+ex:change_need_of_methodology a4:argument ex:change_need_of_methodology_arg_0 .
+ex:change_need_of_methodology_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexMethodology .
+ex:change_need_of_methodology a4:argument ex:change_need_of_methodology_arg_1 .
+ex:need_identified_within_review a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:need_identified_within_review_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodologyChangeNeed .
+ex:need_identified_within_review a4:argument ex:need_identified_within_review_arg_0 .
+ex:need_identified_within_review_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:MethodologyReview .
+ex:need_identified_within_review a4:argument ex:need_identified_within_review_arg_1 .
+ex:change_for_need a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:change_for_need_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ReviewIdentifiedMethodologyChange .
+ex:change_for_need a4:argument ex:change_for_need_arg_0 .
+ex:change_for_need_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:MethodologyChangeNeed .
+ex:change_for_need a4:argument ex:change_for_need_arg_1 .
+ex:change_of_methodology a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:change_of_methodology_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodologyChange .
+ex:change_of_methodology a4:argument ex:change_of_methodology_arg_0 .
+ex:change_of_methodology_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexMethodology .
+ex:change_of_methodology a4:argument ex:change_of_methodology_arg_1 .
+ex:need_has_example_condition a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:need_has_example_condition_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodologyChangeNeed .
+ex:need_has_example_condition a4:argument ex:need_has_example_condition_arg_0 .
+ex:need_has_example_condition_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:MethodologyChangeNeedExampleCondition .
+ex:need_has_example_condition a4:argument ex:need_has_example_condition_arg_1 .
+ex:example_condition_for_methodology_change_need a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:example_condition_for_methodology_change_need_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodologyChangeNeedExampleCondition .
+ex:example_condition_for_methodology_change_need a4:argument ex:example_condition_for_methodology_change_need_arg_0 .
+ex:example_condition_changed_since_launch_of_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:example_condition_changed_since_launch_of_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodologyChangeNeedExampleCondition .
+ex:example_condition_changed_since_launch_of_index a4:argument ex:example_condition_changed_since_launch_of_index_arg_0 .
+ex:example_condition_changed_since_launch_of_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:example_condition_changed_since_launch_of_index a4:argument ex:example_condition_changed_since_launch_of_index_arg_1 .
+ex:example_condition_obsolete_assumption_for_methodology a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:example_condition_obsolete_assumption_for_methodology_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodologyChangeNeedExampleCondition .
+ex:example_condition_obsolete_assumption_for_methodology a4:argument ex:example_condition_obsolete_assumption_for_methodology_arg_0 .
+ex:example_condition_obsolete_assumption_for_methodology_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexMethodology .
+ex:example_condition_obsolete_assumption_for_methodology a4:argument ex:example_condition_obsolete_assumption_for_methodology_arg_1 .
+ex:example_condition_obsolete_factor_for_methodology a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:example_condition_obsolete_factor_for_methodology_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodologyChangeNeedExampleCondition .
+ex:example_condition_obsolete_factor_for_methodology a4:argument ex:example_condition_obsolete_factor_for_methodology_arg_0 .
+ex:example_condition_obsolete_factor_for_methodology_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexMethodology .
+ex:example_condition_obsolete_factor_for_methodology a4:argument ex:example_condition_obsolete_factor_for_methodology_arg_1 .
+ex:methodology_has_obsolete_basis a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:methodology_has_obsolete_basis_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexMethodology .
+ex:methodology_has_obsolete_basis a4:argument ex:methodology_has_obsolete_basis_arg_0 .
+ex:methodology_has_obsolete_basis_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:MethodologyChangeNeedExampleCondition .
+ex:methodology_has_obsolete_basis a4:argument ex:methodology_has_obsolete_basis_arg_1 .
+ex:example_condition_reflection_quality a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:example_condition_reflection_quality_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MethodologyChangeNeedExampleCondition .
+ex:example_condition_reflection_quality a4:argument ex:example_condition_reflection_quality_arg_0 .
+ex:example_condition_reflection_quality_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ReflectionQuality .
+ex:example_condition_reflection_quality a4:argument ex:example_condition_reflection_quality_arg_1 .
+ex:reflects_reality_as_before a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:reflects_reality_as_before_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexMethodology .
+ex:reflects_reality_as_before a4:argument ex:reflects_reality_as_before_arg_0 .
+ex:reflects_reality_as_before_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ReflectionQuality .
+ex:reflects_reality_as_before a4:argument ex:reflects_reality_as_before_arg_1 .
+ex:incorporated_by_reference_into a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:incorporated_by_reference_into_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Document .
+ex:incorporated_by_reference_into a4:argument ex:incorporated_by_reference_into_arg_0 .
+ex:incorporated_by_reference_into_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Document .
+ex:incorporated_by_reference_into a4:argument ex:incorporated_by_reference_into_arg_1 .
+ex:available_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:available_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Document .
+ex:available_on a4:argument ex:available_on_arg_0 .
+ex:available_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:WebResource .
+ex:available_on a4:argument ex:available_on_arg_1 .
+ex:website_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:website_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:WebResource .
+ex:website_of a4:argument ex:website_of_arg_0 .
+ex:website_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:website_of a4:argument ex:website_of_arg_1 .
+ex:section_of_website a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:section_of_website_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:section_of_website a4:argument ex:section_of_website_arg_0 .
+ex:section_of_website_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:WebResource .
+ex:section_of_website a4:argument ex:section_of_website_arg_1 .
+ex:last_amendment a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:last_amendment_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:last_amendment a4:argument ex:last_amendment_arg_0 .
+ex:last_amendment a4:resultSort ex:IndexAmendment .
+ex:last_amendment a4:functionFlag "required" .
+ex:amendment_date a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:amendment_date_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexAmendment .
+ex:amendment_date a4:argument ex:amendment_date_arg_0 .
+ex:amendment_date a4:resultSort ex:Day .
+ex:amendment_date a4:functionFlag "required" .
+ex:amendment_of_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:amendment_of_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexAmendment .
+ex:amendment_of_index a4:argument ex:amendment_of_index_arg_0 .
+ex:amendment_of_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:amendment_of_index a4:argument ex:amendment_of_index_arg_1 .
+ex:contained_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:contained_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:contained_in a4:argument ex:contained_in_arg_0 .
+ex:contained_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Document .
+ex:contained_in a4:argument ex:contained_in_arg_1 .
+
+ex:ASSERT_index_methodology_scope a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "74"^^xsd:integer ;
+  a4:exprText "methodology_of_index(TheIndexMethodology, TheIndex)" ;
+  a4:sourceText "fact index_methodology_scope :\n  methodology_of_index(TheIndexMethodology, TheIndex)" .
+ex:ASSERT_methodology_subject_to_regular_review_at_least_annually a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "77"^^xsd:integer ;
+  a4:exprText "exists r: MethodologyReview, (review_of_methodology(r, TheIndexMethodology)) and (regular(r)) and (at_least_annually(r))" ;
+  a4:sourceText "constraint methodology_subject_to_regular_review_at_least_annually :\n  exists r: MethodologyReview,\n    review_of_methodology(r, TheIndexMethodology)\n    and regular(r)\n    and at_least_annually(r)" .
+ex:ASSERT_methodology_reviews_are_regular_at_least_annually a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "83"^^xsd:integer ;
+  a4:exprText "forall r: MethodologyReview, (review_of_methodology(r, TheIndexMethodology)) implies ((regular(r)) and (at_least_annually(r)))" ;
+  a4:sourceText "constraint methodology_reviews_are_regular_at_least_annually :\n  forall r: MethodologyReview,\n    review_of_methodology(r, TheIndexMethodology)\n    implies\n      regular(r)\n      and at_least_annually(r)" .
+ex:ASSERT_identified_need_has_review_identified_change a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "90"^^xsd:integer ;
+  a4:exprText "forall n: MethodologyChangeNeed, forall r: MethodologyReview, ((need_identified_within_review(n, r)) and (review_of_methodology(r, TheIndexMethodology))) implies ((change_need_of_methodology(n, TheIndexMethodology)) and (exists c: ReviewIdentifiedMethodologyChange, (change_for_need(c, n)) and (change_of_methodology(c, TheIndexMethodology))))" ;
+  a4:sourceText "constraint identified_need_has_review_identified_change :\n  forall n: MethodologyChangeNeed, forall r: MethodologyReview,\n    need_identified_within_review(n, r)\n    and review_of_methodology(r, TheIndexMethodology)\n    implies\n      (\n        change_need_of_methodology(n, TheIndexMethodology)\n        and\n        exists c: ReviewIdentifiedMethodologyChange,\n          change_for_need(c, n)\n          and change_of_methodology(c, TheIndexMethodology)\n      )" .
+ex:ASSERT_methodology_change_need_example_condition_catalog a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "116"^^xsd:integer ;
+  a4:exprText "(example_condition_for_methodology_change_need(UnderlyingMarketChange)) and (example_condition_for_methodology_change_need(EconomicRealityChange)) and (example_condition_for_methodology_change_need(ObsoleteAssumption)) and (example_condition_for_methodology_change_need(ObsoleteFactor)) and (example_condition_for_methodology_change_need(NoLongerReflectsReality)) and (example_condition_changed_since_launch_of_index(UnderlyingMarketChange, TheIndex)) and (example_condition_changed_since_launch_of_index(EconomicRealityChange, TheIndex)) and (example_condition_obsolete_assumption_for_methodology(ObsoleteAssumption, TheIndexMethodology)) and (methodology_has_obsolete_basis(TheIndexMethodology, ObsoleteAssumption)) and (example_condition_obsolete_factor_for_methodology(ObsoleteFactor, TheIndexMethodology)) and (methodology_has_obsolete_basis(TheIndexMethodology, ObsoleteFactor)) and (example_condition_reflection_quality(NoLongerReflectsReality, Accuracy)) and (example_condition_reflection_quality(NoLongerReflectsReality, Reliability)) and (example_condition_reflection_quality(NoLongerReflectsReality, Appropriateness))" ;
+  a4:sourceText "fact methodology_change_need_example_condition_catalog :\n  example_condition_for_methodology_change_need(UnderlyingMarketChange)\n  and example_condition_for_methodology_change_need(EconomicRealityChange)\n  and example_condition_for_methodology_change_need(ObsoleteAssumption)\n  and example_condition_for_methodology_change_need(ObsoleteFactor)\n  and example_condition_for_methodology_change_need(NoLongerReflectsReality)\n  and example_condition_changed_since_launch_of_index(\n    UnderlyingMarketChange,\n    TheIndex\n  )\n  and example_condition_changed_since_launch_of_index(\n    EconomicRealityChange,\n    TheIndex\n  )\n  and example_condition_obsolete_assumption_for_methodology(\n    ObsoleteAssumption,\n    TheIndexMethodology\n  )\n  and methodology_has_obsolete_basis(\n    TheIndexMethodology,\n    ObsoleteAssumption\n  )\n  and example_condition_obsolete_factor_for_methodology(\n    ObsoleteFactor,\n    TheIndexMethodology\n  )\n  and methodology_has_obsolete_basis(\n    TheIndexMethodology,\n    ObsoleteFactor\n  )\n  and example_condition_reflection_quality(NoLongerReflectsReality, Accuracy)\n  and example_condition_reflection_quality(NoLongerReflectsReality, Reliability)\n  and example_condition_reflection_quality(NoLongerReflectsReality, Appropriateness)" .
+ex:ASSERT_no_longer_reflects_reality_condition_means_not_reflects_reality_as_before a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "150"^^xsd:integer ;
+  a4:exprText "forall q: ReflectionQuality, (example_condition_reflection_quality(NoLongerReflectsReality, q)) implies (not (reflects_reality_as_before(TheIndexMethodology, q)))" ;
+  a4:sourceText "constraint no_longer_reflects_reality_condition_means_not_reflects_reality_as_before :\n  forall q: ReflectionQuality,\n    example_condition_reflection_quality(NoLongerReflectsReality, q)\n    implies not reflects_reality_as_before(TheIndexMethodology, q)" .
+ex:ASSERT_methodology_change_need_example_condition_scope a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "155"^^xsd:integer ;
+  a4:exprText "forall n: MethodologyChangeNeed, forall c: MethodologyChangeNeedExampleCondition, (need_has_example_condition(n, c)) implies ((change_need_of_methodology(n, TheIndexMethodology)) and (example_condition_for_methodology_change_need(c)))" ;
+  a4:sourceText "constraint methodology_change_need_example_condition_scope :\n  forall n: MethodologyChangeNeed,\n  forall c: MethodologyChangeNeedExampleCondition,\n    need_has_example_condition(n, c)\n    implies\n      change_need_of_methodology(n, TheIndexMethodology)\n      and example_condition_for_methodology_change_need(c)" .
+ex:ASSERT_methodology_policy_location a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "163"^^xsd:integer ;
+  a4:exprText "(document_url(SolactiveMethodologyPolicy, HttpsWwwSolactiveComDocumentsMethodologyPolicy)) and (available_on(SolactiveMethodologyPolicy, SolactiveWebsite)) and (website_of(SolactiveWebsite, Solactive)) and (incorporated_by_reference_into(SolactiveMethodologyPolicy, Guideline))" ;
+  a4:sourceText "fact methodology_policy_location :\n  document_url(\n    SolactiveMethodologyPolicy,\n    HttpsWwwSolactiveComDocumentsMethodologyPolicy\n  )\n  and available_on(SolactiveMethodologyPolicy, SolactiveWebsite)\n  and website_of(SolactiveWebsite, Solactive)\n  and incorporated_by_reference_into(SolactiveMethodologyPolicy, Guideline)" .
+ex:ASSERT_announcement_section_location a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "172"^^xsd:integer ;
+  a4:exprText "(section_of_website(AnnouncementSection, SolactiveWebsite)) and (document_part_url(AnnouncementSection, HttpsWwwSolactiveComNewsAnnouncements))" ;
+  a4:sourceText "fact announcement_section_location :\n  section_of_website(AnnouncementSection, SolactiveWebsite)\n  and document_part_url(\n    AnnouncementSection,\n    HttpsWwwSolactiveComNewsAnnouncements\n  )" .
+ex:ASSERT_last_amendment_date_contained_in_guideline a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "179"^^xsd:integer ;
+  a4:exprText "(amendment_of_index(last_amendment(TheIndex), TheIndex)) and (contained_in(amendment_date(last_amendment(TheIndex)), Guideline))" ;
+  a4:sourceText "fact last_amendment_date_contained_in_guideline :\n  amendment_of_index(last_amendment(TheIndex), TheIndex)\n  and contained_in(\n    amendment_date(last_amendment(TheIndex)),\n    Guideline\n  )" .

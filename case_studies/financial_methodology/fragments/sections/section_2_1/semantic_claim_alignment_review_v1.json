@@ -1,0 +1,205 @@
+{
+  "entry_id": "section_2_1",
+  "schema": "semantic_claim_alignment_review_v1",
+  "allowed_status": [
+    "unreviewed",
+    "approved",
+    "needs_ir_revision",
+    "source_ambiguous",
+    "not_formalized_by_design"
+  ],
+  "items": [
+    {
+      "claim_id": "C01",
+      "claim_hash": "5505f6efdd64",
+      "claim_text": "### 2.1 Index Universe Requirements",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:eligible_for_index_universe_requirements",
+        "declaration:opaque:GbsIndexUniverse",
+        "declaration:opaque:DeterminationOfIndexUniverse",
+        "declaration:fun:gbs_index_universe",
+        "declaration:entity:GbsIndexUniverseFrameworkDocumentPart"
+      ]
+    },
+    {
+      "claim_id": "C02",
+      "claim_hash": "d78d5314b61e",
+      "claim_text": "The Index Universe is comprised of all financial instruments which fulfill the below requirements",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:eligible_for_index_universe_requirements",
+        "assertion:constraint:gbs_index_universe_starting_list_definition",
+        "declaration:fun:starting_list_of_financial_instruments",
+        "declaration:opaque:GbsIndexUniverse",
+        "declaration:subtype:Security"
+      ]
+    },
+    {
+      "claim_id": "C03",
+      "claim_hash": "db71de947163",
+      "claim_text": "(the \"Index Universe Requirements\"):",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:eligible_for_index_universe_requirements",
+        "declaration:opaque:GbsIndexUniverse",
+        "declaration:opaque:DeterminationOfIndexUniverse",
+        "declaration:fun:gbs_index_universe",
+        "declaration:entity:GbsIndexUniverseFrameworkDocumentPart"
+      ]
+    },
+    {
+      "claim_id": "C04",
+      "claim_hash": "aee9ae38a304",
+      "claim_text": "Part/ Component of the GBS Index Universe of the Solactive GBS Global Markets All Cap USD Index PR (ISIN: DE000SLA78E2), on a Selection Day.\n2.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:gbs_index_universe_starting_list_definition",
+        "assertion:fact:gbs_index_isin",
+        "assertion:constraint:eligible_for_index_universe_requirements",
+        "declaration:entity:SolactiveGBSGlobalMarketsAllCapUSDIndexPR",
+        "assertion:fact:gbs_index_universe_framework_document_part"
+      ]
+    },
+    {
+      "claim_id": "C05",
+      "claim_hash": "18c401b09fb0",
+      "claim_text": "Security must be classified as Developed Markets Europe, Canada or United States under the Gbs Index Universe framework ( https://www.solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf ).\n3.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:fact:gbs_index_universe_framework_document_part_url",
+        "assertion:constraint:eligible_for_index_universe_requirements",
+        "assertion:fact:solactive_gbs_benchmark_series_pdf_url",
+        "declaration:entity:HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+        "declaration:entity:DevelopedMarketsEurope"
+      ]
+    },
+    {
+      "claim_id": "C06",
+      "claim_hash": "05c3b45cf4f8",
+      "claim_text": "Security must have a minimum Average Daily Value Traded over 1 and 6 months prior to and including the Selection Day of at least USD 5 million.\n4.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:minimum_average_daily_value_traded_over_1_and_6_months",
+        "declaration:fun:minimum_average_daily_value_traded",
+        "assertion:constraint:not_current_company_buffer_rule",
+        "assertion:constraint:current_company_buffer_rule",
+        "assertion:constraint:highest_minimum_average_daily_value_traded_share_class_company"
+      ]
+    },
+    {
+      "claim_id": "C07",
+      "claim_hash": "702f8e4829a7",
+      "claim_text": "Only one share class of each company is eligible for inclusion in the Index Universe.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:only_one_share_class_of_each_company",
+        "declaration:rel:eligible_for_index_universe",
+        "assertion:constraint:index_universe_bridge",
+        "assertion:constraint:not_current_company_buffer_rule",
+        "assertion:constraint:current_company_buffer_rule"
+      ]
+    },
+    {
+      "claim_id": "C08",
+      "claim_hash": "3f5ff7180d7f",
+      "claim_text": "To avoid frequent changes between two share-classes of a company, the Index Administrator applies the following buffer rules:\n   1.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "declaration:entity:AvoidFrequentChangesBetweenTwoShareClasses",
+        "declaration:entity:CurrentCompanyBufferRule",
+        "declaration:entity:NotCurrentCompanyBufferRule",
+        "assertion:constraint:not_current_company_buffer_rule",
+        "assertion:constraint:current_company_buffer_rule"
+      ]
+    },
+    {
+      "claim_id": "C09",
+      "claim_hash": "44017ec931cf",
+      "claim_text": "If the company is currently included in the Index: The share class currently included in the Index will be eligible for the Index Universe if its minimum Average Daily Value Traded over 1 month and over 6 months prior to and including the Selection Day is at least 60% of the minimum Average Daily Value Traded over 1 month and over 6 months prior to and including the Selection Day of any other share class of the company.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:current_company_buffer_rule",
+        "assertion:constraint:not_current_company_buffer_rule",
+        "assertion:constraint:minimum_average_daily_value_traded_over_1_and_6_months",
+        "assertion:constraint:highest_minimum_average_daily_value_traded_definition",
+        "assertion:constraint:highest_minimum_average_daily_value_traded_share_class_company"
+      ]
+    },
+    {
+      "claim_id": "C10",
+      "claim_hash": "dc854f2dd6f6",
+      "claim_text": "If the company is currently not included in the Index: The share class with the highest minimum Average Daily Value Traded over 1 month and over 6 months prior to and including the Selection Day is included in the Index Universe.\n5.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:not_current_company_buffer_rule",
+        "assertion:constraint:minimum_average_daily_value_traded_over_1_and_6_months",
+        "assertion:constraint:current_company_buffer_rule",
+        "assertion:constraint:highest_minimum_average_daily_value_traded_share_class_company",
+        "declaration:fun:share_class_with_highest_minimum_average_daily_value_traded"
+      ]
+    },
+    {
+      "claim_id": "C11",
+      "claim_hash": "149e7de4393f",
+      "claim_text": "Security must be classified in one of these FactSet Revere Business Industry Classification System (\"RBICS\") Subindustry Classification (see Appendix).",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:appendix_rbics_subindustry_classification_definition",
+        "declaration:entity:FactSetRevereBusinessIndustryClassificationSystem",
+        "declaration:rel:rbics_subindustry_classification_of_system",
+        "declaration:opaque:BusinessIndustryClassificationSystem",
+        "declaration:rel:rbics_subindustry_classification_in_appendix"
+      ]
+    },
+    {
+      "claim_id": "C12",
+      "claim_hash": "6ebff7a4d06a",
+      "claim_text": "The determination of the Index Universe is fully rule-based and the Index Administrator cannot make any discretionary decisions.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "declaration:prohibition:index_administrator_discretionary_decision",
+        "declaration:rel:fully_rule_based",
+        "assertion:constraint:determination_of_index_universe_fully_rule_based",
+        "declaration:opaque:DeterminationOfIndexUniverse",
+        "declaration:opaque:DiscretionaryDecision"
+      ]
+    }
+  ]
+}

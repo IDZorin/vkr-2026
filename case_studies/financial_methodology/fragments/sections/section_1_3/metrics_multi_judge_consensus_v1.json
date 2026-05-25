@@ -1,0 +1,123 @@
+{
+  "entry_id": "section_1_3",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main claims about the initial level on the Start Date, the special 739.08 value for the 50 AR index, and the ideas that historical values from the Live Date are recorded under Article 8 and that pre-Live-Date published levels are back-tested. However, it also introduces a universal default initial-level rule for all other listed indices, which is not stated in the source text, and it formalizes the historical-value and back-testing statements in a way that is broader and more specific than the source wording.",
+      "semantic_differences": [
+        "The IR asserts that every listed index except the 50 AR index has initial level 1000 on the Start Date, while the source only states that the initial level of \"the Index\" is 1000 and separately gives 739.08 for the 50 AR index.",
+        "The IR treats the historical-value statement as a universal implication over any historical value on or after the Live Date, whereas the source says historical values from the Live Date will be recorded in accordance with Article 8 of the BMR, which is narrower and less formally specified.",
+        "The IR formalizes back-testing as a property of any published level for any period prior to the Live Date, while the source says levels of the Index published for a period prior to the Live Date have been back-tested; the IR's quantification over all listed indices and periods is more explicit than the source."
+      ],
+      "stylistic_notes": [
+        "The IR uses canonical entity names without spaces, which is a formatting choice.",
+        "The comment about Section 1.2 is contextual metadata rather than part of the source text.",
+        "The use of `IndexLevel`, `ArticleNumber`, and related relations is a formalization choice consistent with the IR style."
+      ],
+      "confidence": 0.88,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2594,
+        "completion_tokens": 416,
+        "total_tokens": 3010
+      },
+      "latency_s": 4.67205810546875
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the stated start date, live date, the special initial level for the 50 AR index, the Article 8/BMR recording condition for historical values from the live date onward, and the claim that pre-live-date published levels are back-tested. However, it broadens the source by assigning the default initial level of 1000 to multiple index variants, whereas the source text speaks of 'the Index' singular with one parenthetical exception, making the scope to five indices not clearly supported by this section alone.",
+      "semantic_differences": [
+        "The IR states that all section-scoped indices except SolactiveTransatlanticCleanEnergyEURIndex50AR have initial level 1000 on the start date; the source text refers to 'the Index' singular and only explicitly mentions one exception, so extending the claim to five named indices is a stronger and broader assertion than the source text itself states.",
+        "The IR introduces five indices as the scope of Section 1.3 and applies the historical-value recording and back-tested constraints to all of them; the source text does not explicitly say that all five indices are covered by these statements."
+      ],
+      "stylistic_notes": [
+        "Using explicit Day entities for the raw dates and a DocumentPart for Article 8 is a reasonable formalization choice.",
+        "The IR uses 'not day_before(d, LiveDate29_09_2025)' to encode 'from the Live Date', which is acceptable wording-wise though slightly indirect.",
+        "The source says 'Levels of the Index published for a period prior to the Live Date'; the IR models this via published_level_for_period and period_prior_to, which is a plausible structural rendering."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2594,
+        "completion_tokens": 393,
+        "total_tokens": 2987
+      },
+      "latency_s": 8.888389110565186
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core factual claims about initial levels and the two key dates, but introduces significant structural complexity (relations, constraints, functions) that the source does not explicitly assert. The source makes simple factual statements; the IR reifies these into a formal logical framework with quantified constraints and predicates that go beyond what the source text directly claims. Additionally, the IR uses `day_before` predicate and `part_of_document` relation that are not defined in the prelude or source, creating undefined symbol issues.",
+      "semantic_differences": [
+        "Source states 'Historical values from the 29/09/2025, the Live Date, will be recorded in accordance with Article 8 of the BMR' as a single declarative fact. IR interprets this as a universally quantified constraint over all indices, days, and levels with a temporal condition `not day_before(d, LiveDate29_09_2025)`. The source does not explicitly quantify or impose this as a logical rule; it is a statement about what will happen.",
+        "Source states 'Levels of the Index published for a period prior to the Live Date have been back-tested' as a past-tense assertion. IR encodes this as a universally quantified constraint with implication. The source describes a completed state; the IR formalizes it as a rule that must hold for all matching periods.",
+        "IR introduces `day_before` predicate and `part_of_document` relation without definition in prelude or source. These are undefined symbols in the formal system.",
+        "IR uses `forall` quantification and implication chains to encode what the source presents as simple declarative statements about specific facts and general practices. This adds logical structure not present in source."
+      ],
+      "stylistic_notes": [
+        "Entity naming (e.g., `SolactiveTransatlanticCleanEnergyEURIndex50AR`) is verbose but faithful to source.",
+        "Date entities (`StartDate05_08_2017`, `LiveDate29_09_2025`) are reified as Day entities, which is standard a4v3 practice for temporal references.",
+        "The IR declares multiple index variants (PR, NTR, TR, 50AR, 5PercentAR) based on source mention of one variant in parentheses; the source does not explicitly list all variants as in-scope for this section.",
+        "Use of `fun[required]` for `initial_level` and `article_number` is reasonable but source does not explicitly declare these as required functions.",
+        "Relation names like `recorded_in_accordance_with`, `published_level_for_period`, `period_prior_to`, `back_tested` are reasonable formalizations but introduce predicates not explicitly named in source."
+      ],
+      "confidence": 0.62,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3063,
+        "completion_tokens": 676,
+        "total_tokens": 3739
+      },
+      "latency_s": 9.988502264022827
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 64.31046891212463
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures all three assertions in the source: the default initial level of 1000 on the Start Date, the specific exception of 739.08 for the 50 AR index, the compliance requirement for historical values from the Live Date onward, and the back-testing mandate for levels published prior to the Live Date. Temporal predicates (`not day_before`, `period_prior_to`) correctly formalize the inclusive 'from' and 'prior to' phrasing, and the constraint/fact structure appropriately separates universal rules from specific assignments.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR explicitly grounds the generic 'the Index' to five specific index entities via `section_1_3_index_scope`, which is a deliberate cross-section design choice rather than a semantic addition.",
+        "The use of `not day_before` accurately captures the inclusive nature of 'from the 29/09/2025'."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2811,
+        "completion_tokens": 2702,
+        "total_tokens": 5513
+      },
+      "latency_s": 52.353140115737915
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.823
+  }
+}

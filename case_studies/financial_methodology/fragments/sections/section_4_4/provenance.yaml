@@ -1,0 +1,290 @@
+section: "4.4 Adjustment of the Index"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  index_adjustment_may_be_necessary_between_regular_rebalance_days:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Under certain circumstances, an adjustment of the Index may be necessary between two regular Rebalance Days."
+    back_translation: >
+      Under certain circumstances, an adjustment of the Index may be necessary
+      between two regular Rebalance Days.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source states possibility, not actual adjustment. The IR therefore
+      uses an adjustment-possibility carrier and a regular-rebalance interval.
+
+  rebalance_interval_order:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "between two regular Rebalance Days"
+    back_translation: >
+      A regular-rebalance interval has a start regular Rebalance Day before an
+      end regular Rebalance Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This is a bridge constraint making the word "between" explicit. It does
+      not add a new business rule beyond the interval structure.
+
+  make_required_index_adjustment:
+    kind: obligation
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Such adjustment has to be made if a corporate action ... in relation of an Index Component occurs."
+    back_translation: >
+      Every required Index adjustment has to be made by Solactive.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The obligation captures "has to be made". The trigger constraint creates
+      a required adjustment carrier but does not assert that the adjustment has
+      already been made.
+
+  corporate_action_creates_required_index_adjustment:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "if a corporate action (as specified in Section 4.4 below) in relation of an Index Component occurs"
+    back_translation: >
+      If a corporate action specified in Section 4.4 below occurs in relation
+      to an Index Component, then there is a required adjustment of the Index
+      for that corporate action and affected component, between a regular-
+      rebalance interval.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The section-reference condition is in the antecedent, avoiding a broad
+      claim that every corporate action in the universe is specified in this
+      section.
+
+  required_adjustment_effect_scope:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Such adjustment may have to be done in relation to an Index Component and/or may also affect the number of Index Components and/or the weighting of certain Index Components"
+    back_translation: >
+      A required Index adjustment has a possible effect scope: it may relate to
+      an Index Component, affect the number of Index Components, or affect the
+      weighting of certain Index Components.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The "may have to be done" and "may also affect" wording is represented
+      as possible effect scope, not as a claim that every effect actually
+      occurs.
+
+  component_weighting_effect_qualified_by_certain_components:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the weighting of certain Index Components"
+    back_translation: >
+      The component-weighting effect applies to certain Index Components.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This keeps the source qualifier "certain" visible without making a
+      closed set of components.
+
+  make_index_adjustment_in_compliance_with_equity_index_methodology:
+    kind: obligation
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "will be made in compliance with the Solactive Equity Index Methodology"
+    back_translation: >
+      The Index adjustment will be made in compliance with the Solactive Equity
+      Index Methodology.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This is kept as an obligation-style deontic claim because the source
+      states how the adjustment will be made.
+
+  equity_index_methodology_reference:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the Solactive Equity Index Methodology, which is incorporated by reference and available on the Solactive website"
+    back_translation: >
+      The Solactive Equity Index Methodology is incorporated by reference into
+      this Guideline, is available on the Solactive website, and the Solactive
+      website is the website of Solactive.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The incorporation relation is directed into this Guideline. No concrete
+      URL is included because the section source names the website but does
+      not print a URL.
+
+  announce_index_adjustment:
+    kind: obligation
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive will announce the Index adjustment"
+    back_translation: >
+      Solactive will announce the Index adjustment under the Section
+      "Announcements".
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The obligation uses the source actor Solactive through the local
+      Solactive-organization sort.
+
+  index_adjustment_notice_publication:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "on the Solactive website under the Section “Announcements”"
+    back_translation: >
+      A notice for an Index adjustment is announced by Solactive on the
+      Solactive website under the Announcements section.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The Announcements section is modeled as a document part of the Solactive
+      website, not as a separate website. The notice relation is scoped to the
+      required adjustment class because "the Index adjustment" refers back to
+      the required adjustment introduced by the corporate-action trigger.
+
+  announcements_section_on_solactive_website:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "on the Solactive website under the Section “Announcements”"
+    back_translation: >
+      The Announcements section is a section of the Solactive website.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This supports the publication location of the notice.
+
+  notice_period_at_least_two_trading_days:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "giving a notice period of at least two Trading Days (with respect to the affected Index Component)"
+    back_translation: >
+      A notice period for the affected Index Component contains at least two
+      Trading Days before the effective day specified in the respective notice.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The count is guarded by the notice, the affected component, and the
+      component-specific Trading Day relation. The notice is attached to a
+      required Index adjustment, not to arbitrary adjustment instances.
+
+  index_adjustment_implemented_on_notice_effective_day:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The Index adjustments will be implemented on the effective day specified in the respective notice."
+    back_translation: >
+      An Index adjustment is implemented on the effective day specified in the
+      respective notice.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This is modeled as an implementation rule, not a separate obligation,
+      because the source fixes the date of implementation by reference to the
+      notice. The implementation rule is scoped to required Index adjustments
+      for the same anaphoric reason as the announcement rule.
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  TheIndex:
+    note: "Local entity for the source phrase \"the Index\"."
+    source_phrase: "the Index"
+  Solactive:
+    note: "Local entity for the source actor \"Solactive\"."
+    source_phrase: "Solactive"
+  SolactiveOrganization:
+    note: "Singleton-style local organization sort used for deontic agent parameters."
+    source_phrase: "Solactive"
+  IndexAdjustment:
+    note: "Carrier sort for the source phrase \"adjustment of the Index\"."
+    source_phrase: "adjustment of the Index"
+  RequiredIndexAdjustment:
+    note: >
+      Subtype carrier for an Index adjustment that has to be made after the
+      corporate-action trigger holds. The subtype keeps the deontic
+      obligations scoped to the source-described required adjustments rather
+      than to arbitrary Index adjustments.
+    source_phrase: "Such adjustment has to be made"
+  IndexAdjustmentPossibility:
+    note: "Possibility carrier for the source phrase \"may be necessary\"."
+    source_phrase: "may be necessary"
+  CertainCircumstances:
+    note: "Vague-term carrier for the source phrase \"certain circumstances\"."
+    source_phrase: "certain circumstances"
+  MayBeNecessary:
+    note: "Vague-term carrier for the source modal phrase \"may be necessary\"."
+    source_phrase: "may be necessary"
+  MayHaveToBeDone:
+    note: "Vague-term carrier for the source phrase \"may have to be done\"."
+    source_phrase: "may have to be done"
+  RegularRebalanceDay:
+    note: "Subtype carrier for the source phrase \"regular Rebalance Days\"."
+    source_phrase: "regular Rebalance Days"
+  RebalanceInterval:
+    note: "Carrier for the source phrase \"between two regular Rebalance Days\"."
+    source_phrase: "between two regular Rebalance Days"
+  CorporateAction:
+    note: "Event carrier for the source phrase \"corporate action\"."
+    source_phrase: "corporate action"
+  Section4_4Below:
+    note: "Document-part carrier for the source phrase \"Section 4.4 below\"."
+    source_phrase: "Section 4.4 below"
+  IndexAdjustmentEffect:
+    note: "Enum carrier for the three possible adjustment-effect alternatives."
+    source_phrases:
+      - "in relation to an Index Component"
+      - "affect the number of Index Components"
+      - "the weighting of certain Index Components"
+  CertainIndexComponents:
+    note: "Vague-term carrier for the source phrase \"certain Index Components\"."
+    source_phrase: "certain Index Components"
+  SolactiveEquityIndexMethodology:
+    note: "Document carrier for the source phrase \"Solactive Equity Index Methodology\"."
+    source_phrase: "Solactive Equity Index Methodology"
+  ThisGuideline:
+    note: "Local target document for the phrase \"incorporated by reference\"."
+    source_phrase: "incorporated by reference"
+  AnnouncementsSection:
+    note: "Document-part carrier for the source phrase \"Section Announcements\"."
+    source_phrase: "Section Announcements"
+  Notice:
+    note: "Document carrier for the source phrase \"notice\"."
+    source_phrase: "notice"
+  NoticePeriod:
+    note: "Carrier for the source phrase \"notice period\"."
+    source_phrase: "notice period"
+  TradingDay:
+    note: "Day subtype for the source phrase \"Trading Days\"."
+    source_phrase: "Trading Days"
+  EffectiveDay:
+    note: "Day subtype for the source phrase \"effective day\"."
+    source_phrase: "effective day"

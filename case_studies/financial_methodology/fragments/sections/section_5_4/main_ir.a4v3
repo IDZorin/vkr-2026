@@ -1,0 +1,261 @@
+sort Index
+sort IndexMethodology
+sort UnderlyingMarket
+sort EconomicReality
+
+sort IndexRule
+sort SelectionCriteria extends IndexRule
+
+sort Option
+sort Effort
+sort Procedure
+sort Guidelines
+sort Cessation
+sort CessationSituation
+sort Stakeholder
+sort TerminationPolicy extends Document
+sort InvestmentFund
+sort FinancialContract
+sort AlternativeIndex extends Index
+
+sort IndexQuality =
+  Resilience
+  | ContinuedIntegrity
+  | ContinuedReliability
+  | Comparability
+
+entity Solactive : Organization
+entity SolactiveGreatestPossibleEfforts : Effort
+entity SolactiveCessationGuidelines : Guidelines
+entity SolactiveTerminationPolicy : TerminationPolicy
+entity SolactiveWebsite : WebResource
+entity Stakeholders : Stakeholder
+
+entity Substantially : VagueTerm
+
+entity Section5_2MethodologyReview : DocumentPart
+entity Section5_2MethodologyReviewLocator : DocumentLocator
+
+-- raw_url: https://www.solactive.com/documents/termination-policy/
+entity HttpsWwwSolactiveComDocumentsTerminationPolicy : Url
+
+rel index_of : Index, Organization
+rel methodology_of_index : IndexMethodology, Index
+
+rel effort_by : Effort, Organization
+rel greatest_possible : Effort
+rel over_time : Effort
+rel effort_to_ensure : Effort, Index, IndexQuality
+
+rel necessary_to_adapt_methodology :
+  IndexMethodology, UnderlyingMarket
+rel changing_underlying_market : UnderlyingMarket
+rel follows : Organization, Procedure
+rel clearly_defined : Procedure
+rel transparent : Procedure
+rel adapts_index_methodology :
+  Procedure, IndexMethodology, UnderlyingMarket
+rel procedure_maintains : Procedure, Index, IndexQuality
+rel see : Procedure, DocumentPart
+
+rel available_option_for_index : Option, Index
+rel usual_case_for_cessation : Index
+rel orderly_cessation_indication_available : Index
+
+rel index_set_to_measure_underlying_market : Index, UnderlyingMarket
+rel index_set_to_reflect_underlying_market : Index, UnderlyingMarket
+rel index_set_to_measure_economic_reality : Index, EconomicReality
+rel index_set_to_reflect_economic_reality : Index, EconomicReality
+
+rel underlying_market_changes : UnderlyingMarket
+rel economic_reality_changes : EconomicReality
+rel underlying_market_change_described_by : UnderlyingMarket, VagueTerm
+rel economic_reality_change_described_by : EconomicReality, VagueTerm
+rel underlying_market_change_foreseeable_at_inception :
+  UnderlyingMarket, Index
+rel economic_reality_change_foreseeable_at_inception :
+  EconomicReality, Index
+
+rel rule_of_index : IndexRule, Index
+rel applied_coherently : IndexRule, Index
+
+rel used_as_underlying_value_for_financial_instrument :
+  Index, FinancialInstrument
+rel used_as_underlying_value_for_investment_fund :
+  Index, InvestmentFund
+rel used_as_underlying_value_for_financial_contract :
+  Index, FinancialContract
+
+rel established_by : Guidelines, Organization
+rel maintained_by : Guidelines, Organization
+rel clear : Guidelines
+rel guidelines_identify : Guidelines, CessationSituation
+rel unavoidable : CessationSituation
+rel procedure_in_guidelines : Guidelines, Procedure
+rel procedure_for_informing : Procedure, Stakeholder
+rel procedure_for_consulting : Procedure, Stakeholder
+rel procedure_for_termination : Procedure
+rel procedure_for_transition_to_alternative_index :
+  Procedure, AlternativeIndex
+
+rel details_specified_in : Guidelines, TerminationPolicy
+rel incorporated_by_reference : TerminationPolicy
+rel available_on : Document, WebResource
+rel website_of : WebResource, Organization
+
+permission indicate_orderly_cessation(agent: Organization, target: Index)
+  action: indicate
+  scope: Cessation
+
+fact section_5_2_methodology_review_reference :
+document_part_locator(
+  Section5_2MethodologyReview,
+  Section5_2MethodologyReviewLocator
+)
+
+fact termination_policy_location :
+document_url(
+  SolactiveTerminationPolicy,
+  HttpsWwwSolactiveComDocumentsTerminationPolicy
+)
+and available_on(SolactiveTerminationPolicy, SolactiveWebsite)
+and website_of(SolactiveWebsite, Solactive)
+
+fact solactive_effort :
+effort_by(SolactiveGreatestPossibleEfforts, Solactive)
+and greatest_possible(SolactiveGreatestPossibleEfforts)
+and over_time(SolactiveGreatestPossibleEfforts)
+
+constraint solactive_efforts_for_resilience_and_integrity :
+forall i: Index,
+  index_of(i, Solactive)
+  implies
+    effort_to_ensure(SolactiveGreatestPossibleEfforts, i, Resilience)
+    and effort_to_ensure(
+      SolactiveGreatestPossibleEfforts,
+      i,
+      ContinuedIntegrity
+    )
+
+constraint methodology_adaptation_where_necessary :
+forall i: Index, forall m: IndexMethodology, forall u: UnderlyingMarket,
+  index_of(i, Solactive)
+  and methodology_of_index(m, i)
+  and necessary_to_adapt_methodology(m, u)
+  and changing_underlying_market(u)
+  implies
+    exists p: Procedure,
+      follows(Solactive, p)
+      and clearly_defined(p)
+      and transparent(p)
+      and adapts_index_methodology(p, m, u)
+      and procedure_maintains(p, i, ContinuedReliability)
+      and procedure_maintains(p, i, Comparability)
+      and see(p, Section5_2MethodologyReview)
+
+constraint cessation_usual_when_underlying_market_changes :
+forall i: Index,
+  (
+    exists u: UnderlyingMarket,
+      (
+        index_set_to_measure_underlying_market(i, u)
+        or index_set_to_reflect_underlying_market(i, u)
+      )
+      and underlying_market_changes(u)
+      and underlying_market_change_described_by(u, Substantially)
+      and not underlying_market_change_foreseeable_at_inception(u, i)
+  )
+  implies usual_case_for_cessation(i)
+
+constraint cessation_usual_when_economic_reality_changes :
+forall i: Index,
+  (
+    exists e: EconomicReality,
+      (
+        index_set_to_measure_economic_reality(i, e)
+        or index_set_to_reflect_economic_reality(i, e)
+      )
+      and economic_reality_changes(e)
+      and economic_reality_change_described_by(e, Substantially)
+      and not economic_reality_change_foreseeable_at_inception(e, i)
+  )
+  implies usual_case_for_cessation(i)
+
+constraint cessation_usual_when_rules_not_applied_coherently :
+forall i: Index,
+  (
+    exists r: IndexRule,
+      rule_of_index(r, i)
+      and not applied_coherently(r, i)
+  )
+  implies usual_case_for_cessation(i)
+
+constraint cessation_usual_when_selection_criteria_not_applied_coherently :
+forall i: Index,
+  (
+    exists sc: SelectionCriteria,
+      rule_of_index(sc, i)
+      and not applied_coherently(sc, i)
+  )
+  implies usual_case_for_cessation(i)
+
+constraint cessation_usual_when_index_not_used_as_underlying_value :
+forall i: Index,
+  (
+    not exists fi: FinancialInstrument,
+      used_as_underlying_value_for_financial_instrument(i, fi)
+  )
+  and
+  (
+    not exists f: InvestmentFund,
+      used_as_underlying_value_for_investment_fund(i, f)
+  )
+  and
+  (
+    not exists c: FinancialContract,
+      used_as_underlying_value_for_financial_contract(i, c)
+  )
+  implies usual_case_for_cessation(i)
+
+constraint orderly_cessation_indication_available_if_no_options :
+forall i: Index,
+  index_of(i, Solactive)
+  and usual_case_for_cessation(i)
+  and count(o in Option where available_option_for_index(o, i)) = 0
+  implies orderly_cessation_indication_available(i)
+
+fact solactive_cessation_guidelines :
+established_by(SolactiveCessationGuidelines, Solactive)
+and maintained_by(SolactiveCessationGuidelines, Solactive)
+and clear(SolactiveCessationGuidelines)
+
+constraint guidelines_identify_unavoidable_cessation_situations :
+forall s: CessationSituation,
+  guidelines_identify(SolactiveCessationGuidelines, s)
+  implies unavoidable(s)
+
+fact guidelines_include_stakeholder_information_and_consultation_procedures :
+exists p: Procedure,
+  procedure_in_guidelines(SolactiveCessationGuidelines, p)
+  and procedure_for_informing(p, Stakeholders)
+and
+exists q: Procedure,
+  procedure_in_guidelines(SolactiveCessationGuidelines, q)
+  and procedure_for_consulting(q, Stakeholders)
+
+fact guidelines_include_termination_procedure :
+exists p: Procedure,
+  procedure_in_guidelines(SolactiveCessationGuidelines, p)
+  and procedure_for_termination(p)
+
+fact guidelines_include_transition_procedure :
+exists p: Procedure, exists a: AlternativeIndex,
+  procedure_in_guidelines(SolactiveCessationGuidelines, p)
+  and procedure_for_transition_to_alternative_index(p, a)
+
+fact termination_policy_details :
+details_specified_in(
+  SolactiveCessationGuidelines,
+  SolactiveTerminationPolicy
+)
+and incorporated_by_reference(SolactiveTerminationPolicy)

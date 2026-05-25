@@ -1,0 +1,44 @@
+{
+  "entry_id": "N05",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1609,
+    "completion_tokens": 74,
+    "total_tokens": 1683
+  },
+  "latency_s": 1.3037784099578857,
+  "raw_parsed": {
+    "source_facts": [
+      "Calculation Day is every weekday from Monday to Friday."
+    ],
+    "render_facts": [
+      "Calculation Day is defined as any day that falls on Monday, Tuesday, Wednesday, Thursday, or Friday."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 0,
+        "match": "paraphrase"
+      }
+    ],
+    "render_only": []
+  },
+  "summary": {
+    "n_source_facts": 1,
+    "n_render_facts": 1,
+    "matched_source": 1,
+    "matched_render": 1,
+    "render_only": 0,
+    "missing_source": 0,
+    "weaker_in_render": 0,
+    "stronger_in_render": 0,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "missing_source_facts": [],
+    "render_only_facts": [],
+    "weaker_pairs": [],
+    "stronger_pairs": []
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "entry_id": "N06",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1080,
+    "completion_tokens": 284,
+    "total_tokens": 1364
+  },
+  "latency_s": 2.259726047515869,
+  "scenarios": [
+    {
+      "description": "The document states that Close of Business is the calculation time of the closing level of the Index, and that this is outlined in Section 1.4.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document states that Close of Business is the calculation time of the opening level of the Index, not the closing level.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document says Close of Business is the calculation time of the closing level of the Index, but it does not mention Section 1.4 at all.",
+      "category": "scope_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "reject",
+      "agree": false,
+      "drift_explanation": "The source text only requires the closing-level calculation time statement and does not independently constrain the section reference, while the IR additionally requires outlined_in_section(CloseOfBusiness, Section1_4)."
+    },
+    {
+      "description": "The document says Close of Business will be the calculation time of the closing level of the Index after Section 1.4 is published.",
+      "category": "modality_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "ambiguous",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 3,
+    "agreement_rate": 0.75,
+    "drifts": [
+      {
+        "description": "The document says Close of Business is the calculation time of the closing level of the Index, but it does not mention Section 1.4 at all.",
+        "category": "scope_edge",
+        "source_verdict": "ambiguous",
+        "ir_verdict": "reject",
+        "agree": false,
+        "drift_explanation": "The source text only requires the closing-level calculation time statement and does not independently constrain the section reference, while the IR additionally requires outlined_in_section(CloseOfBusiness, Section1_4)."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 0
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

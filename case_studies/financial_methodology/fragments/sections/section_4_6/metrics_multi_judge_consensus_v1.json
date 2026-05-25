@@ -1,0 +1,124 @@
+{
+  "entry_id": "section_4_6",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main ideas that Solactive makes efforts to calculate and maintain indices, that errors may occur and are not completely ruled out, that identified errors are to be corrected within a reasonable period, and that the correction policy is referenced and available on the website. However, it also adds several stronger or more specific claims not stated in the source, especially about the exact scope of the efforts, the internal/external reasons, and the policy’s incorporation/availability structure.",
+      "semantic_differences": [
+        "The source says Solactive makes the greatest possible efforts to accurately calculate and maintain its indices; the IR turns this into a formal goal relation over every index, which is a stronger and more specific claim than the source text states.",
+        "The source says errors may occur for a variety of reasons, internal or external; the IR encodes only internal and external reasons as explicit reasons, omitting the broader 'variety reasons' phrasing and making the reason set look exhaustive.",
+        "The source says the understanding of a reasonable period of time and the general measures are generally depending on the underlying; the IR introduces a structured dependency entity and an existential underlying variable, which is more formalized than the source and may over-specify the dependency relation.",
+        "The source says the correction policy is incorporated by reference and available on the Solactive website; the IR additionally asserts a specific document entity 'ThisGuideline' as the target of incorporation, which is not explicitly stated in the source."
+      ],
+      "stylistic_notes": [
+        "'greatest possible efforts' is represented by a dedicated Effort entity plus a greatest_possible predicate, which is a standard formalization choice.",
+        "'from time to time' and 'cannot be completely ruled out' are encoded via VagueTerm-linked descriptors, which is stylistically faithful though more schematic than the prose.",
+        "The IR uses capitalized symbolic names for source phrases, which is normal IR naming rather than a semantic issue."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3071,
+        "completion_tokens": 414,
+        "total_tokens": 3485
+      },
+      "latency_s": 4.194490194320679
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures most of the source: Solactive makes greatest possible efforts regarding accurate calculation and maintenance of its indices, errors in the determination process may occur for internal or external reasons and cannot be completely ruled out, Solactive endeavors to correct identified errors within a reasonable period, and the understanding/measures are specified in the Correction Policy incorporated by reference and available on the website. However, it overstates some points by making the effort apply to all Solactive indices and by asserting existence/dependency structures more strongly and concretely than the source text states.",
+      "semantic_differences": [
+        "The source says Solactive makes greatest possible efforts to accurately calculate and maintain its indices in general, but the IR strengthens this into a universal claim over all indices satisfying index_of(i, Solactive).",
+        "The source says the understanding of a reasonable period of time and the general measures to be taken generally depend on the underlying; the IR asserts the existence of a specific dependency object tied to at least one underlying, which is a more concrete existential commitment than the source requires.",
+        "The source says the Correction Policy specifies the understanding of 'a reasonable period of time' as well as the general measures to be taken; the IR reifies a specific understanding entity and a specific general-measure entity and states those are what the policy specifies, which is somewhat stronger/more determinate than the source wording."
+      ],
+      "stylistic_notes": [
+        "Several placeholder entities such as VarietyReasons and CannotBeCompletelyRuledOut are wording-oriented reifications rather than natural domain names.",
+        "Using VagueTerm entities for phrases like 'from time to time' and 'reasonable period of time' is acceptable but stylistically heavy.",
+        "ThisGuideline is a naming choice for the host document; the source only says the policy is incorporated by reference."
+      ],
+      "confidence": 0.82,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3071,
+        "completion_tokens": 420,
+        "total_tokens": 3491
+      },
+      "latency_s": 7.875542402267456
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main structural claims of the source (Solactive's efforts, error possibility, correction endeavor, and policy reference), but introduces several entities and relations that lack explicit grounding in the source text. Specifically, the IR reifies abstract concepts like 'Understanding', 'GeneralMeasure', 'UnderlyingDependency', and 'PolicySpecification' as first-class entities with dedicated relations, whereas the source treats these as properties or aspects of the correction policy. Additionally, the IR's decomposition of the error description into separate 'occurrence_term', 'reason_term', and 'polarity_term' relations is not explicitly justified by the source phrasing.",
+      "semantic_differences": [
+        "The source states errors 'may occur from time to time for variety reasons (internal or external)' — a single descriptive claim. The IR reifies this as a separate 'DeterminationProcessErrorDescription' entity with three distinct relations (occurrence_term, reason_term, polarity_term), treating the description itself as a first-class object rather than a property of the error possibility.",
+        "The source says 'The understanding of \"a reasonable period of time\" as well as the general measures to be taken are generally depending on the underlying' — a single dependency statement. The IR introduces 'UnderlyingDependency' as a reified entity with three separate relations (dependency_understanding, dependency_general_measure, dependency_underlying), plus a 'generally_applies' predicate. This adds structural complexity not present in the source.",
+        "The source refers to 'the Solactive Correction Policy, which is incorporated by reference and available on the Solactive website' as a single policy document. The IR introduces 'PolicySpecification' as a separate entity that 'specifies' the understanding and measures, creating a layer of indirection (policy → specification → understanding/measures) not explicit in the source.",
+        "The IR introduces 'IndexEffortGoal' as a sort with two variants (AccurateCalculation, AccurateMaintenance) and uses 'effort_goal' relations. The source simply states Solactive 'makes the greatest possible efforts to accurately calculate and maintain its indices' — a single compound action, not a reified goal structure."
+      ],
+      "stylistic_notes": [
+        "The IR uses 'FromTimeToTime' and 'VarietyReasons' as VagueTerm entities, which is reasonable encoding of informal source phrasing ('from time to time', 'for variety reasons'), but the naming is non-standard (typically lowercase or camelCase for entity names).",
+        "The IR introduces 'ThisGuideline' as a Document entity without clear grounding — the source does not refer to a 'guideline' but to a 'Correction Policy'.",
+        "The relation 'completely_ruled_out' is a unary predicate on ErrorPossibility, whereas the source phrasing 'cannot be completely ruled out' is a negation. The IR correctly uses 'not completely_ruled_out(...)' in the fact, but the relation name itself is slightly awkward.",
+        "The IR uses 'Endeavor' as a sort, which is reasonable for 'Solactive endeavors to correct', but this is a domain-specific reification not present in the prelude."
+      ],
+      "confidence": 0.62,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3783,
+        "completion_tokens": 806,
+        "total_tokens": 4589
+      },
+      "latency_s": 9.372217178344727
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 69.54701781272888
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures all semantic claims from the source text, including Solactive's effort goals, the possibility of errors due to internal/external reasons, the endeavor to correct identified errors within a reasonable period, the dependency of that period and measures on the underlying, and the specification/incorporation of the Correction Policy. All modalities, quantifiers, and dependencies are correctly formalized using standard a4v3 patterns.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "Reification of vague phrases like 'from time to time' and 'variety reasons' into VagueTerm entities is a standard a4v3 encoding choice.",
+        "Introduction of 'ThisGuideline' as the target document for 'incorporated by reference' is a conventional structural addition not explicitly named in the source but required for the relation."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3269,
+        "completion_tokens": 3219,
+        "total_tokens": 6488
+      },
+      "latency_s": 61.83466124534607
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.807
+  }
+}

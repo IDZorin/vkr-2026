@@ -1,0 +1,2148 @@
+{
+  "entry_id": "N13",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 36,
+    "content_token_count": 24,
+    "covered_content_token_count": 23,
+    "uncovered_content_token_count": 1,
+    "ignored_stopword_count": 12,
+    "content_coverage_rate": 0.958
+  },
+  "tokens": [
+    {
+      "token": "the",
+      "surface_forms": [
+        "The",
+        "the"
+      ],
+      "count": 9,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 1
+        },
+        {
+          "line": 1,
+          "column": 66
+        },
+        {
+          "line": 1,
+          "column": 92
+        },
+        {
+          "line": 1,
+          "column": 144
+        },
+        {
+          "line": 1,
+          "column": 223
+        },
+        {
+          "line": 1,
+          "column": 245
+        },
+        {
+          "line": 1,
+          "column": 318
+        },
+        {
+          "line": 1,
+          "column": 339
+        },
+        {
+          "line": 1,
+          "column": 361
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_of_share_class",
+          "matched_text": "Closing Price of the share class as of the respective Selection Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_component_requirements",
+          "matched_text": "securities fulfilling the Index Component Requirements"
+        }
+      ]
+    },
+    {
+      "token": "free",
+      "surface_forms": [
+        "Free",
+        "free"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 6
+        },
+        {
+          "line": 1,
+          "column": 169
+        },
+        {
+          "line": 1,
+          "column": 271
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "FreeFloatMarketCapitalization",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "FreeFloatMarketCapitalization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_market_capitalization",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "free_float_market_capitalization"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "free_float_market_capitalization",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "FreeFloatMarketCapitalization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "shares_outstanding_in_free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].left",
+          "matched_text": "free_float_market_capitalization"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.left",
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body.args[0]",
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "FreeFloatMarketCapitalization",
+          "matched_text": "Free Float Market Capitalization"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareCount",
+          "matched_text": "shares outstanding in Free Float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_market_capitalization",
+          "matched_text": "Free Float Market Capitalization"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "shares_outstanding_in_free_float",
+          "matched_text": "shares outstanding in Free Float"
+        }
+      ]
+    },
+    {
+      "token": "float",
+      "surface_forms": [
+        "Float",
+        "float"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 11
+        },
+        {
+          "line": 1,
+          "column": 174
+        },
+        {
+          "line": 1,
+          "column": 276
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "FreeFloatMarketCapitalization",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "FreeFloatMarketCapitalization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_market_capitalization",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "free_float_market_capitalization"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "free_float_market_capitalization",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "FreeFloatMarketCapitalization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "shares_outstanding_in_free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].left",
+          "matched_text": "free_float_market_capitalization"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.left",
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body.args[0]",
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "FreeFloatMarketCapitalization",
+          "matched_text": "Free Float Market Capitalization"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareCount",
+          "matched_text": "shares outstanding in Free Float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_market_capitalization",
+          "matched_text": "Free Float Market Capitalization"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "shares_outstanding_in_free_float",
+          "matched_text": "shares outstanding in Free Float"
+        }
+      ]
+    },
+    {
+      "token": "market",
+      "surface_forms": [
+        "Market",
+        "market"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 17
+        },
+        {
+          "line": 1,
+          "column": 180
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "FreeFloatMarketCapitalization",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "FreeFloatMarketCapitalization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_market_capitalization",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "free_float_market_capitalization"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "free_float_market_capitalization",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "FreeFloatMarketCapitalization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].left",
+          "matched_text": "free_float_market_capitalization"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "FreeFloatMarketCapitalization",
+          "matched_text": "Free Float Market Capitalization"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_market_capitalization",
+          "matched_text": "Free Float Market Capitalization"
+        }
+      ]
+    },
+    {
+      "token": "capitalization",
+      "surface_forms": [
+        "Capitalization",
+        "capitalization"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 24
+        },
+        {
+          "line": 1,
+          "column": 187
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "FreeFloatMarketCapitalization",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "FreeFloatMarketCapitalization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_market_capitalization",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "free_float_market_capitalization"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "free_float_market_capitalization",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "FreeFloatMarketCapitalization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].left",
+          "matched_text": "free_float_market_capitalization"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "FreeFloatMarketCapitalization",
+          "matched_text": "Free Float Market Capitalization"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "free_float_market_capitalization",
+          "matched_text": "Free Float Market Capitalization"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 40
+        },
+        {
+          "line": 1,
+          "column": 206
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "with",
+      "surface_forms": [
+        "with"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 43
+        },
+        {
+          "line": 1,
+          "column": 313
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "regard",
+      "surface_forms": [
+        "regard"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 48
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "to",
+      "surface_forms": [
+        "to"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 55
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "each",
+      "surface_forms": [
+        "each"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 58
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "universal_quantifier",
+          "marker": "forall"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 4,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 63
+        },
+        {
+          "line": 1,
+          "column": 242
+        },
+        {
+          "line": 1,
+          "column": 336
+        },
+        {
+          "line": 1,
+          "column": 358
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price_of_share_class",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "closing_price_of_share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.right",
+          "matched_text": "closing_price_of_share_class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_of_share_class",
+          "matched_text": "Closing Price of the share class as of the respective Selection Day"
+        }
+      ]
+    },
+    {
+      "token": "securiti",
+      "surface_forms": [
+        "securities"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 70
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Security",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "Security"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "Security"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "free_float_market_capitalization",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "Security"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "Security"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "Security"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Security",
+          "matched_text": "securities"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_component_requirements",
+          "matched_text": "securities fulfilling the Index Component Requirements"
+        }
+      ]
+    },
+    {
+      "token": "fulfill",
+      "surface_forms": [
+        "fulfilling"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 81
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_component_requirements",
+          "matched_text": "securities fulfilling the Index Component Requirements"
+        }
+      ]
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 96
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_component_requirements",
+          "matched_text": "securities fulfilling the Index Component Requirements"
+        }
+      ]
+    },
+    {
+      "token": "component",
+      "surface_forms": [
+        "Component"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 102
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_component_requirements",
+          "matched_text": "securities fulfilling the Index Component Requirements"
+        }
+      ]
+    },
+    {
+      "token": "requirement",
+      "surface_forms": [
+        "Requirements"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 112
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "fulfills_index_component_requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_component_requirements",
+          "matched_text": "securities fulfilling the Index Component Requirements"
+        }
+      ]
+    },
+    {
+      "token": "on",
+      "surface_forms": [
+        "on"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 125
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "a",
+      "surface_forms": [
+        "a"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 128
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "selection",
+      "surface_forms": [
+        "Selection"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 130
+        },
+        {
+          "line": 1,
+          "column": 376
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SelectionDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "free_float_market_capitalization",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "shares_outstanding_in_free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price_of_share_class",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SelectionDay",
+          "matched_text": "Selection Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_of_share_class",
+          "matched_text": "Closing Price of the share class as of the respective Selection Day"
+        }
+      ]
+    },
+    {
+      "token": "day",
+      "surface_forms": [
+        "Day"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 140
+        },
+        {
+          "line": 1,
+          "column": 386
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SelectionDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "SelectionDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "free_float_market_capitalization",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "shares_outstanding_in_free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price_of_share_class",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "fulfills_index_component_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SelectionDay",
+          "matched_text": "Selection Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_of_share_class",
+          "matched_text": "Closing Price of the share class as of the respective Selection Day"
+        }
+      ]
+    },
+    {
+      "token": "share",
+      "surface_forms": [
+        "share"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 148
+        },
+        {
+          "line": 1,
+          "column": 343
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ShareClass",
+          "family": "TypeDecl.opaque",
+          "line": 3,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ShareCount",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "ShareCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "shares_outstanding_in_free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "shares_outstanding_in_free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "shares_outstanding_in_free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "ShareCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price_of_share_class",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "closing_price_of_share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price_of_share_class",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "ShareCount"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.left",
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.left.args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.right",
+          "matched_text": "closing_price_of_share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.right.args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body.args[0]",
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body.args[0].args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareCount",
+          "matched_text": "shares outstanding in Free Float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareClass",
+          "matched_text": "share class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "share_class",
+          "matched_text": "share class-specific"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "shares_outstanding_in_free_float",
+          "matched_text": "shares outstanding in Free Float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_of_share_class",
+          "matched_text": "Closing Price of the share class as of the respective Selection Day"
+        }
+      ]
+    },
+    {
+      "token": "cla",
+      "surface_forms": [
+        "class-specific",
+        "class"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 154
+        },
+        {
+          "line": 1,
+          "column": 349
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ShareClass",
+          "family": "TypeDecl.opaque",
+          "line": 3,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "shares_outstanding_in_free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price_of_share_class",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "closing_price_of_share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price_of_share_class",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.left.args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.right",
+          "matched_text": "closing_price_of_share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.right.args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body.args[0].args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareClass",
+          "matched_text": "share class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "share_class",
+          "matched_text": "share class-specific"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_of_share_class",
+          "matched_text": "Closing Price of the share class as of the respective Selection Day"
+        }
+      ]
+    },
+    {
+      "token": "it",
+      "surface_forms": [
+        "It"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 203
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "calculat",
+      "surface_forms": [
+        "calculated"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 209
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        }
+      ]
+    },
+    {
+      "token": "as",
+      "surface_forms": [
+        "as"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 220
+        },
+        {
+          "line": 1,
+          "column": 283
+        },
+        {
+          "line": 1,
+          "column": 355
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_of_share_class",
+          "matched_text": "Closing Price of the share class as of the respective Selection Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "sourced_from_data_vendor",
+          "matched_text": "as sourced from data vendors"
+        }
+      ]
+    },
+    {
+      "token": "multiplication",
+      "surface_forms": [
+        "multiplication"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 227
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "family": "AssertDecl.constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "line": 17,
+          "matched_text": "free_float_market_capitalization_calculated_as_multiplication_definition"
+        }
+      ]
+    },
+    {
+      "token": "shar",
+      "surface_forms": [
+        "shares"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 249
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "shares_outstanding_in_free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.left",
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body.args[0]",
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareCount",
+          "matched_text": "shares outstanding in Free Float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "shares_outstanding_in_free_float",
+          "matched_text": "shares outstanding in Free Float"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ShareClass",
+          "family": "TypeDecl.opaque",
+          "line": 3,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ShareCount",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "ShareCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "share_class",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "shares_outstanding_in_free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "shares_outstanding_in_free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "ShareCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price_of_share_class",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "closing_price_of_share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "closing_price_of_share_class",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "ShareClass"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "ShareCount"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.left.args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.right",
+          "matched_text": "closing_price_of_share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.right.args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body.args[0].args[1]",
+          "matched_text": "share_class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareClass",
+          "matched_text": "share class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "share_class",
+          "matched_text": "share class-specific"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_of_share_class",
+          "matched_text": "Closing Price of the share class as of the respective Selection Day"
+        }
+      ]
+    },
+    {
+      "token": "outstand",
+      "surface_forms": [
+        "outstanding"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 256
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "shares_outstanding_in_free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.left",
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body.args[0]",
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareCount",
+          "matched_text": "shares outstanding in Free Float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "shares_outstanding_in_free_float",
+          "matched_text": "shares outstanding in Free Float"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 268
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "shares_outstanding_in_free_float",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.left",
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body.args[0]",
+          "matched_text": "shares_outstanding_in_free_float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ShareCount",
+          "matched_text": "shares outstanding in Free Float"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "shares_outstanding_in_free_float",
+          "matched_text": "shares outstanding in Free Float"
+        }
+      ]
+    },
+    {
+      "token": "sourc",
+      "surface_forms": [
+        "sourced"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 286
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body",
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "sourced_from_data_vendor",
+          "matched_text": "as sourced from data vendors"
+        }
+      ]
+    },
+    {
+      "token": "from",
+      "surface_forms": [
+        "from"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 294
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body",
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "sourced_from_data_vendor",
+          "matched_text": "as sourced from data vendors"
+        }
+      ]
+    },
+    {
+      "token": "data",
+      "surface_forms": [
+        "data"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 299
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DataVendor",
+          "family": "TypeDecl.opaque",
+          "line": 7,
+          "matched_text": "DataVendor"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "DataVendor"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].vars[0].sort",
+          "matched_text": "DataVendor"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body",
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DataVendor",
+          "matched_text": "data vendors"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "sourced_from_data_vendor",
+          "matched_text": "as sourced from data vendors"
+        }
+      ]
+    },
+    {
+      "token": "vendor",
+      "surface_forms": [
+        "vendors"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 304
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DataVendor",
+          "family": "TypeDecl.opaque",
+          "line": 7,
+          "matched_text": "DataVendor"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "sourced_from_data_vendor",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "DataVendor"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].vars[0].sort",
+          "matched_text": "DataVendor"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body",
+          "matched_text": "sourced_from_data_vendor"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].body.args[1]",
+          "matched_text": "vendor"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DataVendor",
+          "matched_text": "data vendors"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "sourced_from_data_vendor",
+          "matched_text": "as sourced from data vendors"
+        }
+      ]
+    },
+    {
+      "token": "clo",
+      "surface_forms": [
+        "Closing"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 322
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ClosingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price_of_share_class",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "closing_price_of_share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "closing_price_of_share_class",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.right",
+          "matched_text": "closing_price_of_share_class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ClosingPrice",
+          "matched_text": "Closing Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_of_share_class",
+          "matched_text": "Closing Price of the share class as of the respective Selection Day"
+        }
+      ]
+    },
+    {
+      "token": "price",
+      "surface_forms": [
+        "Price"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 330
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ClosingPrice",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "closing_price_of_share_class",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "closing_price_of_share_class"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "closing_price_of_share_class",
+          "family": "SymbolDecl.fun",
+          "line": 12,
+          "matched_text": "ClosingPrice"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].right.right",
+          "matched_text": "closing_price_of_share_class"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ClosingPrice",
+          "matched_text": "Closing Price"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_of_share_class",
+          "matched_text": "Closing Price of the share class as of the respective Selection Day"
+        }
+      ]
+    },
+    {
+      "token": "respective",
+      "surface_forms": [
+        "respective"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 365
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "closing_price_of_share_class",
+          "matched_text": "Closing Price of the share class as of the respective Selection Day"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "regard",
+      "surface_forms": [
+        "regard"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 48
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

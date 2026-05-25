@@ -1,0 +1,96 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_5 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_1_5/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:License a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexUnderlyingValueLicense a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexUnderlyingValueLicense rdfs:subClassOf ex:License .
+ex:LicenseClass a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:LicenseIssuance a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:LicenseUseCategory a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:FinancialInstrumentUse a ex:LicenseUseCategory, a4:EnumMember, owl:NamedIndividual .
+ex:LicenseUseCategory a4:enumMember ex:FinancialInstrumentUse .
+ex:InvestmentFundUse a ex:LicenseUseCategory, a4:EnumMember, owl:NamedIndividual .
+ex:LicenseUseCategory a4:enumMember ex:InvestmentFundUse .
+ex:FinancialContractUse a ex:LicenseUseCategory, a4:EnumMember, owl:NamedIndividual .
+ex:LicenseUseCategory a4:enumMember ex:FinancialContractUse .
+ex:LicenseRecipientCategory a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:StockExchangeRecipient a ex:LicenseRecipientCategory, a4:EnumMember, owl:NamedIndividual .
+ex:LicenseRecipientCategory a4:enumMember ex:StockExchangeRecipient .
+ex:BankRecipient a ex:LicenseRecipientCategory, a4:EnumMember, owl:NamedIndividual .
+ex:LicenseRecipientCategory a4:enumMember ex:BankRecipient .
+ex:FinancialServicesProviderRecipient a ex:LicenseRecipientCategory, a4:EnumMember, owl:NamedIndividual .
+ex:LicenseRecipientCategory a4:enumMember ex:FinancialServicesProviderRecipient .
+ex:InvestmentHouseRecipient a ex:LicenseRecipientCategory, a4:EnumMember, owl:NamedIndividual .
+ex:LicenseRecipientCategory a4:enumMember ex:InvestmentHouseRecipient .
+ex:SolactiveOrganization a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SolactiveOrganization rdfs:subClassOf ex:Organization .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:Solactive a ex:SolactiveOrganization, owl:NamedIndividual .
+ex:LicensesToUseIndexAsUnderlyingValue a ex:LicenseClass, owl:NamedIndividual .
+ex:IndexUnderlyingValueLicenseIssuance a ex:LicenseIssuance, owl:NamedIndividual .
+ex:license_class_uses_index_as_underlying_value a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:license_class_uses_index_as_underlying_value_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:LicenseClass .
+ex:license_class_uses_index_as_underlying_value a4:argument ex:license_class_uses_index_as_underlying_value_arg_0 .
+ex:license_class_uses_index_as_underlying_value_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:license_class_uses_index_as_underlying_value a4:argument ex:license_class_uses_index_as_underlying_value_arg_1 .
+ex:license_class_use_category a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:license_class_use_category_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:LicenseClass .
+ex:license_class_use_category a4:argument ex:license_class_use_category_arg_0 .
+ex:license_class_use_category_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:LicenseUseCategory .
+ex:license_class_use_category a4:argument ex:license_class_use_category_arg_1 .
+ex:license_instance_of_class a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:license_instance_of_class_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexUnderlyingValueLicense .
+ex:license_instance_of_class a4:argument ex:license_instance_of_class_arg_0 .
+ex:license_instance_of_class_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:LicenseClass .
+ex:license_instance_of_class a4:argument ex:license_instance_of_class_arg_1 .
+ex:issuance_of_license_class a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:issuance_of_license_class_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:LicenseIssuance .
+ex:issuance_of_license_class a4:argument ex:issuance_of_license_class_arg_0 .
+ex:issuance_of_license_class_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:LicenseClass .
+ex:issuance_of_license_class a4:argument ex:issuance_of_license_class_arg_1 .
+ex:issuance_to_recipient_category a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:issuance_to_recipient_category_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:LicenseIssuance .
+ex:issuance_to_recipient_category a4:argument ex:issuance_to_recipient_category_arg_0 .
+ex:issuance_to_recipient_category_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:LicenseRecipientCategory .
+ex:issuance_to_recipient_category a4:argument ex:issuance_to_recipient_category_arg_1 .
+ex:issuance_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:issuance_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:LicenseIssuance .
+ex:issuance_by a4:argument ex:issuance_by_arg_0 .
+ex:issuance_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SolactiveOrganization .
+ex:issuance_by a4:argument ex:issuance_by_arg_1 .
+
+ex:ASSERT_index_underlying_value_license_class_scope a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "32"^^xsd:integer ;
+  a4:exprText "(license_class_uses_index_as_underlying_value(LicensesToUseIndexAsUnderlyingValue, TheIndex)) and (license_class_use_category(LicensesToUseIndexAsUnderlyingValue, FinancialInstrumentUse)) and (license_class_use_category(LicensesToUseIndexAsUnderlyingValue, InvestmentFundUse)) and (license_class_use_category(LicensesToUseIndexAsUnderlyingValue, FinancialContractUse)) and (issuance_of_license_class(IndexUnderlyingValueLicenseIssuance, LicensesToUseIndexAsUnderlyingValue)) and (issuance_to_recipient_category(IndexUnderlyingValueLicenseIssuance, StockExchangeRecipient)) and (issuance_to_recipient_category(IndexUnderlyingValueLicenseIssuance, BankRecipient)) and (issuance_to_recipient_category(IndexUnderlyingValueLicenseIssuance, FinancialServicesProviderRecipient)) and (issuance_to_recipient_category(IndexUnderlyingValueLicenseIssuance, InvestmentHouseRecipient)) and (issuance_by(IndexUnderlyingValueLicenseIssuance, Solactive))" ;
+  a4:sourceText "fact index_underlying_value_license_class_scope :\n  license_class_uses_index_as_underlying_value(LicensesToUseIndexAsUnderlyingValue, TheIndex)\n  and license_class_use_category(LicensesToUseIndexAsUnderlyingValue, FinancialInstrumentUse)\n  and license_class_use_category(LicensesToUseIndexAsUnderlyingValue, InvestmentFundUse)\n  and license_class_use_category(LicensesToUseIndexAsUnderlyingValue, FinancialContractUse)\n  and issuance_of_license_class(IndexUnderlyingValueLicenseIssuance, LicensesToUseIndexAsUnderlyingValue)\n  and issuance_to_recipient_category(IndexUnderlyingValueLicenseIssuance, StockExchangeRecipient)\n  and issuance_to_recipient_category(IndexUnderlyingValueLicenseIssuance, BankRecipient)\n  and issuance_to_recipient_category(IndexUnderlyingValueLicenseIssuance, FinancialServicesProviderRecipient)\n  and issuance_to_recipient_category(IndexUnderlyingValueLicenseIssuance, InvestmentHouseRecipient)\n  and issuance_by(IndexUnderlyingValueLicenseIssuance, Solactive)" .
+ex:ASSERT_index_underlying_value_license_instance_class a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "44"^^xsd:integer ;
+  a4:exprText "forall l: IndexUnderlyingValueLicense, license_instance_of_class(l, LicensesToUseIndexAsUnderlyingValue)" ;
+  a4:sourceText "fact index_underlying_value_license_instance_class :\n  forall l: IndexUnderlyingValueLicense,\n    license_instance_of_class(l, LicensesToUseIndexAsUnderlyingValue)" .

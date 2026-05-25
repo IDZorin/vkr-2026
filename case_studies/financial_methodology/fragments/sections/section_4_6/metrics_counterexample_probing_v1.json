@@ -1,0 +1,69 @@
+{
+  "entry_id": "section_4_6",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 2269,
+    "completion_tokens": 290,
+    "total_tokens": 2559
+  },
+  "latency_s": 5.8032402992248535,
+  "scenarios": [
+    {
+      "description": "Solactive accurately calculates and maintains all of its indices. An identified error in Solactive's determination process is corrected by Solactive within a reasonable period of time, and the relevant correction policy is incorporated by reference and available on Solactive's website.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "Solactive has an identified error in its determination process, but Solactive does not attempt to correct it at all. The error remains unaddressed indefinitely.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "Solactive identifies an error in its determination process and corrects it, but the correction happens after a period that is not described as a reasonable period of time. No other facts about the policy are given.",
+      "category": "scope_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "ambiguous",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "Solactive identifies an error in its determination process, but the correction is performed by a third party rather than by Solactive. The correction still occurs within a reasonable period of time.",
+      "category": "modality_edge",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 4,
+    "agreement_rate": 1.0,
+    "drifts": [],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 1
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

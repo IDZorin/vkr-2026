@@ -1,0 +1,43 @@
+(set-logic ALL)
+(set-option :produce-unsat-cores true)
+
+(declare-sort Index 0)
+(declare-sort License 0)
+(declare-sort LicenseClass 0)
+(declare-sort LicenseIssuance 0)
+(declare-sort LicenseRecipientCategory 0)
+(declare-sort LicenseUseCategory 0)
+(declare-sort Organization 0)
+
+(declare-fun IndexUnderlyingValueLicense (License) Bool)
+(declare-fun SolactiveOrganization (Organization) Bool)
+
+(declare-const BankRecipient LicenseRecipientCategory)
+(declare-const FinancialContractUse LicenseUseCategory)
+(declare-const FinancialInstrumentUse LicenseUseCategory)
+(declare-const FinancialServicesProviderRecipient LicenseRecipientCategory)
+(declare-const IndexUnderlyingValueLicenseIssuance LicenseIssuance)
+(declare-const InvestmentFundUse LicenseUseCategory)
+(declare-const InvestmentHouseRecipient LicenseRecipientCategory)
+(declare-const LicensesToUseIndexAsUnderlyingValue LicenseClass)
+(declare-const Solactive Organization)
+(declare-const StockExchangeRecipient LicenseRecipientCategory)
+(declare-const TheIndex Index)
+
+(assert (! (SolactiveOrganization Solactive) :named TYPE_entity_Solactive))
+(assert (! (distinct StockExchangeRecipient BankRecipient FinancialServicesProviderRecipient InvestmentHouseRecipient) :named TYPE_enum_distinct_LicenseRecipientCategory))
+(assert (! (distinct FinancialInstrumentUse InvestmentFundUse FinancialContractUse) :named TYPE_enum_distinct_LicenseUseCategory))
+
+(declare-fun issuance_by (LicenseIssuance Organization) Bool)
+(declare-fun issuance_of_license_class (LicenseIssuance LicenseClass) Bool)
+(declare-fun issuance_to_recipient_category (LicenseIssuance LicenseRecipientCategory) Bool)
+(declare-fun license_class_use_category (LicenseClass LicenseUseCategory) Bool)
+(declare-fun license_class_uses_index_as_underlying_value (LicenseClass Index) Bool)
+(declare-fun license_instance_of_class (License LicenseClass) Bool)
+
+(assert (! (forall ((issuance_by_arg0 LicenseIssuance) (issuance_by_arg1 Organization)) (=> (issuance_by issuance_by_arg0 issuance_by_arg1) (SolactiveOrganization issuance_by_arg1))) :named TYPE_symbol_issuance_by))
+(assert (! (forall ((license_instance_of_class_arg0 License) (license_instance_of_class_arg1 LicenseClass)) (=> (license_instance_of_class license_instance_of_class_arg0 license_instance_of_class_arg1) (IndexUnderlyingValueLicense license_instance_of_class_arg0))) :named TYPE_symbol_license_instance_of_class))
+
+(assert (! (and (license_class_uses_index_as_underlying_value LicensesToUseIndexAsUnderlyingValue TheIndex) (license_class_use_category LicensesToUseIndexAsUnderlyingValue FinancialInstrumentUse) (license_class_use_category LicensesToUseIndexAsUnderlyingValue InvestmentFundUse) (license_class_use_category LicensesToUseIndexAsUnderlyingValue FinancialContractUse) (issuance_of_license_class IndexUnderlyingValueLicenseIssuance LicensesToUseIndexAsUnderlyingValue) (issuance_to_recipient_category IndexUnderlyingValueLicenseIssuance StockExchangeRecipient) (issuance_to_recipient_category IndexUnderlyingValueLicenseIssuance BankRecipient) (issuance_to_recipient_category IndexUnderlyingValueLicenseIssuance FinancialServicesProviderRecipient) (issuance_to_recipient_category IndexUnderlyingValueLicenseIssuance InvestmentHouseRecipient) (issuance_by IndexUnderlyingValueLicenseIssuance Solactive)) :named TEXT_index_underlying_value_license_class_scope))
+(assert (! (forall ((l License)) (=> (IndexUnderlyingValueLicense l) (license_instance_of_class l LicensesToUseIndexAsUnderlyingValue))) :named TEXT_index_underlying_value_license_instance_class))
+(check-sat)

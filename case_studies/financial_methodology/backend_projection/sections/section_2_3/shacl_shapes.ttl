@@ -1,0 +1,44 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_2_3 a a4:ShaclProjectionTarget .
+
+ex:SelectionDay a rdfs:Class .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:SelectionDayShape a sh:NodeShape ; sh:targetClass ex:SelectionDay .
+ex:IndexComponent a rdfs:Class .
+ex:IndexComponentShape a sh:NodeShape ; sh:targetClass ex:IndexComponent .
+ex:Region a rdfs:Class .
+ex:RegionShape a sh:NodeShape ; sh:targetClass ex:Region .
+ex:FloatMarketCapizatlization a rdfs:Class .
+ex:FloatMarketCapizatlizationShape a sh:NodeShape ; sh:targetClass ex:FloatMarketCapizatlization .
+ex:WeightRedistributionProcess a rdfs:Class .
+ex:WeightRedistributionProcessShape a sh:NodeShape ; sh:targetClass ex:WeightRedistributionProcess .
+
+ex:region a rdf:Property .
+ex:IndexComponentShape sh:property [ sh:path ex:region ; sh:class ex:Region ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:float_market_capizatlization a rdfs:Class .
+ex:float_market_capizatlizationShape a sh:NodeShape ; sh:targetClass ex:float_market_capizatlization .
+ex:float_market_capizatlizationShape sh:property [ sh:path ex:float_market_capizatlization_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:float_market_capizatlizationShape sh:property [ sh:path ex:float_market_capizatlization_arg_1 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:float_market_capizatlizationShape sh:property [ sh:path ex:float_market_capizatlization_result ; sh:class ex:FloatMarketCapizatlization ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:weight a rdfs:Class .
+ex:weightShape a sh:NodeShape ; sh:targetClass ex:weight .
+ex:weightShape sh:property [ sh:path ex:weight_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:weightShape sh:property [ sh:path ex:weight_arg_1 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:weightShape sh:property [ sh:path ex:weight_result ; sh:datatype xsd:decimal ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:weight_redistribution_process a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:weight_redistribution_process ; sh:class ex:WeightRedistributionProcess ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:weight_has_float_market_capizatlization_basis a rdf:Property .
+ex:PercentShape sh:property [ sh:path ex:weight_has_float_market_capizatlization_basis ; sh:class ex:FloatMarketCapizatlization ] .
+ex:iterative_process a rdfs:Class ; rdfs:subClassOf ex:WeightRedistributionProcess .
+ex:redistributes_weight_proportionally a rdfs:Class .
+ex:redistributes_weight_proportionallyShape a sh:NodeShape ; sh:targetClass ex:redistributes_weight_proportionally .
+ex:redistributes_weight_proportionallyShape sh:property [ sh:path ex:redistributes_weight_proportionally_arg_0 ; sh:class ex:WeightRedistributionProcess ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:redistributes_weight_proportionallyShape sh:property [ sh:path ex:redistributes_weight_proportionally_arg_1 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:redistributes_weight_proportionallyShape sh:property [ sh:path ex:redistributes_weight_proportionally_arg_2 ; sh:datatype xsd:decimal ; sh:minCount 1 ; sh:maxCount 1 ] .

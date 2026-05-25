@@ -1,0 +1,171 @@
+﻿{
+  "schema": "corpus_aware_multi_judge_v1",
+  "generated_at": "2026-05-10T19:24:29+02:00",
+  "entry_id": "N04",
+  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N04",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "included_context": {
+    "entry": "N04",
+    "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N04",
+    "global_bridge": false,
+    "related_sections": [],
+    "artifacts": {
+      "source.md": true,
+      "normalized.md": true,
+      "main_ir.a4v3": true,
+      "repair.a4v3": false,
+      "provenance.yaml": true,
+      "translator_notes.md": true,
+      "waivers.yaml": false,
+      "waivers_v1.yaml": false
+    }
+  },
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR states that Business Day holds exactly for days whose weekday is Monday through Friday, which matches the source definition. The provenance and translator notes confirm the intended biconditional reading and the expansion of the range into the five weekdays, but they are not needed to resolve any mismatch.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses the predicate name business_day and the prelude function WeekdayOf to make the definition explicit; this is a wording/representation choice, not a semantic difference."
+      ],
+      "confidence": 0.99,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2214,
+        "completion_tokens": 165,
+        "total_tokens": 2379
+      },
+      "latency_s": 2.841536521911621
+    },
+    {
+      "model": "gpt-5.4",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "none"
+      ],
+      "reason_short": "The IR faithfully renders the source as a definition: a day is a business day iff its weekday is Monday, Tuesday, Wednesday, Thursday, or Friday. Expanding the range phrase \"from Monday to Friday\" into the five listed weekdays preserves the source meaning, and the biconditional matches the definitional wording.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses the identifier `business_day` for the quoted source term \"Business Day\".",
+        "The source phrase \"every weekday from Monday to Friday\" is rendered extensionally by enumerating Monday through Friday via `WeekdayOf(d)`.",
+        "The IR makes the weekday dimension explicit with `WeekdayOf` rather than leaving it implicit in the predicate name."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2214,
+        "completion_tokens": 204,
+        "total_tokens": 2418
+      },
+      "latency_s": 4.10212254524231
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The source sentence 'Business Day is every weekday from Monday to Friday' is directly and faithfully encoded in the IR constraint as a biconditional over Day, where business_day(d) holds iff WeekdayOf(d) is one of the five explicitly listed weekdays. The expansion of the range 'from Monday to Friday' into the five discrete weekday values is justified by the source phrase itself and documented in provenance. No contradiction exists between source and IR; the corpus context confirms the translator's deliberate choice to use a biconditional (not merely an implication) because the source is definitional.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses the predicate identifier 'business_day' (lowercase, underscore) while the source uses the quoted term '\"Business Day\"' (title case, spaced). This is standard IR naming convention and does not constitute semantic drift.",
+        "The IR makes explicit use of the prelude function WeekdayOf(d) to expose the weekday dimension, whereas the source uses the informal phrase 'every weekday'. This is a design choice documented in translator notes and does not alter the meaning.",
+        "The disjunction of five weekday cases in the IR is the faithful expansion of the source's range notation 'from Monday to Friday', explicitly justified in provenance."
+      ],
+      "confidence": 0.99,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2569,
+        "completion_tokens": 402,
+        "total_tokens": 2971
+      },
+      "latency_s": 5.397047758102417
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "none"
+      ],
+      "reason_short": "The IR defines business_day as a predicate over Day, using a biconditional over the five weekdays from Monday to Friday. This exactly matches the source definitional sentence.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2338,
+        "completion_tokens": 814,
+        "total_tokens": 3152
+      },
+      "latency_s": 28.69093370437622
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The source defines 'Business Day' as encompassing all weekdays from Monday through Friday. The IR accurately captures this as a biconditional constraint over the Day sort, explicitly enumerating the five weekdays via the prelude WeekdayOf function. The translation is semantically exact and fully consistent with the documented provenance and translator notes.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2372,
+        "completion_tokens": 2149,
+        "total_tokens": 4521
+      },
+      "latency_s": 44.00636529922485
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "local_source_alignment_mode": "corresponds",
+    "local_source_alignment_distribution": {
+      "corresponds": 5
+    },
+    "local_source_alignment_agreement": 1.0,
+    "corpus_alignment_mode": "corresponds",
+    "corpus_alignment_distribution": {
+      "corresponds": 5
+    },
+    "corpus_alignment_agreement": 1.0,
+    "unanimous_corpus_alignment": true,
+    "needs_context_count": 0,
+    "mean_confidence": 0.992
+  }
+}

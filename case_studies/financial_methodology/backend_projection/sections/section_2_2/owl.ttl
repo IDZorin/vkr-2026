@@ -1,0 +1,129 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_2_2 a owl:Ontology .
+
+ex:SelectionDay a owl:Class .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:Security a owl:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:Region a owl:Class .
+ex:CountryAssignment a owl:Class .
+ex:FreeFloatMarketCapizatlization a owl:Class .
+ex:FreeFloatMarketCapizatlization rdfs:subClassOf ex:MonetaryAmount .
+ex:Rank a owl:Class .
+ex:Rank rdfs:subClassOf ex:Nat .
+ex:IndexAdministrator a owl:Class .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:SelectionOfIndexComponents a owl:Class .
+ex:DiscretionaryDecision a owl:Class .
+
+ex:Americas a ex:Region, owl:NamedIndividual .
+ex:EuropeRegion a ex:Region, owl:NamedIndividual .
+ex:Canada a ex:CountryAssignment, owl:NamedIndividual .
+ex:UnitedStates a ex:CountryAssignment, owl:NamedIndividual .
+ex:Europe a ex:CountryAssignment, owl:NamedIndividual .
+ex:index_universe a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:Security .
+ex:eligible a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:Security .
+ex:selection_of_index_components a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:SelectionOfIndexComponents .
+ex:gbs_country_assignment a owl:Class, a4:NaryRelationClass .
+ex:gbs_country_assignment_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:gbs_country_assignment ;
+  rdfs:range ex:SelectionDay .
+ex:gbs_country_assignment_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:gbs_country_assignment ;
+  rdfs:range ex:Security .
+ex:gbs_country_assignment_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:gbs_country_assignment ;
+  rdfs:range ex:CountryAssignment .
+ex:region a owl:Class, a4:NaryRelationClass .
+ex:region_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:region ;
+  rdfs:range ex:SelectionDay .
+ex:region_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:region ;
+  rdfs:range ex:Security .
+ex:region_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:region ;
+  rdfs:range ex:Region .
+ex:free_float_market_capizatlization a owl:Class, a4:NaryRelationClass .
+ex:free_float_market_capizatlization_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:free_float_market_capizatlization ;
+  rdfs:range ex:SelectionDay .
+ex:free_float_market_capizatlization_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:free_float_market_capizatlization ;
+  rdfs:range ex:Security .
+ex:free_float_market_capizatlization_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:free_float_market_capizatlization ;
+  rdfs:range ex:FreeFloatMarketCapizatlization .
+ex:rank a owl:Class, a4:NaryRelationClass .
+ex:rank_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:rank ;
+  rdfs:range ex:SelectionDay .
+ex:rank_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:rank ;
+  rdfs:range ex:Region .
+ex:rank_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:rank ;
+  rdfs:range ex:Security .
+ex:rank_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:rank ;
+  rdfs:range ex:Rank .
+ex:selected_for_index_inclusion a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:Security .
+ex:index_component a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:Security .
+ex:initial_composition a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:Security .
+ex:ordinary_rebalance_selection a owl:ObjectProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:Security .
+ex:fully_rule_based a owl:Class ; rdfs:subClassOf ex:SelectionOfIndexComponents .
+
+ex:ASSERT_eligible_iff_index_universe_for_component_requirements a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (eligible(d, s)) iff (index_universe(d, s))" .
+ex:ASSERT_security_classified_into_one_of_two_regions a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (eligible(d, s)) implies (((region(d, s)) = (Americas)) or ((region(d, s)) = (EuropeRegion)))" .
+ex:ASSERT_americas_country_assignment_classification a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (eligible(d, s)) implies (((region(d, s)) = (Americas)) iff (((gbs_country_assignment(d, s)) = (Canada)) or ((gbs_country_assignment(d, s)) = (UnitedStates))))" .
+ex:ASSERT_europe_country_assignment_classification a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (eligible(d, s)) implies (((region(d, s)) = (EuropeRegion)) iff ((gbs_country_assignment(d, s)) = (Europe)))" .
+ex:ASSERT_descending_order_by_free_float_market_capizatlization a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall r: Region, forall s1: Security, forall s2: Security, ((eligible(d, s1)) and (eligible(d, s2)) and ((region(d, s1)) = (r)) and ((region(d, s2)) = (r)) and ((free_float_market_capizatlization(d, s1)) > (free_float_market_capizatlization(d, s2)))) implies ((rank(d, r, s1)) < (rank(d, r, s2)))" .
+ex:ASSERT_selected_top_20_for_each_region a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (selected_for_index_inclusion(d, s)) iff ((eligible(d, s)) and ((rank(d, region(d, s), s)) <= (20)))" .
+ex:ASSERT_index_components_selected_for_index_inclusion a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (index_component(d, s)) iff (selected_for_index_inclusion(d, s))" .
+ex:ASSERT_initial_composition_determined_by_index_component_requirements a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (initial_composition(d, s)) iff (selected_for_index_inclusion(d, s))" .
+ex:ASSERT_ordinary_rebalance_selection_determined_by_index_component_requirements a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (ordinary_rebalance_selection(d, s)) iff (selected_for_index_inclusion(d, s))" .
+ex:ASSERT_less_than_20_per_region_less_than_40_index_components a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, (exists r: Region, (<count>) < (20)) implies ((<count>) < (40))" .
+ex:ASSERT_selection_fully_rule_based a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall d: SelectionDay, fully_rule_based(selection_of_index_components(d))" .

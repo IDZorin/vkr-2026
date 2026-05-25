@@ -1,0 +1,149 @@
+﻿-- financial methodology process ontology v1.
+-- Seed vocabulary for process/workflow files.
+-- This file is intentionally small and should grow from concrete workflow use cases.
+
+sort Workflow
+sort ProcessStep
+sort ProcessTrigger
+sort ProcessInput
+sort ProcessOutput
+sort ProcessState
+sort ProcessStateCarrier
+sort ProcessGroundingTarget
+
+sort DocumentPart
+sort LocalAssertionName
+sort BridgeFamily
+sort BridgeDecision
+sort CanonicalConcept
+sort CanonicalFrame extends CanonicalConcept
+sort CanonicalRole extends CanonicalConcept
+sort ProvenanceClaim
+sort CalendarMarker
+sort CalendarWindow extends CalendarMarker
+
+sort IndexComponentMembershipState =
+  GenericMembership
+| SelectedMembership
+| CalculationMembership
+| ImplementedMembership
+
+sort ProcessStateKind =
+  EligibleUniverseCandidate
+| EligibleComponentCandidate
+| SelectedComponent
+| CalculationDayComponent
+| ImplementedComponent
+
+sort ProcessOverlayStateKind =
+  CorporateActionAffectedComponent
+| CorporateActionAdjustedComponent
+| DisruptedDetermination
+| CorrectionPending
+| CorrectionResolved
+| ActiveIndex
+| TerminatedIndex
+| MethodologyUnderReview
+| MethodologyChanged
+| AmendmentPendingApproval
+| AmendmentApproved
+
+sort ProcessEdgeKind =
+  ExplicitSourceEdge
+| StructuralDependencyEdge
+| InferredMergeEdge
+| OperationalLoweringEdge
+
+sort OverlayBehavior =
+  Preempt
+| ModifyAndContinue
+| InterruptAndResume
+| Fallback
+
+sort StepModality =
+  ObligatoryStep
+| PermittedStep
+| ProhibitedStep
+| DiscretionaryStep
+| DescriptiveStep
+
+sort ProcessTemporalRelation =
+  Before
+| After
+| SameTimeAs
+| During
+| OnOrBefore
+| OnOrAfter
+
+sort IterationSemanticsStatus =
+  NoIteration
+| IterationSemanticsDeferred
+| FixedPointIteration
+
+sort ProcessGroundingKind =
+  DocumentPartGrounding
+| LocalConstraintGrounding
+| LocalFactGrounding
+| BridgeDecisionGrounding
+| CanonicalConceptGrounding
+| ProvenanceGrounding
+
+sort ProcessIOKind =
+  DomainConceptIO
+| ObservationFrameIO
+| CalendarMarkerIO
+| ProcessStateIO
+
+rel workflow_step : Workflow, ProcessStep
+rel workflow_invokes : Workflow, Workflow
+rel workflow_modifies : Workflow, Workflow
+rel workflow_interrupts : Workflow, Workflow
+
+rel step_precedes : ProcessStep, ProcessStep
+rel step_edge_kind : ProcessStep, ProcessStep, ProcessEdgeKind
+rel step_temporal_relation : ProcessStep, ProcessStep, ProcessTemporalRelation
+rel step_overlay_behavior : ProcessStep, OverlayBehavior
+rel step_modality : ProcessStep, StepModality
+rel step_iteration_status : ProcessStep, IterationSemanticsStatus
+
+rel step_triggered_by : ProcessStep, ProcessTrigger
+rel trigger_calendar_marker : ProcessTrigger, CalendarMarker
+rel trigger_precedes : ProcessTrigger, ProcessTrigger
+rel trigger_temporal_relation : ProcessTrigger, ProcessTrigger, ProcessTemporalRelation
+rel trigger_relation_grounded_in : ProcessTrigger, ProcessTrigger, ProcessGroundingTarget
+rel calendar_window_start_marker : CalendarWindow, CalendarMarker
+rel calendar_window_end_marker : CalendarWindow, CalendarMarker
+rel step_during_calendar_window : ProcessStep, CalendarWindow
+
+rel step_requires : ProcessStep, ProcessInput
+rel step_produces : ProcessStep, ProcessOutput
+rel input_kind : ProcessInput, ProcessIOKind
+rel output_kind : ProcessOutput, ProcessIOKind
+rel input_observation_frame : ProcessInput, CanonicalFrame
+rel output_observation_frame : ProcessOutput, CanonicalFrame
+rel input_canonical_concept : ProcessInput, CanonicalConcept
+rel output_canonical_concept : ProcessOutput, CanonicalConcept
+
+rel step_enters_state : ProcessStep, ProcessState
+rel step_exits_state : ProcessStep, ProcessState
+rel process_state_kind : ProcessState, ProcessStateKind
+rel process_overlay_state_kind : ProcessState, ProcessOverlayStateKind
+rel process_state_carrier : ProcessState, ProcessStateCarrier
+rel process_state_corresponds_to_membership_state : ProcessState, IndexComponentMembershipState
+rel process_state_kind_corresponds_to_membership_state : ProcessStateKind, IndexComponentMembershipState
+
+rel step_grounded_in_document_part : ProcessStep, DocumentPart
+rel step_grounded_in : ProcessStep, ProcessGroundingTarget
+rel edge_grounded_in : ProcessStep, ProcessStep, ProcessGroundingTarget
+rel grounding_kind : ProcessGroundingTarget, ProcessGroundingKind
+rel grounding_document_part : ProcessGroundingTarget, DocumentPart
+rel grounding_local_assertion : ProcessGroundingTarget, LocalAssertionName
+rel grounding_bridge_family : ProcessGroundingTarget, BridgeFamily
+rel grounding_bridge_decision : ProcessGroundingTarget, BridgeDecision
+rel grounding_canonical_concept : ProcessGroundingTarget, CanonicalConcept
+rel grounding_provenance_claim : ProcessGroundingTarget, ProvenanceClaim
+
+fact initial_process_state_membership_mapping :
+  process_state_kind_corresponds_to_membership_state(SelectedComponent, SelectedMembership)
+  and process_state_kind_corresponds_to_membership_state(CalculationDayComponent, CalculationMembership)
+  and process_state_kind_corresponds_to_membership_state(ImplementedComponent, ImplementedMembership)

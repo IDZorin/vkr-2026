@@ -1,0 +1,108 @@
+section: "N07 Definition: Closing Price"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  closing_price_definition_when_published:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The \"Closing Price\" in respect of an Index Component and a Trading Day is a security's final regular-hours Trading Price published by the Exchange and determined in accordance with the Exchange regulations."
+    back_translation: >
+      For every Index Component and Trading Day, when a Closing Price is
+      available from the Exchange, that Closing Price is the final
+      regular-hours Trading Price of the Index Component, is published by the
+      Exchange of that Index Component, is determined, and is in accordance
+      with both the Exchange rules and the Exchange regulations.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source distinguishes "Exchange regulations" (determination) from
+      "Exchange rules" (publication, mentioned in the fallback). Both
+      accordance properties are conjoined in the published case because the
+      fallback fires only when publication is not in accordance with the
+      Exchange rules.
+
+  last_trading_price_used_when_closing_price_not_published:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "If the Exchange has no or has not published a Closing Price in accordance with the Exchange rules for an Index Component, the last Trading Price will be used."
+    back_translation: >
+      For every Index Component and Trading Day, when no Closing Price is
+      available from the Exchange, the Closing Price is the last Trading
+      Price of that Index Component on that Trading Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source disjunction "has no or has not published ... in accordance
+      with the Exchange rules" is compressed into the single negative
+      condition not closing_price_available; both source sub-cases lead to
+      the same fallback outcome.
+
+uncovered_source:
+  - quote: "(none -- source definition is covered)"
+
+vocabulary_notes:
+  ClosingPrice:
+    note: "Sort for the source term \"Closing Price\"; subtype of TradingPrice."
+    source_phrase: "Closing Price"
+  TradingPrice:
+    note: "Sort for the source phrase \"Trading Price\"."
+    source_phrase: "Trading Price"
+  Price:
+    note: "Numeric monetary sort grouping TradingPrice and ClosingPrice."
+    source_phrase: "price"
+  IndexComponent:
+    note: "Sort for the source phrase \"Index Component\"."
+    source_phrase: "Index Component"
+  TradingDay:
+    note: "Sort for the source phrase \"Trading Day\"."
+    source_phrase: "Trading Day"
+  Exchange:
+    note: "Sort for the source phrase \"the Exchange\"."
+    source_phrase: "Exchange"
+  AccordanceStandard:
+    note: "Sort grouping the source standards \"Exchange rules\" and \"Exchange regulations\"."
+    source_phrases:
+      - "Exchange rules"
+      - "Exchange regulations"
+  ExchangeRules:
+    note: "Entity for the source phrase \"Exchange rules\"."
+    source_phrase: "Exchange rules"
+  ExchangeRegulations:
+    note: "Entity for the source phrase \"Exchange regulations\"."
+    source_phrase: "Exchange regulations"
+  closing_price:
+    note: "Function for the source term \"Closing Price\" in respect of an Index Component and Trading Day."
+    source_phrase: "Closing Price"
+  respective_exchange:
+    note: "Function for the source phrase \"the Exchange\" of an Index Component."
+    source_phrase: "the Exchange"
+  final_regular_hours_trading_price:
+    note: "Function for the source phrase \"final regular-hours Trading Price\"."
+    source_phrase: "final regular-hours Trading Price"
+  last_trading_price:
+    note: "Function for the source phrase \"the last Trading Price\" used in the fallback."
+    source_phrase: "the last Trading Price"
+  price_published_by_exchange:
+    note: "Relation for the source phrase \"published by the Exchange\"."
+    source_phrase: "published by the Exchange"
+  price_determined:
+    note: "Predicate for the source phrase \"determined\" applied to the Closing Price."
+    source_phrase: "determined"
+  in_accordance_with:
+    note: "Relation linking a price to an accordance standard for the source phrase \"in accordance with\"."
+    source_phrase: "in accordance with"
+  closing_price_available:
+    note: >
+      Predicate for the published-Closing-Price availability condition;
+      negated in the fallback constraint to model the source phrase "has no
+      or has not published a Closing Price".
+    source_phrase: "the Exchange has no or has not published a Closing Price"

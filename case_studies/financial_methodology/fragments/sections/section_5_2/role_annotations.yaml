@@ -1,0 +1,38 @@
+schema: role_annotations_v1
+entry_id: section_5_2
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  amendment_date:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  last_amendment:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+constraints:
+  identified_need_has_review_identified_change:
+    frame: identified_need_has_review_identified_change
+    variables:
+      n: {role: reference, quantifier: forall}
+      r: {role: reference, quantifier: forall}
+      c: {role: reference, quantifier: exists}
+  methodology_change_need_example_condition_scope:
+    frame: methodology_change_need_example_condition_scope
+    variables:
+      n: {role: reference, quantifier: forall}
+      c: {role: reference, quantifier: forall}
+  methodology_reviews_are_regular_at_least_annually:
+    frame: methodology_reviews_are_regular_at_least_annually
+    variables:
+      r: {role: reference, quantifier: forall}
+  methodology_subject_to_regular_review_at_least_annually:
+    frame: methodology_subject_to_regular_review_at_least_annually
+    variables:
+      r: {role: reference, quantifier: exists}
+  no_longer_reflects_reality_condition_means_not_reflects_reality_as_before:
+    frame: no_longer_reflects_reality_condition_means_not_reflects_reality_as_before
+    variables:
+      q: {role: quality, quantifier: forall}

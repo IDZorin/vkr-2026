@@ -1,0 +1,131 @@
+{
+  "entry_id": "N30",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1973,
+    "completion_tokens": 525,
+    "total_tokens": 2498
+  },
+  "latency_s": 3.98348331451416,
+  "raw_parsed": {
+    "source_facts": [
+      "Trading Day is a day on which the relevant Exchange is open for trading.",
+      "Trading Day includes a day that would have been open absent a market disruption.",
+      "Trading Day excludes days when trading may cease before scheduled Exchange closing time.",
+      "Trading Day excludes days with a scheduled shortened period.",
+      "Trading Day is defined with respect to an Index Component included in the Index at the Rebalance Day.",
+      "Trading Day is defined with respect to every Index Component included in the Index at the Calculation Day immediately following the Rebalance Day.",
+      "The provision captures Trading Days for securities to be included as new Index Components.",
+      "The securities are included with close of trading on the relevant Exchange on the Rebalance Day.",
+      "The Index Administrator is ultimately responsible for whether a day is a Trading Day."
+    ],
+    "render_facts": [
+      "A trading day context is valid when it identifies a rebalance day, a day, and an index component.",
+      "The context exchange is the component’s relevant exchange.",
+      "The component was included in The Index on that rebalance day.",
+      "If the day immediately follows that rebalance day, the component was included in The Index on that calculation day.",
+      "A valid trading day context is a trading day.",
+      "The exchange was open for trading on that day.",
+      "A market disruption occurred on that day and the exchange would have been open without the disruption.",
+      "There was no trading cessation possibility for that exchange and day before scheduled exchange closing time.",
+      "No scheduled shortened period existed for that exchange and day.",
+      "A context captures new index component close of trading.",
+      "The component is to be included in The Index as a new index component.",
+      "The close of trading is for that component’s relevant exchange on that rebalance day.",
+      "The Index Administrator is ultimately responsible for any determination whether a valid trading day context is a trading day."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 5,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 1,
+        "render_idx": 6,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 2,
+        "render_idx": 7,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 3,
+        "render_idx": 8,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 4,
+        "render_idx": 0,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 5,
+        "render_idx": 3,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 6,
+        "render_idx": 10,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 7,
+        "render_idx": 11,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 8,
+        "render_idx": 12,
+        "match": "weaker"
+      }
+    ],
+    "render_only": [
+      1,
+      2,
+      4,
+      9
+    ]
+  },
+  "summary": {
+    "n_source_facts": 9,
+    "n_render_facts": 13,
+    "matched_source": 9,
+    "matched_render": 9,
+    "render_only": 4,
+    "missing_source": 0,
+    "weaker_in_render": 1,
+    "stronger_in_render": 0,
+    "recall": 1.0,
+    "precision": 0.692,
+    "f1": 0.818,
+    "missing_source_facts": [],
+    "render_only_facts": [
+      {
+        "idx": 1,
+        "fact": "The context exchange is the component’s relevant exchange."
+      },
+      {
+        "idx": 2,
+        "fact": "The component was included in The Index on that rebalance day."
+      },
+      {
+        "idx": 4,
+        "fact": "A valid trading day context is a trading day."
+      },
+      {
+        "idx": 9,
+        "fact": "A context captures new index component close of trading."
+      }
+    ],
+    "weaker_pairs": [
+      {
+        "src": "The Index Administrator is ultimately responsible for whether a day is a Trading Day.",
+        "render": "The Index Administrator is ultimately responsible for any determination whether a valid trading day context is a trading day."
+      }
+    ],
+    "stronger_pairs": []
+  }
+}

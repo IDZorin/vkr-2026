@@ -1,0 +1,113 @@
+{
+  "entry_id": "section_1_1",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR captures each table entry: the index is Equity, the strategy is represented as securities with business operations in clean energy, the regional allocation lists the three regions, the rebalancing fee is none, and the frequency is semi-annual. The added constraint about the strategy and the fee-status-to-fee-charged link are consistent with the stated scope information.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR normalizes table labels into predicates and symbols, which is a standard formalization choice.",
+        "\"Developed Markets Europe\" is rendered as a canonical symbol name without spaces."
+      ],
+      "confidence": 0.96,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2217,
+        "completion_tokens": 152,
+        "total_tokens": 2369
+      },
+      "latency_s": 4.074247121810913
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "one_way_implication",
+      "reason_short": "The IR captures the table’s main attributes: equity asset class, clean-energy-related strategy, regional allocation to Developed Markets Europe, United States, and Canada, no rebalancing fee, and semi-annual rebalancing frequency. However, it strengthens the source by adding universal constraints about what the strategy represents and by interpreting the dash under rebalancing fee as a definite absence of fee and then deriving that no fee is charged.",
+      "semantic_differences": [
+        "The source describes the strategy textually as a representation of securities that have business operations in clean energy, but the IR adds a universal implication over all securities represented by the strategy; this is a stronger formal claim than the table explicitly states.",
+        "The source gives 'Rebalancing Fee' as '-', which is underspecified, while the IR commits to a specific semantic interpretation: NoRebalancingFee.",
+        "The IR further adds that whenever an index has NoRebalancingFee, rebalancing_fee_charged is false; this derived operational claim is not stated in the source."
+      ],
+      "stylistic_notes": [
+        "Using a dedicated Index entity TheIndex is a reasonable formalization of the table row set.",
+        "Modeling regional allocation as three separate region values is a natural encoding of the listed regions.",
+        "The naming 'CleanEnergyBusinessOperationsStrategy' is verbose but consistent with the source wording."
+      ],
+      "confidence": 0.93,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2217,
+        "completion_tokens": 334,
+        "total_tokens": 2551
+      },
+      "latency_s": 7.847002983093262
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully encodes all claims in the source table. Each row (Asset Class, Strategy, Regional Allocation, Rebalancing Fee, Rebalancing Frequency) is represented as a sort, entity, function, or relation, with the fact asserting the specific values. The constraint linking strategy to business field is a legitimate inference from the source's description of the strategy as 'Representation of securities that have business operations in the field of clean energy.' The IR uses canonical a4v3 lowerings (sorts for enums, functions for optional attributes, relations for many-to-many links, constraints for implications) and introduces no content beyond what the source justifies.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "Source uses informal table format; IR uses formal a4v3 declarations. This is expected and correct.",
+        "Source says 'Rebalancing Fee: -' (dash); IR interprets this as NoRebalancingFee status and introduces a relation rebalancing_fee_charged with a constraint that it does not hold. This is a reasonable formalization of 'no fee' but adds a relation not explicitly named in source.",
+        "Source says 'Strategy: Representation of securities that have business operations in the field of clean energy.' IR introduces a relation strategy_representation_of_security and a constraint linking it to security_has_business_operations_in. This is a faithful lowering of the source description into relational form.",
+        "Naming: 'CleanEnergyBusinessOperationsStrategy' is verbose but traces directly to source phrasing. 'DevelopedMarketsEurope' is a reasonable camelCase rendering of 'Developed Markets Europe'."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2609,
+        "completion_tokens": 434,
+        "total_tokens": 3043
+      },
+      "latency_s": 7.502942085266113
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 69.98743081092834
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR accurately formalizes the tabular scope description by mapping each category to appropriate sorts, functions, and relations, and correctly instantiates the specific values for the index. The constraints logically capture the definitional relationships implied by the strategy description and the '-' fee indicator without introducing unsupported claims.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces an auxiliary relation `rebalancing_fee_charged` and a corresponding constraint to explicitly formalize the '-' fee indicator, which is a standard and faithful modeling choice.",
+        "Enum-like categories are modeled as closed sorts, aligning with a4v3 best practices for categorical attributes."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2357,
+        "completion_tokens": 2476,
+        "total_tokens": 4833
+      },
+      "latency_s": 48.25525164604187
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "corresponds": 3,
+      "partially_corresponds": 1
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.948
+  }
+}

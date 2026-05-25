@@ -1,0 +1,335 @@
+﻿{
+  "schema": "entry_checks_v1",
+  "entry_id": "N25",
+  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25",
+  "generated_at": "2026-05-10T20:08:52",
+  "with_llm": true,
+  "corpus_aware": true,
+  "single_model": "gpt-5.4-mini",
+  "multi_models": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "overall_status": "ok",
+  "failed_step_count": 0,
+  "steps": [
+    {
+      "name": "parser_strict",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 2.284,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\a4v3_parser_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25\\main_ir.a4v3",
+        "--strict"
+      ],
+      "stdout_tail": "declarations: 5\nassertions:   1\nwarnings:     0\n\nBy family.kind:\n  SymbolDecl.entity: 2\n  TypeDecl.opaque: 1\n  SymbolDecl.rel: 1\n  AssertDecl.fact: 1\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "semantic_lint",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 0.114,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\a4v3_semantic_lint_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25"
+      ],
+      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25\\a4v3_semantic_lint_v1.json\n  findings: 0\n  by_check: {}\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "token_provenance",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 2.532,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\token_provenance_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25"
+      ],
+      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25\\metrics_token_provenance_v1.json\n  content coverage: 7/7 (1.0)\n  uncovered: 0\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "provenance_lint",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 0.194,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\provenance_lint_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25"
+      ],
+      "stdout_tail": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25: findings=0 strong=0\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "provenance_backtranslation",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 0.211,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\provenance_backtranslation_metrics_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25"
+      ],
+      "stdout_tail": "N25: status=ok claims=1 score=0.964\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "family_coverage",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 0.151,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\family_coverage_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25"
+      ],
+      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25\\metrics_family_coverage_v1.json\n  INNFs used: ['AssertDecl', 'SymbolDecl', 'TypeDecl']\n  expr markers: {}\n  gaps: 0, matches: 0\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "source_phrase_coverage",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 0.165,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\source_phrase_coverage_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25"
+      ],
+      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25\\metrics_source_phrase_coverage_v1.json\n  phrases: 1, coverage: 1.0\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "lowering_audit",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 0.113,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\lowering_audit_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25"
+      ],
+      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25\\lowering_audit_v1.json\n  smells: 1\n  by family: {'DeonticDecl.obligation': 1}\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "legacy_metrics",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 21.341,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\legacy_metrics_runner_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25"
+      ],
+      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25\\main_ir_metrics_v1.json\n",
+      "stderr_tail": "\nLoading weights:   0%|          | 0/100 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 100/100 [00:00<00:00, 4827.36it/s]\n\u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\nKey                     | Status     |  | \n------------------------+------------+--+-\nvocab_layer_norm.bias   | UNEXPECTED |  | \nvocab_transform.bias    | UNEXPECTED |  | \nvocab_layer_norm.weight | UNEXPECTED |  | \nvocab_transform.weight  | UNEXPECTED |  | \nvocab_projector.bias    | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n\nLoading weights:   0%|          | 0/105 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 105/105 [00:00<00:00, 4332.79it/s]\n\u001b[1mRobertaForSequenceClassification LOAD REPORT\u001b[0m from: cross-encoder/nli-distilroberta-base\nKey                             | Status     |  | \n--------------------------------+------------+--+-\nroberta.embeddings.position_ids | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n\nLoading weights:   0%|          | 0/100 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 100/100 [00:00<00:00, 3838.06it/s]\n\u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\nKey                     | Status     |  | \n------------------------+------------+--+-\nvocab_layer_norm.bias   | UNEXPECTED |  | \nvocab_transform.bias    | UNEXPECTED |  | \nvocab_layer_norm.weight | UNEXPECTED |  | \nvocab_transform.weight  | UNEXPECTED |  | \nvocab_projector.bias    | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n\nLoading weights:   0%|          | 0/100 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 100/100 [00:00<00:00, 4155.90it/s]\n\u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\nKey                     | Status     |  | \n------------------------+------------+--+-\nvocab_layer_norm.bias   | UNEXPECTED |  | \nvocab_transform.bias    | UNEXPECTED |  | \nvocab_layer_norm.weight | UNEXPECTED |  | \nvocab_transform.weight  | UNEXPECTED |  | \nvocab_projector.bias    | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n"
+    },
+    {
+      "name": "diagnostic_suite_skip_llm",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 2.176,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\run_diagnostic_suite_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25",
+        "--skip-llm"
+      ],
+      "stdout_tail": "=== N25 ===\n  gate=needs_review  fail=0  warn=29  findings=29\n{\n  \"gate\": \"needs_review\",\n  \"n_fail\": 0,\n  \"n_warning\": 29,\n  \"by_module\": {\n    \"a4v3_semantic_lint\": {\n      \"ok\": 12,\n      \"warning\": 0,\n      \"fail\": 0,\n      \"inspect\": 0,\n      \"error_no_value\": 0,\n      \"error_no_threshold\": 0,\n      \"rules\": 12\n    },\n    \"merge_canonicalization\": {\n      \"ok\": 8,\n      \"warning\": 11,\n      \"fail\": 0,\n      \"inspect\": 52,\n      \"error_no_value\": 0,\n      \"error_no_threshold\": 0,\n      \"rules\": 71\n    },\n    \"ontology_planning\": {\n      \"ok\": 10,\n      \"warning\": 18,\n      \"fail\": 0,\n      \"inspect\": 32,\n      \"error_no_value\": 0,\n      \"error_no_threshold\": 0,\n      \"rules\": 60\n    }\n  }\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "quality_snapshot",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 2.581,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\quality_snapshot_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25"
+      ],
+      "stdout_tail": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25: clean_gate=accepted -> D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25\\quality_snapshot_v1.json\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "single_semantic_judge_and_render",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 24.088,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\legacy_metrics_runner_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25",
+        "--with-llm",
+        "--llm-model",
+        "gpt-5.4-mini"
+      ],
+      "stdout_tail": "  llm: {'render': 'ran', 'verdict': 'ran', 'render_promoted_to_main': True}\nWrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25\\main_ir_metrics_v1.json\n",
+      "stderr_tail": "\nLoading weights:   0%|          | 0/100 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 100/100 [00:00<00:00, 4879.65it/s]\n\u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\nKey                     | Status     |  | \n------------------------+------------+--+-\nvocab_transform.weight  | UNEXPECTED |  | \nvocab_transform.bias    | UNEXPECTED |  | \nvocab_projector.bias    | UNEXPECTED |  | \nvocab_layer_norm.weight | UNEXPECTED |  | \nvocab_layer_norm.bias   | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n\nLoading weights:   0%|          | 0/105 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 105/105 [00:00<00:00, 3606.78it/s]\n\u001b[1mRobertaForSequenceClassification LOAD REPORT\u001b[0m from: cross-encoder/nli-distilroberta-base\nKey                             | Status     |  | \n--------------------------------+------------+--+-\nroberta.embeddings.position_ids | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n\nLoading weights:   0%|          | 0/100 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 100/100 [00:00<00:00, 4039.59it/s]\n\u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\nKey                     | Status     |  | \n------------------------+------------+--+-\nvocab_transform.weight  | UNEXPECTED |  | \nvocab_transform.bias    | UNEXPECTED |  | \nvocab_projector.bias    | UNEXPECTED |  | \nvocab_layer_norm.weight | UNEXPECTED |  | \nvocab_layer_norm.bias   | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n\nLoading weights:   0%|          | 0/100 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 100/100 [00:00<00:00, 4150.47it/s]\n\u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\nKey                     | Status     |  | \n------------------------+------------+--+-\nvocab_transform.weight  | UNEXPECTED |  | \nvocab_transform.bias    | UNEXPECTED |  | \nvocab_projector.bias    | UNEXPECTED |  | \nvocab_layer_norm.weight | UNEXPECTED |  | \nvocab_layer_norm.bias   | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n\nLoading weights:   0%|          | 0/100 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 100/100 [00:00<00:00, 4622.38it/s]\n\u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\nKey                     | Status     |  | \n------------------------+------------+--+-\nvocab_transform.weight  | UNEXPECTED |  | \nvocab_transform.bias    | UNEXPECTED |  | \nvocab_projector.bias    | UNEXPECTED |  | \nvocab_layer_norm.weight | UNEXPECTED |  | \nvocab_layer_norm.bias   | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n\nLoading weights:   0%|          | 0/100 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 100/100 [00:00<00:00, 4340.00it/s]\n\u001b[1mDistilBertModel LOAD REPORT\u001b[0m from: distilbert-base-uncased\nKey                     | Status     |  | \n------------------------+------------+--+-\nvocab_transform.weight  | UNEXPECTED |  | \nvocab_transform.bias    | UNEXPECTED |  | \nvocab_projector.bias    | UNEXPECTED |  | \nvocab_layer_norm.weight | UNEXPECTED |  | \nvocab_layer_norm.bias   | UNEXPECTED |  | \n\n\u001b[3mNotes:\n- UNEXPECTED\u001b[3m\t:can be ignored when loading from different task/architecture; not ok if you expect identical arch.\u001b[0m\n"
+    },
+    {
+      "name": "multi_judge",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 31.959,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\multi_judge_consensus_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25",
+        "--models",
+        "gpt-5.4-mini,gpt-5.4,claude-haiku-4-5,deepseek-v4-pro,qwen/qwen3.6-plus"
+      ],
+      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25\\metrics_multi_judge_consensus_v1.json\n  mode=corresponds ({'corresponds': 4, 'partially_corresponds': 1}) agreement=0.8 unanimous=False\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "corpus_aware_multi_judge",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 45.383,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\corpus_aware_multi_judge_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25",
+        "--models",
+        "gpt-5.4-mini,gpt-5.4,claude-haiku-4-5,deepseek-v4-pro,qwen/qwen3.6-plus"
+      ],
+      "stdout_tail": "Wrote D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25\\metrics_corpus_aware_multi_judge_v1.json\n  local=corresponds corpus=corresponds agreement=1.0\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "diagnostic_suite_with_llm",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 14.052,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\run_diagnostic_suite_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25"
+      ],
+      "stdout_tail": "=== N25 ===\n  running targeted_probes_v1.py on N25\n  running fact_extraction_compare_v1.py on N25\n  running counterexample_probing_v1.py on N25\n  gate=needs_review  fail=0  warn=29  findings=33\n{\n  \"gate\": \"needs_review\",\n  \"n_fail\": 0,\n  \"n_warning\": 29,\n  \"by_module\": {\n    \"a4v3_semantic_lint\": {\n      \"ok\": 12,\n      \"warning\": 0,\n      \"fail\": 0,\n      \"inspect\": 0,\n      \"error_no_value\": 0,\n      \"error_no_threshold\": 0,\n      \"rules\": 12\n    },\n    \"merge_canonicalization\": {\n      \"ok\": 8,\n      \"warning\": 11,\n      \"fail\": 0,\n      \"inspect\": 48,\n      \"error_no_value\": 4,\n      \"error_no_threshold\": 0,\n      \"rules\": 71\n    },\n    \"ontology_planning\": {\n      \"ok\": 10,\n      \"warning\": 18,\n      \"fail\": 0,\n      \"inspect\": 32,\n      \"error_no_value\": 0,\n      \"error_no_threshold\": 0,\n      \"rules\": 60\n    }\n  }\n}\n",
+      "stderr_tail": ""
+    },
+    {
+      "name": "quality_snapshot_final",
+      "status": "ok",
+      "returncode": 0,
+      "duration_s": 2.831,
+      "cmd": [
+        "D:\\scoop\\apps\\python310\\current\\python.exe",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\IR\\src\\quality_snapshot_v1.py",
+        "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25"
+      ],
+      "stdout_tail": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25: clean_gate=accepted -> D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N25\\quality_snapshot_v1.json\n",
+      "stderr_tail": ""
+    }
+  ],
+  "summary": {
+    "entry_id": "N25",
+    "parser": {
+      "strict_parse_assumed_from_step": true
+    },
+    "semantic_lint": {
+      "total": 0,
+      "strong": 0,
+      "soft": 0,
+      "style": 0,
+      "advisory": 0
+    },
+    "token_provenance": {
+      "covered_content": 7,
+      "content_total": 7,
+      "coverage_rate": 1.0,
+      "uncovered": []
+    },
+    "family_coverage": {
+      "required_gaps": 0,
+      "advisory_gaps": 0,
+      "matches": 0
+    },
+    "source_phrase_coverage": {
+      "covered": 1,
+      "total": 1,
+      "coverage_rate": 1.0,
+      "uncovered": []
+    },
+    "lowering_audit": {
+      "smells": 1,
+      "by_candidate_family": {
+        "DeonticDecl.obligation": 1
+      }
+    },
+    "provenance_lint": {
+      "total": 0,
+      "strong": 0,
+      "soft": 0,
+      "advisory": 0,
+      "by_check": {}
+    },
+    "provenance_backtranslation": {
+      "status": "ok",
+      "claim_count": 1,
+      "source_claim_count": 1,
+      "claims_with_warnings": 0,
+      "mean_deterministic_score": 0.964,
+      "mean_source_claim_deterministic_score": 0.964
+    },
+    "diagnostic_suite": {
+      "gate": "needs_review",
+      "fail": 0,
+      "warning": 29,
+      "error_no_value": 4,
+      "error_no_threshold": 0
+    },
+    "quality_snapshot": {
+      "clean_gate": "accepted",
+      "blocking_conditions": [],
+      "missing_required_artifacts": 0,
+      "required_stale_artifacts": 0
+    },
+    "single_semantic_judge": {
+      "path": "N25_manual_section_workspace_artifact_current_v1_llm_semantic_verdict_gpt_5_4_mini.json",
+      "semantic_verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "confidence": 0.98,
+      "judge_status": "ok",
+      "semantic_difference_count": 0
+    },
+    "multi_judge": {
+      "mode_verdict": "corresponds",
+      "agreement_rate": 0.8,
+      "unanimous": false,
+      "mean_confidence": 0.932,
+      "panel": [
+        "gpt-5.4-mini",
+        "gpt-5.4",
+        "claude-haiku-4-5",
+        "deepseek-v4-pro",
+        "qwen/qwen3.6-plus"
+      ]
+    },
+    "corpus_aware_multi_judge": {
+      "local_source_alignment_mode": "corresponds",
+      "corpus_alignment_mode": "corresponds",
+      "corpus_alignment_agreement": 1.0,
+      "needs_context_count": 0,
+      "panel": [
+        "gpt-5.4-mini",
+        "gpt-5.4",
+        "claude-haiku-4-5",
+        "deepseek-v4-pro",
+        "qwen/qwen3.6-plus"
+      ]
+    }
+  }
+}

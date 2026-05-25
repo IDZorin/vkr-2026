@@ -1,0 +1,89 @@
+sort Index
+sort IndexRule
+sort Amendment
+sort IndexRuleAmendment extends Amendment
+sort GuidelineAmendment extends Amendment
+
+sort Committee extends Organization
+sort Staff
+sort Subsidiary extends Organization
+sort Approval
+sort PriorApproval extends Approval
+sort Policy extends Document
+
+entity Solactive : Organization
+entity TheIndex : Index
+entity Guideline : Document
+entity MethodologyPolicy : Policy
+entity OversightCommittee : Committee
+entity OversightCommitteePriorApproval : PriorApproval
+entity SolactiveWebsite : WebResource
+
+-- raw_url: https://www.solactive.com/documents/methodology-policy/
+entity HttpsWwwSolactiveComDocumentsMethodologyPolicy : Url
+
+rel composed_of : Committee, Staff
+rel staff_from : Staff, Organization
+rel subsidiary_of : Subsidiary, Organization
+
+rel rule_of : IndexRule, Index
+rel amendment_of_rule : IndexRuleAmendment, IndexRule
+rel amendment_of_document : GuidelineAmendment, Document
+rel may_result_in : IndexRuleAmendment, GuidelineAmendment
+
+rel responsible_for_decisions_regarding : Committee, IndexRuleAmendment
+rel approval_by : PriorApproval, Committee
+
+rel available_on : Document, WebResource
+rel website_of : WebResource, Organization
+
+fact methodology_policy_location :
+  document_url(MethodologyPolicy, HttpsWwwSolactiveComDocumentsMethodologyPolicy)
+  and available_on(MethodologyPolicy, SolactiveWebsite)
+  and website_of(SolactiveWebsite, Solactive)
+
+fact oversight_committee_has_staff :
+  exists s: Staff,
+    composed_of(OversightCommittee, s)
+
+fact oversight_committee_prior_approval :
+  approval_by(OversightCommitteePriorApproval, OversightCommittee)
+
+constraint oversight_committee_staff_from_solactive_or_subsidiary :
+  forall s: Staff,
+    composed_of(OversightCommittee, s)
+    implies
+      (
+        staff_from(s, Solactive)
+        or
+        exists sub: Subsidiary,
+          subsidiary_of(sub, Solactive)
+          and staff_from(s, sub)
+      )
+
+constraint index_rule_amendment_scope :
+  forall a: IndexRuleAmendment,
+    exists r: IndexRule,
+      amendment_of_rule(a, r)
+      and rule_of(r, TheIndex)
+
+constraint oversight_committee_responsible_for_index_rule_amendment_decisions :
+  forall a: IndexRuleAmendment, forall r: IndexRule,
+    amendment_of_rule(a, r)
+    and rule_of(r, TheIndex)
+    implies responsible_for_decisions_regarding(OversightCommittee, a)
+
+constraint index_rule_amendments_may_result_in_guideline_amendment :
+  forall a: IndexRuleAmendment,
+    exists g: GuidelineAmendment,
+      may_result_in(a, g)
+      and amendment_of_document(g, Guideline)
+
+obligation submit_index_rule_amendment_for_prior_approval(amendment: IndexRuleAmendment)
+  action: submit
+  target: amendment
+  scope: OversightCommitteePriorApproval
+
+obligation make_index_rule_amendment_in_compliance_with_methodology_policy(amendment: IndexRuleAmendment)
+  action: make_in_compliance_with
+  target: MethodologyPolicy

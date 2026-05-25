@@ -1,0 +1,90 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_1 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_5_1/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Discretion a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexDeterminationDiscretion a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexDeterminationDiscretion rdfs:subClassOf ex:Discretion .
+ex:StrictRule a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexDeterminationMatter a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:DeterminationOfIndex a ex:IndexDeterminationMatter, a4:EnumMember, owl:NamedIndividual .
+ex:IndexDeterminationMatter a4:enumMember ex:DeterminationOfIndex .
+ex:DeterminationOfIndexUniverse a ex:IndexDeterminationMatter, a4:EnumMember, owl:NamedIndividual .
+ex:IndexDeterminationMatter a4:enumMember ex:DeterminationOfIndexUniverse .
+ex:SelectionOfIndexComponents a ex:IndexDeterminationMatter, a4:EnumMember, owl:NamedIndividual .
+ex:IndexDeterminationMatter a4:enumMember ex:SelectionOfIndexComponents .
+ex:OtherRelevantDecisionInRelationToIndex a ex:IndexDeterminationMatter, a4:EnumMember, owl:NamedIndividual .
+ex:IndexDeterminationMatter a4:enumMember ex:OtherRelevantDecisionInRelationToIndex .
+ex:ExerciseBasis a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:ExerciseOfDiscretion a ex:ExerciseBasis, a4:EnumMember, owl:NamedIndividual .
+ex:ExerciseBasis a4:enumMember ex:ExerciseOfDiscretion .
+ex:ExerciseOfExpertJudgement a ex:ExerciseBasis, a4:EnumMember, owl:NamedIndividual .
+ex:ExerciseBasis a4:enumMember ex:ExerciseOfExpertJudgement .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:StrictRulesForDiscretionAndExpertJudgement a ex:StrictRule, owl:NamedIndividual .
+ex:potential_need_to_exercise a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:potential_need_to_exercise_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexDeterminationDiscretion .
+ex:potential_need_to_exercise a4:argument ex:potential_need_to_exercise_arg_0 .
+ex:discretion_in_relation_to_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:discretion_in_relation_to_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexDeterminationDiscretion .
+ex:discretion_in_relation_to_index a4:argument ex:discretion_in_relation_to_index_arg_0 .
+ex:discretion_in_relation_to_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:discretion_in_relation_to_index a4:argument ex:discretion_in_relation_to_index_arg_1 .
+ex:discretion_in_relation_to_matter a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:discretion_in_relation_to_matter_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexDeterminationDiscretion .
+ex:discretion_in_relation_to_matter a4:argument ex:discretion_in_relation_to_matter_arg_0 .
+ex:discretion_in_relation_to_matter_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexDeterminationMatter .
+ex:discretion_in_relation_to_matter a4:argument ex:discretion_in_relation_to_matter_arg_1 .
+ex:if_applicable a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:if_applicable_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexDeterminationMatter .
+ex:if_applicable a4:argument ex:if_applicable_arg_0 .
+ex:other_relevant_decision_in_relation_to_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:other_relevant_decision_in_relation_to_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexDeterminationMatter .
+ex:other_relevant_decision_in_relation_to_index a4:argument ex:other_relevant_decision_in_relation_to_index_arg_0 .
+ex:strict_rules a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:strict_rules_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:StrictRule .
+ex:strict_rules a4:argument ex:strict_rules_arg_0 .
+ex:rules_regarding_exercise a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:rules_regarding_exercise_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:StrictRule .
+ex:rules_regarding_exercise a4:argument ex:rules_regarding_exercise_arg_0 .
+ex:rules_regarding_exercise_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ExerciseBasis .
+ex:rules_regarding_exercise a4:argument ex:rules_regarding_exercise_arg_1 .
+
+ex:ASSERT_index_determination_discretion_scope a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "30"^^xsd:integer ;
+  a4:exprText "forall d: IndexDeterminationDiscretion, (potential_need_to_exercise(d)) and (discretion_in_relation_to_index(d, TheIndex)) and (exists m: IndexDeterminationMatter, discretion_in_relation_to_matter(d, m))" ;
+  a4:sourceText "constraint index_determination_discretion_scope :\n  forall d: IndexDeterminationDiscretion,\n    potential_need_to_exercise(d)\n    and discretion_in_relation_to_index(d, TheIndex)\n    and exists m: IndexDeterminationMatter,\n      discretion_in_relation_to_matter(d, m)" .
+ex:ASSERT_applicable_example_matters a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "37"^^xsd:integer ;
+  a4:exprText "(if_applicable(DeterminationOfIndexUniverse)) and (if_applicable(SelectionOfIndexComponents)) and (other_relevant_decision_in_relation_to_index(OtherRelevantDecisionInRelationToIndex))" ;
+  a4:sourceText "fact applicable_example_matters :\n  if_applicable(DeterminationOfIndexUniverse)\n  and if_applicable(SelectionOfIndexComponents)\n  and other_relevant_decision_in_relation_to_index(\n    OtherRelevantDecisionInRelationToIndex\n  )" .
+ex:ASSERT_strict_rules_for_discretion_or_expert_judgement a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "44"^^xsd:integer ;
+  a4:exprText "(strict_rules(StrictRulesForDiscretionAndExpertJudgement)) and (rules_regarding_exercise(StrictRulesForDiscretionAndExpertJudgement, ExerciseOfDiscretion)) and (rules_regarding_exercise(StrictRulesForDiscretionAndExpertJudgement, ExerciseOfExpertJudgement))" ;
+  a4:sourceText "fact strict_rules_for_discretion_or_expert_judgement :\n  strict_rules(StrictRulesForDiscretionAndExpertJudgement)\n  and rules_regarding_exercise(\n    StrictRulesForDiscretionAndExpertJudgement,\n    ExerciseOfDiscretion\n  )\n  and rules_regarding_exercise(\n    StrictRulesForDiscretionAndExpertJudgement,\n    ExerciseOfExpertJudgement\n  )" .

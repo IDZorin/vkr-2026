@@ -1,0 +1,64 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_1 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:Security a owl:Class .
+ex:AssetClass a owl:Class ; owl:oneOf ( ex:Equity ) .
+ex:Equity a ex:AssetClass, owl:NamedIndividual .
+ex:IndexStrategy a owl:Class .
+ex:BusinessField a owl:Class ; owl:oneOf ( ex:CleanEnergy ) .
+ex:CleanEnergy a ex:BusinessField, owl:NamedIndividual .
+ex:RegionalAllocation a owl:Class ; owl:oneOf ( ex:DevelopedMarketsEurope ex:UnitedStates ex:Canada ) .
+ex:DevelopedMarketsEurope a ex:RegionalAllocation, owl:NamedIndividual .
+ex:UnitedStates a ex:RegionalAllocation, owl:NamedIndividual .
+ex:Canada a ex:RegionalAllocation, owl:NamedIndividual .
+ex:RebalancingFeeStatus a owl:Class ; owl:oneOf ( ex:NoRebalancingFee ) .
+ex:NoRebalancingFee a ex:RebalancingFeeStatus, owl:NamedIndividual .
+ex:RebalancingFrequency a owl:Class ; owl:oneOf ( ex:SemiAnnual ) .
+ex:SemiAnnual a ex:RebalancingFrequency, owl:NamedIndividual .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:CleanEnergyBusinessOperationsStrategy a ex:IndexStrategy, owl:NamedIndividual .
+ex:asset_class a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:AssetClass .
+ex:rebalancing_fee_status a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:RebalancingFeeStatus .
+ex:rebalancing_frequency a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:RebalancingFrequency .
+ex:index_strategy a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:IndexStrategy .
+ex:regional_allocation a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:RegionalAllocation .
+ex:rebalancing_fee_charged a owl:Class ; rdfs:subClassOf ex:Index .
+ex:strategy_representation_of_security a owl:ObjectProperty ;
+  rdfs:domain ex:IndexStrategy ;
+  rdfs:range ex:Security .
+ex:security_has_business_operations_in a owl:ObjectProperty ;
+  rdfs:domain ex:Security ;
+  rdfs:range ex:BusinessField .
+
+ex:TheIndex ex:asset_class ex:Equity .
+ex:TheIndex ex:index_strategy ex:CleanEnergyBusinessOperationsStrategy .
+ex:TheIndex ex:regional_allocation ex:DevelopedMarketsEurope .
+ex:TheIndex ex:regional_allocation ex:UnitedStates .
+ex:TheIndex ex:regional_allocation ex:Canada .
+ex:TheIndex ex:rebalancing_fee_status ex:NoRebalancingFee .
+ex:TheIndex ex:rebalancing_frequency ex:SemiAnnual .
+ex:ASSERT_clean_energy_strategy_represents_clean_energy_securities a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall s: Security, (strategy_representation_of_security(CleanEnergyBusinessOperationsStrategy, s)) implies (security_has_business_operations_in(s, CleanEnergy))" .
+ex:ASSERT_no_rebalancing_fee_means_rebalancing_fee_not_charged a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, ((rebalancing_fee_status(i)) = (NoRebalancingFee)) implies (not (rebalancing_fee_charged(i)))" .

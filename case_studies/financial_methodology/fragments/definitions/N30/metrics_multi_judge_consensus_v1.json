@@ -1,0 +1,121 @@
+{
+  "entry_id": "N30",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core idea that a Trading Day is a day on which the relevant Exchange is open for trading, with a counterfactual market-disruption clause, exclusions for early cessation and shortened periods, and the Administrator’s responsibility. However, it narrows the source by tying Trading Day to a specific context of Index Components included at the Rebalance Day or following Calculation Day, while the source also says Trading Day is defined with respect to every such Index Component and includes a clarification about securities to be included as new Index Components at close of trading on the Rebalance Day, which is only partially reflected.",
+      "semantic_differences": [
+        "The source defines Trading Day with respect to every Index Component included in the Index at the Rebalance Day and every Index Component included in the Index at the Calculation Day immediately following the Rebalance Day; the IR encodes a context-based definition that requires a TradingDayContext and does not directly state the universal scope over all such components.",
+        "The source’s clarification about capturing Trading Days for securities to be included in the Index as new Index Components with close of trading on the relevant Exchange on the Rebalance Day is only partially represented by the IR’s separate clarification constraint and is not integrated into the main Trading Day definition.",
+        "The source says the Index Administrator is ultimately responsible as to whether a certain day is a Trading Day; the IR formalizes this as responsibility for a TradingDayDetermination tied to a context, which is a narrower and more structured claim than the source’s general statement."
+      ],
+      "stylistic_notes": [
+        "The IR uses many auxiliary sorts and relations (e.g. TradingDayContext, TradingDayDetermination) as a canonical formalization style.",
+        "The source’s prose is compressed and parenthetical; the IR expands it into multiple constraints and helper predicates."
+      ],
+      "confidence": 0.86,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3450,
+        "completion_tokens": 388,
+        "total_tokens": 3838
+      },
+      "latency_s": 5.076075553894043
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core definition of a Trading Day as a day when the relevant exchange is open (or would have been open absent market disruption), excluding early-cessation and scheduled-shortened days, and it also captures the administrator’s ultimate responsibility. However, it weakens the source’s scope condition by treating the two component classes disjunctively rather than conjunctively, and the clarification about new index components at close of trading is modeled as a separate condition rather than being tied into the Trading Day scope itself.",
+      "semantic_differences": [
+        "The source defines Trading Day with respect to an Index Component included at the Rebalance Day and every Index Component included at the immediately following Calculation Day; the IR makes the valid context hold when a component is included at the Rebalance Day or at the following Calculation Day, which is weaker than the conjunctive scope stated in the source.",
+        "The source’s parenthetical clarification says the provision is intended to capture Trading Days for securities to be included as new Index Components with close of trading on the Rebalance Day; the IR represents this as a separate predicate `context_captures_new_index_component_close_of_trading` but does not connect it to `valid_trading_day_context` or `trading_day`, so the clarification is not integrated into the operative definition."
+      ],
+      "stylistic_notes": [
+        "Reifying the definition through `TradingDayContext` is a reasonable formalization choice.",
+        "Using `would_have_been_open_for_trading_without_market_disruption` is a faithful wording-level rendering of the counterfactual clause.",
+        "The responsibility clause is modeled via determinations rather than directly over days; this is acceptable as formal structuring."
+      ],
+      "confidence": 0.92,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3450,
+        "completion_tokens": 396,
+        "total_tokens": 3846
+      },
+      "latency_s": 8.490288019180298
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core structure of Trading Day definition (open for trading, market disruption counterfactual, exclusions for early cessation and shortened periods, Index Administrator responsibility) and correctly encodes the two scopes (components at Rebalance Day and at following Calculation Day). However, there are semantic gaps: (1) the IR does not formally encode that a Trading Day is defined WITH RESPECT TO a specific component-day pair (the source's opening phrase), instead treating it as a property of a context; (2) the IR's treatment of the market disruption counterfactual as a disjunctive alternative to 'open for trading' diverges from the source's parenthetical clarification that it applies when disruption prevented opening; (3) the IR introduces substantial intermediate structure (TradingDayContext, TradingDayDetermination) that, while reasonable for formalization, goes beyond what the source explicitly states about how Trading Day is determined.",
+      "semantic_differences": [
+        "Source defines Trading Day 'with respect to' a component-day pair; IR treats it as a property of an abstract TradingDayContext without explicitly encoding the 'with respect to' relationship as a primary semantic unit.",
+        "Source's market disruption clause ('or a day that would have been such a day if a market disruption had not occurred') is presented as a fallback condition when disruption occurred; IR encodes it as a disjunctive alternative without formally capturing the causal dependency (disruption prevented opening, but it would have been open).",
+        "Source states 'The Index Administrator is ultimately responsible as to whether a certain day is a Trading Day' — a determination about a day in a context; IR introduces TradingDayDetermination as an intermediate entity, which is reasonable but not explicitly sourced."
+      ],
+      "stylistic_notes": [
+        "IR uses TradingDayContext as an abstract container for the component, day, exchange, and inclusion scope; source uses natural language phrasing 'with respect to an Index Component... a day on which...' — both are valid encodings but differ in reification strategy.",
+        "IR separates 'context_satisfies_open_for_trading_condition' and 'context_satisfies_market_disruption_counterfactual' as two independent conditions joined by disjunction; source presents the second as a clarification/exception to the first.",
+        "IR uses 'valid_trading_day_context' as a gating predicate; source does not explicitly define what makes a context valid, though the opening phrase implies scope constraints.",
+        "Naming: 'context_excluded_by_prior_to_close_cessation' is clear but verbose; source uses 'days on which trading may be ceased prior to the scheduled Exchange closing time'.",
+        "IR introduces 'ScheduledShortenedPeriod extends Period' and 'CloseOfTrading extends Event' — reasonable prelude-aligned choices, though source does not explicitly reify these as entities."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4273,
+        "completion_tokens": 728,
+        "total_tokens": 5001
+      },
+      "latency_s": 9.4896981716156
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 63.59062838554382
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures all semantic elements of the source: the scope of applicable Index Components (included at Rebalance Day or the immediately following Calculation Day), the core condition (Exchange open or would be open absent market disruption), the two explicit exclusions (trading ceased prior to close, scheduled shortened period), the parenthetical clarification regarding close of trading, and the Index Administrator's ultimate responsibility. The use of a `TradingDayContext` sort to bundle the component, day, exchange, and rebalance day is a standard and semantically equivalent encoding of the source's multi-argument definition.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR reifies the definition into a `TradingDayContext` object rather than a direct multi-argument predicate; this is a standard a4v3 pattern and does not alter meaning.",
+        "The parenthetical clarification is modeled as a separate constraint (`new_index_components_close_of_trading_clarification`), which is acceptable but could alternatively be integrated as a comment or inline condition."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3659,
+        "completion_tokens": 3113,
+        "total_tokens": 6772
+      },
+      "latency_s": 58.001221895217896
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.863
+  }
+}

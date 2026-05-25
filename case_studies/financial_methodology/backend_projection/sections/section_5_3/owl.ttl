@@ -1,0 +1,169 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_3 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:Method a owl:Class .
+ex:CalculationMethod a owl:Class .
+ex:CalculationMethod rdfs:subClassOf ex:Method .
+ex:MethodApplication a owl:Class .
+ex:MethodPurpose a owl:Class ; owl:oneOf ( ex:Composition ex:Calculation ) .
+ex:Composition a ex:MethodPurpose, owl:NamedIndividual .
+ex:Calculation a ex:MethodPurpose, owl:NamedIndividual .
+ex:TermsAndConditions a owl:Class .
+ex:ModificationOrChange a owl:Class .
+ex:DeemedModificationOrChange a owl:Class .
+ex:DeemedModificationOrChange rdfs:subClassOf ex:ModificationOrChange .
+ex:ChangeReason a owl:Class ; owl:oneOf ( ex:MarketEnvironment ex:SupervisoryReason ex:LegalReason ex:FinancialReason ex:TaxReason ) .
+ex:MarketEnvironment a ex:ChangeReason, owl:NamedIndividual .
+ex:SupervisoryReason a ex:ChangeReason, owl:NamedIndividual .
+ex:LegalReason a ex:ChangeReason, owl:NamedIndividual .
+ex:FinancialReason a ex:ChangeReason, owl:NamedIndividual .
+ex:TaxReason a ex:ChangeReason, owl:NamedIndividual .
+ex:Error a owl:Class .
+ex:Step a owl:Class .
+ex:Information a owl:Class .
+ex:IndexAdministrator a owl:Class .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:TheIndexAdministrator a ex:IndexAdministrator, owl:NamedIndividual .
+ex:ThisDocument a ex:Document, owl:NamedIndividual .
+ex:DescribedMethod a ex:Method, owl:NamedIndividual .
+ex:DescribedMethodApplication a ex:MethodApplication, owl:NamedIndividual .
+ex:IndexTermsAndConditions a ex:TermsAndConditions, owl:NamedIndividual .
+ex:Obvious a ex:VagueTerm, owl:NamedIndividual .
+ex:Demonstrable a ex:VagueTerm, owl:NamedIndividual .
+ex:Necessary a ex:VagueTerm, owl:NamedIndividual .
+ex:Desirable a ex:VagueTerm, owl:NamedIndividual .
+ex:AppropriateSteps a ex:Step, owl:NamedIndividual .
+ex:ModificationOrChangeInformation a ex:Information, owl:NamedIndividual .
+ex:calculation_method_applied a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:CalculationMethod .
+ex:index_administrator_of a owl:ObjectProperty ;
+  rdfs:domain ex:IndexAdministrator ;
+  rdfs:range ex:Index .
+ex:method_described_in a owl:ObjectProperty ;
+  rdfs:domain ex:Method ;
+  rdfs:range ex:Document .
+ex:described_above a owl:Class ; rdfs:subClassOf ex:Method .
+ex:method_for_index a owl:ObjectProperty ;
+  rdfs:domain ex:Method ;
+  rdfs:range ex:Index .
+ex:method_for_purpose a owl:ObjectProperty ;
+  rdfs:domain ex:Method ;
+  rdfs:range ex:MethodPurpose .
+ex:application_by a owl:ObjectProperty ;
+  rdfs:domain ex:MethodApplication ;
+  rdfs:range ex:IndexAdministrator .
+ex:application_of_method a owl:ObjectProperty ;
+  rdfs:domain ex:MethodApplication ;
+  rdfs:range ex:Method .
+ex:final a owl:Class ; rdfs:subClassOf ex:MethodApplication .
+ex:binding a owl:Class ; rdfs:subClassOf ex:MethodApplication .
+ex:terms_and_conditions_of a owl:ObjectProperty ;
+  rdfs:domain ex:TermsAndConditions ;
+  rdfs:range ex:Index .
+ex:potentially_requires_change_to_method a owl:ObjectProperty ;
+  rdfs:domain ex:ChangeReason ;
+  rdfs:range ex:Method .
+ex:modification_or_change_of_index a owl:ObjectProperty ;
+  rdfs:domain ex:ModificationOrChange ;
+  rdfs:range ex:Index .
+ex:change_to_terms_and_conditions a owl:ObjectProperty ;
+  rdfs:domain ex:ModificationOrChange ;
+  rdfs:range ex:TermsAndConditions .
+ex:change_to_calculation_method a owl:ObjectProperty ;
+  rdfs:domain ex:ModificationOrChange ;
+  rdfs:range ex:CalculationMethod .
+ex:deemed_by a owl:Class, a4:NaryRelationClass .
+ex:deemed_by_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:deemed_by ;
+  rdfs:range ex:ModificationOrChange .
+ex:deemed_by_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:deemed_by ;
+  rdfs:range ex:IndexAdministrator .
+ex:deemed_by_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:deemed_by ;
+  rdfs:range ex:VagueTerm .
+ex:prevents_error a owl:ObjectProperty ;
+  rdfs:domain ex:ModificationOrChange ;
+  rdfs:range ex:Error .
+ex:error_described_by a owl:ObjectProperty ;
+  rdfs:domain ex:Error ;
+  rdfs:range ex:VagueTerm .
+ex:incorrect_terms_and_conditions a owl:Class ; rdfs:subClassOf ex:TermsAndConditions .
+ex:remedies_terms_and_conditions a owl:ObjectProperty ;
+  rdfs:domain ex:ModificationOrChange ;
+  rdfs:range ex:TermsAndConditions .
+ex:corrects_terms_and_conditions a owl:ObjectProperty ;
+  rdfs:domain ex:ModificationOrChange ;
+  rdfs:range ex:TermsAndConditions .
+ex:supplements_terms_and_conditions a owl:ObjectProperty ;
+  rdfs:domain ex:ModificationOrChange ;
+  rdfs:range ex:TermsAndConditions .
+ex:provide_information_on_modification_or_change a owl:Class, a4:NaryRelationClass .
+ex:provide_information_on_modification_or_change_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:provide_information_on_modification_or_change ;
+  rdfs:range ex:IndexAdministrator .
+ex:provide_information_on_modification_or_change_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:provide_information_on_modification_or_change ;
+  rdfs:range ex:ModificationOrChange .
+ex:provide_information_on_modification_or_change_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:provide_information_on_modification_or_change ;
+  rdfs:range ex:Information .
+ex:information_withheld_on_modification_or_change a owl:Class, a4:NaryRelationClass .
+ex:information_withheld_on_modification_or_change_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:information_withheld_on_modification_or_change ;
+  rdfs:range ex:IndexAdministrator .
+ex:information_withheld_on_modification_or_change_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:information_withheld_on_modification_or_change ;
+  rdfs:range ex:ModificationOrChange .
+ex:information_withheld_on_modification_or_change_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:information_withheld_on_modification_or_change ;
+  rdfs:range ex:Information .
+ex:appropriate a owl:Class ; rdfs:subClassOf ex:Step .
+ex:step_ensures_consistency_with a owl:Class, a4:NaryRelationClass .
+ex:step_ensures_consistency_with_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:step_ensures_consistency_with ;
+  rdfs:range ex:Step .
+ex:step_ensures_consistency_with_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:step_ensures_consistency_with ;
+  rdfs:range ex:CalculationMethod .
+ex:step_ensures_consistency_with_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:step_ensures_consistency_with ;
+  rdfs:range ex:Method .
+
+ex:TheIndexAdministrator ex:index_administrator_of ex:TheIndex .
+ex:DescribedMethod ex:method_described_in ex:ThisDocument .
+ex:DescribedMethod a ex:described_above .
+ex:DescribedMethod ex:method_for_index ex:TheIndex .
+ex:DescribedMethod ex:method_for_purpose ex:Composition .
+ex:DescribedMethod ex:method_for_purpose ex:Calculation .
+ex:DescribedMethodApplication ex:application_by ex:TheIndexAdministrator .
+ex:DescribedMethodApplication ex:application_of_method ex:DescribedMethod .
+ex:DescribedMethodApplication a ex:final .
+ex:DescribedMethodApplication a ex:binding .
+ex:IndexTermsAndConditions ex:terms_and_conditions_of ex:TheIndex .
+ex:MarketEnvironment ex:potentially_requires_change_to_method ex:DescribedMethod .
+ex:SupervisoryReason ex:potentially_requires_change_to_method ex:DescribedMethod .
+ex:LegalReason ex:potentially_requires_change_to_method ex:DescribedMethod .
+ex:FinancialReason ex:potentially_requires_change_to_method ex:DescribedMethod .
+ex:TaxReason ex:potentially_requires_change_to_method ex:DescribedMethod .
+ex:ASSERT_deemed_modification_or_change_scope a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall ch: DeemedModificationOrChange, (modification_or_change_of_index(ch, TheIndex)) and ((change_to_terms_and_conditions(ch, IndexTermsAndConditions)) or (change_to_calculation_method(ch, calculation_method_applied(TheIndex)))) and (deemed_by(ch, TheIndexAdministrator, Necessary)) and (deemed_by(ch, TheIndexAdministrator, Desirable)) and ((exists e: Error, ((error_described_by(e, Obvious)) or (error_described_by(e, Demonstrable))) and (prevents_error(ch, e))) or ((incorrect_terms_and_conditions(IndexTermsAndConditions)) and ((remedies_terms_and_conditions(ch, IndexTermsAndConditions)) or (corrects_terms_and_conditions(ch, IndexTermsAndConditions)) or (supplements_terms_and_conditions(ch, IndexTermsAndConditions)))))" .
+ex:AppropriateSteps a ex:appropriate .
+ex:ASSERT_appropriate_steps_consistency_target a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(appropriate(AppropriateSteps)) and (step_ensures_consistency_with(AppropriateSteps, calculation_method_applied(TheIndex), DescribedMethod))" .
+ex:ASSERT_information_withheld_means_information_not_provided a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall a: IndexAdministrator, forall ch: ModificationOrChange, (information_withheld_on_modification_or_change(a, ch, ModificationOrChangeInformation)) iff (not (provide_information_on_modification_or_change(a, ch, ModificationOrChangeInformation)))" .

@@ -1,0 +1,284 @@
+section: "N30 Definition: Trading Day"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  trading_day_context_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Trading Day\" is with respect to an Index Component included in the Index at the Rebalance Day and every Index Component included in the Index at the Calculation Day immediately following the Rebalance Day ..."
+    back_translation: >
+      A Trading Day context is valid exactly when it has a Rebalance Day, a
+      candidate day, an Index Component, and the relevant Exchange for that
+      Index Component, and the context is covered either by the Rebalance
+      Day component scope or by the immediately following Calculation Day
+      component scope.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Reified context keeps the Rebalance Day, candidate day, Index
+      Component, Index, and relevant Exchange roles explicit without a
+      high-arity `trading_day` relation.
+
+  rebalance_day_component_scope:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "with respect to an Index Component included in the Index at the Rebalance Day"
+    back_translation: >
+      A Trading Day context is in the Rebalance Day component scope if and
+      only if its Index Component is included in the Index on the context
+      Rebalance Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This separates the first component group from the general context
+      definition so the source scope is auditable.
+
+  following_calculation_day_component_scope:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "and every Index Component included in the Index at the Calculation Day immediately following the Rebalance Day"
+    back_translation: >
+      A Trading Day context is in the following Calculation Day component
+      scope if and only if there is a Calculation Day immediately following
+      the context Rebalance Day and the context Index Component is included
+      in the Index on that Calculation Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This separates the second component group from the general context
+      definition. The source's "and every" is represented as coverage of
+      the union of the Rebalance Day component scope and the following
+      Calculation Day component scope.
+
+  open_for_trading_condition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "a day on which the relevant Exchange is open for trading"
+    back_translation: >
+      A Trading Day context satisfies the open-for-trading condition if and
+      only if the relevant Exchange is open for trading on the context day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This is the positive ordinary open-for-trading branch of the Trading
+      Day definition.
+
+  market_disruption_counterfactual_condition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "or a day that would have been such a day if a market disruption had not occurred"
+    back_translation: >
+      A Trading Day context satisfies the market-disruption counterfactual
+      condition if and only if a market disruption occurred for the relevant
+      Exchange on the context day and the relevant Exchange would have been
+      open for trading on that day without that market disruption.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The counterfactual polarity is positive: disruption alone is not a
+      Trading Day condition. The context qualifies only if it would have
+      been open for trading absent the disruption.
+
+  early_cessation_exclusion:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "excluding days on which trading may be ceased prior to the scheduled Exchange closing time"
+    back_translation: >
+      A Trading Day context is excluded by prior-to-close cessation if and
+      only if trading may be ceased for the relevant Exchange on the context
+      day prior to the scheduled Exchange closing time.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This is the first explicit exclusion. The `prior_to` relation is a
+      static temporal relation between a cessation possibility and the
+      scheduled closing-time value, not a trace-temporal `TemporalDecl`.
+
+  scheduled_shortened_period_exclusion:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "and days on which the Exchange is open for a scheduled shortened period"
+    back_translation: >
+      A Trading Day context is excluded by a scheduled shortened period if
+      and only if the relevant Exchange is open for a scheduled shortened
+      period on the context day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This is the second explicit exclusion. It is separated from the
+      early-cessation exclusion because the source lists two different
+      excluded day types.
+
+  trading_day_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Trading Day\" is ... a day on which the relevant Exchange is open for trading ... excluding ..."
+    back_translation: >
+      In every valid Trading Day context, the context is a Trading Day if
+      and only if it satisfies either the open-for-trading condition or the
+      market-disruption counterfactual condition, and it is not excluded by
+      prior-to-close cessation and not excluded by a scheduled shortened
+      period.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This final assembly constraint combines the separately auditable
+      source clauses into the definition of Trading Day.
+
+  new_index_components_close_of_trading_clarification:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "(for clarification: this provision is intended to capture the Trading Days for the securities to be included in the Index as new Index Components with close of trading on the relevant Exchange on the Rebalance Day)"
+    back_translation: >
+      A context is captured by the clarification for new Index Components if
+      and only if the context component is a security to be included in the
+      Index as a new Index Component, and close of trading occurs on the
+      relevant Exchange on the Rebalance Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This captures the parenthetical clarification as a traceable
+      explanatory bridge. It does not silently change the main Trading Day
+      definition.
+
+  index_administrator_responsibility_for_trading_day_determination:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The Index Administrator is ultimately responsible as to whether a certain day is a Trading Day."
+    back_translation: >
+      For every determination that decides whether a valid Trading Day
+      context is a Trading Day, the Index Administrator is ultimately
+      responsible for that Trading Day determination.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The responsibility sentence is represented as an explicit
+      responsibility relation over a Trading Day determination rather than
+      as a generic obligation over every organization.
+
+uncovered_source:
+  - quote: "(none -- all source elements are represented by the claims above)"
+
+vocabulary_notes:
+  TradingDayContext:
+    note: >
+      Reified context carrying the roles needed by the source phrase
+      "Trading Day ... with respect to an Index Component ... at the
+      Rebalance Day".
+    source_phrase: "Trading Day with respect to an Index Component"
+  trading_day:
+    note: >
+      Unary predicate over a Trading Day context. The context carries the
+      day, component, Rebalance Day, and relevant Exchange roles.
+    source_phrase: "Trading Day"
+  IndexComponent:
+    note: >
+      Sort for the source phrase "Index Component"; modeled as a subtype of
+      Security because the clarification speaks about securities becoming
+      new Index Components.
+    source_phrase: "Index Component"
+  TheIndex:
+    note: >
+      Local entity for the source phrase "the Index"; cross-section identity
+      belongs to bridge/merge work.
+    source_phrase: "the Index"
+  RebalanceDay:
+    note: >
+      Sort for the source phrase "Rebalance Day".
+    source_phrase: "Rebalance Day"
+  CalculationDay:
+    note: >
+      Sort for the source phrase "Calculation Day".
+    source_phrase: "Calculation Day"
+  calculation_day_immediately_following_rebalance_day:
+    note: >
+      Structural relation for the source phrase "the Calculation Day
+      immediately following the Rebalance Day".
+    source_phrase: "Calculation Day immediately following the Rebalance Day"
+  relevant_exchange:
+    note: >
+      Function for the source phrase "relevant Exchange".
+    source_phrase: "relevant Exchange"
+  exchange_open_for_trading:
+    note: >
+      Structural relation for the source phrase "Exchange is open for
+      trading".
+    source_phrase: "open for trading"
+  market_disruption_occurred:
+    note: >
+      Structural relation for the source phrase "market disruption had
+      occurred".
+    source_phrase: "market disruption"
+  would_have_been_open_for_trading_without_market_disruption:
+    note: >
+      Counterfactual relation for "would have been such a day if a market
+      disruption had not occurred".
+    source_phrase: "would have been such a day if a market disruption had not occurred"
+  TradingCessationPossibility:
+    note: >
+      Reified possibility for the exclusion phrase "days on which trading
+      may be ceased prior to the scheduled Exchange closing time".
+    source_phrase: "trading may be ceased prior to the scheduled Exchange closing time"
+  prior_to:
+    note: >
+      Static temporal-order relation for the source phrase "prior to the
+      scheduled Exchange closing time". This is a relation between a
+      cessation possibility and a scheduled closing-time value, not a
+      trace-temporal `TemporalDecl`.
+    source_phrase: "prior to the scheduled Exchange closing time"
+  ScheduledShortenedPeriod:
+    note: >
+      Sort for the exclusion phrase "scheduled shortened period".
+    source_phrase: "scheduled shortened period"
+  trading_day_definition_exclusions:
+    note: >
+      Provenance anchor for the source phrase "excluding days". The
+      exclusion is formalized in `trading_day_definition` by explicit
+      negative conditions over cessation possibilities and scheduled
+      shortened periods.
+    source_phrase: "excluding days"
+  CloseOfTrading:
+    note: >
+      Event sort for the clarification phrase "close of trading on the
+      relevant Exchange on the Rebalance Day".
+    source_phrase: "close of trading"
+  context_captures_new_index_component_close_of_trading:
+    note: >
+      Relation for the parenthetical clarification that "this provision is
+      intended to capture" Trading Days for securities to be included as
+      new Index Components.
+    source_phrase: "this provision is intended to capture"
+  TradingDayDetermination:
+    note: >
+      Reified determination for the final sentence about responsibility for
+      whether a certain day is a Trading Day.
+    source_phrase: "whether a certain day is a Trading Day"
+  TheIndexAdministrator:
+    note: >
+      Local entity for the source phrase "The Index Administrator".
+    source_phrase: "The Index Administrator"

@@ -1,0 +1,73 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_2_3 a owl:Ontology .
+
+ex:SelectionDay a owl:Class .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:IndexComponent a owl:Class .
+ex:Region a owl:Class .
+ex:FloatMarketCapizatlization a owl:Class .
+ex:WeightRedistributionProcess a owl:Class .
+
+ex:region a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:IndexComponent ;
+  rdfs:range ex:Region .
+ex:float_market_capizatlization a owl:Class, a4:NaryRelationClass .
+ex:float_market_capizatlization_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:float_market_capizatlization ;
+  rdfs:range ex:SelectionDay .
+ex:float_market_capizatlization_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:float_market_capizatlization ;
+  rdfs:range ex:IndexComponent .
+ex:float_market_capizatlization_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:float_market_capizatlization ;
+  rdfs:range ex:FloatMarketCapizatlization .
+ex:weight a owl:Class, a4:NaryRelationClass .
+ex:weight_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:weight ;
+  rdfs:range ex:SelectionDay .
+ex:weight_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:weight ;
+  rdfs:range ex:IndexComponent .
+ex:weight_result a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:weight ;
+  rdfs:range xsd:decimal .
+ex:weight_redistribution_process a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:SelectionDay ;
+  rdfs:range ex:WeightRedistributionProcess .
+ex:weight_has_float_market_capizatlization_basis a owl:ObjectProperty ;
+  rdfs:domain ex:Percent ;
+  rdfs:range ex:FloatMarketCapizatlization .
+ex:iterative_process a owl:Class ; rdfs:subClassOf ex:WeightRedistributionProcess .
+ex:redistributes_weight_proportionally a owl:Class, a4:NaryRelationClass .
+ex:redistributes_weight_proportionally_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:redistributes_weight_proportionally ;
+  rdfs:range ex:WeightRedistributionProcess .
+ex:redistributes_weight_proportionally_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:redistributes_weight_proportionally ;
+  rdfs:range ex:IndexComponent .
+ex:redistributes_weight_proportionally_arg_2 a owl:DatatypeProperty ;
+  rdfs:domain ex:redistributes_weight_proportionally ;
+  rdfs:range xsd:decimal .
+
+ex:ASSERT_weight_based_on_float_market_capizatlization a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall d: SelectionDay, forall c: IndexComponent, weight_has_float_market_capizatlization_basis(weight(d, c), float_market_capizatlization(d, c))" .
+ex:ASSERT_region_represents_exactly_50_percent a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall r: Region, (sum(<set_comp>, weight(d, c))) = (50%)" .
+ex:ASSERT_single_index_component_weight_capped a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: SelectionDay, forall c: IndexComponent, (weight(d, c)) <= (5%)" .
+ex:ASSERT_weight_redistribution_process_is_iterative a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall d: SelectionDay, iterative_process(weight_redistribution_process(d))" .
+ex:ASSERT_weights_redistributed_proportionally a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall d: SelectionDay, forall c: IndexComponent, redistributes_weight_proportionally(weight_redistribution_process(d), c, weight(d, c))" .

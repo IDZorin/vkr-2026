@@ -1,0 +1,4007 @@
+{
+  "entry_id": "section_4_2",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 52,
+    "content_token_count": 37,
+    "covered_content_token_count": 32,
+    "uncovered_content_token_count": 5,
+    "ignored_stopword_count": 15,
+    "content_coverage_rate": 0.865
+  },
+  "tokens": [
+    {
+      "token": "in",
+      "surface_forms": [
+        "In",
+        "in"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 1
+        },
+        {
+          "line": 5,
+          "column": 74
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_in_accordance_with_policy",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "termination_in_accordance_with_policy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_reason_termination_in_accordance_with_solactive_policies",
+          "family": "AssertDecl.constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "termination_in_accordance_with_policy"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "termination_in_accordance_with_policy",
+          "matched_text": "in accordance with SOLACTIVE's policies"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 6,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 4
+        },
+        {
+          "line": 3,
+          "column": 14
+        },
+        {
+          "line": 3,
+          "column": 27
+        },
+        {
+          "line": 3,
+          "column": 101
+        },
+        {
+          "line": 3,
+          "column": 204
+        },
+        {
+          "line": 3,
+          "column": 328
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "announcement_under_section",
+          "matched_text": "under the section"
+        }
+      ]
+    },
+    {
+      "token": "event",
+      "surface_forms": [
+        "event"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 8
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "IndexCalculation",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "Event"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "IndexTermination",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "Event"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "TerminationAnnouncement",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "Event"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "after",
+          "family": "SymbolDecl.rel",
+          "line": 33,
+          "matched_text": "Event"
+        }
+      ]
+    },
+    {
+      "token": "level",
+      "surface_forms": [
+        "level"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 18
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexLevel",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculated_level",
+          "family": "SymbolDecl.fun",
+          "line": 21,
+          "matched_text": "calculated_level"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "calculated_level",
+          "family": "SymbolDecl.fun",
+          "line": 21,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[1].left",
+          "matched_text": "calculated_level"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexLevel",
+          "matched_text": "level"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 24
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "section_of_website",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "section_of_website"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "website_of",
+          "family": "SymbolDecl.rel",
+          "line": 36,
+          "matched_text": "website_of"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "policy_of",
+          "family": "SymbolDecl.rel",
+          "line": 37,
+          "matched_text": "policy_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "section_of_website"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "website_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "solactive_policies",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "policy_of"
+        }
+      ]
+    },
+    {
+      "token": "adjust",
+      "surface_forms": [
+        "adjusted"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 31
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AdjustedReturnIndex",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "AdjustedReturnIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculated_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "AdjustedReturnIndex"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "AdjustedReturnIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AdjustedReturnIndex",
+          "matched_text": "adjusted return INDEX"
+        }
+      ]
+    },
+    {
+      "token": "return",
+      "surface_forms": [
+        "return"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 40
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AdjustedReturnIndex",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "AdjustedReturnIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculated_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "AdjustedReturnIndex"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "AdjustedReturnIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AdjustedReturnIndex",
+          "matched_text": "adjusted return INDEX"
+        }
+      ]
+    },
+    {
+      "token": "d",
+      "surface_forms": [
+        "INDEX"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 47
+        },
+        {
+          "line": 3,
+          "column": 116
+        },
+        {
+          "line": 3,
+          "column": 332
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AdjustedReturnIndex",
+          "matched_text": "adjusted return INDEX"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveOrganization",
+          "matched_text": "SOLACTIVE"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Solactive",
+          "matched_text": "SOLACTIVE"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactivePolicies",
+          "matched_text": "SOLACTIVE's policies"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "termination_in_accordance_with_policy",
+          "matched_text": "in accordance with SOLACTIVE's policies"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0].args[1]",
+          "matched_text": "i"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[0].args[1]",
+          "matched_text": "i"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0].args[1]",
+          "matched_text": "i"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Index",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AdjustedReturnIndex",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "AdjustedReturnIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "AdjustedReturnIndex",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexCalculation",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "IndexCalculation"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexTermination",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexLevel",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculated_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "calculated_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculated_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "IndexCalculation"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculated_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "AdjustedReturnIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculated_level",
+          "family": "SymbolDecl.fun",
+          "line": 21,
+          "matched_text": "IndexCalculation"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "calculated_level",
+          "family": "SymbolDecl.fun",
+          "line": 21,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "terminates_index",
+          "family": "SymbolDecl.rel",
+          "line": 23,
+          "matched_text": "terminates_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "terminates_index",
+          "family": "SymbolDecl.rel",
+          "line": 23,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "terminates_index",
+          "family": "SymbolDecl.rel",
+          "line": 23,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "termination_calculation",
+          "family": "SymbolDecl.rel",
+          "line": 24,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "termination_calculation",
+          "family": "SymbolDecl.rel",
+          "line": 24,
+          "matched_text": "IndexCalculation"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "termination_reason_qualified_by",
+          "family": "SymbolDecl.rel",
+          "line": 25,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "termination_in_accordance_with_policy",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "announces_termination",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "terminate target: index"
+        },
+        {
+          "source": "declaration",
+          "role": "param_name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "index"
+        },
+        {
+          "source": "declaration",
+          "role": "param_type",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "Index"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexCalculation"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "AdjustedReturnIndex"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0]",
+          "matched_text": "calculated_index"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.vars[0].sort",
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[0]",
+          "matched_text": "terminates_index"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "Index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0]",
+          "matched_text": "terminates_index"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "target",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "index"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 53
+        },
+        {
+          "line": 3,
+          "column": 230
+        },
+        {
+          "line": 3,
+          "column": 338
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "calculat",
+      "surface_forms": [
+        "calculated"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 56
+        },
+        {
+          "line": 3,
+          "column": 341
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculated_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "calculated_index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculated_level",
+          "family": "SymbolDecl.fun",
+          "line": 21,
+          "matched_text": "calculated_level"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0]",
+          "matched_text": "calculated_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[1].left",
+          "matched_text": "calculated_level"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexCalculation",
+          "matched_text": "calculated"
+        }
+      ]
+    },
+    {
+      "token": "as",
+      "surface_forms": [
+        "as"
+      ],
+      "count": 4,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 67
+        },
+        {
+          "line": 3,
+          "column": 291
+        },
+        {
+          "line": 3,
+          "column": 299
+        },
+        {
+          "line": 3,
+          "column": 352
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AsSoonAsReasonablyPossible",
+          "family": "SymbolDecl.entity",
+          "line": 15,
+          "matched_text": "AsSoonAsReasonablyPossible"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[7].args[1]",
+          "matched_text": "AsSoonAsReasonablyPossible"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AsSoonAsReasonablyPossible",
+          "matched_text": "as soon as reasonably possible"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "announcement_timing_described_by",
+          "matched_text": "as soon as reasonably possible"
+        }
+      ]
+    },
+    {
+      "token": "zero",
+      "surface_forms": [
+        "zero"
+      ],
+      "count": 4,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 70
+        },
+        {
+          "line": 3,
+          "column": 84
+        },
+        {
+          "line": 3,
+          "column": 355
+        },
+        {
+          "line": 3,
+          "column": 369
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_and_announcement_at_zero_or_below",
+          "family": "AssertDecl.constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        }
+      ]
+    },
+    {
+      "token": "or",
+      "surface_forms": [
+        "or"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 75
+        },
+        {
+          "line": 3,
+          "column": 360
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_and_announcement_at_zero_or_below",
+          "family": "AssertDecl.constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        }
+      ]
+    },
+    {
+      "token": "below",
+      "surface_forms": [
+        "below"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 78
+        },
+        {
+          "line": 3,
+          "column": 363
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_and_announcement_at_zero_or_below",
+          "family": "AssertDecl.constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        }
+      ]
+    },
+    {
+      "token": "negative",
+      "surface_forms": [
+        "negative"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 90
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "respective",
+      "surface_forms": [
+        "respective"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 105
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "will",
+      "surface_forms": [
+        "will"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 122
+        },
+        {
+          "line": 3,
+          "column": 152
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "legal_future_or_procedural_future"
+        }
+      ]
+    },
+    {
+      "token": "be",
+      "surface_forms": [
+        "be"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 127
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "terminat",
+      "surface_forms": [
+        "terminated"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 130
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "terminates_index",
+          "family": "SymbolDecl.rel",
+          "line": 23,
+          "matched_text": "terminates_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[0]",
+          "matched_text": "terminates_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0]",
+          "matched_text": "terminates_index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexTermination",
+          "matched_text": "terminated"
+        }
+      ]
+    },
+    {
+      "token": "a",
+      "surface_forms": [
+        "SOLACTIVE"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 142
+        },
+        {
+          "line": 5,
+          "column": 20
+        },
+        {
+          "line": 5,
+          "column": 93
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[2].args[0]",
+          "matched_text": "a"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[3].args[0]",
+          "matched_text": "a"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[4].args[0]",
+          "matched_text": "a"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5].args[0]",
+          "matched_text": "a"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[6].args[0]",
+          "matched_text": "a"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[7].args[0]",
+          "matched_text": "a"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveOrganization",
+          "matched_text": "SOLACTIVE"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Solactive",
+          "matched_text": "SOLACTIVE"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactivePolicies",
+          "matched_text": "SOLACTIVE's policies"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "termination_in_accordance_with_policy",
+          "matched_text": "in accordance with SOLACTIVE's policies"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0].args[0]",
+          "matched_text": "c"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[1].left.args[0]",
+          "matched_text": "c"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[1].args[1]",
+          "matched_text": "c"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[6].args[1]",
+          "matched_text": "c"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AdjustedReturnIndex",
+          "matched_text": "adjusted return INDEX"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0].args[1]",
+          "matched_text": "i"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[0].args[1]",
+          "matched_text": "i"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0].args[1]",
+          "matched_text": "i"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveOrganization",
+          "family": "TypeDecl.subtype",
+          "line": 7,
+          "matched_text": "SolactiveOrganization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Solactive",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "Solactive",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "SolactiveOrganization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveWebsite",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactivePolicies",
+          "family": "SymbolDecl.entity",
+          "line": 13,
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_policies",
+          "family": "AssertDecl.fact",
+          "line": 44,
+          "matched_text": "solactive_policies"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "declaration",
+          "role": "agent_sort",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "SolactiveOrganization"
+        },
+        {
+          "source": "declaration",
+          "role": "scope",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "declaration",
+          "role": "param_type",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "SolactiveOrganization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_reason_termination_in_accordance_with_solactive_policies",
+          "family": "AssertDecl.constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "solactive_policies",
+          "assertion_kind": "fact",
+          "line": 44,
+          "matched_text": "solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_policies",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_policies",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[3].args[1]",
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[4].args[1]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "scope",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "agent",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "SolactiveOrganization,"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "matched_text": "https://www.solactive.com/news/announcements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[0].args[0]",
+          "matched_text": "t"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[1].args[0]",
+          "matched_text": "t"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[2].args[1]",
+          "matched_text": "t"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0].args[0]",
+          "matched_text": "t"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[1].args[0]",
+          "matched_text": "t"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0]",
+          "matched_text": "t"
+        }
+      ]
+    },
+    {
+      "token": "announce",
+      "surface_forms": [
+        "announce"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 157
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "announces_termination",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "announces_termination"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[2]",
+          "matched_text": "announces_termination"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TerminationAnnouncement",
+          "matched_text": "announce"
+        }
+      ]
+    },
+    {
+      "token": "such",
+      "surface_forms": [
+        "such"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 166
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "terminate",
+      "surface_forms": [
+        "termination",
+        "terminate"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 171
+        },
+        {
+          "line": 5,
+          "column": 34
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexTermination",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TerminationAnnouncement",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "terminates_index",
+          "family": "SymbolDecl.rel",
+          "line": 23,
+          "matched_text": "terminates_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "terminates_index",
+          "family": "SymbolDecl.rel",
+          "line": 23,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_calculation",
+          "family": "SymbolDecl.rel",
+          "line": 24,
+          "matched_text": "termination_calculation"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "termination_calculation",
+          "family": "SymbolDecl.rel",
+          "line": 24,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_reason_qualified_by",
+          "family": "SymbolDecl.rel",
+          "line": 25,
+          "matched_text": "termination_reason_qualified_by"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "termination_reason_qualified_by",
+          "family": "SymbolDecl.rel",
+          "line": 25,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_in_accordance_with_policy",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "termination_in_accordance_with_policy"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "termination_in_accordance_with_policy",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "announces_termination",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "announces_termination"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "announces_termination",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "announces_termination",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "announcement_by",
+          "family": "SymbolDecl.rel",
+          "line": 29,
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "announced_on",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "announcement_under_section",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "announcement_timing_described_by",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_and_announcement_at_zero_or_below",
+          "family": "AssertDecl.constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "terminate target: index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_reason_termination_in_accordance_with_solactive_policies",
+          "family": "AssertDecl.constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.vars[0].sort",
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.vars[0].sort",
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[0]",
+          "matched_text": "terminates_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[1]",
+          "matched_text": "termination_calculation"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[2]",
+          "matched_text": "announces_termination"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0]",
+          "matched_text": "terminates_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[1]",
+          "matched_text": "termination_reason_qualified_by"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "termination_in_accordance_with_policy"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "action",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "terminate"
+        }
+      ]
+    },
+    {
+      "token": "on",
+      "surface_forms": [
+        "on"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 183
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "announced_on",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "announced_on"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[4]",
+          "matched_text": "announced_on"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "announced_on",
+          "matched_text": "on its website"
+        }
+      ]
+    },
+    {
+      "token": "its",
+      "surface_forms": [
+        "its"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 186
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveWebsite",
+          "matched_text": "its website"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "announced_on",
+          "matched_text": "on its website"
+        }
+      ]
+    },
+    {
+      "token": "website",
+      "surface_forms": [
+        "website"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 190
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveWebsite",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "section_of_website",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "section_of_website"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "website_of",
+          "family": "SymbolDecl.rel",
+          "line": 36,
+          "matched_text": "website_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "section_of_website"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "website_of"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[4].args[1]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveWebsite",
+          "matched_text": "its website"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "announced_on",
+          "matched_text": "on its website"
+        }
+      ]
+    },
+    {
+      "token": "under",
+      "surface_forms": [
+        "under"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 198
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "announcement_under_section",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "announcement_under_section"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5]",
+          "matched_text": "announcement_under_section"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "announcement_under_section",
+          "matched_text": "under the section"
+        }
+      ]
+    },
+    {
+      "token": "section",
+      "surface_forms": [
+        "section"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 208
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "NewsSection",
+          "family": "SymbolDecl.entity",
+          "line": 12,
+          "matched_text": "NewsSection"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "announcement_under_section",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "announcement_under_section"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "section_of_website",
+          "family": "SymbolDecl.rel",
+          "line": 35,
+          "matched_text": "section_of_website"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "news_section_location",
+          "family": "AssertDecl.fact",
+          "line": 39,
+          "matched_text": "news_section_location"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "line": 39,
+          "matched_text": "news_section_location"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "NewsSection"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "section_of_website"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "NewsSection"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5]",
+          "matched_text": "announcement_under_section"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5].args[1]",
+          "matched_text": "NewsSection"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "NewsSection",
+          "matched_text": "section \"News\""
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "announcement_under_section",
+          "matched_text": "under the section"
+        }
+      ]
+    },
+    {
+      "token": "new",
+      "surface_forms": [
+        "News",
+        "news"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 217
+        },
+        {
+          "line": 3,
+          "column": 272
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "NewsSection",
+          "family": "SymbolDecl.entity",
+          "line": 12,
+          "matched_text": "NewsSection"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "news_section_location",
+          "family": "AssertDecl.fact",
+          "line": 39,
+          "matched_text": "news_section_location"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "line": 39,
+          "matched_text": "news_section_location"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "NewsSection"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "NewsSection"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5].args[1]",
+          "matched_text": "NewsSection"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "NewsSection",
+          "matched_text": "section \"News\""
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "matched_text": "https://www.solactive.com/news/announcements"
+        }
+      ]
+    },
+    {
+      "token": "which",
+      "surface_forms": [
+        "which"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 224
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "available",
+      "surface_forms": [
+        "available"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 233
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "at",
+      "surface_forms": [
+        "at"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 243
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_and_announcement_at_zero_or_below",
+          "family": "AssertDecl.constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        }
+      ]
+    },
+    {
+      "token": "http",
+      "surface_forms": [
+        "https"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 246
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "matched_text": "https://www.solactive.com/news/announcements"
+        }
+      ]
+    },
+    {
+      "token": "www",
+      "surface_forms": [
+        "www"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 254
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "matched_text": "https://www.solactive.com/news/announcements"
+        }
+      ]
+    },
+    {
+      "token": "solactive",
+      "surface_forms": [
+        "solactive"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 258
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveOrganization",
+          "family": "TypeDecl.subtype",
+          "line": 7,
+          "matched_text": "SolactiveOrganization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Solactive",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "Solactive",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "SolactiveOrganization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveWebsite",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactivePolicies",
+          "family": "SymbolDecl.entity",
+          "line": 13,
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_policies",
+          "family": "AssertDecl.fact",
+          "line": 44,
+          "matched_text": "solactive_policies"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "declaration",
+          "role": "agent_sort",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "SolactiveOrganization"
+        },
+        {
+          "source": "declaration",
+          "role": "scope",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "declaration",
+          "role": "param_type",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "SolactiveOrganization"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_reason_termination_in_accordance_with_solactive_policies",
+          "family": "AssertDecl.constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "solactive_policies",
+          "assertion_kind": "fact",
+          "line": 44,
+          "matched_text": "solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_policies",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_policies",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[3].args[1]",
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[4].args[1]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "scope",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "agent",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "SolactiveOrganization,"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveOrganization",
+          "matched_text": "SOLACTIVE"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Solactive",
+          "matched_text": "SOLACTIVE"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "matched_text": "https://www.solactive.com/news/announcements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactivePolicies",
+          "matched_text": "SOLACTIVE's policies"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "termination_in_accordance_with_policy",
+          "matched_text": "in accordance with SOLACTIVE's policies"
+        }
+      ]
+    },
+    {
+      "token": "com",
+      "surface_forms": [
+        "com"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 268
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "matched_text": "https://www.solactive.com/news/announcements"
+        }
+      ]
+    },
+    {
+      "token": "announcement",
+      "surface_forms": [
+        "announcements"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 277
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TerminationAnnouncement",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "announces_termination",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "announcement_by",
+          "family": "SymbolDecl.rel",
+          "line": 29,
+          "matched_text": "announcement_by"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "announcement_by",
+          "family": "SymbolDecl.rel",
+          "line": 29,
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "announced_on",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "announcement_under_section",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "announcement_under_section"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "announcement_under_section",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "announcement_timing_described_by",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "announcement_timing_described_by"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "announcement_timing_described_by",
+          "family": "SymbolDecl.rel",
+          "line": 32,
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_and_announcement_at_zero_or_below",
+          "family": "AssertDecl.constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "news_section_location",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "HttpsWwwSolactiveComNewsAnnouncements"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.vars[0].sort",
+          "matched_text": "TerminationAnnouncement"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[3]",
+          "matched_text": "announcement_by"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5]",
+          "matched_text": "announcement_under_section"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[7]",
+          "matched_text": "announcement_timing_described_by"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "HttpsWwwSolactiveComNewsAnnouncements",
+          "matched_text": "https://www.solactive.com/news/announcements"
+        }
+      ]
+    },
+    {
+      "token": "soon",
+      "surface_forms": [
+        "soon"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 294
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AsSoonAsReasonablyPossible",
+          "family": "SymbolDecl.entity",
+          "line": 15,
+          "matched_text": "AsSoonAsReasonablyPossible"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[7].args[1]",
+          "matched_text": "AsSoonAsReasonablyPossible"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AsSoonAsReasonablyPossible",
+          "matched_text": "as soon as reasonably possible"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "announcement_timing_described_by",
+          "matched_text": "as soon as reasonably possible"
+        }
+      ]
+    },
+    {
+      "token": "reasonabli",
+      "surface_forms": [
+        "reasonably"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 302
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AsSoonAsReasonablyPossible",
+          "family": "SymbolDecl.entity",
+          "line": 15,
+          "matched_text": "AsSoonAsReasonablyPossible"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[7].args[1]",
+          "matched_text": "AsSoonAsReasonablyPossible"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AsSoonAsReasonablyPossible",
+          "matched_text": "as soon as reasonably possible"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "announcement_timing_described_by",
+          "matched_text": "as soon as reasonably possible"
+        }
+      ]
+    },
+    {
+      "token": "possible",
+      "surface_forms": [
+        "possible"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 313
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AsSoonAsReasonablyPossible",
+          "family": "SymbolDecl.entity",
+          "line": 15,
+          "matched_text": "AsSoonAsReasonablyPossible"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[7].args[1]",
+          "matched_text": "AsSoonAsReasonablyPossible"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AsSoonAsReasonablyPossible",
+          "matched_text": "as soon as reasonably possible"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "announcement_timing_described_by",
+          "matched_text": "as soon as reasonably possible"
+        }
+      ]
+    },
+    {
+      "token": "after",
+      "surface_forms": [
+        "after"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 322
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "after",
+          "family": "SymbolDecl.rel",
+          "line": 33,
+          "matched_text": "after"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[6]",
+          "matched_text": "after"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "after",
+          "matched_text": "after"
+        }
+      ]
+    },
+    {
+      "token": "for",
+      "surface_forms": [
+        "For",
+        "for"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 1
+        },
+        {
+          "line": 5,
+          "column": 52
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "termination_reason_qualified_by",
+          "matched_text": "for other reasons"
+        }
+      ]
+    },
+    {
+      "token": "clarification",
+      "surface_forms": [
+        "clarification"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 5
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "may",
+      "surface_forms": [
+        "may"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 30
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "modal_permission",
+          "family": "DeonticDecl.permission"
+        }
+      ]
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "indices"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 44
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Index",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AdjustedReturnIndex",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "AdjustedReturnIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "AdjustedReturnIndex",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexCalculation",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "IndexCalculation"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexTermination",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexLevel",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculated_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "calculated_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculated_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "IndexCalculation"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculated_index",
+          "family": "SymbolDecl.rel",
+          "line": 20,
+          "matched_text": "AdjustedReturnIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculated_level",
+          "family": "SymbolDecl.fun",
+          "line": 21,
+          "matched_text": "IndexCalculation"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "calculated_level",
+          "family": "SymbolDecl.fun",
+          "line": 21,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "terminates_index",
+          "family": "SymbolDecl.rel",
+          "line": 23,
+          "matched_text": "terminates_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "terminates_index",
+          "family": "SymbolDecl.rel",
+          "line": 23,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "terminates_index",
+          "family": "SymbolDecl.rel",
+          "line": 23,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "termination_calculation",
+          "family": "SymbolDecl.rel",
+          "line": 24,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "termination_calculation",
+          "family": "SymbolDecl.rel",
+          "line": 24,
+          "matched_text": "IndexCalculation"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "termination_reason_qualified_by",
+          "family": "SymbolDecl.rel",
+          "line": 25,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "termination_in_accordance_with_policy",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "announces_termination",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "declaration",
+          "role": "action",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "terminate target: index"
+        },
+        {
+          "source": "declaration",
+          "role": "param_name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "index"
+        },
+        {
+          "source": "declaration",
+          "role": "param_type",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "Index"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexCalculation"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "AdjustedReturnIndex"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0]",
+          "matched_text": "calculated_index"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.vars[0].sort",
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[0]",
+          "matched_text": "terminates_index"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexTermination"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "Index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[0]",
+          "matched_text": "terminates_index"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "target",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AdjustedReturnIndex",
+          "matched_text": "adjusted return INDEX"
+        }
+      ]
+    },
+    {
+      "token": "other",
+      "surface_forms": [
+        "other"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 56
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "OtherReasons",
+          "family": "SymbolDecl.entity",
+          "line": 14,
+          "matched_text": "OtherReasons"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_reason_termination_in_accordance_with_solactive_policies",
+          "family": "AssertDecl.constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[1].args[1]",
+          "matched_text": "OtherReasons"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "OtherReasons",
+          "matched_text": "other reasons"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "termination_reason_qualified_by",
+          "matched_text": "for other reasons"
+        }
+      ]
+    },
+    {
+      "token": "reason",
+      "surface_forms": [
+        "reasons"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 62
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "OtherReasons",
+          "family": "SymbolDecl.entity",
+          "line": 14,
+          "matched_text": "OtherReasons"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_reason_qualified_by",
+          "family": "SymbolDecl.rel",
+          "line": 25,
+          "matched_text": "termination_reason_qualified_by"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "declaration",
+          "role": "param_name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "reason_qualifier"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_reason_termination_in_accordance_with_solactive_policies",
+          "family": "AssertDecl.constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[1]",
+          "matched_text": "termination_reason_qualified_by"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left.args[1].args[1]",
+          "matched_text": "OtherReasons"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "name",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "solactive_terminate_index_for_other_reason"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "OtherReasons",
+          "matched_text": "other reasons"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "termination_reason_qualified_by",
+          "matched_text": "for other reasons"
+        }
+      ]
+    },
+    {
+      "token": "and",
+      "surface_forms": [
+        "and"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 70
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_and_announcement_at_zero_or_below",
+          "family": "AssertDecl.constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "termination_and_announcement_at_zero_or_below",
+          "assertion_kind": "constraint",
+          "line": 47,
+          "matched_text": "termination_and_announcement_at_zero_or_below"
+        }
+      ]
+    },
+    {
+      "token": "accordance",
+      "surface_forms": [
+        "accordance"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 77
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_in_accordance_with_policy",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "termination_in_accordance_with_policy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_reason_termination_in_accordance_with_solactive_policies",
+          "family": "AssertDecl.constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "termination_in_accordance_with_policy"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "termination_in_accordance_with_policy",
+          "matched_text": "in accordance with SOLACTIVE's policies"
+        }
+      ]
+    },
+    {
+      "token": "with",
+      "surface_forms": [
+        "with"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 88
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_in_accordance_with_policy",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "termination_in_accordance_with_policy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_reason_termination_in_accordance_with_solactive_policies",
+          "family": "AssertDecl.constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "termination_in_accordance_with_policy"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "termination_in_accordance_with_policy",
+          "matched_text": "in accordance with SOLACTIVE's policies"
+        }
+      ]
+    },
+    {
+      "token": "s",
+      "surface_forms": [
+        "s"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 103
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveOrganization",
+          "matched_text": "SOLACTIVE"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Solactive",
+          "matched_text": "SOLACTIVE"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactivePolicies",
+          "matched_text": "SOLACTIVE's policies"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "termination_in_accordance_with_policy",
+          "matched_text": "in accordance with SOLACTIVE's policies"
+        }
+      ]
+    },
+    {
+      "token": "polici",
+      "surface_forms": [
+        "policies"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 105
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Policy",
+          "family": "TypeDecl.subtype",
+          "line": 8,
+          "matched_text": "Policy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactivePolicies",
+          "family": "SymbolDecl.entity",
+          "line": 13,
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "SolactivePolicies",
+          "family": "SymbolDecl.entity",
+          "line": 13,
+          "matched_text": "Policy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "termination_in_accordance_with_policy",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "termination_in_accordance_with_policy"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "termination_in_accordance_with_policy",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "Policy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "policy_of",
+          "family": "SymbolDecl.rel",
+          "line": 37,
+          "matched_text": "policy_of"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "policy_of",
+          "family": "SymbolDecl.rel",
+          "line": 37,
+          "matched_text": "Policy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "solactive_policies",
+          "family": "AssertDecl.fact",
+          "line": 44,
+          "matched_text": "solactive_policies"
+        },
+        {
+          "source": "declaration",
+          "role": "scope",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "other_reason_termination_in_accordance_with_solactive_policies",
+          "family": "AssertDecl.constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "solactive_policies",
+          "assertion_kind": "fact",
+          "line": 44,
+          "matched_text": "solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "solactive_policies",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "policy_of"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "solactive_policies",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "line": 71,
+          "matched_text": "other_reason_termination_in_accordance_with_solactive_policies"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "termination_in_accordance_with_policy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "other_reason_termination_in_accordance_with_solactive_policies",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "deontic_surface",
+          "role": "scope",
+          "symbol": "solactive_terminate_index_for_other_reason",
+          "family": "DeonticDecl.permission",
+          "line": 62,
+          "matched_text": "SolactivePolicies"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Policy",
+          "matched_text": "policies"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactivePolicies",
+          "matched_text": "SOLACTIVE's policies"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "termination_in_accordance_with_policy",
+          "matched_text": "in accordance with SOLACTIVE's policies"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "negative",
+      "surface_forms": [
+        "negative"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 90
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "respective",
+      "surface_forms": [
+        "respective"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 105
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "such",
+      "surface_forms": [
+        "such"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 166
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "available",
+      "surface_forms": [
+        "available"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 233
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "clarification",
+      "surface_forms": [
+        "clarification"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 5
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 1,
+      "covered_url_count": 1,
+      "missing_url_count": 0,
+      "url_coverage_rate": 1.0
+    },
+    "urls": [
+      {
+        "url": "https://www.solactive.com/news/announcements",
+        "count": 1,
+        "status": "covered_exact",
+        "source_locations": [
+          {
+            "source": "source.md",
+            "line": 3,
+            "column": 246
+          }
+        ],
+        "provenance": [
+          {
+            "source": "ir_surface",
+            "role": "exact_url_literal_or_comment",
+            "matched_text": "https://www.solactive.com/news/announcements"
+          }
+        ]
+      }
+    ],
+    "missing_urls": []
+  }
+}

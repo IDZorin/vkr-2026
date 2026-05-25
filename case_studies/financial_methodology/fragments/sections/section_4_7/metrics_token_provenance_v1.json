@@ -1,0 +1,4422 @@
+{
+  "entry_id": "section_4_7",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 55,
+    "content_token_count": 38,
+    "covered_content_token_count": 37,
+    "uncovered_content_token_count": 1,
+    "ignored_stopword_count": 17,
+    "content_coverage_rate": 0.974
+  },
+  "tokens": [
+    {
+      "token": "in",
+      "surface_forms": [
+        "In",
+        "in"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 1
+        },
+        {
+          "line": 3,
+          "column": 124
+        },
+        {
+          "line": 3,
+          "column": 315
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "described_in",
+          "family": "SymbolDecl.rel",
+          "line": 40,
+          "matched_text": "described_in"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_generally_results_in_price_conditions",
+          "family": "AssertDecl.constraint",
+          "line": 93,
+          "matched_text": "market_stress_generally_results_in_price_conditions"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "described_in"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "line": 93,
+          "matched_text": "market_stress_generally_results_in_price_conditions"
+        }
+      ]
+    },
+    {
+      "token": "period",
+      "surface_forms": [
+        "periods"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 4
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "period_of_market_stress",
+          "family": "SymbolDecl.rel",
+          "line": 33,
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "period_of_market_stress",
+          "family": "SymbolDecl.rel",
+          "line": 33,
+          "matched_text": "Period"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "period_of_market_disruption",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "period_of_market_disruption"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "period_of_market_disruption",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "Period"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculates_index_following_arrangement",
+          "family": "SymbolDecl.rel",
+          "line": 36,
+          "matched_text": "Period"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "determination_possibility_at_period",
+          "family": "SymbolDecl.rel",
+          "line": 55,
+          "matched_text": "determination_possibility_at_period"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "determination_possibility_at_period",
+          "family": "SymbolDecl.rel",
+          "line": 55,
+          "matched_text": "Period"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "Period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[1]",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0].body",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].body",
+          "matched_text": "period_of_market_disruption"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[2].body",
+          "matched_text": "period_of_market_disruption"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[1]",
+          "matched_text": "determination_possibility_at_period"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 4,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 12
+        },
+        {
+          "line": 3,
+          "column": 281
+        },
+        {
+          "line": 3,
+          "column": 399
+        },
+        {
+          "line": 3,
+          "column": 448
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "VarietyOfReasons",
+          "family": "SymbolDecl.entity",
+          "line": 24,
+          "matched_text": "VarietyOfReasons"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AtTimesOfMarketDisruption",
+          "family": "SymbolDecl.entity",
+          "line": 28,
+          "matched_text": "AtTimesOfMarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_of",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "index_of"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_component_of",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "index_component_of"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "period_of_market_stress",
+          "family": "SymbolDecl.rel",
+          "line": 33,
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "period_of_market_disruption",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "period_of_market_disruption"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "website_of",
+          "family": "SymbolDecl.rel",
+          "line": 44,
+          "matched_text": "website_of"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_can_arise_due_to_variety_of_reasons",
+          "family": "AssertDecl.constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "section_4_7_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "index_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "website_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[0]",
+          "matched_text": "index_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[1]",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "VarietyOfReasons"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[3]",
+          "matched_text": "index_component_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0].body",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].body",
+          "matched_text": "period_of_market_disruption"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[2].body",
+          "matched_text": "period_of_market_disruption"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[3].args[1]",
+          "matched_text": "AtTimesOfMarketDisruption"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "VarietyOfReasons",
+          "matched_text": "variety of reasons"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AtTimesOfMarketDisruption",
+          "matched_text": "at times of"
+        }
+      ]
+    },
+    {
+      "token": "market",
+      "surface_forms": [
+        "market",
+        "markets"
+      ],
+      "count": 4,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 15
+        },
+        {
+          "line": 3,
+          "column": 240
+        },
+        {
+          "line": 3,
+          "column": 474
+        },
+        {
+          "line": 3,
+          "column": 486
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MarketDisruption",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "MarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MarketStress",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "MarketStress",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "MarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IlliquidMarket",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "IlliquidMarket"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "IlliquidMarket",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "MarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "FragmentedMarket",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "FragmentedMarket"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "FragmentedMarket",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "MarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MarketStressPriceOutcome",
+          "family": "TypeDecl.opaque",
+          "line": 9,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AtTimesOfMarketDisruption",
+          "family": "SymbolDecl.entity",
+          "line": 28,
+          "matched_text": "AtTimesOfMarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "period_of_market_stress",
+          "family": "SymbolDecl.rel",
+          "line": 33,
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "period_of_market_stress",
+          "family": "SymbolDecl.rel",
+          "line": 33,
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "period_of_market_disruption",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "period_of_market_disruption"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "period_of_market_disruption",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "MarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_arises_due_to",
+          "family": "SymbolDecl.rel",
+          "line": 46,
+          "matched_text": "market_stress_arises_due_to"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "market_stress_arises_due_to",
+          "family": "SymbolDecl.rel",
+          "line": 46,
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_price_outcome",
+          "family": "SymbolDecl.rel",
+          "line": 47,
+          "matched_text": "market_stress_price_outcome"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "market_stress_price_outcome",
+          "family": "SymbolDecl.rel",
+          "line": 47,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "market_stress_price_outcome",
+          "family": "SymbolDecl.rel",
+          "line": 47,
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_component",
+          "family": "SymbolDecl.rel",
+          "line": 48,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_inaccurate_or_delayed",
+          "family": "SymbolDecl.rel",
+          "line": 49,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_qualified_by",
+          "family": "SymbolDecl.rel",
+          "line": 50,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_component_scope",
+          "family": "SymbolDecl.rel",
+          "line": 51,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_during_market_stress_follows_arrangements",
+          "family": "AssertDecl.constraint",
+          "line": 75,
+          "matched_text": "calculation_during_market_stress_follows_arrangements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_can_arise_due_to_variety_of_reasons",
+          "family": "AssertDecl.constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_generally_results_in_price_conditions",
+          "family": "AssertDecl.constraint",
+          "line": 93,
+          "matched_text": "market_stress_generally_results_in_price_conditions"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "line": 75,
+          "matched_text": "calculation_during_market_stress_follows_arrangements"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.vars[0].sort",
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[1]",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "market_stress_arises_due_to"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "line": 93,
+          "matched_text": "market_stress_generally_results_in_price_conditions"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.vars[0].sort",
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[0]",
+          "matched_text": "market_stress_price_outcome"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0].vars[0].sort",
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0].body",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].vars[0].sort",
+          "matched_text": "IlliquidMarket"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].body",
+          "matched_text": "period_of_market_disruption"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[2].vars[0].sort",
+          "matched_text": "FragmentedMarket"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[2].body",
+          "matched_text": "period_of_market_disruption"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[3].args[1]",
+          "matched_text": "AtTimesOfMarketDisruption"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "MarketStress",
+          "matched_text": "market stress"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IlliquidMarket",
+          "matched_text": "illiquid markets"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "FragmentedMarket",
+          "matched_text": "fragmented markets"
+        }
+      ]
+    },
+    {
+      "token": "str",
+      "surface_forms": [
+        "stress"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 22
+        },
+        {
+          "line": 3,
+          "column": 247
+        },
+        {
+          "line": 3,
+          "column": 493
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MarketStress",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MarketStressPriceOutcome",
+          "family": "TypeDecl.opaque",
+          "line": 9,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "period_of_market_stress",
+          "family": "SymbolDecl.rel",
+          "line": 33,
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "period_of_market_stress",
+          "family": "SymbolDecl.rel",
+          "line": 33,
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_arises_due_to",
+          "family": "SymbolDecl.rel",
+          "line": 46,
+          "matched_text": "market_stress_arises_due_to"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "market_stress_arises_due_to",
+          "family": "SymbolDecl.rel",
+          "line": 46,
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_price_outcome",
+          "family": "SymbolDecl.rel",
+          "line": 47,
+          "matched_text": "market_stress_price_outcome"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "market_stress_price_outcome",
+          "family": "SymbolDecl.rel",
+          "line": 47,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "market_stress_price_outcome",
+          "family": "SymbolDecl.rel",
+          "line": 47,
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_component",
+          "family": "SymbolDecl.rel",
+          "line": 48,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_inaccurate_or_delayed",
+          "family": "SymbolDecl.rel",
+          "line": 49,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_qualified_by",
+          "family": "SymbolDecl.rel",
+          "line": 50,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_component_scope",
+          "family": "SymbolDecl.rel",
+          "line": 51,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_during_market_stress_follows_arrangements",
+          "family": "AssertDecl.constraint",
+          "line": 75,
+          "matched_text": "calculation_during_market_stress_follows_arrangements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_can_arise_due_to_variety_of_reasons",
+          "family": "AssertDecl.constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_generally_results_in_price_conditions",
+          "family": "AssertDecl.constraint",
+          "line": 93,
+          "matched_text": "market_stress_generally_results_in_price_conditions"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "line": 75,
+          "matched_text": "calculation_during_market_stress_follows_arrangements"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.vars[0].sort",
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[1]",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "market_stress_arises_due_to"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "line": 93,
+          "matched_text": "market_stress_generally_results_in_price_conditions"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.vars[0].sort",
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[0]",
+          "matched_text": "market_stress_price_outcome"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0].vars[0].sort",
+          "matched_text": "MarketStress"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0].body",
+          "matched_text": "period_of_market_stress"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "MarketStress",
+          "matched_text": "market stress"
+        }
+      ]
+    },
+    {
+      "token": "solactive",
+      "surface_forms": [
+        "Solactive"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 29
+        },
+        {
+          "line": 3,
+          "column": 131
+        },
+        {
+          "line": 3,
+          "column": 216
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Solactive",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveDisruptionArrangements",
+          "family": "SymbolDecl.entity",
+          "line": 20,
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveDisruptionPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 21,
+          "matched_text": "SolactiveDisruptionPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveWebsite",
+          "family": "SymbolDecl.entity",
+          "line": 23,
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_4_7_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveDisruptionPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveDisruptionPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "SolactiveDisruptionPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[0].args[1]",
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[0]",
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[3]",
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Solactive",
+          "matched_text": "Solactive"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveDisruptionPolicy",
+          "matched_text": "Solactive Disruption Policy"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveWebsite",
+          "matched_text": "Solactive website"
+        }
+      ]
+    },
+    {
+      "token": "calculat",
+      "surface_forms": [
+        "calculates"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 39
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculates_index_following_arrangement",
+          "family": "SymbolDecl.rel",
+          "line": 36,
+          "matched_text": "calculates_index_following_arrangement"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right",
+          "matched_text": "calculates_index_following_arrangement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_during_market_stress_follows_arrangements",
+          "family": "AssertDecl.constraint",
+          "line": 75,
+          "matched_text": "calculation_during_market_stress_follows_arrangements"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "line": 75,
+          "matched_text": "calculation_during_market_stress_follows_arrangements"
+        }
+      ]
+    },
+    {
+      "token": "its",
+      "surface_forms": [
+        "its"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 50
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "indices",
+        "Index"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 54
+        },
+        {
+          "line": 3,
+          "column": 363
+        },
+        {
+          "line": 3,
+          "column": 406
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Index",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 19,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 19,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "OneOrMoreIndexComponents",
+          "family": "SymbolDecl.entity",
+          "line": 27,
+          "matched_text": "OneOrMoreIndexComponents"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_of",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "index_of"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_of",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_component_of",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "index_component_of"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_component_of",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_component_of",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculates_index_following_arrangement",
+          "family": "SymbolDecl.rel",
+          "line": 36,
+          "matched_text": "calculates_index_following_arrangement"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculates_index_following_arrangement",
+          "family": "SymbolDecl.rel",
+          "line": 36,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_component",
+          "family": "SymbolDecl.rel",
+          "line": 48,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "determination_possibility_for_index",
+          "family": "SymbolDecl.rel",
+          "line": 53,
+          "matched_text": "determination_possibility_for_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "determination_possibility_for_index",
+          "family": "SymbolDecl.rel",
+          "line": 53,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "section_4_7_index_scope",
+          "family": "AssertDecl.fact",
+          "line": 62,
+          "matched_text": "section_4_7_index_scope"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_determination_may_be_limited_or_impaired",
+          "family": "AssertDecl.constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "section_4_7_index_scope",
+          "assertion_kind": "fact",
+          "line": 62,
+          "matched_text": "section_4_7_index_scope"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "section_4_7_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "index_of"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_4_7_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[0]",
+          "matched_text": "index_of"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right",
+          "matched_text": "calculates_index_following_arrangement"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[2].args[1]",
+          "matched_text": "OneOrMoreIndexComponents"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[3]",
+          "matched_text": "index_component_of"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[3].args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[0]",
+          "matched_text": "determination_possibility_for_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[0].args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Index",
+          "matched_text": "indices"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndex",
+          "matched_text": "the Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "OneOrMoreIndexComponents",
+          "matched_text": "one or more Index Components"
+        }
+      ]
+    },
+    {
+      "token": "follow",
+      "surface_forms": [
+        "following"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 62
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculates_index_following_arrangement",
+          "family": "SymbolDecl.rel",
+          "line": 36,
+          "matched_text": "calculates_index_following_arrangement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_during_market_stress_follows_arrangements",
+          "family": "AssertDecl.constraint",
+          "line": 75,
+          "matched_text": "calculation_during_market_stress_follows_arrangements"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "line": 75,
+          "matched_text": "calculation_during_market_stress_follows_arrangements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right",
+          "matched_text": "calculates_index_following_arrangement"
+        }
+      ]
+    },
+    {
+      "token": "predefin",
+      "surface_forms": [
+        "predefined"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 72
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "predefined",
+          "family": "SymbolDecl.rel",
+          "line": 38,
+          "matched_text": "predefined"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "predefined"
+        }
+      ]
+    },
+    {
+      "token": "and",
+      "surface_forms": [
+        "and"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 83
+        },
+        {
+          "line": 3,
+          "column": 195
+        },
+        {
+          "line": 3,
+          "column": 482
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "exhaustive",
+      "surface_forms": [
+        "exhaustive"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 87
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "exhaustive",
+          "family": "SymbolDecl.rel",
+          "line": 39,
+          "matched_text": "exhaustive"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "exhaustive"
+        }
+      ]
+    },
+    {
+      "token": "arrangement",
+      "surface_forms": [
+        "arrangements"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 98
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Arrangement",
+          "family": "TypeDecl.opaque",
+          "line": 7,
+          "matched_text": "Arrangement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveDisruptionArrangements",
+          "family": "SymbolDecl.entity",
+          "line": 20,
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "SolactiveDisruptionArrangements",
+          "family": "SymbolDecl.entity",
+          "line": 20,
+          "matched_text": "Arrangement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculates_index_following_arrangement",
+          "family": "SymbolDecl.rel",
+          "line": 36,
+          "matched_text": "calculates_index_following_arrangement"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculates_index_following_arrangement",
+          "family": "SymbolDecl.rel",
+          "line": 36,
+          "matched_text": "Arrangement"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "predefined",
+          "family": "SymbolDecl.rel",
+          "line": 38,
+          "matched_text": "Arrangement"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "exhaustive",
+          "family": "SymbolDecl.rel",
+          "line": 39,
+          "matched_text": "Arrangement"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "described_in",
+          "family": "SymbolDecl.rel",
+          "line": 40,
+          "matched_text": "Arrangement"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "disruption_arrangements_properties",
+          "family": "AssertDecl.fact",
+          "line": 70,
+          "matched_text": "disruption_arrangements_properties"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_during_market_stress_follows_arrangements",
+          "family": "AssertDecl.constraint",
+          "line": 75,
+          "matched_text": "calculation_during_market_stress_follows_arrangements"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "line": 70,
+          "matched_text": "disruption_arrangements_properties"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "line": 75,
+          "matched_text": "calculation_during_market_stress_follows_arrangements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right",
+          "matched_text": "calculates_index_following_arrangement"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[3]",
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveDisruptionArrangements",
+          "matched_text": "arrangements"
+        }
+      ]
+    },
+    {
+      "token": "as",
+      "surface_forms": [
+        "as"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 111
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "describ",
+      "surface_forms": [
+        "described"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 114
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "described_in",
+          "family": "SymbolDecl.rel",
+          "line": 40,
+          "matched_text": "described_in"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "described_in"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the",
+        "The"
+      ],
+      "count": 4,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 127
+        },
+        {
+          "line": 3,
+          "column": 212
+        },
+        {
+          "line": 3,
+          "column": 381
+        },
+        {
+          "line": 3,
+          "column": 402
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 19,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_4_7_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[3].args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[0].args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndex",
+          "matched_text": "the Index"
+        }
+      ]
+    },
+    {
+      "token": "disruption",
+      "surface_forms": [
+        "Disruption"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 141
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MarketDisruption",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "MarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "MarketStress",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "MarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "IlliquidMarket",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "MarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "FragmentedMarket",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "MarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DisruptionPolicy",
+          "family": "TypeDecl.subtype",
+          "line": 8,
+          "matched_text": "DisruptionPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveDisruptionArrangements",
+          "family": "SymbolDecl.entity",
+          "line": 20,
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveDisruptionPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 21,
+          "matched_text": "SolactiveDisruptionPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "SolactiveDisruptionPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 21,
+          "matched_text": "DisruptionPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AtTimesOfMarketDisruption",
+          "family": "SymbolDecl.entity",
+          "line": 28,
+          "matched_text": "AtTimesOfMarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "period_of_market_disruption",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "period_of_market_disruption"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "period_of_market_disruption",
+          "family": "SymbolDecl.rel",
+          "line": 34,
+          "matched_text": "MarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "disruption_policy_reference",
+          "family": "AssertDecl.fact",
+          "line": 65,
+          "matched_text": "disruption_policy_reference"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "disruption_arrangements_properties",
+          "family": "AssertDecl.fact",
+          "line": 70,
+          "matched_text": "disruption_arrangements_properties"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "line": 65,
+          "matched_text": "disruption_policy_reference"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveDisruptionPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveDisruptionPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "line": 70,
+          "matched_text": "disruption_arrangements_properties"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "SolactiveDisruptionPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "calculation_during_market_stress_follows_arrangements",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[3]",
+          "matched_text": "SolactiveDisruptionArrangements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].body",
+          "matched_text": "period_of_market_disruption"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[2].body",
+          "matched_text": "period_of_market_disruption"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[3].args[1]",
+          "matched_text": "AtTimesOfMarketDisruption"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveDisruptionPolicy",
+          "matched_text": "Solactive Disruption Policy"
+        }
+      ]
+    },
+    {
+      "token": "polici",
+      "surface_forms": [
+        "Policy"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 152
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DisruptionPolicy",
+          "family": "TypeDecl.subtype",
+          "line": 8,
+          "matched_text": "DisruptionPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveDisruptionPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 21,
+          "matched_text": "SolactiveDisruptionPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "SolactiveDisruptionPolicy",
+          "family": "SymbolDecl.entity",
+          "line": 21,
+          "matched_text": "DisruptionPolicy"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "disruption_policy_reference",
+          "family": "AssertDecl.fact",
+          "line": 65,
+          "matched_text": "disruption_policy_reference"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "line": 65,
+          "matched_text": "disruption_policy_reference"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveDisruptionPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveDisruptionPolicy"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_arrangements_properties",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[1]",
+          "matched_text": "SolactiveDisruptionPolicy"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveDisruptionPolicy",
+          "matched_text": "Solactive Disruption Policy"
+        }
+      ]
+    },
+    {
+      "token": "which",
+      "surface_forms": [
+        "which"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 160
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 166
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "incorporat",
+      "surface_forms": [
+        "incorporated"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 169
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "incorporated_by_reference_into",
+          "family": "SymbolDecl.rel",
+          "line": 42,
+          "matched_text": "incorporated_by_reference_into"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "incorporated_by_reference_into"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ThisGuideline",
+          "matched_text": "incorporated by reference"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "incorporated_by_reference_into",
+          "matched_text": "incorporated by reference"
+        }
+      ]
+    },
+    {
+      "token": "by",
+      "surface_forms": [
+        "by"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 182
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "incorporated_by_reference_into",
+          "family": "SymbolDecl.rel",
+          "line": 42,
+          "matched_text": "incorporated_by_reference_into"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_outcome_qualified_by",
+          "family": "SymbolDecl.rel",
+          "line": 50,
+          "matched_text": "price_outcome_qualified_by"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "determination_possibility_qualified_by",
+          "family": "SymbolDecl.rel",
+          "line": 59,
+          "matched_text": "determination_possibility_qualified_by"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "incorporated_by_reference_into"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[4]",
+          "matched_text": "price_outcome_qualified_by"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[2]",
+          "matched_text": "determination_possibility_qualified_by"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[3]",
+          "matched_text": "determination_possibility_qualified_by"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ThisGuideline",
+          "matched_text": "incorporated by reference"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "incorporated_by_reference_into",
+          "matched_text": "incorporated by reference"
+        }
+      ]
+    },
+    {
+      "token": "reference",
+      "surface_forms": [
+        "reference"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 185
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "incorporated_by_reference_into",
+          "family": "SymbolDecl.rel",
+          "line": 42,
+          "matched_text": "incorporated_by_reference_into"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "disruption_policy_reference",
+          "family": "AssertDecl.fact",
+          "line": 65,
+          "matched_text": "disruption_policy_reference"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "line": 65,
+          "matched_text": "disruption_policy_reference"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "incorporated_by_reference_into"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ThisGuideline",
+          "matched_text": "incorporated by reference"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "incorporated_by_reference_into",
+          "matched_text": "incorporated by reference"
+        }
+      ]
+    },
+    {
+      "token": "available",
+      "surface_forms": [
+        "available"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 199
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "available_on",
+          "family": "SymbolDecl.rel",
+          "line": 43,
+          "matched_text": "available_on"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "available_on"
+        }
+      ]
+    },
+    {
+      "token": "on",
+      "surface_forms": [
+        "on"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 209
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "available_on",
+          "family": "SymbolDecl.rel",
+          "line": 43,
+          "matched_text": "available_on"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "available_on"
+        }
+      ]
+    },
+    {
+      "token": "website",
+      "surface_forms": [
+        "website"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 226
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveWebsite",
+          "family": "SymbolDecl.entity",
+          "line": 23,
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "website_of",
+          "family": "SymbolDecl.rel",
+          "line": 44,
+          "matched_text": "website_of"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "website_of"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "disruption_policy_reference",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveWebsite"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SolactiveWebsite",
+          "matched_text": "Solactive website"
+        }
+      ]
+    },
+    {
+      "token": "such",
+      "surface_forms": [
+        "Such"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 235
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "can",
+      "surface_forms": [
+        "can"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 254
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_can_arise_due_to_variety_of_reasons",
+          "family": "AssertDecl.constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        }
+      ]
+    },
+    {
+      "token": "arise",
+      "surface_forms": [
+        "arise"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 258
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_arises_due_to",
+          "family": "SymbolDecl.rel",
+          "line": 46,
+          "matched_text": "market_stress_arises_due_to"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_can_arise_due_to_variety_of_reasons",
+          "family": "AssertDecl.constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "market_stress_arises_due_to"
+        }
+      ]
+    },
+    {
+      "token": "due",
+      "surface_forms": [
+        "due"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 264
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_arises_due_to",
+          "family": "SymbolDecl.rel",
+          "line": 46,
+          "matched_text": "market_stress_arises_due_to"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_can_arise_due_to_variety_of_reasons",
+          "family": "AssertDecl.constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "market_stress_arises_due_to"
+        }
+      ]
+    },
+    {
+      "token": "to",
+      "surface_forms": [
+        "to"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 268
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_arises_due_to",
+          "family": "SymbolDecl.rel",
+          "line": 46,
+          "matched_text": "market_stress_arises_due_to"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_can_arise_due_to_variety_of_reasons",
+          "family": "AssertDecl.constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "market_stress_arises_due_to"
+        }
+      ]
+    },
+    {
+      "token": "a",
+      "surface_forms": [
+        "a"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 271
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "varieti",
+      "surface_forms": [
+        "variety"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 273
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "VarietyOfReasons",
+          "family": "SymbolDecl.entity",
+          "line": 24,
+          "matched_text": "VarietyOfReasons"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_can_arise_due_to_variety_of_reasons",
+          "family": "AssertDecl.constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "VarietyOfReasons"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "VarietyOfReasons",
+          "matched_text": "variety of reasons"
+        }
+      ]
+    },
+    {
+      "token": "reason",
+      "surface_forms": [
+        "reasons"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 284
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "VarietyOfReasons",
+          "family": "SymbolDecl.entity",
+          "line": 24,
+          "matched_text": "VarietyOfReasons"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_can_arise_due_to_variety_of_reasons",
+          "family": "AssertDecl.constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "line": 87,
+          "matched_text": "market_stress_can_arise_due_to_variety_of_reasons"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "market_stress_can_arise_due_to_variety_of_reasons",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "VarietyOfReasons"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "VarietyOfReasons",
+          "matched_text": "variety of reasons"
+        }
+      ]
+    },
+    {
+      "token": "but",
+      "surface_forms": [
+        "but"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 293
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "generalli",
+      "surface_forms": [
+        "generally"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 297
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Generally",
+          "family": "SymbolDecl.entity",
+          "line": 25,
+          "matched_text": "Generally"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_generally_results_in_price_conditions",
+          "family": "AssertDecl.constraint",
+          "line": 93,
+          "matched_text": "market_stress_generally_results_in_price_conditions"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "line": 93,
+          "matched_text": "market_stress_generally_results_in_price_conditions"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[4].args[1]",
+          "matched_text": "Generally"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Generally",
+          "matched_text": "generally"
+        }
+      ]
+    },
+    {
+      "token": "result",
+      "surface_forms": [
+        "results"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 307
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_generally_results_in_price_conditions",
+          "family": "AssertDecl.constraint",
+          "line": 93,
+          "matched_text": "market_stress_generally_results_in_price_conditions"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "line": 93,
+          "matched_text": "market_stress_generally_results_in_price_conditions"
+        }
+      ]
+    },
+    {
+      "token": "inaccurate",
+      "surface_forms": [
+        "inaccurate"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 318
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "PriceCondition",
+          "family": "TypeDecl.enum",
+          "line": 11,
+          "matched_text": "Inaccurate"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_outcome_inaccurate_or_delayed",
+          "family": "SymbolDecl.rel",
+          "line": 49,
+          "matched_text": "price_outcome_inaccurate_or_delayed"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5].args[0]",
+          "matched_text": "price_outcome_inaccurate_or_delayed"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5].args[0].args[1]",
+          "matched_text": "Inaccurate"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5].args[1]",
+          "matched_text": "price_outcome_inaccurate_or_delayed"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "PriceCondition",
+          "matched_text": "inaccurate"
+        }
+      ]
+    },
+    {
+      "token": "or",
+      "surface_forms": [
+        "or"
+      ],
+      "count": 4,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 329
+        },
+        {
+          "line": 3,
+          "column": 355
+        },
+        {
+          "line": 3,
+          "column": 427
+        },
+        {
+          "line": 3,
+          "column": 460
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MayBeLimitedOrImpaired",
+          "family": "SymbolDecl.entity",
+          "line": 26,
+          "matched_text": "MayBeLimitedOrImpaired"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "OneOrMoreIndexComponents",
+          "family": "SymbolDecl.entity",
+          "line": 27,
+          "matched_text": "OneOrMoreIndexComponents"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_outcome_inaccurate_or_delayed",
+          "family": "SymbolDecl.rel",
+          "line": 49,
+          "matched_text": "price_outcome_inaccurate_or_delayed"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_determination_may_be_limited_or_impaired",
+          "family": "AssertDecl.constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[2].args[1]",
+          "matched_text": "OneOrMoreIndexComponents"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5].args[0]",
+          "matched_text": "price_outcome_inaccurate_or_delayed"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5].args[1]",
+          "matched_text": "price_outcome_inaccurate_or_delayed"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[2].args[1]",
+          "matched_text": "MayBeLimitedOrImpaired"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "OneOrMoreIndexComponents",
+          "matched_text": "one or more Index Components"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DeterminationConditionPossibility",
+          "matched_text": "may be limited or impaired"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "MayBeLimitedOrImpaired",
+          "matched_text": "may be limited or impaired"
+        }
+      ]
+    },
+    {
+      "token": "delai",
+      "surface_forms": [
+        "delayed"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 332
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "PriceCondition",
+          "family": "TypeDecl.enum",
+          "line": 11,
+          "matched_text": "Delayed"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_outcome_inaccurate_or_delayed",
+          "family": "SymbolDecl.rel",
+          "line": 49,
+          "matched_text": "price_outcome_inaccurate_or_delayed"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5].args[0]",
+          "matched_text": "price_outcome_inaccurate_or_delayed"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5].args[1]",
+          "matched_text": "price_outcome_inaccurate_or_delayed"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5].args[1].args[1]",
+          "matched_text": "Delayed"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "PriceCondition",
+          "matched_text": "delayed"
+        }
+      ]
+    },
+    {
+      "token": "pric",
+      "surface_forms": [
+        "prices"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 340
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MarketStressPriceOutcome",
+          "family": "TypeDecl.opaque",
+          "line": 9,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "PriceCondition",
+          "family": "TypeDecl.enum",
+          "line": 11,
+          "matched_text": "PriceCondition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_price_outcome",
+          "family": "SymbolDecl.rel",
+          "line": 47,
+          "matched_text": "market_stress_price_outcome"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "market_stress_price_outcome",
+          "family": "SymbolDecl.rel",
+          "line": 47,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_outcome_component",
+          "family": "SymbolDecl.rel",
+          "line": 48,
+          "matched_text": "price_outcome_component"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_component",
+          "family": "SymbolDecl.rel",
+          "line": 48,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_outcome_inaccurate_or_delayed",
+          "family": "SymbolDecl.rel",
+          "line": 49,
+          "matched_text": "price_outcome_inaccurate_or_delayed"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_inaccurate_or_delayed",
+          "family": "SymbolDecl.rel",
+          "line": 49,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_inaccurate_or_delayed",
+          "family": "SymbolDecl.rel",
+          "line": 49,
+          "matched_text": "PriceCondition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_outcome_qualified_by",
+          "family": "SymbolDecl.rel",
+          "line": 50,
+          "matched_text": "price_outcome_qualified_by"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_qualified_by",
+          "family": "SymbolDecl.rel",
+          "line": 50,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_outcome_component_scope",
+          "family": "SymbolDecl.rel",
+          "line": 51,
+          "matched_text": "price_outcome_component_scope"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_component_scope",
+          "family": "SymbolDecl.rel",
+          "line": 51,
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "market_stress_generally_results_in_price_conditions",
+          "family": "AssertDecl.constraint",
+          "line": 93,
+          "matched_text": "market_stress_generally_results_in_price_conditions"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "line": 93,
+          "matched_text": "market_stress_generally_results_in_price_conditions"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.vars[0].sort",
+          "matched_text": "MarketStressPriceOutcome"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[0]",
+          "matched_text": "market_stress_price_outcome"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[1]",
+          "matched_text": "price_outcome_component"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[2]",
+          "matched_text": "price_outcome_component_scope"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[4]",
+          "matched_text": "price_outcome_qualified_by"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5].args[0]",
+          "matched_text": "price_outcome_inaccurate_or_delayed"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[5].args[1]",
+          "matched_text": "price_outcome_inaccurate_or_delayed"
+        }
+      ]
+    },
+    {
+      "token": "for",
+      "surface_forms": [
+        "for"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 347
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "determination_possibility_for_index",
+          "family": "SymbolDecl.rel",
+          "line": 53,
+          "matched_text": "determination_possibility_for_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[0]",
+          "matched_text": "determination_possibility_for_index"
+        }
+      ]
+    },
+    {
+      "token": "one",
+      "surface_forms": [
+        "one"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 351
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "OneOrMoreIndexComponents",
+          "family": "SymbolDecl.entity",
+          "line": 27,
+          "matched_text": "OneOrMoreIndexComponents"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[2].args[1]",
+          "matched_text": "OneOrMoreIndexComponents"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "OneOrMoreIndexComponents",
+          "matched_text": "one or more Index Components"
+        }
+      ]
+    },
+    {
+      "token": "more",
+      "surface_forms": [
+        "more"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 358
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "OneOrMoreIndexComponents",
+          "family": "SymbolDecl.entity",
+          "line": 27,
+          "matched_text": "OneOrMoreIndexComponents"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[2].args[1]",
+          "matched_text": "OneOrMoreIndexComponents"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "OneOrMoreIndexComponents",
+          "matched_text": "one or more Index Components"
+        }
+      ]
+    },
+    {
+      "token": "component",
+      "surface_forms": [
+        "Components"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 369
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "OneOrMoreIndexComponents",
+          "family": "SymbolDecl.entity",
+          "line": 27,
+          "matched_text": "OneOrMoreIndexComponents"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_component_of",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "index_component_of"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_component_of",
+          "family": "SymbolDecl.rel",
+          "line": 31,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_outcome_component",
+          "family": "SymbolDecl.rel",
+          "line": 48,
+          "matched_text": "price_outcome_component"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "price_outcome_component",
+          "family": "SymbolDecl.rel",
+          "line": 48,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "price_outcome_component_scope",
+          "family": "SymbolDecl.rel",
+          "line": 51,
+          "matched_text": "price_outcome_component_scope"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[1]",
+          "matched_text": "price_outcome_component"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[2]",
+          "matched_text": "price_outcome_component_scope"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[2].args[1]",
+          "matched_text": "OneOrMoreIndexComponents"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "market_stress_generally_results_in_price_conditions",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.body.body.args[3]",
+          "matched_text": "index_component_of"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "OneOrMoreIndexComponents",
+          "matched_text": "one or more Index Components"
+        }
+      ]
+    },
+    {
+      "token": "determinate",
+      "surface_forms": [
+        "determination"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 385
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DeterminationConditionPossibility",
+          "family": "TypeDecl.opaque",
+          "line": 10,
+          "matched_text": "DeterminationConditionPossibility"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DeterminationCondition",
+          "family": "TypeDecl.enum",
+          "line": 14,
+          "matched_text": "DeterminationCondition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "determination_possibility_for_index",
+          "family": "SymbolDecl.rel",
+          "line": 53,
+          "matched_text": "determination_possibility_for_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "determination_possibility_for_index",
+          "family": "SymbolDecl.rel",
+          "line": 53,
+          "matched_text": "DeterminationConditionPossibility"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "determination_possibility_at_period",
+          "family": "SymbolDecl.rel",
+          "line": 55,
+          "matched_text": "determination_possibility_at_period"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "determination_possibility_at_period",
+          "family": "SymbolDecl.rel",
+          "line": 55,
+          "matched_text": "DeterminationConditionPossibility"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "determination_condition_possible",
+          "family": "SymbolDecl.rel",
+          "line": 57,
+          "matched_text": "determination_condition_possible"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "determination_condition_possible",
+          "family": "SymbolDecl.rel",
+          "line": 57,
+          "matched_text": "DeterminationConditionPossibility"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "determination_condition_possible",
+          "family": "SymbolDecl.rel",
+          "line": 57,
+          "matched_text": "DeterminationCondition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "determination_possibility_qualified_by",
+          "family": "SymbolDecl.rel",
+          "line": 59,
+          "matched_text": "determination_possibility_qualified_by"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "determination_possibility_qualified_by",
+          "family": "SymbolDecl.rel",
+          "line": 59,
+          "matched_text": "DeterminationConditionPossibility"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_determination_may_be_limited_or_impaired",
+          "family": "AssertDecl.constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.vars[0].sort",
+          "matched_text": "DeterminationConditionPossibility"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[0]",
+          "matched_text": "determination_possibility_for_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[1]",
+          "matched_text": "determination_possibility_at_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[2]",
+          "matched_text": "determination_possibility_qualified_by"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[3]",
+          "matched_text": "determination_possibility_qualified_by"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[4].args[0]",
+          "matched_text": "determination_condition_possible"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[4].args[1]",
+          "matched_text": "determination_condition_possible"
+        }
+      ]
+    },
+    {
+      "token": "may",
+      "surface_forms": [
+        "may"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 412
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MayBeLimitedOrImpaired",
+          "family": "SymbolDecl.entity",
+          "line": 26,
+          "matched_text": "MayBeLimitedOrImpaired"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_determination_may_be_limited_or_impaired",
+          "family": "AssertDecl.constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[2].args[1]",
+          "matched_text": "MayBeLimitedOrImpaired"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DeterminationConditionPossibility",
+          "matched_text": "may be limited or impaired"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "MayBeLimitedOrImpaired",
+          "matched_text": "may be limited or impaired"
+        }
+      ]
+    },
+    {
+      "token": "be",
+      "surface_forms": [
+        "be"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 416
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MayBeLimitedOrImpaired",
+          "family": "SymbolDecl.entity",
+          "line": 26,
+          "matched_text": "MayBeLimitedOrImpaired"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_determination_may_be_limited_or_impaired",
+          "family": "AssertDecl.constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[2].args[1]",
+          "matched_text": "MayBeLimitedOrImpaired"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DeterminationConditionPossibility",
+          "matched_text": "may be limited or impaired"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "MayBeLimitedOrImpaired",
+          "matched_text": "may be limited or impaired"
+        }
+      ]
+    },
+    {
+      "token": "limit",
+      "surface_forms": [
+        "limited"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 419
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "DeterminationCondition",
+          "family": "TypeDecl.enum",
+          "line": 14,
+          "matched_text": "Limited"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MayBeLimitedOrImpaired",
+          "family": "SymbolDecl.entity",
+          "line": 26,
+          "matched_text": "MayBeLimitedOrImpaired"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_determination_may_be_limited_or_impaired",
+          "family": "AssertDecl.constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[2].args[1]",
+          "matched_text": "MayBeLimitedOrImpaired"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[4].args[0].args[1]",
+          "matched_text": "Limited"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DeterminationConditionPossibility",
+          "matched_text": "may be limited or impaired"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DeterminationCondition",
+          "matched_text": "limited"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "MayBeLimitedOrImpaired",
+          "matched_text": "may be limited or impaired"
+        }
+      ]
+    },
+    {
+      "token": "impair",
+      "surface_forms": [
+        "impaired"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 430
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "DeterminationCondition",
+          "family": "TypeDecl.enum",
+          "line": 14,
+          "matched_text": "Impaired"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "MayBeLimitedOrImpaired",
+          "family": "SymbolDecl.entity",
+          "line": 26,
+          "matched_text": "MayBeLimitedOrImpaired"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_determination_may_be_limited_or_impaired",
+          "family": "AssertDecl.constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "line": 109,
+          "matched_text": "index_determination_may_be_limited_or_impaired"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[2].args[1]",
+          "matched_text": "MayBeLimitedOrImpaired"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[4].args[1].args[1]",
+          "matched_text": "Impaired"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DeterminationConditionPossibility",
+          "matched_text": "may be limited or impaired"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DeterminationCondition",
+          "matched_text": "impaired"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "MayBeLimitedOrImpaired",
+          "matched_text": "may be limited or impaired"
+        }
+      ]
+    },
+    {
+      "token": "at",
+      "surface_forms": [
+        "at"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 439
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AtTimesOfMarketDisruption",
+          "family": "SymbolDecl.entity",
+          "line": 28,
+          "matched_text": "AtTimesOfMarketDisruption"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "determination_possibility_at_period",
+          "family": "SymbolDecl.rel",
+          "line": 55,
+          "matched_text": "determination_possibility_at_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[1]",
+          "matched_text": "determination_possibility_at_period"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[3].args[1]",
+          "matched_text": "AtTimesOfMarketDisruption"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AtTimesOfMarketDisruption",
+          "matched_text": "at times of"
+        }
+      ]
+    },
+    {
+      "token": "tim",
+      "surface_forms": [
+        "times"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 442
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AtTimesOfMarketDisruption",
+          "family": "SymbolDecl.entity",
+          "line": 28,
+          "matched_text": "AtTimesOfMarketDisruption"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.body.args[3].args[1]",
+          "matched_text": "AtTimesOfMarketDisruption"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AtTimesOfMarketDisruption",
+          "matched_text": "at times of"
+        }
+      ]
+    },
+    {
+      "token": "illiquid",
+      "surface_forms": [
+        "illiquid"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 451
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IlliquidMarket",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "IlliquidMarket"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].vars[0].sort",
+          "matched_text": "IlliquidMarket"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IlliquidMarket",
+          "matched_text": "illiquid markets"
+        }
+      ]
+    },
+    {
+      "token": "fragment",
+      "surface_forms": [
+        "fragmented"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 463
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "FragmentedMarket",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "FragmentedMarket"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_determination_may_be_limited_or_impaired",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[2].vars[0].sort",
+          "matched_text": "FragmentedMarket"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "FragmentedMarket",
+          "matched_text": "fragmented markets"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "such",
+      "surface_forms": [
+        "Such"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 235
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

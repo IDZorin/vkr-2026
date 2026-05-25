@@ -1,0 +1,53 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N31 a a4:ShaclProjectionTarget .
+
+ex:IndexComponent a rdfs:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:IndexComponentShape a sh:NodeShape ; sh:targetClass ex:IndexComponent .
+ex:TradingDay a rdfs:Class .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:TradingDayShape a sh:NodeShape ; sh:targetClass ex:TradingDay .
+ex:Exchange a rdfs:Class .
+ex:ExchangeShape a sh:NodeShape ; sh:targetClass ex:Exchange .
+ex:Price a rdfs:Class .
+ex:Price rdfs:subClassOf ex:Real .
+ex:PriceShape a sh:NodeShape ; sh:targetClass ex:Price .
+ex:TradingPrice a rdfs:Class .
+ex:TradingPrice rdfs:subClassOf ex:Price .
+ex:TradingPriceShape a sh:NodeShape ; sh:targetClass ex:TradingPrice .
+ex:Trade a rdfs:Class .
+ex:TradeShape a sh:NodeShape ; sh:targetClass ex:Trade .
+ex:TradeTime a rdfs:Class .
+ex:TradeTime rdfs:subClassOf ex:Real .
+ex:TradeTimeShape a sh:NodeShape ; sh:targetClass ex:TradeTime .
+
+ex:trading_price a rdfs:Class .
+ex:trading_priceShape a sh:NodeShape ; sh:targetClass ex:trading_price .
+ex:trading_priceShape sh:property [ sh:path ex:trading_price_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trading_priceShape sh:property [ sh:path ex:trading_price_arg_1 ; sh:class ex:TradingDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trading_priceShape sh:property [ sh:path ex:trading_price_result ; sh:class ex:TradingPrice ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:respective_exchange a rdf:Property .
+ex:IndexComponentShape sh:property [ sh:path ex:respective_exchange ; sh:class ex:Exchange ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trade_price a rdf:Property .
+ex:TradeShape sh:property [ sh:path ex:trade_price ; sh:class ex:Price ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trade_time a rdf:Property .
+ex:TradeShape sh:property [ sh:path ex:trade_time ; sh:class ex:TradeTime ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trade_component a rdf:Property .
+ex:TradeShape sh:property [ sh:path ex:trade_component ; sh:class ex:IndexComponent ] .
+ex:trade_day a rdf:Property .
+ex:TradeShape sh:property [ sh:path ex:trade_day ; sh:class ex:TradingDay ] .
+ex:trade_exchange a rdf:Property .
+ex:TradeShape sh:property [ sh:path ex:trade_exchange ; sh:class ex:Exchange ] .
+ex:published_trade a rdfs:Class ; rdfs:subClassOf ex:Trade .
+ex:most_recent_published_trade_for a rdfs:Class .
+ex:most_recent_published_trade_forShape a sh:NodeShape ; sh:targetClass ex:most_recent_published_trade_for .
+ex:most_recent_published_trade_forShape sh:property [ sh:path ex:most_recent_published_trade_for_arg_0 ; sh:class ex:Trade ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:most_recent_published_trade_forShape sh:property [ sh:path ex:most_recent_published_trade_for_arg_1 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:most_recent_published_trade_forShape sh:property [ sh:path ex:most_recent_published_trade_for_arg_2 ; sh:class ex:TradingDay ; sh:minCount 1 ; sh:maxCount 1 ] .

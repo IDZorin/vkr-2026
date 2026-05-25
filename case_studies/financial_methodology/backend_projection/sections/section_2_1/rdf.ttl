@@ -1,0 +1,354 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_2_1 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_2_1/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:SelectionDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:Security a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:ShareClass a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ShareClass rdfs:subClassOf ex:Security .
+ex:Company a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:GbsIndex a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:GbsIndexUniverse a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ISIN a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:GbsIndexUniverseClassification a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:AverageDailyValueTraded a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:AverageDailyValueTraded rdfs:subClassOf ex:MonetaryAmount .
+ex:MonthCount a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:MonthCount rdfs:subClassOf ex:Nat .
+ex:BusinessIndustryClassificationSystem a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:RBICSSubindustryClassification a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Appendix a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexAdministrator a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:DeterminationOfIndexUniverse a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:DiscretionaryDecision a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+
+ex:SolactiveGBSGlobalMarketsAllCapUSDIndexPR a ex:GbsIndex, owl:NamedIndividual .
+ex:DE000SLA78E2 a ex:ISIN, owl:NamedIndividual .
+ex:isin a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:isin_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:GbsIndex .
+ex:isin a4:argument ex:isin_arg_0 .
+ex:isin a4:resultSort ex:ISIN .
+ex:isin a4:functionFlag "required" .
+ex:gbs_index_universe a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:gbs_index_universe_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:GbsIndex .
+ex:gbs_index_universe a4:argument ex:gbs_index_universe_arg_0 .
+ex:gbs_index_universe a4:resultSort ex:GbsIndexUniverse .
+ex:gbs_index_universe a4:functionFlag "required" .
+ex:SolactiveGBSBenchmarkSeriesPdf a ex:Document, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf a ex:Url, owl:NamedIndividual .
+ex:GbsIndexUniverseFrameworkDocumentPart a ex:DocumentPart, owl:NamedIndividual .
+ex:GbsIndexUniverseFrameworkDocumentLocator a ex:DocumentLocator, owl:NamedIndividual .
+ex:DevelopedMarketsEurope a ex:GbsIndexUniverseClassification, owl:NamedIndividual .
+ex:Canada a ex:GbsIndexUniverseClassification, owl:NamedIndividual .
+ex:UnitedStates a ex:GbsIndexUniverseClassification, owl:NamedIndividual .
+ex:USD a ex:Currency, owl:NamedIndividual .
+ex:Million a ex:MonetaryAmountScale, owl:NamedIndividual .
+ex:IndexUniverseMinimumAverageDailyValueTradedThreshold a ex:MonetaryAmount, owl:NamedIndividual .
+ex:OneMonth a ex:MonthCount, owl:NamedIndividual .
+ex:SixMonths a ex:MonthCount, owl:NamedIndividual .
+ex:months_prior_including_selection_day a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:months_prior_including_selection_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:MonthCount .
+ex:months_prior_including_selection_day a4:argument ex:months_prior_including_selection_day_arg_0 .
+ex:months_prior_including_selection_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:months_prior_including_selection_day a4:argument ex:months_prior_including_selection_day_arg_1 .
+ex:months_prior_including_selection_day a4:resultSort ex:LookbackWindow .
+ex:months_prior_including_selection_day a4:functionFlag "required" .
+ex:months_over a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:months_over_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:LookbackWindow .
+ex:months_over a4:argument ex:months_over_arg_0 .
+ex:months_over a4:resultSort ex:MonthCount .
+ex:months_over a4:functionFlag "required" .
+ex:lookback_window_anchor_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:lookback_window_anchor_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:LookbackWindow .
+ex:lookback_window_anchor_day a4:argument ex:lookback_window_anchor_day_arg_0 .
+ex:lookback_window_anchor_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:lookback_window_anchor_day a4:argument ex:lookback_window_anchor_day_arg_1 .
+ex:lookback_window_includes_anchor_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:lookback_window_includes_anchor_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:LookbackWindow .
+ex:lookback_window_includes_anchor_day a4:argument ex:lookback_window_includes_anchor_day_arg_0 .
+ex:lookback_window_includes_anchor_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:lookback_window_includes_anchor_day a4:argument ex:lookback_window_includes_anchor_day_arg_1 .
+ex:average_daily_value_traded a rdf:Property, a4:FunSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:average_daily_value_traded_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:average_daily_value_traded a4:argument ex:average_daily_value_traded_arg_0 .
+ex:average_daily_value_traded_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:average_daily_value_traded a4:argument ex:average_daily_value_traded_arg_1 .
+ex:average_daily_value_traded_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:LookbackWindow .
+ex:average_daily_value_traded a4:argument ex:average_daily_value_traded_arg_2 .
+ex:average_daily_value_traded a4:resultSort ex:AverageDailyValueTraded .
+ex:average_daily_value_traded a4:functionFlag "required" .
+ex:minimum_average_daily_value_traded a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:minimum_average_daily_value_traded_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:minimum_average_daily_value_traded a4:argument ex:minimum_average_daily_value_traded_arg_0 .
+ex:minimum_average_daily_value_traded_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:minimum_average_daily_value_traded a4:argument ex:minimum_average_daily_value_traded_arg_1 .
+ex:minimum_average_daily_value_traded a4:resultSort ex:AverageDailyValueTraded .
+ex:minimum_average_daily_value_traded a4:functionFlag "required" .
+ex:FactSetRevereBusinessIndustryClassificationSystem a ex:BusinessIndustryClassificationSystem, owl:NamedIndividual .
+ex:IndexGuidelineAppendix a ex:Appendix, owl:NamedIndividual .
+ex:rbics_subindustry_classification_of_system a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:rbics_subindustry_classification_of_system_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RBICSSubindustryClassification .
+ex:rbics_subindustry_classification_of_system a4:argument ex:rbics_subindustry_classification_of_system_arg_0 .
+ex:rbics_subindustry_classification_of_system_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:BusinessIndustryClassificationSystem .
+ex:rbics_subindustry_classification_of_system a4:argument ex:rbics_subindustry_classification_of_system_arg_1 .
+ex:rbics_subindustry_classification_in_appendix a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:rbics_subindustry_classification_in_appendix_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RBICSSubindustryClassification .
+ex:rbics_subindustry_classification_in_appendix a4:argument ex:rbics_subindustry_classification_in_appendix_arg_0 .
+ex:rbics_subindustry_classification_in_appendix_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Appendix .
+ex:rbics_subindustry_classification_in_appendix a4:argument ex:rbics_subindustry_classification_in_appendix_arg_1 .
+ex:appendix_rbics_subindustry_classification a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:appendix_rbics_subindustry_classification_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RBICSSubindustryClassification .
+ex:appendix_rbics_subindustry_classification a4:argument ex:appendix_rbics_subindustry_classification_arg_0 .
+ex:index_universe a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_universe_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:index_universe a4:argument ex:index_universe_arg_0 .
+ex:index_universe_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ShareClass .
+ex:index_universe a4:argument ex:index_universe_arg_1 .
+ex:eligible_for_index_universe a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:eligible_for_index_universe_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:eligible_for_index_universe a4:argument ex:eligible_for_index_universe_arg_0 .
+ex:eligible_for_index_universe_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ShareClass .
+ex:eligible_for_index_universe a4:argument ex:eligible_for_index_universe_arg_1 .
+ex:part_component_of_gbs_index_universe a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:part_component_of_gbs_index_universe_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:part_component_of_gbs_index_universe a4:argument ex:part_component_of_gbs_index_universe_arg_0 .
+ex:part_component_of_gbs_index_universe_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:part_component_of_gbs_index_universe a4:argument ex:part_component_of_gbs_index_universe_arg_1 .
+ex:part_component_of_gbs_index_universe_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:GbsIndexUniverse .
+ex:part_component_of_gbs_index_universe a4:argument ex:part_component_of_gbs_index_universe_arg_2 .
+ex:gbs_index_universe_classification a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:gbs_index_universe_classification_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:gbs_index_universe_classification a4:argument ex:gbs_index_universe_classification_arg_0 .
+ex:gbs_index_universe_classification_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:gbs_index_universe_classification a4:argument ex:gbs_index_universe_classification_arg_1 .
+ex:gbs_index_universe_classification a4:resultSort ex:GbsIndexUniverseClassification .
+ex:gbs_index_universe_classification a4:functionFlag "required" .
+ex:company a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:company_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ShareClass .
+ex:company a4:argument ex:company_arg_0 .
+ex:company a4:resultSort ex:Company .
+ex:company a4:functionFlag "required" .
+ex:company_currently_included_in_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:company_currently_included_in_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:company_currently_included_in_index a4:argument ex:company_currently_included_in_index_arg_0 .
+ex:company_currently_included_in_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Company .
+ex:company_currently_included_in_index a4:argument ex:company_currently_included_in_index_arg_1 .
+ex:share_class_currently_included_in_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:share_class_currently_included_in_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:share_class_currently_included_in_index a4:argument ex:share_class_currently_included_in_index_arg_0 .
+ex:share_class_currently_included_in_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ShareClass .
+ex:share_class_currently_included_in_index a4:argument ex:share_class_currently_included_in_index_arg_1 .
+ex:eligible_by_current_company_buffer_rule a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:eligible_by_current_company_buffer_rule_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:eligible_by_current_company_buffer_rule a4:argument ex:eligible_by_current_company_buffer_rule_arg_0 .
+ex:eligible_by_current_company_buffer_rule_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ShareClass .
+ex:eligible_by_current_company_buffer_rule a4:argument ex:eligible_by_current_company_buffer_rule_arg_1 .
+ex:eligible_by_not_current_company_buffer_rule a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:eligible_by_not_current_company_buffer_rule_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:eligible_by_not_current_company_buffer_rule a4:argument ex:eligible_by_not_current_company_buffer_rule_arg_0 .
+ex:eligible_by_not_current_company_buffer_rule_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ShareClass .
+ex:eligible_by_not_current_company_buffer_rule a4:argument ex:eligible_by_not_current_company_buffer_rule_arg_1 .
+ex:share_class_satisfies_buffer_rule a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:share_class_satisfies_buffer_rule_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:share_class_satisfies_buffer_rule a4:argument ex:share_class_satisfies_buffer_rule_arg_0 .
+ex:share_class_satisfies_buffer_rule_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ShareClass .
+ex:share_class_satisfies_buffer_rule a4:argument ex:share_class_satisfies_buffer_rule_arg_1 .
+ex:CurrentCompanyBufferRule a ex:IndexBufferRule, owl:NamedIndividual .
+ex:NotCurrentCompanyBufferRule a ex:IndexBufferRule, owl:NamedIndividual .
+ex:AvoidFrequentChangesBetweenTwoShareClasses a ex:VagueTerm, owl:NamedIndividual .
+ex:share_class_with_highest_minimum_average_daily_value_traded a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:share_class_with_highest_minimum_average_daily_value_traded_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:share_class_with_highest_minimum_average_daily_value_traded a4:argument ex:share_class_with_highest_minimum_average_daily_value_traded_arg_0 .
+ex:share_class_with_highest_minimum_average_daily_value_traded_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Company .
+ex:share_class_with_highest_minimum_average_daily_value_traded a4:argument ex:share_class_with_highest_minimum_average_daily_value_traded_arg_1 .
+ex:share_class_with_highest_minimum_average_daily_value_traded a4:resultSort ex:ShareClass .
+ex:share_class_with_highest_minimum_average_daily_value_traded a4:functionFlag "required" .
+ex:highest_minimum_average_daily_value_traded a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:highest_minimum_average_daily_value_traded_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:highest_minimum_average_daily_value_traded a4:argument ex:highest_minimum_average_daily_value_traded_arg_0 .
+ex:highest_minimum_average_daily_value_traded_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ShareClass .
+ex:highest_minimum_average_daily_value_traded a4:argument ex:highest_minimum_average_daily_value_traded_arg_1 .
+ex:rbics_subindustry_classification a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:rbics_subindustry_classification_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:rbics_subindustry_classification a4:argument ex:rbics_subindustry_classification_arg_0 .
+ex:rbics_subindustry_classification_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:rbics_subindustry_classification a4:argument ex:rbics_subindustry_classification_arg_1 .
+ex:rbics_subindustry_classification a4:resultSort ex:RBICSSubindustryClassification .
+ex:rbics_subindustry_classification a4:functionFlag "required" .
+ex:determination_of_index_universe a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:determination_of_index_universe_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:determination_of_index_universe a4:argument ex:determination_of_index_universe_arg_0 .
+ex:determination_of_index_universe a4:resultSort ex:DeterminationOfIndexUniverse .
+ex:determination_of_index_universe a4:functionFlag "required" .
+ex:fully_rule_based a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:fully_rule_based_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:DeterminationOfIndexUniverse .
+ex:fully_rule_based a4:argument ex:fully_rule_based_arg_0 .
+
+ex:ASSERT_gbs_index_isin a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "16"^^xsd:integer ;
+  a4:exprText "(isin(SolactiveGBSGlobalMarketsAllCapUSDIndexPR)) = (DE000SLA78E2)" ;
+  a4:sourceText "fact gbs_index_isin :\nisin(SolactiveGBSGlobalMarketsAllCapUSDIndexPR) = DE000SLA78E2" .
+ex:ASSERT_solactive_gbs_benchmark_series_pdf_url a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "25"^^xsd:integer ;
+  a4:exprText "document_url(SolactiveGBSBenchmarkSeriesPdf, HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)" ;
+  a4:sourceText "fact solactive_gbs_benchmark_series_pdf_url :\ndocument_url(SolactiveGBSBenchmarkSeriesPdf, HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)" .
+ex:ASSERT_gbs_index_universe_framework_document_part a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "28"^^xsd:integer ;
+  a4:exprText "part_of_document(GbsIndexUniverseFrameworkDocumentPart, SolactiveGBSBenchmarkSeriesPdf)" ;
+  a4:sourceText "fact gbs_index_universe_framework_document_part :\npart_of_document(GbsIndexUniverseFrameworkDocumentPart, SolactiveGBSBenchmarkSeriesPdf)" .
+ex:ASSERT_gbs_index_universe_framework_document_part_locator a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "31"^^xsd:integer ;
+  a4:exprText "document_part_locator(GbsIndexUniverseFrameworkDocumentPart, GbsIndexUniverseFrameworkDocumentLocator)" ;
+  a4:sourceText "fact gbs_index_universe_framework_document_part_locator :\ndocument_part_locator(GbsIndexUniverseFrameworkDocumentPart, GbsIndexUniverseFrameworkDocumentLocator)" .
+ex:ASSERT_gbs_index_universe_framework_document_part_url a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "34"^^xsd:integer ;
+  a4:exprText "document_part_url(GbsIndexUniverseFrameworkDocumentPart, HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)" ;
+  a4:sourceText "fact gbs_index_universe_framework_document_part_url :\ndocument_part_url(GbsIndexUniverseFrameworkDocumentPart, HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)" .
+ex:ASSERT_index_universe_minimum_average_daily_value_traded_threshold_currency a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "49"^^xsd:integer ;
+  a4:exprText "(currency(IndexUniverseMinimumAverageDailyValueTradedThreshold)) = (USD)" ;
+  a4:sourceText "fact index_universe_minimum_average_daily_value_traded_threshold_currency :\ncurrency(IndexUniverseMinimumAverageDailyValueTradedThreshold) = USD" .
+ex:ASSERT_index_universe_minimum_average_daily_value_traded_threshold_value a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "52"^^xsd:integer ;
+  a4:exprText "(monetary_amount_value(IndexUniverseMinimumAverageDailyValueTradedThreshold)) = (5)" ;
+  a4:sourceText "fact index_universe_minimum_average_daily_value_traded_threshold_value :\nmonetary_amount_value(IndexUniverseMinimumAverageDailyValueTradedThreshold) = 5" .
+ex:ASSERT_index_universe_minimum_average_daily_value_traded_threshold_scale a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "55"^^xsd:integer ;
+  a4:exprText "(monetary_amount_scale(IndexUniverseMinimumAverageDailyValueTradedThreshold)) = (Million)" ;
+  a4:sourceText "fact index_universe_minimum_average_daily_value_traded_threshold_scale :\nmonetary_amount_scale(IndexUniverseMinimumAverageDailyValueTradedThreshold) = Million" .
+ex:ASSERT_lookback_month_count_values a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "63"^^xsd:integer ;
+  a4:exprText "((OneMonth) = (1)) and ((SixMonths) = (6))" ;
+  a4:sourceText "fact lookback_month_count_values :\nOneMonth = 1\nand SixMonths = 6" .
+ex:ASSERT_declared_lookback_windows a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "73"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, ((months_over(months_prior_including_selection_day(OneMonth, d))) = (OneMonth)) and (lookback_window_anchor_day(months_prior_including_selection_day(OneMonth, d), d)) and (lookback_window_includes_anchor_day(months_prior_including_selection_day(OneMonth, d), d)) and ((months_over(months_prior_including_selection_day(SixMonths, d))) = (SixMonths)) and (lookback_window_anchor_day(months_prior_including_selection_day(SixMonths, d), d)) and (lookback_window_includes_anchor_day(months_prior_including_selection_day(SixMonths, d), d))" ;
+  a4:sourceText "constraint declared_lookback_windows :\nforall d: SelectionDay,\nmonths_over(months_prior_including_selection_day(OneMonth, d)) = OneMonth\nand lookback_window_anchor_day(months_prior_including_selection_day(OneMonth, d), d)\nand lookback_window_includes_anchor_day(months_prior_including_selection_day(OneMonth, d), d)\nand months_over(months_prior_including_selection_day(SixMonths, d)) = SixMonths\nand lookback_window_anchor_day(months_prior_including_selection_day(SixMonths, d), d)\nand lookback_window_includes_anchor_day(months_prior_including_selection_day(SixMonths, d), d)" .
+ex:ASSERT_minimum_average_daily_value_traded_over_declared_lookback_windows a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "85"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, ((minimum_average_daily_value_traded(d, s)) <= (average_daily_value_traded(d, s, months_prior_including_selection_day(OneMonth, d)))) and ((minimum_average_daily_value_traded(d, s)) <= (average_daily_value_traded(d, s, months_prior_including_selection_day(SixMonths, d)))) and (((minimum_average_daily_value_traded(d, s)) = (average_daily_value_traded(d, s, months_prior_including_selection_day(OneMonth, d)))) or ((minimum_average_daily_value_traded(d, s)) = (average_daily_value_traded(d, s, months_prior_including_selection_day(SixMonths, d)))))" ;
+  a4:sourceText "constraint minimum_average_daily_value_traded_over_declared_lookback_windows :\nforall d: SelectionDay, forall s: Security,\nminimum_average_daily_value_traded(d, s)\n<= average_daily_value_traded(d, s, months_prior_including_selection_day(OneMonth, d))\nand minimum_average_daily_value_traded(d, s)\n<= average_daily_value_traded(d, s, months_prior_including_selection_day(SixMonths, d))\nand (\nminimum_average_daily_value_traded(d, s)\n= average_daily_value_traded(d, s, months_prior_including_selection_day(OneMonth, d))\nor\nminimum_average_daily_value_traded(d, s)\n= average_daily_value_traded(d, s, months_prior_including_selection_day(SixMonths, d))\n)" .
+ex:ASSERT_appendix_rbics_subindustry_classification_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "114"^^xsd:integer ;
+  a4:exprText "forall cls: RBICSSubindustryClassification, (appendix_rbics_subindustry_classification(cls)) iff ((rbics_subindustry_classification_of_system(cls, FactSetRevereBusinessIndustryClassificationSystem)) and (rbics_subindustry_classification_in_appendix(cls, IndexGuidelineAppendix)))" ;
+  a4:sourceText "constraint appendix_rbics_subindustry_classification_definition :\nforall cls: RBICSSubindustryClassification,\nappendix_rbics_subindustry_classification(cls)\niff\nrbics_subindustry_classification_of_system(\ncls,\nFactSetRevereBusinessIndustryClassificationSystem\n)\nand rbics_subindustry_classification_in_appendix(\ncls,\nIndexGuidelineAppendix\n)" .
+ex:ASSERT_company_currently_included_in_index_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "144"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall co: Company, (company_currently_included_in_index(d, co)) iff (exists sc: ShareClass, ((company(sc)) = (co)) and (share_class_currently_included_in_index(d, sc)))" ;
+  a4:sourceText "constraint company_currently_included_in_index_definition :\nforall d: SelectionDay, forall co: Company,\ncompany_currently_included_in_index(d, co)\niff\nexists sc: ShareClass,\ncompany(sc) = co\nand share_class_currently_included_in_index(d, sc)" .
+ex:ASSERT_highest_minimum_average_daily_value_traded_share_class_company a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "165"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall co: Company, (company(share_class_with_highest_minimum_average_daily_value_traded(d, co))) = (co)" ;
+  a4:sourceText "constraint highest_minimum_average_daily_value_traded_share_class_company :\nforall d: SelectionDay, forall co: Company,\ncompany(share_class_with_highest_minimum_average_daily_value_traded(d, co)) = co" .
+ex:ASSERT_highest_minimum_average_daily_value_traded_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "169"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall co: Company, forall other: ShareClass, (((company(other)) = (co)) and (not ((other) = (share_class_with_highest_minimum_average_daily_value_traded(d, co))))) implies ((minimum_average_daily_value_traded(d, share_class_with_highest_minimum_average_daily_value_traded(d, co))) >= (minimum_average_daily_value_traded(d, other)))" ;
+  a4:sourceText "constraint highest_minimum_average_daily_value_traded_definition :\nforall d: SelectionDay, forall co: Company, forall other: ShareClass,\ncompany(other) = co\nand other != share_class_with_highest_minimum_average_daily_value_traded(d, co)\nimplies\nminimum_average_daily_value_traded(\nd,\nshare_class_with_highest_minimum_average_daily_value_traded(d, co)\n)\n>= minimum_average_daily_value_traded(d, other)" .
+ex:ASSERT_highest_minimum_average_daily_value_traded_predicate a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "180"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall sc: ShareClass, (highest_minimum_average_daily_value_traded(d, sc)) iff ((sc) = (share_class_with_highest_minimum_average_daily_value_traded(d, company(sc))))" ;
+  a4:sourceText "constraint highest_minimum_average_daily_value_traded_predicate :\nforall d: SelectionDay, forall sc: ShareClass,\nhighest_minimum_average_daily_value_traded(d, sc)\niff\nsc = share_class_with_highest_minimum_average_daily_value_traded(\nd,\ncompany(sc)\n)" .
+ex:ASSERT_current_company_buffer_rule a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "189"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall sc: ShareClass, (eligible_by_current_company_buffer_rule(d, sc)) iff ((company_currently_included_in_index(d, company(sc))) and (share_class_currently_included_in_index(d, sc)) and (forall other: ShareClass, (((company(other)) = (company(sc))) and (not ((other) = (sc)))) implies ((minimum_average_daily_value_traded(d, sc)) >= ((60%) * (minimum_average_daily_value_traded(d, other))))))" ;
+  a4:sourceText "constraint current_company_buffer_rule [realizes: CurrentCompanyBufferRule] :\nforall d: SelectionDay, forall sc: ShareClass,\neligible_by_current_company_buffer_rule(d, sc)\niff\ncompany_currently_included_in_index(d, company(sc))\nand share_class_currently_included_in_index(d, sc)\nand forall other: ShareClass,\ncompany(other) = company(sc)\nand other != sc\nimplies\nminimum_average_daily_value_traded(d, sc)\n>= 60% * minimum_average_daily_value_traded(d, other)" .
+ex:ASSERT_not_current_company_buffer_rule a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "202"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall sc: ShareClass, (eligible_by_not_current_company_buffer_rule(d, sc)) iff ((not (company_currently_included_in_index(d, company(sc)))) and (highest_minimum_average_daily_value_traded(d, sc)))" ;
+  a4:sourceText "constraint not_current_company_buffer_rule [realizes: NotCurrentCompanyBufferRule] :\nforall d: SelectionDay, forall sc: ShareClass,\neligible_by_not_current_company_buffer_rule(d, sc)\niff\nnot company_currently_included_in_index(d, company(sc))\nand highest_minimum_average_daily_value_traded(d, sc)" .
+ex:ASSERT_share_class_satisfies_buffer_rule_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "209"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall sc: ShareClass, (share_class_satisfies_buffer_rule(d, sc)) iff ((eligible_by_current_company_buffer_rule(d, sc)) or (eligible_by_not_current_company_buffer_rule(d, sc)))" ;
+  a4:sourceText "constraint share_class_satisfies_buffer_rule_definition :\nforall d: SelectionDay, forall sc: ShareClass,\nshare_class_satisfies_buffer_rule(d, sc)\niff\neligible_by_current_company_buffer_rule(d, sc)\nor eligible_by_not_current_company_buffer_rule(d, sc)" .
+ex:ASSERT_index_universe_bridge a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "224"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall sc: ShareClass, (index_universe(d, sc)) iff (eligible_for_index_universe(d, sc))" ;
+  a4:sourceText "constraint index_universe_bridge :\nforall d: SelectionDay, forall sc: ShareClass,\nindex_universe(d, sc) iff eligible_for_index_universe(d, sc)" .
+ex:ASSERT_eligible_for_index_universe_requirements a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "228"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall sc: ShareClass, (eligible_for_index_universe(d, sc)) iff ((part_component_of_gbs_index_universe(d, sc, gbs_index_universe(SolactiveGBSGlobalMarketsAllCapUSDIndexPR))) and (((gbs_index_universe_classification(d, sc)) = (DevelopedMarketsEurope)) or ((gbs_index_universe_classification(d, sc)) = (Canada)) or ((gbs_index_universe_classification(d, sc)) = (UnitedStates))) and ((minimum_average_daily_value_traded(d, sc)) >= (IndexUniverseMinimumAverageDailyValueTradedThreshold)) and (share_class_satisfies_buffer_rule(d, sc)) and (appendix_rbics_subindustry_classification(rbics_subindustry_classification(d, sc))))" ;
+  a4:sourceText "constraint eligible_for_index_universe_requirements :\nforall d: SelectionDay, forall sc: ShareClass,\neligible_for_index_universe(d, sc)\niff\npart_component_of_gbs_index_universe(\nd,\nsc,\ngbs_index_universe(SolactiveGBSGlobalMarketsAllCapUSDIndexPR)\n)\nand (\ngbs_index_universe_classification(d, sc) = DevelopedMarketsEurope\nor gbs_index_universe_classification(d, sc) = Canada\nor gbs_index_universe_classification(d, sc) = UnitedStates\n)\nand minimum_average_daily_value_traded(d, sc)\n>= IndexUniverseMinimumAverageDailyValueTradedThreshold\nand share_class_satisfies_buffer_rule(d, sc)\nand appendix_rbics_subindustry_classification(\nrbics_subindustry_classification(d, sc)\n)" .
+ex:ASSERT_only_one_share_class_of_each_company a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "249"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall co: Company, (<count>) <= (1)" ;
+  a4:sourceText "constraint only_one_share_class_of_each_company :\nforall d: SelectionDay, forall co: Company,\ncount(sc in ShareClass where eligible_for_index_universe(d, sc) and company(sc) = co) <= 1" .
+ex:ASSERT_determination_of_index_universe_fully_rule_based a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "253"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, fully_rule_based(determination_of_index_universe(d))" ;
+  a4:sourceText "fact determination_of_index_universe_fully_rule_based :\nforall d: SelectionDay,\nfully_rule_based(determination_of_index_universe(d))" .

@@ -1,0 +1,69 @@
+{
+  "entry_id": "N05",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1047,
+    "completion_tokens": 247,
+    "total_tokens": 1294
+  },
+  "latency_s": 2.7092349529266357,
+  "scenarios": [
+    {
+      "description": "Monday is treated as a Calculation Day. A schedule marks Monday as included and does not mark any non-weekday as included.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "Sunday is treated as a Calculation Day. The schedule includes Sunday even though it is not Monday through Friday.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "Every weekday except Wednesday is treated as a Calculation Day, while Wednesday is excluded. The rule is tested as a universal statement over all days.",
+      "category": "scope_edge",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A day is labeled a Calculation Day only after a manager approves it, and the approval happens on the previous day. The scenario asks whether the label depends on who approved it or when the approval occurred.",
+      "category": "modality_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "ambiguous",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 4,
+    "agreement_rate": 1.0,
+    "drifts": [],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 1
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

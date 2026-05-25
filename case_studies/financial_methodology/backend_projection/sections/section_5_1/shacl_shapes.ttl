@@ -1,0 +1,49 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_1 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:Discretion a rdfs:Class .
+ex:DiscretionShape a sh:NodeShape ; sh:targetClass ex:Discretion .
+ex:IndexDeterminationDiscretion a rdfs:Class .
+ex:IndexDeterminationDiscretion rdfs:subClassOf ex:Discretion .
+ex:IndexDeterminationDiscretionShape a sh:NodeShape ; sh:targetClass ex:IndexDeterminationDiscretion .
+ex:StrictRule a rdfs:Class .
+ex:StrictRuleShape a sh:NodeShape ; sh:targetClass ex:StrictRule .
+ex:IndexDeterminationMatter a rdfs:Class .
+ex:IndexDeterminationMatterShape a sh:NodeShape ; sh:targetClass ex:IndexDeterminationMatter .
+ex:DeterminationOfIndex a ex:IndexDeterminationMatter .
+ex:DeterminationOfIndexUniverse a ex:IndexDeterminationMatter .
+ex:SelectionOfIndexComponents a ex:IndexDeterminationMatter .
+ex:OtherRelevantDecisionInRelationToIndex a ex:IndexDeterminationMatter .
+ex:ExerciseBasis a rdfs:Class .
+ex:ExerciseBasisShape a sh:NodeShape ; sh:targetClass ex:ExerciseBasis .
+ex:ExerciseOfDiscretion a ex:ExerciseBasis .
+ex:ExerciseOfExpertJudgement a ex:ExerciseBasis .
+
+ex:TheIndex a ex:Index .
+ex:StrictRulesForDiscretionAndExpertJudgement a ex:StrictRule .
+ex:potential_need_to_exercise a rdfs:Class ; rdfs:subClassOf ex:IndexDeterminationDiscretion .
+ex:discretion_in_relation_to_index a rdf:Property .
+ex:IndexDeterminationDiscretionShape sh:property [ sh:path ex:discretion_in_relation_to_index ; sh:class ex:Index ] .
+ex:discretion_in_relation_to_matter a rdf:Property .
+ex:IndexDeterminationDiscretionShape sh:property [ sh:path ex:discretion_in_relation_to_matter ; sh:class ex:IndexDeterminationMatter ] .
+ex:if_applicable a rdfs:Class ; rdfs:subClassOf ex:IndexDeterminationMatter .
+ex:other_relevant_decision_in_relation_to_index a rdfs:Class ; rdfs:subClassOf ex:IndexDeterminationMatter .
+ex:strict_rules a rdfs:Class ; rdfs:subClassOf ex:StrictRule .
+ex:rules_regarding_exercise a rdf:Property .
+ex:StrictRuleShape sh:property [ sh:path ex:rules_regarding_exercise ; sh:class ex:ExerciseBasis ] .
+
+ex:DeterminationOfIndexUniverse a ex:if_applicable .
+ex:SelectionOfIndexComponents a ex:if_applicable .
+ex:OtherRelevantDecisionInRelationToIndex a ex:other_relevant_decision_in_relation_to_index .
+ex:StrictRulesForDiscretionAndExpertJudgement a ex:strict_rules .
+ex:StrictRulesForDiscretionAndExpertJudgement ex:rules_regarding_exercise ex:ExerciseOfDiscretion .
+ex:StrictRulesForDiscretionAndExpertJudgement ex:rules_regarding_exercise ex:ExerciseOfExpertJudgement .

@@ -1,0 +1,48 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N01 a a4:ShaclProjectionTarget .
+
+ex:IndexComponent a rdfs:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:IndexComponentShape a sh:NodeShape ; sh:targetClass ex:IndexComponent .
+ex:TradingDay a rdfs:Class .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:TradingDayShape a sh:NodeShape ; sh:targetClass ex:TradingDay .
+ex:SpecifiedPeriod a rdfs:Class .
+ex:SpecifiedPeriod rdfs:subClassOf ex:Period .
+ex:SpecifiedPeriodShape a sh:NodeShape ; sh:targetClass ex:SpecifiedPeriod .
+ex:DailyValueTraded a rdfs:Class .
+ex:DailyValueTraded rdfs:subClassOf ex:Real .
+ex:DailyValueTradedShape a sh:NodeShape ; sh:targetClass ex:DailyValueTraded .
+ex:AverageDailyValueTraded a rdfs:Class .
+ex:AverageDailyValueTraded rdfs:subClassOf ex:Real .
+ex:AverageDailyValueTradedShape a sh:NodeShape ; sh:targetClass ex:AverageDailyValueTraded .
+ex:TradingDayCount a rdfs:Class .
+ex:TradingDayCount rdfs:subClassOf ex:Nat .
+ex:TradingDayCountShape a sh:NodeShape ; sh:targetClass ex:TradingDayCount .
+
+ex:daily_value_traded a rdfs:Class .
+ex:daily_value_tradedShape a sh:NodeShape ; sh:targetClass ex:daily_value_traded .
+ex:daily_value_tradedShape sh:property [ sh:path ex:daily_value_traded_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:daily_value_tradedShape sh:property [ sh:path ex:daily_value_traded_arg_1 ; sh:class ex:TradingDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:daily_value_tradedShape sh:property [ sh:path ex:daily_value_traded_result ; sh:class ex:DailyValueTraded ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:average_daily_value_traded a rdfs:Class .
+ex:average_daily_value_tradedShape a sh:NodeShape ; sh:targetClass ex:average_daily_value_traded .
+ex:average_daily_value_tradedShape sh:property [ sh:path ex:average_daily_value_traded_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:average_daily_value_tradedShape sh:property [ sh:path ex:average_daily_value_traded_arg_1 ; sh:class ex:SpecifiedPeriod ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:average_daily_value_tradedShape sh:property [ sh:path ex:average_daily_value_traded_result ; sh:class ex:AverageDailyValueTraded ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:daily_value_traded_sum_over_period a rdfs:Class .
+ex:daily_value_traded_sum_over_periodShape a sh:NodeShape ; sh:targetClass ex:daily_value_traded_sum_over_period .
+ex:daily_value_traded_sum_over_periodShape sh:property [ sh:path ex:daily_value_traded_sum_over_period_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:daily_value_traded_sum_over_periodShape sh:property [ sh:path ex:daily_value_traded_sum_over_period_arg_1 ; sh:class ex:SpecifiedPeriod ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:daily_value_traded_sum_over_periodShape sh:property [ sh:path ex:daily_value_traded_sum_over_period_result ; sh:class ex:DailyValueTraded ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trading_day_count_in_period a rdf:Property .
+ex:SpecifiedPeriodShape sh:property [ sh:path ex:trading_day_count_in_period ; sh:class ex:TradingDayCount ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trading_day_falls_in_period a rdf:Property .
+ex:TradingDayShape sh:property [ sh:path ex:trading_day_falls_in_period ; sh:class ex:SpecifiedPeriod ] .

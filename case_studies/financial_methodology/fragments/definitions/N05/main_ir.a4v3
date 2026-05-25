@@ -1,0 +1,11 @@
+rel calculation_day : Day
+
+constraint calculation_day_definition :
+  forall d: Day,
+    calculation_day(d)
+    iff
+      WeekdayOf(d) = Monday
+      or WeekdayOf(d) = Tuesday
+      or WeekdayOf(d) = Wednesday
+      or WeekdayOf(d) = Thursday
+      or WeekdayOf(d) = Friday

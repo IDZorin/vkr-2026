@@ -1,0 +1,28 @@
+schema: role_annotations_v1
+entry_id: section_1_1
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  asset_class:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  rebalancing_fee_status:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  rebalancing_frequency:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+constraints:
+  clean_energy_strategy_represents_clean_energy_securities:
+    frame: clean_energy_strategy_represents_clean_energy_securities
+    variables:
+      s: {role: instrument, quantifier: forall}
+  no_rebalancing_fee_means_rebalancing_fee_not_charged:
+    frame: no_rebalancing_fee_means_rebalancing_fee_not_charged
+    variables:
+      i: {role: subject, quantifier: forall}

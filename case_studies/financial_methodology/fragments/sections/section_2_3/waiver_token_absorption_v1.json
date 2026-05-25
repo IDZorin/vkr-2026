@@ -1,0 +1,140 @@
+{
+  "entry_id": "section_2_3",
+  "schema": "waiver_token_absorption_v1",
+  "generated_from": "metrics_token_provenance_v1.json",
+  "items": [
+    {
+      "token": "assign",
+      "surface_forms": [
+        "assigned"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 48
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "Глагол \"assigned\" поглощён результирующей функцией weight(...): IR моделирует назначенный вес как значение, а не отдельное событие назначения.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "subject",
+      "surface_forms": [
+        "subject"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 108
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "Фраза \"subject to\" только вводит последующие ограничения; сами ограничения уже представлены отдельными constraint, поэтому отдельный subject_to-предикат не нужен.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "follow",
+      "surface_forms": [
+        "following"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 123
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "Указатель на список ниже; отдельной семантики не добавляет, список раскрыт двумя formula-bearing constraints.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "constraint",
+      "surface_forms": [
+        "constraints"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 133
+        },
+        {
+          "line": 8,
+          "column": 81
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "Слово \"constraints\" здесь является упаковкой для двух последующих правил; в IR упаковка поглощена тем, что оба правила записаны как отдельные top-level constraints.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "total",
+      "surface_forms": [
+        "total"
+      ],
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 47
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "Модификатор \"total\" поглощён предположением, что региональная доля считается как нормализованная доля всего Index; если это предположение отвергнуть, токен надо моделировать явно через whole-index denominator.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "until",
+      "surface_forms": [
+        "until"
+      ],
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 70
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "\"until\" трактуется как процедурная фраза завершения, а не как обязательный TemporalDecl: IR явно задаёт redistribution и две конечные constraints, не вводя trace/state semantics.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "both",
+      "surface_forms": [
+        "both"
+      ],
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 76
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "\"both\" поглощено тем, что обе целевые constraints присутствуют как top-level формулы; в A4V3 набор constraints читается совместно, то есть обе должны выполняться одновременно.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "satisfi",
+      "surface_forms": [
+        "satisfied"
+      ],
+      "source_locations": [
+        {
+          "line": 8,
+          "column": 97
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "needs_human_review",
+      "comment": "\"satisfied\" не моделируется отдельным helper-предикатом, потому что состояние удовлетворённости выражено самими двумя target constraints.",
+      "reviewer": "human_approved"
+    }
+  ],
+  "stale_tokens_from_previous_file": []
+}

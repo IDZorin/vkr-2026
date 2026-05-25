@@ -1,0 +1,98 @@
+{
+  "entry_id": "section_4_6",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1809,
+    "completion_tokens": 395,
+    "total_tokens": 2204
+  },
+  "latency_s": 3.9598283767700195,
+  "raw_parsed": {
+    "source_facts": [
+      "Solactive makes the greatest possible efforts to accurately calculate and maintain its indices.",
+      "Errors in the determination process may occur from time to time for variety reasons.",
+      "Errors in the determination process cannot be completely ruled out.",
+      "Solactive endeavors to correct all identified errors within a reasonable period of time.",
+      "The reasonable-period understanding and general measures depend on the underlying.",
+      "The reasonable-period understanding and general measures are specified in the Solactive Correction Policy.",
+      "The Solactive Correction Policy is incorporated by reference.",
+      "The Solactive Correction Policy is available on the Solactive website."
+    ],
+    "render_facts": [
+      "Solactive uses its greatest possible efforts to calculate and maintain each index accurately.",
+      "Errors in the determination process may occur from time to time for a variety of reasons.",
+      "Errors in the determination process cannot be completely ruled out.",
+      "If an error in the determination process is identified, Solactive will endeavor to correct it within a reasonable period of time.",
+      "The understanding of what constitutes a reasonable period of time and the general measures to be taken depend on the underlying of the index.",
+      "These matters are specified in the Solactive Correction Policy.",
+      "The Solactive Correction Policy is incorporated by reference into this Guideline.",
+      "The Solactive Correction Policy is available on Solactive’s website."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 0,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 1,
+        "render_idx": 1,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 2,
+        "render_idx": 2,
+        "match": "exact"
+      },
+      {
+        "src_idx": 3,
+        "render_idx": 3,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 4,
+        "render_idx": 4,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 5,
+        "render_idx": 5,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 6,
+        "render_idx": 6,
+        "match": "stronger"
+      },
+      {
+        "src_idx": 7,
+        "render_idx": 7,
+        "match": "paraphrase"
+      }
+    ],
+    "render_only": []
+  },
+  "summary": {
+    "n_source_facts": 8,
+    "n_render_facts": 8,
+    "matched_source": 8,
+    "matched_render": 8,
+    "render_only": 0,
+    "missing_source": 0,
+    "weaker_in_render": 0,
+    "stronger_in_render": 1,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "missing_source_facts": [],
+    "render_only_facts": [],
+    "weaker_pairs": [],
+    "stronger_pairs": [
+      {
+        "src": "The Solactive Correction Policy is incorporated by reference.",
+        "render": "The Solactive Correction Policy is incorporated by reference into this Guideline."
+      }
+    ]
+  }
+}

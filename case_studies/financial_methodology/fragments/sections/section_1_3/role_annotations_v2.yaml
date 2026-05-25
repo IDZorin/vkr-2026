@@ -1,0 +1,26 @@
+schema: role_annotations_v2
+entry_id: section_1_3
+annotation_status: migrated_signature_only_v2
+migration_notes:
+- Generated from the legacy role_annotations.yaml v1 experiment.
+- Only rel/fun signatures with arity > 2 or repeated argument sorts are retained.
+- Formula logic remains exclusively in main_ir.a4v3; facts/constraints/deontics are not mirrored here.
+symbols:
+  historical_value:
+    kind: rel
+    args:
+      1:
+        role: value
+      2:
+        role: subject
+      3:
+        role: time
+  published_level_for_period:
+    kind: rel
+    args:
+      1:
+        role: value
+      2:
+        role: subject
+      3:
+        role: time

@@ -1,0 +1,80 @@
+schema: role_annotations_v1
+entry_id: N30
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  relevant_exchange:
+    kind: fun
+    args:
+      1: {role: component}
+    returns: {role: same_as_type}
+  scheduled_exchange_closing_time:
+    kind: fun
+    args:
+      1: {role: exchange}
+      2: {role: day}
+    returns: {role: same_as_type}
+constraints:
+  early_cessation_exclusion:
+    frame: early_cessation_exclusion
+    variables:
+      ctx: {role: context, quantifier: forall}
+      d: {role: day, quantifier: exists}
+      ex: {role: exchange, quantifier: exists}
+      cp: {role: condition, quantifier: exists}
+  following_calculation_day_component_scope:
+    frame: following_calculation_day_component_scope
+    variables:
+      ctx: {role: context, quantifier: forall}
+      rd: {role: day, quantifier: exists}
+      cd: {role: day, quantifier: exists}
+      c: {role: component, quantifier: exists}
+      inc: {role: component, quantifier: exists}
+  index_administrator_responsibility_for_trading_day_determination:
+    frame: index_administrator_responsibility_for_trading_day_determination
+    variables:
+      det: {role: event, quantifier: forall}
+      ctx: {role: context, quantifier: forall}
+  market_disruption_counterfactual_condition:
+    frame: market_disruption_counterfactual_condition
+    variables:
+      ctx: {role: context, quantifier: forall}
+      d: {role: day, quantifier: exists}
+      ex: {role: exchange, quantifier: exists}
+  new_index_components_close_of_trading_clarification:
+    frame: new_index_components_close_of_trading_clarification
+    variables:
+      ctx: {role: context, quantifier: forall}
+      rd: {role: day, quantifier: exists}
+      c: {role: component, quantifier: exists}
+      close: {role: event, quantifier: exists}
+  open_for_trading_condition:
+    frame: open_for_trading_condition
+    variables:
+      ctx: {role: context, quantifier: forall}
+      d: {role: day, quantifier: exists}
+      ex: {role: exchange, quantifier: exists}
+  rebalance_day_component_scope:
+    frame: rebalance_day_component_scope
+    variables:
+      ctx: {role: context, quantifier: forall}
+      rd: {role: day, quantifier: exists}
+      c: {role: component, quantifier: exists}
+      inc: {role: component, quantifier: exists}
+  scheduled_shortened_period_exclusion:
+    frame: scheduled_shortened_period_exclusion
+    variables:
+      ctx: {role: context, quantifier: forall}
+      d: {role: day, quantifier: exists}
+      ex: {role: exchange, quantifier: exists}
+      sp: {role: time, quantifier: exists}
+  trading_day_context_definition:
+    frame: trading_day_context_definition
+    variables:
+      ctx: {role: context, quantifier: forall}
+      rd: {role: day, quantifier: exists}
+      d: {role: day, quantifier: exists}
+      c: {role: component, quantifier: exists}
+  trading_day_definition:
+    frame: trading_day_definition
+    variables:
+      ctx: {role: context, quantifier: forall}

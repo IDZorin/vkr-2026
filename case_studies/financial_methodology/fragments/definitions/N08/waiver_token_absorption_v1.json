@@ -1,0 +1,40 @@
+{
+  "entry_id": "N08",
+  "schema": "waiver_token_absorption_v1",
+  "generated_from": "metrics_token_provenance_v1.json",
+  "items": [
+    {
+      "token": "mean",
+      "surface_forms": [
+        "means"
+      ],
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 22
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "legal_definition_glue",
+      "comment": "The source verb 'means' marks a definitional sentence. It is absorbed by the product definition constraint rather than formalized as a standalone ontology predicate.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "respect",
+      "surface_forms": [
+        "respect"
+      ],
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 32
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "scope_glue",
+      "comment": "The phrase 'in respect of an Index Component and a Trading Day' is legal scope glue. The scope is represented by IndexComponent and TradingDay parameters.",
+      "reviewer": "human_approved"
+    }
+  ],
+  "stale_tokens_from_previous_file": []
+}

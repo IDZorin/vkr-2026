@@ -1,4 +1,4 @@
-"""Role-frame, re-analysis, and claim-ledger tools."""
+﻿"""Role-frame, re-analysis, and claim-ledger tools."""
 from __future__ import annotations
 
 import json
@@ -66,7 +66,7 @@ def tool_analyze_role_frame(env: ToolEnv) -> dict[str, Any]:
 
     user = (
         f"## SECTION SOURCE\n\n{source}\n\n"
-        f"## CORPUS PRECEDENTS (similar sections in DZ — how they reified events/roles)\n\n{corpus_block}\n"
+        f"## CORPUS PRECEDENTS (similar sections in the seed methodology corpus — how they reified events/roles)\n\n{corpus_block}\n"
         f"{classification_excerpt}\n"
         f"Produce the role_frame JSON per the schema. Be CONSERVATIVE on "
         f"ontology — each new sort/entity must cite a verbatim source "
@@ -133,7 +133,7 @@ def tool_analyze_role_frame(env: ToolEnv) -> dict[str, Any]:
                 f"'DeonticDecl' requires absorption='preserve_as_first_class' "
                 f"(use a permission/obligation/prohibition block), but "
                 f"frame proposed absorption='{abs_dec}'. This conflict is "
-                f"empirically grounded: all 5 DZ canonical sections with "
+                f"empirically grounded: all 5 financial methodology canonical sections with "
                 f"may/shall modals use DeonticDecl blocks; bare-fact + "
                 f"waiver makes judges read the IR as 'agent claims this "
                 f"HAS occurred' which over-asserts a permission. Re-run "

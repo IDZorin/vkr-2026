@@ -1,0 +1,6 @@
+rel fixing_day : Day
+rel selection_day : Day
+
+constraint fixing_day_definition :
+  forall d: Day,
+    fixing_day(d) iff selection_day(d)

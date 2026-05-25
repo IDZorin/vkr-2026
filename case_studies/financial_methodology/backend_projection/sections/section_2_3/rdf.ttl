@@ -1,0 +1,96 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_2_3 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_2_3/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:SelectionDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:IndexComponent a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Region a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:FloatMarketCapizatlization a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:WeightRedistributionProcess a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+
+ex:region a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:region_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:region a4:argument ex:region_arg_0 .
+ex:region a4:resultSort ex:Region .
+ex:region a4:functionFlag "required" .
+ex:float_market_capizatlization a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:float_market_capizatlization_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:float_market_capizatlization a4:argument ex:float_market_capizatlization_arg_0 .
+ex:float_market_capizatlization_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:float_market_capizatlization a4:argument ex:float_market_capizatlization_arg_1 .
+ex:float_market_capizatlization a4:resultSort ex:FloatMarketCapizatlization .
+ex:float_market_capizatlization a4:functionFlag "required" .
+ex:weight a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:weight_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:weight a4:argument ex:weight_arg_0 .
+ex:weight_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:weight a4:argument ex:weight_arg_1 .
+ex:weight a4:resultSort xsd:decimal .
+ex:weight a4:functionFlag "required" .
+ex:weight_redistribution_process a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:weight_redistribution_process_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:weight_redistribution_process a4:argument ex:weight_redistribution_process_arg_0 .
+ex:weight_redistribution_process a4:resultSort ex:WeightRedistributionProcess .
+ex:weight_redistribution_process a4:functionFlag "required" .
+ex:weight_has_float_market_capizatlization_basis a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:weight_has_float_market_capizatlization_basis_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Percent .
+ex:weight_has_float_market_capizatlization_basis a4:argument ex:weight_has_float_market_capizatlization_basis_arg_0 .
+ex:weight_has_float_market_capizatlization_basis_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:FloatMarketCapizatlization .
+ex:weight_has_float_market_capizatlization_basis a4:argument ex:weight_has_float_market_capizatlization_basis_arg_1 .
+ex:iterative_process a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:iterative_process_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:WeightRedistributionProcess .
+ex:iterative_process a4:argument ex:iterative_process_arg_0 .
+ex:redistributes_weight_proportionally a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:redistributes_weight_proportionally_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:WeightRedistributionProcess .
+ex:redistributes_weight_proportionally a4:argument ex:redistributes_weight_proportionally_arg_0 .
+ex:redistributes_weight_proportionally_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:redistributes_weight_proportionally a4:argument ex:redistributes_weight_proportionally_arg_1 .
+ex:redistributes_weight_proportionally_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:Percent .
+ex:redistributes_weight_proportionally a4:argument ex:redistributes_weight_proportionally_arg_2 .
+
+ex:ASSERT_weight_based_on_float_market_capizatlization a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "16"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall c: IndexComponent, weight_has_float_market_capizatlization_basis(weight(d, c), float_market_capizatlization(d, c))" ;
+  a4:sourceText "fact weight_based_on_float_market_capizatlization :\n  forall d: SelectionDay, forall c: IndexComponent,\n    weight_has_float_market_capizatlization_basis(\n      weight(d, c),\n      float_market_capizatlization(d, c)\n    )" .
+ex:ASSERT_region_represents_exactly_50_percent a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "23"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall r: Region, (sum(<set_comp>, weight(d, c))) = (50%)" ;
+  a4:sourceText "constraint region_represents_exactly_50_percent :\n  forall d: SelectionDay, forall r: Region,\n    sum(c in IndexComponent where region(c) = r, weight(d, c)) = 50%" .
+ex:ASSERT_single_index_component_weight_capped a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "27"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall c: IndexComponent, (weight(d, c)) <= (5%)" ;
+  a4:sourceText "constraint single_index_component_weight_capped :\n  forall d: SelectionDay, forall c: IndexComponent,\n    weight(d, c) <= 5%" .
+ex:ASSERT_weight_redistribution_process_is_iterative a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "31"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, iterative_process(weight_redistribution_process(d))" ;
+  a4:sourceText "fact weight_redistribution_process_is_iterative :\n  forall d: SelectionDay,\n    iterative_process(weight_redistribution_process(d))" .
+ex:ASSERT_weights_redistributed_proportionally a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "35"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall c: IndexComponent, redistributes_weight_proportionally(weight_redistribution_process(d), c, weight(d, c))" ;
+  a4:sourceText "fact weights_redistributed_proportionally :\n  forall d: SelectionDay, forall c: IndexComponent,\n    redistributes_weight_proportionally(\n      weight_redistribution_process(d),\n      c,\n      weight(d, c)\n    )" .

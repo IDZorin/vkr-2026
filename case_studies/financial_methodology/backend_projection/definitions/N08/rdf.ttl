@@ -1,0 +1,68 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N08 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N08/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:IndexComponent a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:TradingDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:Exchange a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ClosingPrice a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ClosingPrice rdfs:subClassOf ex:MonetaryAmount .
+ex:DailyValueTraded a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:DailyValueTraded rdfs:subClassOf ex:MonetaryAmount .
+ex:VolumeNumberOfShares a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:VolumeNumberOfShares rdfs:subClassOf ex:Nat .
+
+ex:closing_price a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:closing_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:closing_price a4:argument ex:closing_price_arg_0 .
+ex:closing_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:closing_price a4:argument ex:closing_price_arg_1 .
+ex:closing_price a4:resultSort ex:ClosingPrice .
+ex:closing_price a4:functionFlag "required" .
+ex:daily_value_traded a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:daily_value_traded_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:daily_value_traded a4:argument ex:daily_value_traded_arg_0 .
+ex:daily_value_traded_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:daily_value_traded a4:argument ex:daily_value_traded_arg_1 .
+ex:daily_value_traded a4:resultSort ex:DailyValueTraded .
+ex:daily_value_traded a4:functionFlag "required" .
+ex:volume_traded_on_exchange_during_trading_day a rdf:Property, a4:FunSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:volume_traded_on_exchange_during_trading_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:volume_traded_on_exchange_during_trading_day a4:argument ex:volume_traded_on_exchange_during_trading_day_arg_0 .
+ex:volume_traded_on_exchange_during_trading_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Exchange .
+ex:volume_traded_on_exchange_during_trading_day a4:argument ex:volume_traded_on_exchange_during_trading_day_arg_1 .
+ex:volume_traded_on_exchange_during_trading_day_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:volume_traded_on_exchange_during_trading_day a4:argument ex:volume_traded_on_exchange_during_trading_day_arg_2 .
+ex:volume_traded_on_exchange_during_trading_day a4:resultSort ex:VolumeNumberOfShares .
+ex:volume_traded_on_exchange_during_trading_day a4:functionFlag "required" .
+ex:respective_exchange a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:respective_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:respective_exchange a4:argument ex:respective_exchange_arg_0 .
+ex:respective_exchange a4:resultSort ex:Exchange .
+ex:respective_exchange a4:functionFlag "required" .
+
+ex:ASSERT_daily_value_traded_product_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "13"^^xsd:integer ;
+  a4:exprText "forall c: IndexComponent, forall d: TradingDay, (daily_value_traded(c, d)) = ((closing_price(c, d)) * (volume_traded_on_exchange_during_trading_day(c, respective_exchange(c), d)))" ;
+  a4:sourceText "constraint daily_value_traded_product_definition :\n  forall c: IndexComponent, forall d: TradingDay,\n    daily_value_traded(c, d)\n    =\n    closing_price(c, d)\n    *\n    volume_traded_on_exchange_during_trading_day(c, respective_exchange(c), d)" .

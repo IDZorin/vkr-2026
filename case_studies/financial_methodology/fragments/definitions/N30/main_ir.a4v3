@@ -1,0 +1,171 @@
+sort Index
+sort Security extends FinancialInstrument
+sort IndexComponent extends Security
+sort RebalanceDay extends Day
+sort CalculationDay extends Day
+sort Exchange
+sort IndexAdministrator extends Organization
+sort IndexAdministratorForThisIndex extends IndexAdministrator
+sort IndexComponentInclusion
+sort TradingDayContext
+sort TradingDayDetermination
+sort ExchangeClosingTime
+sort TradingCessationPossibility
+sort ScheduledShortenedPeriod extends Period
+sort CloseOfTrading extends Event
+
+entity TheIndex : Index
+entity TheIndexAdministrator : IndexAdministratorForThisIndex
+
+fun[required] relevant_exchange : IndexComponent -> Exchange
+fun[required] scheduled_exchange_closing_time : Exchange, Day -> ExchangeClosingTime
+
+rel inclusion_component : IndexComponentInclusion, IndexComponent
+rel inclusion_index : IndexComponentInclusion, Index
+rel inclusion_day : IndexComponentInclusion, Day
+rel calculation_day_immediately_following_rebalance_day : CalculationDay, RebalanceDay
+
+rel context_rebalance_day : TradingDayContext, RebalanceDay
+rel context_day : TradingDayContext, Day
+rel context_component : TradingDayContext, IndexComponent
+rel context_exchange : TradingDayContext, Exchange
+rel valid_trading_day_context : TradingDayContext
+rel context_component_included_at_rebalance_day : TradingDayContext
+rel context_component_included_at_following_calculation_day : TradingDayContext
+rel context_satisfies_open_for_trading_condition : TradingDayContext
+rel context_satisfies_market_disruption_counterfactual : TradingDayContext
+rel context_excluded_by_prior_to_close_cessation : TradingDayContext
+rel context_excluded_by_scheduled_shortened_period : TradingDayContext
+rel trading_day : TradingDayContext
+
+rel exchange_open_for_trading : Exchange, Day
+rel market_disruption_occurred : Exchange, Day
+rel would_have_been_open_for_trading_without_market_disruption : Exchange, Day
+
+rel cessation_possibility_exchange : TradingCessationPossibility, Exchange
+rel cessation_possibility_day : TradingCessationPossibility, Day
+rel prior_to : TradingCessationPossibility, ExchangeClosingTime
+
+rel shortened_period_exchange : ScheduledShortenedPeriod, Exchange
+rel shortened_period_day : ScheduledShortenedPeriod, Day
+
+rel security_to_be_included_in_index_as_new_index_component : Security, Index
+rel close_of_trading_exchange : CloseOfTrading, Exchange
+rel close_of_trading_rebalance_day : CloseOfTrading, RebalanceDay
+rel context_captures_new_index_component_close_of_trading : TradingDayContext
+
+rel determination_decides_whether_context_is_trading_day : TradingDayDetermination, TradingDayContext
+rel ultimately_responsible_for_trading_day_determination : IndexAdministratorForThisIndex, TradingDayDetermination
+
+constraint trading_day_context_definition :
+  forall ctx: TradingDayContext,
+    valid_trading_day_context(ctx)
+    iff
+      exists rd: RebalanceDay, exists d: Day, exists c: IndexComponent,
+        context_rebalance_day(ctx, rd)
+        and context_day(ctx, d)
+        and context_component(ctx, c)
+        and context_exchange(ctx, relevant_exchange(c))
+        and
+          (
+            context_component_included_at_rebalance_day(ctx)
+            or context_component_included_at_following_calculation_day(ctx)
+          )
+
+constraint rebalance_day_component_scope :
+  forall ctx: TradingDayContext,
+    context_component_included_at_rebalance_day(ctx)
+    iff
+      exists rd: RebalanceDay, exists c: IndexComponent, exists inc: IndexComponentInclusion,
+        context_rebalance_day(ctx, rd)
+        and context_component(ctx, c)
+        and inclusion_component(inc, c)
+        and inclusion_index(inc, TheIndex)
+        and inclusion_day(inc, rd)
+
+constraint following_calculation_day_component_scope :
+  forall ctx: TradingDayContext,
+    context_component_included_at_following_calculation_day(ctx)
+    iff
+      exists rd: RebalanceDay, exists cd: CalculationDay, exists c: IndexComponent, exists inc: IndexComponentInclusion,
+        context_rebalance_day(ctx, rd)
+        and calculation_day_immediately_following_rebalance_day(cd, rd)
+        and context_component(ctx, c)
+        and inclusion_component(inc, c)
+        and inclusion_index(inc, TheIndex)
+        and inclusion_day(inc, cd)
+
+constraint open_for_trading_condition :
+  forall ctx: TradingDayContext,
+    context_satisfies_open_for_trading_condition(ctx)
+    iff
+      exists d: Day, exists ex: Exchange,
+        context_day(ctx, d)
+        and context_exchange(ctx, ex)
+        and exchange_open_for_trading(ex, d)
+
+constraint market_disruption_counterfactual_condition :
+  forall ctx: TradingDayContext,
+    context_satisfies_market_disruption_counterfactual(ctx)
+    iff
+      exists d: Day, exists ex: Exchange,
+        context_day(ctx, d)
+        and context_exchange(ctx, ex)
+        and market_disruption_occurred(ex, d)
+        and would_have_been_open_for_trading_without_market_disruption(ex, d)
+
+constraint early_cessation_exclusion :
+  forall ctx: TradingDayContext,
+    context_excluded_by_prior_to_close_cessation(ctx)
+    iff
+      exists d: Day, exists ex: Exchange, exists cp: TradingCessationPossibility,
+        context_day(ctx, d)
+        and context_exchange(ctx, ex)
+        and cessation_possibility_exchange(cp, ex)
+        and cessation_possibility_day(cp, d)
+        and prior_to(cp, scheduled_exchange_closing_time(ex, d))
+
+constraint scheduled_shortened_period_exclusion :
+  forall ctx: TradingDayContext,
+    context_excluded_by_scheduled_shortened_period(ctx)
+    iff
+      exists d: Day, exists ex: Exchange, exists sp: ScheduledShortenedPeriod,
+        context_day(ctx, d)
+        and context_exchange(ctx, ex)
+        and shortened_period_exchange(sp, ex)
+        and shortened_period_day(sp, d)
+
+constraint trading_day_definition :
+  forall ctx: TradingDayContext,
+    valid_trading_day_context(ctx)
+    implies
+      (
+        trading_day(ctx)
+        iff
+          (
+            (
+              context_satisfies_open_for_trading_condition(ctx)
+              or context_satisfies_market_disruption_counterfactual(ctx)
+            )
+            and not context_excluded_by_prior_to_close_cessation(ctx)
+            and not context_excluded_by_scheduled_shortened_period(ctx)
+          )
+      )
+
+constraint new_index_components_close_of_trading_clarification :
+  forall ctx: TradingDayContext,
+    context_captures_new_index_component_close_of_trading(ctx)
+    iff
+      exists rd: RebalanceDay, exists c: IndexComponent, exists close: CloseOfTrading,
+        context_rebalance_day(ctx, rd)
+        and context_component(ctx, c)
+        and security_to_be_included_in_index_as_new_index_component(c, TheIndex)
+        and close_of_trading_exchange(close, relevant_exchange(c))
+        and close_of_trading_rebalance_day(close, rd)
+
+constraint index_administrator_responsibility_for_trading_day_determination :
+  forall det: TradingDayDetermination, forall ctx: TradingDayContext,
+    determination_decides_whether_context_is_trading_day(det, ctx)
+    and valid_trading_day_context(ctx)
+    implies
+      ultimately_responsible_for_trading_day_determination(TheIndexAdministrator, det)

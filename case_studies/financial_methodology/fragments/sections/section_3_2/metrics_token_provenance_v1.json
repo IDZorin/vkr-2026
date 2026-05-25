@@ -1,0 +1,410 @@
+{
+  "entry_id": "section_3_2",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 8,
+    "content_token_count": 6,
+    "covered_content_token_count": 6,
+    "uncovered_content_token_count": 0,
+    "ignored_stopword_count": 2,
+    "content_coverage_rate": 1.0
+  },
+  "tokens": [
+    {
+      "token": "extraordinari",
+      "surface_forms": [
+        "Extraordinary"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 1
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ExtraordinaryRebalance",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "ExtraordinaryRebalance"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_not_rebalanced_extraordinarily",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "ExtraordinaryRebalance"
+        }
+      ]
+    },
+    {
+      "token": "rebalance",
+      "surface_forms": [
+        "Rebalance"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 15
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Rebalance",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "Rebalance"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ExtraordinaryRebalance",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "ExtraordinaryRebalance"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "ExtraordinaryRebalance",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "Rebalance"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalance_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "rebalance_of_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rebalance_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "Rebalance"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_not_rebalanced_extraordinarily",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "ExtraordinaryRebalance"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_not_rebalanced_extraordinarily",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.arg",
+          "matched_text": "rebalance_of_index"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "The"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 1
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_not_rebalanced_extraordinarily",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.arg.args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndex",
+          "matched_text": "The Index"
+        }
+      ]
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 5
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Index",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalance_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "rebalance_of_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rebalance_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_not_rebalanced_extraordinarily",
+          "family": "AssertDecl.constraint",
+          "line": 9,
+          "matched_text": "index_not_rebalanced_extraordinarily"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_not_rebalanced_extraordinarily",
+          "assertion_kind": "constraint",
+          "line": 9,
+          "matched_text": "index_not_rebalanced_extraordinarily"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_not_rebalanced_extraordinarily",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.arg",
+          "matched_text": "rebalance_of_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_not_rebalanced_extraordinarily",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.arg.args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndex",
+          "matched_text": "The Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "rebalance_of_index",
+          "matched_text": "Index is ... rebalanced"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 11
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "rebalance_of_index",
+          "matched_text": "Index is ... rebalanced"
+        }
+      ]
+    },
+    {
+      "token": "not",
+      "surface_forms": [
+        "not"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 14
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_not_rebalanced_extraordinarily",
+          "family": "AssertDecl.constraint",
+          "line": 9,
+          "matched_text": "index_not_rebalanced_extraordinarily"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_not_rebalanced_extraordinarily",
+          "assertion_kind": "constraint",
+          "line": 9,
+          "matched_text": "index_not_rebalanced_extraordinarily"
+        }
+      ]
+    },
+    {
+      "token": "rebalanc",
+      "surface_forms": [
+        "rebalanced"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 18
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_not_rebalanced_extraordinarily",
+          "family": "AssertDecl.constraint",
+          "line": 9,
+          "matched_text": "index_not_rebalanced_extraordinarily"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_not_rebalanced_extraordinarily",
+          "assertion_kind": "constraint",
+          "line": 9,
+          "matched_text": "index_not_rebalanced_extraordinarily"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Rebalance",
+          "matched_text": "rebalanced"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ExtraordinaryRebalance",
+          "matched_text": "rebalanced extraordinarily"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "rebalance_of_index",
+          "matched_text": "Index is ... rebalanced"
+        }
+      ]
+    },
+    {
+      "token": "extraordinarili",
+      "surface_forms": [
+        "extraordinarily"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 29
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_not_rebalanced_extraordinarily",
+          "family": "AssertDecl.constraint",
+          "line": 9,
+          "matched_text": "index_not_rebalanced_extraordinarily"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_not_rebalanced_extraordinarily",
+          "assertion_kind": "constraint",
+          "line": 9,
+          "matched_text": "index_not_rebalanced_extraordinarily"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ExtraordinaryRebalance",
+          "matched_text": "rebalanced extraordinarily"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

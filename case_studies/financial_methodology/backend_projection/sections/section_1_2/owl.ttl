@@ -1,0 +1,227 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_2 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:IndexName a owl:Class .
+ex:ISIN a owl:Class .
+ex:RIC a owl:Class .
+ex:BBGTicker a owl:Class .
+ex:IndexType a owl:Class ; owl:oneOf ( ex:PriceReturn ex:NetTotalReturn ex:GrossTotalReturn ex:AdjustedReturnIndex ) .
+ex:PriceReturn a ex:IndexType, owl:NamedIndividual .
+ex:NetTotalReturn a ex:IndexType, owl:NamedIndividual .
+ex:GrossTotalReturn a ex:IndexType, owl:NamedIndividual .
+ex:AdjustedReturnIndex a ex:IndexType, owl:NamedIndividual .
+ex:IndexTypeIdentifier a owl:Class ; owl:oneOf ( ex:PR ex:NTR ex:GTR ex:AR ) .
+ex:PR a ex:IndexTypeIdentifier, owl:NamedIndividual .
+ex:NTR a ex:IndexTypeIdentifier, owl:NamedIndividual .
+ex:GTR a ex:IndexTypeIdentifier, owl:NamedIndividual .
+ex:AR a ex:IndexTypeIdentifier, owl:NamedIndividual .
+ex:IndexAdministrator a owl:Class .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:PriceMarketingServices a owl:Class .
+ex:Vendor a owl:Class .
+ex:Vendor rdfs:subClassOf ex:Organization .
+ex:AffiliatedVendor a owl:Class .
+ex:AffiliatedVendor rdfs:subClassOf ex:Vendor .
+ex:InformationSystem a owl:Class .
+ex:VendorDistributionOrDisplayDecision a owl:Class .
+ex:IndexPublication a owl:Class .
+
+ex:Solactive a ex:IndexAdministrator, owl:NamedIndividual .
+ex:BoerseStuttgartGmbH a ex:Organization, owl:NamedIndividual .
+ex:BoerseStuttgartGmbHPriceMarketingServices a ex:PriceMarketingServices, owl:NamedIndividual .
+ex:EUR a ex:Currency, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR a ex:Index, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPRName a ex:IndexName, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTRName a ex:IndexName, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTRName a ex:IndexName, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50ARName a ex:IndexName, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentARName a ex:IndexName, owl:NamedIndividual .
+ex:DE000SL0R4B4 a ex:ISIN, owl:NamedIndividual .
+ex:DE000SL0R4C2 a ex:ISIN, owl:NamedIndividual .
+ex:DE000SL0R4D0 a ex:ISIN, owl:NamedIndividual .
+ex:DE000SL0R4E8 a ex:ISIN, owl:NamedIndividual .
+ex:DE000SL0R4F5 a ex:ISIN, owl:NamedIndividual .
+ex:DotSOLTCEYP a ex:RIC, owl:NamedIndividual .
+ex:DotSOLTCEYN a ex:RIC, owl:NamedIndividual .
+ex:DotSOLTCEYT a ex:RIC, owl:NamedIndividual .
+ex:DotSOLTCA50 a ex:RIC, owl:NamedIndividual .
+ex:DotSOLTCEA5 a ex:RIC, owl:NamedIndividual .
+ex:SOLTCEYP a ex:BBGTicker, owl:NamedIndividual .
+ex:SOLTCEYT a ex:BBGTicker, owl:NamedIndividual .
+ex:SOLTCA50 a ex:BBGTicker, owl:NamedIndividual .
+ex:SOLTCEA5 a ex:BBGTicker, owl:NamedIndividual .
+ex:Guideline a ex:Document, owl:NamedIndividual .
+ex:EquityIndexMethodology a ex:Document, owl:NamedIndividual .
+ex:Section4 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section4Locator a ex:DocumentLocator, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:IndexAdministratorAnnouncementsWebsite a ex:WebResource, owl:NamedIndividual .
+ex:HttpsWwwSolactiveCom a ex:Url, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComDocumentsEquityIndexMethodology a ex:Url, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComNewsAnnouncements a ex:Url, owl:NamedIndividual .
+ex:index_name a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:IndexName .
+ex:index_isin a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:ISIN .
+ex:index_currency a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:Currency .
+ex:index_type a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:IndexType .
+ex:index_type_identifier a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:IndexType ;
+  rdfs:range ex:IndexTypeIdentifier .
+ex:index_ric a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:RIC .
+ex:bbg_ticker a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:BBGTicker .
+ex:published_under_following_identifiers a owl:Class ; rdfs:subClassOf ex:Index .
+ex:calculation_described_in a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:Document .
+ex:formula_specified_in a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:DocumentPart .
+ex:website_of a owl:ObjectProperty ;
+  rdfs:domain ex:WebResource ;
+  rdfs:range ex:Organization .
+ex:price_marketing_services_of a owl:ObjectProperty ;
+  rdfs:domain ex:PriceMarketingServices ;
+  rdfs:range ex:Organization .
+ex:published_on a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:WebResource .
+ex:available_on a owl:ObjectProperty ;
+  rdfs:domain ex:Document ;
+  rdfs:range ex:WebResource .
+ex:available_via a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:PriceMarketingServices .
+ex:vendor_information_system a owl:ObjectProperty ;
+  rdfs:domain ex:Vendor ;
+  rdfs:range ex:InformationSystem .
+ex:distribution_or_display_decision_for_vendor a owl:ObjectProperty ;
+  rdfs:domain ex:VendorDistributionOrDisplayDecision ;
+  rdfs:range ex:Vendor .
+ex:distribution_or_display_decision_for_index a owl:ObjectProperty ;
+  rdfs:domain ex:VendorDistributionOrDisplayDecision ;
+  rdfs:range ex:Index .
+ex:decision_on_individual_basis a owl:Class ; rdfs:subClassOf ex:VendorDistributionOrDisplayDecision .
+ex:decision_via_information_system a owl:ObjectProperty ;
+  rdfs:domain ex:VendorDistributionOrDisplayDecision ;
+  rdfs:range ex:InformationSystem .
+ex:publication_in_relation_to_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexPublication ;
+  rdfs:range ex:Index .
+ex:notice_publication_in_relation_to_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexPublication ;
+  rdfs:range ex:Index .
+ex:guideline_amendment_publication_in_relation_to_index a owl:Class, a4:NaryRelationClass .
+ex:guideline_amendment_publication_in_relation_to_index_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:guideline_amendment_publication_in_relation_to_index ;
+  rdfs:range ex:IndexPublication .
+ex:guideline_amendment_publication_in_relation_to_index_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:guideline_amendment_publication_in_relation_to_index ;
+  rdfs:range ex:Document .
+ex:guideline_amendment_publication_in_relation_to_index_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:guideline_amendment_publication_in_relation_to_index ;
+  rdfs:range ex:Index .
+ex:available_at a owl:ObjectProperty ;
+  rdfs:domain ex:IndexPublication ;
+  rdfs:range ex:WebResource .
+
+ex:PriceReturn ex:index_type_identifier ex:PR .
+ex:NetTotalReturn ex:index_type_identifier ex:NTR .
+ex:GrossTotalReturn ex:index_type_identifier ex:GTR .
+ex:AdjustedReturnIndex ex:index_type_identifier ex:AR .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:ASSERT_solactive_website a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(has_url(SolactiveWebsite, HttpsWwwSolactiveCom)) and (website_of(SolactiveWebsite, Solactive))" .
+ex:EquityIndexMethodology ex:available_on ex:SolactiveWebsite .
+ex:ASSERT_equity_index_methodology_location a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(document_url(EquityIndexMethodology, HttpsWwwSolactiveComDocumentsEquityIndexMethodology)) and (available_on(EquityIndexMethodology, SolactiveWebsite))" .
+ex:ASSERT_section_4_location a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(part_of_document(Section4, Guideline)) and (document_part_locator(Section4, Section4Locator))" .
+ex:IndexAdministratorAnnouncementsWebsite ex:website_of ex:Solactive .
+ex:ASSERT_announcements_website a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(has_url(IndexAdministratorAnnouncementsWebsite, HttpsWwwSolactiveComNewsAnnouncements)) and (website_of(IndexAdministratorAnnouncementsWebsite, Solactive))" .
+ex:BoerseStuttgartGmbHPriceMarketingServices ex:price_marketing_services_of ex:BoerseStuttgartGmbH .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR a ex:published_under_following_identifiers .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:index_name ex:SolactiveTransatlanticCleanEnergyEURIndexPRName .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:index_isin ex:DE000SL0R4B4 .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:index_currency ex:EUR .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:index_type ex:PriceReturn .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:index_ric ex:DotSOLTCEYP .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:bbg_ticker ex:SOLTCEYP .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:calculation_described_in ex:EquityIndexMethodology .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR a ex:published_under_following_identifiers .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:index_name ex:SolactiveTransatlanticCleanEnergyEURIndexNTRName .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:index_isin ex:DE000SL0R4C2 .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:index_currency ex:EUR .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:index_type ex:NetTotalReturn .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:index_ric ex:DotSOLTCEYN .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:calculation_described_in ex:EquityIndexMethodology .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR a ex:published_under_following_identifiers .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:index_name ex:SolactiveTransatlanticCleanEnergyEURIndexTRName .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:index_isin ex:DE000SL0R4D0 .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:index_currency ex:EUR .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:index_type ex:GrossTotalReturn .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:index_ric ex:DotSOLTCEYT .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:bbg_ticker ex:SOLTCEYT .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:calculation_described_in ex:EquityIndexMethodology .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR a ex:published_under_following_identifiers .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:index_name ex:SolactiveTransatlanticCleanEnergyEURIndex50ARName .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:index_isin ex:DE000SL0R4E8 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:index_currency ex:EUR .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:index_type ex:AdjustedReturnIndex .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:index_ric ex:DotSOLTCA50 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:bbg_ticker ex:SOLTCA50 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:formula_specified_in ex:Section4 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR a ex:published_under_following_identifiers .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:index_name ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentARName .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:index_isin ex:DE000SL0R4F5 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:index_currency ex:EUR .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:index_type ex:AdjustedReturnIndex .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:index_ric ex:DotSOLTCEA5 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:bbg_ticker ex:SOLTCEA5 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:calculation_described_in ex:EquityIndexMethodology .
+ex:ASSERT_bbg_ticker_at_most_one a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, (<count>) <= (1)" .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:published_on ex:SolactiveWebsite .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:available_via ex:BoerseStuttgartGmbHPriceMarketingServices .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:published_on ex:SolactiveWebsite .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:available_via ex:BoerseStuttgartGmbHPriceMarketingServices .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:published_on ex:SolactiveWebsite .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:available_via ex:BoerseStuttgartGmbHPriceMarketingServices .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:published_on ex:SolactiveWebsite .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:available_via ex:BoerseStuttgartGmbHPriceMarketingServices .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:published_on ex:SolactiveWebsite .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:available_via ex:BoerseStuttgartGmbHPriceMarketingServices .
+ex:ASSERT_vendor_decides_distribution_or_display a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall v: AffiliatedVendor, forall i: Index, (published_under_following_identifiers(i)) implies (exists d: VendorDistributionOrDisplayDecision, exists s: InformationSystem, (distribution_or_display_decision_for_vendor(d, v)) and (distribution_or_display_decision_for_index(d, i)) and (decision_on_individual_basis(d)) and (vendor_information_system(v, s)) and (decision_via_information_system(d, s)))" .
+ex:ASSERT_index_publications_available_at_announcements_website a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall p: IndexPublication, forall i: Index, ((publication_in_relation_to_index(p, i)) or (notice_publication_in_relation_to_index(p, i)) or (guideline_amendment_publication_in_relation_to_index(p, Guideline, i))) implies (available_at(p, IndexAdministratorAnnouncementsWebsite))" .

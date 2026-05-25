@@ -1,0 +1,78 @@
+{
+  "entry_id": "N03",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1127,
+    "completion_tokens": 336,
+    "total_tokens": 1463
+  },
+  "latency_s": 2.823899507522583,
+  "scenarios": [
+    {
+      "description": "The document states that \"BMR\" has the meaning defined in Section \"Introduction\", and the Introduction section is present in the document. The term is used consistently with that defined meaning.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document says that \"BMR\" shall have the meaning defined in Section \"Methods\" instead of Section \"Introduction\".",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document says that \"BMR\" shall have the meaning defined in Section \"Introduction\", but also says this applies only if no other section defines BMR differently. No other section is mentioned.",
+      "category": "scope_edge",
+      "source_verdict": "accept",
+      "ir_verdict": "ambiguous",
+      "agree": false,
+      "drift_explanation": "The source text only fixes the meaning as defined in Section \"Introduction\" and does not introduce any exception or conditional scope. The IR only states a specific source label and section link for BMRTerm, but it does not encode the conditional exception, so the IR is silent on that added scope detail."
+    },
+    {
+      "description": "The statement about \"BMR\" appears after the Introduction section in the document, but it still says the meaning is as defined in Section \"Introduction\". The question is whether the later placement changes responsibility for the definition.",
+      "category": "modality_edge",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 3,
+    "agreement_rate": 0.75,
+    "drifts": [
+      {
+        "description": "The document says that \"BMR\" shall have the meaning defined in Section \"Introduction\", but also says this applies only if no other section defines BMR differently. No other section is mentioned.",
+        "category": "scope_edge",
+        "source_verdict": "accept",
+        "ir_verdict": "ambiguous",
+        "agree": false,
+        "drift_explanation": "The source text only fixes the meaning as defined in Section \"Introduction\" and does not introduce any exception or conditional scope. The IR only states a specific source label and section link for BMRTerm, but it does not encode the conditional exception, so the IR is silent on that added scope detail."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 0
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

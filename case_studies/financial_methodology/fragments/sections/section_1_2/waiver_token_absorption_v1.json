@@ -1,0 +1,96 @@
+{
+  "entry_id": "section_1_2",
+  "schema": "waiver_token_absorption_v1",
+  "generated_from": "metrics_token_provenance_v1.json",
+  "items": [
+    {
+      "token": "mean",
+      "surface_forms": [
+        "means"
+      ],
+      "source_locations": [
+        {
+          "line": 13,
+          "column": 19
+        },
+        {
+          "line": 15,
+          "column": 6
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_by_explicit_logic",
+      "comment": "The word 'means' is absorbed by explicit definitional mappings in fact index_type_identifier_meanings: PR, NTR, GTR, and AR are linked to their return-type meanings by equality rather than by an extra means relation.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "calculat",
+      "surface_forms": [
+        "calculated"
+      ],
+      "source_locations": [
+        {
+          "line": 13,
+          "column": 43
+        },
+        {
+          "line": 15,
+          "column": 30
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_by_explicit_logic",
+      "comment": "The section does not specify a calculation algorithm; 'calculated as' is represented through index_type, index_type_identifier, calculation_described_in, and formula_specified_in. A first-class calculation process would add unsupported local meaning.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "addition",
+      "surface_forms": [
+        "addition"
+      ],
+      "source_locations": [
+        {
+          "line": 17,
+          "column": 128
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "discourse_marker_absorbed",
+      "comment": "'In addition' is a discourse connector, not a domain concept. The added availability claim is represented directly by separate published_on and available_via facts.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "distribut",
+      "surface_forms": [
+        "distributed"
+      ],
+      "source_locations": [
+        {
+          "line": 17,
+          "column": 217
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "surface_form_absorbed",
+      "comment": "The passive form 'distributed' is represented by the minimal deontic permission index_distribution_to_affiliated_vendors. Adding a separate hard distributed predicate would overstate the permissive source wording.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "whether",
+      "surface_forms": [
+        "whether"
+      ],
+      "source_locations": [
+        {
+          "line": 17,
+          "column": 312
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_by_choice_structure",
+      "comment": "'Whether' marks the vendor's choice about distribution/display. The choice is represented by VendorDistributionOrDisplayDecision facts linked to the vendor, index, individual basis, and information system.",
+      "reviewer": "human_approved"
+    }
+  ],
+  "stale_tokens_from_previous_file": []
+}

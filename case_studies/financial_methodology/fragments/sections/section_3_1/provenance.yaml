@@ -1,0 +1,329 @@
+section: "3.1 Ordinary Rebalance"
+source_file: "source.md"
+schema_version: "v2"
+review_status: "draft_ir_to_text_user_review"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+# claim_origin: source_claim | bridge | plumbing | derived_invariant | verification_probe | source_correction
+# vocabulary_basis: source_only | mixed | ir_internal_bridge | ir_plumbing | ir_correction_alias
+
+claims:
+
+  more_information_refer_to_equity_index_methodology:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "For more information on the rebalance procedure please refer to the Equity Index Methodology, which is incorporated by reference and available on the Solactive website: https://www.solactive.com/documents/equity-index-methodology/"
+    back_translation: >
+      Information on the ordinary rebalance procedure is in the Solactive
+      Equity Index Methodology, which is incorporated by reference into this
+      Guideline, is available on the Solactive website, the Solactive website
+      is the website of Solactive, and the Solactive Equity Index Methodology
+      has the URL https://www.solactive.com/documents/equity-index-methodology/.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Five conjuncts collected in one fact: procedure information location in
+      the Equity Index Methodology; incorporation by reference into this
+      Guideline; availability on the Solactive website; the Solactive website
+      is the website of Solactive; and the methodology's URL. The source does
+      not explicitly say "into this Guideline"; the target document is
+      inferred from context (5.2 / 4.6 / 4.7 pattern). The source verb
+      "please refer to" is a directional cross-reference rather than a
+      deontic instruction; the IR encodes it as a structural reference
+      relation `procedure_information_in`, not as an obligation.
+
+  announcement_section_location:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "on the Solactive website under the section \"Announcement\", which is available at https://www.solactive.com/news/announcements/"
+    back_translation: >
+      The "Announcement" section is a section of the Solactive website and
+      has the URL https://www.solactive.com/news/announcements/.
+    vocabulary_basis: source_only
+    status: covered
+
+  new_selection_determined_in_accordance_with_sections:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the new selection of the Index Components determined on the Selection Day (in accordance with Section 2.1 and 2.2)"
+    back_translation: >
+      For every ordinary Rebalance Day with a Selection Day, the new
+      selection of Index Components for that Rebalance Day is a selection
+      of the Index, is determined on the Selection Day, and is in
+      accordance with Section 2.1 and Section 2.2.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Universal is scoped via `ordinary_rebalance_day(rd)` and
+      `selection_day_of_rebalance(rd, sd)` antecedents, so it does not
+      apply to arbitrary Rebalance Days or Selection Days in the universe.
+      Section 2.1 and Section 2.2 are referenced as local DocumentPart
+      entities; cross-section content alignment belongs to the merge
+      layer.
+
+  ordinary_rebalance_adjusts_index_after_close_of_business:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "In order to reflect the new selection of the Index Components determined on the Selection Day (in accordance with Section 2.1 and 2.2) the Index is adjusted on the Rebalance Day after Close of Business."
+    back_translation: >
+      For every ordinary Rebalance Day, there is an ordinary rebalance and
+      a Close of Business on that Rebalance Day; the ordinary rebalance
+      occurs on the Rebalance Day, adjusts the Index, follows the Close of
+      Business, and reflects the new selection of Index Components for
+      that Rebalance Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source's "in order to reflect" purpose modal is captured as a
+      structural binding `reflects_new_selection` between the ordinary
+      rebalance and the new selection, rather than as a separate purpose
+      hedge. The source's "is adjusted" is read as a descriptive process
+      claim (calculation rule), not as a deontic obligation.
+
+  ordinary_rebalance_implements_fixing_day_shares:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "This is carried out by implementing the shares as determined on the Fixing Day based on the weights calculated on the Selection Day."
+    back_translation: >
+      For every ordinary Rebalance Day with a Fixing Day, a Selection Day,
+      and an Index Component in the new selection of Index Components for
+      that Rebalance Day, an ordinary rebalance is carried out by
+      implementing the shares on the Fixing Day for that Index Component;
+      the shares are determined on the Fixing Day; the weight is
+      calculated on the Selection Day; and the shares are based on that
+      weight.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Four conjuncts in consequent: carried_out_by_implementing_shares,
+      shares_determined_on, weight_calculated_on, shares_based_on_weight.
+      Universal scoped via the four-arg antecedent (ordinary_rebalance_day
+      + fixing_day_of_rebalance + selection_day_of_rebalance +
+      selection_includes_index_component).
+
+  section_3_1_index_component_change_scope:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: plumbing
+    source_quotes:
+      - "any changes made to the Index Components"
+    back_translation: >
+      Every Index Component change under this Section's ordinary rebalance
+      procedure is a change of the Index and is made to some Index
+      Component.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Defining universal for the subtype Section3_1IndexComponentChange,
+      which scopes the publication obligation to changes specifically
+      from this Section's procedure rather than to arbitrary IndexComponentChange
+      instances in the universe. Parallel to 4.4's RequiredIndexAdjustment
+      subtype scoping pattern.
+
+  solactive_publishes_index_component_changes_with_notice:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive will publish any changes made to the Index Components with sufficient notice before the Rebalance Day on the Solactive website under the section \"Announcement\""
+    back_translation: >
+      For every Index Component change under this Section's ordinary
+      rebalance procedure, there is a notice for that change; the notice
+      is described as "sufficient notice before the Rebalance Day", is
+      before the Rebalance Day of the change, is published by Solactive, is
+      published on the Solactive website, and is published under the
+      "Announcement" section.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source modal "will publish" is split between this constraint
+      (which records the structural properties of every published
+      change-notice) and the separate `publish_index_component_change`
+      obligation (which carries the deontic "is obliged to publish").
+      The whole timing phrase "sufficient notice before the Rebalance Day"
+      is encoded as the VagueTerm SufficientNoticeBeforeRebalanceDay
+      attached to the notice via `notice_described_by`, preserving the
+      source hedge without committing to an operational threshold. The
+      relation `notice_for_rebalance_day` links the notice to the relevant
+      Rebalance Day without narrowing the source phrase to an exact
+      previous-day `day_before` interpretation.
+
+  publish_index_component_change:
+    kind: obligation
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive will publish any changes made to the Index Components"
+    back_translation: >
+      Solactive is obliged to publish every Index Component change under
+      this Section's ordinary rebalance procedure, under the "Announcement"
+      section.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Modal "will publish" read as obligation. Agent is typed as
+      SolactiveOrganization (a singleton subtype of Organization with
+      Solactive as its only instance) so the obligation applies only to
+      Solactive rather than to arbitrary organizations. The change
+      parameter type Section3_1IndexComponentChange narrows the obligation
+      to changes from this Section's procedure rather than to arbitrary
+      IndexComponentChange instances. The scope AnnouncementSection
+      mirrors the source's "under the section 'Announcement'".
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  TheIndex:
+    note: >
+      Local entity for the source phrase "the Index". Cross-section
+      identity with published index entities belongs to the merge layer.
+    source_phrase: "the Index"
+  Solactive:
+    note: >
+      Local entity for the source phrase "Solactive". Typed as
+      SolactiveOrganization so the publication obligation can narrow its
+      agent type to Solactive specifically.
+    source_phrase: "Solactive"
+  SolactiveOrganization:
+    note: >
+      Singleton-style subtype of Organization for deontic agent parameters,
+      same pattern as in sections 4.4 / 4.5 / 4.6 / 4.7.
+    source_phrase: "Solactive"
+  SolactiveEquityIndexMethodology:
+    note: >
+      Document entity for the source phrase "the Equity Index Methodology".
+    source_phrase: "the Equity Index Methodology"
+  ThisGuideline:
+    note: >
+      Local target document for the phrase "incorporated by reference".
+      The source does not explicitly name the target; this Guideline is
+      inferred from context as the only reasonable referent (same pattern
+      as in 5.2, 4.6, 4.7, 4.4).
+    source_phrase: "incorporated by reference"
+  SolactiveWebsite:
+    note: >
+      Web-resource entity for the source phrase "Solactive website".
+    source_phrase: "Solactive website"
+  Section2_1:
+    note: >
+      DocumentPart entity for the source phrase "Section 2.1". Used as
+      reference target; substantive content alignment with section_2_1
+      lives in the bridge layer.
+    source_phrase: "Section 2.1"
+  Section2_2:
+    note: >
+      DocumentPart entity for the source phrase "Section 2.2". Same
+      reference treatment as Section2_1.
+    source_phrase: "Section 2.2"
+  AnnouncementSection:
+    note: >
+      DocumentPart entity for the source phrase 'section "Announcement"'.
+      Used as the publication-location scope of the publication
+      obligation and as the under-section of the notice.
+    source_phrase: 'section "Announcement"'
+  OrdinaryRebalanceProcedure:
+    note: >
+      Entity for the source phrase "rebalance procedure", linked to the
+      Equity Index Methodology by `procedure_information_in`.
+    source_phrase: "rebalance procedure"
+  SufficientNoticeBeforeRebalanceDay:
+    note: >
+      VagueTerm carrier for the source phrase "sufficient notice before
+      the Rebalance Day". Kept as a hedge rather than enumerated into a
+      concrete number-of-days threshold, because the source itself does
+      not specify one.
+    source_phrase: "sufficient notice before the Rebalance Day"
+  OrdinaryRebalance:
+    note: >
+      Event subtype for the source phrase "the Index is adjusted on the
+      Rebalance Day". Each ordinary Rebalance Day has an associated
+      ordinary rebalance event linked via `ordinary_rebalance_on_day`.
+    source_phrase: "Ordinary Rebalance"
+  CloseOfBusiness:
+    note: >
+      Event subtype for the source phrase "Close of Business". Each
+      ordinary Rebalance Day has an associated close-of-business event
+      linked via `close_of_business_on_day`.
+    source_phrase: "Close of Business"
+  SelectionDay:
+    note: >
+      Day subtype for the source phrase "Selection Day".
+    source_phrase: "Selection Day"
+  FixingDay:
+    note: >
+      Day subtype for the source phrase "Fixing Day".
+    source_phrase: "Fixing Day"
+  RebalanceDay:
+    note: >
+      Day subtype for the source phrase "Rebalance Day".
+    source_phrase: "Rebalance Day"
+  IndexComponentSelection:
+    note: >
+      Carrier sort for the source phrase "new selection of the Index
+      Components". The structural function
+      `new_selection_for_rebalance(rd)` maps each Rebalance Day to its
+      selection.
+    source_phrase: "new selection of the Index Components"
+  Shares:
+    note: >
+      Carrier sort for the source phrase "shares". Function
+      `shares_on_fixing_day(fd, c)` maps a Fixing Day and an Index
+      Component to their shares.
+    source_phrase: "shares"
+  Weight:
+    note: >
+      Numeric subtype extending the prelude Percent sort, for the source
+      phrase "weights". Function `weight_on_selection_day(sd, c)` maps a
+      Selection Day and an Index Component to its weight.
+    source_phrase: "weights"
+  IndexComponentChange:
+    note: >
+      Event subtype for the source phrase "changes made to the Index
+      Components".
+    source_phrase: "changes made to the Index Components"
+  Section3_1IndexComponentChange:
+    note: >
+      Subtype of IndexComponentChange specifically for changes from this
+      Section's ordinary rebalance procedure. Used as the parameter type
+      of the publication obligation so it does not apply to arbitrary
+      Index Component changes in the universe. Parallel to 4.4's
+      RequiredIndexAdjustment subtype scoping pattern.
+    source_phrase: "any changes made to the Index Components"
+  Notice:
+    note: >
+      Document subtype for the source phrase "notice" / "publish ... with
+      sufficient notice".
+    source_phrase: "notice"
+  notice_for_rebalance_day:
+    note: >
+      Structural relation connecting the notice to the Rebalance Day to
+      which it applies. The temporal/vague content of "sufficient notice
+      before the Rebalance Day" is carried by the
+      SufficientNoticeBeforeRebalanceDay VagueTerm rather than by a
+      concrete previous-day relation.
+    source_phrase: "Rebalance Day"
+  ordinary_rebalance_day:
+    note: >
+      Unary flag distinguishing Rebalance Days under this Section's
+      ordinary rebalance procedure from extraordinary Rebalance Days
+      (parallel to section 3.2's negation pattern).
+    source_phrase: "Rebalance Day"
+  incorporated_by_reference_into:
+    note: >
+      Binary relation for the source phrase "incorporated by reference",
+      with explicit direction from the policy into this Guideline. Same
+      pattern as in sections 5.2, 4.6, 4.7, 4.4.
+    source_phrase: "incorporated by reference"

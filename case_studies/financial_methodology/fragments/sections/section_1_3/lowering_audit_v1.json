@@ -1,0 +1,38 @@
+{
+  "entry_id": "section_1_3",
+  "skipped": false,
+  "n_decls": 25,
+  "n_smells": 2,
+  "by_candidate_family": {
+    "TemporalDecl.temporal_marker": 2
+  },
+  "by_matched": {
+    "prior_to": 2
+  },
+  "smells": [
+    {
+      "entry_id": "section_1_3",
+      "decl_kind": "rel",
+      "symbol": "period_prior_to",
+      "line_no": 29,
+      "matched_token_or_phrase": "prior_to",
+      "candidate_family": "TemporalDecl",
+      "candidate_kind": "temporal_marker",
+      "spec_ref": "#29",
+      "match_kind": "phrase",
+      "raw_decl": "rel period_prior_to : Period, Day"
+    },
+    {
+      "entry_id": "section_1_3",
+      "decl_kind": "constraint",
+      "symbol": "levels_published_prior_to_live_date_back_tested",
+      "line_no": 66,
+      "matched_token_or_phrase": "prior_to",
+      "candidate_family": "TemporalDecl",
+      "candidate_kind": "temporal_marker",
+      "spec_ref": "#29",
+      "match_kind": "phrase",
+      "raw_decl": "constraint levels_published_prior_to_live_date_back_tested :"
+    }
+  ]
+}

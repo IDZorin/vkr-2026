@@ -1,0 +1,170 @@
+sort Index
+sort Method
+sort CalculationMethod extends Method
+sort MethodApplication
+sort MethodPurpose =
+  Composition
+  | Calculation
+
+sort TermsAndConditions
+sort ModificationOrChange
+sort DeemedModificationOrChange extends ModificationOrChange
+
+sort ChangeReason =
+  MarketEnvironment
+  | SupervisoryReason
+  | LegalReason
+  | FinancialReason
+  | TaxReason
+
+sort Error
+sort Step
+sort Information
+sort IndexAdministrator extends Organization
+
+entity TheIndex : Index
+entity TheIndexAdministrator : IndexAdministrator
+entity ThisDocument : Document
+entity DescribedMethod : Method
+entity DescribedMethodApplication : MethodApplication
+entity IndexTermsAndConditions : TermsAndConditions
+
+entity Obvious : VagueTerm
+entity Demonstrable : VagueTerm
+entity Necessary : VagueTerm
+entity Desirable : VagueTerm
+entity AppropriateSteps : Step
+entity ModificationOrChangeInformation : Information
+
+fun[required] calculation_method_applied : Index -> CalculationMethod
+
+rel index_administrator_of : IndexAdministrator, Index
+
+rel method_described_in : Method, Document
+rel described_above : Method
+rel method_for_index : Method, Index
+rel method_for_purpose : Method, MethodPurpose
+
+rel application_by : MethodApplication, IndexAdministrator
+rel application_of_method : MethodApplication, Method
+rel final : MethodApplication
+rel binding : MethodApplication
+
+rel terms_and_conditions_of : TermsAndConditions, Index
+
+rel potentially_requires_change_to_method : ChangeReason, Method
+
+rel modification_or_change_of_index : ModificationOrChange, Index
+rel change_to_terms_and_conditions : ModificationOrChange, TermsAndConditions
+rel change_to_calculation_method : ModificationOrChange, CalculationMethod
+rel deemed_by : ModificationOrChange, IndexAdministrator, VagueTerm
+
+rel prevents_error : ModificationOrChange, Error
+rel error_described_by : Error, VagueTerm
+
+rel incorrect_terms_and_conditions : TermsAndConditions
+rel remedies_terms_and_conditions : ModificationOrChange, TermsAndConditions
+rel corrects_terms_and_conditions : ModificationOrChange, TermsAndConditions
+rel supplements_terms_and_conditions : ModificationOrChange, TermsAndConditions
+
+rel provide_information_on_modification_or_change :
+  IndexAdministrator, ModificationOrChange, Information
+rel information_withheld_on_modification_or_change :
+  IndexAdministrator, ModificationOrChange, Information
+
+rel appropriate : Step
+rel step_ensures_consistency_with : Step, CalculationMethod, Method
+
+fact index_administrator_for_index :
+  index_administrator_of(TheIndexAdministrator, TheIndex)
+
+fact described_method_reference :
+  method_described_in(DescribedMethod, ThisDocument)
+  and described_above(DescribedMethod)
+
+fact described_method_for_composition_and_calculation :
+  method_for_index(DescribedMethod, TheIndex)
+  and method_for_purpose(DescribedMethod, Composition)
+  and method_for_purpose(DescribedMethod, Calculation)
+
+fact described_method_application_final_and_binding :
+  application_by(DescribedMethodApplication, TheIndexAdministrator)
+  and application_of_method(DescribedMethodApplication, DescribedMethod)
+  and final(DescribedMethodApplication)
+  and binding(DescribedMethodApplication)
+
+fact index_terms_and_conditions :
+  terms_and_conditions_of(IndexTermsAndConditions, TheIndex)
+
+fact potential_method_change_reasons :
+  potentially_requires_change_to_method(MarketEnvironment, DescribedMethod)
+  and potentially_requires_change_to_method(SupervisoryReason, DescribedMethod)
+  and potentially_requires_change_to_method(LegalReason, DescribedMethod)
+  and potentially_requires_change_to_method(FinancialReason, DescribedMethod)
+  and potentially_requires_change_to_method(TaxReason, DescribedMethod)
+
+constraint deemed_modification_or_change_scope :
+  forall ch: DeemedModificationOrChange,
+    modification_or_change_of_index(ch, TheIndex)
+    and
+    (
+      change_to_terms_and_conditions(ch, IndexTermsAndConditions)
+      or
+      change_to_calculation_method(ch, calculation_method_applied(TheIndex))
+    )
+    and deemed_by(ch, TheIndexAdministrator, Necessary)
+    and deemed_by(ch, TheIndexAdministrator, Desirable)
+    and
+    (
+      (
+        exists e: Error,
+          (error_described_by(e, Obvious) or error_described_by(e, Demonstrable))
+          and prevents_error(ch, e)
+      )
+      or
+      (
+        incorrect_terms_and_conditions(IndexTermsAndConditions)
+        and
+        (
+          remedies_terms_and_conditions(ch, IndexTermsAndConditions)
+          or corrects_terms_and_conditions(ch, IndexTermsAndConditions)
+          or supplements_terms_and_conditions(ch, IndexTermsAndConditions)
+        )
+      )
+    )
+
+fact appropriate_steps_consistency_target :
+  appropriate(AppropriateSteps)
+  and step_ensures_consistency_with(
+    AppropriateSteps,
+    calculation_method_applied(TheIndex),
+    DescribedMethod
+  )
+
+constraint information_withheld_means_information_not_provided :
+  forall a: IndexAdministrator, forall ch: ModificationOrChange,
+    information_withheld_on_modification_or_change(a, ch, ModificationOrChangeInformation)
+    iff not provide_information_on_modification_or_change(a, ch, ModificationOrChangeInformation)
+
+obligation apply_described_method(agent: IndexAdministrator)
+  action: apply
+  target: DescribedMethod
+  scope: TheIndex
+
+permission make_deemed_modification_or_change(agent: IndexAdministrator, change: DeemedModificationOrChange)
+  action: make_change
+  target: change
+  scope: TheIndex
+
+permission withhold_information_on_modification_or_change(agent: IndexAdministrator, change: ModificationOrChange)
+  action: withhold_information
+  target: ModificationOrChangeInformation
+  scope: change
+
+obligation take_appropriate_steps_for_consistent_calculation_method(
+  agent: IndexAdministrator,
+  change: ModificationOrChange
+)
+  action: take_appropriate_steps
+  target: AppropriateSteps
+  scope: change

@@ -1,0 +1,26 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N09 a owl:Ontology .
+
+ex:EligibleRebalanceDay a owl:Class .
+ex:EligibleRebalanceDay rdfs:subClassOf ex:Day .
+ex:Exchange a owl:Class .
+
+ex:NewYorkStockExchange a ex:Exchange, owl:NamedIndividual .
+ex:LondonStockExchange a ex:Exchange, owl:NamedIndividual .
+ex:EUREXExchange a ex:Exchange, owl:NamedIndividual .
+ex:TokyoStockExchange a ex:Exchange, owl:NamedIndividual .
+ex:trading_day_at_exchange a owl:ObjectProperty ;
+  rdfs:domain ex:Day ;
+  rdfs:range ex:Exchange .
+ex:eligible_rebalance_day a owl:Class ; rdfs:subClassOf ex:EligibleRebalanceDay .
+
+ex:ASSERT_eligible_rebalance_day_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: EligibleRebalanceDay, (eligible_rebalance_day(d)) iff ((trading_day_at_exchange(d, NewYorkStockExchange)) and (trading_day_at_exchange(d, LondonStockExchange)) and (trading_day_at_exchange(d, EUREXExchange)) and (trading_day_at_exchange(d, TokyoStockExchange)))" .

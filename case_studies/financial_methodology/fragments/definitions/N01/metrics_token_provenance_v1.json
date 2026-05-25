@@ -1,0 +1,2149 @@
+{
+  "entry_id": "N01",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 22,
+    "content_token_count": 16,
+    "covered_content_token_count": 14,
+    "uncovered_content_token_count": 2,
+    "ignored_stopword_count": 6,
+    "content_coverage_rate": 0.875
+  },
+  "tokens": [
+    {
+      "token": "average",
+      "surface_forms": [
+        "Average"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AverageDailyValueTraded",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "AverageDailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "average_daily_value_traded"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "AverageDailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "average_daily_value_traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AverageDailyValueTraded",
+          "matched_text": "Average Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "average_daily_value_traded",
+          "matched_text": "Average Daily Value Traded"
+        }
+      ]
+    },
+    {
+      "token": "daili",
+      "surface_forms": [
+        "Daily"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 10
+        },
+        {
+          "line": 1,
+          "column": 82
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DailyValueTraded",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AverageDailyValueTraded",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "AverageDailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "average_daily_value_traded"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "AverageDailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period_definition",
+          "family": "AssertDecl.constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "average_daily_value_traded"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AverageDailyValueTraded",
+          "matched_text": "Average Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DailyValueTraded",
+          "matched_text": "Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded",
+          "matched_text": "Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "average_daily_value_traded",
+          "matched_text": "Average Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded_sum_over_period",
+          "matched_text": "sum of Daily Value Traded over the specified period"
+        }
+      ]
+    },
+    {
+      "token": "value",
+      "surface_forms": [
+        "Value"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 16
+        },
+        {
+          "line": 1,
+          "column": 88
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DailyValueTraded",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AverageDailyValueTraded",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "AverageDailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "average_daily_value_traded"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "AverageDailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period_definition",
+          "family": "AssertDecl.constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "average_daily_value_traded"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AverageDailyValueTraded",
+          "matched_text": "Average Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DailyValueTraded",
+          "matched_text": "Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded",
+          "matched_text": "Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "average_daily_value_traded",
+          "matched_text": "Average Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded_sum_over_period",
+          "matched_text": "sum of Daily Value Traded over the specified period"
+        }
+      ]
+    },
+    {
+      "token": "trad",
+      "surface_forms": [
+        "Traded"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 22
+        },
+        {
+          "line": 1,
+          "column": 94
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DailyValueTraded",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AverageDailyValueTraded",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "AverageDailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingDayCount",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "TradingDayCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "average_daily_value_traded"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "AverageDailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_day_count_in_period",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "trading_day_count_in_period"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "trading_day_count_in_period",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "TradingDayCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_day_falls_in_period",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trading_day_falls_in_period",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period_definition",
+          "family": "AssertDecl.constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_day_count_in_period_definition",
+          "family": "AssertDecl.constraint",
+          "line": 21,
+          "matched_text": "trading_day_count_in_period_definition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].binder.sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].predicate",
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "line": 21,
+          "matched_text": "trading_day_count_in_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "trading_day_count_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "count_binder_sort",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.binder.sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.predicate",
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "average_daily_value_traded"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "trading_day_count_in_period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AverageDailyValueTraded",
+          "matched_text": "Average Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DailyValueTraded",
+          "matched_text": "Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradingDay",
+          "matched_text": "Trading Days"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded",
+          "matched_text": "Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "average_daily_value_traded",
+          "matched_text": "Average Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded_sum_over_period",
+          "matched_text": "sum of Daily Value Traded over the specified period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_count_in_period",
+          "matched_text": "number of Trading Days that fall in the specified period"
+        }
+      ]
+    },
+    {
+      "token": "mean",
+      "surface_forms": [
+        "means"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 30
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 37
+        },
+        {
+          "line": 1,
+          "column": 175
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_day_count_in_period",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "trading_day_count_in_period"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_day_falls_in_period",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_day_count_in_period_definition",
+          "family": "AssertDecl.constraint",
+          "line": 21,
+          "matched_text": "trading_day_count_in_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].predicate",
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "line": 21,
+          "matched_text": "trading_day_count_in_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "trading_day_count_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.predicate",
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "trading_day_count_in_period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_count_in_period",
+          "matched_text": "number of Trading Days that fall in the specified period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_falls_in_period",
+          "matched_text": "fall in the specified period"
+        }
+      ]
+    },
+    {
+      "token": "respect",
+      "surface_forms": [
+        "respect"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 40
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 48
+        },
+        {
+          "line": 1,
+          "column": 79
+        },
+        {
+          "line": 1,
+          "column": 149
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded_sum_over_period",
+          "matched_text": "sum of Daily Value Traded over the specified period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_count_in_period",
+          "matched_text": "number of Trading Days that fall in the specified period"
+        }
+      ]
+    },
+    {
+      "token": "an",
+      "surface_forms": [
+        "an"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 51
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 54
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexComponent",
+          "matched_text": "Index Component"
+        }
+      ]
+    },
+    {
+      "token": "component",
+      "surface_forms": [
+        "Component"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 60
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexComponent",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "IndexComponent"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "IndexComponent",
+          "matched_text": "Index Component"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 4,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 71
+        },
+        {
+          "line": 1,
+          "column": 106
+        },
+        {
+          "line": 1,
+          "column": 138
+        },
+        {
+          "line": 1,
+          "column": 178
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded_sum_over_period",
+          "matched_text": "sum of Daily Value Traded over the specified period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_count_in_period",
+          "matched_text": "number of Trading Days that fall in the specified period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_falls_in_period",
+          "matched_text": "fall in the specified period"
+        }
+      ]
+    },
+    {
+      "token": "sum",
+      "surface_forms": [
+        "sum"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 75
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period_definition",
+          "family": "AssertDecl.constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "sum"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded_sum_over_period",
+          "matched_text": "sum of Daily Value Traded over the specified period"
+        }
+      ]
+    },
+    {
+      "token": "over",
+      "surface_forms": [
+        "over"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 101
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period_definition",
+          "family": "AssertDecl.constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded_sum_over_period",
+          "matched_text": "sum of Daily Value Traded over the specified period"
+        }
+      ]
+    },
+    {
+      "token": "specifi",
+      "surface_forms": [
+        "specified"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 110
+        },
+        {
+          "line": 1,
+          "column": 182
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SpecifiedPeriod",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trading_day_count_in_period",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trading_day_falls_in_period",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SpecifiedPeriod",
+          "matched_text": "specified period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded_sum_over_period",
+          "matched_text": "sum of Daily Value Traded over the specified period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_count_in_period",
+          "matched_text": "number of Trading Days that fall in the specified period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_falls_in_period",
+          "matched_text": "fall in the specified period"
+        }
+      ]
+    },
+    {
+      "token": "period",
+      "surface_forms": [
+        "period"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 120
+        },
+        {
+          "line": 1,
+          "column": 192
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SpecifiedPeriod",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "SpecifiedPeriod",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "Period"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_day_count_in_period",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "trading_day_count_in_period"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trading_day_count_in_period",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_day_falls_in_period",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trading_day_falls_in_period",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period_definition",
+          "family": "AssertDecl.constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_day_count_in_period_definition",
+          "family": "AssertDecl.constraint",
+          "line": 21,
+          "matched_text": "trading_day_count_in_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].predicate",
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "line": 21,
+          "matched_text": "trading_day_count_in_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "trading_day_count_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.predicate",
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "SpecifiedPeriod"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "trading_day_count_in_period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SpecifiedPeriod",
+          "matched_text": "specified period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded_sum_over_period",
+          "matched_text": "sum of Daily Value Traded over the specified period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_count_in_period",
+          "matched_text": "number of Trading Days that fall in the specified period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_falls_in_period",
+          "matched_text": "fall in the specified period"
+        }
+      ]
+    },
+    {
+      "token": "divid",
+      "surface_forms": [
+        "divided"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 127
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        }
+      ]
+    },
+    {
+      "token": "by",
+      "surface_forms": [
+        "by"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 135
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        }
+      ]
+    },
+    {
+      "token": "number",
+      "surface_forms": [
+        "number"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 142
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_count_in_period",
+          "matched_text": "number of Trading Days that fall in the specified period"
+        }
+      ]
+    },
+    {
+      "token": "a",
+      "surface_forms": [
+        "TRADING",
+        "DAYS"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 152
+        },
+        {
+          "line": 1,
+          "column": 160
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].predicate.args[0]",
+          "matched_text": "d"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1].args[1]",
+          "matched_text": "d"
+        },
+        {
+          "source": "formula",
+          "role": "count_binder",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "d"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.predicate.args[0]",
+          "matched_text": "d"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "TradingDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TradingDayCount",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "TradingDayCount"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_day_count_in_period",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "trading_day_count_in_period"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "trading_day_count_in_period",
+          "family": "SymbolDecl.fun",
+          "line": 11,
+          "matched_text": "TradingDayCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_day_falls_in_period",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "trading_day_falls_in_period",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_day_count_in_period_definition",
+          "family": "AssertDecl.constraint",
+          "line": 21,
+          "matched_text": "trading_day_count_in_period_definition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].binder.sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].predicate",
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "line": 21,
+          "matched_text": "trading_day_count_in_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "trading_day_count_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "count_binder_sort",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.binder.sort",
+          "matched_text": "TradingDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.predicate",
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "average_daily_value_traded_divided_by_trading_day_count_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "trading_day_count_in_period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TradingDay",
+          "matched_text": "Trading Days"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_count_in_period",
+          "matched_text": "number of Trading Days that fall in the specified period"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DailyValueTraded",
+          "family": "TypeDecl.subtype",
+          "line": 4,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "AverageDailyValueTraded",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "AverageDailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 8,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "average_daily_value_traded"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "average_daily_value_traded",
+          "family": "SymbolDecl.fun",
+          "line": 9,
+          "matched_text": "AverageDailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "daily_value_traded_sum_over_period",
+          "family": "SymbolDecl.fun",
+          "line": 10,
+          "matched_text": "DailyValueTraded"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "daily_value_traded_sum_over_period_definition",
+          "family": "AssertDecl.constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "line": 15,
+          "matched_text": "daily_value_traded_sum_over_period_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "daily_value_traded"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "average_daily_value_traded"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "daily_value_traded_sum_over_period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "AverageDailyValueTraded",
+          "matched_text": "Average Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "DailyValueTraded",
+          "matched_text": "Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded",
+          "matched_text": "Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "average_daily_value_traded",
+          "matched_text": "Average Daily Value Traded"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "daily_value_traded_sum_over_period",
+          "matched_text": "sum of Daily Value Traded over the specified period"
+        }
+      ]
+    },
+    {
+      "token": "that",
+      "surface_forms": [
+        "that"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 165
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_count_in_period",
+          "matched_text": "number of Trading Days that fall in the specified period"
+        }
+      ]
+    },
+    {
+      "token": "fall",
+      "surface_forms": [
+        "fall"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 170
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "trading_day_falls_in_period",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "daily_value_traded_sum_over_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[0].predicate",
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "trading_day_count_in_period_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.predicate",
+          "matched_text": "trading_day_falls_in_period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_count_in_period",
+          "matched_text": "number of Trading Days that fall in the specified period"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "trading_day_falls_in_period",
+          "matched_text": "fall in the specified period"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "mean",
+      "surface_forms": [
+        "means"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 30
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "respect",
+      "surface_forms": [
+        "respect"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 40
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

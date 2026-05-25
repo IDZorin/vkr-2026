@@ -1,0 +1,30 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N27 a a4:ShaclProjectionTarget .
+
+ex:SelectionDay a rdfs:Class .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:SelectionDayShape a sh:NodeShape ; sh:targetClass ex:SelectionDay .
+ex:RebalanceDay a rdfs:Class .
+ex:RebalanceDay rdfs:subClassOf ex:Day .
+ex:RebalanceDayShape a sh:NodeShape ; sh:targetClass ex:RebalanceDay .
+ex:BusinessDayCount a rdfs:Class .
+ex:BusinessDayCount rdfs:subClassOf ex:Nat .
+ex:BusinessDayCountShape a sh:NodeShape ; sh:targetClass ex:BusinessDayCount .
+
+ex:TwentyBusinessDays a ex:BusinessDayCount .
+ex:business_day_count_before a rdfs:Class .
+ex:business_day_count_beforeShape a sh:NodeShape ; sh:targetClass ex:business_day_count_before .
+ex:business_day_count_beforeShape sh:property [ sh:path ex:business_day_count_before_arg_0 ; sh:class ex:Day ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:business_day_count_beforeShape sh:property [ sh:path ex:business_day_count_before_arg_1 ; sh:class ex:Day ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:business_day_count_beforeShape sh:property [ sh:path ex:business_day_count_before_result ; sh:class ex:BusinessDayCount ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:selection_day_for_rebalance_day a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:selection_day_for_rebalance_day ; sh:class ex:RebalanceDay ] .
+ex:change_of_rebalance_day_disregarded_for_selection_day a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:change_of_rebalance_day_disregarded_for_selection_day ; sh:class ex:RebalanceDay ] .

@@ -1,0 +1,453 @@
+﻿section: "2.1 Index Universe Requirements"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+# For each fact/constraint/obligation/permission/prohibition:
+#   kind             -- IR family
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | plumbing | derived_invariant | verification_probe
+#                       plumbing = pure IR infrastructure (locators, document parts, internal IDs)
+#                       with no semantic methodology content.
+#   source_quotes    -- verbatim spans from source.md that the element formalizes
+#                       (for plumbing entries, this may be the framing source phrase only,
+#                        not a justification of the plumbing fact itself.)
+#   back_translation -- natural-language unfolding of the IR formula
+#   vocabulary_basis -- source_only | mixed | ir_internal_bridge | ir_plumbing
+#                       (source_claim entries should aim for source_only;
+#                        bridges are IR-internal by nature;
+#                        plumbing is pure infrastructure, no source-vocab expected.)
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+#   notes            -- optional clarification
+
+claims:
+
+  gbs_index_isin:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive GBS Global Markets All Cap USD Index PR (ISIN: DE000SLA78E2)"
+    back_translation: >
+      The ISIN of the Solactive GBS Global Markets All Cap USD Index PR
+      is DE000SLA78E2.
+    vocabulary_basis: source_only
+    status: covered
+
+  solactive_gbs_benchmark_series_pdf_url:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the Gbs Index Universe framework ( https://www.solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf )"
+    back_translation: >
+      The document referenced for the Gbs Index Universe framework is at
+      https://www.solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf.
+    vocabulary_basis: source_only
+    status: covered
+
+  gbs_index_universe_framework_document_part:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: plumbing
+    source_quotes:
+      - "the Gbs Index Universe framework ( https://www.solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf )"
+    back_translation: >
+      IR plumbing: the named document-part for the Gbs Index Universe
+      framework is part of the document at the cited URL.
+    vocabulary_basis: ir_plumbing
+    status: derived
+    notes: >
+      Pure IR infrastructure: links the IR DocumentPart entity (for the
+      framework section) to the IR Document entity (for the cited PDF).
+      Source only states the parenthetical URL; the part/whole relation
+      is internal cross-reference plumbing, not a methodology claim.
+
+  gbs_index_universe_framework_document_part_locator:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: plumbing
+    source_quotes:
+      - "the Gbs Index Universe framework"
+    back_translation: >
+      IR plumbing: the document-part for the Gbs Index Universe
+      framework has an IR locator pointer.
+    vocabulary_basis: ir_plumbing
+    status: derived
+    notes: >
+      Pure IR infrastructure: locator handle for navigation to the
+      framework section. Source has no concept of "locator"; this is
+      IR machinery for cross-document references.
+
+  gbs_index_universe_framework_document_part_url:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: plumbing
+    source_quotes:
+      - "( https://www.solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf )"
+    back_translation: >
+      IR plumbing: the framework document-part is reached via the same
+      URL as its parent document.
+    vocabulary_basis: ir_plumbing
+    status: derived
+    notes: >
+      Pure IR infrastructure: derived URL inheritance from the parent
+      document. The actual source-claim URL preservation is captured by
+      `solactive_gbs_benchmark_series_pdf_url`; this fact is plumbing.
+
+  index_universe_minimum_average_daily_value_traded_threshold_currency:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "at least USD 5 million"
+    back_translation: >
+      The amount mentioned as "USD 5 million" has currency USD.
+    vocabulary_basis: source_only
+    status: covered
+
+  index_universe_minimum_average_daily_value_traded_threshold_value:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "at least USD 5 million"
+    back_translation: >
+      The amount mentioned as "USD 5 million" has numeric value 5.
+    vocabulary_basis: source_only
+    status: covered
+
+  index_universe_minimum_average_daily_value_traded_threshold_scale:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "at least USD 5 million"
+    back_translation: >
+      The amount mentioned as "USD 5 million" has scale million.
+    vocabulary_basis: source_only
+    status: covered
+
+  lookback_month_count_values:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "over 1 and 6 months prior to and including the Selection Day"
+      - "over 1 month and over 6 months prior to and including the Selection Day"
+    back_translation: >
+      The declared lookback month counts have numeric values 1 and 6.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The numeric values are exposed as facts on `OneMonth` and `SixMonths`
+      rather than only being encoded in function names.
+
+  declared_lookback_windows:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "over 1 and 6 months prior to and including the Selection Day"
+      - "over 1 month and over 6 months prior to and including the Selection Day"
+    back_translation: >
+      On every Selection Day, the periods prior to and including that
+      Selection Day for the declared month counts 1 and 6 span their declared
+      month counts and include that Selection Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The IR helper relations `lookback_window_anchor_day` and
+      `lookback_window_includes_anchor_day` together encode the source phrase
+      "prior to and including the Selection Day"; their conjunction collapses
+      to the inclusive-end semantics the source asserts.
+
+  minimum_average_daily_value_traded_over_declared_lookback_windows:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Security must have a minimum Average Daily Value Traded over 1 and 6 months prior to and including the Selection Day of at least USD 5 million."
+    back_translation: >
+      For every Selection Day and every Security, the minimum Average Daily
+      Value Traded over 1 and 6 months prior to and including the Selection
+      Day is no greater than the Average Daily Value Traded over the 1-month
+      period and no greater than over the 6-months period, and equals one of
+      these two values.
+    vocabulary_basis: source_only
+    status: covered
+
+  appendix_rbics_subindustry_classification_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "FactSet Revere Business Industry Classification System (\"RBICS\") Subindustry Classification (see Appendix)"
+    back_translation: >
+      A RBICS Subindustry Classification is in the Appendix list if and only
+      if it belongs to the FactSet Revere Business Industry Classification
+      System and is listed in the Appendix.
+    vocabulary_basis: source_only
+    status: derived
+    notes: >
+      Bridge: defines the appendix-membership predicate by composing
+      classification-system membership with appendix listing. Source only
+      asserts the requirement informally as "(see Appendix)"; the IR makes
+      the membership predicate first-class for use in the eligibility constraint.
+
+  company_currently_included_in_index_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "If the company is currently included in the Index"
+    back_translation: >
+      A company is currently included in the Index on a Selection Day if and
+      only if some share class of that company is currently included in the
+      Index on that Selection Day.
+    vocabulary_basis: source_only
+    status: derived
+    notes: >
+      Bridge: operationalizes the source phrase "the company is currently
+      included in the Index" by lifting share-class-level membership to
+      company-level membership. Source uses the phrase without defining it;
+      this is the natural IR definition.
+
+  highest_minimum_average_daily_value_traded_share_class_company:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The share class with the highest minimum Average Daily Value Traded over 1 month and over 6 months prior to and including the Selection Day"
+      - "of the company"
+    back_translation: >
+      For every Selection Day and every company, the share class with the
+      highest minimum Average Daily Value Traded for that company is a
+      share class of that company.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Type-level property of the highest-share-class function: the result
+      is always a share class of the company that was passed in. Source
+      makes this implicit via the genitive "of the company".
+
+  highest_minimum_average_daily_value_traded_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The share class with the highest minimum Average Daily Value Traded over 1 month and over 6 months prior to and including the Selection Day"
+      - "of any other share class of the company"
+    back_translation: >
+      For every Selection Day, every company, and every other share class
+      of that company, the share class with the highest minimum Average
+      Daily Value Traded for that company has a minimum Average Daily
+      Value Traded no smaller than that of any other share class of the
+      company.
+    vocabulary_basis: source_only
+    status: covered
+
+  highest_minimum_average_daily_value_traded_predicate:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "The share class with the highest minimum Average Daily Value Traded ... of the company"
+    back_translation: >
+      IR-internal equivalence: a share class is the
+      highest-minimum-ADVT share class on a Selection Day if and only if
+      it equals the share class returned by the highest-share-class
+      function for its company on that Selection Day.
+    vocabulary_basis: ir_internal_bridge
+    status: derived
+    notes: >
+      Bridge: defines the predicate form `highest_minimum_average_daily_value_traded`
+      from the function form `share_class_with_highest_...`. Source uses
+      the descriptive phrase, IR splits it into both forms for compositionality.
+
+  current_company_buffer_rule:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "If the company is currently included in the Index: The share class currently included in the Index will be eligible for the Index Universe if its minimum Average Daily Value Traded over 1 month and over 6 months prior to and including the Selection Day is at least 60% of the minimum Average Daily Value Traded over 1 month and over 6 months prior to and including the Selection Day of any other share class of the company."
+    back_translation: >
+      For every Selection Day and every share class, the share class is
+      eligible for the Index Universe by the current-company buffer rule
+      if and only if the company is currently included in the Index, the
+      share class is currently included in the Index, and the share class's
+      minimum Average Daily Value Traded is at least 60% of the minimum
+      Average Daily Value Traded of any other share class of the company.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      Source phrases used verbatim throughout: "currently included in the
+      Index", "60%", "minimum Average Daily Value Traded", "any other share
+      class of the company". Mixed because "current-company buffer rule" is
+      the IR's chosen name for this branch (source says "the following buffer
+      rules" without naming them). The constraint realizes the named rule
+      object CurrentCompanyBufferRule via the [realizes: ...] annotation.
+
+  not_current_company_buffer_rule:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "If the company is currently not included in the Index: The share class with the highest minimum Average Daily Value Traded over 1 month and over 6 months prior to and including the Selection Day is included in the Index Universe."
+    back_translation: >
+      For every Selection Day and every share class, the share class is
+      eligible for the Index Universe by the not-current-company buffer
+      rule if and only if its company is not currently included in the
+      Index and the share class has the highest minimum Average Daily
+      Value Traded for its company.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      Source phrases used verbatim: "currently not included in the Index",
+      "highest minimum Average Daily Value Traded", "the company". Mixed
+      because "not-current-company buffer rule" is the IR's chosen branch
+      name. Realizes NotCurrentCompanyBufferRule via [realizes: ...] annotation.
+
+  share_class_satisfies_buffer_rule_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "the Index Administrator applies the following buffer rules"
+    back_translation: >
+      For every Selection Day and every share class, the share class
+      satisfies the buffer rule if and only if it is eligible by the
+      current-company buffer rule or by the not-current-company buffer rule.
+    vocabulary_basis: mixed
+    status: derived
+    notes: >
+      Bridge: the source treats "the buffer rules" as a unit applied by
+      the Index Administrator; the IR splits them into two named branches
+      and this constraint reunites them as "satisfies the buffer rule".
+
+  index_universe_bridge:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "The Index Universe is comprised of all financial instruments which fulfill the below requirements"
+    back_translation: >
+      IR-internal equivalence: a share class is in the Index Universe on
+      a Selection Day if and only if it is eligible for the Index Universe
+      on that Selection Day.
+    vocabulary_basis: ir_internal_bridge
+    status: derived
+    notes: >
+      Bridge: equates the membership predicate `index_universe(d, sc)`
+      with the eligibility predicate `eligible_for_index_universe(d, sc)`
+      computed from the requirements. Source uses just "Index Universe";
+      the eligibility predicate is IR-internal compositional structure.
+
+  eligible_for_index_universe_requirements:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The Index Universe is comprised of all financial instruments which fulfill the below requirements (the \"Index Universe Requirements\"):"
+      - "Part/ Component of the GBS Index Universe of the Solactive GBS Global Markets All Cap USD Index PR (ISIN: DE000SLA78E2), on a Selection Day."
+      - "Security must be classified as Developed Markets Europe, Canada or United States under the Gbs Index Universe framework"
+      - "Security must have a minimum Average Daily Value Traded over 1 and 6 months prior to and including the Selection Day of at least USD 5 million."
+      - "the Index Administrator applies the following buffer rules"
+      - "Security must be classified in one of these FactSet Revere Business Industry Classification System (\"RBICS\") Subindustry Classification (see Appendix)."
+    back_translation: >
+      For every Selection Day and every share class, the share class is
+      eligible for the Index Universe if and only if it is part/component
+      of the GBS Index Universe of the Solactive GBS Global Markets All
+      Cap USD Index PR, it is classified as Developed Markets Europe or
+      Canada or United States under the Gbs Index Universe framework, its
+      minimum Average Daily Value Traded over 1 and 6 months prior to and
+      including the Selection Day is at least USD 5 million, it satisfies
+      the buffer rule, and its FactSet Revere Business Industry
+      Classification System Subindustry Classification is in the Appendix.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Main biconditional: encodes all five Index Universe Requirements as
+      one combined eligibility condition. All five conjuncts use source
+      phrasing verbatim or as direct paraphrase.
+
+  only_one_share_class_of_each_company:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Only one share class of each company is eligible for inclusion in the Index Universe."
+    back_translation: >
+      For every Selection Day and every company, no more than one share
+      class of that company is eligible for inclusion in the Index Universe.
+    vocabulary_basis: source_only
+    status: covered
+
+  determination_of_index_universe_fully_rule_based:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The determination of the Index Universe is fully rule-based"
+    back_translation: >
+      The determination of the Index Universe is fully rule-based on
+      every Selection Day.
+    vocabulary_basis: source_only
+    status: covered
+
+  index_administrator_discretionary_decision:
+    kind: prohibition
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the Index Administrator cannot make any discretionary decisions"
+    back_translation: >
+      The Index Administrator cannot make any discretionary decision
+      in the determination of the Index Universe.
+    vocabulary_basis: source_only
+    status: covered
+
+uncovered_source:
+  - quote: "(none -- all five numbered Index Universe Requirements and the closing governance sentence map to at least one IR claim)"
+
+vocabulary_notes:
+  AvoidFrequentChangesBetweenTwoShareClasses:
+    note: >
+      VagueTerm anchor for the source phrase "To avoid frequent changes
+      between two share-classes". Intentional unused-by-formula declaration;
+      see translator_notes 2026-05-09T12:00:00 entry for rationale.
+  CurrentCompanyBufferRule:
+    note: >
+      Named rule object. The constraint current_company_buffer_rule
+      realizes it via the [realizes: ...] annotation (A4V3 AssertDecl realizes pattern).
+  NotCurrentCompanyBufferRule:
+    note: >
+      Named rule object. The constraint not_current_company_buffer_rule
+      realizes it via the [realizes: ...] annotation.
+  IndexUniverseMinimumAverageDailyValueTradedThreshold:
+    note: >
+      IR entity name for the threshold "at least USD 5 million" mentioned
+      in source requirement 3. The name is IR-derived (source has no named
+      threshold); back-translations refer to this entity by source phrase
+      ("the amount mentioned as USD 5 million") rather than by entity name.
+  OneMonth:
+    note: "Numeric month-count entity for the source phrase \"1 month\"."
+    source_phrase: "1 month"
+  SixMonths:
+    note: "Numeric month-count entity for the source phrase \"6 months\"."
+    source_phrase: "6 months"
+  months_prior_including_selection_day:
+    note: >
+      Parameterized lookback-window function for the source phrase
+      "months prior to and including the Selection Day"; the month count is
+      supplied as an explicit numeric argument rather than being embedded in
+      separate function names.
+    source_phrase: "months prior to and including the Selection Day"
+  SolactiveGBSBenchmarkSeriesPdf:
+    note: >
+      IR Document entity for the URL https://.../Guideline-Solactive-GBS-Benchmark-Series.pdf.
+      The name is IR-derived; back-translations refer to it as
+      "the document referenced for the Gbs Index Universe framework"
+      using the source phrase that introduces the URL.

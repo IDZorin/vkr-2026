@@ -1,0 +1,21 @@
+sort Index
+sort IndexComponent extends FinancialInstrument
+sort Exchange
+sort Listing
+sort Rules
+
+entity TheIndex : Index
+entity Section2Rules : Rules
+
+fun[required] respective_exchange_for_index_component : Index, IndexComponent -> Exchange
+
+rel listing_component : Listing, IndexComponent
+rel listing_exchange : Listing, Exchange
+rel listing_determined_in_accordance_with_rules : Listing, Rules
+
+constraint exchange_definition :
+  forall c: IndexComponent,
+    exists l: Listing,
+      listing_component(l, c)
+      and listing_determined_in_accordance_with_rules(l, Section2Rules)
+      and respective_exchange_for_index_component(TheIndex, c) = listing_exchange(l)

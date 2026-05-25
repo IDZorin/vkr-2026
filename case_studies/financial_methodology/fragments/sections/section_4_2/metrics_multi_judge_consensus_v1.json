@@ -1,0 +1,122 @@
+{
+  "entry_id": "section_4_2",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core rule that if the adjusted return index level is zero or below, the index is terminated, and it also captures the website announcement requirement. However, it adds a stronger formalization that the announcement is made under the News section at the exact URL and that the timing is described by a vague term, while the source only says the announcement will be on the website under News as soon as reasonably possible. The second paragraph about other reasons is only loosely represented and not fully aligned with the source wording.",
+      "semantic_differences": [
+        "The IR hardwires a specific URL and a document-part/website structure for the News section, while the source only says the announcement is on SOLACTIVE’s website under the section “News” and gives the URL as the location of that section.",
+        "The IR encodes the timing as a vague-term relation rather than directly stating the announcement must occur as soon as reasonably possible after the index is calculated as zero or below zero; this is a weaker and less direct representation.",
+        "The IR’s second constraint speaks about terminations qualified by a vague term 'OtherReasons' and being in accordance with policy, whereas the source says SOLACTIVE may terminate indices for other reasons and in accordance with SOLACTIVE’s policies; the IR does not clearly capture the permissive 'may' or the plural policies phrasing."
+      ],
+      "stylistic_notes": [
+        "'SOLACTIVE' is modeled as an organization entity, which is a reasonable naming choice.",
+        "The IR uses reified events for calculation, termination, and announcement, which is a standard formalization style.",
+        "The source’s 'respective INDEX' is represented by the indexed relation to AdjustedReturnIndex."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2479,
+        "completion_tokens": 366,
+        "total_tokens": 2845
+      },
+      "latency_s": 3.7238471508026123
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main conditional rule that if an adjusted return index level is zero or below, the index is terminated and Solactive announces the termination on its website under News after the calculation, with timing described as 'as soon as reasonably possible.' However, the second sentence about other reasons is not matched exactly: the source says Solactive may terminate indices for other reasons in accordance with its policies, while the IR adds a separate universal constraint only for terminations explicitly tagged with a special 'OtherReasons' qualifier and does not directly state that such terminations may occur.",
+      "semantic_differences": [
+        "The source states that Solactive may terminate indices for other reasons and in accordance with Solactive's policies; the IR represents this partly as a permission plus a separate constraint about any termination marked with the qualifier OtherReasons, which is not the same as directly asserting the source sentence.",
+        "The IR's policy-conformance rule applies only when a termination event is explicitly annotated with termination_reason_qualified_by(t, OtherReasons), but the source does not introduce such an annotation condition."
+      ],
+      "stylistic_notes": [
+        "Using events for calculation, termination, and announcement is a standard formalization choice.",
+        "The source says 'the respective INDEX' while the IR uses the calculated adjusted return index directly; this is acceptable wording normalization.",
+        "Encoding 'as soon as reasonably possible' via a vague-term descriptor is a reasonable abstraction."
+      ],
+      "confidence": 0.88,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2479,
+        "completion_tokens": 340,
+        "total_tokens": 2819
+      },
+      "latency_s": 6.407707452774048
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core mandatory termination rule (zero or below zero → termination + announcement) and the permissive rule (SOLACTIVE may terminate for other reasons per policy). However, there are semantic divergences: (1) the constraint uses `<=` (less-than-or-equal) where source says 'zero or below zero', which is semantically equivalent but the IR does not explicitly encode the disjunction 'zero OR negative'; (2) the IR introduces `termination_reason_qualified_by` and `OtherReasons` as a VagueTerm, but source does not formally define what constitutes 'other reasons'—the IR reifies this as a relation that may not fully capture the source's informal qualifier; (3) the permission declaration uses a `reason_qualifier` parameter that is never instantiated or constrained in the actual rule, creating a structural mismatch with the source's informal statement.",
+      "semantic_differences": [
+        "The constraint uses `calculated_level(c) <= 0` to encode 'zero or below zero (negative)', which is mathematically equivalent but does not explicitly represent the source's disjunctive phrasing 'zero or below zero'.",
+        "The IR introduces `termination_reason_qualified_by(t, OtherReasons)` as a relation, but source does not formally define 'other reasons' as a structured entity—it is an informal qualifier. The IR reifies this as a VagueTerm relation, which may overspecify the source's intent.",
+        "The permission `solactive_terminate_index_for_other_reason` includes a `reason_qualifier: VagueTerm` parameter, but the constraint `other_reason_termination_in_accordance_with_solactive_policies` does not use or constrain this parameter, creating a structural inconsistency between the permission signature and its enforcement rule.",
+        "The IR does not explicitly encode that termination for 'other reasons' is a separate, permissive case distinct from the mandatory zero-or-below-zero termination—the two rules are presented as independent, but source suggests they are alternative scenarios."
+      ],
+      "stylistic_notes": [
+        "Naming: `HttpsWwwSolactiveComNewsAnnouncements` is a literal URL entity name; more idiomatic would be `SolactiveNewsAnnouncementsUrl` or similar.",
+        "The relation `after(Event, Event)` is used to encode temporal ordering; source says 'as soon as reasonably possible after the INDEX is calculated', which is correctly captured by `after(a, c)` but the temporal semantics could be more explicit.",
+        "The use of `document_part_url(NewsSection, HttpsWwwSolactiveComNewsAnnouncements)` is not declared in the IR schema; this appears to be a prelude function that should be documented.",
+        "The permission declaration uses `action: terminate` and `target: index`, but these are not formally defined in the IR schema—they appear to be pseudo-code rather than a4v3 syntax."
+      ],
+      "confidence": 0.68,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2960,
+        "completion_tokens": 751,
+        "total_tokens": 3711
+      },
+      "latency_s": 8.816157817840576
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 67.72390675544739
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures all conditions, obligations, permissions, and constraints from the source text. It correctly reifies events, entities, and vague temporal/reason qualifiers according to a4v3 conventions, and properly lowers deontic modals ('will', 'may') into constraints and permissions without adding or omitting semantic content.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "Reification of 'as soon as reasonably possible' and 'other reasons' as VagueTerm entities follows standard a4v3 practice for handling informal qualifiers.",
+        "Splitting the clarification sentence into a permission and a policy-compliance constraint cleanly separates the modal 'may' from the normative condition."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2651,
+        "completion_tokens": 2892,
+        "total_tokens": 5543
+      },
+      "latency_s": 54.215352058410645
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.837
+  }
+}

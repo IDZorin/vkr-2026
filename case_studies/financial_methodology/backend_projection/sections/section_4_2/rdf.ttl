@@ -1,0 +1,154 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_2 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_4_2/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:AdjustedReturnIndex a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:AdjustedReturnIndex rdfs:subClassOf ex:Index .
+ex:IndexCalculation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexCalculation rdfs:subClassOf ex:Event .
+ex:IndexTermination a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexTermination rdfs:subClassOf ex:Event .
+ex:TerminationAnnouncement a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TerminationAnnouncement rdfs:subClassOf ex:Event .
+ex:IndexLevel a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:SolactiveOrganization a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SolactiveOrganization rdfs:subClassOf ex:Organization .
+ex:Policy a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Policy rdfs:subClassOf ex:Document .
+
+ex:Solactive a ex:SolactiveOrganization, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:NewsSection a ex:DocumentPart, owl:NamedIndividual .
+ex:SolactivePolicies a ex:Policy, owl:NamedIndividual .
+ex:OtherReasons a ex:VagueTerm, owl:NamedIndividual .
+ex:AsSoonAsReasonablyPossible a ex:VagueTerm, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComNewsAnnouncements a ex:Url, owl:NamedIndividual .
+ex:calculated_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:calculated_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexCalculation .
+ex:calculated_index a4:argument ex:calculated_index_arg_0 .
+ex:calculated_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:AdjustedReturnIndex .
+ex:calculated_index a4:argument ex:calculated_index_arg_1 .
+ex:calculated_level a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:calculated_level_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexCalculation .
+ex:calculated_level a4:argument ex:calculated_level_arg_0 .
+ex:calculated_level a4:resultSort ex:IndexLevel .
+ex:calculated_level a4:functionFlag "required" .
+ex:terminates_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:terminates_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexTermination .
+ex:terminates_index a4:argument ex:terminates_index_arg_0 .
+ex:terminates_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:terminates_index a4:argument ex:terminates_index_arg_1 .
+ex:termination_calculation a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:termination_calculation_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexTermination .
+ex:termination_calculation a4:argument ex:termination_calculation_arg_0 .
+ex:termination_calculation_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexCalculation .
+ex:termination_calculation a4:argument ex:termination_calculation_arg_1 .
+ex:termination_reason_qualified_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:termination_reason_qualified_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexTermination .
+ex:termination_reason_qualified_by a4:argument ex:termination_reason_qualified_by_arg_0 .
+ex:termination_reason_qualified_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:VagueTerm .
+ex:termination_reason_qualified_by a4:argument ex:termination_reason_qualified_by_arg_1 .
+ex:termination_in_accordance_with_policy a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:termination_in_accordance_with_policy_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexTermination .
+ex:termination_in_accordance_with_policy a4:argument ex:termination_in_accordance_with_policy_arg_0 .
+ex:termination_in_accordance_with_policy_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Policy .
+ex:termination_in_accordance_with_policy a4:argument ex:termination_in_accordance_with_policy_arg_1 .
+ex:announces_termination a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:announces_termination_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TerminationAnnouncement .
+ex:announces_termination a4:argument ex:announces_termination_arg_0 .
+ex:announces_termination_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexTermination .
+ex:announces_termination a4:argument ex:announces_termination_arg_1 .
+ex:announcement_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:announcement_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TerminationAnnouncement .
+ex:announcement_by a4:argument ex:announcement_by_arg_0 .
+ex:announcement_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:announcement_by a4:argument ex:announcement_by_arg_1 .
+ex:announced_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:announced_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TerminationAnnouncement .
+ex:announced_on a4:argument ex:announced_on_arg_0 .
+ex:announced_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:WebResource .
+ex:announced_on a4:argument ex:announced_on_arg_1 .
+ex:announcement_under_section a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:announcement_under_section_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TerminationAnnouncement .
+ex:announcement_under_section a4:argument ex:announcement_under_section_arg_0 .
+ex:announcement_under_section_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:announcement_under_section a4:argument ex:announcement_under_section_arg_1 .
+ex:announcement_timing_described_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:announcement_timing_described_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TerminationAnnouncement .
+ex:announcement_timing_described_by a4:argument ex:announcement_timing_described_by_arg_0 .
+ex:announcement_timing_described_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:VagueTerm .
+ex:announcement_timing_described_by a4:argument ex:announcement_timing_described_by_arg_1 .
+ex:after a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:after_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Event .
+ex:after a4:argument ex:after_arg_0 .
+ex:after_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Event .
+ex:after a4:argument ex:after_arg_1 .
+ex:section_of_website a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:section_of_website_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:section_of_website a4:argument ex:section_of_website_arg_0 .
+ex:section_of_website_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:WebResource .
+ex:section_of_website a4:argument ex:section_of_website_arg_1 .
+ex:website_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:website_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:WebResource .
+ex:website_of a4:argument ex:website_of_arg_0 .
+ex:website_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:website_of a4:argument ex:website_of_arg_1 .
+ex:policy_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:policy_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Policy .
+ex:policy_of a4:argument ex:policy_of_arg_0 .
+ex:policy_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:policy_of a4:argument ex:policy_of_arg_1 .
+
+ex:ASSERT_news_section_location a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "39"^^xsd:integer ;
+  a4:exprText "(document_part_url(NewsSection, HttpsWwwSolactiveComNewsAnnouncements)) and (section_of_website(NewsSection, SolactiveWebsite)) and (website_of(SolactiveWebsite, Solactive))" ;
+  a4:sourceText "fact news_section_location :\n  document_part_url(NewsSection, HttpsWwwSolactiveComNewsAnnouncements)\n  and section_of_website(NewsSection, SolactiveWebsite)\n  and website_of(SolactiveWebsite, Solactive)" .
+ex:ASSERT_solactive_policies a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "44"^^xsd:integer ;
+  a4:exprText "policy_of(SolactivePolicies, Solactive)" ;
+  a4:sourceText "fact solactive_policies :\n  policy_of(SolactivePolicies, Solactive)" .
+ex:ASSERT_termination_and_announcement_at_zero_or_below a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "47"^^xsd:integer ;
+  a4:exprText "forall c: IndexCalculation, forall i: AdjustedReturnIndex, ((calculated_index(c, i)) and ((calculated_level(c)) <= (0))) implies (exists t: IndexTermination, exists a: TerminationAnnouncement, (terminates_index(t, i)) and (termination_calculation(t, c)) and (announces_termination(a, t)) and (announcement_by(a, Solactive)) and (announced_on(a, SolactiveWebsite)) and (announcement_under_section(a, NewsSection)) and (after(a, c)) and (announcement_timing_described_by(a, AsSoonAsReasonablyPossible)))" ;
+  a4:sourceText "constraint termination_and_announcement_at_zero_or_below :\n  forall c: IndexCalculation, forall i: AdjustedReturnIndex,\n    calculated_index(c, i)\n    and calculated_level(c) <= 0\n    implies\n      exists t: IndexTermination, exists a: TerminationAnnouncement,\n        terminates_index(t, i)\n        and termination_calculation(t, c)\n        and announces_termination(a, t)\n        and announcement_by(a, Solactive)\n        and announced_on(a, SolactiveWebsite)\n        and announcement_under_section(a, NewsSection)\n        and after(a, c)\n        and announcement_timing_described_by(a, AsSoonAsReasonablyPossible)" .
+ex:ASSERT_other_reason_termination_in_accordance_with_solactive_policies a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "71"^^xsd:integer ;
+  a4:exprText "forall t: IndexTermination, forall i: Index, ((terminates_index(t, i)) and (termination_reason_qualified_by(t, OtherReasons))) implies (termination_in_accordance_with_policy(t, SolactivePolicies))" ;
+  a4:sourceText "constraint other_reason_termination_in_accordance_with_solactive_policies :\n  forall t: IndexTermination, forall i: Index,\n    terminates_index(t, i)\n    and termination_reason_qualified_by(t, OtherReasons)\n    implies\n      termination_in_accordance_with_policy(t, SolactivePolicies)" .

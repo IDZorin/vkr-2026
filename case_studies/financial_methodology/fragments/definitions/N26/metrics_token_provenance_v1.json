@@ -1,0 +1,1302 @@
+{
+  "entry_id": "N26",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 19,
+    "content_token_count": 11,
+    "covered_content_token_count": 10,
+    "uncovered_content_token_count": 1,
+    "ignored_stopword_count": 8,
+    "content_coverage_rate": 0.909
+  },
+  "tokens": [
+    {
+      "token": "rebalance",
+      "surface_forms": [
+        "Rebalance"
+      ],
+      "count": 4,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        },
+        {
+          "line": 1,
+          "column": 92
+        },
+        {
+          "line": 1,
+          "column": 110
+        },
+        {
+          "line": 1,
+          "column": 167
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "RebalanceDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "RebalanceDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ScheduledRebalanceDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "ScheduledRebalanceDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "scheduled_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "scheduled_rebalance_day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "eligible_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "rebalance_day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "immediately_following_eligible_rebalance_day_after",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "scheduled_rebalance_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 20,
+          "matched_text": "scheduled_rebalance_day_definition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalance_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "rebalance_day_definition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "immediately_following_eligible_rebalance_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 44,
+          "matched_text": "immediately_following_eligible_rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "scheduled_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "line": 20,
+          "matched_text": "scheduled_rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "scheduled_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "scheduled_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0].args[0]",
+          "matched_text": "scheduled_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0].args[1]",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[0]",
+          "matched_text": "scheduled_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[1].arg",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[2]",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[3]",
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "line": 44,
+          "matched_text": "immediately_following_eligible_rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].body.right.arg",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "RebalanceDay",
+          "matched_text": "Rebalance Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "eligible_rebalance_day",
+          "matched_text": "Eligible Rebalance Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "immediately_following_eligible_rebalance_day_after",
+          "matched_text": "immediately following Eligible Rebalance Day"
+        }
+      ]
+    },
+    {
+      "token": "day",
+      "surface_forms": [
+        "Day",
+        "day"
+      ],
+      "count": 5,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 12
+        },
+        {
+          "line": 1,
+          "column": 69
+        },
+        {
+          "line": 1,
+          "column": 102
+        },
+        {
+          "line": 1,
+          "column": 120
+        },
+        {
+          "line": 1,
+          "column": 177
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "RebalanceDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "RebalanceDay"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "RebalanceDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ScheduledRebalanceDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "ScheduledRebalanceDay"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "ScheduledRebalanceDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "nth_wednesday_in_month",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "scheduled_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "scheduled_rebalance_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "scheduled_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 14,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "eligible_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "eligible_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "rebalance_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 16,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "immediately_following_eligible_rebalance_day_after",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "immediately_following_eligible_rebalance_day_after",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "strictly_before",
+          "family": "SymbolDecl.rel",
+          "line": 18,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "scheduled_rebalance_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 20,
+          "matched_text": "scheduled_rebalance_day_definition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalance_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 27,
+          "matched_text": "rebalance_day_definition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "immediately_following_eligible_rebalance_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 44,
+          "matched_text": "immediately_following_eligible_rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "scheduled_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "line": 20,
+          "matched_text": "scheduled_rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "scheduled_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "scheduled_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "scheduled_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "line": 27,
+          "matched_text": "rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0].args[0]",
+          "matched_text": "scheduled_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0].args[1]",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].vars[0].sort",
+          "matched_text": "Day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[0]",
+          "matched_text": "scheduled_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[1].arg",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[2]",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[3]",
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "line": 44,
+          "matched_text": "immediately_following_eligible_rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Day"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "Day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].vars[0].sort",
+          "matched_text": "Day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].body.right.arg",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "RebalanceDay",
+          "matched_text": "Rebalance Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "eligible_rebalance_day",
+          "matched_text": "Eligible Rebalance Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "immediately_following_eligible_rebalance_day_after",
+          "matched_text": "immediately following Eligible Rebalance Day"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 17
+        },
+        {
+          "line": 1,
+          "column": 73
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 20
+        },
+        {
+          "line": 1,
+          "column": 106
+        },
+        {
+          "line": 1,
+          "column": 132
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "first",
+      "surface_forms": [
+        "first"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 24
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "FirstWeekdayOrdinal",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "FirstWeekdayOrdinal"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "first_weekday_ordinal_value",
+          "family": "AssertDecl.fact",
+          "line": 10,
+          "matched_text": "first_weekday_ordinal_value"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "first_weekday_ordinal_value",
+          "assertion_kind": "fact",
+          "line": 10,
+          "matched_text": "first_weekday_ordinal_value"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "first_weekday_ordinal_value",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left",
+          "matched_text": "FirstWeekdayOrdinal"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "scheduled_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0].args[2]",
+          "matched_text": "FirstWeekdayOrdinal"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "scheduled_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].args[2]",
+          "matched_text": "FirstWeekdayOrdinal"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ScheduledRebalanceDay",
+          "matched_text": "first Wednesday in May and November"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "WeekdayOrdinal",
+          "matched_text": "first"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "FirstWeekdayOrdinal",
+          "matched_text": "first"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "nth_wednesday_in_month",
+          "matched_text": "first Wednesday"
+        }
+      ]
+    },
+    {
+      "token": "wednesdai",
+      "surface_forms": [
+        "Wednesday"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 30
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "nth_wednesday_in_month",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "nth_wednesday_in_month"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "scheduled_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0]",
+          "matched_text": "nth_wednesday_in_month"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "scheduled_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1]",
+          "matched_text": "nth_wednesday_in_month"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ScheduledRebalanceDay",
+          "matched_text": "first Wednesday in May and November"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "nth_wednesday_in_month",
+          "matched_text": "first Wednesday"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 40
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "nth_wednesday_in_month",
+          "family": "SymbolDecl.rel",
+          "line": 13,
+          "matched_text": "nth_wednesday_in_month"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "scheduled_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0]",
+          "matched_text": "nth_wednesday_in_month"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "scheduled_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1]",
+          "matched_text": "nth_wednesday_in_month"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ScheduledRebalanceDay",
+          "matched_text": "first Wednesday in May and November"
+        }
+      ]
+    },
+    {
+      "token": "may",
+      "surface_forms": [
+        "May"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 43
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "Month",
+          "family": "TypeDecl.enum",
+          "line": 4,
+          "matched_text": "May"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "scheduled_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0].args[1]",
+          "matched_text": "May"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ScheduledRebalanceDay",
+          "matched_text": "first Wednesday in May and November"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "May",
+          "matched_text": "May"
+        }
+      ]
+    },
+    {
+      "token": "and",
+      "surface_forms": [
+        "and"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 47
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ScheduledRebalanceDay",
+          "matched_text": "first Wednesday in May and November"
+        }
+      ]
+    },
+    {
+      "token": "november",
+      "surface_forms": [
+        "November"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 51
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "enum_member",
+          "symbol": "Month",
+          "family": "TypeDecl.enum",
+          "line": 4,
+          "matched_text": "November"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "scheduled_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].args[1]",
+          "matched_text": "November"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "ScheduledRebalanceDay",
+          "matched_text": "first Wednesday in May and November"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "November",
+          "matched_text": "November"
+        }
+      ]
+    },
+    {
+      "token": "if",
+      "surface_forms": [
+        "If"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 61
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "that",
+      "surface_forms": [
+        "that"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 64
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "not",
+      "surface_forms": [
+        "not"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 76
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "an",
+      "surface_forms": [
+        "an"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 80
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "eligible",
+      "surface_forms": [
+        "Eligible"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 83
+        },
+        {
+          "line": 1,
+          "column": 158
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "eligible_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 15,
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "immediately_following_eligible_rebalance_day_after",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "immediately_following_eligible_rebalance_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 44,
+          "matched_text": "immediately_following_eligible_rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[0].args[1]",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[1].arg",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[2]",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[3]",
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "line": 44,
+          "matched_text": "immediately_following_eligible_rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[1]",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.args[2].body.right.arg",
+          "matched_text": "eligible_rebalance_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "eligible_rebalance_day",
+          "matched_text": "Eligible Rebalance Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "immediately_following_eligible_rebalance_day_after",
+          "matched_text": "immediately following Eligible Rebalance Day"
+        }
+      ]
+    },
+    {
+      "token": "will",
+      "surface_forms": [
+        "will"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 124
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "legal_future_or_procedural_future"
+        }
+      ]
+    },
+    {
+      "token": "be",
+      "surface_forms": [
+        "be"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 129
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "immediateli",
+      "surface_forms": [
+        "immediately"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 136
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "immediately_following_eligible_rebalance_day_after",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "immediately_following_eligible_rebalance_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 44,
+          "matched_text": "immediately_following_eligible_rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[3]",
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "line": 44,
+          "matched_text": "immediately_following_eligible_rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "immediately_following_eligible_rebalance_day_after",
+          "matched_text": "immediately following Eligible Rebalance Day"
+        }
+      ]
+    },
+    {
+      "token": "follow",
+      "surface_forms": [
+        "following"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 148
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "immediately_following_eligible_rebalance_day_after",
+          "family": "SymbolDecl.rel",
+          "line": 17,
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "immediately_following_eligible_rebalance_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 44,
+          "matched_text": "immediately_following_eligible_rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1].body.args[3]",
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "line": 44,
+          "matched_text": "immediately_following_eligible_rebalance_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "immediately_following_eligible_rebalance_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "immediately_following_eligible_rebalance_day_after"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "immediately_following_eligible_rebalance_day_after",
+          "matched_text": "immediately following Eligible Rebalance Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "strictly_before",
+          "matched_text": "following"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [
+    {
+      "token": "not",
+      "surface_forms": [
+        "not"
+      ],
+      "count": 1,
+      "status": "uncovered_needs_waiver",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 76
+        }
+      ],
+      "provenance": []
+    }
+  ],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

@@ -1,0 +1,63 @@
+section: "N06 Definition: Close of Business"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  close_of_business_definition:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Close of Business\" is the calculation time of the closing level of the Index as outlined in Section 1.4."
+    back_translation: >
+      Close of Business is the calculation time of the closing level of the
+      Index and is outlined in Section 1.4.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Pure definitional claim. The term is modeled as a named
+      CalculationTime entity, because the source identifies "Close of
+      Business" as the calculation time of the closing level of the Index.
+      Section 1.4 is represented as a local DocumentPart reference;
+      importing the detailed calculation-frequency rules belongs to
+      cross-section bridge/merge work. The back-translation keeps the
+      definite article "the calculation time" from the source; uniqueness
+      is represented by the named entity rather than by a universal
+      uniqueness axiom in this short definition.
+
+uncovered_source:
+  - quote: "(none -- the single source sentence is the single IR claim)"
+
+vocabulary_notes:
+  CloseOfBusiness:
+    note: >
+      Named CalculationTime entity for the source term "Close of Business".
+      Back-translation uses the spaced source phrase, not the IR identifier.
+    source_phrase: "Close of Business"
+  CalculationTime:
+    note: >
+      Carrier sort for the source phrase "calculation time".
+    source_phrase: "calculation time"
+  calculation_time_of_closing_level_of_index:
+    note: >
+      Structural relation for the phrase "calculation time of the closing
+      level of the Index".
+    source_phrase: "calculation time of the closing level of the Index"
+  TheIndex:
+    note: >
+      Local entity for the source phrase "the Index". Cross-section identity
+      with published index entities belongs to the merge layer.
+    source_phrase: "the Index"
+  Section1_4:
+    note: >
+      DocumentPart entity for the source phrase "Section 1.4". It is a
+      reference target, not an import of Section 1.4's full content.
+    source_phrase: "Section 1.4"
+  outlined_in_section:
+    note: >
+      Relation for the source phrase "as outlined in Section 1.4".
+    source_phrase: "outlined in Section 1.4"

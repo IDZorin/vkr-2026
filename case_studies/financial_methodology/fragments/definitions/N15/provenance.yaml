@@ -1,0 +1,71 @@
+section: "N15 Definition: Gbs Index Component"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  gbs_index_specified_in_section_2_1:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Gbs Index Component\" is each security reflected in the GBS Index specified in Section 2.1."
+    back_translation: >
+      The GBS Index is specified in Section 2.1.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This fact captures the reference target in the phrase "GBS Index
+      specified in Section 2.1". The detailed contents of Section 2.1 are
+      not imported here; bridge/merge work can align this local GBS Index
+      entity with the Section 2.1 index-universe objects.
+
+  gbs_index_component_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Gbs Index Component\" is each security reflected in the GBS Index specified in Section 2.1."
+    back_translation: >
+      For every security, that security is a GBS Index Component of the GBS
+      Index specified in Section 2.1 if and only if that security is
+      reflected in that GBS Index.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Pure definitional claim. The biconditional is used because the source
+      defines the term "Gbs Index Component". The phrase "each security" is
+      represented by universal quantification over Security. The phrase
+      "reflected in the GBS Index" is kept as a separate predicate rather
+      than hidden in the name `gbs_index_component`.
+
+uncovered_source:
+  - quote: "(none -- the single source sentence maps to the fact and definition constraint)"
+
+vocabulary_notes:
+  gbs_index_component:
+    note: >
+      IR relation for the source term "Gbs Index Component". Back-translation
+      uses the source phrase, not the IR identifier.
+    source_phrase: "Gbs Index Component"
+  Security:
+    note: >
+      Sort for the source phrase "security".
+    source_phrase: "security"
+  GbsIndexSpecifiedInSection2_1:
+    note: >
+      Local GBS Index entity for the source phrase "GBS Index specified in
+      Section 2.1".
+    source_phrase: "GBS Index specified in Section 2.1"
+  Section2_1:
+    note: >
+      DocumentPart entity for the source phrase "Section 2.1".
+    source_phrase: "Section 2.1"
+  security_reflected_in_gbs_index:
+    note: >
+      Structural relation for the source phrase "reflected in the GBS
+      Index".
+    source_phrase: "reflected in the GBS Index"

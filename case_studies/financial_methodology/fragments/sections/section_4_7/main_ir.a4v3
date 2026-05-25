@@ -1,0 +1,134 @@
+sort Index
+sort IndexComponent
+sort MarketDisruption extends Event
+sort MarketStress extends MarketDisruption
+sort IlliquidMarket extends MarketDisruption
+sort FragmentedMarket extends MarketDisruption
+sort Arrangement
+sort DisruptionPolicy extends Document
+sort MarketStressPriceOutcome
+sort DeterminationConditionPossibility
+sort PriceCondition =
+  Inaccurate
+  | Delayed
+sort DeterminationCondition =
+  Limited
+  | Impaired
+
+entity Solactive : Organization
+entity TheIndex : Index
+entity SolactiveDisruptionArrangements : Arrangement
+entity SolactiveDisruptionPolicy : DisruptionPolicy
+entity ThisGuideline : Document
+entity SolactiveWebsite : WebResource
+entity VarietyOfReasons : VagueTerm
+entity Generally : VagueTerm
+entity MayBeLimitedOrImpaired : VagueTerm
+entity OneOrMoreIndexComponents : VagueTerm
+entity AtTimesOfMarketDisruption : VagueTerm
+
+rel index_of : Index, Organization
+rel index_component_of : IndexComponent, Index
+
+rel period_of_market_stress : Period, MarketStress
+rel period_of_market_disruption : Period, MarketDisruption
+
+rel calculates_index_following_arrangement :
+  Organization, Index, Period, Arrangement
+rel predefined : Arrangement
+rel exhaustive : Arrangement
+rel described_in : Arrangement, Document
+
+rel incorporated_by_reference_into : Document, Document
+rel available_on : Document, WebResource
+rel website_of : WebResource, Organization
+
+rel market_stress_arises_due_to : MarketStress, VagueTerm
+rel market_stress_price_outcome : MarketStressPriceOutcome, MarketStress
+rel price_outcome_component : MarketStressPriceOutcome, IndexComponent
+rel price_outcome_inaccurate_or_delayed : MarketStressPriceOutcome, PriceCondition
+rel price_outcome_qualified_by : MarketStressPriceOutcome, VagueTerm
+rel price_outcome_component_scope : MarketStressPriceOutcome, VagueTerm
+
+rel determination_possibility_for_index :
+  DeterminationConditionPossibility, Index
+rel determination_possibility_at_period :
+  DeterminationConditionPossibility, Period
+rel determination_condition_possible :
+  DeterminationConditionPossibility, DeterminationCondition
+rel determination_possibility_qualified_by :
+  DeterminationConditionPossibility, VagueTerm
+
+fact section_4_7_index_scope :
+  index_of(TheIndex, Solactive)
+
+fact disruption_policy_reference :
+  incorporated_by_reference_into(SolactiveDisruptionPolicy, ThisGuideline)
+  and available_on(SolactiveDisruptionPolicy, SolactiveWebsite)
+  and website_of(SolactiveWebsite, Solactive)
+
+fact disruption_arrangements_properties :
+  predefined(SolactiveDisruptionArrangements)
+  and exhaustive(SolactiveDisruptionArrangements)
+  and described_in(SolactiveDisruptionArrangements, SolactiveDisruptionPolicy)
+
+constraint calculation_during_market_stress_follows_arrangements :
+  forall i: Index, forall p: Period, forall s: MarketStress,
+    index_of(i, Solactive)
+    and period_of_market_stress(p, s)
+    implies
+      calculates_index_following_arrangement(
+        Solactive,
+        i,
+        p,
+        SolactiveDisruptionArrangements
+      )
+
+constraint market_stress_can_arise_due_to_variety_of_reasons :
+  forall p: Period, forall s: MarketStress,
+    period_of_market_stress(p, s)
+    implies
+      market_stress_arises_due_to(s, VarietyOfReasons)
+
+constraint market_stress_generally_results_in_price_conditions :
+  forall p: Period, forall s: MarketStress,
+    period_of_market_stress(p, s)
+    implies
+      exists o: MarketStressPriceOutcome,
+      exists c: IndexComponent,
+        market_stress_price_outcome(o, s)
+        and price_outcome_component(o, c)
+        and price_outcome_component_scope(o, OneOrMoreIndexComponents)
+        and index_component_of(c, TheIndex)
+        and price_outcome_qualified_by(o, Generally)
+        and (
+          price_outcome_inaccurate_or_delayed(o, Inaccurate)
+          or price_outcome_inaccurate_or_delayed(o, Delayed)
+        )
+
+constraint index_determination_may_be_limited_or_impaired :
+  forall p: Period,
+    (
+      (exists s: MarketStress,
+        period_of_market_stress(p, s))
+      or (exists m: IlliquidMarket,
+        period_of_market_disruption(p, m))
+      or (exists f: FragmentedMarket,
+        period_of_market_disruption(p, f))
+    )
+    implies
+      exists possibility: DeterminationConditionPossibility,
+        determination_possibility_for_index(possibility, TheIndex)
+        and determination_possibility_at_period(possibility, p)
+        and determination_possibility_qualified_by(
+          possibility,
+          MayBeLimitedOrImpaired
+        )
+        and determination_possibility_qualified_by(
+          possibility,
+          AtTimesOfMarketDisruption
+        )
+        and (
+          determination_condition_possible(possibility, Limited)
+          or determination_condition_possible(possibility, Impaired)
+        )

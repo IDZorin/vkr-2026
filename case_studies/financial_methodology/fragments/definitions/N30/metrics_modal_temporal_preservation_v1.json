@@ -1,0 +1,215 @@
+{
+  "entry_id": "N30",
+  "has_source": true,
+  "has_normalized": true,
+  "has_render": true,
+  "has_ir": true,
+  "source": {
+    "modals": {
+      "would": 1,
+      "may": 1
+    },
+    "negated_modals": {},
+    "temporal": {
+      "prior": 1
+    },
+    "quantifiers": {
+      "every": 1
+    },
+    "numeric_literals": [],
+    "_token_count": 142
+  },
+  "normalized": {
+    "modals": {
+      "would": 1,
+      "may": 1
+    },
+    "negated_modals": {},
+    "temporal": {
+      "prior": 1
+    },
+    "quantifiers": {
+      "every": 1
+    },
+    "numeric_literals": [],
+    "_token_count": 142
+  },
+  "render": {
+    "modals": {
+      "would": 1
+    },
+    "negated_modals": {},
+    "temporal": {
+      "when": 3,
+      "prior": 1
+    },
+    "quantifiers": {
+      "either": 1,
+      "no": 2,
+      "any": 1
+    },
+    "numeric_literals": [],
+    "_token_count": 218
+  },
+  "ir_logical": {
+    "implies_count": 2,
+    "iff_count": 9,
+    "forall_count": 11,
+    "exists_count": 23,
+    "not_count": 2,
+    "and_count": 32,
+    "or_count": 2,
+    "numeric_literals": []
+  },
+  "drifts": {
+    "source_to_render": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 1,
+        "added": {},
+        "removed": {
+          "may": 1
+        }
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 3,
+        "removed_count": 0,
+        "added": {
+          "when": 3
+        },
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 4,
+        "removed_count": 1,
+        "added": {
+          "any": 1,
+          "either": 1,
+          "no": 2
+        },
+        "removed": {
+          "every": 1
+        }
+      },
+      "numeric_literals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      }
+    },
+    "source_to_normalized": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "numeric_literals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      }
+    },
+    "normalized_to_render": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 1,
+        "added": {},
+        "removed": {
+          "may": 1
+        }
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 3,
+        "removed_count": 0,
+        "added": {
+          "when": 3
+        },
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 4,
+        "removed_count": 1,
+        "added": {
+          "any": 1,
+          "either": 1,
+          "no": 2
+        },
+        "removed": {
+          "every": 1
+        }
+      },
+      "numeric_literals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      }
+    }
+  },
+  "alarms": [
+    {
+      "kind": "modals_lost_in_render",
+      "removed": {
+        "may": 1
+      },
+      "count": 1
+    },
+    {
+      "kind": "temporal_added_in_render",
+      "added": {
+        "when": 3
+      },
+      "count": 3
+    },
+    {
+      "kind": "quantifiers_lost_in_render",
+      "removed": {
+        "every": 1
+      },
+      "count": 1
+    },
+    {
+      "kind": "quantifiers_added_in_render",
+      "added": {
+        "any": 1,
+        "either": 1,
+        "no": 2
+      },
+      "count": 4
+    }
+  ],
+  "alarm_count": 4
+}

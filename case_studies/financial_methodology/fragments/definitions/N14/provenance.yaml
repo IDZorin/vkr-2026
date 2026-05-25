@@ -1,0 +1,91 @@
+section: "N14 Definition: Gbs Index Universe"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  solactive_gbs_benchmark_series_guideline_url:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the guideline of the Solactive Global Benchmark Series ( https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf )"
+    back_translation: >
+      The Solactive Global Benchmark Series guideline is located at the URL
+      https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The parenthetical URL in the source is preserved as an explicit URL
+      entity attached to the guideline document.
+
+  gbs_index_specified_in_section_2_1:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the GBS Index specified in Section 2.1"
+    back_translation: >
+      The GBS Index referenced by this definition is specified in Section 2.1.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The phrase "the GBS Index specified in Section 2.1" is represented as
+      a local entity tied to Section 2.1 via a structural relation. The
+      doubled "for the for the" in the source is treated as a typographical
+      artifact and not reproduced.
+
+  gbs_index_universe_definition:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Gbs Index Universe\" is the Index Universe as defined in the guideline of the Solactive Global Benchmark Series ( https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf ) for the for the GBS Index specified in Section 2.1."
+    back_translation: >
+      The Gbs Index Universe is the Index Universe as defined in the
+      Solactive Global Benchmark Series guideline for the GBS Index
+      specified in Section 2.1.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Pure cross-reference definition. The substantive content of the
+      referenced Index Universe is not inlined; the local IR only records
+      the directed reference to the guideline and the target GBS Index.
+
+uncovered_source:
+  - quote: "(none -- the cross-reference definition is covered by the three facts)"
+
+vocabulary_notes:
+  GbsIndexUniverse:
+    note: "Sort for the source term \"Gbs Index Universe\"."
+    source_phrase: "Gbs Index Universe"
+  GbsIndex:
+    note: "Sort for the source phrase \"GBS Index\"."
+    source_phrase: "GBS Index"
+  TheGbsIndexUniverse:
+    note: "Local entity for the source term \"Gbs Index Universe\"."
+    source_phrase: "Gbs Index Universe"
+  GbsIndexSpecifiedInSection2_1:
+    note: "Local entity for the source phrase \"the GBS Index specified in Section 2.1\"."
+    source_phrase: "the GBS Index specified in Section 2.1"
+  Section2_1:
+    note: "Document-part entity for the source phrase \"Section 2.1\"."
+    source_phrase: "Section 2.1"
+  SolactiveGBSBenchmarkSeriesGuideline:
+    note: "Document entity for the source phrase \"the guideline of the Solactive Global Benchmark Series\"."
+    source_phrase: "the guideline of the Solactive Global Benchmark Series"
+  HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf:
+    note: "URL entity for the source URL \"https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf\"."
+    source_phrase: "https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf"
+  gbs_index_specified_in_section:
+    note: "Relation for the source phrase \"the GBS Index specified in Section 2.1\"."
+    source_phrase: "GBS Index specified in"
+  index_universe_as_defined_in_guideline:
+    note: "Relation for the source phrase \"the Index Universe as defined in the guideline\"."
+    source_phrase: "Index Universe as defined in the guideline"
+  index_universe_for_gbs_index:
+    note: "Relation for the source phrase \"for the GBS Index\"."
+    source_phrase: "for the GBS Index"

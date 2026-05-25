@@ -1,0 +1,29 @@
+sort SelectionDay extends Day
+sort Security extends FinancialInstrument
+sort ShareClass
+sort ShareCount extends Nat
+sort ClosingPrice extends MonetaryAmount
+sort FreeFloatMarketCapitalization extends MonetaryAmount
+sort DataVendor
+
+fun[required] share_class : SelectionDay, Security -> ShareClass
+fun[required] free_float_market_capitalization : SelectionDay, Security -> FreeFloatMarketCapitalization
+fun[required] shares_outstanding_in_free_float : SelectionDay, ShareClass -> ShareCount
+fun[required] closing_price_of_share_class : SelectionDay, ShareClass -> ClosingPrice
+
+rel fulfills_index_component_requirements : SelectionDay, Security
+rel sourced_from_data_vendor : ShareCount, DataVendor
+
+constraint free_float_market_capitalization_calculated_as_multiplication_definition :
+  forall d: SelectionDay, forall s: Security,
+    fulfills_index_component_requirements(d, s)
+    implies
+      free_float_market_capitalization(d, s)
+      =
+      shares_outstanding_in_free_float(d, share_class(d, s))
+      * closing_price_of_share_class(d, share_class(d, s))
+      and exists vendor: DataVendor,
+        sourced_from_data_vendor(
+          shares_outstanding_in_free_float(d, share_class(d, s)),
+          vendor
+        )

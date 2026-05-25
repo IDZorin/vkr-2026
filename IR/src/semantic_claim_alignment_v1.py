@@ -389,7 +389,7 @@ def process_entry(entry_dir: pathlib.Path) -> dict[str, Any]:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("target", nargs="?", default=str(ROOT / "IR/outputs/runs/dz"))
+    ap.add_argument("target", nargs="?", default=str(ROOT / "case_studies/financial_methodology"))
     args = ap.parse_args()
     target = pathlib.Path(args.target)
     if (target / "main_ir.a4v3").exists() or (target / "source.md").exists():

@@ -1,0 +1,77 @@
+section: "N27 Definition: Selection Day"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  twenty_business_days_count:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Selection Day\" is 20 Business Days before the Rebalance Day, disregarding any change of the Rebalance Day."
+    back_translation: >
+      The count named by the definition is twenty Business Days.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The numeric literal 20 is represented as a typed Business Day count.
+
+  selection_day_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Selection Day\" is 20 Business Days before the Rebalance Day, disregarding any change of the Rebalance Day."
+    back_translation: >
+      A Selection Day for a Rebalance Day is exactly twenty Business Days
+      before that Rebalance Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Pure definitional claim. The phrase "before the Rebalance Day" is
+      represented by the Business Day count before relation.
+
+  rebalance_day_change_disregarded_for_selection_day:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Selection Day\" is 20 Business Days before the Rebalance Day, disregarding any change of the Rebalance Day."
+    back_translation: >
+      For every Selection Day for a Rebalance Day, any change of that
+      Rebalance Day is disregarded for the Selection Day definition.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The "disregarding any change" phrase is modeled as a separate
+      implication rather than as a condition that distinguishes Selection Days.
+
+uncovered_source:
+  - quote: "(none -- source definition is covered)"
+
+vocabulary_notes:
+  SelectionDay:
+    note: "Sort for the source term \"Selection Day\"."
+    source_phrase: "Selection Day"
+  RebalanceDay:
+    note: "Sort for the source term \"Rebalance Day\"."
+    source_phrase: "Rebalance Day"
+  BusinessDayCount:
+    note: "Typed numeric carrier for the source phrase \"20 Business Days\"."
+    source_phrase: "Business Days"
+  TwentyBusinessDays:
+    note: "Entity for the source phrase \"20 Business Days\"."
+    source_phrase: "20 Business Days"
+  business_day_count_before:
+    note: "Function for the source phrase \"Business Days before the Rebalance Day\"."
+    source_phrase: "Business Days before"
+  selection_day_for_rebalance_day:
+    note: "Relation for the source definition linking a Selection Day to the Rebalance Day."
+    source_phrase: "Selection Day ... before the Rebalance Day"
+  change_of_rebalance_day_disregarded_for_selection_day:
+    note: "Relation for the source phrase \"disregarding any change of the Rebalance Day\"."
+    source_phrase: "disregarding any change of the Rebalance Day"

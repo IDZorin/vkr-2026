@@ -1,0 +1,30 @@
+schema: role_annotations_v2
+entry_id: section_2_1
+annotation_status: migrated_signature_only_v2
+migration_notes:
+- Generated from the legacy role_annotations.yaml v1 experiment.
+- Only rel/fun signatures with arity > 2 or repeated argument sorts are retained.
+- Formula logic remains exclusively in main_ir.a4v3; facts/constraints/deontics are not mirrored here.
+symbols:
+  average_daily_value_traded:
+    kind: fun
+    args:
+      1:
+        role: time
+      2:
+        role: subject
+      3:
+        role: time
+    returns:
+      role: value
+    notes:
+    - LookbackWindow is a temporal window, hence role time.
+  part_component_of_gbs_index_universe:
+    kind: rel
+    args:
+      1:
+        role: time
+      2:
+        role: subject
+      3:
+        role: object

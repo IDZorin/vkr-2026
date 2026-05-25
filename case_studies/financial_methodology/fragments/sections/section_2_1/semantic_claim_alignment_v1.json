@@ -1,0 +1,3430 @@
+{
+  "entry_id": "section_2_1",
+  "schema": "semantic_claim_alignment_v1",
+  "generated_at": "2026-05-03T18:23:28",
+  "parse_error": null,
+  "summary": {
+    "claim_count": 12,
+    "strong_candidate_count": 9,
+    "partial_candidate_count": 3,
+    "weak_or_missing_candidate_count": 0,
+    "reviewed_count": 0,
+    "approved_count": 0,
+    "needs_revision_count": 0,
+    "average_top3_token_coverage": 0.846,
+    "all_claims_review_approved": false
+  },
+  "claims": [
+    {
+      "claim_id": "C01",
+      "text": "### 2.1 Index Universe Requirements",
+      "hash": "5505f6efdd64",
+      "tokens": [
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ],
+          "keys": [
+            "universe"
+          ]
+        },
+        {
+          "token": "requirement",
+          "surface_forms": [
+            "Requirements"
+          ],
+          "keys": [
+            "requirement",
+            "requirements"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:eligible_for_index_universe_requirements",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "eligible_for_index_universe_requirements",
+          "line": 247,
+          "token_recall": 1.0,
+          "token_precision": 0.04,
+          "score": 0.808,
+          "matched_claim_tokens": [
+            "index",
+            "requirement",
+            "universe"
+          ],
+          "raw_excerpt": "constraint eligible_for_index_universe_requirements : forall d: SelectionDay, forall sc: ShareClass, eligible_for_index_universe(d, sc) iff security_in_starting_list_of_financial_instruments( d, sc, starting_list_of_financial_instruments( d, SolactiveGBSGlobalMarketsAllCapUSDIndexPR ) ) and ( gbs_index_universe_classification(d, sc) = DevelopedMarketsEurope or gbs_index_universe_classification(d, sc) = Canada or gbs_index_universe_classification(d, sc) = UnitedStates ) and minimum_average_daily_"
+        },
+        {
+          "block_id": "declaration:opaque:GbsIndexUniverse",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "GbsIndexUniverse",
+          "line": 7,
+          "token_recall": 0.667,
+          "token_precision": 0.5,
+          "score": 0.633,
+          "matched_claim_tokens": [
+            "index",
+            "universe"
+          ],
+          "raw_excerpt": "sort GbsIndexUniverse"
+        },
+        {
+          "block_id": "declaration:opaque:DeterminationOfIndexUniverse",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "DeterminationOfIndexUniverse",
+          "line": 125,
+          "token_recall": 0.667,
+          "token_precision": 0.333,
+          "score": 0.6,
+          "matched_claim_tokens": [
+            "index",
+            "universe"
+          ],
+          "raw_excerpt": "sort DeterminationOfIndexUniverse"
+        },
+        {
+          "block_id": "declaration:fun:gbs_index_universe",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "gbs_index_universe",
+          "line": 14,
+          "token_recall": 0.667,
+          "token_precision": 0.25,
+          "score": 0.583,
+          "matched_claim_tokens": [
+            "index",
+            "universe"
+          ],
+          "raw_excerpt": "fun[required] gbs_index_universe : GbsIndex -> GbsIndexUniverse"
+        },
+        {
+          "block_id": "declaration:entity:GbsIndexUniverseFrameworkDocumentPart",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "GbsIndexUniverseFrameworkDocumentPart",
+          "line": 22,
+          "token_recall": 0.667,
+          "token_precision": 0.222,
+          "score": 0.578,
+          "matched_claim_tokens": [
+            "index",
+            "universe"
+          ],
+          "raw_excerpt": "entity GbsIndexUniverseFrameworkDocumentPart : DocumentPart"
+        }
+      ],
+      "candidate_count": 43,
+      "covered_claim_tokens_by_top3": [
+        "index",
+        "requirement",
+        "universe"
+      ],
+      "uncovered_claim_tokens_by_top3": [],
+      "top3_token_coverage": 1.0,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C02",
+      "text": "The Index Universe is comprised of all financial instruments which fulfill the below requirements",
+      "hash": "d78d5314b61e",
+      "tokens": [
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ],
+          "keys": [
+            "universe"
+          ]
+        },
+        {
+          "token": "compris",
+          "surface_forms": [
+            "comprised"
+          ],
+          "keys": [
+            "compris",
+            "comprised"
+          ]
+        },
+        {
+          "token": "all",
+          "surface_forms": [
+            "all"
+          ],
+          "keys": [
+            "all"
+          ]
+        },
+        {
+          "token": "financial",
+          "surface_forms": [
+            "financial"
+          ],
+          "keys": [
+            "financial"
+          ]
+        },
+        {
+          "token": "instrument",
+          "surface_forms": [
+            "instruments"
+          ],
+          "keys": [
+            "instrument",
+            "instruments"
+          ]
+        },
+        {
+          "token": "fulfill",
+          "surface_forms": [
+            "fulfill"
+          ],
+          "keys": [
+            "fulfill"
+          ]
+        },
+        {
+          "token": "below",
+          "surface_forms": [
+            "below"
+          ],
+          "keys": [
+            "below"
+          ]
+        },
+        {
+          "token": "requirement",
+          "surface_forms": [
+            "requirements"
+          ],
+          "keys": [
+            "requirement",
+            "requirements"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:eligible_for_index_universe_requirements",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "eligible_for_index_universe_requirements",
+          "line": 247,
+          "token_recall": 0.667,
+          "token_precision": 0.081,
+          "score": 0.549,
+          "matched_claim_tokens": [
+            "all",
+            "financial",
+            "index",
+            "instrument",
+            "requirement",
+            "universe"
+          ],
+          "raw_excerpt": "constraint eligible_for_index_universe_requirements : forall d: SelectionDay, forall sc: ShareClass, eligible_for_index_universe(d, sc) iff security_in_starting_list_of_financial_instruments( d, sc, starting_list_of_financial_instruments( d, SolactiveGBSGlobalMarketsAllCapUSDIndexPR ) ) and ( gbs_index_universe_classification(d, sc) = DevelopedMarketsEurope or gbs_index_universe_classification(d, sc) = Canada or gbs_index_universe_classification(d, sc) = UnitedStates ) and minimum_average_daily_"
+        },
+        {
+          "block_id": "assertion:constraint:gbs_index_universe_starting_list_definition",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "gbs_index_universe_starting_list_definition",
+          "line": 138,
+          "token_recall": 0.556,
+          "token_precision": 0.146,
+          "score": 0.474,
+          "matched_claim_tokens": [
+            "all",
+            "financial",
+            "index",
+            "instrument",
+            "universe"
+          ],
+          "raw_excerpt": "constraint gbs_index_universe_starting_list_definition : forall d: SelectionDay, forall s: Security, security_in_starting_list_of_financial_instruments( d, s, starting_list_of_financial_instruments( d, SolactiveGBSGlobalMarketsAllCapUSDIndexPR ) ) iff part_component_of_gbs_index_universe( d, s, gbs_index_universe(SolactiveGBSGlobalMarketsAllCapUSDIndexPR) )"
+        },
+        {
+          "block_id": "declaration:fun:starting_list_of_financial_instruments",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "starting_list_of_financial_instruments",
+          "line": 132,
+          "token_recall": 0.333,
+          "token_precision": 0.2,
+          "score": 0.307,
+          "matched_claim_tokens": [
+            "financial",
+            "index",
+            "instrument"
+          ],
+          "raw_excerpt": "fun[required] starting_list_of_financial_instruments : SelectionDay, GbsIndex -> StartingListOfFinancialInstruments"
+        },
+        {
+          "block_id": "declaration:opaque:GbsIndexUniverse",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "GbsIndexUniverse",
+          "line": 7,
+          "token_recall": 0.222,
+          "token_precision": 0.5,
+          "score": 0.278,
+          "matched_claim_tokens": [
+            "index",
+            "universe"
+          ],
+          "raw_excerpt": "sort GbsIndexUniverse"
+        },
+        {
+          "block_id": "declaration:subtype:Security",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "subtype",
+          "name": "Security",
+          "line": 2,
+          "token_recall": 0.222,
+          "token_precision": 0.333,
+          "score": 0.244,
+          "matched_claim_tokens": [
+            "financial",
+            "instrument"
+          ],
+          "raw_excerpt": "sort Security extends FinancialInstrument"
+        }
+      ],
+      "candidate_count": 45,
+      "covered_claim_tokens_by_top3": [
+        "all",
+        "financial",
+        "index",
+        "instrument",
+        "requirement",
+        "universe"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "compris",
+          "surface_forms": [
+            "comprised"
+          ]
+        },
+        {
+          "token": "fulfill",
+          "surface_forms": [
+            "fulfill"
+          ]
+        },
+        {
+          "token": "below",
+          "surface_forms": [
+            "below"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.667,
+      "auto_status": "partial_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C03",
+      "text": "(the \"Index Universe Requirements\"):",
+      "hash": "db71de947163",
+      "tokens": [
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ],
+          "keys": [
+            "universe"
+          ]
+        },
+        {
+          "token": "requirement",
+          "surface_forms": [
+            "Requirements"
+          ],
+          "keys": [
+            "requirement",
+            "requirements"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:eligible_for_index_universe_requirements",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "eligible_for_index_universe_requirements",
+          "line": 247,
+          "token_recall": 1.0,
+          "token_precision": 0.04,
+          "score": 0.808,
+          "matched_claim_tokens": [
+            "index",
+            "requirement",
+            "universe"
+          ],
+          "raw_excerpt": "constraint eligible_for_index_universe_requirements : forall d: SelectionDay, forall sc: ShareClass, eligible_for_index_universe(d, sc) iff security_in_starting_list_of_financial_instruments( d, sc, starting_list_of_financial_instruments( d, SolactiveGBSGlobalMarketsAllCapUSDIndexPR ) ) and ( gbs_index_universe_classification(d, sc) = DevelopedMarketsEurope or gbs_index_universe_classification(d, sc) = Canada or gbs_index_universe_classification(d, sc) = UnitedStates ) and minimum_average_daily_"
+        },
+        {
+          "block_id": "declaration:opaque:GbsIndexUniverse",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "GbsIndexUniverse",
+          "line": 7,
+          "token_recall": 0.667,
+          "token_precision": 0.5,
+          "score": 0.633,
+          "matched_claim_tokens": [
+            "index",
+            "universe"
+          ],
+          "raw_excerpt": "sort GbsIndexUniverse"
+        },
+        {
+          "block_id": "declaration:opaque:DeterminationOfIndexUniverse",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "DeterminationOfIndexUniverse",
+          "line": 125,
+          "token_recall": 0.667,
+          "token_precision": 0.333,
+          "score": 0.6,
+          "matched_claim_tokens": [
+            "index",
+            "universe"
+          ],
+          "raw_excerpt": "sort DeterminationOfIndexUniverse"
+        },
+        {
+          "block_id": "declaration:fun:gbs_index_universe",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "gbs_index_universe",
+          "line": 14,
+          "token_recall": 0.667,
+          "token_precision": 0.25,
+          "score": 0.583,
+          "matched_claim_tokens": [
+            "index",
+            "universe"
+          ],
+          "raw_excerpt": "fun[required] gbs_index_universe : GbsIndex -> GbsIndexUniverse"
+        },
+        {
+          "block_id": "declaration:entity:GbsIndexUniverseFrameworkDocumentPart",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "GbsIndexUniverseFrameworkDocumentPart",
+          "line": 22,
+          "token_recall": 0.667,
+          "token_precision": 0.222,
+          "score": 0.578,
+          "matched_claim_tokens": [
+            "index",
+            "universe"
+          ],
+          "raw_excerpt": "entity GbsIndexUniverseFrameworkDocumentPart : DocumentPart"
+        }
+      ],
+      "candidate_count": 43,
+      "covered_claim_tokens_by_top3": [
+        "index",
+        "requirement",
+        "universe"
+      ],
+      "uncovered_claim_tokens_by_top3": [],
+      "top3_token_coverage": 1.0,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C04",
+      "text": "Part/ Component of the GBS Index Universe of the Solactive GBS Global Markets All Cap USD Index PR (ISIN: DE000SLA78E2), on a Selection Day.\n2.",
+      "hash": "aee9ae38a304",
+      "tokens": [
+        {
+          "token": "part",
+          "surface_forms": [
+            "Part"
+          ],
+          "keys": [
+            "part"
+          ]
+        },
+        {
+          "token": "component",
+          "surface_forms": [
+            "Component"
+          ],
+          "keys": [
+            "component"
+          ]
+        },
+        {
+          "token": "b",
+          "surface_forms": [
+            "GBS"
+          ],
+          "keys": [
+            "b",
+            "g",
+            "gbs",
+            "s"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ],
+          "keys": [
+            "universe"
+          ]
+        },
+        {
+          "token": "solactive",
+          "surface_forms": [
+            "Solactive"
+          ],
+          "keys": [
+            "solactive"
+          ]
+        },
+        {
+          "token": "global",
+          "surface_forms": [
+            "Global"
+          ],
+          "keys": [
+            "global"
+          ]
+        },
+        {
+          "token": "market",
+          "surface_forms": [
+            "Markets"
+          ],
+          "keys": [
+            "market",
+            "markets"
+          ]
+        },
+        {
+          "token": "all",
+          "surface_forms": [
+            "All"
+          ],
+          "keys": [
+            "all"
+          ]
+        },
+        {
+          "token": "cap",
+          "surface_forms": [
+            "Cap"
+          ],
+          "keys": [
+            "cap"
+          ]
+        },
+        {
+          "token": "d",
+          "surface_forms": [
+            "USD"
+          ],
+          "keys": [
+            "d",
+            "s",
+            "u",
+            "usd"
+          ]
+        },
+        {
+          "token": "i",
+          "surface_forms": [
+            "ISIN"
+          ],
+          "keys": [
+            "i",
+            "isin",
+            "n",
+            "s"
+          ]
+        },
+        {
+          "token": "000",
+          "surface_forms": [
+            "DE000SLA78E2"
+          ],
+          "keys": [
+            "000",
+            "2",
+            "78",
+            "a",
+            "d",
+            "de000sla78e2",
+            "e",
+            "l",
+            "s"
+          ]
+        },
+        {
+          "token": "selection",
+          "surface_forms": [
+            "Selection"
+          ],
+          "keys": [
+            "selection"
+          ]
+        },
+        {
+          "token": "day",
+          "surface_forms": [
+            "Day"
+          ],
+          "keys": [
+            "day"
+          ]
+        },
+        {
+          "token": "2",
+          "surface_forms": [
+            "2"
+          ],
+          "keys": [
+            "2"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:gbs_index_universe_starting_list_definition",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "gbs_index_universe_starting_list_definition",
+          "line": 138,
+          "token_recall": 0.938,
+          "token_precision": 0.439,
+          "score": 0.838,
+          "matched_claim_tokens": [
+            "000",
+            "all",
+            "b",
+            "cap",
+            "component",
+            "d",
+            "day",
+            "global",
+            "i",
+            "index",
+            "market",
+            "part",
+            "selection",
+            "solactive",
+            "universe"
+          ],
+          "raw_excerpt": "constraint gbs_index_universe_starting_list_definition : forall d: SelectionDay, forall s: Security, security_in_starting_list_of_financial_instruments( d, s, starting_list_of_financial_instruments( d, SolactiveGBSGlobalMarketsAllCapUSDIndexPR ) ) iff part_component_of_gbs_index_universe( d, s, gbs_index_universe(SolactiveGBSGlobalMarketsAllCapUSDIndexPR) )"
+        },
+        {
+          "block_id": "assertion:fact:gbs_index_isin",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "gbs_index_isin",
+          "line": 16,
+          "token_recall": 0.688,
+          "token_precision": 0.84,
+          "score": 0.718,
+          "matched_claim_tokens": [
+            "000",
+            "2",
+            "all",
+            "b",
+            "cap",
+            "d",
+            "global",
+            "i",
+            "index",
+            "market",
+            "solactive"
+          ],
+          "raw_excerpt": "fact gbs_index_isin : isin(SolactiveGBSGlobalMarketsAllCapUSDIndexPR) = DE000SLA78E2"
+        },
+        {
+          "block_id": "assertion:constraint:eligible_for_index_universe_requirements",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "eligible_for_index_universe_requirements",
+          "line": 247,
+          "token_recall": 0.812,
+          "token_precision": 0.162,
+          "score": 0.682,
+          "matched_claim_tokens": [
+            "000",
+            "all",
+            "b",
+            "cap",
+            "d",
+            "day",
+            "global",
+            "i",
+            "index",
+            "market",
+            "selection",
+            "solactive",
+            "universe"
+          ],
+          "raw_excerpt": "constraint eligible_for_index_universe_requirements : forall d: SelectionDay, forall sc: ShareClass, eligible_for_index_universe(d, sc) iff security_in_starting_list_of_financial_instruments( d, sc, starting_list_of_financial_instruments( d, SolactiveGBSGlobalMarketsAllCapUSDIndexPR ) ) and ( gbs_index_universe_classification(d, sc) = DevelopedMarketsEurope or gbs_index_universe_classification(d, sc) = Canada or gbs_index_universe_classification(d, sc) = UnitedStates ) and minimum_average_daily_"
+        },
+        {
+          "block_id": "declaration:entity:SolactiveGBSGlobalMarketsAllCapUSDIndexPR",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "SolactiveGBSGlobalMarketsAllCapUSDIndexPR",
+          "line": 10,
+          "token_recall": 0.625,
+          "token_precision": 0.722,
+          "score": 0.644,
+          "matched_claim_tokens": [
+            "000",
+            "all",
+            "b",
+            "cap",
+            "d",
+            "global",
+            "i",
+            "index",
+            "market",
+            "solactive"
+          ],
+          "raw_excerpt": "entity SolactiveGBSGlobalMarketsAllCapUSDIndexPR : GbsIndex"
+        },
+        {
+          "block_id": "assertion:fact:gbs_index_universe_framework_document_part",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "gbs_index_universe_framework_document_part",
+          "line": 28,
+          "token_recall": 0.5,
+          "token_precision": 0.381,
+          "score": 0.476,
+          "matched_claim_tokens": [
+            "000",
+            "b",
+            "d",
+            "i",
+            "index",
+            "part",
+            "solactive",
+            "universe"
+          ],
+          "raw_excerpt": "fact gbs_index_universe_framework_document_part : part_of_document(GbsIndexUniverseFrameworkDocumentPart, SolactiveGBSBenchmarkSeriesPdf)"
+        }
+      ],
+      "candidate_count": 74,
+      "covered_claim_tokens_by_top3": [
+        "000",
+        "2",
+        "all",
+        "b",
+        "cap",
+        "component",
+        "d",
+        "day",
+        "global",
+        "i",
+        "index",
+        "market",
+        "part",
+        "selection",
+        "solactive",
+        "universe"
+      ],
+      "uncovered_claim_tokens_by_top3": [],
+      "top3_token_coverage": 1.0,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C05",
+      "text": "Security must be classified as Developed Markets Europe, Canada or United States under the Gbs Index Universe framework ( https://www.solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf ).\n3.",
+      "hash": "18c401b09fb0",
+      "tokens": [
+        {
+          "token": "securiti",
+          "surface_forms": [
+            "Security"
+          ],
+          "keys": [
+            "securiti",
+            "security"
+          ]
+        },
+        {
+          "token": "must",
+          "surface_forms": [
+            "must"
+          ],
+          "keys": [
+            "must"
+          ]
+        },
+        {
+          "token": "classifi",
+          "surface_forms": [
+            "classified"
+          ],
+          "keys": [
+            "classifi",
+            "classified",
+            "classify"
+          ]
+        },
+        {
+          "token": "develop",
+          "surface_forms": [
+            "Developed"
+          ],
+          "keys": [
+            "develop",
+            "developed"
+          ]
+        },
+        {
+          "token": "market",
+          "surface_forms": [
+            "Markets"
+          ],
+          "keys": [
+            "market",
+            "markets"
+          ]
+        },
+        {
+          "token": "europe",
+          "surface_forms": [
+            "Europe"
+          ],
+          "keys": [
+            "europe"
+          ]
+        },
+        {
+          "token": "canada",
+          "surface_forms": [
+            "Canada"
+          ],
+          "keys": [
+            "canada"
+          ]
+        },
+        {
+          "token": "unit",
+          "surface_forms": [
+            "United"
+          ],
+          "keys": [
+            "unit",
+            "united"
+          ]
+        },
+        {
+          "token": "stat",
+          "surface_forms": [
+            "States"
+          ],
+          "keys": [
+            "stat",
+            "state",
+            "states"
+          ]
+        },
+        {
+          "token": "under",
+          "surface_forms": [
+            "under"
+          ],
+          "keys": [
+            "under"
+          ]
+        },
+        {
+          "token": "gbs",
+          "surface_forms": [
+            "Gbs"
+          ],
+          "keys": [
+            "gbs"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ],
+          "keys": [
+            "universe"
+          ]
+        },
+        {
+          "token": "framework",
+          "surface_forms": [
+            "framework"
+          ],
+          "keys": [
+            "framework"
+          ]
+        },
+        {
+          "token": "http",
+          "surface_forms": [
+            "https"
+          ],
+          "keys": [
+            "http",
+            "https"
+          ]
+        },
+        {
+          "token": "www",
+          "surface_forms": [
+            "www"
+          ],
+          "keys": [
+            "www"
+          ]
+        },
+        {
+          "token": "solactive",
+          "surface_forms": [
+            "solactive"
+          ],
+          "keys": [
+            "solactive"
+          ]
+        },
+        {
+          "token": "com",
+          "surface_forms": [
+            "com"
+          ],
+          "keys": [
+            "com"
+          ]
+        },
+        {
+          "token": "download",
+          "surface_forms": [
+            "downloads"
+          ],
+          "keys": [
+            "download",
+            "downloads"
+          ]
+        },
+        {
+          "token": "b",
+          "surface_forms": [
+            "Guideline-Solactive-GBS-Benchmark-Series"
+          ],
+          "keys": [
+            "b",
+            "benchmark",
+            "g",
+            "gbs",
+            "guideline",
+            "s",
+            "seri",
+            "serie",
+            "series",
+            "sery",
+            "solactive"
+          ]
+        },
+        {
+          "token": "pdf",
+          "surface_forms": [
+            "pdf"
+          ],
+          "keys": [
+            "pdf"
+          ]
+        },
+        {
+          "token": "3",
+          "surface_forms": [
+            "3"
+          ],
+          "keys": [
+            "3"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:fact:gbs_index_universe_framework_document_part_url",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "gbs_index_universe_framework_document_part_url",
+          "line": 34,
+          "token_recall": 0.5,
+          "token_precision": 0.75,
+          "score": 0.55,
+          "matched_claim_tokens": [
+            "b",
+            "com",
+            "download",
+            "framework",
+            "gbs",
+            "http",
+            "index",
+            "pdf",
+            "solactive",
+            "universe",
+            "www"
+          ],
+          "raw_excerpt": "fact gbs_index_universe_framework_document_part_url : document_part_url(GbsIndexUniverseFrameworkDocumentPart, HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)"
+        },
+        {
+          "block_id": "assertion:constraint:eligible_for_index_universe_requirements",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "eligible_for_index_universe_requirements",
+          "line": 247,
+          "token_recall": 0.591,
+          "token_precision": 0.212,
+          "score": 0.515,
+          "matched_claim_tokens": [
+            "b",
+            "canada",
+            "classifi",
+            "develop",
+            "europe",
+            "gbs",
+            "index",
+            "market",
+            "securiti",
+            "solactive",
+            "stat",
+            "unit",
+            "universe"
+          ],
+          "raw_excerpt": "constraint eligible_for_index_universe_requirements : forall d: SelectionDay, forall sc: ShareClass, eligible_for_index_universe(d, sc) iff security_in_starting_list_of_financial_instruments( d, sc, starting_list_of_financial_instruments( d, SolactiveGBSGlobalMarketsAllCapUSDIndexPR ) ) and ( gbs_index_universe_classification(d, sc) = DevelopedMarketsEurope or gbs_index_universe_classification(d, sc) = Canada or gbs_index_universe_classification(d, sc) = UnitedStates ) and minimum_average_daily_"
+        },
+        {
+          "block_id": "assertion:fact:solactive_gbs_benchmark_series_pdf_url",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "fact",
+          "name": "solactive_gbs_benchmark_series_pdf_url",
+          "line": 25,
+          "token_recall": 0.364,
+          "token_precision": 0.75,
+          "score": 0.441,
+          "matched_claim_tokens": [
+            "b",
+            "com",
+            "download",
+            "gbs",
+            "http",
+            "pdf",
+            "solactive",
+            "www"
+          ],
+          "raw_excerpt": "fact solactive_gbs_benchmark_series_pdf_url : document_url(SolactiveGBSBenchmarkSeriesPdf, HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)"
+        },
+        {
+          "block_id": "declaration:entity:HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf",
+          "line": 21,
+          "token_recall": 0.318,
+          "token_precision": 0.85,
+          "score": 0.425,
+          "matched_claim_tokens": [
+            "b",
+            "com",
+            "download",
+            "http",
+            "pdf",
+            "solactive",
+            "www"
+          ],
+          "raw_excerpt": "entity HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf : Url"
+        },
+        {
+          "block_id": "declaration:entity:DevelopedMarketsEurope",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "DevelopedMarketsEurope",
+          "line": 39,
+          "token_recall": 0.364,
+          "token_precision": 0.529,
+          "score": 0.397,
+          "matched_claim_tokens": [
+            "b",
+            "classifi",
+            "develop",
+            "europe",
+            "gbs",
+            "index",
+            "market",
+            "universe"
+          ],
+          "raw_excerpt": "entity DevelopedMarketsEurope : GbsIndexUniverseClassification"
+        }
+      ],
+      "candidate_count": 62,
+      "covered_claim_tokens_by_top3": [
+        "b",
+        "canada",
+        "classifi",
+        "com",
+        "develop",
+        "download",
+        "europe",
+        "framework",
+        "gbs",
+        "http",
+        "index",
+        "market",
+        "pdf",
+        "securiti",
+        "solactive",
+        "stat",
+        "unit",
+        "universe",
+        "www"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "must",
+          "surface_forms": [
+            "must"
+          ]
+        },
+        {
+          "token": "under",
+          "surface_forms": [
+            "under"
+          ]
+        },
+        {
+          "token": "3",
+          "surface_forms": [
+            "3"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.864,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C06",
+      "text": "Security must have a minimum Average Daily Value Traded over 1 and 6 months prior to and including the Selection Day of at least USD 5 million.\n4.",
+      "hash": "05c3b45cf4f8",
+      "tokens": [
+        {
+          "token": "securiti",
+          "surface_forms": [
+            "Security"
+          ],
+          "keys": [
+            "securiti",
+            "security"
+          ]
+        },
+        {
+          "token": "must",
+          "surface_forms": [
+            "must"
+          ],
+          "keys": [
+            "must"
+          ]
+        },
+        {
+          "token": "minimum",
+          "surface_forms": [
+            "minimum"
+          ],
+          "keys": [
+            "minimum"
+          ]
+        },
+        {
+          "token": "average",
+          "surface_forms": [
+            "Average"
+          ],
+          "keys": [
+            "average"
+          ]
+        },
+        {
+          "token": "daili",
+          "surface_forms": [
+            "Daily"
+          ],
+          "keys": [
+            "daili",
+            "daily"
+          ]
+        },
+        {
+          "token": "value",
+          "surface_forms": [
+            "Value"
+          ],
+          "keys": [
+            "value"
+          ]
+        },
+        {
+          "token": "trad",
+          "surface_forms": [
+            "Traded"
+          ],
+          "keys": [
+            "trad",
+            "traded"
+          ]
+        },
+        {
+          "token": "over",
+          "surface_forms": [
+            "over"
+          ],
+          "keys": [
+            "over"
+          ]
+        },
+        {
+          "token": "1",
+          "surface_forms": [
+            "1"
+          ],
+          "keys": [
+            "1"
+          ]
+        },
+        {
+          "token": "6",
+          "surface_forms": [
+            "6"
+          ],
+          "keys": [
+            "6"
+          ]
+        },
+        {
+          "token": "month",
+          "surface_forms": [
+            "months"
+          ],
+          "keys": [
+            "month",
+            "months"
+          ]
+        },
+        {
+          "token": "prior",
+          "surface_forms": [
+            "prior"
+          ],
+          "keys": [
+            "prior"
+          ]
+        },
+        {
+          "token": "includ",
+          "surface_forms": [
+            "including"
+          ],
+          "keys": [
+            "includ",
+            "including"
+          ]
+        },
+        {
+          "token": "selection",
+          "surface_forms": [
+            "Selection"
+          ],
+          "keys": [
+            "selection"
+          ]
+        },
+        {
+          "token": "day",
+          "surface_forms": [
+            "Day"
+          ],
+          "keys": [
+            "day"
+          ]
+        },
+        {
+          "token": "least",
+          "surface_forms": [
+            "least"
+          ],
+          "keys": [
+            "least"
+          ]
+        },
+        {
+          "token": "d",
+          "surface_forms": [
+            "USD"
+          ],
+          "keys": [
+            "d",
+            "s",
+            "u",
+            "usd"
+          ]
+        },
+        {
+          "token": "5",
+          "surface_forms": [
+            "5"
+          ],
+          "keys": [
+            "5"
+          ]
+        },
+        {
+          "token": "million",
+          "surface_forms": [
+            "million"
+          ],
+          "keys": [
+            "million"
+          ]
+        },
+        {
+          "token": "4",
+          "surface_forms": [
+            "4"
+          ],
+          "keys": [
+            "4"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:minimum_average_daily_value_traded_over_1_and_6_months",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "minimum_average_daily_value_traded_over_1_and_6_months",
+          "line": 82,
+          "token_recall": 0.75,
+          "token_precision": 0.6,
+          "score": 0.72,
+          "matched_claim_tokens": [
+            "1",
+            "6",
+            "average",
+            "d",
+            "daili",
+            "day",
+            "includ",
+            "minimum",
+            "month",
+            "over",
+            "prior",
+            "securiti",
+            "selection",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "constraint minimum_average_daily_value_traded_over_1_and_6_months : forall d: SelectionDay, forall s: Security, minimum_average_daily_value_traded(d, s) <= average_daily_value_traded(d, s, one_month_prior_including_selection_day(d)) and minimum_average_daily_value_traded(d, s) <= average_daily_value_traded(d, s, six_months_prior_including_selection_day(d)) and ( minimum_average_daily_value_traded(d, s) = average_daily_value_traded(d, s, one_month_prior_including_selection_day(d)) or minimum_aver"
+        },
+        {
+          "block_id": "declaration:fun:minimum_average_daily_value_traded",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "minimum_average_daily_value_traded",
+          "line": 80,
+          "token_recall": 0.4,
+          "token_precision": 0.579,
+          "score": 0.436,
+          "matched_claim_tokens": [
+            "average",
+            "daili",
+            "day",
+            "minimum",
+            "securiti",
+            "selection",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "fun[required] minimum_average_daily_value_traded : SelectionDay, Security -> AverageDailyValueTraded"
+        },
+        {
+          "block_id": "assertion:constraint:not_current_company_buffer_rule",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "not_current_company_buffer_rule",
+          "line": 221,
+          "token_recall": 0.45,
+          "token_precision": 0.256,
+          "score": 0.411,
+          "matched_claim_tokens": [
+            "average",
+            "d",
+            "daili",
+            "day",
+            "includ",
+            "minimum",
+            "selection",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "constraint not_current_company_buffer_rule [realizes: NotCurrentCompanyBufferRule] : forall d: SelectionDay, forall sc: ShareClass, eligible_by_not_current_company_buffer_rule(d, sc) iff not company_currently_included_in_index(d, company(sc)) and highest_minimum_average_daily_value_traded(d, sc)"
+        },
+        {
+          "block_id": "assertion:constraint:current_company_buffer_rule",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "current_company_buffer_rule",
+          "line": 208,
+          "token_recall": 0.45,
+          "token_precision": 0.229,
+          "score": 0.406,
+          "matched_claim_tokens": [
+            "average",
+            "d",
+            "daili",
+            "day",
+            "includ",
+            "minimum",
+            "selection",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "constraint current_company_buffer_rule [realizes: CurrentCompanyBufferRule] : forall d: SelectionDay, forall sc: ShareClass, eligible_by_current_company_buffer_rule(d, sc) iff company_currently_included_in_index(d, company(sc)) and share_class_currently_included_in_index(d, sc) and forall other: ShareClass, company(other) = company(sc) and other != sc implies minimum_average_daily_value_traded(d, sc) >= 60% * minimum_average_daily_value_traded(d, other)"
+        },
+        {
+          "block_id": "assertion:constraint:highest_minimum_average_daily_value_traded_share_class_company",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "highest_minimum_average_daily_value_traded_share_class_company",
+          "line": 184,
+          "token_recall": 0.4,
+          "token_precision": 0.4,
+          "score": 0.4,
+          "matched_claim_tokens": [
+            "average",
+            "d",
+            "daili",
+            "day",
+            "minimum",
+            "selection",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "constraint highest_minimum_average_daily_value_traded_share_class_company : forall d: SelectionDay, forall co: Company, company(share_class_with_highest_minimum_average_daily_value_traded(d, co)) = co"
+        }
+      ],
+      "candidate_count": 63,
+      "covered_claim_tokens_by_top3": [
+        "1",
+        "6",
+        "average",
+        "d",
+        "daili",
+        "day",
+        "includ",
+        "minimum",
+        "month",
+        "over",
+        "prior",
+        "securiti",
+        "selection",
+        "trad",
+        "value"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "must",
+          "surface_forms": [
+            "must"
+          ]
+        },
+        {
+          "token": "least",
+          "surface_forms": [
+            "least"
+          ]
+        },
+        {
+          "token": "5",
+          "surface_forms": [
+            "5"
+          ]
+        },
+        {
+          "token": "million",
+          "surface_forms": [
+            "million"
+          ]
+        },
+        {
+          "token": "4",
+          "surface_forms": [
+            "4"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.75,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C07",
+      "text": "Only one share class of each company is eligible for inclusion in the Index Universe.",
+      "hash": "702f8e4829a7",
+      "tokens": [
+        {
+          "token": "onli",
+          "surface_forms": [
+            "Only"
+          ],
+          "keys": [
+            "onli",
+            "only"
+          ]
+        },
+        {
+          "token": "one",
+          "surface_forms": [
+            "one"
+          ],
+          "keys": [
+            "one"
+          ]
+        },
+        {
+          "token": "share",
+          "surface_forms": [
+            "share"
+          ],
+          "keys": [
+            "share"
+          ]
+        },
+        {
+          "token": "cla",
+          "surface_forms": [
+            "class"
+          ],
+          "keys": [
+            "cla",
+            "clas",
+            "class"
+          ]
+        },
+        {
+          "token": "compani",
+          "surface_forms": [
+            "company"
+          ],
+          "keys": [
+            "compani",
+            "company"
+          ]
+        },
+        {
+          "token": "eligible",
+          "surface_forms": [
+            "eligible"
+          ],
+          "keys": [
+            "eligible"
+          ]
+        },
+        {
+          "token": "inclusion",
+          "surface_forms": [
+            "inclusion"
+          ],
+          "keys": [
+            "inclusion"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ],
+          "keys": [
+            "universe"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:only_one_share_class_of_each_company",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "only_one_share_class_of_each_company",
+          "line": 271,
+          "token_recall": 0.889,
+          "token_precision": 0.4,
+          "score": 0.791,
+          "matched_claim_tokens": [
+            "cla",
+            "compani",
+            "eligible",
+            "index",
+            "one",
+            "onli",
+            "share",
+            "universe"
+          ],
+          "raw_excerpt": "constraint only_one_share_class_of_each_company : forall d: SelectionDay, forall co: Company, count(sc in ShareClass where eligible_for_index_universe(d, sc) and company(sc) = co) <= 1"
+        },
+        {
+          "block_id": "declaration:rel:eligible_for_index_universe",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "eligible_for_index_universe",
+          "line": 129,
+          "token_recall": 0.556,
+          "token_precision": 0.438,
+          "score": 0.532,
+          "matched_claim_tokens": [
+            "cla",
+            "eligible",
+            "index",
+            "share",
+            "universe"
+          ],
+          "raw_excerpt": "rel eligible_for_index_universe : SelectionDay, ShareClass"
+        },
+        {
+          "block_id": "assertion:constraint:index_universe_bridge",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "index_universe_bridge",
+          "line": 243,
+          "token_recall": 0.556,
+          "token_precision": 0.333,
+          "score": 0.511,
+          "matched_claim_tokens": [
+            "cla",
+            "eligible",
+            "index",
+            "share",
+            "universe"
+          ],
+          "raw_excerpt": "constraint index_universe_bridge : forall d: SelectionDay, forall sc: ShareClass, index_universe(d, sc) iff eligible_for_index_universe(d, sc)"
+        },
+        {
+          "block_id": "assertion:constraint:not_current_company_buffer_rule",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "not_current_company_buffer_rule",
+          "line": 221,
+          "token_recall": 0.556,
+          "token_precision": 0.186,
+          "score": 0.482,
+          "matched_claim_tokens": [
+            "cla",
+            "compani",
+            "eligible",
+            "index",
+            "share"
+          ],
+          "raw_excerpt": "constraint not_current_company_buffer_rule [realizes: NotCurrentCompanyBufferRule] : forall d: SelectionDay, forall sc: ShareClass, eligible_by_not_current_company_buffer_rule(d, sc) iff not company_currently_included_in_index(d, company(sc)) and highest_minimum_average_daily_value_traded(d, sc)"
+        },
+        {
+          "block_id": "assertion:constraint:current_company_buffer_rule",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "current_company_buffer_rule",
+          "line": 208,
+          "token_recall": 0.556,
+          "token_precision": 0.167,
+          "score": 0.478,
+          "matched_claim_tokens": [
+            "cla",
+            "compani",
+            "eligible",
+            "index",
+            "share"
+          ],
+          "raw_excerpt": "constraint current_company_buffer_rule [realizes: CurrentCompanyBufferRule] : forall d: SelectionDay, forall sc: ShareClass, eligible_by_current_company_buffer_rule(d, sc) iff company_currently_included_in_index(d, company(sc)) and share_class_currently_included_in_index(d, sc) and forall other: ShareClass, company(other) = company(sc) and other != sc implies minimum_average_daily_value_traded(d, sc) >= 60% * minimum_average_daily_value_traded(d, other)"
+        }
+      ],
+      "candidate_count": 59,
+      "covered_claim_tokens_by_top3": [
+        "cla",
+        "compani",
+        "eligible",
+        "index",
+        "one",
+        "onli",
+        "share",
+        "universe"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "inclusion",
+          "surface_forms": [
+            "inclusion"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.889,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C08",
+      "text": "To avoid frequent changes between two share-classes of a company, the Index Administrator applies the following buffer rules:\n   1.",
+      "hash": "3f5ff7180d7f",
+      "tokens": [
+        {
+          "token": "avoid",
+          "surface_forms": [
+            "avoid"
+          ],
+          "keys": [
+            "avoid"
+          ]
+        },
+        {
+          "token": "frequent",
+          "surface_forms": [
+            "frequent"
+          ],
+          "keys": [
+            "frequent"
+          ]
+        },
+        {
+          "token": "chang",
+          "surface_forms": [
+            "changes"
+          ],
+          "keys": [
+            "chang",
+            "change",
+            "changes"
+          ]
+        },
+        {
+          "token": "between",
+          "surface_forms": [
+            "between"
+          ],
+          "keys": [
+            "between"
+          ]
+        },
+        {
+          "token": "two",
+          "surface_forms": [
+            "two"
+          ],
+          "keys": [
+            "two"
+          ]
+        },
+        {
+          "token": "class",
+          "surface_forms": [
+            "share-classes"
+          ],
+          "keys": [
+            "class",
+            "classe",
+            "classes",
+            "share"
+          ]
+        },
+        {
+          "token": "compani",
+          "surface_forms": [
+            "company"
+          ],
+          "keys": [
+            "compani",
+            "company"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "administrator",
+          "surface_forms": [
+            "Administrator"
+          ],
+          "keys": [
+            "administrator"
+          ]
+        },
+        {
+          "token": "appli",
+          "surface_forms": [
+            "applies"
+          ],
+          "keys": [
+            "appli",
+            "applie",
+            "applies",
+            "apply"
+          ]
+        },
+        {
+          "token": "follow",
+          "surface_forms": [
+            "following"
+          ],
+          "keys": [
+            "follow",
+            "following"
+          ]
+        },
+        {
+          "token": "buffer",
+          "surface_forms": [
+            "buffer"
+          ],
+          "keys": [
+            "buffer"
+          ]
+        },
+        {
+          "token": "rul",
+          "surface_forms": [
+            "rules"
+          ],
+          "keys": [
+            "rul",
+            "rule",
+            "rules"
+          ]
+        },
+        {
+          "token": "1",
+          "surface_forms": [
+            "1"
+          ],
+          "keys": [
+            "1"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "declaration:entity:AvoidFrequentChangesBetweenTwoShareClasses",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "AvoidFrequentChangesBetweenTwoShareClasses",
+          "line": 177,
+          "token_recall": 0.429,
+          "token_precision": 0.611,
+          "score": 0.465,
+          "matched_claim_tokens": [
+            "avoid",
+            "between",
+            "chang",
+            "class",
+            "frequent",
+            "two"
+          ],
+          "raw_excerpt": "entity AvoidFrequentChangesBetweenTwoShareClasses : VagueTerm"
+        },
+        {
+          "block_id": "declaration:entity:CurrentCompanyBufferRule",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "CurrentCompanyBufferRule",
+          "line": 175,
+          "token_recall": 0.286,
+          "token_precision": 0.556,
+          "score": 0.34,
+          "matched_claim_tokens": [
+            "buffer",
+            "compani",
+            "index",
+            "rul"
+          ],
+          "raw_excerpt": "entity CurrentCompanyBufferRule : IndexBufferRule"
+        },
+        {
+          "block_id": "declaration:entity:NotCurrentCompanyBufferRule",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "NotCurrentCompanyBufferRule",
+          "line": 176,
+          "token_recall": 0.286,
+          "token_precision": 0.556,
+          "score": 0.34,
+          "matched_claim_tokens": [
+            "buffer",
+            "compani",
+            "index",
+            "rul"
+          ],
+          "raw_excerpt": "entity NotCurrentCompanyBufferRule : IndexBufferRule"
+        },
+        {
+          "block_id": "assertion:constraint:not_current_company_buffer_rule",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "not_current_company_buffer_rule",
+          "line": 221,
+          "token_recall": 0.357,
+          "token_precision": 0.163,
+          "score": 0.318,
+          "matched_claim_tokens": [
+            "buffer",
+            "class",
+            "compani",
+            "index",
+            "rul"
+          ],
+          "raw_excerpt": "constraint not_current_company_buffer_rule [realizes: NotCurrentCompanyBufferRule] : forall d: SelectionDay, forall sc: ShareClass, eligible_by_not_current_company_buffer_rule(d, sc) iff not company_currently_included_in_index(d, company(sc)) and highest_minimum_average_daily_value_traded(d, sc)"
+        },
+        {
+          "block_id": "assertion:constraint:current_company_buffer_rule",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "current_company_buffer_rule",
+          "line": 208,
+          "token_recall": 0.357,
+          "token_precision": 0.146,
+          "score": 0.315,
+          "matched_claim_tokens": [
+            "buffer",
+            "class",
+            "compani",
+            "index",
+            "rul"
+          ],
+          "raw_excerpt": "constraint current_company_buffer_rule [realizes: CurrentCompanyBufferRule] : forall d: SelectionDay, forall sc: ShareClass, eligible_by_current_company_buffer_rule(d, sc) iff company_currently_included_in_index(d, company(sc)) and share_class_currently_included_in_index(d, sc) and forall other: ShareClass, company(other) = company(sc) and other != sc implies minimum_average_daily_value_traded(d, sc) >= 60% * minimum_average_daily_value_traded(d, other)"
+        }
+      ],
+      "candidate_count": 58,
+      "covered_claim_tokens_by_top3": [
+        "avoid",
+        "between",
+        "buffer",
+        "chang",
+        "class",
+        "compani",
+        "frequent",
+        "index",
+        "rul",
+        "two"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "administrator",
+          "surface_forms": [
+            "Administrator"
+          ]
+        },
+        {
+          "token": "appli",
+          "surface_forms": [
+            "applies"
+          ]
+        },
+        {
+          "token": "follow",
+          "surface_forms": [
+            "following"
+          ]
+        },
+        {
+          "token": "1",
+          "surface_forms": [
+            "1"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.714,
+      "auto_status": "partial_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C09",
+      "text": "If the company is currently included in the Index: The share class currently included in the Index will be eligible for the Index Universe if its minimum Average Daily Value Traded over 1 month and over 6 months prior to and including the Selection Day is at least 60% of the minimum Average Daily Value Traded over 1 month and over 6 months prior to and including the Selection Day of any other share class of the company.",
+      "hash": "44017ec931cf",
+      "tokens": [
+        {
+          "token": "compani",
+          "surface_forms": [
+            "company"
+          ],
+          "keys": [
+            "compani",
+            "company"
+          ]
+        },
+        {
+          "token": "currentli",
+          "surface_forms": [
+            "currently"
+          ],
+          "keys": [
+            "currentli",
+            "currently"
+          ]
+        },
+        {
+          "token": "includ",
+          "surface_forms": [
+            "included",
+            "including"
+          ],
+          "keys": [
+            "includ",
+            "included",
+            "including"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "share",
+          "surface_forms": [
+            "share"
+          ],
+          "keys": [
+            "share"
+          ]
+        },
+        {
+          "token": "cla",
+          "surface_forms": [
+            "class"
+          ],
+          "keys": [
+            "cla",
+            "clas",
+            "class"
+          ]
+        },
+        {
+          "token": "will",
+          "surface_forms": [
+            "will"
+          ],
+          "keys": [
+            "will"
+          ]
+        },
+        {
+          "token": "eligible",
+          "surface_forms": [
+            "eligible"
+          ],
+          "keys": [
+            "eligible"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ],
+          "keys": [
+            "universe"
+          ]
+        },
+        {
+          "token": "minimum",
+          "surface_forms": [
+            "minimum"
+          ],
+          "keys": [
+            "minimum"
+          ]
+        },
+        {
+          "token": "average",
+          "surface_forms": [
+            "Average"
+          ],
+          "keys": [
+            "average"
+          ]
+        },
+        {
+          "token": "daili",
+          "surface_forms": [
+            "Daily"
+          ],
+          "keys": [
+            "daili",
+            "daily"
+          ]
+        },
+        {
+          "token": "value",
+          "surface_forms": [
+            "Value"
+          ],
+          "keys": [
+            "value"
+          ]
+        },
+        {
+          "token": "trad",
+          "surface_forms": [
+            "Traded"
+          ],
+          "keys": [
+            "trad",
+            "traded"
+          ]
+        },
+        {
+          "token": "over",
+          "surface_forms": [
+            "over"
+          ],
+          "keys": [
+            "over"
+          ]
+        },
+        {
+          "token": "1",
+          "surface_forms": [
+            "1"
+          ],
+          "keys": [
+            "1"
+          ]
+        },
+        {
+          "token": "month",
+          "surface_forms": [
+            "month",
+            "months"
+          ],
+          "keys": [
+            "month",
+            "months"
+          ]
+        },
+        {
+          "token": "6",
+          "surface_forms": [
+            "6"
+          ],
+          "keys": [
+            "6"
+          ]
+        },
+        {
+          "token": "prior",
+          "surface_forms": [
+            "prior"
+          ],
+          "keys": [
+            "prior"
+          ]
+        },
+        {
+          "token": "selection",
+          "surface_forms": [
+            "Selection"
+          ],
+          "keys": [
+            "selection"
+          ]
+        },
+        {
+          "token": "day",
+          "surface_forms": [
+            "Day"
+          ],
+          "keys": [
+            "day"
+          ]
+        },
+        {
+          "token": "least",
+          "surface_forms": [
+            "least"
+          ],
+          "keys": [
+            "least"
+          ]
+        },
+        {
+          "token": "60%",
+          "surface_forms": [
+            "60%"
+          ],
+          "keys": [
+            "60%"
+          ]
+        },
+        {
+          "token": "other",
+          "surface_forms": [
+            "other"
+          ],
+          "keys": [
+            "other"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:current_company_buffer_rule",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "current_company_buffer_rule",
+          "line": 208,
+          "token_recall": 0.667,
+          "token_precision": 0.479,
+          "score": 0.629,
+          "matched_claim_tokens": [
+            "60%",
+            "average",
+            "cla",
+            "compani",
+            "currentli",
+            "daili",
+            "day",
+            "eligible",
+            "includ",
+            "index",
+            "minimum",
+            "other",
+            "selection",
+            "share",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "constraint current_company_buffer_rule [realizes: CurrentCompanyBufferRule] : forall d: SelectionDay, forall sc: ShareClass, eligible_by_current_company_buffer_rule(d, sc) iff company_currently_included_in_index(d, company(sc)) and share_class_currently_included_in_index(d, sc) and forall other: ShareClass, company(other) = company(sc) and other != sc implies minimum_average_daily_value_traded(d, sc) >= 60% * minimum_average_daily_value_traded(d, other)"
+        },
+        {
+          "block_id": "assertion:constraint:not_current_company_buffer_rule",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "not_current_company_buffer_rule",
+          "line": 221,
+          "token_recall": 0.583,
+          "token_precision": 0.488,
+          "score": 0.564,
+          "matched_claim_tokens": [
+            "average",
+            "cla",
+            "compani",
+            "currentli",
+            "daili",
+            "day",
+            "eligible",
+            "includ",
+            "index",
+            "minimum",
+            "selection",
+            "share",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "constraint not_current_company_buffer_rule [realizes: NotCurrentCompanyBufferRule] : forall d: SelectionDay, forall sc: ShareClass, eligible_by_not_current_company_buffer_rule(d, sc) iff not company_currently_included_in_index(d, company(sc)) and highest_minimum_average_daily_value_traded(d, sc)"
+        },
+        {
+          "block_id": "assertion:constraint:minimum_average_daily_value_traded_over_1_and_6_months",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "minimum_average_daily_value_traded_over_1_and_6_months",
+          "line": 82,
+          "token_recall": 0.542,
+          "token_precision": 0.486,
+          "score": 0.53,
+          "matched_claim_tokens": [
+            "1",
+            "6",
+            "average",
+            "daili",
+            "day",
+            "includ",
+            "minimum",
+            "month",
+            "over",
+            "prior",
+            "selection",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "constraint minimum_average_daily_value_traded_over_1_and_6_months : forall d: SelectionDay, forall s: Security, minimum_average_daily_value_traded(d, s) <= average_daily_value_traded(d, s, one_month_prior_including_selection_day(d)) and minimum_average_daily_value_traded(d, s) <= average_daily_value_traded(d, s, six_months_prior_including_selection_day(d)) and ( minimum_average_daily_value_traded(d, s) = average_daily_value_traded(d, s, one_month_prior_including_selection_day(d)) or minimum_aver"
+        },
+        {
+          "block_id": "assertion:constraint:highest_minimum_average_daily_value_traded_definition",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "highest_minimum_average_daily_value_traded_definition",
+          "line": 188,
+          "token_recall": 0.458,
+          "token_precision": 0.471,
+          "score": 0.461,
+          "matched_claim_tokens": [
+            "average",
+            "cla",
+            "compani",
+            "daili",
+            "day",
+            "minimum",
+            "other",
+            "selection",
+            "share",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "constraint highest_minimum_average_daily_value_traded_definition : forall d: SelectionDay, forall co: Company, forall other: ShareClass, company(other) = co and other != share_class_with_highest_minimum_average_daily_value_traded(d, co) implies minimum_average_daily_value_traded( d, share_class_with_highest_minimum_average_daily_value_traded(d, co) ) >= minimum_average_daily_value_traded(d, other)"
+        },
+        {
+          "block_id": "assertion:constraint:highest_minimum_average_daily_value_traded_share_class_company",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "highest_minimum_average_daily_value_traded_share_class_company",
+          "line": 184,
+          "token_recall": 0.417,
+          "token_precision": 0.6,
+          "score": 0.453,
+          "matched_claim_tokens": [
+            "average",
+            "cla",
+            "compani",
+            "daili",
+            "day",
+            "minimum",
+            "selection",
+            "share",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "constraint highest_minimum_average_daily_value_traded_share_class_company : forall d: SelectionDay, forall co: Company, company(share_class_with_highest_minimum_average_daily_value_traded(d, co)) = co"
+        }
+      ],
+      "candidate_count": 71,
+      "covered_claim_tokens_by_top3": [
+        "1",
+        "6",
+        "60%",
+        "average",
+        "cla",
+        "compani",
+        "currentli",
+        "daili",
+        "day",
+        "eligible",
+        "includ",
+        "index",
+        "minimum",
+        "month",
+        "other",
+        "over",
+        "prior",
+        "selection",
+        "share",
+        "trad",
+        "value"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "will",
+          "surface_forms": [
+            "will"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ]
+        },
+        {
+          "token": "least",
+          "surface_forms": [
+            "least"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.875,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C10",
+      "text": "If the company is currently not included in the Index: The share class with the highest minimum Average Daily Value Traded over 1 month and over 6 months prior to and including the Selection Day is included in the Index Universe.\n5.",
+      "hash": "dc854f2dd6f6",
+      "tokens": [
+        {
+          "token": "compani",
+          "surface_forms": [
+            "company"
+          ],
+          "keys": [
+            "compani",
+            "company"
+          ]
+        },
+        {
+          "token": "currentli",
+          "surface_forms": [
+            "currently"
+          ],
+          "keys": [
+            "currentli",
+            "currently"
+          ]
+        },
+        {
+          "token": "includ",
+          "surface_forms": [
+            "included",
+            "including"
+          ],
+          "keys": [
+            "includ",
+            "included",
+            "including"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "share",
+          "surface_forms": [
+            "share"
+          ],
+          "keys": [
+            "share"
+          ]
+        },
+        {
+          "token": "cla",
+          "surface_forms": [
+            "class"
+          ],
+          "keys": [
+            "cla",
+            "clas",
+            "class"
+          ]
+        },
+        {
+          "token": "highest",
+          "surface_forms": [
+            "highest"
+          ],
+          "keys": [
+            "highest"
+          ]
+        },
+        {
+          "token": "minimum",
+          "surface_forms": [
+            "minimum"
+          ],
+          "keys": [
+            "minimum"
+          ]
+        },
+        {
+          "token": "average",
+          "surface_forms": [
+            "Average"
+          ],
+          "keys": [
+            "average"
+          ]
+        },
+        {
+          "token": "daili",
+          "surface_forms": [
+            "Daily"
+          ],
+          "keys": [
+            "daili",
+            "daily"
+          ]
+        },
+        {
+          "token": "value",
+          "surface_forms": [
+            "Value"
+          ],
+          "keys": [
+            "value"
+          ]
+        },
+        {
+          "token": "trad",
+          "surface_forms": [
+            "Traded"
+          ],
+          "keys": [
+            "trad",
+            "traded"
+          ]
+        },
+        {
+          "token": "over",
+          "surface_forms": [
+            "over"
+          ],
+          "keys": [
+            "over"
+          ]
+        },
+        {
+          "token": "1",
+          "surface_forms": [
+            "1"
+          ],
+          "keys": [
+            "1"
+          ]
+        },
+        {
+          "token": "month",
+          "surface_forms": [
+            "month",
+            "months"
+          ],
+          "keys": [
+            "month",
+            "months"
+          ]
+        },
+        {
+          "token": "6",
+          "surface_forms": [
+            "6"
+          ],
+          "keys": [
+            "6"
+          ]
+        },
+        {
+          "token": "prior",
+          "surface_forms": [
+            "prior"
+          ],
+          "keys": [
+            "prior"
+          ]
+        },
+        {
+          "token": "selection",
+          "surface_forms": [
+            "Selection"
+          ],
+          "keys": [
+            "selection"
+          ]
+        },
+        {
+          "token": "day",
+          "surface_forms": [
+            "Day"
+          ],
+          "keys": [
+            "day"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ],
+          "keys": [
+            "universe"
+          ]
+        },
+        {
+          "token": "5",
+          "surface_forms": [
+            "5"
+          ],
+          "keys": [
+            "5"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:not_current_company_buffer_rule",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "not_current_company_buffer_rule",
+          "line": 221,
+          "token_recall": 0.667,
+          "token_precision": 0.488,
+          "score": 0.631,
+          "matched_claim_tokens": [
+            "average",
+            "cla",
+            "compani",
+            "currentli",
+            "daili",
+            "day",
+            "highest",
+            "includ",
+            "index",
+            "minimum",
+            "selection",
+            "share",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "constraint not_current_company_buffer_rule [realizes: NotCurrentCompanyBufferRule] : forall d: SelectionDay, forall sc: ShareClass, eligible_by_not_current_company_buffer_rule(d, sc) iff not company_currently_included_in_index(d, company(sc)) and highest_minimum_average_daily_value_traded(d, sc)"
+        },
+        {
+          "block_id": "assertion:constraint:minimum_average_daily_value_traded_over_1_and_6_months",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "minimum_average_daily_value_traded_over_1_and_6_months",
+          "line": 82,
+          "token_recall": 0.619,
+          "token_precision": 0.486,
+          "score": 0.592,
+          "matched_claim_tokens": [
+            "1",
+            "6",
+            "average",
+            "daili",
+            "day",
+            "includ",
+            "minimum",
+            "month",
+            "over",
+            "prior",
+            "selection",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "constraint minimum_average_daily_value_traded_over_1_and_6_months : forall d: SelectionDay, forall s: Security, minimum_average_daily_value_traded(d, s) <= average_daily_value_traded(d, s, one_month_prior_including_selection_day(d)) and minimum_average_daily_value_traded(d, s) <= average_daily_value_traded(d, s, six_months_prior_including_selection_day(d)) and ( minimum_average_daily_value_traded(d, s) = average_daily_value_traded(d, s, one_month_prior_including_selection_day(d)) or minimum_aver"
+        },
+        {
+          "block_id": "assertion:constraint:current_company_buffer_rule",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "current_company_buffer_rule",
+          "line": 208,
+          "token_recall": 0.619,
+          "token_precision": 0.417,
+          "score": 0.579,
+          "matched_claim_tokens": [
+            "average",
+            "cla",
+            "compani",
+            "currentli",
+            "daili",
+            "day",
+            "includ",
+            "index",
+            "minimum",
+            "selection",
+            "share",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "constraint current_company_buffer_rule [realizes: CurrentCompanyBufferRule] : forall d: SelectionDay, forall sc: ShareClass, eligible_by_current_company_buffer_rule(d, sc) iff company_currently_included_in_index(d, company(sc)) and share_class_currently_included_in_index(d, sc) and forall other: ShareClass, company(other) = company(sc) and other != sc implies minimum_average_daily_value_traded(d, sc) >= 60% * minimum_average_daily_value_traded(d, other)"
+        },
+        {
+          "block_id": "assertion:constraint:highest_minimum_average_daily_value_traded_share_class_company",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "highest_minimum_average_daily_value_traded_share_class_company",
+          "line": 184,
+          "token_recall": 0.524,
+          "token_precision": 0.64,
+          "score": 0.547,
+          "matched_claim_tokens": [
+            "average",
+            "cla",
+            "compani",
+            "daili",
+            "day",
+            "highest",
+            "minimum",
+            "selection",
+            "share",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "constraint highest_minimum_average_daily_value_traded_share_class_company : forall d: SelectionDay, forall co: Company, company(share_class_with_highest_minimum_average_daily_value_traded(d, co)) = co"
+        },
+        {
+          "block_id": "declaration:fun:share_class_with_highest_minimum_average_daily_value_traded",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "fun",
+          "name": "share_class_with_highest_minimum_average_daily_value_traded",
+          "line": 179,
+          "token_recall": 0.524,
+          "token_precision": 0.615,
+          "score": 0.542,
+          "matched_claim_tokens": [
+            "average",
+            "cla",
+            "compani",
+            "daili",
+            "day",
+            "highest",
+            "minimum",
+            "selection",
+            "share",
+            "trad",
+            "value"
+          ],
+          "raw_excerpt": "fun[required] share_class_with_highest_minimum_average_daily_value_traded : SelectionDay, Company -> ShareClass"
+        }
+      ],
+      "candidate_count": 71,
+      "covered_claim_tokens_by_top3": [
+        "1",
+        "6",
+        "average",
+        "cla",
+        "compani",
+        "currentli",
+        "daili",
+        "day",
+        "highest",
+        "includ",
+        "index",
+        "minimum",
+        "month",
+        "over",
+        "prior",
+        "selection",
+        "share",
+        "trad",
+        "value"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ]
+        },
+        {
+          "token": "5",
+          "surface_forms": [
+            "5"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.905,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C11",
+      "text": "Security must be classified in one of these FactSet Revere Business Industry Classification System (\"RBICS\") Subindustry Classification (see Appendix).",
+      "hash": "149e7de4393f",
+      "tokens": [
+        {
+          "token": "securiti",
+          "surface_forms": [
+            "Security"
+          ],
+          "keys": [
+            "securiti",
+            "security"
+          ]
+        },
+        {
+          "token": "must",
+          "surface_forms": [
+            "must"
+          ],
+          "keys": [
+            "must"
+          ]
+        },
+        {
+          "token": "classifi",
+          "surface_forms": [
+            "classified",
+            "Classification"
+          ],
+          "keys": [
+            "classifi",
+            "classification",
+            "classified",
+            "classififi",
+            "classifify",
+            "classify"
+          ]
+        },
+        {
+          "token": "one",
+          "surface_forms": [
+            "one"
+          ],
+          "keys": [
+            "one"
+          ]
+        },
+        {
+          "token": "fact",
+          "surface_forms": [
+            "FactSet"
+          ],
+          "keys": [
+            "factset",
+            "set"
+          ]
+        },
+        {
+          "token": "revere",
+          "surface_forms": [
+            "Revere"
+          ],
+          "keys": [
+            "revere"
+          ]
+        },
+        {
+          "token": "busin",
+          "surface_forms": [
+            "Business"
+          ],
+          "keys": [
+            "busin",
+            "busine",
+            "busines",
+            "business"
+          ]
+        },
+        {
+          "token": "industri",
+          "surface_forms": [
+            "Industry"
+          ],
+          "keys": [
+            "industri",
+            "industry"
+          ]
+        },
+        {
+          "token": "system",
+          "surface_forms": [
+            "System"
+          ],
+          "keys": [
+            "system"
+          ]
+        },
+        {
+          "token": "b",
+          "surface_forms": [
+            "RBICS"
+          ],
+          "keys": [
+            "b",
+            "c",
+            "i",
+            "r",
+            "rbic",
+            "rbics",
+            "s"
+          ]
+        },
+        {
+          "token": "subindustri",
+          "surface_forms": [
+            "Subindustry"
+          ],
+          "keys": [
+            "subindustri",
+            "subindustry"
+          ]
+        },
+        {
+          "token": "see",
+          "surface_forms": [
+            "see"
+          ],
+          "keys": [
+            "see"
+          ]
+        },
+        {
+          "token": "appendix",
+          "surface_forms": [
+            "Appendix"
+          ],
+          "keys": [
+            "appendix"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "assertion:constraint:appendix_rbics_subindustry_classification_definition",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "appendix_rbics_subindustry_classification_definition",
+          "line": 111,
+          "token_recall": 0.692,
+          "token_precision": 0.575,
+          "score": 0.669,
+          "matched_claim_tokens": [
+            "appendix",
+            "b",
+            "busin",
+            "classifi",
+            "fact",
+            "industri",
+            "revere",
+            "subindustri",
+            "system"
+          ],
+          "raw_excerpt": "constraint appendix_rbics_subindustry_classification_definition : forall cls: RBICSSubindustryClassification, appendix_rbics_subindustry_classification(cls) iff rbics_subindustry_classification_of_system( cls, FactSetRevereBusinessIndustryClassificationSystem ) and rbics_subindustry_classification_in_appendix( cls, IndexGuidelineAppendix )"
+        },
+        {
+          "block_id": "declaration:entity:FactSetRevereBusinessIndustryClassificationSystem",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "entity",
+          "name": "FactSetRevereBusinessIndustryClassificationSystem",
+          "line": 100,
+          "token_recall": 0.462,
+          "token_precision": 0.812,
+          "score": 0.532,
+          "matched_claim_tokens": [
+            "busin",
+            "classifi",
+            "fact",
+            "industri",
+            "revere",
+            "system"
+          ],
+          "raw_excerpt": "entity FactSetRevereBusinessIndustryClassificationSystem : BusinessIndustryClassificationSystem"
+        },
+        {
+          "block_id": "declaration:rel:rbics_subindustry_classification_of_system",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "rbics_subindustry_classification_of_system",
+          "line": 103,
+          "token_recall": 0.462,
+          "token_precision": 0.769,
+          "score": 0.523,
+          "matched_claim_tokens": [
+            "b",
+            "busin",
+            "classifi",
+            "industri",
+            "subindustri",
+            "system"
+          ],
+          "raw_excerpt": "rel rbics_subindustry_classification_of_system : RBICSSubindustryClassification, BusinessIndustryClassificationSystem"
+        },
+        {
+          "block_id": "declaration:opaque:BusinessIndustryClassificationSystem",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "BusinessIndustryClassificationSystem",
+          "line": 96,
+          "token_recall": 0.308,
+          "token_precision": 0.917,
+          "score": 0.429,
+          "matched_claim_tokens": [
+            "busin",
+            "classifi",
+            "industri",
+            "system"
+          ],
+          "raw_excerpt": "sort BusinessIndustryClassificationSystem"
+        },
+        {
+          "block_id": "declaration:rel:rbics_subindustry_classification_in_appendix",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "rbics_subindustry_classification_in_appendix",
+          "line": 106,
+          "token_recall": 0.308,
+          "token_precision": 0.737,
+          "score": 0.394,
+          "matched_claim_tokens": [
+            "appendix",
+            "b",
+            "classifi",
+            "subindustri"
+          ],
+          "raw_excerpt": "rel rbics_subindustry_classification_in_appendix : RBICSSubindustryClassification, Appendix"
+        }
+      ],
+      "candidate_count": 39,
+      "covered_claim_tokens_by_top3": [
+        "appendix",
+        "b",
+        "busin",
+        "classifi",
+        "fact",
+        "industri",
+        "revere",
+        "subindustri",
+        "system"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "securiti",
+          "surface_forms": [
+            "Security"
+          ]
+        },
+        {
+          "token": "must",
+          "surface_forms": [
+            "must"
+          ]
+        },
+        {
+          "token": "one",
+          "surface_forms": [
+            "one"
+          ]
+        },
+        {
+          "token": "see",
+          "surface_forms": [
+            "see"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.692,
+      "auto_status": "partial_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    },
+    {
+      "claim_id": "C12",
+      "text": "The determination of the Index Universe is fully rule-based and the Index Administrator cannot make any discretionary decisions.",
+      "hash": "6ebff7a4d06a",
+      "tokens": [
+        {
+          "token": "determinate",
+          "surface_forms": [
+            "determination"
+          ],
+          "keys": [
+            "determinate",
+            "determination"
+          ]
+        },
+        {
+          "token": "index",
+          "surface_forms": [
+            "Index"
+          ],
+          "keys": [
+            "index"
+          ]
+        },
+        {
+          "token": "universe",
+          "surface_forms": [
+            "Universe"
+          ],
+          "keys": [
+            "universe"
+          ]
+        },
+        {
+          "token": "fulli",
+          "surface_forms": [
+            "fully"
+          ],
+          "keys": [
+            "fulli",
+            "fully"
+          ]
+        },
+        {
+          "token": "bas",
+          "surface_forms": [
+            "rule-based"
+          ],
+          "keys": [
+            "bas",
+            "based",
+            "rule"
+          ]
+        },
+        {
+          "token": "administrator",
+          "surface_forms": [
+            "Administrator"
+          ],
+          "keys": [
+            "administrator"
+          ]
+        },
+        {
+          "token": "cannot",
+          "surface_forms": [
+            "cannot"
+          ],
+          "keys": [
+            "cannot"
+          ]
+        },
+        {
+          "token": "make",
+          "surface_forms": [
+            "make"
+          ],
+          "keys": [
+            "make"
+          ]
+        },
+        {
+          "token": "discretionari",
+          "surface_forms": [
+            "discretionary"
+          ],
+          "keys": [
+            "discretionari",
+            "discretionary"
+          ]
+        },
+        {
+          "token": "decision",
+          "surface_forms": [
+            "decisions"
+          ],
+          "keys": [
+            "decision",
+            "decisions"
+          ]
+        }
+      ],
+      "candidate_blocks": [
+        {
+          "block_id": "declaration:prohibition:index_administrator_discretionary_decision",
+          "role": "declaration",
+          "family": "DeonticDecl",
+          "kind": "prohibition",
+          "name": "index_administrator_discretionary_decision",
+          "line": 279,
+          "token_recall": 0.6,
+          "token_precision": 0.615,
+          "score": 0.603,
+          "matched_claim_tokens": [
+            "administrator",
+            "decision",
+            "determinate",
+            "discretionari",
+            "index",
+            "universe"
+          ],
+          "raw_excerpt": "prohibition index_administrator_discretionary_decision( agent: IndexAdministrator, determination: DeterminationOfIndexUniverse, decision: DiscretionaryDecision )"
+        },
+        {
+          "block_id": "declaration:rel:fully_rule_based",
+          "role": "declaration",
+          "family": "SymbolDecl",
+          "kind": "rel",
+          "name": "fully_rule_based",
+          "line": 241,
+          "token_recall": 0.5,
+          "token_precision": 0.643,
+          "score": 0.529,
+          "matched_claim_tokens": [
+            "bas",
+            "determinate",
+            "fulli",
+            "index",
+            "universe"
+          ],
+          "raw_excerpt": "rel fully_rule_based : DeterminationOfIndexUniverse"
+        },
+        {
+          "block_id": "assertion:constraint:determination_of_index_universe_fully_rule_based",
+          "role": "assertion",
+          "family": "AssertDecl",
+          "kind": "constraint",
+          "name": "determination_of_index_universe_fully_rule_based",
+          "line": 275,
+          "token_recall": 0.5,
+          "token_precision": 0.409,
+          "score": 0.482,
+          "matched_claim_tokens": [
+            "bas",
+            "determinate",
+            "fulli",
+            "index",
+            "universe"
+          ],
+          "raw_excerpt": "constraint determination_of_index_universe_fully_rule_based : forall d: SelectionDay, fully_rule_based(determination_of_index_universe(d))"
+        },
+        {
+          "block_id": "declaration:opaque:DeterminationOfIndexUniverse",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "DeterminationOfIndexUniverse",
+          "line": 125,
+          "token_recall": 0.3,
+          "token_precision": 0.667,
+          "score": 0.373,
+          "matched_claim_tokens": [
+            "determinate",
+            "index",
+            "universe"
+          ],
+          "raw_excerpt": "sort DeterminationOfIndexUniverse"
+        },
+        {
+          "block_id": "declaration:opaque:DiscretionaryDecision",
+          "role": "declaration",
+          "family": "TypeDecl",
+          "kind": "opaque",
+          "name": "DiscretionaryDecision",
+          "line": 126,
+          "token_recall": 0.2,
+          "token_precision": 0.75,
+          "score": 0.31,
+          "matched_claim_tokens": [
+            "decision",
+            "discretionari"
+          ],
+          "raw_excerpt": "sort DiscretionaryDecision"
+        }
+      ],
+      "candidate_count": 48,
+      "covered_claim_tokens_by_top3": [
+        "administrator",
+        "bas",
+        "decision",
+        "determinate",
+        "discretionari",
+        "fulli",
+        "index",
+        "universe"
+      ],
+      "uncovered_claim_tokens_by_top3": [
+        {
+          "token": "cannot",
+          "surface_forms": [
+            "cannot"
+          ]
+        },
+        {
+          "token": "make",
+          "surface_forms": [
+            "make"
+          ]
+        }
+      ],
+      "top3_token_coverage": 0.8,
+      "auto_status": "strong_candidate",
+      "review": {
+        "status": "unreviewed",
+        "reviewer": "",
+        "comment": "",
+        "approved_blocks": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,280 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N30 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N30/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Security a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:IndexComponent a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexComponent rdfs:subClassOf ex:Security .
+ex:RebalanceDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:RebalanceDay rdfs:subClassOf ex:Day .
+ex:CalculationDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CalculationDay rdfs:subClassOf ex:Day .
+ex:Exchange a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexAdministrator a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:IndexAdministratorForThisIndex a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexAdministratorForThisIndex rdfs:subClassOf ex:IndexAdministrator .
+ex:IndexComponentInclusion a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:TradingDayContext a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:TradingDayDetermination a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ExchangeClosingTime a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:TradingCessationPossibility a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ScheduledShortenedPeriod a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ScheduledShortenedPeriod rdfs:subClassOf ex:Period .
+ex:CloseOfTrading a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CloseOfTrading rdfs:subClassOf ex:Event .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:TheIndexAdministrator a ex:IndexAdministratorForThisIndex, owl:NamedIndividual .
+ex:relevant_exchange a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:relevant_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:relevant_exchange a4:argument ex:relevant_exchange_arg_0 .
+ex:relevant_exchange a4:resultSort ex:Exchange .
+ex:relevant_exchange a4:functionFlag "required" .
+ex:scheduled_exchange_closing_time a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:scheduled_exchange_closing_time_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Exchange .
+ex:scheduled_exchange_closing_time a4:argument ex:scheduled_exchange_closing_time_arg_0 .
+ex:scheduled_exchange_closing_time_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Day .
+ex:scheduled_exchange_closing_time a4:argument ex:scheduled_exchange_closing_time_arg_1 .
+ex:scheduled_exchange_closing_time a4:resultSort ex:ExchangeClosingTime .
+ex:scheduled_exchange_closing_time a4:functionFlag "required" .
+ex:inclusion_component a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:inclusion_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponentInclusion .
+ex:inclusion_component a4:argument ex:inclusion_component_arg_0 .
+ex:inclusion_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:inclusion_component a4:argument ex:inclusion_component_arg_1 .
+ex:inclusion_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:inclusion_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponentInclusion .
+ex:inclusion_index a4:argument ex:inclusion_index_arg_0 .
+ex:inclusion_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:inclusion_index a4:argument ex:inclusion_index_arg_1 .
+ex:inclusion_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:inclusion_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponentInclusion .
+ex:inclusion_day a4:argument ex:inclusion_day_arg_0 .
+ex:inclusion_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Day .
+ex:inclusion_day a4:argument ex:inclusion_day_arg_1 .
+ex:calculation_day_immediately_following_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:calculation_day_immediately_following_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:calculation_day_immediately_following_rebalance_day a4:argument ex:calculation_day_immediately_following_rebalance_day_arg_0 .
+ex:calculation_day_immediately_following_rebalance_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:calculation_day_immediately_following_rebalance_day a4:argument ex:calculation_day_immediately_following_rebalance_day_arg_1 .
+ex:context_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:context_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:context_rebalance_day a4:argument ex:context_rebalance_day_arg_0 .
+ex:context_rebalance_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:context_rebalance_day a4:argument ex:context_rebalance_day_arg_1 .
+ex:context_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:context_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:context_day a4:argument ex:context_day_arg_0 .
+ex:context_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Day .
+ex:context_day a4:argument ex:context_day_arg_1 .
+ex:context_component a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:context_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:context_component a4:argument ex:context_component_arg_0 .
+ex:context_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:context_component a4:argument ex:context_component_arg_1 .
+ex:context_exchange a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:context_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:context_exchange a4:argument ex:context_exchange_arg_0 .
+ex:context_exchange_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Exchange .
+ex:context_exchange a4:argument ex:context_exchange_arg_1 .
+ex:valid_trading_day_context a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:valid_trading_day_context_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:valid_trading_day_context a4:argument ex:valid_trading_day_context_arg_0 .
+ex:context_component_included_at_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:context_component_included_at_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:context_component_included_at_rebalance_day a4:argument ex:context_component_included_at_rebalance_day_arg_0 .
+ex:context_component_included_at_following_calculation_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:context_component_included_at_following_calculation_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:context_component_included_at_following_calculation_day a4:argument ex:context_component_included_at_following_calculation_day_arg_0 .
+ex:context_satisfies_open_for_trading_condition a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:context_satisfies_open_for_trading_condition_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:context_satisfies_open_for_trading_condition a4:argument ex:context_satisfies_open_for_trading_condition_arg_0 .
+ex:context_satisfies_market_disruption_counterfactual a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:context_satisfies_market_disruption_counterfactual_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:context_satisfies_market_disruption_counterfactual a4:argument ex:context_satisfies_market_disruption_counterfactual_arg_0 .
+ex:context_excluded_by_prior_to_close_cessation a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:context_excluded_by_prior_to_close_cessation_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:context_excluded_by_prior_to_close_cessation a4:argument ex:context_excluded_by_prior_to_close_cessation_arg_0 .
+ex:context_excluded_by_scheduled_shortened_period a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:context_excluded_by_scheduled_shortened_period_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:context_excluded_by_scheduled_shortened_period a4:argument ex:context_excluded_by_scheduled_shortened_period_arg_0 .
+ex:trading_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:trading_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:trading_day a4:argument ex:trading_day_arg_0 .
+ex:exchange_open_for_trading a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:exchange_open_for_trading_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Exchange .
+ex:exchange_open_for_trading a4:argument ex:exchange_open_for_trading_arg_0 .
+ex:exchange_open_for_trading_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Day .
+ex:exchange_open_for_trading a4:argument ex:exchange_open_for_trading_arg_1 .
+ex:market_disruption_occurred a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:market_disruption_occurred_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Exchange .
+ex:market_disruption_occurred a4:argument ex:market_disruption_occurred_arg_0 .
+ex:market_disruption_occurred_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Day .
+ex:market_disruption_occurred a4:argument ex:market_disruption_occurred_arg_1 .
+ex:would_have_been_open_for_trading_without_market_disruption a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:would_have_been_open_for_trading_without_market_disruption_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Exchange .
+ex:would_have_been_open_for_trading_without_market_disruption a4:argument ex:would_have_been_open_for_trading_without_market_disruption_arg_0 .
+ex:would_have_been_open_for_trading_without_market_disruption_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Day .
+ex:would_have_been_open_for_trading_without_market_disruption a4:argument ex:would_have_been_open_for_trading_without_market_disruption_arg_1 .
+ex:cessation_possibility_exchange a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:cessation_possibility_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingCessationPossibility .
+ex:cessation_possibility_exchange a4:argument ex:cessation_possibility_exchange_arg_0 .
+ex:cessation_possibility_exchange_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Exchange .
+ex:cessation_possibility_exchange a4:argument ex:cessation_possibility_exchange_arg_1 .
+ex:cessation_possibility_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:cessation_possibility_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingCessationPossibility .
+ex:cessation_possibility_day a4:argument ex:cessation_possibility_day_arg_0 .
+ex:cessation_possibility_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Day .
+ex:cessation_possibility_day a4:argument ex:cessation_possibility_day_arg_1 .
+ex:prior_to a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:prior_to_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingCessationPossibility .
+ex:prior_to a4:argument ex:prior_to_arg_0 .
+ex:prior_to_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ExchangeClosingTime .
+ex:prior_to a4:argument ex:prior_to_arg_1 .
+ex:shortened_period_exchange a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:shortened_period_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ScheduledShortenedPeriod .
+ex:shortened_period_exchange a4:argument ex:shortened_period_exchange_arg_0 .
+ex:shortened_period_exchange_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Exchange .
+ex:shortened_period_exchange a4:argument ex:shortened_period_exchange_arg_1 .
+ex:shortened_period_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:shortened_period_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ScheduledShortenedPeriod .
+ex:shortened_period_day a4:argument ex:shortened_period_day_arg_0 .
+ex:shortened_period_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Day .
+ex:shortened_period_day a4:argument ex:shortened_period_day_arg_1 .
+ex:security_to_be_included_in_index_as_new_index_component a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:security_to_be_included_in_index_as_new_index_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Security .
+ex:security_to_be_included_in_index_as_new_index_component a4:argument ex:security_to_be_included_in_index_as_new_index_component_arg_0 .
+ex:security_to_be_included_in_index_as_new_index_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:security_to_be_included_in_index_as_new_index_component a4:argument ex:security_to_be_included_in_index_as_new_index_component_arg_1 .
+ex:close_of_trading_exchange a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:close_of_trading_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CloseOfTrading .
+ex:close_of_trading_exchange a4:argument ex:close_of_trading_exchange_arg_0 .
+ex:close_of_trading_exchange_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Exchange .
+ex:close_of_trading_exchange a4:argument ex:close_of_trading_exchange_arg_1 .
+ex:close_of_trading_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:close_of_trading_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CloseOfTrading .
+ex:close_of_trading_rebalance_day a4:argument ex:close_of_trading_rebalance_day_arg_0 .
+ex:close_of_trading_rebalance_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:close_of_trading_rebalance_day a4:argument ex:close_of_trading_rebalance_day_arg_1 .
+ex:context_captures_new_index_component_close_of_trading a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:context_captures_new_index_component_close_of_trading_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:context_captures_new_index_component_close_of_trading a4:argument ex:context_captures_new_index_component_close_of_trading_arg_0 .
+ex:determination_decides_whether_context_is_trading_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:determination_decides_whether_context_is_trading_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDayDetermination .
+ex:determination_decides_whether_context_is_trading_day a4:argument ex:determination_decides_whether_context_is_trading_day_arg_0 .
+ex:determination_decides_whether_context_is_trading_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDayContext .
+ex:determination_decides_whether_context_is_trading_day a4:argument ex:determination_decides_whether_context_is_trading_day_arg_1 .
+ex:ultimately_responsible_for_trading_day_determination a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:ultimately_responsible_for_trading_day_determination_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexAdministratorForThisIndex .
+ex:ultimately_responsible_for_trading_day_determination a4:argument ex:ultimately_responsible_for_trading_day_determination_arg_0 .
+ex:ultimately_responsible_for_trading_day_determination_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDayDetermination .
+ex:ultimately_responsible_for_trading_day_determination a4:argument ex:ultimately_responsible_for_trading_day_determination_arg_1 .
+
+ex:ASSERT_trading_day_context_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "60"^^xsd:integer ;
+  a4:exprText "forall ctx: TradingDayContext, (valid_trading_day_context(ctx)) iff (exists rd: RebalanceDay, exists d: Day, exists c: IndexComponent, (context_rebalance_day(ctx, rd)) and (context_day(ctx, d)) and (context_component(ctx, c)) and (context_exchange(ctx, relevant_exchange(c))) and ((context_component_included_at_rebalance_day(ctx)) or (context_component_included_at_following_calculation_day(ctx))))" ;
+  a4:sourceText "constraint trading_day_context_definition :\n  forall ctx: TradingDayContext,\n    valid_trading_day_context(ctx)\n    iff\n      exists rd: RebalanceDay, exists d: Day, exists c: IndexComponent,\n        context_rebalance_day(ctx, rd)\n        and context_day(ctx, d)\n        and context_component(ctx, c)\n        and context_exchange(ctx, relevant_exchange(c))\n        and\n          (\n            context_component_included_at_rebalance_day(ctx)\n            or context_component_included_at_following_calculation_day(ctx)\n          )" .
+ex:ASSERT_rebalance_day_component_scope a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "75"^^xsd:integer ;
+  a4:exprText "forall ctx: TradingDayContext, (context_component_included_at_rebalance_day(ctx)) iff (exists rd: RebalanceDay, exists c: IndexComponent, exists inc: IndexComponentInclusion, (context_rebalance_day(ctx, rd)) and (context_component(ctx, c)) and (inclusion_component(inc, c)) and (inclusion_index(inc, TheIndex)) and (inclusion_day(inc, rd)))" ;
+  a4:sourceText "constraint rebalance_day_component_scope :\n  forall ctx: TradingDayContext,\n    context_component_included_at_rebalance_day(ctx)\n    iff\n      exists rd: RebalanceDay, exists c: IndexComponent, exists inc: IndexComponentInclusion,\n        context_rebalance_day(ctx, rd)\n        and context_component(ctx, c)\n        and inclusion_component(inc, c)\n        and inclusion_index(inc, TheIndex)\n        and inclusion_day(inc, rd)" .
+ex:ASSERT_following_calculation_day_component_scope a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "86"^^xsd:integer ;
+  a4:exprText "forall ctx: TradingDayContext, (context_component_included_at_following_calculation_day(ctx)) iff (exists rd: RebalanceDay, exists cd: CalculationDay, exists c: IndexComponent, exists inc: IndexComponentInclusion, (context_rebalance_day(ctx, rd)) and (calculation_day_immediately_following_rebalance_day(cd, rd)) and (context_component(ctx, c)) and (inclusion_component(inc, c)) and (inclusion_index(inc, TheIndex)) and (inclusion_day(inc, cd)))" ;
+  a4:sourceText "constraint following_calculation_day_component_scope :\n  forall ctx: TradingDayContext,\n    context_component_included_at_following_calculation_day(ctx)\n    iff\n      exists rd: RebalanceDay, exists cd: CalculationDay, exists c: IndexComponent, exists inc: IndexComponentInclusion,\n        context_rebalance_day(ctx, rd)\n        and calculation_day_immediately_following_rebalance_day(cd, rd)\n        and context_component(ctx, c)\n        and inclusion_component(inc, c)\n        and inclusion_index(inc, TheIndex)\n        and inclusion_day(inc, cd)" .
+ex:ASSERT_open_for_trading_condition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "98"^^xsd:integer ;
+  a4:exprText "forall ctx: TradingDayContext, (context_satisfies_open_for_trading_condition(ctx)) iff (exists d: Day, exists ex: Exchange, (context_day(ctx, d)) and (context_exchange(ctx, ex)) and (exchange_open_for_trading(ex, d)))" ;
+  a4:sourceText "constraint open_for_trading_condition :\n  forall ctx: TradingDayContext,\n    context_satisfies_open_for_trading_condition(ctx)\n    iff\n      exists d: Day, exists ex: Exchange,\n        context_day(ctx, d)\n        and context_exchange(ctx, ex)\n        and exchange_open_for_trading(ex, d)" .
+ex:ASSERT_market_disruption_counterfactual_condition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "107"^^xsd:integer ;
+  a4:exprText "forall ctx: TradingDayContext, (context_satisfies_market_disruption_counterfactual(ctx)) iff (exists d: Day, exists ex: Exchange, (context_day(ctx, d)) and (context_exchange(ctx, ex)) and (market_disruption_occurred(ex, d)) and (would_have_been_open_for_trading_without_market_disruption(ex, d)))" ;
+  a4:sourceText "constraint market_disruption_counterfactual_condition :\n  forall ctx: TradingDayContext,\n    context_satisfies_market_disruption_counterfactual(ctx)\n    iff\n      exists d: Day, exists ex: Exchange,\n        context_day(ctx, d)\n        and context_exchange(ctx, ex)\n        and market_disruption_occurred(ex, d)\n        and would_have_been_open_for_trading_without_market_disruption(ex, d)" .
+ex:ASSERT_early_cessation_exclusion a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "117"^^xsd:integer ;
+  a4:exprText "forall ctx: TradingDayContext, (context_excluded_by_prior_to_close_cessation(ctx)) iff (exists d: Day, exists ex: Exchange, exists cp: TradingCessationPossibility, (context_day(ctx, d)) and (context_exchange(ctx, ex)) and (cessation_possibility_exchange(cp, ex)) and (cessation_possibility_day(cp, d)) and (prior_to(cp, scheduled_exchange_closing_time(ex, d))))" ;
+  a4:sourceText "constraint early_cessation_exclusion :\n  forall ctx: TradingDayContext,\n    context_excluded_by_prior_to_close_cessation(ctx)\n    iff\n      exists d: Day, exists ex: Exchange, exists cp: TradingCessationPossibility,\n        context_day(ctx, d)\n        and context_exchange(ctx, ex)\n        and cessation_possibility_exchange(cp, ex)\n        and cessation_possibility_day(cp, d)\n        and prior_to(cp, scheduled_exchange_closing_time(ex, d))" .
+ex:ASSERT_scheduled_shortened_period_exclusion a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "128"^^xsd:integer ;
+  a4:exprText "forall ctx: TradingDayContext, (context_excluded_by_scheduled_shortened_period(ctx)) iff (exists d: Day, exists ex: Exchange, exists sp: ScheduledShortenedPeriod, (context_day(ctx, d)) and (context_exchange(ctx, ex)) and (shortened_period_exchange(sp, ex)) and (shortened_period_day(sp, d)))" ;
+  a4:sourceText "constraint scheduled_shortened_period_exclusion :\n  forall ctx: TradingDayContext,\n    context_excluded_by_scheduled_shortened_period(ctx)\n    iff\n      exists d: Day, exists ex: Exchange, exists sp: ScheduledShortenedPeriod,\n        context_day(ctx, d)\n        and context_exchange(ctx, ex)\n        and shortened_period_exchange(sp, ex)\n        and shortened_period_day(sp, d)" .
+ex:ASSERT_trading_day_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "138"^^xsd:integer ;
+  a4:exprText "forall ctx: TradingDayContext, (valid_trading_day_context(ctx)) implies ((trading_day(ctx)) iff (((context_satisfies_open_for_trading_condition(ctx)) or (context_satisfies_market_disruption_counterfactual(ctx))) and (not (context_excluded_by_prior_to_close_cessation(ctx))) and (not (context_excluded_by_scheduled_shortened_period(ctx)))))" ;
+  a4:sourceText "constraint trading_day_definition :\n  forall ctx: TradingDayContext,\n    valid_trading_day_context(ctx)\n    implies\n      (\n        trading_day(ctx)\n        iff\n          (\n            (\n              context_satisfies_open_for_trading_condition(ctx)\n              or context_satisfies_market_disruption_counterfactual(ctx)\n            )\n            and not context_excluded_by_prior_to_close_cessation(ctx)\n            and not context_excluded_by_scheduled_shortened_period(ctx)\n          )\n      )" .
+ex:ASSERT_new_index_components_close_of_trading_clarification a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "155"^^xsd:integer ;
+  a4:exprText "forall ctx: TradingDayContext, (context_captures_new_index_component_close_of_trading(ctx)) iff (exists rd: RebalanceDay, exists c: IndexComponent, exists close: CloseOfTrading, (context_rebalance_day(ctx, rd)) and (context_component(ctx, c)) and (security_to_be_included_in_index_as_new_index_component(c, TheIndex)) and (close_of_trading_exchange(close, relevant_exchange(c))) and (close_of_trading_rebalance_day(close, rd)))" ;
+  a4:sourceText "constraint new_index_components_close_of_trading_clarification :\n  forall ctx: TradingDayContext,\n    context_captures_new_index_component_close_of_trading(ctx)\n    iff\n      exists rd: RebalanceDay, exists c: IndexComponent, exists close: CloseOfTrading,\n        context_rebalance_day(ctx, rd)\n        and context_component(ctx, c)\n        and security_to_be_included_in_index_as_new_index_component(c, TheIndex)\n        and close_of_trading_exchange(close, relevant_exchange(c))\n        and close_of_trading_rebalance_day(close, rd)" .
+ex:ASSERT_index_administrator_responsibility_for_trading_day_determination a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "166"^^xsd:integer ;
+  a4:exprText "forall det: TradingDayDetermination, forall ctx: TradingDayContext, ((determination_decides_whether_context_is_trading_day(det, ctx)) and (valid_trading_day_context(ctx))) implies (ultimately_responsible_for_trading_day_determination(TheIndexAdministrator, det))" ;
+  a4:sourceText "constraint index_administrator_responsibility_for_trading_day_determination :\n  forall det: TradingDayDetermination, forall ctx: TradingDayContext,\n    determination_decides_whether_context_is_trading_day(det, ctx)\n    and valid_trading_day_context(ctx)\n    implies\n      ultimately_responsible_for_trading_day_determination(TheIndexAdministrator, det)" .

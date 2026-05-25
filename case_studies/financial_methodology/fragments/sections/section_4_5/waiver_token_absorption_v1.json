@@ -1,0 +1,173 @@
+{
+  "entry_id": "section_4_5",
+  "schema": "waiver_token_absorption_v1",
+  "generated_from": "metrics_token_provenance_v1.json",
+  "items": [
+    {
+      "token": "part",
+      "surface_forms": [
+        "part"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 4
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_scope_marker",
+      "comment": "\"As part of the Index maintenance\" is represented by the section-local maintenance scope fact `index_maintenance_of(IndexMaintenanceOfTheIndex, TheIndex)`. The word \"part\" is a discourse/scope marker, not a separate source concept.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "variou",
+      "surface_forms": [
+        "various"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 58
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "open_class_modifier",
+      "comment": "\"Various events\" is represented by the open subtype `IndexMaintenanceCorporateAction extends CorporateAction`. The adjective \"various\" signals plurality/open-endedness, not a separate ontology object.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "referr",
+      "surface_forms": [
+        "referred"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 80
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "alias_wording_absorbed",
+      "comment": "\"events also referred to as corporate actions\" is represented structurally by `CorporateAction extends Event` and `IndexMaintenanceCorporateAction extends CorporateAction`. The word \"referred\" is alias wording, not an additional claim.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "two",
+      "surface_forms": [
+        "two"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 166
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "cardinality_encoded_structurally",
+      "comment": "\"Between two regular Rebalance Days\" is represented by two existential binders `r1` and `r2` plus `not (r1 = r2)` in `considered_corporate_actions_result_in_index_adjustment`.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "such",
+      "surface_forms": [
+        "Such",
+        "such"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 194
+        },
+        {
+          "line": 7,
+          "column": 350
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "anaphora_bound_by_variables",
+      "comment": "\"Such events\" and \"such a deviation\" are anaphoric references. They are bound by the variables `ca` and `d` in the relevant constraints, not modeled as separate concepts.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "therefore",
+      "surface_forms": [
+        "Therefore"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 295
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "discourse_connector",
+      "comment": "\"Therefore\" is a discourse connector between material impact and the account-for obligation. The substantive link is represented by the impact constraint and `obligation account_for_corporate_action_in_index_calculation`.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "respective",
+      "surface_forms": [
+        "respective"
+      ],
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 556
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "variable_binding_modifier",
+      "comment": "\"Respective corporate action\" is represented by reusing the same variable `ca` across the adjustment and price-effect expressions.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "while",
+      "surface_forms": [
+        "While"
+      ],
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 1
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "discourse_contrast_marker",
+      "comment": "\"While\" introduces a contrast between Solactive's aim and its retained right to deviate. The aim and permission are modeled separately; the contrast marker itself is not a source concept.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "case",
+      "surface_forms": [
+        "case"
+      ],
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 296
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "condition_marker",
+      "comment": "\"In case of\" is a condition marker. The actual conditions are represented by the OR branches `unusual(ca)`, `complex(ca)`, and the preservation branch in `corporate_action_deviation_conditions`.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "follow",
+      "surface_forms": [
+        "following"
+      ],
+      "source_locations": [
+        {
+          "line": 9,
+          "column": 21
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "list_intro_marker",
+      "comment": "\"Following\" introduces the list. The listed items are represented by `list_item(RelevantCorporateActionList, ...)` facts.",
+      "reviewer": "human_approved"
+    }
+  ],
+  "stale_tokens_from_previous_file": []
+}

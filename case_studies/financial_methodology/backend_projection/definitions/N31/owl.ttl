@@ -1,0 +1,75 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N31 a owl:Ontology .
+
+ex:IndexComponent a owl:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:TradingDay a owl:Class .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:Exchange a owl:Class .
+ex:Price a owl:Class .
+ex:Price rdfs:subClassOf ex:Real .
+ex:TradingPrice a owl:Class .
+ex:TradingPrice rdfs:subClassOf ex:Price .
+ex:Trade a owl:Class .
+ex:TradeTime a owl:Class .
+ex:TradeTime rdfs:subClassOf ex:Real .
+
+ex:trading_price a owl:Class, a4:NaryRelationClass .
+ex:trading_price_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:trading_price ;
+  rdfs:range ex:IndexComponent .
+ex:trading_price_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:trading_price ;
+  rdfs:range ex:TradingDay .
+ex:trading_price_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:trading_price ;
+  rdfs:range ex:TradingPrice .
+ex:respective_exchange a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:IndexComponent ;
+  rdfs:range ex:Exchange .
+ex:trade_price a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Trade ;
+  rdfs:range ex:Price .
+ex:trade_time a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Trade ;
+  rdfs:range ex:TradeTime .
+ex:trade_component a owl:ObjectProperty ;
+  rdfs:domain ex:Trade ;
+  rdfs:range ex:IndexComponent .
+ex:trade_day a owl:ObjectProperty ;
+  rdfs:domain ex:Trade ;
+  rdfs:range ex:TradingDay .
+ex:trade_exchange a owl:ObjectProperty ;
+  rdfs:domain ex:Trade ;
+  rdfs:range ex:Exchange .
+ex:published_trade a owl:Class ; rdfs:subClassOf ex:Trade .
+ex:most_recent_published_trade_for a owl:Class, a4:NaryRelationClass .
+ex:most_recent_published_trade_for_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:most_recent_published_trade_for ;
+  rdfs:range ex:Trade .
+ex:most_recent_published_trade_for_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:most_recent_published_trade_for ;
+  rdfs:range ex:IndexComponent .
+ex:most_recent_published_trade_for_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:most_recent_published_trade_for ;
+  rdfs:range ex:TradingDay .
+
+ex:ASSERT_most_recent_published_trade_scope a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall t: Trade, forall c: IndexComponent, forall d: TradingDay, (most_recent_published_trade_for(t, c, d)) implies ((published_trade(t)) and (trade_component(t, c)) and (trade_day(t, d)) and (trade_exchange(t, respective_exchange(c))))" .
+ex:ASSERT_most_recent_published_trade_temporal_ordering a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall t: Trade, forall other: Trade, forall c: IndexComponent, forall d: TradingDay, ((most_recent_published_trade_for(t, c, d)) and (published_trade(other)) and (trade_component(other, c)) and (trade_day(other, d)) and (trade_exchange(other, respective_exchange(c)))) implies ((trade_time(t)) >= (trade_time(other)))" .
+ex:ASSERT_most_recent_published_trade_uniqueness a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall t1: Trade, forall t2: Trade, forall c: IndexComponent, forall d: TradingDay, ((most_recent_published_trade_for(t1, c, d)) and (most_recent_published_trade_for(t2, c, d))) implies ((t1) = (t2))" .
+ex:ASSERT_trading_price_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall c: IndexComponent, forall d: TradingDay, exists t: Trade, (most_recent_published_trade_for(t, c, d)) and ((trading_price(c, d)) = (trade_price(t)))" .

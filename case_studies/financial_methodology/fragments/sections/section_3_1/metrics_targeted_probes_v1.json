@@ -1,0 +1,54 @@
+{
+  "entry_id": "section_3_1",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1482,
+    "completion_tokens": 290,
+    "total_tokens": 1772
+  },
+  "latency_s": 3.094759941101074,
+  "probes": {
+    "probe_scope": "yes",
+    "probe_scope_evidence": "\"any changes made to the Index Components\"",
+    "probe_scope_drift": "",
+    "probe_exception": "n_a",
+    "probe_exception_evidence": "",
+    "probe_exception_drift": "",
+    "probe_negation": "n_a",
+    "probe_negation_evidence": "",
+    "probe_negation_drift": "",
+    "probe_counterfactual": "n_a",
+    "probe_counterfactual_evidence": "",
+    "probe_counterfactual_drift": "",
+    "probe_clarification": "no",
+    "probe_clarification_evidence": "\"in accordance with Section 2.1 and 2.2\"",
+    "probe_clarification_drift": "The source’s parenthetical clarification is not preserved as a parenthetical; it is flattened into a plain reference to Sections 2.1 and 2.2.",
+    "probe_responsibility": "yes",
+    "probe_responsibility_evidence": "\"Solactive will publish any changes made to the Index Components\"",
+    "probe_responsibility_drift": "",
+    "probe_reference": "yes",
+    "probe_reference_evidence": "\"in accordance with Section 2.1 and 2.2\"",
+    "probe_reference_drift": "",
+    "probe_temporal_order": "yes",
+    "probe_temporal_order_evidence": "\"on the Rebalance Day after Close of Business\"",
+    "probe_temporal_order_drift": "",
+    "probe_value_source": "yes",
+    "probe_value_source_evidence": "\"based on the weights calculated on the Selection Day\"",
+    "probe_value_source_drift": ""
+  },
+  "summary": {
+    "yes": 5,
+    "no": 1,
+    "n_a": 3,
+    "preservation_rate": 0.833
+  },
+  "drifts": [
+    {
+      "probe": "clarification",
+      "evidence": "\"in accordance with Section 2.1 and 2.2\"",
+      "drift": "The source’s parenthetical clarification is not preserved as a parenthetical; it is flattened into a plain reference to Sections 2.1 and 2.2."
+    }
+  ],
+  "raw": null
+}

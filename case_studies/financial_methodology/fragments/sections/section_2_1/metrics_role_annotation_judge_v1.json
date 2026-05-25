@@ -1,0 +1,21 @@
+{
+  "schema": "metrics_role_annotation_judge_v1",
+  "entry_id": "section_2_1",
+  "generated_at": "2026-05-14T23:09:37",
+  "status": "ok",
+  "model": "gpt-5.4-mini",
+  "verdict": "consistent",
+  "frame_alignment": "correct",
+  "reason_short": "The role annotations preserve the main argument directions and semantic roles for the IR’s functions, relations, biconditionals, and deontic scope/target structure. The connective handling for all_of/any_of/equivalence is semantically appropriate, and the annotations do not introduce material claims beyond the IR/source. Minor naming differences are stylistic only.",
+  "issues": [],
+  "suggestions": [
+    "No changes required for semantic consistency; if desired, you could optionally add annotations for a few auxiliary IR symbols such as document/provenance plumbing, but this is not necessary for correctness."
+  ],
+  "confidence": 0.97,
+  "usage": {
+    "prompt_tokens": 12767,
+    "completion_tokens": 141,
+    "total_tokens": 12908
+  },
+  "latency_s": 3.2522964477539062
+}

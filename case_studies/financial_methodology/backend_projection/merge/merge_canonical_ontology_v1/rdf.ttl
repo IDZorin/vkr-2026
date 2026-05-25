@@ -1,0 +1,843 @@
+﻿@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:merge_canonical_ontology_v1 a a4:ProjectionTarget ;
+  a4:relativePath "merge/canonical_ontology_v1.a4v3" ;
+  a4:targetKind "merge" .
+
+ex:CanonicalConcept a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CanonicalSort a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CanonicalSort rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalEntity a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CanonicalEntity rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalRelation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CanonicalRelation rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalFunction a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CanonicalFunction rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalFrame a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CanonicalFrame rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalRole a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CanonicalRole rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalDecisionStatus a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:Accepted a ex:CanonicalDecisionStatus, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalDecisionStatus a4:enumMember ex:Accepted .
+ex:NeedsHumanReview a ex:CanonicalDecisionStatus, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalDecisionStatus a4:enumMember ex:NeedsHumanReview .
+ex:FutureRefinement a ex:CanonicalDecisionStatus, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalDecisionStatus a4:enumMember ex:FutureRefinement .
+ex:CanonicalScope a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:AppliesToIndexFamily a ex:CanonicalScope, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalScope a4:enumMember ex:AppliesToIndexFamily .
+ex:AppliesToIndexVariant a ex:CanonicalScope, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalScope a4:enumMember ex:AppliesToIndexVariant .
+ex:AppliesToLocalPlaceholder a ex:CanonicalScope, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalScope a4:enumMember ex:AppliesToLocalPlaceholder .
+ex:AppliesToDocumentInfrastructure a ex:CanonicalScope, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalScope a4:enumMember ex:AppliesToDocumentInfrastructure .
+ex:AppliesToDefinitionPointer a ex:CanonicalScope, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalScope a4:enumMember ex:AppliesToDefinitionPointer .
+ex:IndexFamily a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexVariant a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexVariant rdfs:subClassOf ex:Index .
+ex:PublishedIndexVariant a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:PublishedIndexVariant rdfs:subClassOf ex:IndexVariant .
+ex:ReturnTreatment a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:PriceReturn a ex:ReturnTreatment, a4:EnumMember, owl:NamedIndividual .
+ex:ReturnTreatment a4:enumMember ex:PriceReturn .
+ex:NetTotalReturn a ex:ReturnTreatment, a4:EnumMember, owl:NamedIndividual .
+ex:ReturnTreatment a4:enumMember ex:NetTotalReturn .
+ex:GrossTotalReturn a ex:ReturnTreatment, a4:EnumMember, owl:NamedIndividual .
+ex:ReturnTreatment a4:enumMember ex:GrossTotalReturn .
+ex:AdjustedReturn a ex:ReturnTreatment, a4:EnumMember, owl:NamedIndividual .
+ex:ReturnTreatment a4:enumMember ex:AdjustedReturn .
+ex:DecrementTreatment a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:NoDecrement a ex:DecrementTreatment, a4:EnumMember, owl:NamedIndividual .
+ex:DecrementTreatment a4:enumMember ex:NoDecrement .
+ex:FivePercentAnnualDecrement a ex:DecrementTreatment, a4:EnumMember, owl:NamedIndividual .
+ex:DecrementTreatment a4:enumMember ex:FivePercentAnnualDecrement .
+ex:Security a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:ShareClass a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ShareClass rdfs:subClassOf ex:Security .
+ex:IndexComponentRoleAssignment a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexComponent a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexComponent rdfs:subClassOf ex:IndexComponentRoleAssignment .
+ex:IndexComponentMembership a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:GenericIndexComponentMembership a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:GenericIndexComponentMembership rdfs:subClassOf ex:IndexComponentMembership .
+ex:SelectionDayIndexComponentMembership a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SelectionDayIndexComponentMembership rdfs:subClassOf ex:IndexComponentMembership .
+ex:CalculationDayIndexComponentMembership a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CalculationDayIndexComponentMembership rdfs:subClassOf ex:IndexComponentMembership .
+ex:IndexComponentMembershipState a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:GenericMembership a ex:IndexComponentMembershipState, a4:EnumMember, owl:NamedIndividual .
+ex:IndexComponentMembershipState a4:enumMember ex:GenericMembership .
+ex:SelectedMembership a ex:IndexComponentMembershipState, a4:EnumMember, owl:NamedIndividual .
+ex:IndexComponentMembershipState a4:enumMember ex:SelectedMembership .
+ex:CalculationMembership a ex:IndexComponentMembershipState, a4:EnumMember, owl:NamedIndividual .
+ex:IndexComponentMembershipState a4:enumMember ex:CalculationMembership .
+ex:ImplementedMembership a ex:IndexComponentMembershipState, a4:EnumMember, owl:NamedIndividual .
+ex:IndexComponentMembershipState a4:enumMember ex:ImplementedMembership .
+ex:IndexMethodology a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexMethodology rdfs:subClassOf ex:Document .
+ex:EquityIndexMethodology a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:EquityIndexMethodology rdfs:subClassOf ex:IndexMethodology .
+ex:MethodologyPolicy a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:MethodologyPolicy rdfs:subClassOf ex:Document .
+ex:CorrectionPolicy a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CorrectionPolicy rdfs:subClassOf ex:Document .
+ex:DisruptionPolicy a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:DisruptionPolicy rdfs:subClassOf ex:Document .
+ex:Guideline a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Guideline rdfs:subClassOf ex:Document .
+ex:Website a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:WebsiteSection a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:WebsiteSection rdfs:subClassOf ex:DocumentPart .
+ex:IndexAdministrator a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:SolactiveOrganization a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SolactiveOrganization rdfs:subClassOf ex:IndexAdministrator .
+ex:IndexDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexDay rdfs:subClassOf ex:Day .
+ex:BusinessDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:BusinessDay rdfs:subClassOf ex:IndexDay .
+ex:CalculationDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CalculationDay rdfs:subClassOf ex:IndexDay .
+ex:TradingDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TradingDay rdfs:subClassOf ex:IndexDay .
+ex:SelectionDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SelectionDay rdfs:subClassOf ex:IndexDay .
+ex:FixingDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:FixingDay rdfs:subClassOf ex:IndexDay .
+ex:RebalanceDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:RebalanceDay rdfs:subClassOf ex:IndexDay .
+ex:RegularRebalanceDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:RegularRebalanceDay rdfs:subClassOf ex:RebalanceDay .
+ex:EligibleRebalanceDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:EligibleRebalanceDay rdfs:subClassOf ex:IndexDay .
+ex:StartDate a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:StartDate rdfs:subClassOf ex:IndexDay .
+ex:LiveDate a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:LiveDate rdfs:subClassOf ex:IndexDay .
+ex:Price a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Price rdfs:subClassOf ex:MonetaryAmount .
+ex:TradingPrice a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TradingPrice rdfs:subClassOf ex:Price .
+ex:ClosingPrice a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ClosingPrice rdfs:subClassOf ex:Price .
+ex:ComponentPrice a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ComponentPrice rdfs:subClassOf ex:Price .
+ex:PriceChange a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:PriceChange rdfs:subClassOf ex:Real .
+ex:ComponentWeight a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ComponentWeight rdfs:subClassOf ex:Percent .
+ex:IndexLevel a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:CurrencyValue a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CurrencyValue rdfs:subClassOf ex:Currency .
+ex:Exchange a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:DataVendor a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Region a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ShareCount a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ShareCount rdfs:subClassOf ex:Real .
+ex:FreeFloat a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:FreeFloat rdfs:subClassOf ex:Percentage .
+ex:FreeFloatMarketCapitalization a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:FreeFloatMarketCapitalization rdfs:subClassOf ex:MonetaryAmount .
+ex:DailyValueTraded a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:DailyValueTraded rdfs:subClassOf ex:MonetaryAmount .
+ex:AverageDailyValueTraded a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:AverageDailyValueTraded rdfs:subClassOf ex:MonetaryAmount .
+ex:Observation a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ValueObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ValueObservation rdfs:subClassOf ex:Observation .
+ex:PriceObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:PriceObservation rdfs:subClassOf ex:ValueObservation .
+ex:TradingPriceObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TradingPriceObservation rdfs:subClassOf ex:PriceObservation .
+ex:ClosingPriceObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ClosingPriceObservation rdfs:subClassOf ex:PriceObservation .
+ex:ComponentPriceObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ComponentPriceObservation rdfs:subClassOf ex:PriceObservation .
+ex:PriceChangeObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:PriceChangeObservation rdfs:subClassOf ex:ValueObservation .
+ex:ComponentWeightObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ComponentWeightObservation rdfs:subClassOf ex:ValueObservation .
+ex:RegionClassificationObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:RegionClassificationObservation rdfs:subClassOf ex:ValueObservation .
+ex:DailyValueTradedObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:DailyValueTradedObservation rdfs:subClassOf ex:ValueObservation .
+ex:AverageDailyValueTradedObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:AverageDailyValueTradedObservation rdfs:subClassOf ex:ValueObservation .
+ex:IndexLevelObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexLevelObservation rdfs:subClassOf ex:ValueObservation .
+ex:InitialIndexLevelObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:InitialIndexLevelObservation rdfs:subClassOf ex:IndexLevelObservation .
+ex:FreeFloatObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:FreeFloatObservation rdfs:subClassOf ex:ValueObservation .
+ex:ShareCountObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ShareCountObservation rdfs:subClassOf ex:ValueObservation .
+ex:FreeFloatMarketCapitalizationObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:FreeFloatMarketCapitalizationObservation rdfs:subClassOf ex:ValueObservation .
+ex:IndexCurrencyObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexCurrencyObservation rdfs:subClassOf ex:ValueObservation .
+ex:ExchangeObservation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ExchangeObservation rdfs:subClassOf ex:ValueObservation .
+ex:IndexUniverse a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:GbsIndexUniverse a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:GbsIndexUniverse rdfs:subClassOf ex:IndexUniverse .
+ex:IndexComponentRequirements a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexUniverseRequirements a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:RBICSClassificationSystem a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:RBICSSubindustryClassification a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CorporateAction a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CorporateAction rdfs:subClassOf ex:Event .
+ex:CorporateActionAdjustment a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CorporateActionAdjustment rdfs:subClassOf ex:Event .
+ex:IndexCalculation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexCalculation rdfs:subClassOf ex:Event .
+ex:IndexRebalance a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexRebalance rdfs:subClassOf ex:Event .
+ex:IndexReview a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexReview rdfs:subClassOf ex:Event .
+ex:IndexTermination a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexTermination rdfs:subClassOf ex:Event .
+ex:Notice a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Notice rdfs:subClassOf ex:Document .
+ex:Announcement a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Announcement rdfs:subClassOf ex:Event .
+ex:Error a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Error rdfs:subClassOf ex:Event .
+ex:DiscretionaryDecision a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:DiscretionaryDecision rdfs:subClassOf ex:Event .
+ex:CanonicalBridgeRelation a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:ExactSame a ex:CanonicalBridgeRelation, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalBridgeRelation a4:enumMember ex:ExactSame .
+ex:AliasOf a ex:CanonicalBridgeRelation, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalBridgeRelation a4:enumMember ex:AliasOf .
+ex:SubtypeOf a ex:CanonicalBridgeRelation, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalBridgeRelation a4:enumMember ex:SubtypeOf .
+ex:InstanceOf a ex:CanonicalBridgeRelation, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalBridgeRelation a4:enumMember ex:InstanceOf .
+ex:VariantOf a ex:CanonicalBridgeRelation, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalBridgeRelation a4:enumMember ex:VariantOf .
+ex:GenericRuleAppliesToVariant a ex:CanonicalBridgeRelation, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalBridgeRelation a4:enumMember ex:GenericRuleAppliesToVariant .
+ex:RelatedButNotMerged a ex:CanonicalBridgeRelation, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalBridgeRelation a4:enumMember ex:RelatedButNotMerged .
+ex:LocalOnly a ex:CanonicalBridgeRelation, a4:EnumMember, owl:NamedIndividual .
+ex:CanonicalBridgeRelation a4:enumMember ex:LocalOnly .
+
+ex:Canonicalseed methodologyOntology a ex:CanonicalEntity, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexFamily a ex:IndexFamily, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR a ex:PublishedIndexVariant, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR a ex:PublishedIndexVariant, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR a ex:PublishedIndexVariant, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR a ex:PublishedIndexVariant, owl:NamedIndividual .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR a ex:PublishedIndexVariant, owl:NamedIndividual .
+ex:Solactive a ex:SolactiveOrganization, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:Website, owl:NamedIndividual .
+ex:ThisGuideline a ex:Guideline, owl:NamedIndividual .
+ex:CanonicalEquityIndexMethodology a ex:EquityIndexMethodology, owl:NamedIndividual .
+ex:CanonicalSolactiveMethodologyPolicy a ex:MethodologyPolicy, owl:NamedIndividual .
+ex:CanonicalSolactiveCorrectionPolicy a ex:CorrectionPolicy, owl:NamedIndividual .
+ex:CanonicalSolactiveDisruptionPolicy a ex:DisruptionPolicy, owl:NamedIndividual .
+ex:AnnouncementSection a ex:WebsiteSection, owl:NamedIndividual .
+ex:FactSetRevereBusinessIndustryClassificationSystem a ex:RBICSClassificationSystem, owl:NamedIndividual .
+ex:IndexGuidelineAppendix a ex:DocumentPart, owl:NamedIndividual .
+ex:CanonicalRBICSLevel6SubindustryClassification a ex:RBICSSubindustryClassification, owl:NamedIndividual .
+ex:TradingPriceObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:ClosingPriceObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:ComponentPriceObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:PriceChangeObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:ComponentWeightObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:RegionClassificationObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:DailyValueTradedObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:AverageDailyValueTradedObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:IndexLevelObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:InitialIndexLevelObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:FreeFloatObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:ShareCountObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:FreeFloatMarketCapitalizationObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:IndexCurrencyObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:ExchangeObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:GenericIndexComponentMembershipFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:SelectionDayIndexComponentMembershipFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:CalculationDayIndexComponentMembershipFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:ObservationSubjectRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservationIndexRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservationDayContextRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservationSelectionDayContextRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservationPeriodContextRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservationTimeContextRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservationCalculationRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedPriceRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedTradingPriceRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedClosingPriceRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedComponentPriceRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedPriceChangeRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedComponentWeightRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedRegionRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedDailyValueTradedRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedAverageDailyValueTradedRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedIndexLevelRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedFreeFloatRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedShareCountRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedFreeFloatMarketCapitalizationRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedCurrencyRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:ObservedExchangeRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:MembershipSecurityRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:MembershipComponentAssignmentRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:MembershipIndexRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:MembershipSelectionDayRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:MembershipCalculationDayRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:MembershipStateRole a ex:CanonicalRole, owl:NamedIndividual .
+ex:canonical_concept_status a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:canonical_concept_status_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CanonicalConcept .
+ex:canonical_concept_status a4:argument ex:canonical_concept_status_arg_0 .
+ex:canonical_concept_status_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CanonicalDecisionStatus .
+ex:canonical_concept_status a4:argument ex:canonical_concept_status_arg_1 .
+ex:canonical_concept_scope a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:canonical_concept_scope_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CanonicalConcept .
+ex:canonical_concept_scope a4:argument ex:canonical_concept_scope_arg_0 .
+ex:canonical_concept_scope_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CanonicalScope .
+ex:canonical_concept_scope a4:argument ex:canonical_concept_scope_arg_1 .
+ex:canonical_bridge_relation a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:canonical_bridge_relation_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CanonicalConcept .
+ex:canonical_bridge_relation a4:argument ex:canonical_bridge_relation_arg_0 .
+ex:canonical_bridge_relation_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CanonicalConcept .
+ex:canonical_bridge_relation a4:argument ex:canonical_bridge_relation_arg_1 .
+ex:canonical_bridge_relation_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:CanonicalBridgeRelation .
+ex:canonical_bridge_relation a4:argument ex:canonical_bridge_relation_arg_2 .
+ex:frame_has_role a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:frame_has_role_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CanonicalFrame .
+ex:frame_has_role a4:argument ex:frame_has_role_arg_0 .
+ex:frame_has_role_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CanonicalRole .
+ex:frame_has_role a4:argument ex:frame_has_role_arg_1 .
+ex:frame_primary_value_role a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:frame_primary_value_role_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CanonicalFrame .
+ex:frame_primary_value_role a4:argument ex:frame_primary_value_role_arg_0 .
+ex:frame_primary_value_role_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CanonicalRole .
+ex:frame_primary_value_role a4:argument ex:frame_primary_value_role_arg_1 .
+ex:variant_of_index_family a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:variant_of_index_family_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexVariant .
+ex:variant_of_index_family a4:argument ex:variant_of_index_family_arg_0 .
+ex:variant_of_index_family_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexFamily .
+ex:variant_of_index_family a4:argument ex:variant_of_index_family_arg_1 .
+ex:return_treatment_of_variant a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:return_treatment_of_variant_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexVariant .
+ex:return_treatment_of_variant a4:argument ex:return_treatment_of_variant_arg_0 .
+ex:return_treatment_of_variant_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ReturnTreatment .
+ex:return_treatment_of_variant a4:argument ex:return_treatment_of_variant_arg_1 .
+ex:decrement_treatment_of_variant a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:decrement_treatment_of_variant_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexVariant .
+ex:decrement_treatment_of_variant a4:argument ex:decrement_treatment_of_variant_arg_0 .
+ex:decrement_treatment_of_variant_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DecrementTreatment .
+ex:decrement_treatment_of_variant a4:argument ex:decrement_treatment_of_variant_arg_1 .
+ex:generic_index_rule_applies_to_variant a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:generic_index_rule_applies_to_variant_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexFamily .
+ex:generic_index_rule_applies_to_variant a4:argument ex:generic_index_rule_applies_to_variant_arg_0 .
+ex:generic_index_rule_applies_to_variant_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexVariant .
+ex:generic_index_rule_applies_to_variant a4:argument ex:generic_index_rule_applies_to_variant_arg_1 .
+ex:administered_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:administered_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexFamily .
+ex:administered_by a4:argument ex:administered_by_arg_0 .
+ex:administered_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexAdministrator .
+ex:administered_by a4:argument ex:administered_by_arg_1 .
+ex:methodology_of_index_family a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:methodology_of_index_family_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexMethodology .
+ex:methodology_of_index_family a4:argument ex:methodology_of_index_family_arg_0 .
+ex:methodology_of_index_family_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexFamily .
+ex:methodology_of_index_family a4:argument ex:methodology_of_index_family_arg_1 .
+ex:website_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:website_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Website .
+ex:website_of a4:argument ex:website_of_arg_0 .
+ex:website_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:website_of a4:argument ex:website_of_arg_1 .
+ex:section_of_website a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:section_of_website_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:WebsiteSection .
+ex:section_of_website a4:argument ex:section_of_website_arg_0 .
+ex:section_of_website_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Website .
+ex:section_of_website a4:argument ex:section_of_website_arg_1 .
+ex:incorporated_by_reference_into a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:incorporated_by_reference_into_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Document .
+ex:incorporated_by_reference_into a4:argument ex:incorporated_by_reference_into_arg_0 .
+ex:incorporated_by_reference_into_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Document .
+ex:incorporated_by_reference_into a4:argument ex:incorporated_by_reference_into_arg_1 .
+ex:available_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:available_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Document .
+ex:available_on a4:argument ex:available_on_arg_0 .
+ex:available_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Website .
+ex:available_on a4:argument ex:available_on_arg_1 .
+ex:index_component_security a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_component_security_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:index_component_security a4:argument ex:index_component_security_arg_0 .
+ex:index_component_security_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:index_component_security a4:argument ex:index_component_security_arg_1 .
+ex:index_component_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_component_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:index_component_index a4:argument ex:index_component_index_arg_0 .
+ex:index_component_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:index_component_index a4:argument ex:index_component_index_arg_1 .
+ex:security_reflected_in_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:security_reflected_in_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Security .
+ex:security_reflected_in_index a4:argument ex:security_reflected_in_index_arg_0 .
+ex:security_reflected_in_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:security_reflected_in_index a4:argument ex:security_reflected_in_index_arg_1 .
+ex:index_universe_member a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_universe_member_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexUniverse .
+ex:index_universe_member a4:argument ex:index_universe_member_arg_0 .
+ex:index_universe_member_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:index_universe_member a4:argument ex:index_universe_member_arg_1 .
+ex:fulfills_index_component_requirements a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:fulfills_index_component_requirements_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Security .
+ex:fulfills_index_component_requirements a4:argument ex:fulfills_index_component_requirements_arg_0 .
+ex:fulfills_index_component_requirements_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponentRequirements .
+ex:fulfills_index_component_requirements a4:argument ex:fulfills_index_component_requirements_arg_1 .
+ex:fulfills_index_universe_requirements a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:fulfills_index_universe_requirements_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:FinancialInstrument .
+ex:fulfills_index_universe_requirements a4:argument ex:fulfills_index_universe_requirements_arg_0 .
+ex:fulfills_index_universe_requirements_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexUniverseRequirements .
+ex:fulfills_index_universe_requirements a4:argument ex:fulfills_index_universe_requirements_arg_1 .
+ex:membership_role_assignment a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:membership_role_assignment_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponentMembership .
+ex:membership_role_assignment a4:argument ex:membership_role_assignment_arg_0 .
+ex:membership_role_assignment_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:membership_role_assignment a4:argument ex:membership_role_assignment_arg_1 .
+ex:membership_component a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:membership_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponentMembership .
+ex:membership_component a4:argument ex:membership_component_arg_0 .
+ex:membership_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:membership_component a4:argument ex:membership_component_arg_1 .
+ex:membership_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:membership_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponentMembership .
+ex:membership_index a4:argument ex:membership_index_arg_0 .
+ex:membership_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:membership_index a4:argument ex:membership_index_arg_1 .
+ex:membership_selection_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:membership_selection_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponentMembership .
+ex:membership_selection_day a4:argument ex:membership_selection_day_arg_0 .
+ex:membership_selection_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:membership_selection_day a4:argument ex:membership_selection_day_arg_1 .
+ex:membership_calculation_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:membership_calculation_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponentMembership .
+ex:membership_calculation_day a4:argument ex:membership_calculation_day_arg_0 .
+ex:membership_calculation_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:membership_calculation_day a4:argument ex:membership_calculation_day_arg_1 .
+ex:membership_state a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:membership_state_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponentMembership .
+ex:membership_state a4:argument ex:membership_state_arg_0 .
+ex:membership_state_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponentMembershipState .
+ex:membership_state a4:argument ex:membership_state_arg_1 .
+ex:selection_day_for_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:selection_day_for_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:selection_day_for_rebalance_day a4:argument ex:selection_day_for_rebalance_day_arg_0 .
+ex:selection_day_for_rebalance_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:selection_day_for_rebalance_day a4:argument ex:selection_day_for_rebalance_day_arg_1 .
+ex:fixing_day_for_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:fixing_day_for_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:FixingDay .
+ex:fixing_day_for_rebalance_day a4:argument ex:fixing_day_for_rebalance_day_arg_0 .
+ex:fixing_day_for_rebalance_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:fixing_day_for_rebalance_day a4:argument ex:fixing_day_for_rebalance_day_arg_1 .
+ex:calculation_day_of_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:calculation_day_of_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalculationDay .
+ex:calculation_day_of_index a4:argument ex:calculation_day_of_index_arg_0 .
+ex:calculation_day_of_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:calculation_day_of_index a4:argument ex:calculation_day_of_index_arg_1 .
+ex:trading_day_for_component a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:trading_day_for_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:trading_day_for_component a4:argument ex:trading_day_for_component_arg_0 .
+ex:trading_day_for_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:trading_day_for_component a4:argument ex:trading_day_for_component_arg_1 .
+ex:eligible_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:eligible_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:eligible_rebalance_day a4:argument ex:eligible_rebalance_day_arg_0 .
+ex:scheduled_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:scheduled_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:scheduled_rebalance_day a4:argument ex:scheduled_rebalance_day_arg_0 .
+ex:respective_exchange_for_index_component a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:respective_exchange_for_index_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:respective_exchange_for_index_component a4:argument ex:respective_exchange_for_index_component_arg_0 .
+ex:respective_exchange_for_index_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Exchange .
+ex:respective_exchange_for_index_component a4:argument ex:respective_exchange_for_index_component_arg_1 .
+ex:trading_price_of_component_on_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:trading_price_of_component_on_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:trading_price_of_component_on_day a4:argument ex:trading_price_of_component_on_day_arg_0 .
+ex:trading_price_of_component_on_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:trading_price_of_component_on_day a4:argument ex:trading_price_of_component_on_day_arg_1 .
+ex:trading_price_of_component_on_day_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:TradingPrice .
+ex:trading_price_of_component_on_day a4:argument ex:trading_price_of_component_on_day_arg_2 .
+ex:closing_price_of_component_on_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:closing_price_of_component_on_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:closing_price_of_component_on_day a4:argument ex:closing_price_of_component_on_day_arg_0 .
+ex:closing_price_of_component_on_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:closing_price_of_component_on_day a4:argument ex:closing_price_of_component_on_day_arg_1 .
+ex:closing_price_of_component_on_day_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ClosingPrice .
+ex:closing_price_of_component_on_day a4:argument ex:closing_price_of_component_on_day_arg_2 .
+ex:average_daily_value_traded_over_period a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:average_daily_value_traded_over_period_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:average_daily_value_traded_over_period a4:argument ex:average_daily_value_traded_over_period_arg_0 .
+ex:average_daily_value_traded_over_period_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Period .
+ex:average_daily_value_traded_over_period a4:argument ex:average_daily_value_traded_over_period_arg_1 .
+ex:average_daily_value_traded_over_period_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:AverageDailyValueTraded .
+ex:average_daily_value_traded_over_period a4:argument ex:average_daily_value_traded_over_period_arg_2 .
+ex:daily_value_traded_on_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:daily_value_traded_on_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:daily_value_traded_on_day a4:argument ex:daily_value_traded_on_day_arg_0 .
+ex:daily_value_traded_on_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:daily_value_traded_on_day a4:argument ex:daily_value_traded_on_day_arg_1 .
+ex:daily_value_traded_on_day_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:DailyValueTraded .
+ex:daily_value_traded_on_day a4:argument ex:daily_value_traded_on_day_arg_2 .
+ex:index_currency a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_currency_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_currency a4:argument ex:index_currency_arg_0 .
+ex:index_currency_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Currency .
+ex:index_currency a4:argument ex:index_currency_arg_1 .
+ex:index_level_on_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:index_level_on_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_level_on_day a4:argument ex:index_level_on_day_arg_0 .
+ex:index_level_on_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Day .
+ex:index_level_on_day a4:argument ex:index_level_on_day_arg_1 .
+ex:index_level_on_day_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:IndexLevel .
+ex:index_level_on_day a4:argument ex:index_level_on_day_arg_2 .
+ex:observation_subject a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observation_subject_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ValueObservation .
+ex:observation_subject a4:argument ex:observation_subject_arg_0 .
+ex:observation_subject_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:observation_subject a4:argument ex:observation_subject_arg_1 .
+ex:observation_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observation_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ValueObservation .
+ex:observation_index a4:argument ex:observation_index_arg_0 .
+ex:observation_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:observation_index a4:argument ex:observation_index_arg_1 .
+ex:observation_day_context a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observation_day_context_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ValueObservation .
+ex:observation_day_context a4:argument ex:observation_day_context_arg_0 .
+ex:observation_day_context_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Day .
+ex:observation_day_context a4:argument ex:observation_day_context_arg_1 .
+ex:observation_selection_day_context a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observation_selection_day_context_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ValueObservation .
+ex:observation_selection_day_context a4:argument ex:observation_selection_day_context_arg_0 .
+ex:observation_selection_day_context_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:observation_selection_day_context a4:argument ex:observation_selection_day_context_arg_1 .
+ex:observation_period_context a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observation_period_context_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ValueObservation .
+ex:observation_period_context a4:argument ex:observation_period_context_arg_0 .
+ex:observation_period_context_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Period .
+ex:observation_period_context a4:argument ex:observation_period_context_arg_1 .
+ex:observation_time_context a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observation_time_context_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ValueObservation .
+ex:observation_time_context a4:argument ex:observation_time_context_arg_0 .
+ex:observation_time_context_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Time .
+ex:observation_time_context a4:argument ex:observation_time_context_arg_1 .
+ex:observation_calculation a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observation_calculation_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ValueObservation .
+ex:observation_calculation a4:argument ex:observation_calculation_arg_0 .
+ex:observation_calculation_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexCalculation .
+ex:observation_calculation a4:argument ex:observation_calculation_arg_1 .
+ex:observed_price a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:PriceObservation .
+ex:observed_price a4:argument ex:observed_price_arg_0 .
+ex:observed_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Price .
+ex:observed_price a4:argument ex:observed_price_arg_1 .
+ex:observed_trading_price a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_trading_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingPriceObservation .
+ex:observed_trading_price a4:argument ex:observed_trading_price_arg_0 .
+ex:observed_trading_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingPrice .
+ex:observed_trading_price a4:argument ex:observed_trading_price_arg_1 .
+ex:observed_closing_price a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_closing_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ClosingPriceObservation .
+ex:observed_closing_price a4:argument ex:observed_closing_price_arg_0 .
+ex:observed_closing_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ClosingPrice .
+ex:observed_closing_price a4:argument ex:observed_closing_price_arg_1 .
+ex:observed_component_price a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_component_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ComponentPriceObservation .
+ex:observed_component_price a4:argument ex:observed_component_price_arg_0 .
+ex:observed_component_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Price .
+ex:observed_component_price a4:argument ex:observed_component_price_arg_1 .
+ex:observed_price_change a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_price_change_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:PriceChangeObservation .
+ex:observed_price_change a4:argument ex:observed_price_change_arg_0 .
+ex:observed_price_change_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:PriceChange .
+ex:observed_price_change a4:argument ex:observed_price_change_arg_1 .
+ex:observed_component_weight a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_component_weight_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ComponentWeightObservation .
+ex:observed_component_weight a4:argument ex:observed_component_weight_arg_0 .
+ex:observed_component_weight_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ComponentWeight .
+ex:observed_component_weight a4:argument ex:observed_component_weight_arg_1 .
+ex:observed_region a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_region_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RegionClassificationObservation .
+ex:observed_region a4:argument ex:observed_region_arg_0 .
+ex:observed_region_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Region .
+ex:observed_region a4:argument ex:observed_region_arg_1 .
+ex:observed_daily_value_traded a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_daily_value_traded_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:DailyValueTradedObservation .
+ex:observed_daily_value_traded a4:argument ex:observed_daily_value_traded_arg_0 .
+ex:observed_daily_value_traded_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DailyValueTraded .
+ex:observed_daily_value_traded a4:argument ex:observed_daily_value_traded_arg_1 .
+ex:observed_average_daily_value_traded a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_average_daily_value_traded_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:AverageDailyValueTradedObservation .
+ex:observed_average_daily_value_traded a4:argument ex:observed_average_daily_value_traded_arg_0 .
+ex:observed_average_daily_value_traded_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:AverageDailyValueTraded .
+ex:observed_average_daily_value_traded a4:argument ex:observed_average_daily_value_traded_arg_1 .
+ex:observed_index_level a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_index_level_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexLevelObservation .
+ex:observed_index_level a4:argument ex:observed_index_level_arg_0 .
+ex:observed_index_level_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexLevel .
+ex:observed_index_level a4:argument ex:observed_index_level_arg_1 .
+ex:observed_free_float a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_free_float_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:FreeFloatObservation .
+ex:observed_free_float a4:argument ex:observed_free_float_arg_0 .
+ex:observed_free_float_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:FreeFloat .
+ex:observed_free_float a4:argument ex:observed_free_float_arg_1 .
+ex:observed_share_count a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_share_count_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ShareCountObservation .
+ex:observed_share_count a4:argument ex:observed_share_count_arg_0 .
+ex:observed_share_count_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ShareCount .
+ex:observed_share_count a4:argument ex:observed_share_count_arg_1 .
+ex:observed_free_float_market_capitalization a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_free_float_market_capitalization_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:FreeFloatMarketCapitalizationObservation .
+ex:observed_free_float_market_capitalization a4:argument ex:observed_free_float_market_capitalization_arg_0 .
+ex:observed_free_float_market_capitalization_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:FreeFloatMarketCapitalization .
+ex:observed_free_float_market_capitalization a4:argument ex:observed_free_float_market_capitalization_arg_1 .
+ex:observed_currency a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_currency_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexCurrencyObservation .
+ex:observed_currency a4:argument ex:observed_currency_arg_0 .
+ex:observed_currency_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Currency .
+ex:observed_currency a4:argument ex:observed_currency_arg_1 .
+ex:observed_exchange a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:observed_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ExchangeObservation .
+ex:observed_exchange a4:argument ex:observed_exchange_arg_0 .
+ex:observed_exchange_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Exchange .
+ex:observed_exchange a4:argument ex:observed_exchange_arg_1 .
+ex:free_float_of_share_class_on_selection_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:free_float_of_share_class_on_selection_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ShareClass .
+ex:free_float_of_share_class_on_selection_day a4:argument ex:free_float_of_share_class_on_selection_day_arg_0 .
+ex:free_float_of_share_class_on_selection_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:free_float_of_share_class_on_selection_day a4:argument ex:free_float_of_share_class_on_selection_day_arg_1 .
+ex:free_float_of_share_class_on_selection_day_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:FreeFloat .
+ex:free_float_of_share_class_on_selection_day a4:argument ex:free_float_of_share_class_on_selection_day_arg_2 .
+ex:share_count_of_share_class_on_selection_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:share_count_of_share_class_on_selection_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ShareClass .
+ex:share_count_of_share_class_on_selection_day a4:argument ex:share_count_of_share_class_on_selection_day_arg_0 .
+ex:share_count_of_share_class_on_selection_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:share_count_of_share_class_on_selection_day a4:argument ex:share_count_of_share_class_on_selection_day_arg_1 .
+ex:share_count_of_share_class_on_selection_day_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ShareCount .
+ex:share_count_of_share_class_on_selection_day a4:argument ex:share_count_of_share_class_on_selection_day_arg_2 .
+ex:free_float_market_capitalization a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:free_float_market_capitalization_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ShareClass .
+ex:free_float_market_capitalization a4:argument ex:free_float_market_capitalization_arg_0 .
+ex:free_float_market_capitalization_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:free_float_market_capitalization a4:argument ex:free_float_market_capitalization_arg_1 .
+ex:free_float_market_capitalization_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:FreeFloatMarketCapitalization .
+ex:free_float_market_capitalization a4:argument ex:free_float_market_capitalization_arg_2 .
+ex:rbics_subindustry_classification_of_system a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:rbics_subindustry_classification_of_system_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RBICSSubindustryClassification .
+ex:rbics_subindustry_classification_of_system a4:argument ex:rbics_subindustry_classification_of_system_arg_0 .
+ex:rbics_subindustry_classification_of_system_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RBICSClassificationSystem .
+ex:rbics_subindustry_classification_of_system a4:argument ex:rbics_subindustry_classification_of_system_arg_1 .
+ex:rbics_subindustry_classification_in_appendix a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:rbics_subindustry_classification_in_appendix_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RBICSSubindustryClassification .
+ex:rbics_subindustry_classification_in_appendix a4:argument ex:rbics_subindustry_classification_in_appendix_arg_0 .
+ex:rbics_subindustry_classification_in_appendix_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:rbics_subindustry_classification_in_appendix a4:argument ex:rbics_subindustry_classification_in_appendix_arg_1 .
+
+ex:ASSERT_canonical_index_variants a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "285"^^xsd:integer ;
+  a4:exprText "(variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndexPR, SolactiveTransatlanticCleanEnergyEURIndexFamily)) and (variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndexNTR, SolactiveTransatlanticCleanEnergyEURIndexFamily)) and (variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndexTR, SolactiveTransatlanticCleanEnergyEURIndexFamily)) and (variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, SolactiveTransatlanticCleanEnergyEURIndexFamily)) and (variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndex50AR, SolactiveTransatlanticCleanEnergyEURIndexFamily)) and (return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexPR, PriceReturn)) and (return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexNTR, NetTotalReturn)) and (return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexTR, GrossTotalReturn)) and (return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, AdjustedReturn)) and (return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndex50AR, AdjustedReturn)) and (decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexPR, NoDecrement)) and (decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexNTR, NoDecrement)) and (decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexTR, NoDecrement)) and (decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, FivePercentAnnualDecrement)) and (decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndex50AR, NoDecrement))" ;
+  a4:sourceText "fact canonical_index_variants :\n  variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndexPR, SolactiveTransatlanticCleanEnergyEURIndexFamily)\n  and variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndexNTR, SolactiveTransatlanticCleanEnergyEURIndexFamily)\n  and variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndexTR, SolactiveTransatlanticCleanEnergyEURIndexFamily)\n  and variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, SolactiveTransatlanticCleanEnergyEURIndexFamily)\n  and variant_of_index_family(SolactiveTransatlanticCleanEnergyEURIndex50AR, SolactiveTransatlanticCleanEnergyEURIndexFamily)\n  and return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexPR, PriceReturn)\n  and return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexNTR, NetTotalReturn)\n  and return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexTR, GrossTotalReturn)\n  and return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, AdjustedReturn)\n  and return_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndex50AR, AdjustedReturn)\n  and decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexPR, NoDecrement)\n  and decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexNTR, NoDecrement)\n  and decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndexTR, NoDecrement)\n  and decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, FivePercentAnnualDecrement)\n  and decrement_treatment_of_variant(SolactiveTransatlanticCleanEnergyEURIndex50AR, NoDecrement)" .
+ex:ASSERT_generic_methodology_rules_apply_to_published_variants a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "302"^^xsd:integer ;
+  a4:exprText "(generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndexPR)) and (generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndexNTR)) and (generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndexTR)) and (generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndex5PercentAR)) and (generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndex50AR))" ;
+  a4:sourceText "fact generic_methodology_rules_apply_to_published_variants :\n  generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndexPR)\n  and generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndexNTR)\n  and generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndexTR)\n  and generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndex5PercentAR)\n  and generic_index_rule_applies_to_variant(SolactiveTransatlanticCleanEnergyEURIndexFamily, SolactiveTransatlanticCleanEnergyEURIndex50AR)" .
+ex:ASSERT_canonical_document_infrastructure a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "309"^^xsd:integer ;
+  a4:exprText "(administered_by(SolactiveTransatlanticCleanEnergyEURIndexFamily, Solactive)) and (methodology_of_index_family(CanonicalEquityIndexMethodology, SolactiveTransatlanticCleanEnergyEURIndexFamily)) and (website_of(SolactiveWebsite, Solactive)) and (section_of_website(AnnouncementSection, SolactiveWebsite)) and (incorporated_by_reference_into(CanonicalEquityIndexMethodology, ThisGuideline)) and (incorporated_by_reference_into(CanonicalSolactiveMethodologyPolicy, ThisGuideline)) and (incorporated_by_reference_into(CanonicalSolactiveCorrectionPolicy, ThisGuideline)) and (incorporated_by_reference_into(CanonicalSolactiveDisruptionPolicy, ThisGuideline)) and (available_on(CanonicalEquityIndexMethodology, SolactiveWebsite)) and (available_on(CanonicalSolactiveMethodologyPolicy, SolactiveWebsite)) and (available_on(CanonicalSolactiveCorrectionPolicy, SolactiveWebsite)) and (available_on(CanonicalSolactiveDisruptionPolicy, SolactiveWebsite))" ;
+  a4:sourceText "fact canonical_document_infrastructure :\n  administered_by(SolactiveTransatlanticCleanEnergyEURIndexFamily, Solactive)\n  and methodology_of_index_family(CanonicalEquityIndexMethodology, SolactiveTransatlanticCleanEnergyEURIndexFamily)\n  and website_of(SolactiveWebsite, Solactive)\n  and section_of_website(AnnouncementSection, SolactiveWebsite)\n  and incorporated_by_reference_into(CanonicalEquityIndexMethodology, ThisGuideline)\n  and incorporated_by_reference_into(CanonicalSolactiveMethodologyPolicy, ThisGuideline)\n  and incorporated_by_reference_into(CanonicalSolactiveCorrectionPolicy, ThisGuideline)\n  and incorporated_by_reference_into(CanonicalSolactiveDisruptionPolicy, ThisGuideline)\n  and available_on(CanonicalEquityIndexMethodology, SolactiveWebsite)\n  and available_on(CanonicalSolactiveMethodologyPolicy, SolactiveWebsite)\n  and available_on(CanonicalSolactiveCorrectionPolicy, SolactiveWebsite)\n  and available_on(CanonicalSolactiveDisruptionPolicy, SolactiveWebsite)" .
+ex:ASSERT_canonical_rbics_infrastructure a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "323"^^xsd:integer ;
+  a4:exprText "(rbics_subindustry_classification_of_system(CanonicalRBICSLevel6SubindustryClassification, FactSetRevereBusinessIndustryClassificationSystem)) and (rbics_subindustry_classification_in_appendix(CanonicalRBICSLevel6SubindustryClassification, IndexGuidelineAppendix))" ;
+  a4:sourceText "fact canonical_rbics_infrastructure :\n  rbics_subindustry_classification_of_system(CanonicalRBICSLevel6SubindustryClassification, FactSetRevereBusinessIndustryClassificationSystem)\n  and rbics_subindustry_classification_in_appendix(CanonicalRBICSLevel6SubindustryClassification, IndexGuidelineAppendix)" .
+ex:ASSERT_canonical_observation_frames a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "327"^^xsd:integer ;
+  a4:exprText "(canonical_concept_status(TradingPriceObservationFrame, Accepted)) and (canonical_concept_status(ClosingPriceObservationFrame, Accepted)) and (canonical_concept_status(ComponentPriceObservationFrame, Accepted)) and (canonical_concept_status(PriceChangeObservationFrame, Accepted)) and (canonical_concept_status(ComponentWeightObservationFrame, Accepted)) and (canonical_concept_status(RegionClassificationObservationFrame, Accepted)) and (canonical_concept_status(DailyValueTradedObservationFrame, Accepted)) and (canonical_concept_status(AverageDailyValueTradedObservationFrame, Accepted)) and (canonical_concept_status(IndexLevelObservationFrame, Accepted)) and (canonical_concept_status(InitialIndexLevelObservationFrame, Accepted)) and (canonical_concept_status(FreeFloatObservationFrame, Accepted)) and (canonical_concept_status(ShareCountObservationFrame, Accepted)) and (canonical_concept_status(FreeFloatMarketCapitalizationObservationFrame, Accepted)) and (canonical_concept_status(IndexCurrencyObservationFrame, Accepted)) and (canonical_concept_status(ExchangeObservationFrame, Accepted)) and (frame_has_role(TradingPriceObservationFrame, ObservationSubjectRole)) and (frame_has_role(TradingPriceObservationFrame, ObservationDayContextRole)) and (frame_has_role(TradingPriceObservationFrame, ObservationTimeContextRole)) and (frame_has_role(TradingPriceObservationFrame, ObservedTradingPriceRole)) and (frame_primary_value_role(TradingPriceObservationFrame, ObservedTradingPriceRole)) and (frame_has_role(ClosingPriceObservationFrame, ObservationSubjectRole)) and (frame_has_role(ClosingPriceObservationFrame, ObservationDayContextRole)) and (frame_has_role(ClosingPriceObservationFrame, ObservationSelectionDayContextRole)) and (frame_has_role(ClosingPriceObservationFrame, ObservedClosingPriceRole)) and (frame_primary_value_role(ClosingPriceObservationFrame, ObservedClosingPriceRole)) and (frame_has_role(ComponentPriceObservationFrame, ObservationSubjectRole)) and (frame_has_role(ComponentPriceObservationFrame, ObservationDayContextRole)) and (frame_has_role(ComponentPriceObservationFrame, ObservedComponentPriceRole)) and (frame_primary_value_role(ComponentPriceObservationFrame, ObservedComponentPriceRole)) and (frame_has_role(PriceChangeObservationFrame, ObservationSubjectRole)) and (frame_has_role(PriceChangeObservationFrame, ObservationDayContextRole)) and (frame_has_role(PriceChangeObservationFrame, ObservedPriceChangeRole)) and (frame_primary_value_role(PriceChangeObservationFrame, ObservedPriceChangeRole)) and (frame_has_role(ComponentWeightObservationFrame, ObservationSubjectRole)) and (frame_has_role(ComponentWeightObservationFrame, ObservationIndexRole)) and (frame_has_role(ComponentWeightObservationFrame, ObservationDayContextRole)) and (frame_has_role(ComponentWeightObservationFrame, ObservationSelectionDayContextRole)) and (frame_has_role(ComponentWeightObservationFrame, ObservedComponentWeightRole)) and (frame_primary_value_role(ComponentWeightObservationFrame, ObservedComponentWeightRole)) and (frame_has_role(RegionClassificationObservationFrame, ObservationSubjectRole)) and (frame_has_role(RegionClassificationObservationFrame, ObservationSelectionDayContextRole)) and (frame_has_role(RegionClassificationObservationFrame, ObservedRegionRole)) and (frame_primary_value_role(RegionClassificationObservationFrame, ObservedRegionRole)) and (frame_has_role(DailyValueTradedObservationFrame, ObservationSubjectRole)) and (frame_has_role(DailyValueTradedObservationFrame, ObservationDayContextRole)) and (frame_has_role(DailyValueTradedObservationFrame, ObservedDailyValueTradedRole)) and (frame_primary_value_role(DailyValueTradedObservationFrame, ObservedDailyValueTradedRole)) and (frame_has_role(AverageDailyValueTradedObservationFrame, ObservationSubjectRole)) and (frame_has_role(AverageDailyValueTradedObservationFrame, ObservationSelectionDayContextRole)) and (frame_has_role(AverageDailyValueTradedObservationFrame, ObservationPeriodContextRole)) and (frame_has_role(AverageDailyValueTradedObservationFrame, ObservedAverageDailyValueTradedRole)) and (frame_primary_value_role(AverageDailyValueTradedObservationFrame, ObservedAverageDailyValueTradedRole)) and (frame_has_role(IndexLevelObservationFrame, ObservationIndexRole)) and (frame_has_role(IndexLevelObservationFrame, ObservationDayContextRole)) and (frame_has_role(IndexLevelObservationFrame, ObservationCalculationRole)) and (frame_has_role(IndexLevelObservationFrame, ObservedIndexLevelRole)) and (frame_primary_value_role(IndexLevelObservationFrame, ObservedIndexLevelRole)) and (frame_has_role(InitialIndexLevelObservationFrame, ObservationIndexRole)) and (frame_has_role(InitialIndexLevelObservationFrame, ObservationDayContextRole)) and (frame_has_role(InitialIndexLevelObservationFrame, ObservedIndexLevelRole)) and (frame_primary_value_role(InitialIndexLevelObservationFrame, ObservedIndexLevelRole)) and (frame_has_role(FreeFloatObservationFrame, ObservationSubjectRole)) and (frame_has_role(FreeFloatObservationFrame, ObservationSelectionDayContextRole)) and (frame_has_role(FreeFloatObservationFrame, ObservedFreeFloatRole)) and (frame_primary_value_role(FreeFloatObservationFrame, ObservedFreeFloatRole)) and (frame_has_role(ShareCountObservationFrame, ObservationSubjectRole)) and (frame_has_role(ShareCountObservationFrame, ObservationSelectionDayContextRole)) and (frame_has_role(ShareCountObservationFrame, ObservedShareCountRole)) and (frame_primary_value_role(ShareCountObservationFrame, ObservedShareCountRole)) and (frame_has_role(FreeFloatMarketCapitalizationObservationFrame, ObservationSubjectRole)) and (frame_has_role(FreeFloatMarketCapitalizationObservationFrame, ObservationSelectionDayContextRole)) and (frame_has_role(FreeFloatMarketCapitalizationObservationFrame, ObservedFreeFloatMarketCapitalizationRole)) and (frame_primary_value_role(FreeFloatMarketCapitalizationObservationFrame, ObservedFreeFloatMarketCapitalizationRole)) and (frame_has_role(IndexCurrencyObservationFrame, ObservationIndexRole)) and (frame_has_role(IndexCurrencyObservationFrame, ObservedCurrencyRole)) and (frame_primary_value_role(IndexCurrencyObservationFrame, ObservedCurrencyRole)) and (frame_has_role(ExchangeObservationFrame, ObservationSubjectRole)) and (frame_has_role(ExchangeObservationFrame, ObservationIndexRole)) and (frame_has_role(ExchangeObservationFrame, ObservedExchangeRole)) and (frame_primary_value_role(ExchangeObservationFrame, ObservedExchangeRole))" ;
+  a4:sourceText "fact canonical_observation_frames :\n  canonical_concept_status(TradingPriceObservationFrame, Accepted)\n  and canonical_concept_status(ClosingPriceObservationFrame, Accepted)\n  and canonical_concept_status(ComponentPriceObservationFrame, Accepted)\n  and canonical_concept_status(PriceChangeObservationFrame, Accepted)\n  and canonical_concept_status(ComponentWeightObservationFrame, Accepted)\n  and canonical_concept_status(RegionClassificationObservationFrame, Accepted)\n  and canonical_concept_status(DailyValueTradedObservationFrame, Accepted)\n  and canonical_concept_status(AverageDailyValueTradedObservationFrame, Accepted)\n  and canonical_concept_status(IndexLevelObservationFrame, Accepted)\n  and canonical_concept_status(InitialIndexLevelObservationFrame, Accepted)\n  and canonical_concept_status(FreeFloatObservationFrame, Accepted)\n  and canonical_concept_status(ShareCountObservationFrame, Accepted)\n  and canonical_concept_status(FreeFloatMarketCapitalizationObservationFrame, Accepted)\n  and canonical_concept_status(IndexCurrencyObservationFrame, Accepted)\n  and canonical_concept_status(ExchangeObservationFrame, Accepted)\n  and frame_has_role(TradingPriceObservationFrame, ObservationSubjectRole)\n  and frame_has_role(TradingPriceObservationFrame, ObservationDayContextRole)\n  and frame_has_role(TradingPriceObservationFrame, ObservationTimeContextRole)\n  and frame_has_role(TradingPriceObservationFrame, ObservedTradingPriceRole)\n  and frame_primary_value_role(TradingPriceObservationFrame, ObservedTradingPriceRole)\n  and frame_has_role(ClosingPriceObservationFrame, ObservationSubjectRole)\n  and frame_has_role(ClosingPriceObservationFrame, ObservationDayContextRole)\n  and frame_has_role(ClosingPriceObservationFrame, ObservationSelectionDayContextRole)\n  and frame_has_role(ClosingPriceObservationFrame, ObservedClosingPriceRole)\n  and frame_primary_value_role(ClosingPriceObservationFrame, ObservedClosingPriceRole)\n  and frame_has_role(ComponentPriceObservationFrame, ObservationSubjectRole)\n  and frame_has_role(ComponentPriceObservationFrame, ObservationDayContextRole)\n  and frame_has_role(ComponentPriceObservationFrame, ObservedComponentPriceRole)\n  and frame_primary_value_role(ComponentPriceObservationFrame, ObservedComponentPriceRole)\n  and frame_has_role(PriceChangeObservationFrame, ObservationSubjectRole)\n  and frame_has_role(PriceChangeObservationFrame, ObservationDayContextRole)\n  and frame_has_role(PriceChangeObservationFrame, ObservedPriceChangeRole)\n  and frame_primary_value_role(PriceChangeObservationFrame, ObservedPriceChangeRole)\n  and frame_has_role(ComponentWeightObservationFrame, ObservationSubjectRole)\n  and frame_has_role(ComponentWeightObservationFrame, ObservationIndexRole)\n  and frame_has_role(ComponentWeightObservationFrame, ObservationDayContextRole)\n  and frame_has_role(ComponentWeightObservationFrame, ObservationSelectionDayContextRole)\n  and frame_has_role(ComponentWeightObservationFrame, ObservedComponentWeightRole)\n  and frame_primary_value_role(ComponentWeightObservationFrame, ObservedComponentWeightRole)\n  and frame_has_role(RegionClassificationObservationFrame, ObservationSubjectRole)\n  and frame_has_role(RegionClassificationObservationFrame, ObservationSelectionDayContextRole)\n  and frame_has_role(RegionClassificationObservationFrame, ObservedRegionRole)\n  and frame_primary_value_role(RegionClassificationObservationFrame, ObservedRegionRole)\n  and frame_has_role(DailyValueTradedObservationFrame, ObservationSubjectRole)\n  and frame_has_role(DailyValueTradedObservationFrame, ObservationDayContextRole)\n  and frame_has_role(DailyValueTradedObservationFrame, ObservedDailyValueTradedRole)\n  and frame_primary_value_role(DailyValueTradedObservationFrame, ObservedDailyValueTradedRole)\n  and frame_has_role(AverageDailyValueTradedObservationFrame, ObservationSubjectRole)\n  and frame_has_role(AverageDailyValueTradedObservationFrame, ObservationSelectionDayContextRole)\n  and frame_has_role(AverageDailyValueTradedObservationFrame, ObservationPeriodContextRole)\n  and frame_has_role(AverageDailyValueTradedObservationFrame, ObservedAverageDailyValueTradedRole)\n  and frame_primary_value_role(AverageDailyValueTradedObservationFrame, ObservedAverageDailyValueTradedRole)\n  and frame_has_role(IndexLevelObservationFrame, ObservationIndexRole)\n  and frame_has_role(IndexLevelObservationFrame, ObservationDayContextRole)\n  and frame_has_role(IndexLevelObservationFrame, ObservationCalculationRole)\n  and frame_has_role(IndexLevelObservationFrame, ObservedIndexLevelRole)\n  and frame_primary_value_role(IndexLevelObservationFrame, ObservedIndexLevelRole)\n  and frame_has_role(InitialIndexLevelObservationFrame, ObservationIndexRole)\n  and frame_has_role(InitialIndexLevelObservationFrame, ObservationDayContextRole)\n  and frame_has_role(InitialIndexLevelObservationFrame, ObservedIndexLevelRole)\n  and frame_primary_value_role(InitialIndexLevelObservationFrame, ObservedIndexLevelRole)\n  and frame_has_role(FreeFloatObservationFrame, ObservationSubjectRole)\n  and frame_has_role(FreeFloatObservationFrame, ObservationSelectionDayContextRole)\n  and frame_has_role(FreeFloatObservationFrame, ObservedFreeFloatRole)\n  and frame_primary_value_role(FreeFloatObservationFrame, ObservedFreeFloatRole)\n  and frame_has_role(ShareCountObservationFrame, ObservationSubjectRole)\n  and frame_has_role(ShareCountObservationFrame, ObservationSelectionDayContextRole)\n  and frame_has_role(ShareCountObservationFrame, ObservedShareCountRole)\n  and frame_primary_value_role(ShareCountObservationFrame, ObservedShareCountRole)\n  and frame_has_role(FreeFloatMarketCapitalizationObservationFrame, ObservationSubjectRole)\n  and frame_has_role(FreeFloatMarketCapitalizationObservationFrame, ObservationSelectionDayContextRole)\n  and frame_has_role(FreeFloatMarketCapitalizationObservationFrame, ObservedFreeFloatMarketCapitalizationRole)\n  and frame_primary_value_role(FreeFloatMarketCapitalizationObservationFrame, ObservedFreeFloatMarketCapitalizationRole)\n  and frame_has_role(IndexCurrencyObservationFrame, ObservationIndexRole)\n  and frame_has_role(IndexCurrencyObservationFrame, ObservedCurrencyRole)\n  and frame_primary_value_role(IndexCurrencyObservationFrame, ObservedCurrencyRole)\n  and frame_has_role(ExchangeObservationFrame, ObservationSubjectRole)\n  and frame_has_role(ExchangeObservationFrame, ObservationIndexRole)\n  and frame_has_role(ExchangeObservationFrame, ObservedExchangeRole)\n  and frame_primary_value_role(ExchangeObservationFrame, ObservedExchangeRole)" .
+ex:ASSERT_canonical_index_component_membership_frames a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "409"^^xsd:integer ;
+  a4:exprText "(canonical_concept_status(GenericIndexComponentMembershipFrame, Accepted)) and (canonical_concept_status(SelectionDayIndexComponentMembershipFrame, Accepted)) and (canonical_concept_status(CalculationDayIndexComponentMembershipFrame, Accepted)) and (frame_has_role(GenericIndexComponentMembershipFrame, MembershipSecurityRole)) and (frame_has_role(GenericIndexComponentMembershipFrame, MembershipComponentAssignmentRole)) and (frame_has_role(GenericIndexComponentMembershipFrame, MembershipIndexRole)) and (frame_has_role(GenericIndexComponentMembershipFrame, MembershipStateRole)) and (frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipSecurityRole)) and (frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipComponentAssignmentRole)) and (frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipIndexRole)) and (frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipSelectionDayRole)) and (frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipStateRole)) and (frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipSecurityRole)) and (frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipComponentAssignmentRole)) and (frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipIndexRole)) and (frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipCalculationDayRole)) and (frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipStateRole))" ;
+  a4:sourceText "fact canonical_index_component_membership_frames :\n  canonical_concept_status(GenericIndexComponentMembershipFrame, Accepted)\n  and canonical_concept_status(SelectionDayIndexComponentMembershipFrame, Accepted)\n  and canonical_concept_status(CalculationDayIndexComponentMembershipFrame, Accepted)\n  and frame_has_role(GenericIndexComponentMembershipFrame, MembershipSecurityRole)\n  and frame_has_role(GenericIndexComponentMembershipFrame, MembershipComponentAssignmentRole)\n  and frame_has_role(GenericIndexComponentMembershipFrame, MembershipIndexRole)\n  and frame_has_role(GenericIndexComponentMembershipFrame, MembershipStateRole)\n  and frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipSecurityRole)\n  and frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipComponentAssignmentRole)\n  and frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipIndexRole)\n  and frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipSelectionDayRole)\n  and frame_has_role(SelectionDayIndexComponentMembershipFrame, MembershipStateRole)\n  and frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipSecurityRole)\n  and frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipComponentAssignmentRole)\n  and frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipIndexRole)\n  and frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipCalculationDayRole)\n  and frame_has_role(CalculationDayIndexComponentMembershipFrame, MembershipStateRole)" .

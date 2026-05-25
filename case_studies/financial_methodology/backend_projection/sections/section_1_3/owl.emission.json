@@ -1,0 +1,46 @@
+﻿{
+  "backend": "owl",
+  "artifact": "case_studies\\financial_methodology\\backend_projection\\sections\\section_1_3\\owl.ttl",
+  "diagnostic_count": 7,
+  "diagnostics": [
+    {
+      "severity": "advisory",
+      "code": "nary_relation_reified",
+      "symbol": "historical_value",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_relation_reified",
+      "symbol": "published_level_for_period",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "initial_level",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "article_8_of_bmr"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "initial_level_default_on_start_date"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "levels_published_prior_to_live_date_back_tested"
+    }
+  ],
+  "partial": true
+}

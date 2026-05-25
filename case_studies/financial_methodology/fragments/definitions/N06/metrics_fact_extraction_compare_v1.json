@@ -1,0 +1,51 @@
+{
+  "entry_id": "N06",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1626,
+    "completion_tokens": 119,
+    "total_tokens": 1745
+  },
+  "latency_s": 1.5770127773284912,
+  "raw_parsed": {
+    "source_facts": [
+      "Close of Business is the calculation time of the closing level of the Index.",
+      "Close of Business is outlined in Section 1.4."
+    ],
+    "render_facts": [
+      "Close of business is defined as the calculation time of the closing level of TheIndex.",
+      "Close of business is outlined in Section 1.4."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 0,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 1,
+        "render_idx": 1,
+        "match": "exact"
+      }
+    ],
+    "render_only": []
+  },
+  "summary": {
+    "n_source_facts": 2,
+    "n_render_facts": 2,
+    "matched_source": 2,
+    "matched_render": 2,
+    "render_only": 0,
+    "missing_source": 0,
+    "weaker_in_render": 0,
+    "stronger_in_render": 0,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "missing_source_facts": [],
+    "render_only_facts": [],
+    "weaker_pairs": [],
+    "stronger_pairs": []
+  }
+}

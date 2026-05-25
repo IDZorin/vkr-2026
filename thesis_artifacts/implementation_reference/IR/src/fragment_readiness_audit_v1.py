@@ -1,6 +1,6 @@
-"""fragment_readiness_audit_v1.py
+﻿"""fragment_readiness_audit_v1.py
 
-Deterministic corpus-level readiness audit for local DZ fragments.
+Deterministic corpus-level readiness audit for local seed methodology fragments.
 
 The audit reads existing per-entry reports, reparses each local
 ``main_ir.a4v3`` with the canonical parser, and emits a single corpus report.
@@ -8,7 +8,7 @@ It does not rewrite fragment files and does not rerun heavyweight LLM/embedding
 checks.
 
 CLI:
-    python IR/src/fragment_readiness_audit_v1.py --dz-root IR/outputs/runs/dz
+    python IR/src/fragment_readiness_audit_v1.py --run-root case_studies/financial_methodology
 """
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ MANDATORY_ARTIFACTS = (
     "main_ir.a4v3",
     "provenance.yaml",
     "role_annotations.yaml",
-    "dz_entry_checks_v1.json",
+    "entry_checks_v1.json",
 )
 
 OPTIONAL_REVIEW_ARTIFACTS = (
@@ -46,7 +46,7 @@ OPTIONAL_REVIEW_ARTIFACTS = (
 )
 
 REPORT_FILES = (
-    "dz_entry_checks_v1.json",
+    "entry_checks_v1.json",
     "quality_snapshot_v1.json",
     "a4v3_semantic_lint_v1.json",
     "metrics_token_provenance_v1.json",
@@ -67,7 +67,7 @@ FRESHNESS_INPUTS = (
 )
 
 REPORT_FRESHNESS_INPUTS = {
-    "dz_entry_checks_v1.json": FRESHNESS_INPUTS,
+    "entry_checks_v1.json": FRESHNESS_INPUTS,
     "quality_snapshot_v1.json": FRESHNESS_INPUTS,
     "a4v3_semantic_lint_v1.json": ("main_ir.a4v3", "translator_notes.md", "provenance.yaml"),
     "metrics_token_provenance_v1.json": ("source.md", "provenance.yaml", "waiver_token_absorption_v1.json"),
@@ -114,10 +114,10 @@ def _finding(
     return item
 
 
-def _discover_entries(dz_root: Path) -> list[dict[str, Any]]:
+def _discover_entries(run_root: Path) -> list[dict[str, Any]]:
     entries: list[dict[str, Any]] = []
     for group_dir_name, entry_kind in ENTRY_GROUPS:
-        group_dir = dz_root / group_dir_name
+        group_dir = run_root / group_dir_name
         if not group_dir.exists():
             continue
         for entry_dir in sorted(group_dir.iterdir(), key=lambda p: p.name.lower()):
@@ -130,7 +130,7 @@ def _discover_entries(dz_root: Path) -> list[dict[str, Any]]:
                     "entry_id": entry_dir.name,
                     "entry_kind": entry_kind,
                     "entry_dir": entry_dir,
-                    "relative_dir": str(entry_dir.relative_to(dz_root)),
+                    "relative_dir": str(entry_dir.relative_to(run_root)),
                 }
             )
     return entries
@@ -311,32 +311,32 @@ def _analyze_entry(entry: dict[str, Any]) -> dict[str, Any]:
                 )
             )
 
-    dz_checks = reports.get("dz_entry_checks_v1.json") or {}
-    if dz_checks:
-        if dz_checks.get("overall_status") != "ok":
+    entry_checks = reports.get("entry_checks_v1.json") or {}
+    if entry_checks:
+        if entry_checks.get("overall_status") != "ok":
             findings.append(
                 _finding(
-                    "dz_entry_checks_not_ok",
+                    "entry_checks_not_ok",
                     "hard",
-                    "dz_entry_checks_v1 overall_status is not ok.",
+                    "entry_checks_v1 overall_status is not ok.",
                     entry_id=entry_id,
                     entry_kind=entry_kind,
-                    file="dz_entry_checks_v1.json",
+                    file="entry_checks_v1.json",
                     data={
-                        "overall_status": dz_checks.get("overall_status"),
-                        "failed_step_count": dz_checks.get("failed_step_count"),
+                        "overall_status": entry_checks.get("overall_status"),
+                        "failed_step_count": entry_checks.get("failed_step_count"),
                     },
                 )
             )
-    elif "dz_entry_checks_v1.json" not in report_errors:
+    elif "entry_checks_v1.json" not in report_errors:
         findings.append(
             _finding(
-                "dz_entry_checks_missing",
+                "entry_checks_missing",
                 "hard",
-                "dz_entry_checks_v1.json is missing.",
+                "entry_checks_v1.json is missing.",
                 entry_id=entry_id,
                 entry_kind=entry_kind,
-                file="dz_entry_checks_v1.json",
+                file="entry_checks_v1.json",
             )
         )
 
@@ -728,8 +728,8 @@ def _analyze_entry(entry: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def analyze(dz_root: Path) -> dict[str, Any]:
-    entries = _discover_entries(dz_root)
+def analyze(run_root: Path) -> dict[str, Any]:
+    entries = _discover_entries(run_root)
     entry_reports = [_analyze_entry(entry) for entry in entries]
 
     all_findings = [finding for report in entry_reports for finding in report["findings"]]
@@ -753,7 +753,7 @@ def analyze(dz_root: Path) -> dict[str, Any]:
 
     return {
         "schema": "fragment_readiness_audit_v1",
-        "dz_root": str(dz_root),
+        "run_root": str(run_root),
         "entry_count": len(entry_reports),
         "entry_count_by_kind": dict(by_entry_kind),
         "clean_gate_counts": dict(clean_gate_counts),
@@ -884,15 +884,15 @@ def _write_markdown(report: dict[str, Any], out_path: Path) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--dz-root", default="IR/outputs/runs/dz")
+    ap.add_argument("--run-root", default="case_studies/financial_methodology")
     ap.add_argument("--out-dir", default=None)
     args = ap.parse_args()
 
-    dz_root = Path(args.dz_root)
-    out_dir = Path(args.out_dir) if args.out_dir else dz_root / "reasoning"
+    run_root = Path(args.run_root)
+    out_dir = Path(args.out_dir) if args.out_dir else run_root / "reasoning"
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    report = analyze(dz_root)
+    report = analyze(run_root)
     json_path = out_dir / "fragment_readiness_audit_v1.json"
     md_path = out_dir / "fragment_readiness_audit_v1.md"
     json_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

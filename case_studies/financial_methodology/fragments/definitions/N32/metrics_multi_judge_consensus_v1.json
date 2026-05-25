@@ -1,0 +1,120 @@
+{
+  "entry_id": "N32",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR captures that the defined term \"WM / Refinitiv Rate\" has its meaning defined in Section 1.4. The use of a DefinedTerm entity and a Section1_4 document part is a faithful formalization of the source sentence.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR normalizes the quoted term name by removing punctuation and spaces, which is a naming choice rather than a semantic change.",
+        "\"shall have the meaning as defined in\" is rendered as a relation to the defining section, which is a standard formalization."
+      ],
+      "confidence": 0.97,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1864,
+        "completion_tokens": 145,
+        "total_tokens": 2009
+      },
+      "latency_s": 1.945103645324707
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "corresponds",
+      "relation_type": "same_meaning_poor_wording",
+      "reason_short": "The source states that the defined term \"WM / Refinitiv Rate\" has the meaning given in Section 1.4, and the IR captures that by introducing the term, the referenced section, and a fact linking the term to having its meaning defined in that section. The IR is slightly more schematic than the source but preserves the same semantic content.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses a generic relation name `term_shall_have_meaning_defined_in_section` rather than directly modeling the quoted defined-term wording.",
+        "Using `DefinedTerm` and `DocumentPart` is a reasonable abstraction of the source phrasing.",
+        "The source quotes the literal term \"WM / Refinitiv Rate\", while the IR normalizes it to the identifier `WMRefinitivRateTerm`."
+      ],
+      "confidence": 0.96,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1864,
+        "completion_tokens": 223,
+        "total_tokens": 2087
+      },
+      "latency_s": 4.08829665184021
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR correctly encodes the source's definitional reference. The source states that 'WM / Refinitiv Rate' shall have meaning as defined in Section 1.4. The IR introduces a DefinedTerm sort, instantiates WMRefinitivRateTerm and Section1_4 (using prelude-canonical DocumentPart), and asserts via a relation that the term's meaning is defined in that section. This is the standard a4v3 encoding of a definitional cross-reference with a deontic frame ('shall have the meaning'). The relation name and structure faithfully represent the source claim without addition or omission.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses camelCase entity names (WMRefinitivRateTerm, Section1_4) while source uses slash notation ('WM / Refinitiv Rate'). This is a naming convention choice, not a semantic difference.",
+        "The relation name 'term_shall_have_meaning_defined_in_section' is verbose but accurately captures the deontic and definitional intent of 'shall have the meaning as defined in'.",
+        "The fact name 'wm_refinitiv_rate_meaning_defined_in_section_1_4' is descriptive and traces the assertion back to the source."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2134,
+        "completion_tokens": 356,
+        "total_tokens": 2490
+      },
+      "latency_s": 4.310939073562622
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully encodes the source statement that 'WM / Refinitiv Rate' has its meaning defined in Section 1.4, using an entity for the term, a DocumentPart entity for the section, and a fact asserting the defined-in-section relation. No semantic information is added, omitted, or altered.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR normalizes the term string 'WM / Refinitiv Rate' into a legal entity name WMRefinitivRateTerm, which is standard practice.",
+        "The relation name 'term_shall_have_meaning_defined_in_section' directly mirrors the source phrasing but is a bit verbose; this is a stylistic choice."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1980,
+        "completion_tokens": 1076,
+        "total_tokens": 3056
+      },
+      "latency_s": 36.694234132766724
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures the source's definitional cross-reference by linking the term entity to the specified document part. All introduced symbols trace directly to source phrases, and the fact accurately asserts the stated relationship without adding or omitting semantic content.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The relation name `term_shall_have_meaning_defined_in_section` is verbose but precise; a shorter name like `defined_in` or `meaning_defined_in` would be more idiomatic.",
+        "Creating a `DefinedTerm` sort is a reasonable modeling choice for quoted terms that point to external definitions."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1991,
+        "completion_tokens": 2046,
+        "total_tokens": 4037
+      },
+      "latency_s": 38.54250979423523
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "corresponds": 5
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 1.0,
+    "unanimous": true,
+    "mean_confidence": 0.966
+  }
+}

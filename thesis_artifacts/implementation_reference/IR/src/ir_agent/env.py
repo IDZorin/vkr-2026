@@ -1,4 +1,4 @@
-"""ToolEnv: per-run state bundle passed to every tool function."""
+﻿"""ToolEnv: per-run state bundle passed to every tool function."""
 from __future__ import annotations
 
 import pathlib
@@ -32,7 +32,7 @@ class ToolEnv:
         # Resolved per-run corpus filesystem layout (sections/definitions/
         # bridge/prelude roots). Tools that walk the corpus must read paths
         # from here, not from module-level DEFAULT_CORPUS_* constants.
-        # `dz` is just one corpus instance — agent must stay corpus-agnostic.
+        # `seed_corpus` is just one corpus instance — agent must stay corpus-agnostic.
         self.corpus_paths: CorpusPaths = corpus_paths or DEFAULT_CORPUS_PATHS
         self.finalized: dict[str, Any] | None = None
         self.submissions: dict[str, dict[str, Any]] = {}  # ir/provenance/waivers

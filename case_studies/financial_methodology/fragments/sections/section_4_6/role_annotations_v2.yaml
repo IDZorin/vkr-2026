@@ -1,0 +1,28 @@
+schema: role_annotations_v2
+entry_id: section_4_6
+annotation_status: migrated_signature_only_v2
+migration_notes:
+- Generated from the legacy role_annotations.yaml v1 experiment.
+- Only rel/fun signatures with arity > 2 or repeated argument sorts are retained.
+- Formula logic remains exclusively in main_ir.a4v3; facts/constraints/deontics are not mirrored here.
+symbols:
+  effort_goal:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: value
+  incorporated_by_reference_into:
+    kind: rel
+    args:
+      1:
+        role: object
+        direction: from
+      2:
+        role: object
+        direction: to
+    notes:
+    - Arg1 is the incorporated document; arg2 is the document into which it is incorporated.

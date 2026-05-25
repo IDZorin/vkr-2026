@@ -1,0 +1,153 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:bridge_resolved_bridge_decisions_v1 a a4:ProjectionTarget ;
+  a4:relativePath "bridge/resolved_bridge_decisions_v1.a4v3" ;
+  a4:targetKind "bridge" .
+
+ex:BridgeSymbol a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:BridgeRelation a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:BridgeRelation rdfs:subClassOf ex:BridgeSymbol .
+ex:BridgeFamily a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:BridgeResolutionPolicy a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:EquivalentClassResolution a ex:BridgeResolutionPolicy, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeResolutionPolicy a4:enumMember ex:EquivalentClassResolution .
+ex:SameAsResolution a ex:BridgeResolutionPolicy, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeResolutionPolicy a4:enumMember ex:SameAsResolution .
+ex:EquivalentPropertyResolution a ex:BridgeResolutionPolicy, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeResolutionPolicy a4:enumMember ex:EquivalentPropertyResolution .
+ex:InverseAdapterResolution a ex:BridgeResolutionPolicy, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeResolutionPolicy a4:enumMember ex:InverseAdapterResolution .
+ex:ScopedProjectionAdapterResolution a ex:BridgeResolutionPolicy, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeResolutionPolicy a4:enumMember ex:ScopedProjectionAdapterResolution .
+ex:PairwiseSignatureEquivalenceResolution a ex:BridgeResolutionPolicy, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeResolutionPolicy a4:enumMember ex:PairwiseSignatureEquivalenceResolution .
+ex:ProjectionFamilyResolution a ex:BridgeResolutionPolicy, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeResolutionPolicy a4:enumMember ex:ProjectionFamilyResolution .
+ex:FamilySplitResolution a ex:BridgeResolutionPolicy, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeResolutionPolicy a4:enumMember ex:FamilySplitResolution .
+ex:DomainSpecializedRelationResolution a ex:BridgeResolutionPolicy, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeResolutionPolicy a4:enumMember ex:DomainSpecializedRelationResolution .
+ex:NonIdentityRelatedConceptResolution a ex:BridgeResolutionPolicy, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeResolutionPolicy a4:enumMember ex:NonIdentityRelatedConceptResolution .
+ex:BridgeAdapterKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:NoAdapter a ex:BridgeAdapterKind, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeAdapterKind a4:enumMember ex:NoAdapter .
+ex:InversePropertyAdapter a ex:BridgeAdapterKind, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeAdapterKind a4:enumMember ex:InversePropertyAdapter .
+ex:ScopedProjectionAdapter a ex:BridgeAdapterKind, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeAdapterKind a4:enumMember ex:ScopedProjectionAdapter .
+ex:SignatureEquivalenceAdapter a ex:BridgeAdapterKind, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeAdapterKind a4:enumMember ex:SignatureEquivalenceAdapter .
+ex:ProjectionFrameAdapter a ex:BridgeAdapterKind, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeAdapterKind a4:enumMember ex:ProjectionFrameAdapter .
+ex:FamilySplitAdapter a ex:BridgeAdapterKind, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeAdapterKind a4:enumMember ex:FamilySplitAdapter .
+ex:DomainSpecializationAdapter a ex:BridgeAdapterKind, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeAdapterKind a4:enumMember ex:DomainSpecializationAdapter .
+ex:RelatedConceptAdapter a ex:BridgeAdapterKind, a4:EnumMember, owl:NamedIndividual .
+ex:BridgeAdapterKind a4:enumMember ex:RelatedConceptAdapter .
+
+ex:N07_respective_exchange a ex:BridgeRelation, owl:NamedIndividual .
+ex:N10_respective_exchange_for_index_component a ex:BridgeRelation, owl:NamedIndividual .
+ex:N27_selection_day_for_rebalance_day a ex:BridgeRelation, owl:NamedIndividual .
+ex:Section3_1_selection_day_of_rebalance a ex:BridgeRelation, owl:NamedIndividual .
+ex:Section2_1_rbics_subindustry_classification_in_appendix a ex:BridgeRelation, owl:NamedIndividual .
+ex:Appendix8_1_appendix_includes_rbics_subindustry a ex:BridgeRelation, owl:NamedIndividual .
+ex:Section2_1_rbics_subindustry_classification_of_system a ex:BridgeRelation, owl:NamedIndividual .
+ex:Appendix8_1_rbics_classifies_subindustry a ex:BridgeRelation, owl:NamedIndividual .
+ex:GenericDocumentAvailabilityRelationFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:SectionReferenceEntityFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:AverageDailyValueTradedFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:BusinessDayProcessFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:CloseOfBusinessProcessFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:DailyValueTradedFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:FixingDayProcessFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:CanonicalIndexComponentRelationFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:AnnouncementOnRelationFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:CanadaClassificationFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:CanonicalIndexUniverseRelationFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:FullyRuleBasedRelationFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:GbsIndexSpecifiedInSectionRelationFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:GreatestPossibleRelationFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:IndexAdjustmentRelationReviewFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:IndexComponentRequirementsRelationFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:IndexCurrencyFunctionFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:IndexOfRelationFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:IndexQualitySortFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:IndexTypeFunctionFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:LegacyIncorporatedByReferenceRelationFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:MethodologyOfIndexRelationFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:RegionFunctionFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:SectionLocalIndexScopeRelationReviewFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:SecurityReflectedRelationReviewFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:UnitedStatesClassificationFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:bridge_pair_resolved_as a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:bridge_pair_resolved_as_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:BridgeSymbol .
+ex:bridge_pair_resolved_as a4:argument ex:bridge_pair_resolved_as_arg_0 .
+ex:bridge_pair_resolved_as_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:BridgeSymbol .
+ex:bridge_pair_resolved_as a4:argument ex:bridge_pair_resolved_as_arg_1 .
+ex:bridge_pair_resolved_as_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:BridgeResolutionPolicy .
+ex:bridge_pair_resolved_as a4:argument ex:bridge_pair_resolved_as_arg_2 .
+ex:bridge_pair_adapter_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:bridge_pair_adapter_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:BridgeSymbol .
+ex:bridge_pair_adapter_kind a4:argument ex:bridge_pair_adapter_kind_arg_0 .
+ex:bridge_pair_adapter_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:BridgeSymbol .
+ex:bridge_pair_adapter_kind a4:argument ex:bridge_pair_adapter_kind_arg_1 .
+ex:bridge_pair_adapter_kind_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:BridgeAdapterKind .
+ex:bridge_pair_adapter_kind a4:argument ex:bridge_pair_adapter_kind_arg_2 .
+ex:bridge_family_resolved_as a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:bridge_family_resolved_as_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:BridgeFamily .
+ex:bridge_family_resolved_as a4:argument ex:bridge_family_resolved_as_arg_0 .
+ex:bridge_family_resolved_as_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:BridgeResolutionPolicy .
+ex:bridge_family_resolved_as a4:argument ex:bridge_family_resolved_as_arg_1 .
+ex:bridge_family_adapter_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:bridge_family_adapter_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:BridgeFamily .
+ex:bridge_family_adapter_kind a4:argument ex:bridge_family_adapter_kind_arg_0 .
+ex:bridge_family_adapter_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:BridgeAdapterKind .
+ex:bridge_family_adapter_kind a4:argument ex:bridge_family_adapter_kind_arg_1 .
+
+ex:ASSERT_direct_adapter_resolution_decisions a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "72"^^xsd:integer ;
+  a4:exprText "(bridge_pair_resolved_as(N07_respective_exchange, N10_respective_exchange_for_index_component, ScopedProjectionAdapterResolution)) and (bridge_pair_adapter_kind(N07_respective_exchange, N10_respective_exchange_for_index_component, ScopedProjectionAdapter)) and (bridge_pair_resolved_as(N27_selection_day_for_rebalance_day, Section3_1_selection_day_of_rebalance, InverseAdapterResolution)) and (bridge_pair_adapter_kind(N27_selection_day_for_rebalance_day, Section3_1_selection_day_of_rebalance, InversePropertyAdapter)) and (bridge_pair_resolved_as(Section2_1_rbics_subindustry_classification_in_appendix, Appendix8_1_appendix_includes_rbics_subindustry, InverseAdapterResolution)) and (bridge_pair_adapter_kind(Section2_1_rbics_subindustry_classification_in_appendix, Appendix8_1_appendix_includes_rbics_subindustry, InversePropertyAdapter)) and (bridge_pair_resolved_as(Section2_1_rbics_subindustry_classification_of_system, Appendix8_1_rbics_classifies_subindustry, InverseAdapterResolution)) and (bridge_pair_adapter_kind(Section2_1_rbics_subindustry_classification_of_system, Appendix8_1_rbics_classifies_subindustry, InversePropertyAdapter))" ;
+  a4:sourceText "fact direct_adapter_resolution_decisions :\n  bridge_pair_resolved_as(N07_respective_exchange, N10_respective_exchange_for_index_component, ScopedProjectionAdapterResolution)\n  and bridge_pair_adapter_kind(N07_respective_exchange, N10_respective_exchange_for_index_component, ScopedProjectionAdapter)\n  and bridge_pair_resolved_as(N27_selection_day_for_rebalance_day, Section3_1_selection_day_of_rebalance, InverseAdapterResolution)\n  and bridge_pair_adapter_kind(N27_selection_day_for_rebalance_day, Section3_1_selection_day_of_rebalance, InversePropertyAdapter)\n  and bridge_pair_resolved_as(Section2_1_rbics_subindustry_classification_in_appendix, Appendix8_1_appendix_includes_rbics_subindustry, InverseAdapterResolution)\n  and bridge_pair_adapter_kind(Section2_1_rbics_subindustry_classification_in_appendix, Appendix8_1_appendix_includes_rbics_subindustry, InversePropertyAdapter)\n  and bridge_pair_resolved_as(Section2_1_rbics_subindustry_classification_of_system, Appendix8_1_rbics_classifies_subindustry, InverseAdapterResolution)\n  and bridge_pair_adapter_kind(Section2_1_rbics_subindustry_classification_of_system, Appendix8_1_rbics_classifies_subindustry, InversePropertyAdapter)" .
+ex:ASSERT_family_signature_equivalence_resolution_decisions a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "82"^^xsd:integer ;
+  a4:exprText "(bridge_family_resolved_as(GenericDocumentAvailabilityRelationFamily, PairwiseSignatureEquivalenceResolution)) and (bridge_family_adapter_kind(GenericDocumentAvailabilityRelationFamily, SignatureEquivalenceAdapter)) and (bridge_family_resolved_as(GbsIndexSpecifiedInSectionRelationFamily, PairwiseSignatureEquivalenceResolution)) and (bridge_family_adapter_kind(GbsIndexSpecifiedInSectionRelationFamily, SignatureEquivalenceAdapter)) and (bridge_family_resolved_as(GreatestPossibleRelationFamily, PairwiseSignatureEquivalenceResolution)) and (bridge_family_adapter_kind(GreatestPossibleRelationFamily, SignatureEquivalenceAdapter)) and (bridge_family_resolved_as(IndexComponentRequirementsRelationFamily, PairwiseSignatureEquivalenceResolution)) and (bridge_family_adapter_kind(IndexComponentRequirementsRelationFamily, SignatureEquivalenceAdapter)) and (bridge_family_resolved_as(IndexCurrencyFunctionFamily, PairwiseSignatureEquivalenceResolution)) and (bridge_family_adapter_kind(IndexCurrencyFunctionFamily, SignatureEquivalenceAdapter)) and (bridge_family_resolved_as(IndexOfRelationFamily, PairwiseSignatureEquivalenceResolution)) and (bridge_family_adapter_kind(IndexOfRelationFamily, SignatureEquivalenceAdapter)) and (bridge_family_resolved_as(IndexTypeFunctionFamily, PairwiseSignatureEquivalenceResolution)) and (bridge_family_adapter_kind(IndexTypeFunctionFamily, SignatureEquivalenceAdapter)) and (bridge_family_resolved_as(MethodologyOfIndexRelationFamily, PairwiseSignatureEquivalenceResolution)) and (bridge_family_adapter_kind(MethodologyOfIndexRelationFamily, SignatureEquivalenceAdapter))" ;
+  a4:sourceText "fact family_signature_equivalence_resolution_decisions :\n  bridge_family_resolved_as(GenericDocumentAvailabilityRelationFamily, PairwiseSignatureEquivalenceResolution)\n  and bridge_family_adapter_kind(GenericDocumentAvailabilityRelationFamily, SignatureEquivalenceAdapter)\n  and bridge_family_resolved_as(GbsIndexSpecifiedInSectionRelationFamily, PairwiseSignatureEquivalenceResolution)\n  and bridge_family_adapter_kind(GbsIndexSpecifiedInSectionRelationFamily, SignatureEquivalenceAdapter)\n  and bridge_family_resolved_as(GreatestPossibleRelationFamily, PairwiseSignatureEquivalenceResolution)\n  and bridge_family_adapter_kind(GreatestPossibleRelationFamily, SignatureEquivalenceAdapter)\n  and bridge_family_resolved_as(IndexComponentRequirementsRelationFamily, PairwiseSignatureEquivalenceResolution)\n  and bridge_family_adapter_kind(IndexComponentRequirementsRelationFamily, SignatureEquivalenceAdapter)\n  and bridge_family_resolved_as(IndexCurrencyFunctionFamily, PairwiseSignatureEquivalenceResolution)\n  and bridge_family_adapter_kind(IndexCurrencyFunctionFamily, SignatureEquivalenceAdapter)\n  and bridge_family_resolved_as(IndexOfRelationFamily, PairwiseSignatureEquivalenceResolution)\n  and bridge_family_adapter_kind(IndexOfRelationFamily, SignatureEquivalenceAdapter)\n  and bridge_family_resolved_as(IndexTypeFunctionFamily, PairwiseSignatureEquivalenceResolution)\n  and bridge_family_adapter_kind(IndexTypeFunctionFamily, SignatureEquivalenceAdapter)\n  and bridge_family_resolved_as(MethodologyOfIndexRelationFamily, PairwiseSignatureEquivalenceResolution)\n  and bridge_family_adapter_kind(MethodologyOfIndexRelationFamily, SignatureEquivalenceAdapter)" .
+ex:ASSERT_family_projection_resolution_decisions a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "100"^^xsd:integer ;
+  a4:exprText "(bridge_family_resolved_as(AverageDailyValueTradedFamily, ProjectionFamilyResolution)) and (bridge_family_adapter_kind(AverageDailyValueTradedFamily, ProjectionFrameAdapter)) and (bridge_family_resolved_as(CanonicalIndexComponentRelationFamily, ProjectionFamilyResolution)) and (bridge_family_adapter_kind(CanonicalIndexComponentRelationFamily, ProjectionFrameAdapter)) and (bridge_family_resolved_as(CanonicalIndexUniverseRelationFamily, ProjectionFamilyResolution)) and (bridge_family_adapter_kind(CanonicalIndexUniverseRelationFamily, ProjectionFrameAdapter)) and (bridge_family_resolved_as(IndexAdjustmentRelationReviewFamily, ProjectionFamilyResolution)) and (bridge_family_adapter_kind(IndexAdjustmentRelationReviewFamily, ProjectionFrameAdapter)) and (bridge_family_resolved_as(RegionFunctionFamily, ProjectionFamilyResolution)) and (bridge_family_adapter_kind(RegionFunctionFamily, ProjectionFrameAdapter))" ;
+  a4:sourceText "fact family_projection_resolution_decisions :\n  bridge_family_resolved_as(AverageDailyValueTradedFamily, ProjectionFamilyResolution)\n  and bridge_family_adapter_kind(AverageDailyValueTradedFamily, ProjectionFrameAdapter)\n  and bridge_family_resolved_as(CanonicalIndexComponentRelationFamily, ProjectionFamilyResolution)\n  and bridge_family_adapter_kind(CanonicalIndexComponentRelationFamily, ProjectionFrameAdapter)\n  and bridge_family_resolved_as(CanonicalIndexUniverseRelationFamily, ProjectionFamilyResolution)\n  and bridge_family_adapter_kind(CanonicalIndexUniverseRelationFamily, ProjectionFrameAdapter)\n  and bridge_family_resolved_as(IndexAdjustmentRelationReviewFamily, ProjectionFamilyResolution)\n  and bridge_family_adapter_kind(IndexAdjustmentRelationReviewFamily, ProjectionFrameAdapter)\n  and bridge_family_resolved_as(RegionFunctionFamily, ProjectionFamilyResolution)\n  and bridge_family_adapter_kind(RegionFunctionFamily, ProjectionFrameAdapter)" .
+ex:ASSERT_family_split_resolution_decisions a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "112"^^xsd:integer ;
+  a4:exprText "(bridge_family_resolved_as(GenericDocumentAvailabilityRelationFamily, FamilySplitResolution)) and (bridge_family_adapter_kind(GenericDocumentAvailabilityRelationFamily, FamilySplitAdapter))" ;
+  a4:sourceText "fact family_split_resolution_decisions :\n  bridge_family_resolved_as(GenericDocumentAvailabilityRelationFamily, FamilySplitResolution)\n  and bridge_family_adapter_kind(GenericDocumentAvailabilityRelationFamily, FamilySplitAdapter)" .
+ex:ASSERT_domain_specialized_relation_resolution_decisions a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "116"^^xsd:integer ;
+  a4:exprText "(bridge_family_resolved_as(AnnouncementOnRelationFamily, DomainSpecializedRelationResolution)) and (bridge_family_adapter_kind(AnnouncementOnRelationFamily, DomainSpecializationAdapter)) and (bridge_family_resolved_as(FullyRuleBasedRelationFamily, DomainSpecializedRelationResolution)) and (bridge_family_adapter_kind(FullyRuleBasedRelationFamily, DomainSpecializationAdapter))" ;
+  a4:sourceText "fact domain_specialized_relation_resolution_decisions :\n  bridge_family_resolved_as(AnnouncementOnRelationFamily, DomainSpecializedRelationResolution)\n  and bridge_family_adapter_kind(AnnouncementOnRelationFamily, DomainSpecializationAdapter)\n  and bridge_family_resolved_as(FullyRuleBasedRelationFamily, DomainSpecializedRelationResolution)\n  and bridge_family_adapter_kind(FullyRuleBasedRelationFamily, DomainSpecializationAdapter)" .
+ex:ASSERT_non_identity_related_concept_resolution_decisions a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "122"^^xsd:integer ;
+  a4:exprText "(bridge_family_resolved_as(SectionReferenceEntityFamily, NonIdentityRelatedConceptResolution)) and (bridge_family_adapter_kind(SectionReferenceEntityFamily, RelatedConceptAdapter)) and (bridge_family_resolved_as(BusinessDayProcessFamily, NonIdentityRelatedConceptResolution)) and (bridge_family_adapter_kind(BusinessDayProcessFamily, RelatedConceptAdapter)) and (bridge_family_resolved_as(CloseOfBusinessProcessFamily, NonIdentityRelatedConceptResolution)) and (bridge_family_adapter_kind(CloseOfBusinessProcessFamily, RelatedConceptAdapter)) and (bridge_family_resolved_as(DailyValueTradedFamily, NonIdentityRelatedConceptResolution)) and (bridge_family_adapter_kind(DailyValueTradedFamily, RelatedConceptAdapter)) and (bridge_family_resolved_as(FixingDayProcessFamily, NonIdentityRelatedConceptResolution)) and (bridge_family_adapter_kind(FixingDayProcessFamily, RelatedConceptAdapter)) and (bridge_family_resolved_as(CanadaClassificationFamily, NonIdentityRelatedConceptResolution)) and (bridge_family_adapter_kind(CanadaClassificationFamily, RelatedConceptAdapter)) and (bridge_family_resolved_as(IndexQualitySortFamily, NonIdentityRelatedConceptResolution)) and (bridge_family_adapter_kind(IndexQualitySortFamily, RelatedConceptAdapter)) and (bridge_family_resolved_as(LegacyIncorporatedByReferenceRelationFamily, NonIdentityRelatedConceptResolution)) and (bridge_family_adapter_kind(LegacyIncorporatedByReferenceRelationFamily, RelatedConceptAdapter)) and (bridge_family_resolved_as(SectionLocalIndexScopeRelationReviewFamily, NonIdentityRelatedConceptResolution)) and (bridge_family_adapter_kind(SectionLocalIndexScopeRelationReviewFamily, RelatedConceptAdapter)) and (bridge_family_resolved_as(SecurityReflectedRelationReviewFamily, NonIdentityRelatedConceptResolution)) and (bridge_family_adapter_kind(SecurityReflectedRelationReviewFamily, RelatedConceptAdapter)) and (bridge_family_resolved_as(UnitedStatesClassificationFamily, NonIdentityRelatedConceptResolution)) and (bridge_family_adapter_kind(UnitedStatesClassificationFamily, RelatedConceptAdapter))" ;
+  a4:sourceText "fact non_identity_related_concept_resolution_decisions :\n  bridge_family_resolved_as(SectionReferenceEntityFamily, NonIdentityRelatedConceptResolution)\n  and bridge_family_adapter_kind(SectionReferenceEntityFamily, RelatedConceptAdapter)\n  and bridge_family_resolved_as(BusinessDayProcessFamily, NonIdentityRelatedConceptResolution)\n  and bridge_family_adapter_kind(BusinessDayProcessFamily, RelatedConceptAdapter)\n  and bridge_family_resolved_as(CloseOfBusinessProcessFamily, NonIdentityRelatedConceptResolution)\n  and bridge_family_adapter_kind(CloseOfBusinessProcessFamily, RelatedConceptAdapter)\n  and bridge_family_resolved_as(DailyValueTradedFamily, NonIdentityRelatedConceptResolution)\n  and bridge_family_adapter_kind(DailyValueTradedFamily, RelatedConceptAdapter)\n  and bridge_family_resolved_as(FixingDayProcessFamily, NonIdentityRelatedConceptResolution)\n  and bridge_family_adapter_kind(FixingDayProcessFamily, RelatedConceptAdapter)\n  and bridge_family_resolved_as(CanadaClassificationFamily, NonIdentityRelatedConceptResolution)\n  and bridge_family_adapter_kind(CanadaClassificationFamily, RelatedConceptAdapter)\n  and bridge_family_resolved_as(IndexQualitySortFamily, NonIdentityRelatedConceptResolution)\n  and bridge_family_adapter_kind(IndexQualitySortFamily, RelatedConceptAdapter)\n  and bridge_family_resolved_as(LegacyIncorporatedByReferenceRelationFamily, NonIdentityRelatedConceptResolution)\n  and bridge_family_adapter_kind(LegacyIncorporatedByReferenceRelationFamily, RelatedConceptAdapter)\n  and bridge_family_resolved_as(SectionLocalIndexScopeRelationReviewFamily, NonIdentityRelatedConceptResolution)\n  and bridge_family_adapter_kind(SectionLocalIndexScopeRelationReviewFamily, RelatedConceptAdapter)\n  and bridge_family_resolved_as(SecurityReflectedRelationReviewFamily, NonIdentityRelatedConceptResolution)\n  and bridge_family_adapter_kind(SecurityReflectedRelationReviewFamily, RelatedConceptAdapter)\n  and bridge_family_resolved_as(UnitedStatesClassificationFamily, NonIdentityRelatedConceptResolution)\n  and bridge_family_adapter_kind(UnitedStatesClassificationFamily, RelatedConceptAdapter)" .

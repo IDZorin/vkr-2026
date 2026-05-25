@@ -1,0 +1,1029 @@
+{
+  "entry_id": "N27",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 12,
+    "content_token_count": 8,
+    "covered_content_token_count": 8,
+    "uncovered_content_token_count": 0,
+    "ignored_stopword_count": 4,
+    "content_coverage_rate": 1.0
+  },
+  "tokens": [
+    {
+      "token": "selection",
+      "surface_forms": [
+        "Selection"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SelectionDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "selection_day_for_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "selection_day_for_rebalance_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "selection_day_for_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "change_of_rebalance_day_disregarded_for_selection_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "selection_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 15,
+          "matched_text": "selection_day_definition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalance_day_change_disregarded_for_selection_day",
+          "family": "AssertDecl.constraint",
+          "line": 21,
+          "matched_text": "rebalance_day_change_disregarded_for_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "line": 15,
+          "matched_text": "selection_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "selection_day_for_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "line": 21,
+          "matched_text": "rebalance_day_change_disregarded_for_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "selection_day_for_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "change_of_rebalance_day_disregarded_for_selection_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SelectionDay",
+          "matched_text": "Selection Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "selection_day_for_rebalance_day",
+          "matched_text": "Selection Day ... before the Rebalance Day"
+        }
+      ]
+    },
+    {
+      "token": "day",
+      "surface_forms": [
+        "Day",
+        "Days"
+      ],
+      "count": 4,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 12
+        },
+        {
+          "line": 1,
+          "column": 32
+        },
+        {
+          "line": 1,
+          "column": 58
+        },
+        {
+          "line": 1,
+          "column": 104
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SelectionDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "SelectionDay",
+          "family": "TypeDecl.subtype",
+          "line": 1,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "RebalanceDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "RebalanceDay"
+        },
+        {
+          "source": "declaration",
+          "role": "parent",
+          "symbol": "RebalanceDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "BusinessDayCount",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "BusinessDayCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TwentyBusinessDays",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "TwentyBusinessDays"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TwentyBusinessDays",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "BusinessDayCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "business_day_count_before",
+          "family": "SymbolDecl.fun",
+          "line": 7,
+          "matched_text": "business_day_count_before"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "business_day_count_before",
+          "family": "SymbolDecl.fun",
+          "line": 7,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "business_day_count_before",
+          "family": "SymbolDecl.fun",
+          "line": 7,
+          "matched_text": "BusinessDayCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "selection_day_for_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "selection_day_for_rebalance_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "selection_day_for_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "selection_day_for_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "RebalanceDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "change_of_rebalance_day_disregarded_for_selection_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "RebalanceDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "twenty_business_days_count",
+          "family": "AssertDecl.fact",
+          "line": 12,
+          "matched_text": "twenty_business_days_count"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "selection_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 15,
+          "matched_text": "selection_day_definition"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalance_day_change_disregarded_for_selection_day",
+          "family": "AssertDecl.constraint",
+          "line": 21,
+          "matched_text": "rebalance_day_change_disregarded_for_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "twenty_business_days_count",
+          "assertion_kind": "fact",
+          "line": 12,
+          "matched_text": "twenty_business_days_count"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "twenty_business_days_count",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left",
+          "matched_text": "TwentyBusinessDays"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "line": 15,
+          "matched_text": "selection_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "RebalanceDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "selection_day_for_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "business_day_count_before"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "TwentyBusinessDays"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "line": 21,
+          "matched_text": "rebalance_day_change_disregarded_for_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "SelectionDay"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "RebalanceDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "selection_day_for_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "change_of_rebalance_day_disregarded_for_selection_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "SelectionDay",
+          "matched_text": "Selection Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "RebalanceDay",
+          "matched_text": "Rebalance Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "BusinessDayCount",
+          "matched_text": "Business Days"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TwentyBusinessDays",
+          "matched_text": "20 Business Days"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "business_day_count_before",
+          "matched_text": "Business Days before"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "selection_day_for_rebalance_day",
+          "matched_text": "Selection Day ... before the Rebalance Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "matched_text": "disregarding any change of the Rebalance Day"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 17
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "20",
+      "surface_forms": [
+        "20"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 20
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "twenty_business_days_count",
+          "assertion_kind": "fact",
+          "expr_path": "expr.right",
+          "matched_text": "20"
+        }
+      ]
+    },
+    {
+      "token": "busin",
+      "surface_forms": [
+        "Business"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 23
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "BusinessDayCount",
+          "family": "TypeDecl.subtype",
+          "line": 3,
+          "matched_text": "BusinessDayCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TwentyBusinessDays",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "TwentyBusinessDays"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TwentyBusinessDays",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "BusinessDayCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "business_day_count_before",
+          "family": "SymbolDecl.fun",
+          "line": 7,
+          "matched_text": "business_day_count_before"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "business_day_count_before",
+          "family": "SymbolDecl.fun",
+          "line": 7,
+          "matched_text": "BusinessDayCount"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "twenty_business_days_count",
+          "family": "AssertDecl.fact",
+          "line": 12,
+          "matched_text": "twenty_business_days_count"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "twenty_business_days_count",
+          "assertion_kind": "fact",
+          "line": 12,
+          "matched_text": "twenty_business_days_count"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "twenty_business_days_count",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left",
+          "matched_text": "TwentyBusinessDays"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "business_day_count_before"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.right",
+          "matched_text": "TwentyBusinessDays"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "BusinessDayCount",
+          "matched_text": "Business Days"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TwentyBusinessDays",
+          "matched_text": "20 Business Days"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "business_day_count_before",
+          "matched_text": "Business Days before"
+        }
+      ]
+    },
+    {
+      "token": "before",
+      "surface_forms": [
+        "before"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 37
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "business_day_count_before",
+          "family": "SymbolDecl.fun",
+          "line": 7,
+          "matched_text": "business_day_count_before"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right.left",
+          "matched_text": "business_day_count_before"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "business_day_count_before",
+          "matched_text": "Business Days before"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "selection_day_for_rebalance_day",
+          "matched_text": "Selection Day ... before the Rebalance Day"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 44
+        },
+        {
+          "line": 1,
+          "column": 90
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "selection_day_for_rebalance_day",
+          "matched_text": "Selection Day ... before the Rebalance Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "matched_text": "disregarding any change of the Rebalance Day"
+        }
+      ]
+    },
+    {
+      "token": "rebalance",
+      "surface_forms": [
+        "Rebalance"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 48
+        },
+        {
+          "line": 1,
+          "column": 94
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "RebalanceDay",
+          "family": "TypeDecl.subtype",
+          "line": 2,
+          "matched_text": "RebalanceDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "selection_day_for_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "selection_day_for_rebalance_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "selection_day_for_rebalance_day",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "RebalanceDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "change_of_rebalance_day_disregarded_for_selection_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "RebalanceDay"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalance_day_change_disregarded_for_selection_day",
+          "family": "AssertDecl.constraint",
+          "line": 21,
+          "matched_text": "rebalance_day_change_disregarded_for_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "RebalanceDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "selection_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "selection_day_for_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "line": 21,
+          "matched_text": "rebalance_day_change_disregarded_for_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "RebalanceDay"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.left",
+          "matched_text": "selection_day_for_rebalance_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "change_of_rebalance_day_disregarded_for_selection_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "RebalanceDay",
+          "matched_text": "Rebalance Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "selection_day_for_rebalance_day",
+          "matched_text": "Selection Day ... before the Rebalance Day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "matched_text": "disregarding any change of the Rebalance Day"
+        }
+      ]
+    },
+    {
+      "token": "disregard",
+      "surface_forms": [
+        "disregarding"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 63
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "change_of_rebalance_day_disregarded_for_selection_day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalance_day_change_disregarded_for_selection_day",
+          "family": "AssertDecl.constraint",
+          "line": 21,
+          "matched_text": "rebalance_day_change_disregarded_for_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "line": 21,
+          "matched_text": "rebalance_day_change_disregarded_for_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "change_of_rebalance_day_disregarded_for_selection_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "matched_text": "disregarding any change of the Rebalance Day"
+        }
+      ]
+    },
+    {
+      "token": "any",
+      "surface_forms": [
+        "any"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 76
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "matched_text": "disregarding any change of the Rebalance Day"
+        },
+        {
+          "source": "family_signal",
+          "role": "universal_quantifier",
+          "marker": "forall"
+        }
+      ]
+    },
+    {
+      "token": "change",
+      "surface_forms": [
+        "change"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 80
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "change_of_rebalance_day_disregarded_for_selection_day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "rebalance_day_change_disregarded_for_selection_day",
+          "family": "AssertDecl.constraint",
+          "line": 21,
+          "matched_text": "rebalance_day_change_disregarded_for_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "line": 21,
+          "matched_text": "rebalance_day_change_disregarded_for_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "change_of_rebalance_day_disregarded_for_selection_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "matched_text": "disregarding any change of the Rebalance Day"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 87
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 10,
+          "matched_text": "change_of_rebalance_day_disregarded_for_selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "rebalance_day_change_disregarded_for_selection_day",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.right",
+          "matched_text": "change_of_rebalance_day_disregarded_for_selection_day"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "change_of_rebalance_day_disregarded_for_selection_day",
+          "matched_text": "disregarding any change of the Rebalance Day"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

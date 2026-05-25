@@ -1,0 +1,194 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_2 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:IndexName a rdfs:Class .
+ex:IndexNameShape a sh:NodeShape ; sh:targetClass ex:IndexName .
+ex:ISIN a rdfs:Class .
+ex:ISINShape a sh:NodeShape ; sh:targetClass ex:ISIN .
+ex:RIC a rdfs:Class .
+ex:RICShape a sh:NodeShape ; sh:targetClass ex:RIC .
+ex:BBGTicker a rdfs:Class .
+ex:BBGTickerShape a sh:NodeShape ; sh:targetClass ex:BBGTicker .
+ex:IndexType a rdfs:Class .
+ex:IndexTypeShape a sh:NodeShape ; sh:targetClass ex:IndexType .
+ex:PriceReturn a ex:IndexType .
+ex:NetTotalReturn a ex:IndexType .
+ex:GrossTotalReturn a ex:IndexType .
+ex:AdjustedReturnIndex a ex:IndexType .
+ex:IndexTypeIdentifier a rdfs:Class .
+ex:IndexTypeIdentifierShape a sh:NodeShape ; sh:targetClass ex:IndexTypeIdentifier .
+ex:PR a ex:IndexTypeIdentifier .
+ex:NTR a ex:IndexTypeIdentifier .
+ex:GTR a ex:IndexTypeIdentifier .
+ex:AR a ex:IndexTypeIdentifier .
+ex:IndexAdministrator a rdfs:Class .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:IndexAdministratorShape a sh:NodeShape ; sh:targetClass ex:IndexAdministrator .
+ex:PriceMarketingServices a rdfs:Class .
+ex:PriceMarketingServicesShape a sh:NodeShape ; sh:targetClass ex:PriceMarketingServices .
+ex:Vendor a rdfs:Class .
+ex:Vendor rdfs:subClassOf ex:Organization .
+ex:VendorShape a sh:NodeShape ; sh:targetClass ex:Vendor .
+ex:AffiliatedVendor a rdfs:Class .
+ex:AffiliatedVendor rdfs:subClassOf ex:Vendor .
+ex:AffiliatedVendorShape a sh:NodeShape ; sh:targetClass ex:AffiliatedVendor .
+ex:InformationSystem a rdfs:Class .
+ex:InformationSystemShape a sh:NodeShape ; sh:targetClass ex:InformationSystem .
+ex:VendorDistributionOrDisplayDecision a rdfs:Class .
+ex:VendorDistributionOrDisplayDecisionShape a sh:NodeShape ; sh:targetClass ex:VendorDistributionOrDisplayDecision .
+ex:IndexPublication a rdfs:Class .
+ex:IndexPublicationShape a sh:NodeShape ; sh:targetClass ex:IndexPublication .
+
+ex:Solactive a ex:IndexAdministrator .
+ex:BoerseStuttgartGmbH a ex:Organization .
+ex:BoerseStuttgartGmbHPriceMarketingServices a ex:PriceMarketingServices .
+ex:EUR a ex:Currency .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR a ex:Index .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR a ex:Index .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR a ex:Index .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR a ex:Index .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR a ex:Index .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPRName a ex:IndexName .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTRName a ex:IndexName .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTRName a ex:IndexName .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50ARName a ex:IndexName .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentARName a ex:IndexName .
+ex:DE000SL0R4B4 a ex:ISIN .
+ex:DE000SL0R4C2 a ex:ISIN .
+ex:DE000SL0R4D0 a ex:ISIN .
+ex:DE000SL0R4E8 a ex:ISIN .
+ex:DE000SL0R4F5 a ex:ISIN .
+ex:DotSOLTCEYP a ex:RIC .
+ex:DotSOLTCEYN a ex:RIC .
+ex:DotSOLTCEYT a ex:RIC .
+ex:DotSOLTCA50 a ex:RIC .
+ex:DotSOLTCEA5 a ex:RIC .
+ex:SOLTCEYP a ex:BBGTicker .
+ex:SOLTCEYT a ex:BBGTicker .
+ex:SOLTCA50 a ex:BBGTicker .
+ex:SOLTCEA5 a ex:BBGTicker .
+ex:Guideline a ex:Document .
+ex:EquityIndexMethodology a ex:Document .
+ex:Section4 a ex:DocumentPart .
+ex:Section4Locator a ex:DocumentLocator .
+ex:SolactiveWebsite a ex:WebResource .
+ex:IndexAdministratorAnnouncementsWebsite a ex:WebResource .
+ex:HttpsWwwSolactiveCom a ex:Url .
+ex:HttpsWwwSolactiveComDocumentsEquityIndexMethodology a ex:Url .
+ex:HttpsWwwSolactiveComNewsAnnouncements a ex:Url .
+ex:index_name a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_name ; sh:class ex:IndexName ; sh:maxCount 1 ] .
+ex:index_isin a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_isin ; sh:class ex:ISIN ; sh:maxCount 1 ] .
+ex:index_currency a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_currency ; sh:class ex:Currency ; sh:maxCount 1 ] .
+ex:index_type a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_type ; sh:class ex:IndexType ; sh:maxCount 1 ] .
+ex:index_type_identifier a rdf:Property .
+ex:IndexTypeShape sh:property [ sh:path ex:index_type_identifier ; sh:class ex:IndexTypeIdentifier ; sh:maxCount 1 ] .
+ex:index_ric a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_ric ; sh:class ex:RIC ; sh:maxCount 1 ] .
+ex:bbg_ticker a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:bbg_ticker ; sh:class ex:BBGTicker ] .
+ex:published_under_following_identifiers a rdfs:Class ; rdfs:subClassOf ex:Index .
+ex:calculation_described_in a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:calculation_described_in ; sh:class ex:Document ] .
+ex:formula_specified_in a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:formula_specified_in ; sh:class ex:DocumentPart ] .
+ex:website_of a rdf:Property .
+ex:WebResourceShape sh:property [ sh:path ex:website_of ; sh:class ex:Organization ] .
+ex:price_marketing_services_of a rdf:Property .
+ex:PriceMarketingServicesShape sh:property [ sh:path ex:price_marketing_services_of ; sh:class ex:Organization ] .
+ex:published_on a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:published_on ; sh:class ex:WebResource ] .
+ex:available_on a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:available_on ; sh:class ex:WebResource ] .
+ex:available_via a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:available_via ; sh:class ex:PriceMarketingServices ] .
+ex:vendor_information_system a rdf:Property .
+ex:VendorShape sh:property [ sh:path ex:vendor_information_system ; sh:class ex:InformationSystem ] .
+ex:distribution_or_display_decision_for_vendor a rdf:Property .
+ex:VendorDistributionOrDisplayDecisionShape sh:property [ sh:path ex:distribution_or_display_decision_for_vendor ; sh:class ex:Vendor ] .
+ex:distribution_or_display_decision_for_index a rdf:Property .
+ex:VendorDistributionOrDisplayDecisionShape sh:property [ sh:path ex:distribution_or_display_decision_for_index ; sh:class ex:Index ] .
+ex:decision_on_individual_basis a rdfs:Class ; rdfs:subClassOf ex:VendorDistributionOrDisplayDecision .
+ex:decision_via_information_system a rdf:Property .
+ex:VendorDistributionOrDisplayDecisionShape sh:property [ sh:path ex:decision_via_information_system ; sh:class ex:InformationSystem ] .
+ex:publication_in_relation_to_index a rdf:Property .
+ex:IndexPublicationShape sh:property [ sh:path ex:publication_in_relation_to_index ; sh:class ex:Index ] .
+ex:notice_publication_in_relation_to_index a rdf:Property .
+ex:IndexPublicationShape sh:property [ sh:path ex:notice_publication_in_relation_to_index ; sh:class ex:Index ] .
+ex:guideline_amendment_publication_in_relation_to_index a rdfs:Class .
+ex:guideline_amendment_publication_in_relation_to_indexShape a sh:NodeShape ; sh:targetClass ex:guideline_amendment_publication_in_relation_to_index .
+ex:guideline_amendment_publication_in_relation_to_indexShape sh:property [ sh:path ex:guideline_amendment_publication_in_relation_to_index_arg_0 ; sh:class ex:IndexPublication ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:guideline_amendment_publication_in_relation_to_indexShape sh:property [ sh:path ex:guideline_amendment_publication_in_relation_to_index_arg_1 ; sh:class ex:Document ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:guideline_amendment_publication_in_relation_to_indexShape sh:property [ sh:path ex:guideline_amendment_publication_in_relation_to_index_arg_2 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:available_at a rdf:Property .
+ex:IndexPublicationShape sh:property [ sh:path ex:available_at ; sh:class ex:WebResource ] .
+
+ex:PriceReturn ex:index_type_identifier ex:PR .
+ex:NetTotalReturn ex:index_type_identifier ex:NTR .
+ex:GrossTotalReturn ex:index_type_identifier ex:GTR .
+ex:AdjustedReturnIndex ex:index_type_identifier ex:AR .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:EquityIndexMethodology ex:available_on ex:SolactiveWebsite .
+ex:IndexAdministratorAnnouncementsWebsite ex:website_of ex:Solactive .
+ex:BoerseStuttgartGmbHPriceMarketingServices ex:price_marketing_services_of ex:BoerseStuttgartGmbH .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR a ex:published_under_following_identifiers .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:index_name ex:SolactiveTransatlanticCleanEnergyEURIndexPRName .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:index_isin ex:DE000SL0R4B4 .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:index_currency ex:EUR .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:index_type ex:PriceReturn .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:index_ric ex:DotSOLTCEYP .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:bbg_ticker ex:SOLTCEYP .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:calculation_described_in ex:EquityIndexMethodology .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR a ex:published_under_following_identifiers .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:index_name ex:SolactiveTransatlanticCleanEnergyEURIndexNTRName .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:index_isin ex:DE000SL0R4C2 .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:index_currency ex:EUR .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:index_type ex:NetTotalReturn .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:index_ric ex:DotSOLTCEYN .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:calculation_described_in ex:EquityIndexMethodology .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR a ex:published_under_following_identifiers .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:index_name ex:SolactiveTransatlanticCleanEnergyEURIndexTRName .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:index_isin ex:DE000SL0R4D0 .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:index_currency ex:EUR .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:index_type ex:GrossTotalReturn .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:index_ric ex:DotSOLTCEYT .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:bbg_ticker ex:SOLTCEYT .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:calculation_described_in ex:EquityIndexMethodology .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR a ex:published_under_following_identifiers .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:index_name ex:SolactiveTransatlanticCleanEnergyEURIndex50ARName .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:index_isin ex:DE000SL0R4E8 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:index_currency ex:EUR .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:index_type ex:AdjustedReturnIndex .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:index_ric ex:DotSOLTCA50 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:bbg_ticker ex:SOLTCA50 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:formula_specified_in ex:Section4 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR a ex:published_under_following_identifiers .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:index_name ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentARName .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:index_isin ex:DE000SL0R4F5 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:index_currency ex:EUR .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:index_type ex:AdjustedReturnIndex .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:index_ric ex:DotSOLTCEA5 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:bbg_ticker ex:SOLTCEA5 .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:calculation_described_in ex:EquityIndexMethodology .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:published_on ex:SolactiveWebsite .
+ex:SolactiveTransatlanticCleanEnergyEURIndexPR ex:available_via ex:BoerseStuttgartGmbHPriceMarketingServices .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:published_on ex:SolactiveWebsite .
+ex:SolactiveTransatlanticCleanEnergyEURIndexNTR ex:available_via ex:BoerseStuttgartGmbHPriceMarketingServices .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:published_on ex:SolactiveWebsite .
+ex:SolactiveTransatlanticCleanEnergyEURIndexTR ex:available_via ex:BoerseStuttgartGmbHPriceMarketingServices .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:published_on ex:SolactiveWebsite .
+ex:SolactiveTransatlanticCleanEnergyEURIndex50AR ex:available_via ex:BoerseStuttgartGmbHPriceMarketingServices .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:published_on ex:SolactiveWebsite .
+ex:SolactiveTransatlanticCleanEnergyEURIndex5PercentAR ex:available_via ex:BoerseStuttgartGmbHPriceMarketingServices .

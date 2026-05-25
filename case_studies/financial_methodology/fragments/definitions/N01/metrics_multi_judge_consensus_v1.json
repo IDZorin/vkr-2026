@@ -1,0 +1,121 @@
+{
+  "entry_id": "N01",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR captures the source definition: average daily value traded for an Index Component over a specified period is defined as the sum of daily value traded over that period divided by the number of trading days in that period. The added symbols and constraints are a faithful formalization of the stated components.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces explicit helper functions and a trading-day predicate to express the definition formally, which is a standard encoding choice.",
+        "\"specified period\" is represented as a dedicated sort name, which is a naming choice rather than a semantic change."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2116,
+        "completion_tokens": 147,
+        "total_tokens": 2263
+      },
+      "latency_s": 2.738046646118164
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR matches the source definition: for each Index Component and specified period, Average Daily Value Traded is defined as the sum of Daily Value Traded over trading days in that period divided by the number of trading days in that period. The auxiliary functions and relation are faithful formalizations of the source wording.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR reifies the specified period, trading-day membership, summed value, and trading-day count as separate symbols; this is a standard formal decomposition rather than a semantic change.",
+        "Using a dedicated sort TradingDay extending Day is a naming/typing choice consistent with the source phrase 'TRADING DAYS'.",
+        "The source says 'in respect of an Index Component'; the IR captures this as the first argument of the relevant functions."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2116,
+        "completion_tokens": 213,
+        "total_tokens": 2329
+      },
+      "latency_s": 4.255347967147827
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully encodes the source definition of 'Average Daily Value Traded' as a three-part formula: (1) sum of Daily Value Traded over trading days in the period, (2) count of trading days in the period, (3) division of sum by count. All terms (IndexComponent, TradingDay, SpecifiedPeriod, DailyValueTraded) are properly introduced as sorts extending prelude infrastructure. The three constraints directly correspond to the three components of the source definition, with the final constraint implementing the division operation explicitly stated in the source.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "IR introduces intermediate sorts (DailyValueTraded, AverageDailyValueTraded, TradingDayCount) as Real/Nat subtypes for type safety; source uses informal prose without explicit type declarations.",
+        "IR reifies 'trading days that fall in the specified period' as a relation `trading_day_falls_in_period` and uses set-comprehension syntax (sum/count with where-clause); source uses natural language 'over the specified period' and 'that fall in'.",
+        "IR names the intermediate sum function `daily_value_traded_sum_over_period` for clarity; source does not name this intermediate step explicitly.",
+        "IR uses functional notation (e.g., `trading_day_count_in_period(p)`) where source uses prose; both express the same concept."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2495,
+        "completion_tokens": 384,
+        "total_tokens": 2879
+      },
+      "latency_s": 5.542061805725098
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR formalization exactly captures the source definition: for any Index Component, the average daily value traded equals the sum of daily values over trading days in the period divided by the count of those trading days, with daily_value_traded only defined for trading days, matching the intended average over trading days.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "Addition of helper functions `daily_value_traded_sum_over_period` and `trading_day_count_in_period` makes the definition explicit and modular without altering meaning.",
+        "Capitalization and naming choices (e.g., `TradingDay` extends `Day`) are consistent with prelude conventions."
+      ],
+      "confidence": 0.99,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2250,
+        "completion_tokens": 1350,
+        "total_tokens": 3600
+      },
+      "latency_s": 46.939314126968384
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully decomposes the source definition into its explicit mathematical components: a summation of daily values over the period, a count of trading days within that period, and the division of the former by the latter. All introduced sorts, functions, and constraints map directly to the source terminology and relationships without adding external assumptions or altering the intended meaning.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces intermediate helper functions for the sum and count operations, which is a standard formalization practice that preserves exact semantic equivalence while improving readability and modularity.",
+        "Defining domain-specific numeric concepts as sorts extending Real (e.g., DailyValueTraded, AverageDailyValueTraded) is a valid a4v3 modeling choice that aligns with the source's implicit typing."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2256,
+        "completion_tokens": 1255,
+        "total_tokens": 3511
+      },
+      "latency_s": 24.728919506072998
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "corresponds": 5
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 1.0,
+    "unanimous": true,
+    "mean_confidence": 0.986
+  }
+}

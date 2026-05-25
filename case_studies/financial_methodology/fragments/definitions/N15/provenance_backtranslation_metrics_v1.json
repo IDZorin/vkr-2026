@@ -1,0 +1,60 @@
+{
+  "schema": "provenance_backtranslation_metrics_v1",
+  "entry_id": "N15",
+  "generated_at": "2026-05-14T15:41:11",
+  "status": "ok",
+  "semantic_requested": false,
+  "summary": {
+    "claim_count": 2,
+    "source_claim_count": 2,
+    "claims_with_warnings": 0,
+    "source_claims_with_warnings": 0,
+    "mean_deterministic_meaningfulness_score": 0.885,
+    "mean_source_claim_deterministic_meaningfulness_score": 0.885,
+    "mean_source_token_recall": 0.723,
+    "mean_back_translation_token_precision": 0.863,
+    "warning_counts": {}
+  },
+  "claims": [
+    {
+      "claim_id": "gbs_index_specified_in_section_2_1",
+      "kind": "fact",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 91,
+      "back_translation_char_len": 42,
+      "source_token_count": 9,
+      "back_translation_token_count": 5,
+      "source_token_recall": 0.556,
+      "back_translation_token_precision": 1.0,
+      "token_jaccard": 0.556,
+      "number_preservation": 1.0,
+      "url_preservation": null,
+      "modal_family_preservation": null,
+      "negation_preservation": null,
+      "deterministic_meaningfulness_score": 0.873,
+      "warnings": []
+    },
+    {
+      "claim_id": "gbs_index_component_definition",
+      "kind": "constraint",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 91,
+      "back_translation_char_len": 161,
+      "source_token_count": 9,
+      "back_translation_token_count": 11,
+      "source_token_recall": 0.889,
+      "back_translation_token_precision": 0.727,
+      "token_jaccard": 0.667,
+      "number_preservation": 1.0,
+      "url_preservation": null,
+      "modal_family_preservation": null,
+      "negation_preservation": null,
+      "deterministic_meaningfulness_score": 0.898,
+      "warnings": []
+    }
+  ]
+}

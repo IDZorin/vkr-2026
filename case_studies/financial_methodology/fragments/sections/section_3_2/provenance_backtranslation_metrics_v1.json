@@ -1,0 +1,46 @@
+{
+  "schema": "provenance_backtranslation_metrics_v1",
+  "entry_id": "section_3_2",
+  "generated_at": "2026-05-11T09:34:21",
+  "status": "ok",
+  "semantic_requested": false,
+  "summary": {
+    "claim_count": 1,
+    "source_claim_count": 1,
+    "claims_with_warnings": 1,
+    "source_claims_with_warnings": 1,
+    "mean_deterministic_meaningfulness_score": 0.52,
+    "mean_source_claim_deterministic_meaningfulness_score": 0.52,
+    "mean_source_token_recall": 0.25,
+    "mean_back_translation_token_precision": 0.25,
+    "warning_counts": {
+      "low_source_token_recall": 1,
+      "negation_not_preserved": 1
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "index_not_rebalanced_extraordinarily",
+      "kind": "constraint",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 44,
+      "back_translation_char_len": 41,
+      "source_token_count": 4,
+      "back_translation_token_count": 4,
+      "source_token_recall": 0.25,
+      "back_translation_token_precision": 0.25,
+      "token_jaccard": 0.143,
+      "number_preservation": null,
+      "url_preservation": null,
+      "modal_family_preservation": null,
+      "negation_preservation": 0.0,
+      "deterministic_meaningfulness_score": 0.52,
+      "warnings": [
+        "low_source_token_recall",
+        "negation_not_preserved"
+      ]
+    }
+  ]
+}

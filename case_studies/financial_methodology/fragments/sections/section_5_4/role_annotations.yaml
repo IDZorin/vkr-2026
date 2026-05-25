@@ -1,0 +1,84 @@
+schema: role_annotations_v1
+entry_id: section_5_4
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  adapts_index_methodology:
+    kind: rel
+    args:
+      1: {role: subject}
+      2: {role: reference}
+      3: {role: subject}
+  effort_to_ensure:
+    kind: rel
+    args:
+      1: {role: subject}
+      2: {role: subject}
+      3: {role: quality}
+  procedure_maintains:
+    kind: rel
+    args:
+      1: {role: subject}
+      2: {role: subject}
+      3: {role: quality}
+constraints:
+  cessation_usual_when_economic_reality_changes:
+    frame: cessation_usual_when_economic_reality_changes
+    variables:
+      i: {role: subject, quantifier: forall}
+      e: {role: subject, quantifier: exists}
+  cessation_usual_when_index_not_used_as_underlying_value:
+    frame: cessation_usual_when_index_not_used_as_underlying_value
+    variables:
+      i: {role: subject, quantifier: forall}
+      fi: {role: instrument, quantifier: exists}
+      f: {role: subject, quantifier: exists}
+      c: {role: subject, quantifier: exists}
+  cessation_usual_when_rules_not_applied_coherently:
+    frame: cessation_usual_when_rules_not_applied_coherently
+    variables:
+      i: {role: subject, quantifier: forall}
+      r: {role: subject, quantifier: exists}
+  cessation_usual_when_selection_criteria_not_applied_coherently:
+    frame: cessation_usual_when_selection_criteria_not_applied_coherently
+    variables:
+      i: {role: subject, quantifier: forall}
+      sc: {role: subject, quantifier: exists}
+  cessation_usual_when_underlying_market_changes:
+    frame: cessation_usual_when_underlying_market_changes
+    variables:
+      i: {role: subject, quantifier: forall}
+      u: {role: subject, quantifier: exists}
+  guidelines_identify_unavoidable_cessation_situations:
+    frame: guidelines_identify_unavoidable_cessation_situations
+    variables:
+      s: {role: subject, quantifier: forall}
+  methodology_adaptation_where_necessary:
+    frame: methodology_adaptation_where_necessary
+    variables:
+      i: {role: subject, quantifier: forall}
+      m: {role: reference, quantifier: forall}
+      u: {role: subject, quantifier: forall}
+      p: {role: subject, quantifier: exists}
+  orderly_cessation_indication_available_if_no_options:
+    frame: orderly_cessation_indication_available_if_no_options
+    variables:
+      i: {role: subject, quantifier: forall}
+  solactive_efforts_for_resilience_and_integrity:
+    frame: solactive_efforts_for_resilience_and_integrity
+    variables:
+      i: {role: subject, quantifier: forall}
+facts:
+  guidelines_include_stakeholder_information_and_consultation_procedures:
+    frame: guidelines_include_stakeholder_information_and_consultation_procedures
+    variables:
+      p: {role: subject, quantifier: exists}
+      q: {role: subject, quantifier: exists}
+  guidelines_include_termination_procedure:
+    frame: guidelines_include_termination_procedure
+    variables:
+      p: {role: subject, quantifier: exists}
+  guidelines_include_transition_procedure:
+    frame: guidelines_include_transition_procedure
+    variables:
+      p: {role: subject, quantifier: exists}
+      a: {role: subject, quantifier: exists}

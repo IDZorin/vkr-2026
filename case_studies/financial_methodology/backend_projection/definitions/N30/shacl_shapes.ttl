@@ -1,0 +1,109 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N30 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:Security a rdfs:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:SecurityShape a sh:NodeShape ; sh:targetClass ex:Security .
+ex:IndexComponent a rdfs:Class .
+ex:IndexComponent rdfs:subClassOf ex:Security .
+ex:IndexComponentShape a sh:NodeShape ; sh:targetClass ex:IndexComponent .
+ex:RebalanceDay a rdfs:Class .
+ex:RebalanceDay rdfs:subClassOf ex:Day .
+ex:RebalanceDayShape a sh:NodeShape ; sh:targetClass ex:RebalanceDay .
+ex:CalculationDay a rdfs:Class .
+ex:CalculationDay rdfs:subClassOf ex:Day .
+ex:CalculationDayShape a sh:NodeShape ; sh:targetClass ex:CalculationDay .
+ex:Exchange a rdfs:Class .
+ex:ExchangeShape a sh:NodeShape ; sh:targetClass ex:Exchange .
+ex:IndexAdministrator a rdfs:Class .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:IndexAdministratorShape a sh:NodeShape ; sh:targetClass ex:IndexAdministrator .
+ex:IndexAdministratorForThisIndex a rdfs:Class .
+ex:IndexAdministratorForThisIndex rdfs:subClassOf ex:IndexAdministrator .
+ex:IndexAdministratorForThisIndexShape a sh:NodeShape ; sh:targetClass ex:IndexAdministratorForThisIndex .
+ex:IndexComponentInclusion a rdfs:Class .
+ex:IndexComponentInclusionShape a sh:NodeShape ; sh:targetClass ex:IndexComponentInclusion .
+ex:TradingDayContext a rdfs:Class .
+ex:TradingDayContextShape a sh:NodeShape ; sh:targetClass ex:TradingDayContext .
+ex:TradingDayDetermination a rdfs:Class .
+ex:TradingDayDeterminationShape a sh:NodeShape ; sh:targetClass ex:TradingDayDetermination .
+ex:ExchangeClosingTime a rdfs:Class .
+ex:ExchangeClosingTimeShape a sh:NodeShape ; sh:targetClass ex:ExchangeClosingTime .
+ex:TradingCessationPossibility a rdfs:Class .
+ex:TradingCessationPossibilityShape a sh:NodeShape ; sh:targetClass ex:TradingCessationPossibility .
+ex:ScheduledShortenedPeriod a rdfs:Class .
+ex:ScheduledShortenedPeriod rdfs:subClassOf ex:Period .
+ex:ScheduledShortenedPeriodShape a sh:NodeShape ; sh:targetClass ex:ScheduledShortenedPeriod .
+ex:CloseOfTrading a rdfs:Class .
+ex:CloseOfTrading rdfs:subClassOf ex:Event .
+ex:CloseOfTradingShape a sh:NodeShape ; sh:targetClass ex:CloseOfTrading .
+
+ex:TheIndex a ex:Index .
+ex:TheIndexAdministrator a ex:IndexAdministratorForThisIndex .
+ex:relevant_exchange a rdf:Property .
+ex:IndexComponentShape sh:property [ sh:path ex:relevant_exchange ; sh:class ex:Exchange ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:scheduled_exchange_closing_time a rdfs:Class .
+ex:scheduled_exchange_closing_timeShape a sh:NodeShape ; sh:targetClass ex:scheduled_exchange_closing_time .
+ex:scheduled_exchange_closing_timeShape sh:property [ sh:path ex:scheduled_exchange_closing_time_arg_0 ; sh:class ex:Exchange ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:scheduled_exchange_closing_timeShape sh:property [ sh:path ex:scheduled_exchange_closing_time_arg_1 ; sh:class ex:Day ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:scheduled_exchange_closing_timeShape sh:property [ sh:path ex:scheduled_exchange_closing_time_result ; sh:class ex:ExchangeClosingTime ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:inclusion_component a rdf:Property .
+ex:IndexComponentInclusionShape sh:property [ sh:path ex:inclusion_component ; sh:class ex:IndexComponent ] .
+ex:inclusion_index a rdf:Property .
+ex:IndexComponentInclusionShape sh:property [ sh:path ex:inclusion_index ; sh:class ex:Index ] .
+ex:inclusion_day a rdf:Property .
+ex:IndexComponentInclusionShape sh:property [ sh:path ex:inclusion_day ; sh:class ex:Day ] .
+ex:calculation_day_immediately_following_rebalance_day a rdf:Property .
+ex:CalculationDayShape sh:property [ sh:path ex:calculation_day_immediately_following_rebalance_day ; sh:class ex:RebalanceDay ] .
+ex:context_rebalance_day a rdf:Property .
+ex:TradingDayContextShape sh:property [ sh:path ex:context_rebalance_day ; sh:class ex:RebalanceDay ] .
+ex:context_day a rdf:Property .
+ex:TradingDayContextShape sh:property [ sh:path ex:context_day ; sh:class ex:Day ] .
+ex:context_component a rdf:Property .
+ex:TradingDayContextShape sh:property [ sh:path ex:context_component ; sh:class ex:IndexComponent ] .
+ex:context_exchange a rdf:Property .
+ex:TradingDayContextShape sh:property [ sh:path ex:context_exchange ; sh:class ex:Exchange ] .
+ex:valid_trading_day_context a rdfs:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:context_component_included_at_rebalance_day a rdfs:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:context_component_included_at_following_calculation_day a rdfs:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:context_satisfies_open_for_trading_condition a rdfs:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:context_satisfies_market_disruption_counterfactual a rdfs:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:context_excluded_by_prior_to_close_cessation a rdfs:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:context_excluded_by_scheduled_shortened_period a rdfs:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:trading_day a rdfs:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:exchange_open_for_trading a rdf:Property .
+ex:ExchangeShape sh:property [ sh:path ex:exchange_open_for_trading ; sh:class ex:Day ] .
+ex:market_disruption_occurred a rdf:Property .
+ex:ExchangeShape sh:property [ sh:path ex:market_disruption_occurred ; sh:class ex:Day ] .
+ex:would_have_been_open_for_trading_without_market_disruption a rdf:Property .
+ex:ExchangeShape sh:property [ sh:path ex:would_have_been_open_for_trading_without_market_disruption ; sh:class ex:Day ] .
+ex:cessation_possibility_exchange a rdf:Property .
+ex:TradingCessationPossibilityShape sh:property [ sh:path ex:cessation_possibility_exchange ; sh:class ex:Exchange ] .
+ex:cessation_possibility_day a rdf:Property .
+ex:TradingCessationPossibilityShape sh:property [ sh:path ex:cessation_possibility_day ; sh:class ex:Day ] .
+ex:prior_to a rdf:Property .
+ex:TradingCessationPossibilityShape sh:property [ sh:path ex:prior_to ; sh:class ex:ExchangeClosingTime ] .
+ex:shortened_period_exchange a rdf:Property .
+ex:ScheduledShortenedPeriodShape sh:property [ sh:path ex:shortened_period_exchange ; sh:class ex:Exchange ] .
+ex:shortened_period_day a rdf:Property .
+ex:ScheduledShortenedPeriodShape sh:property [ sh:path ex:shortened_period_day ; sh:class ex:Day ] .
+ex:security_to_be_included_in_index_as_new_index_component a rdf:Property .
+ex:SecurityShape sh:property [ sh:path ex:security_to_be_included_in_index_as_new_index_component ; sh:class ex:Index ] .
+ex:close_of_trading_exchange a rdf:Property .
+ex:CloseOfTradingShape sh:property [ sh:path ex:close_of_trading_exchange ; sh:class ex:Exchange ] .
+ex:close_of_trading_rebalance_day a rdf:Property .
+ex:CloseOfTradingShape sh:property [ sh:path ex:close_of_trading_rebalance_day ; sh:class ex:RebalanceDay ] .
+ex:context_captures_new_index_component_close_of_trading a rdfs:Class ; rdfs:subClassOf ex:TradingDayContext .
+ex:determination_decides_whether_context_is_trading_day a rdf:Property .
+ex:TradingDayDeterminationShape sh:property [ sh:path ex:determination_decides_whether_context_is_trading_day ; sh:class ex:TradingDayContext ] .
+ex:ultimately_responsible_for_trading_day_determination a rdf:Property .
+ex:IndexAdministratorForThisIndexShape sh:property [ sh:path ex:ultimately_responsible_for_trading_day_determination ; sh:class ex:TradingDayDetermination ] .

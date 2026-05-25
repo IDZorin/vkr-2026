@@ -1,0 +1,78 @@
+{
+  "entry_id": "N17",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1118,
+    "completion_tokens": 296,
+    "total_tokens": 1414
+  },
+  "latency_s": 2.5852160453796387,
+  "scenarios": [
+    {
+      "description": "The document uses the term \"Index\" and states that its meaning is defined in Section \"Introduction\". No other conflicting definition is given.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document says \"Index\" shall have the meaning as defined in Section \"Methods\" instead of Section \"Introduction\".",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "ambiguous",
+      "agree": false,
+      "drift_explanation": "The source text specifically requires Section \"Introduction\"; the IR only records that IndexTerm is linked to IntroductionSection and does not state any prohibition against other sections, so the alternative section is not ruled out by the IR alone."
+    },
+    {
+      "description": "The document says \"Index\" shall have the meaning as defined in Section \"Introduction\", but also says that if a later appendix says otherwise, the appendix controls.",
+      "category": "scope_edge",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A reader asks whether the meaning of \"Index\" must already be fixed before the Introduction section is read, or whether the definition can be established later in the document process.",
+      "category": "modality_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "ambiguous",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 3,
+    "agreement_rate": 0.75,
+    "drifts": [
+      {
+        "description": "The document says \"Index\" shall have the meaning as defined in Section \"Methods\" instead of Section \"Introduction\".",
+        "category": "negative",
+        "source_verdict": "reject",
+        "ir_verdict": "ambiguous",
+        "agree": false,
+        "drift_explanation": "The source text specifically requires Section \"Introduction\"; the IR only records that IndexTerm is linked to IntroductionSection and does not state any prohibition against other sections, so the alternative section is not ruled out by the IR alone."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 0
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 1
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

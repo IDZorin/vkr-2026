@@ -1,0 +1,117 @@
+{
+  "entry_id": "N15",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core idea that a Gbs Index Component is a security reflected in the GBS Index specified in Section 2.1, but it also introduces an equivalence between two relations that the source does not state. The source only defines the component by reflection in the specified index; it does not separately assert a second synonymous relation or any additional biconditional structure.",
+      "semantic_differences": [
+        "The IR adds a second relation, `security_reflected_in_gbs_index`, and makes it logically equivalent to `gbs_index_component`; the source only uses one definitional phrase and does not state that these are distinct or equivalent predicates.",
+        "The IR formalizes the statement as a biconditional over all securities, which is stronger than the source's single definitional sentence and may overcommit to exact predicate identity."
+      ],
+      "stylistic_notes": [
+        "The naming `GbsIndexSpecifiedInSection2_1` and `Section2_1` is a reasonable formalization of the source phrase 'the GBS Index specified in Section 2.1'.",
+        "The use of `Security` as a subtype of `FinancialInstrument` is a naming/modeling choice not directly visible in the source text."
+      ],
+      "confidence": 0.89,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1950,
+        "completion_tokens": 303,
+        "total_tokens": 2253
+      },
+      "latency_s": 3.6334774494171143
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core definitional idea that a GBS Index Component is a security reflected in a particular GBS Index, and it links that index to Section 2.1. However, the source defines the term directly as each security reflected in the GBS Index specified in Section 2.1, while the IR introduces a specific index entity merely asserted to be specified in Section 2.1, which does not guarantee uniqueness or fully encode the source's definite-reference structure.",
+      "semantic_differences": [
+        "The source refers to 'the GBS Index specified in Section 2.1', implying the index is identified by that description; the IR instead introduces a named entity GbsIndexSpecifiedInSection2_1 and asserts that it is specified in Section 2.1, which is weaker because it does not ensure it is the unique or intended index picked out by the description.",
+        "The IR defines gbs_index_component only relative to the single introduced index entity, rather than directly tying the definition to whatever index satisfies being the GBS Index specified in Section 2.1."
+      ],
+      "stylistic_notes": [
+        "Using both gbs_index_component and security_reflected_in_gbs_index is a reasonable relational decomposition of the definition.",
+        "The capitalization difference between 'Gbs' and 'GBS' is stylistic only.",
+        "Section2_1 as a DocumentPart is a natural encoding of 'Section 2.1'."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1950,
+        "completion_tokens": 349,
+        "total_tokens": 2299
+      },
+      "latency_s": 11.140584707260132
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR correctly captures that GBS Index Components are securities reflected in the GBS Index specified in Section 2.1. However, the IR introduces an unnecessary intermediate entity `GbsIndexSpecifiedInSection2_1` and a separate fact asserting its location, when the source simply defines the term as applying to securities in 'the GBS Index specified in Section 2.1'—a single, definite reference. The IR's constraint correctly equates the two relations, but the ontological structure (reifying the index as an entity with a separate location fact) adds complexity not present in the source's straightforward definition.",
+      "semantic_differences": [
+        "Source treats 'the GBS Index specified in Section 2.1' as a definite singular reference within the definition itself; IR reifies this as a separate entity `GbsIndexSpecifiedInSection2_1` with an additional fact `gbs_index_specified_in_section_2_1` asserting its location. This introduces an extra layer of indirection not semantically required by the source.",
+        "The source definition is a simple equivalence ('is each security reflected in...'); the IR correctly captures this as a biconditional constraint, but the entity-plus-fact structure suggests the index's location is a separate assertion rather than part of the definitional reference."
+      ],
+      "stylistic_notes": [
+        "Entity naming `GbsIndexSpecifiedInSection2_1` is verbose; a simpler name like `gbs_index` or `gbs_index_instance` might be clearer.",
+        "The relation `security_reflected_in_gbs_index` is well-chosen and directly mirrors source language.",
+        "The biconditional constraint correctly formalizes the 'is' definition, but the supporting fact structure could be simplified."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2241,
+        "completion_tokens": 459,
+        "total_tokens": 2700
+      },
+      "latency_s": 6.154322385787964
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 69.24649238586426
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR accurately captures the source definition by equating the gbs_index_component relation with the security_reflected_in_gbs_index relation for the specific index entity grounded to Section 2.1. The use of a concrete entity for the index and a binary relation for component status is a standard and faithful a4v3 lowering of the definitional phrase.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces an auxiliary relation security_reflected_in_gbs_index and equates it to gbs_index_component via an iff constraint, which is slightly more verbose than a direct definition but semantically identical.",
+        "Grounding the index to Section2_1 via a separate fact and relation is a valid structural choice that aligns with a4v3 canonical practices."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2081,
+        "completion_tokens": 2667,
+        "total_tokens": 4748
+      },
+      "latency_s": 49.68298292160034
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.85
+  }
+}

@@ -1,0 +1,49 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_1 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:Discretion a owl:Class .
+ex:IndexDeterminationDiscretion a owl:Class .
+ex:IndexDeterminationDiscretion rdfs:subClassOf ex:Discretion .
+ex:StrictRule a owl:Class .
+ex:IndexDeterminationMatter a owl:Class ; owl:oneOf ( ex:DeterminationOfIndex ex:DeterminationOfIndexUniverse ex:SelectionOfIndexComponents ex:OtherRelevantDecisionInRelationToIndex ) .
+ex:DeterminationOfIndex a ex:IndexDeterminationMatter, owl:NamedIndividual .
+ex:DeterminationOfIndexUniverse a ex:IndexDeterminationMatter, owl:NamedIndividual .
+ex:SelectionOfIndexComponents a ex:IndexDeterminationMatter, owl:NamedIndividual .
+ex:OtherRelevantDecisionInRelationToIndex a ex:IndexDeterminationMatter, owl:NamedIndividual .
+ex:ExerciseBasis a owl:Class ; owl:oneOf ( ex:ExerciseOfDiscretion ex:ExerciseOfExpertJudgement ) .
+ex:ExerciseOfDiscretion a ex:ExerciseBasis, owl:NamedIndividual .
+ex:ExerciseOfExpertJudgement a ex:ExerciseBasis, owl:NamedIndividual .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:StrictRulesForDiscretionAndExpertJudgement a ex:StrictRule, owl:NamedIndividual .
+ex:potential_need_to_exercise a owl:Class ; rdfs:subClassOf ex:IndexDeterminationDiscretion .
+ex:discretion_in_relation_to_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexDeterminationDiscretion ;
+  rdfs:range ex:Index .
+ex:discretion_in_relation_to_matter a owl:ObjectProperty ;
+  rdfs:domain ex:IndexDeterminationDiscretion ;
+  rdfs:range ex:IndexDeterminationMatter .
+ex:if_applicable a owl:Class ; rdfs:subClassOf ex:IndexDeterminationMatter .
+ex:other_relevant_decision_in_relation_to_index a owl:Class ; rdfs:subClassOf ex:IndexDeterminationMatter .
+ex:strict_rules a owl:Class ; rdfs:subClassOf ex:StrictRule .
+ex:rules_regarding_exercise a owl:ObjectProperty ;
+  rdfs:domain ex:StrictRule ;
+  rdfs:range ex:ExerciseBasis .
+
+ex:ASSERT_index_determination_discretion_scope a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: IndexDeterminationDiscretion, (potential_need_to_exercise(d)) and (discretion_in_relation_to_index(d, TheIndex)) and (exists m: IndexDeterminationMatter, discretion_in_relation_to_matter(d, m))" .
+ex:DeterminationOfIndexUniverse a ex:if_applicable .
+ex:SelectionOfIndexComponents a ex:if_applicable .
+ex:OtherRelevantDecisionInRelationToIndex a ex:other_relevant_decision_in_relation_to_index .
+ex:StrictRulesForDiscretionAndExpertJudgement a ex:strict_rules .
+ex:StrictRulesForDiscretionAndExpertJudgement ex:rules_regarding_exercise ex:ExerciseOfDiscretion .
+ex:StrictRulesForDiscretionAndExpertJudgement ex:rules_regarding_exercise ex:ExerciseOfExpertJudgement .

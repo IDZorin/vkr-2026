@@ -1,0 +1,103 @@
+sort SelectionDay extends Day
+sort Security extends FinancialInstrument
+sort Region
+
+entity Americas : Region
+entity EuropeRegion : Region
+
+sort CountryAssignment
+
+entity Canada : CountryAssignment
+entity UnitedStates : CountryAssignment
+entity Europe : CountryAssignment
+
+sort FreeFloatMarketCapizatlization extends MonetaryAmount
+sort Rank extends Nat
+sort IndexAdministrator extends Organization
+
+sort SelectionOfIndexComponents
+sort DiscretionaryDecision
+
+rel index_universe : SelectionDay, Security
+rel eligible : SelectionDay, Security
+
+fun[required] selection_of_index_components : SelectionDay -> SelectionOfIndexComponents
+fun[required] gbs_country_assignment : SelectionDay, Security -> CountryAssignment
+fun[required] region : SelectionDay, Security -> Region
+fun[required] free_float_market_capizatlization : SelectionDay, Security -> FreeFloatMarketCapizatlization
+fun[required] rank : SelectionDay, Region, Security -> Rank
+
+rel selected_for_index_inclusion : SelectionDay, Security
+rel index_component : SelectionDay, Security
+rel initial_composition : SelectionDay, Security
+rel ordinary_rebalance_selection : SelectionDay, Security
+
+rel fully_rule_based : SelectionOfIndexComponents
+
+constraint eligible_iff_index_universe_for_component_requirements :
+  forall d: SelectionDay, forall s: Security,
+    eligible(d, s) iff index_universe(d, s)
+
+constraint security_classified_into_one_of_two_regions :
+  forall d: SelectionDay, forall s: Security,
+    eligible(d, s) implies
+      (region(d, s) = Americas or region(d, s) = EuropeRegion)
+
+constraint americas_country_assignment_classification :
+  forall d: SelectionDay, forall s: Security,
+    eligible(d, s) implies
+      (region(d, s) = Americas iff
+        (gbs_country_assignment(d, s) = Canada or gbs_country_assignment(d, s) = UnitedStates))
+
+constraint europe_country_assignment_classification :
+  forall d: SelectionDay, forall s: Security,
+    eligible(d, s) implies
+      (region(d, s) = EuropeRegion iff gbs_country_assignment(d, s) = Europe)
+
+constraint descending_order_by_free_float_market_capizatlization :
+  forall d: SelectionDay, forall r: Region, forall s1: Security, forall s2: Security,
+    eligible(d, s1)
+    and eligible(d, s2)
+    and region(d, s1) = r
+    and region(d, s2) = r
+    and free_float_market_capizatlization(d, s1) > free_float_market_capizatlization(d, s2)
+    implies rank(d, r, s1) < rank(d, r, s2)
+
+constraint selected_top_20_for_each_region :
+  forall d: SelectionDay, forall s: Security,
+    selected_for_index_inclusion(d, s)
+    iff
+      eligible(d, s)
+      and rank(d, region(d, s), s) <= 20
+
+constraint index_components_selected_for_index_inclusion :
+  forall d: SelectionDay, forall s: Security,
+    index_component(d, s) iff selected_for_index_inclusion(d, s)
+
+constraint initial_composition_determined_by_index_component_requirements :
+  forall d: SelectionDay, forall s: Security,
+    initial_composition(d, s) iff selected_for_index_inclusion(d, s)
+
+constraint ordinary_rebalance_selection_determined_by_index_component_requirements :
+  forall d: SelectionDay, forall s: Security,
+    ordinary_rebalance_selection(d, s) iff selected_for_index_inclusion(d, s)
+
+constraint less_than_20_per_region_less_than_40_index_components :
+  forall d: SelectionDay,
+    (exists r: Region,
+      count(s in Security where eligible(d, s) and region(d, s) = r) < 20)
+    implies
+      count(s in Security where index_component(d, s)) < 40
+
+fact selection_fully_rule_based :
+  forall d: SelectionDay,
+    fully_rule_based(selection_of_index_components(d))
+
+prohibition index_administrator_discretionary_decision(
+  agent: IndexAdministrator,
+  selection: SelectionOfIndexComponents,
+  decision: DiscretionaryDecision
+)
+  action: make_discretionary_decision
+  target: decision
+  scope: selection

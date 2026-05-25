@@ -1,0 +1,43 @@
+(set-logic ALL)
+(set-option :produce-unsat-cores true)
+
+(declare-sort Day 0)
+(declare-sort Exchange 0)
+(declare-sort FinancialInstrument 0)
+(declare-sort Trade 0)
+
+(declare-fun IndexComponent (FinancialInstrument) Bool)
+(declare-fun Price (Real) Bool)
+(declare-fun TradeTime (Real) Bool)
+(declare-fun TradingDay (Day) Bool)
+(declare-fun TradingPrice (Real) Bool)
+
+(assert (! (forall ((x_TradingPrice Real)) (=> (TradingPrice x_TradingPrice) (Price x_TradingPrice))) :named TYPE_TradingPrice_extends_Price))
+
+(declare-fun most_recent_published_trade_for (Trade FinancialInstrument Day) Bool)
+(declare-fun published_trade (Trade) Bool)
+(declare-fun respective_exchange (FinancialInstrument) Exchange)
+(declare-fun trade_component (Trade FinancialInstrument) Bool)
+(declare-fun trade_day (Trade Day) Bool)
+(declare-fun trade_exchange (Trade Exchange) Bool)
+(declare-fun trade_price (Trade) Real)
+(declare-fun trade_time (Trade) Real)
+(declare-fun trading_price (FinancialInstrument Day) Real)
+
+(assert (! (forall ((most_recent_published_trade_for_arg0 Trade) (most_recent_published_trade_for_arg1 FinancialInstrument) (most_recent_published_trade_for_arg2 Day)) (=> (most_recent_published_trade_for most_recent_published_trade_for_arg0 most_recent_published_trade_for_arg1 most_recent_published_trade_for_arg2) (and (IndexComponent most_recent_published_trade_for_arg1) (TradingDay most_recent_published_trade_for_arg2)))) :named TYPE_symbol_most_recent_published_trade_for))
+(assert (! (forall ((trade_component_arg0 Trade) (trade_component_arg1 FinancialInstrument)) (=> (trade_component trade_component_arg0 trade_component_arg1) (IndexComponent trade_component_arg1))) :named TYPE_symbol_trade_component))
+(assert (! (forall ((trade_day_arg0 Trade) (trade_day_arg1 Day)) (=> (trade_day trade_day_arg0 trade_day_arg1) (TradingDay trade_day_arg1))) :named TYPE_symbol_trade_day))
+(assert (! (forall ((trade_price_arg0 Trade)) (Price (trade_price trade_price_arg0))) :named TYPE_symbol_trade_price))
+(assert (! (forall ((trade_time_arg0 Trade)) (TradeTime (trade_time trade_time_arg0))) :named TYPE_symbol_trade_time))
+(assert (! (forall ((trading_price_arg0 FinancialInstrument) (trading_price_arg1 Day)) (TradingPrice (trading_price trading_price_arg0 trading_price_arg1))) :named TYPE_symbol_trading_price))
+
+(assert (! (forall ((t Trade)) (forall ((c FinancialInstrument)) (=> (IndexComponent c) (forall ((d Day)) (=> (TradingDay d) (=> (most_recent_published_trade_for t c d) (and (published_trade t) (trade_component t c) (trade_day t d) (trade_exchange t (respective_exchange c))))))))) :named TEXT_most_recent_published_trade_scope))
+(assert (! (forall ((t Trade)) (forall ((other Trade)) (forall ((c FinancialInstrument)) (=> (IndexComponent c) (forall ((d Day)) (=> (TradingDay d) (=> (and (most_recent_published_trade_for t c d) (published_trade other) (trade_component other c) (trade_day other d) (trade_exchange other (respective_exchange c))) (>= (trade_time t) (trade_time other))))))))) :named TEXT_most_recent_published_trade_temporal_ordering))
+(assert (! (forall ((t1 Trade)) (forall ((t2 Trade)) (forall ((c FinancialInstrument)) (=> (IndexComponent c) (forall ((d Day)) (=> (TradingDay d) (=> (and (most_recent_published_trade_for t1 c d) (most_recent_published_trade_for t2 c d)) (= t1 t2)))))))) :named TEXT_most_recent_published_trade_uniqueness))
+(assert (! (forall ((c FinancialInstrument)) (=> (IndexComponent c) (forall ((d Day)) (=> (TradingDay d) (exists ((t Trade)) (and (most_recent_published_trade_for t c d) (= (trading_price c d) (trade_price t)))))))) :named TEXT_trading_price_definition))
+; Probe N31__trading_price_definition__existential_witness__001: existential_witness
+(check-sat)
+(push 1)
+(assert (! (exists ((c FinancialInstrument) (d Day)) (and (IndexComponent c) (TradingDay d) (exists ((t Trade)) (and (most_recent_published_trade_for t c d) (= (trading_price c d) (trade_price t)))))) :named PROBE_N31__trading_price_definition__existential_witness__001))
+(check-sat)
+(pop 1)

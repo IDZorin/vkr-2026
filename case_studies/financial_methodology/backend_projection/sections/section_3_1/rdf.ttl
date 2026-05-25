@@ -1,0 +1,305 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_3_1 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_3_1/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:SolactiveOrganization a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SolactiveOrganization rdfs:subClassOf ex:Organization .
+ex:IndexComponent a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:SelectionDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:FixingDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:FixingDay rdfs:subClassOf ex:Day .
+ex:RebalanceDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:RebalanceDay rdfs:subClassOf ex:Day .
+ex:OrdinaryRebalance a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:OrdinaryRebalance rdfs:subClassOf ex:Event .
+ex:CloseOfBusiness a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CloseOfBusiness rdfs:subClassOf ex:Event .
+ex:IndexComponentSelection a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Shares a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Weight a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Weight rdfs:subClassOf ex:Percent .
+ex:RebalanceProcedure a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexComponentChange a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexComponentChange rdfs:subClassOf ex:Event .
+ex:Section3_1IndexComponentChange a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Section3_1IndexComponentChange rdfs:subClassOf ex:IndexComponentChange .
+ex:Notice a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Notice rdfs:subClassOf ex:Document .
+ex:EquityIndexMethodology a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:EquityIndexMethodology rdfs:subClassOf ex:Document .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:Solactive a ex:SolactiveOrganization, owl:NamedIndividual .
+ex:SolactiveEquityIndexMethodology a ex:EquityIndexMethodology, owl:NamedIndividual .
+ex:ThisGuideline a ex:Document, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:Section2_1 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section2_2 a ex:DocumentPart, owl:NamedIndividual .
+ex:AnnouncementSection a ex:DocumentPart, owl:NamedIndividual .
+ex:OrdinaryRebalanceProcedure a ex:RebalanceProcedure, owl:NamedIndividual .
+ex:SufficientNoticeBeforeRebalanceDay a ex:VagueTerm, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComDocumentsEquityIndexMethodology a ex:Url, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComNewsAnnouncements a ex:Url, owl:NamedIndividual .
+ex:ordinary_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:ordinary_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:ordinary_rebalance_day a4:argument ex:ordinary_rebalance_day_arg_0 .
+ex:ordinary_rebalance_on_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:ordinary_rebalance_on_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:OrdinaryRebalance .
+ex:ordinary_rebalance_on_day a4:argument ex:ordinary_rebalance_on_day_arg_0 .
+ex:ordinary_rebalance_on_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:ordinary_rebalance_on_day a4:argument ex:ordinary_rebalance_on_day_arg_1 .
+ex:selection_day_of_rebalance a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:selection_day_of_rebalance_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:selection_day_of_rebalance a4:argument ex:selection_day_of_rebalance_arg_0 .
+ex:selection_day_of_rebalance_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:selection_day_of_rebalance a4:argument ex:selection_day_of_rebalance_arg_1 .
+ex:fixing_day_of_rebalance a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:fixing_day_of_rebalance_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:fixing_day_of_rebalance a4:argument ex:fixing_day_of_rebalance_arg_0 .
+ex:fixing_day_of_rebalance_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:FixingDay .
+ex:fixing_day_of_rebalance a4:argument ex:fixing_day_of_rebalance_arg_1 .
+ex:close_of_business_on_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:close_of_business_on_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CloseOfBusiness .
+ex:close_of_business_on_day a4:argument ex:close_of_business_on_day_arg_0 .
+ex:close_of_business_on_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:close_of_business_on_day a4:argument ex:close_of_business_on_day_arg_1 .
+ex:new_selection_for_rebalance a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:new_selection_for_rebalance_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:new_selection_for_rebalance a4:argument ex:new_selection_for_rebalance_arg_0 .
+ex:new_selection_for_rebalance a4:resultSort ex:IndexComponentSelection .
+ex:new_selection_for_rebalance a4:functionFlag "required" .
+ex:shares_on_fixing_day a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:shares_on_fixing_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:FixingDay .
+ex:shares_on_fixing_day a4:argument ex:shares_on_fixing_day_arg_0 .
+ex:shares_on_fixing_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:shares_on_fixing_day a4:argument ex:shares_on_fixing_day_arg_1 .
+ex:shares_on_fixing_day a4:resultSort ex:Shares .
+ex:shares_on_fixing_day a4:functionFlag "required" .
+ex:weight_on_selection_day a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:weight_on_selection_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:weight_on_selection_day a4:argument ex:weight_on_selection_day_arg_0 .
+ex:weight_on_selection_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:weight_on_selection_day a4:argument ex:weight_on_selection_day_arg_1 .
+ex:weight_on_selection_day a4:resultSort ex:Weight .
+ex:weight_on_selection_day a4:functionFlag "required" .
+ex:rebalance_day_of_change a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:rebalance_day_of_change_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Section3_1IndexComponentChange .
+ex:rebalance_day_of_change a4:argument ex:rebalance_day_of_change_arg_0 .
+ex:rebalance_day_of_change a4:resultSort ex:RebalanceDay .
+ex:rebalance_day_of_change a4:functionFlag "required" .
+ex:selection_of_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:selection_of_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponentSelection .
+ex:selection_of_index a4:argument ex:selection_of_index_arg_0 .
+ex:selection_of_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:selection_of_index a4:argument ex:selection_of_index_arg_1 .
+ex:selection_determined_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:selection_determined_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponentSelection .
+ex:selection_determined_on a4:argument ex:selection_determined_on_arg_0 .
+ex:selection_determined_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:selection_determined_on a4:argument ex:selection_determined_on_arg_1 .
+ex:selection_in_accordance_with a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:selection_in_accordance_with_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponentSelection .
+ex:selection_in_accordance_with a4:argument ex:selection_in_accordance_with_arg_0 .
+ex:selection_in_accordance_with_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:selection_in_accordance_with a4:argument ex:selection_in_accordance_with_arg_1 .
+ex:selection_includes_index_component a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:selection_includes_index_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponentSelection .
+ex:selection_includes_index_component a4:argument ex:selection_includes_index_component_arg_0 .
+ex:selection_includes_index_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:selection_includes_index_component a4:argument ex:selection_includes_index_component_arg_1 .
+ex:adjusted_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:adjusted_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:OrdinaryRebalance .
+ex:adjusted_index a4:argument ex:adjusted_index_arg_0 .
+ex:adjusted_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:adjusted_index a4:argument ex:adjusted_index_arg_1 .
+ex:following_close_of_business a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:following_close_of_business_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:OrdinaryRebalance .
+ex:following_close_of_business a4:argument ex:following_close_of_business_arg_0 .
+ex:following_close_of_business_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CloseOfBusiness .
+ex:following_close_of_business a4:argument ex:following_close_of_business_arg_1 .
+ex:reflects_new_selection a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:reflects_new_selection_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:OrdinaryRebalance .
+ex:reflects_new_selection a4:argument ex:reflects_new_selection_arg_0 .
+ex:reflects_new_selection_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponentSelection .
+ex:reflects_new_selection a4:argument ex:reflects_new_selection_arg_1 .
+ex:carried_out_by_implementing_shares a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:carried_out_by_implementing_shares_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:OrdinaryRebalance .
+ex:carried_out_by_implementing_shares a4:argument ex:carried_out_by_implementing_shares_arg_0 .
+ex:carried_out_by_implementing_shares_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Shares .
+ex:carried_out_by_implementing_shares a4:argument ex:carried_out_by_implementing_shares_arg_1 .
+ex:shares_determined_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:shares_determined_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Shares .
+ex:shares_determined_on a4:argument ex:shares_determined_on_arg_0 .
+ex:shares_determined_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:FixingDay .
+ex:shares_determined_on a4:argument ex:shares_determined_on_arg_1 .
+ex:shares_based_on_weight a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:shares_based_on_weight_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Shares .
+ex:shares_based_on_weight a4:argument ex:shares_based_on_weight_arg_0 .
+ex:shares_based_on_weight_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Weight .
+ex:shares_based_on_weight a4:argument ex:shares_based_on_weight_arg_1 .
+ex:weight_calculated_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:weight_calculated_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Weight .
+ex:weight_calculated_on a4:argument ex:weight_calculated_on_arg_0 .
+ex:weight_calculated_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:weight_calculated_on a4:argument ex:weight_calculated_on_arg_1 .
+ex:procedure_information_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:procedure_information_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RebalanceProcedure .
+ex:procedure_information_in a4:argument ex:procedure_information_in_arg_0 .
+ex:procedure_information_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Document .
+ex:procedure_information_in a4:argument ex:procedure_information_in_arg_1 .
+ex:incorporated_by_reference_into a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:incorporated_by_reference_into_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Document .
+ex:incorporated_by_reference_into a4:argument ex:incorporated_by_reference_into_arg_0 .
+ex:incorporated_by_reference_into_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Document .
+ex:incorporated_by_reference_into a4:argument ex:incorporated_by_reference_into_arg_1 .
+ex:available_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:available_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Document .
+ex:available_on a4:argument ex:available_on_arg_0 .
+ex:available_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:WebResource .
+ex:available_on a4:argument ex:available_on_arg_1 .
+ex:website_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:website_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:WebResource .
+ex:website_of a4:argument ex:website_of_arg_0 .
+ex:website_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:website_of a4:argument ex:website_of_arg_1 .
+ex:section_of_website a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:section_of_website_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:section_of_website a4:argument ex:section_of_website_arg_0 .
+ex:section_of_website_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:WebResource .
+ex:section_of_website a4:argument ex:section_of_website_arg_1 .
+ex:change_of_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:change_of_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Section3_1IndexComponentChange .
+ex:change_of_index a4:argument ex:change_of_index_arg_0 .
+ex:change_of_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:change_of_index a4:argument ex:change_of_index_arg_1 .
+ex:change_made_to_index_component a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:change_made_to_index_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Section3_1IndexComponentChange .
+ex:change_made_to_index_component a4:argument ex:change_made_to_index_component_arg_0 .
+ex:change_made_to_index_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:change_made_to_index_component a4:argument ex:change_made_to_index_component_arg_1 .
+ex:notice_for_index_component_change a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:notice_for_index_component_change_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Notice .
+ex:notice_for_index_component_change a4:argument ex:notice_for_index_component_change_arg_0 .
+ex:notice_for_index_component_change_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Section3_1IndexComponentChange .
+ex:notice_for_index_component_change a4:argument ex:notice_for_index_component_change_arg_1 .
+ex:notice_described_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:notice_described_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Notice .
+ex:notice_described_by a4:argument ex:notice_described_by_arg_0 .
+ex:notice_described_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:VagueTerm .
+ex:notice_described_by a4:argument ex:notice_described_by_arg_1 .
+ex:notice_for_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:notice_for_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Notice .
+ex:notice_for_rebalance_day a4:argument ex:notice_for_rebalance_day_arg_0 .
+ex:notice_for_rebalance_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RebalanceDay .
+ex:notice_for_rebalance_day a4:argument ex:notice_for_rebalance_day_arg_1 .
+ex:notice_published_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:notice_published_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Notice .
+ex:notice_published_by a4:argument ex:notice_published_by_arg_0 .
+ex:notice_published_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SolactiveOrganization .
+ex:notice_published_by a4:argument ex:notice_published_by_arg_1 .
+ex:notice_published_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:notice_published_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Notice .
+ex:notice_published_on a4:argument ex:notice_published_on_arg_0 .
+ex:notice_published_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:WebResource .
+ex:notice_published_on a4:argument ex:notice_published_on_arg_1 .
+ex:notice_published_under a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:notice_published_under_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Notice .
+ex:notice_published_under a4:argument ex:notice_published_under_arg_0 .
+ex:notice_published_under_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:notice_published_under a4:argument ex:notice_published_under_arg_1 .
+
+ex:ASSERT_more_information_refer_to_equity_index_methodology a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "83"^^xsd:integer ;
+  a4:exprText "(procedure_information_in(OrdinaryRebalanceProcedure, SolactiveEquityIndexMethodology)) and (incorporated_by_reference_into(SolactiveEquityIndexMethodology, ThisGuideline)) and (available_on(SolactiveEquityIndexMethodology, SolactiveWebsite)) and (website_of(SolactiveWebsite, Solactive)) and (document_url(SolactiveEquityIndexMethodology, HttpsWwwSolactiveComDocumentsEquityIndexMethodology))" ;
+  a4:sourceText "fact more_information_refer_to_equity_index_methodology :\n  procedure_information_in(OrdinaryRebalanceProcedure, SolactiveEquityIndexMethodology)\n  and incorporated_by_reference_into(SolactiveEquityIndexMethodology, ThisGuideline)\n  and available_on(SolactiveEquityIndexMethodology, SolactiveWebsite)\n  and website_of(SolactiveWebsite, Solactive)\n  and document_url(SolactiveEquityIndexMethodology, HttpsWwwSolactiveComDocumentsEquityIndexMethodology)" .
+ex:ASSERT_announcement_section_location a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "90"^^xsd:integer ;
+  a4:exprText "(section_of_website(AnnouncementSection, SolactiveWebsite)) and (document_part_url(AnnouncementSection, HttpsWwwSolactiveComNewsAnnouncements))" ;
+  a4:sourceText "fact announcement_section_location :\n  section_of_website(AnnouncementSection, SolactiveWebsite)\n  and document_part_url(AnnouncementSection, HttpsWwwSolactiveComNewsAnnouncements)" .
+ex:ASSERT_new_selection_determined_in_accordance_with_sections a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "94"^^xsd:integer ;
+  a4:exprText "forall rd: RebalanceDay, forall sd: SelectionDay, ((ordinary_rebalance_day(rd)) and (selection_day_of_rebalance(rd, sd))) implies ((selection_of_index(new_selection_for_rebalance(rd), TheIndex)) and (selection_determined_on(new_selection_for_rebalance(rd), sd)) and (selection_in_accordance_with(new_selection_for_rebalance(rd), Section2_1)) and (selection_in_accordance_with(new_selection_for_rebalance(rd), Section2_2)))" ;
+  a4:sourceText "constraint new_selection_determined_in_accordance_with_sections :\n  forall rd: RebalanceDay,\n  forall sd: SelectionDay,\n    ordinary_rebalance_day(rd)\n    and selection_day_of_rebalance(rd, sd)\n    implies\n      selection_of_index(new_selection_for_rebalance(rd), TheIndex)\n      and selection_determined_on(new_selection_for_rebalance(rd), sd)\n      and selection_in_accordance_with(new_selection_for_rebalance(rd), Section2_1)\n      and selection_in_accordance_with(new_selection_for_rebalance(rd), Section2_2)" .
+ex:ASSERT_ordinary_rebalance_adjusts_index_after_close_of_business a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "105"^^xsd:integer ;
+  a4:exprText "forall rd: RebalanceDay, (ordinary_rebalance_day(rd)) implies (exists r: OrdinaryRebalance, exists cob: CloseOfBusiness, (ordinary_rebalance_on_day(r, rd)) and (close_of_business_on_day(cob, rd)) and (occurs_on(r, rd)) and (adjusted_index(r, TheIndex)) and (following_close_of_business(r, cob)) and (reflects_new_selection(r, new_selection_for_rebalance(rd))))" ;
+  a4:sourceText "constraint ordinary_rebalance_adjusts_index_after_close_of_business :\n  forall rd: RebalanceDay,\n    ordinary_rebalance_day(rd)\n    implies\n      exists r: OrdinaryRebalance,\n      exists cob: CloseOfBusiness,\n        ordinary_rebalance_on_day(r, rd)\n        and close_of_business_on_day(cob, rd)\n        and occurs_on(r, rd)\n        and adjusted_index(r, TheIndex)\n        and following_close_of_business(r, cob)\n        and reflects_new_selection(r, new_selection_for_rebalance(rd))" .
+ex:ASSERT_ordinary_rebalance_implements_fixing_day_shares a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "118"^^xsd:integer ;
+  a4:exprText "forall rd: RebalanceDay, forall fd: FixingDay, forall sd: SelectionDay, forall c: IndexComponent, ((ordinary_rebalance_day(rd)) and (fixing_day_of_rebalance(rd, fd)) and (selection_day_of_rebalance(rd, sd)) and (selection_includes_index_component(new_selection_for_rebalance(rd), c))) implies (exists r: OrdinaryRebalance, (ordinary_rebalance_on_day(r, rd)) and (carried_out_by_implementing_shares(r, shares_on_fixing_day(fd, c))) and (shares_determined_on(shares_on_fixing_day(fd, c), fd)) and (weight_calculated_on(weight_on_selection_day(sd, c), sd)) and (shares_based_on_weight(shares_on_fixing_day(fd, c), weight_on_selection_day(sd, c))))" ;
+  a4:sourceText "constraint ordinary_rebalance_implements_fixing_day_shares :\n  forall rd: RebalanceDay,\n  forall fd: FixingDay,\n  forall sd: SelectionDay,\n  forall c: IndexComponent,\n    ordinary_rebalance_day(rd)\n    and fixing_day_of_rebalance(rd, fd)\n    and selection_day_of_rebalance(rd, sd)\n    and selection_includes_index_component(new_selection_for_rebalance(rd), c)\n    implies\n      exists r: OrdinaryRebalance,\n        ordinary_rebalance_on_day(r, rd)\n        and carried_out_by_implementing_shares(r, shares_on_fixing_day(fd, c))\n        and shares_determined_on(shares_on_fixing_day(fd, c), fd)\n        and weight_calculated_on(weight_on_selection_day(sd, c), sd)\n        and shares_based_on_weight(\n          shares_on_fixing_day(fd, c),\n          weight_on_selection_day(sd, c)\n        )" .
+ex:ASSERT_section_3_1_index_component_change_scope a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "138"^^xsd:integer ;
+  a4:exprText "forall ch: Section3_1IndexComponentChange, (change_of_index(ch, TheIndex)) and (exists c: IndexComponent, change_made_to_index_component(ch, c))" ;
+  a4:sourceText "constraint section_3_1_index_component_change_scope :\n  forall ch: Section3_1IndexComponentChange,\n    change_of_index(ch, TheIndex)\n    and exists c: IndexComponent,\n      change_made_to_index_component(ch, c)" .
+ex:ASSERT_solactive_publishes_index_component_changes_with_notice a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "144"^^xsd:integer ;
+  a4:exprText "forall ch: Section3_1IndexComponentChange, exists n: Notice, (notice_for_index_component_change(n, ch)) and (notice_described_by(n, SufficientNoticeBeforeRebalanceDay)) and (notice_for_rebalance_day(n, rebalance_day_of_change(ch))) and (notice_published_by(n, Solactive)) and (notice_published_on(n, SolactiveWebsite)) and (notice_published_under(n, AnnouncementSection))" ;
+  a4:sourceText "constraint solactive_publishes_index_component_changes_with_notice :\n  forall ch: Section3_1IndexComponentChange,\n    exists n: Notice,\n      notice_for_index_component_change(n, ch)\n      and notice_described_by(n, SufficientNoticeBeforeRebalanceDay)\n      and notice_for_rebalance_day(n, rebalance_day_of_change(ch))\n      and notice_published_by(n, Solactive)\n      and notice_published_on(n, SolactiveWebsite)\n      and notice_published_under(n, AnnouncementSection)" .

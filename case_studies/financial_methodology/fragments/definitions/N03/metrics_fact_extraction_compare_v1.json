@@ -1,0 +1,44 @@
+{
+  "entry_id": "N03",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1605,
+    "completion_tokens": 61,
+    "total_tokens": 1666
+  },
+  "latency_s": 1.4228920936584473,
+  "raw_parsed": {
+    "source_facts": [
+      "BMR has the meaning defined in Introduction."
+    ],
+    "render_facts": [
+      "BMRTerm is defined in IntroductionSection."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 0,
+        "match": "paraphrase"
+      }
+    ],
+    "render_only": []
+  },
+  "summary": {
+    "n_source_facts": 1,
+    "n_render_facts": 1,
+    "matched_source": 1,
+    "matched_render": 1,
+    "render_only": 0,
+    "missing_source": 0,
+    "weaker_in_render": 0,
+    "stronger_in_render": 0,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "missing_source_facts": [],
+    "render_only_facts": [],
+    "weaker_pairs": [],
+    "stronger_pairs": []
+  }
+}

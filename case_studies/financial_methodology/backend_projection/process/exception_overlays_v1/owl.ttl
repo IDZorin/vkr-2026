@@ -1,0 +1,877 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:exception_overlays_v1 a owl:Ontology .
+
+ex:Workflow a owl:Class .
+ex:ProcessStep a owl:Class .
+ex:ProcessTrigger a owl:Class .
+ex:ProcessInput a owl:Class .
+ex:ProcessOutput a owl:Class .
+ex:ProcessState a owl:Class .
+ex:ProcessStateCarrier a owl:Class .
+ex:ProcessGroundingTarget a owl:Class .
+ex:DocumentPart a owl:Class .
+ex:SourceFragment a owl:Class .
+ex:BridgeFamily a owl:Class .
+ex:CalendarMarker a owl:Class .
+ex:CalendarWindow a owl:Class .
+ex:CalendarWindow rdfs:subClassOf ex:CalendarMarker .
+ex:ProcessEdgeKind a owl:Class ; owl:oneOf ( ex:ExplicitSourceEdge ex:StructuralDependencyEdge ex:InferredMergeEdge ex:OperationalLoweringEdge ) .
+ex:ExplicitSourceEdge a ex:ProcessEdgeKind, owl:NamedIndividual .
+ex:StructuralDependencyEdge a ex:ProcessEdgeKind, owl:NamedIndividual .
+ex:InferredMergeEdge a ex:ProcessEdgeKind, owl:NamedIndividual .
+ex:OperationalLoweringEdge a ex:ProcessEdgeKind, owl:NamedIndividual .
+ex:OverlayBehavior a owl:Class ; owl:oneOf ( ex:Preempt ex:ModifyAndContinue ex:InterruptAndResume ex:Fallback ) .
+ex:Preempt a ex:OverlayBehavior, owl:NamedIndividual .
+ex:ModifyAndContinue a ex:OverlayBehavior, owl:NamedIndividual .
+ex:InterruptAndResume a ex:OverlayBehavior, owl:NamedIndividual .
+ex:Fallback a ex:OverlayBehavior, owl:NamedIndividual .
+ex:StepModality a owl:Class ; owl:oneOf ( ex:ObligatoryStep ex:PermittedStep ex:ProhibitedStep ex:DiscretionaryStep ex:DescriptiveStep ) .
+ex:ObligatoryStep a ex:StepModality, owl:NamedIndividual .
+ex:PermittedStep a ex:StepModality, owl:NamedIndividual .
+ex:ProhibitedStep a ex:StepModality, owl:NamedIndividual .
+ex:DiscretionaryStep a ex:StepModality, owl:NamedIndividual .
+ex:DescriptiveStep a ex:StepModality, owl:NamedIndividual .
+ex:ProcessTemporalRelation a owl:Class ; owl:oneOf ( ex:Before ex:After ex:SameTimeAs ex:During ex:OnOrBefore ex:OnOrAfter ) .
+ex:Before a ex:ProcessTemporalRelation, owl:NamedIndividual .
+ex:After a ex:ProcessTemporalRelation, owl:NamedIndividual .
+ex:SameTimeAs a ex:ProcessTemporalRelation, owl:NamedIndividual .
+ex:During a ex:ProcessTemporalRelation, owl:NamedIndividual .
+ex:OnOrBefore a ex:ProcessTemporalRelation, owl:NamedIndividual .
+ex:OnOrAfter a ex:ProcessTemporalRelation, owl:NamedIndividual .
+ex:IterationSemanticsStatus a owl:Class ; owl:oneOf ( ex:NoIteration ex:IterationSemanticsDeferred ex:FixedPointIteration ) .
+ex:NoIteration a ex:IterationSemanticsStatus, owl:NamedIndividual .
+ex:IterationSemanticsDeferred a ex:IterationSemanticsStatus, owl:NamedIndividual .
+ex:FixedPointIteration a ex:IterationSemanticsStatus, owl:NamedIndividual .
+ex:ProcessIOKind a owl:Class ; owl:oneOf ( ex:DomainConceptIO ex:ObservationFrameIO ex:CalendarMarkerIO ex:ProcessStateIO ) .
+ex:DomainConceptIO a ex:ProcessIOKind, owl:NamedIndividual .
+ex:ObservationFrameIO a ex:ProcessIOKind, owl:NamedIndividual .
+ex:CalendarMarkerIO a ex:ProcessIOKind, owl:NamedIndividual .
+ex:ProcessStateIO a ex:ProcessIOKind, owl:NamedIndividual .
+ex:ProcessGroundingKind a owl:Class ; owl:oneOf ( ex:DocumentPartGrounding ex:SourceFragmentGrounding ex:BridgeDecisionGrounding ex:CanonicalConceptGrounding ex:ProvenanceGrounding ) .
+ex:DocumentPartGrounding a ex:ProcessGroundingKind, owl:NamedIndividual .
+ex:SourceFragmentGrounding a ex:ProcessGroundingKind, owl:NamedIndividual .
+ex:BridgeDecisionGrounding a ex:ProcessGroundingKind, owl:NamedIndividual .
+ex:CanonicalConceptGrounding a ex:ProcessGroundingKind, owl:NamedIndividual .
+ex:ProvenanceGrounding a ex:ProcessGroundingKind, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a owl:Class ; owl:oneOf ( ex:CorporateActionAffectedComponent ex:CorporateActionAdjustedComponent ex:DisruptedDetermination ex:CorrectionPending ex:CorrectionResolved ex:ActiveIndex ex:TerminatedIndex ex:MethodologyUnderReview ex:MethodologyChanged ex:AmendmentPendingApproval ex:AmendmentApproved ) .
+ex:CorporateActionAffectedComponent a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:CorporateActionAdjustedComponent a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:DisruptedDetermination a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:CorrectionPending a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:CorrectionResolved a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:ActiveIndex a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:TerminatedIndex a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:MethodologyUnderReview a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:MethodologyChanged a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:AmendmentPendingApproval a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:AmendmentApproved a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+
+ex:OrdinaryRebalanceWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:CorporateActionOverlayWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:MarketDisruptionOverlayWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:CorrectionOverlayWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:TerminationOverlayWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:MethodologyChangeOverlayWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:OversightRuleAmendmentOverlayWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:DetectCorporateActionEvent a ex:ProcessStep, owl:NamedIndividual .
+ex:DetermineCorporateActionAdjustmentNeed a ex:ProcessStep, owl:NamedIndividual .
+ex:AccountForCorporateActionInCalculation a ex:ProcessStep, owl:NamedIndividual .
+ex:EvaluateCorporateActionProcedureDeviation a ex:ProcessStep, owl:NamedIndividual .
+ex:AnnounceCorporateActionAdjustment a ex:ProcessStep, owl:NamedIndividual .
+ex:ImplementCorporateActionAdjustment a ex:ProcessStep, owl:NamedIndividual .
+ex:DetectMarketDisruptionCondition a ex:ProcessStep, owl:NamedIndividual .
+ex:ApplyDisruptionPolicyArrangements a ex:ProcessStep, owl:NamedIndividual .
+ex:DetermineIndexUnderDisruptedConditions a ex:ProcessStep, owl:NamedIndividual .
+ex:IdentifyDeterminationError a ex:ProcessStep, owl:NamedIndividual .
+ex:DetermineCorrectionMeasures a ex:ProcessStep, owl:NamedIndividual .
+ex:CorrectIdentifiedError a ex:ProcessStep, owl:NamedIndividual .
+ex:DetectZeroOrNegativeAdjustedReturnIndexLevel a ex:ProcessStep, owl:NamedIndividual .
+ex:TerminateAffectedIndex a ex:ProcessStep, owl:NamedIndividual .
+ex:AnnounceIndexTermination a ex:ProcessStep, owl:NamedIndividual .
+ex:ReviewMethodologyAtLeastAnnually a ex:ProcessStep, owl:NamedIndividual .
+ex:IdentifyMethodologyChangeNeed a ex:ProcessStep, owl:NamedIndividual .
+ex:MakeMethodologyChangeInPolicy a ex:ProcessStep, owl:NamedIndividual .
+ex:AnnounceMethodologyChange a ex:ProcessStep, owl:NamedIndividual .
+ex:UpdateGuidelineAmendmentDate a ex:ProcessStep, owl:NamedIndividual .
+ex:EnsureConsistentCalculationMethodAfterChange a ex:ProcessStep, owl:NamedIndividual .
+ex:ProposeRuleOrGuidelineAmendment a ex:ProcessStep, owl:NamedIndividual .
+ex:SubmitAmendmentForPriorApproval a ex:ProcessStep, owl:NamedIndividual .
+ex:OversightCommitteePriorApprovalDecision a ex:ProcessStep, owl:NamedIndividual .
+ex:MakeApprovedRuleOrGuidelineAmendment a ex:ProcessStep, owl:NamedIndividual .
+ex:CorporateActionOccurrenceTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:CorporateActionCumDayTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:CorporateActionExDayTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:MarketStressOrDisruptionTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:IdentifiedErrorTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:ReasonablePeriodTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:ZeroOrNegativeAdjustedReturnIndexLevelTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:MethodologyReviewTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:MethodologyChangeNeedTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:ProposedRuleAmendmentTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:CumDayMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:ExDayMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:CorporateActionImplementationWindow a ex:CalendarWindow, owl:NamedIndividual .
+ex:EffectiveDayMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:ReasonablePeriodMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:AnnualReviewMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:CorporateActionEventInput a ex:ProcessInput, owl:NamedIndividual .
+ex:AffectedIndexComponentInput a ex:ProcessInput, owl:NamedIndividual .
+ex:CorporateActionKindInput a ex:ProcessInput, owl:NamedIndividual .
+ex:CorporateActionPriceEffectInput a ex:ProcessInput, owl:NamedIndividual .
+ex:EquityIndexMethodologyInput a ex:ProcessInput, owl:NamedIndividual .
+ex:CorporateActionNoticeInput a ex:ProcessInput, owl:NamedIndividual .
+ex:DisruptionPolicyInput a ex:ProcessInput, owl:NamedIndividual .
+ex:AffectedPriceInput a ex:ProcessInput, owl:NamedIndividual .
+ex:DeterminationErrorInput a ex:ProcessInput, owl:NamedIndividual .
+ex:CorrectionPolicyInput a ex:ProcessInput, owl:NamedIndividual .
+ex:AdjustedReturnIndexCalculationInput a ex:ProcessInput, owl:NamedIndividual .
+ex:MethodologyReviewInput a ex:ProcessInput, owl:NamedIndividual .
+ex:MethodologyPolicyInput a ex:ProcessInput, owl:NamedIndividual .
+ex:ProposedAmendmentInput a ex:ProcessInput, owl:NamedIndividual .
+ex:OversightCommitteeInput a ex:ProcessInput, owl:NamedIndividual .
+ex:RequiredIndexAdjustmentOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:CorporateActionCalculationAdjustmentOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:CorporateActionDeviationDecisionOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:CorporateActionAdjustmentAnnouncementOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:ImplementedCorporateActionAdjustmentOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:DisruptionArrangementOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:DisruptedDeterminationOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:CorrectionMeasuresOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:CorrectedErrorOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:TerminatedIndexOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:TerminationAnnouncementOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:MethodologyChangeOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:MethodologyChangeAnnouncementOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:GuidelineAmendmentDateOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:ConsistentCalculationMethodOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:PriorApprovalOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:ApprovedRuleAmendmentOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:CorporateActionAffectedComponentState a ex:ProcessState, owl:NamedIndividual .
+ex:CorporateActionAdjustedComponentState a ex:ProcessState, owl:NamedIndividual .
+ex:DisruptedDeterminationState a ex:ProcessState, owl:NamedIndividual .
+ex:CorrectionPendingState a ex:ProcessState, owl:NamedIndividual .
+ex:CorrectionResolvedState a ex:ProcessState, owl:NamedIndividual .
+ex:ActiveIndexState a ex:ProcessState, owl:NamedIndividual .
+ex:TerminatedIndexState a ex:ProcessState, owl:NamedIndividual .
+ex:MethodologyUnderReviewState a ex:ProcessState, owl:NamedIndividual .
+ex:MethodologyChangedState a ex:ProcessState, owl:NamedIndividual .
+ex:AmendmentPendingApprovalState a ex:ProcessState, owl:NamedIndividual .
+ex:AmendmentApprovedState a ex:ProcessState, owl:NamedIndividual .
+ex:AffectedComponentCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:AdjustedComponentCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:DeterminationCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:ErrorCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:IndexCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:MethodologyCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:AmendmentCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:Section4_2 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section4_4 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section4_5 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section4_6 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section4_7 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section5_2 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section5_3 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section5_5 a ex:DocumentPart, owl:NamedIndividual .
+ex:DefinitionN25 a ex:SourceFragment, owl:NamedIndividual .
+ex:AnnouncementSectionFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:NewsAnnouncementsUrlFamily a ex:BridgeFamily, owl:NamedIndividual .
+ex:CorporateActionGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:CorporateActionCalendarGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:AnnouncementBridgeGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:MarketDisruptionGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:CorrectionGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:CorrectionCalendarGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:TerminationGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:MethodologyChangeGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:MethodologyReviewCalendarGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:OversightGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:workflow_step a owl:ObjectProperty ;
+  rdfs:domain ex:Workflow ;
+  rdfs:range ex:ProcessStep .
+ex:workflow_invokes a owl:ObjectProperty ;
+  rdfs:domain ex:Workflow ;
+  rdfs:range ex:Workflow .
+ex:workflow_modifies a owl:ObjectProperty ;
+  rdfs:domain ex:Workflow ;
+  rdfs:range ex:Workflow .
+ex:workflow_interrupts a owl:ObjectProperty ;
+  rdfs:domain ex:Workflow ;
+  rdfs:range ex:Workflow .
+ex:step_precedes a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessStep .
+ex:step_edge_kind a owl:Class, a4:NaryRelationClass .
+ex:step_edge_kind_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:step_edge_kind ;
+  rdfs:range ex:ProcessStep .
+ex:step_edge_kind_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:step_edge_kind ;
+  rdfs:range ex:ProcessStep .
+ex:step_edge_kind_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:step_edge_kind ;
+  rdfs:range ex:ProcessEdgeKind .
+ex:step_temporal_relation a owl:Class, a4:NaryRelationClass .
+ex:step_temporal_relation_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:step_temporal_relation ;
+  rdfs:range ex:ProcessStep .
+ex:step_temporal_relation_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:step_temporal_relation ;
+  rdfs:range ex:ProcessStep .
+ex:step_temporal_relation_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:step_temporal_relation ;
+  rdfs:range ex:ProcessTemporalRelation .
+ex:step_overlay_behavior a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:OverlayBehavior .
+ex:step_modality a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:StepModality .
+ex:step_iteration_status a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:IterationSemanticsStatus .
+ex:step_triggered_by a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessTrigger .
+ex:trigger_calendar_marker a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessTrigger ;
+  rdfs:range ex:CalendarMarker .
+ex:trigger_precedes a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessTrigger ;
+  rdfs:range ex:ProcessTrigger .
+ex:trigger_temporal_relation a owl:Class, a4:NaryRelationClass .
+ex:trigger_temporal_relation_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:trigger_temporal_relation ;
+  rdfs:range ex:ProcessTrigger .
+ex:trigger_temporal_relation_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:trigger_temporal_relation ;
+  rdfs:range ex:ProcessTrigger .
+ex:trigger_temporal_relation_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:trigger_temporal_relation ;
+  rdfs:range ex:ProcessTemporalRelation .
+ex:trigger_relation_grounded_in a owl:Class, a4:NaryRelationClass .
+ex:trigger_relation_grounded_in_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:trigger_relation_grounded_in ;
+  rdfs:range ex:ProcessTrigger .
+ex:trigger_relation_grounded_in_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:trigger_relation_grounded_in ;
+  rdfs:range ex:ProcessTrigger .
+ex:trigger_relation_grounded_in_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:trigger_relation_grounded_in ;
+  rdfs:range ex:ProcessGroundingTarget .
+ex:calendar_window_start_marker a owl:ObjectProperty ;
+  rdfs:domain ex:CalendarWindow ;
+  rdfs:range ex:CalendarMarker .
+ex:calendar_window_end_marker a owl:ObjectProperty ;
+  rdfs:domain ex:CalendarWindow ;
+  rdfs:range ex:CalendarMarker .
+ex:step_during_calendar_window a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:CalendarWindow .
+ex:step_requires a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessInput .
+ex:step_produces a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessOutput .
+ex:input_kind a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessInput ;
+  rdfs:range ex:ProcessIOKind .
+ex:output_kind a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessOutput ;
+  rdfs:range ex:ProcessIOKind .
+ex:step_enters_state a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessState .
+ex:step_exits_state a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessState .
+ex:process_overlay_state_kind a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessState ;
+  rdfs:range ex:ProcessOverlayStateKind .
+ex:process_state_carrier a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessState ;
+  rdfs:range ex:ProcessStateCarrier .
+ex:step_grounded_in_document_part a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:DocumentPart .
+ex:step_grounded_in a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessGroundingTarget .
+ex:edge_grounded_in a owl:Class, a4:NaryRelationClass .
+ex:edge_grounded_in_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:edge_grounded_in ;
+  rdfs:range ex:ProcessStep .
+ex:edge_grounded_in_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:edge_grounded_in ;
+  rdfs:range ex:ProcessStep .
+ex:edge_grounded_in_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:edge_grounded_in ;
+  rdfs:range ex:ProcessGroundingTarget .
+ex:grounding_kind a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessGroundingTarget ;
+  rdfs:range ex:ProcessGroundingKind .
+ex:grounding_document_part a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessGroundingTarget ;
+  rdfs:range ex:DocumentPart .
+ex:grounding_source_fragment a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessGroundingTarget ;
+  rdfs:range ex:SourceFragment .
+ex:grounding_bridge_family a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessGroundingTarget ;
+  rdfs:range ex:BridgeFamily .
+
+ex:CorporateActionOverlayWorkflow ex:workflow_modifies ex:OrdinaryRebalanceWorkflow .
+ex:MarketDisruptionOverlayWorkflow ex:workflow_modifies ex:OrdinaryRebalanceWorkflow .
+ex:CorrectionOverlayWorkflow ex:workflow_modifies ex:OrdinaryRebalanceWorkflow .
+ex:TerminationOverlayWorkflow ex:workflow_interrupts ex:OrdinaryRebalanceWorkflow .
+ex:MethodologyChangeOverlayWorkflow ex:workflow_modifies ex:OrdinaryRebalanceWorkflow .
+ex:MethodologyChangeOverlayWorkflow ex:workflow_invokes ex:OversightRuleAmendmentOverlayWorkflow .
+ex:OversightRuleAmendmentOverlayWorkflow ex:workflow_interrupts ex:MethodologyChangeOverlayWorkflow .
+ex:CorporateActionOverlayWorkflow ex:workflow_step ex:DetectCorporateActionEvent .
+ex:CorporateActionOverlayWorkflow ex:workflow_step ex:DetermineCorporateActionAdjustmentNeed .
+ex:CorporateActionOverlayWorkflow ex:workflow_step ex:AccountForCorporateActionInCalculation .
+ex:CorporateActionOverlayWorkflow ex:workflow_step ex:EvaluateCorporateActionProcedureDeviation .
+ex:CorporateActionOverlayWorkflow ex:workflow_step ex:AnnounceCorporateActionAdjustment .
+ex:CorporateActionOverlayWorkflow ex:workflow_step ex:ImplementCorporateActionAdjustment .
+ex:DetectCorporateActionEvent ex:step_precedes ex:DetermineCorporateActionAdjustmentNeed .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_7 a ex:step_edge_kind .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_7 ex:step_edge_kind_arg_0 ex:DetectCorporateActionEvent .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_7 ex:step_edge_kind_arg_1 ex:DetermineCorporateActionAdjustmentNeed .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_7 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_8 a ex:step_temporal_relation .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_8 ex:step_temporal_relation_arg_0 ex:DetectCorporateActionEvent .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_8 ex:step_temporal_relation_arg_1 ex:DetermineCorporateActionAdjustmentNeed .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_8 ex:step_temporal_relation_arg_2 ex:Before .
+ex:DetermineCorporateActionAdjustmentNeed ex:step_precedes ex:AccountForCorporateActionInCalculation .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_10 a ex:step_edge_kind .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_10 ex:step_edge_kind_arg_0 ex:DetermineCorporateActionAdjustmentNeed .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_10 ex:step_edge_kind_arg_1 ex:AccountForCorporateActionInCalculation .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_10 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_11 a ex:step_temporal_relation .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_11 ex:step_temporal_relation_arg_0 ex:DetermineCorporateActionAdjustmentNeed .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_11 ex:step_temporal_relation_arg_1 ex:AccountForCorporateActionInCalculation .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_11 ex:step_temporal_relation_arg_2 ex:Before .
+ex:DetermineCorporateActionAdjustmentNeed ex:step_precedes ex:EvaluateCorporateActionProcedureDeviation .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_13 a ex:step_edge_kind .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_13 ex:step_edge_kind_arg_0 ex:DetermineCorporateActionAdjustmentNeed .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_13 ex:step_edge_kind_arg_1 ex:EvaluateCorporateActionProcedureDeviation .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_13 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_14 a ex:step_temporal_relation .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_14 ex:step_temporal_relation_arg_0 ex:DetermineCorporateActionAdjustmentNeed .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_14 ex:step_temporal_relation_arg_1 ex:EvaluateCorporateActionProcedureDeviation .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_14 ex:step_temporal_relation_arg_2 ex:Before .
+ex:EvaluateCorporateActionProcedureDeviation ex:step_precedes ex:AnnounceCorporateActionAdjustment .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_16 a ex:step_edge_kind .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_16 ex:step_edge_kind_arg_0 ex:EvaluateCorporateActionProcedureDeviation .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_16 ex:step_edge_kind_arg_1 ex:AnnounceCorporateActionAdjustment .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_16 ex:step_edge_kind_arg_2 ex:StructuralDependencyEdge .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_17 a ex:step_temporal_relation .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_17 ex:step_temporal_relation_arg_0 ex:EvaluateCorporateActionProcedureDeviation .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_17 ex:step_temporal_relation_arg_1 ex:AnnounceCorporateActionAdjustment .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_17 ex:step_temporal_relation_arg_2 ex:Before .
+ex:AccountForCorporateActionInCalculation ex:step_precedes ex:AnnounceCorporateActionAdjustment .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_19 a ex:step_edge_kind .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_19 ex:step_edge_kind_arg_0 ex:AccountForCorporateActionInCalculation .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_19 ex:step_edge_kind_arg_1 ex:AnnounceCorporateActionAdjustment .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_19 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_20 a ex:step_temporal_relation .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_20 ex:step_temporal_relation_arg_0 ex:AccountForCorporateActionInCalculation .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_20 ex:step_temporal_relation_arg_1 ex:AnnounceCorporateActionAdjustment .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_20 ex:step_temporal_relation_arg_2 ex:Before .
+ex:AnnounceCorporateActionAdjustment ex:step_precedes ex:ImplementCorporateActionAdjustment .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_22 a ex:step_edge_kind .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_22 ex:step_edge_kind_arg_0 ex:AnnounceCorporateActionAdjustment .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_22 ex:step_edge_kind_arg_1 ex:ImplementCorporateActionAdjustment .
+ex:FACT_corporate_action_overlay_steps_step_edge_kind_22 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_23 a ex:step_temporal_relation .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_23 ex:step_temporal_relation_arg_0 ex:AnnounceCorporateActionAdjustment .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_23 ex:step_temporal_relation_arg_1 ex:ImplementCorporateActionAdjustment .
+ex:FACT_corporate_action_overlay_steps_step_temporal_relation_23 ex:step_temporal_relation_arg_2 ex:Before .
+ex:DetectCorporateActionEvent ex:step_triggered_by ex:CorporateActionOccurrenceTrigger .
+ex:ImplementCorporateActionAdjustment ex:step_triggered_by ex:CorporateActionCumDayTrigger .
+ex:CorporateActionCumDayTrigger ex:trigger_calendar_marker ex:CumDayMarker .
+ex:CorporateActionExDayTrigger ex:trigger_calendar_marker ex:ExDayMarker .
+ex:CorporateActionCumDayTrigger ex:trigger_precedes ex:CorporateActionExDayTrigger .
+ex:FACT_corporate_action_overlay_io_and_state_trigger_temporal_relation_5 a ex:trigger_temporal_relation .
+ex:FACT_corporate_action_overlay_io_and_state_trigger_temporal_relation_5 ex:trigger_temporal_relation_arg_0 ex:CorporateActionCumDayTrigger .
+ex:FACT_corporate_action_overlay_io_and_state_trigger_temporal_relation_5 ex:trigger_temporal_relation_arg_1 ex:CorporateActionExDayTrigger .
+ex:FACT_corporate_action_overlay_io_and_state_trigger_temporal_relation_5 ex:trigger_temporal_relation_arg_2 ex:Before .
+ex:FACT_corporate_action_overlay_io_and_state_trigger_relation_grounded_in_6 a ex:trigger_relation_grounded_in .
+ex:FACT_corporate_action_overlay_io_and_state_trigger_relation_grounded_in_6 ex:trigger_relation_grounded_in_arg_0 ex:CorporateActionCumDayTrigger .
+ex:FACT_corporate_action_overlay_io_and_state_trigger_relation_grounded_in_6 ex:trigger_relation_grounded_in_arg_1 ex:CorporateActionExDayTrigger .
+ex:FACT_corporate_action_overlay_io_and_state_trigger_relation_grounded_in_6 ex:trigger_relation_grounded_in_arg_2 ex:CorporateActionCalendarGrounding .
+ex:CorporateActionImplementationWindow ex:calendar_window_start_marker ex:CumDayMarker .
+ex:CorporateActionImplementationWindow ex:calendar_window_end_marker ex:ExDayMarker .
+ex:ImplementCorporateActionAdjustment ex:step_during_calendar_window ex:CorporateActionImplementationWindow .
+ex:DetectCorporateActionEvent ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:DetermineCorporateActionAdjustmentNeed ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:AccountForCorporateActionInCalculation ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:EvaluateCorporateActionProcedureDeviation ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:AnnounceCorporateActionAdjustment ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:ImplementCorporateActionAdjustment ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:DetectCorporateActionEvent ex:step_modality ex:DescriptiveStep .
+ex:DetermineCorporateActionAdjustmentNeed ex:step_modality ex:ObligatoryStep .
+ex:AccountForCorporateActionInCalculation ex:step_modality ex:ObligatoryStep .
+ex:EvaluateCorporateActionProcedureDeviation ex:step_modality ex:PermittedStep .
+ex:AnnounceCorporateActionAdjustment ex:step_modality ex:ObligatoryStep .
+ex:ImplementCorporateActionAdjustment ex:step_modality ex:ObligatoryStep .
+ex:DetectCorporateActionEvent ex:step_iteration_status ex:NoIteration .
+ex:DetermineCorporateActionAdjustmentNeed ex:step_iteration_status ex:NoIteration .
+ex:AccountForCorporateActionInCalculation ex:step_iteration_status ex:NoIteration .
+ex:EvaluateCorporateActionProcedureDeviation ex:step_iteration_status ex:NoIteration .
+ex:AnnounceCorporateActionAdjustment ex:step_iteration_status ex:NoIteration .
+ex:ImplementCorporateActionAdjustment ex:step_iteration_status ex:NoIteration .
+ex:DetectCorporateActionEvent ex:step_requires ex:CorporateActionEventInput .
+ex:CorporateActionEventInput ex:input_kind ex:DomainConceptIO .
+ex:DetermineCorporateActionAdjustmentNeed ex:step_requires ex:AffectedIndexComponentInput .
+ex:AffectedIndexComponentInput ex:input_kind ex:DomainConceptIO .
+ex:DetermineCorporateActionAdjustmentNeed ex:step_requires ex:CorporateActionKindInput .
+ex:CorporateActionKindInput ex:input_kind ex:DomainConceptIO .
+ex:AccountForCorporateActionInCalculation ex:step_requires ex:CorporateActionPriceEffectInput .
+ex:CorporateActionPriceEffectInput ex:input_kind ex:ObservationFrameIO .
+ex:AccountForCorporateActionInCalculation ex:step_requires ex:EquityIndexMethodologyInput .
+ex:EquityIndexMethodologyInput ex:input_kind ex:DomainConceptIO .
+ex:DetermineCorporateActionAdjustmentNeed ex:step_produces ex:RequiredIndexAdjustmentOutput .
+ex:RequiredIndexAdjustmentOutput ex:output_kind ex:DomainConceptIO .
+ex:AccountForCorporateActionInCalculation ex:step_produces ex:CorporateActionCalculationAdjustmentOutput .
+ex:CorporateActionCalculationAdjustmentOutput ex:output_kind ex:DomainConceptIO .
+ex:EvaluateCorporateActionProcedureDeviation ex:step_produces ex:CorporateActionDeviationDecisionOutput .
+ex:CorporateActionDeviationDecisionOutput ex:output_kind ex:DomainConceptIO .
+ex:AnnounceCorporateActionAdjustment ex:step_produces ex:CorporateActionAdjustmentAnnouncementOutput .
+ex:CorporateActionAdjustmentAnnouncementOutput ex:output_kind ex:DomainConceptIO .
+ex:ImplementCorporateActionAdjustment ex:step_requires ex:CorporateActionNoticeInput .
+ex:CorporateActionNoticeInput ex:input_kind ex:DomainConceptIO .
+ex:ImplementCorporateActionAdjustment ex:step_produces ex:ImplementedCorporateActionAdjustmentOutput .
+ex:ImplementedCorporateActionAdjustmentOutput ex:output_kind ex:ProcessStateIO .
+ex:DetectCorporateActionEvent ex:step_enters_state ex:CorporateActionAffectedComponentState .
+ex:CorporateActionAffectedComponentState ex:process_overlay_state_kind ex:CorporateActionAffectedComponent .
+ex:CorporateActionAffectedComponentState ex:process_state_carrier ex:AffectedComponentCarrier .
+ex:ImplementCorporateActionAdjustment ex:step_exits_state ex:CorporateActionAffectedComponentState .
+ex:ImplementCorporateActionAdjustment ex:step_enters_state ex:CorporateActionAdjustedComponentState .
+ex:CorporateActionAdjustedComponentState ex:process_overlay_state_kind ex:CorporateActionAdjustedComponent .
+ex:CorporateActionAdjustedComponentState ex:process_state_carrier ex:AdjustedComponentCarrier .
+ex:MarketDisruptionOverlayWorkflow ex:workflow_step ex:DetectMarketDisruptionCondition .
+ex:MarketDisruptionOverlayWorkflow ex:workflow_step ex:ApplyDisruptionPolicyArrangements .
+ex:MarketDisruptionOverlayWorkflow ex:workflow_step ex:DetermineIndexUnderDisruptedConditions .
+ex:DetectMarketDisruptionCondition ex:step_precedes ex:ApplyDisruptionPolicyArrangements .
+ex:FACT_market_disruption_overlay_step_edge_kind_4 a ex:step_edge_kind .
+ex:FACT_market_disruption_overlay_step_edge_kind_4 ex:step_edge_kind_arg_0 ex:DetectMarketDisruptionCondition .
+ex:FACT_market_disruption_overlay_step_edge_kind_4 ex:step_edge_kind_arg_1 ex:ApplyDisruptionPolicyArrangements .
+ex:FACT_market_disruption_overlay_step_edge_kind_4 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_market_disruption_overlay_step_temporal_relation_5 a ex:step_temporal_relation .
+ex:FACT_market_disruption_overlay_step_temporal_relation_5 ex:step_temporal_relation_arg_0 ex:DetectMarketDisruptionCondition .
+ex:FACT_market_disruption_overlay_step_temporal_relation_5 ex:step_temporal_relation_arg_1 ex:ApplyDisruptionPolicyArrangements .
+ex:FACT_market_disruption_overlay_step_temporal_relation_5 ex:step_temporal_relation_arg_2 ex:Before .
+ex:ApplyDisruptionPolicyArrangements ex:step_precedes ex:DetermineIndexUnderDisruptedConditions .
+ex:FACT_market_disruption_overlay_step_edge_kind_7 a ex:step_edge_kind .
+ex:FACT_market_disruption_overlay_step_edge_kind_7 ex:step_edge_kind_arg_0 ex:ApplyDisruptionPolicyArrangements .
+ex:FACT_market_disruption_overlay_step_edge_kind_7 ex:step_edge_kind_arg_1 ex:DetermineIndexUnderDisruptedConditions .
+ex:FACT_market_disruption_overlay_step_edge_kind_7 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_market_disruption_overlay_step_temporal_relation_8 a ex:step_temporal_relation .
+ex:FACT_market_disruption_overlay_step_temporal_relation_8 ex:step_temporal_relation_arg_0 ex:ApplyDisruptionPolicyArrangements .
+ex:FACT_market_disruption_overlay_step_temporal_relation_8 ex:step_temporal_relation_arg_1 ex:DetermineIndexUnderDisruptedConditions .
+ex:FACT_market_disruption_overlay_step_temporal_relation_8 ex:step_temporal_relation_arg_2 ex:Before .
+ex:DetectMarketDisruptionCondition ex:step_triggered_by ex:MarketStressOrDisruptionTrigger .
+ex:DetectMarketDisruptionCondition ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:ApplyDisruptionPolicyArrangements ex:step_overlay_behavior ex:Fallback .
+ex:DetermineIndexUnderDisruptedConditions ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:DetectMarketDisruptionCondition ex:step_modality ex:DescriptiveStep .
+ex:ApplyDisruptionPolicyArrangements ex:step_modality ex:DescriptiveStep .
+ex:DetermineIndexUnderDisruptedConditions ex:step_modality ex:DescriptiveStep .
+ex:DetectMarketDisruptionCondition ex:step_iteration_status ex:NoIteration .
+ex:ApplyDisruptionPolicyArrangements ex:step_iteration_status ex:NoIteration .
+ex:DetermineIndexUnderDisruptedConditions ex:step_iteration_status ex:NoIteration .
+ex:ApplyDisruptionPolicyArrangements ex:step_requires ex:DisruptionPolicyInput .
+ex:DisruptionPolicyInput ex:input_kind ex:DomainConceptIO .
+ex:DetermineIndexUnderDisruptedConditions ex:step_requires ex:AffectedPriceInput .
+ex:AffectedPriceInput ex:input_kind ex:ObservationFrameIO .
+ex:ApplyDisruptionPolicyArrangements ex:step_produces ex:DisruptionArrangementOutput .
+ex:DisruptionArrangementOutput ex:output_kind ex:DomainConceptIO .
+ex:DetermineIndexUnderDisruptedConditions ex:step_produces ex:DisruptedDeterminationOutput .
+ex:DisruptedDeterminationOutput ex:output_kind ex:ProcessStateIO .
+ex:DetermineIndexUnderDisruptedConditions ex:step_enters_state ex:DisruptedDeterminationState .
+ex:DisruptedDeterminationState ex:process_overlay_state_kind ex:DisruptedDetermination .
+ex:DisruptedDeterminationState ex:process_state_carrier ex:DeterminationCarrier .
+ex:CorrectionOverlayWorkflow ex:workflow_step ex:IdentifyDeterminationError .
+ex:CorrectionOverlayWorkflow ex:workflow_step ex:DetermineCorrectionMeasures .
+ex:CorrectionOverlayWorkflow ex:workflow_step ex:CorrectIdentifiedError .
+ex:IdentifyDeterminationError ex:step_precedes ex:DetermineCorrectionMeasures .
+ex:FACT_correction_overlay_step_edge_kind_4 a ex:step_edge_kind .
+ex:FACT_correction_overlay_step_edge_kind_4 ex:step_edge_kind_arg_0 ex:IdentifyDeterminationError .
+ex:FACT_correction_overlay_step_edge_kind_4 ex:step_edge_kind_arg_1 ex:DetermineCorrectionMeasures .
+ex:FACT_correction_overlay_step_edge_kind_4 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_correction_overlay_step_temporal_relation_5 a ex:step_temporal_relation .
+ex:FACT_correction_overlay_step_temporal_relation_5 ex:step_temporal_relation_arg_0 ex:IdentifyDeterminationError .
+ex:FACT_correction_overlay_step_temporal_relation_5 ex:step_temporal_relation_arg_1 ex:DetermineCorrectionMeasures .
+ex:FACT_correction_overlay_step_temporal_relation_5 ex:step_temporal_relation_arg_2 ex:Before .
+ex:DetermineCorrectionMeasures ex:step_precedes ex:CorrectIdentifiedError .
+ex:FACT_correction_overlay_step_edge_kind_7 a ex:step_edge_kind .
+ex:FACT_correction_overlay_step_edge_kind_7 ex:step_edge_kind_arg_0 ex:DetermineCorrectionMeasures .
+ex:FACT_correction_overlay_step_edge_kind_7 ex:step_edge_kind_arg_1 ex:CorrectIdentifiedError .
+ex:FACT_correction_overlay_step_edge_kind_7 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_correction_overlay_step_temporal_relation_8 a ex:step_temporal_relation .
+ex:FACT_correction_overlay_step_temporal_relation_8 ex:step_temporal_relation_arg_0 ex:DetermineCorrectionMeasures .
+ex:FACT_correction_overlay_step_temporal_relation_8 ex:step_temporal_relation_arg_1 ex:CorrectIdentifiedError .
+ex:FACT_correction_overlay_step_temporal_relation_8 ex:step_temporal_relation_arg_2 ex:Before .
+ex:IdentifyDeterminationError ex:step_triggered_by ex:IdentifiedErrorTrigger .
+ex:CorrectIdentifiedError ex:step_triggered_by ex:ReasonablePeriodTrigger .
+ex:ReasonablePeriodTrigger ex:trigger_calendar_marker ex:ReasonablePeriodMarker .
+ex:IdentifyDeterminationError ex:step_overlay_behavior ex:InterruptAndResume .
+ex:DetermineCorrectionMeasures ex:step_overlay_behavior ex:InterruptAndResume .
+ex:CorrectIdentifiedError ex:step_overlay_behavior ex:InterruptAndResume .
+ex:IdentifyDeterminationError ex:step_modality ex:DescriptiveStep .
+ex:DetermineCorrectionMeasures ex:step_modality ex:DescriptiveStep .
+ex:CorrectIdentifiedError ex:step_modality ex:DescriptiveStep .
+ex:IdentifyDeterminationError ex:step_iteration_status ex:NoIteration .
+ex:DetermineCorrectionMeasures ex:step_iteration_status ex:NoIteration .
+ex:CorrectIdentifiedError ex:step_iteration_status ex:NoIteration .
+ex:IdentifyDeterminationError ex:step_requires ex:DeterminationErrorInput .
+ex:DeterminationErrorInput ex:input_kind ex:DomainConceptIO .
+ex:DetermineCorrectionMeasures ex:step_requires ex:CorrectionPolicyInput .
+ex:CorrectionPolicyInput ex:input_kind ex:DomainConceptIO .
+ex:DetermineCorrectionMeasures ex:step_produces ex:CorrectionMeasuresOutput .
+ex:CorrectionMeasuresOutput ex:output_kind ex:DomainConceptIO .
+ex:CorrectIdentifiedError ex:step_produces ex:CorrectedErrorOutput .
+ex:CorrectedErrorOutput ex:output_kind ex:ProcessStateIO .
+ex:IdentifyDeterminationError ex:step_enters_state ex:CorrectionPendingState .
+ex:CorrectionPendingState ex:process_overlay_state_kind ex:CorrectionPending .
+ex:CorrectionPendingState ex:process_state_carrier ex:ErrorCarrier .
+ex:CorrectIdentifiedError ex:step_exits_state ex:CorrectionPendingState .
+ex:CorrectIdentifiedError ex:step_enters_state ex:CorrectionResolvedState .
+ex:CorrectionResolvedState ex:process_overlay_state_kind ex:CorrectionResolved .
+ex:CorrectionResolvedState ex:process_state_carrier ex:ErrorCarrier .
+ex:TerminationOverlayWorkflow ex:workflow_step ex:DetectZeroOrNegativeAdjustedReturnIndexLevel .
+ex:TerminationOverlayWorkflow ex:workflow_step ex:TerminateAffectedIndex .
+ex:TerminationOverlayWorkflow ex:workflow_step ex:AnnounceIndexTermination .
+ex:DetectZeroOrNegativeAdjustedReturnIndexLevel ex:step_precedes ex:TerminateAffectedIndex .
+ex:FACT_termination_overlay_step_edge_kind_4 a ex:step_edge_kind .
+ex:FACT_termination_overlay_step_edge_kind_4 ex:step_edge_kind_arg_0 ex:DetectZeroOrNegativeAdjustedReturnIndexLevel .
+ex:FACT_termination_overlay_step_edge_kind_4 ex:step_edge_kind_arg_1 ex:TerminateAffectedIndex .
+ex:FACT_termination_overlay_step_edge_kind_4 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_termination_overlay_step_temporal_relation_5 a ex:step_temporal_relation .
+ex:FACT_termination_overlay_step_temporal_relation_5 ex:step_temporal_relation_arg_0 ex:DetectZeroOrNegativeAdjustedReturnIndexLevel .
+ex:FACT_termination_overlay_step_temporal_relation_5 ex:step_temporal_relation_arg_1 ex:TerminateAffectedIndex .
+ex:FACT_termination_overlay_step_temporal_relation_5 ex:step_temporal_relation_arg_2 ex:Before .
+ex:TerminateAffectedIndex ex:step_precedes ex:AnnounceIndexTermination .
+ex:FACT_termination_overlay_step_edge_kind_7 a ex:step_edge_kind .
+ex:FACT_termination_overlay_step_edge_kind_7 ex:step_edge_kind_arg_0 ex:TerminateAffectedIndex .
+ex:FACT_termination_overlay_step_edge_kind_7 ex:step_edge_kind_arg_1 ex:AnnounceIndexTermination .
+ex:FACT_termination_overlay_step_edge_kind_7 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_termination_overlay_step_temporal_relation_8 a ex:step_temporal_relation .
+ex:FACT_termination_overlay_step_temporal_relation_8 ex:step_temporal_relation_arg_0 ex:TerminateAffectedIndex .
+ex:FACT_termination_overlay_step_temporal_relation_8 ex:step_temporal_relation_arg_1 ex:AnnounceIndexTermination .
+ex:FACT_termination_overlay_step_temporal_relation_8 ex:step_temporal_relation_arg_2 ex:Before .
+ex:DetectZeroOrNegativeAdjustedReturnIndexLevel ex:step_triggered_by ex:ZeroOrNegativeAdjustedReturnIndexLevelTrigger .
+ex:DetectZeroOrNegativeAdjustedReturnIndexLevel ex:step_overlay_behavior ex:Preempt .
+ex:TerminateAffectedIndex ex:step_overlay_behavior ex:Preempt .
+ex:AnnounceIndexTermination ex:step_overlay_behavior ex:Preempt .
+ex:DetectZeroOrNegativeAdjustedReturnIndexLevel ex:step_modality ex:DescriptiveStep .
+ex:TerminateAffectedIndex ex:step_modality ex:ObligatoryStep .
+ex:AnnounceIndexTermination ex:step_modality ex:ObligatoryStep .
+ex:DetectZeroOrNegativeAdjustedReturnIndexLevel ex:step_iteration_status ex:NoIteration .
+ex:TerminateAffectedIndex ex:step_iteration_status ex:NoIteration .
+ex:AnnounceIndexTermination ex:step_iteration_status ex:NoIteration .
+ex:DetectZeroOrNegativeAdjustedReturnIndexLevel ex:step_requires ex:AdjustedReturnIndexCalculationInput .
+ex:AdjustedReturnIndexCalculationInput ex:input_kind ex:ObservationFrameIO .
+ex:TerminateAffectedIndex ex:step_exits_state ex:ActiveIndexState .
+ex:ActiveIndexState ex:process_overlay_state_kind ex:ActiveIndex .
+ex:ActiveIndexState ex:process_state_carrier ex:IndexCarrier .
+ex:TerminateAffectedIndex ex:step_enters_state ex:TerminatedIndexState .
+ex:TerminatedIndexState ex:process_overlay_state_kind ex:TerminatedIndex .
+ex:TerminatedIndexState ex:process_state_carrier ex:IndexCarrier .
+ex:TerminateAffectedIndex ex:step_produces ex:TerminatedIndexOutput .
+ex:TerminatedIndexOutput ex:output_kind ex:ProcessStateIO .
+ex:AnnounceIndexTermination ex:step_produces ex:TerminationAnnouncementOutput .
+ex:TerminationAnnouncementOutput ex:output_kind ex:DomainConceptIO .
+ex:MethodologyChangeOverlayWorkflow ex:workflow_step ex:ReviewMethodologyAtLeastAnnually .
+ex:MethodologyChangeOverlayWorkflow ex:workflow_step ex:IdentifyMethodologyChangeNeed .
+ex:MethodologyChangeOverlayWorkflow ex:workflow_step ex:MakeMethodologyChangeInPolicy .
+ex:MethodologyChangeOverlayWorkflow ex:workflow_step ex:AnnounceMethodologyChange .
+ex:MethodologyChangeOverlayWorkflow ex:workflow_step ex:UpdateGuidelineAmendmentDate .
+ex:MethodologyChangeOverlayWorkflow ex:workflow_step ex:EnsureConsistentCalculationMethodAfterChange .
+ex:ReviewMethodologyAtLeastAnnually ex:step_precedes ex:IdentifyMethodologyChangeNeed .
+ex:FACT_methodology_change_overlay_step_edge_kind_7 a ex:step_edge_kind .
+ex:FACT_methodology_change_overlay_step_edge_kind_7 ex:step_edge_kind_arg_0 ex:ReviewMethodologyAtLeastAnnually .
+ex:FACT_methodology_change_overlay_step_edge_kind_7 ex:step_edge_kind_arg_1 ex:IdentifyMethodologyChangeNeed .
+ex:FACT_methodology_change_overlay_step_edge_kind_7 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_methodology_change_overlay_step_temporal_relation_8 a ex:step_temporal_relation .
+ex:FACT_methodology_change_overlay_step_temporal_relation_8 ex:step_temporal_relation_arg_0 ex:ReviewMethodologyAtLeastAnnually .
+ex:FACT_methodology_change_overlay_step_temporal_relation_8 ex:step_temporal_relation_arg_1 ex:IdentifyMethodologyChangeNeed .
+ex:FACT_methodology_change_overlay_step_temporal_relation_8 ex:step_temporal_relation_arg_2 ex:Before .
+ex:IdentifyMethodologyChangeNeed ex:step_precedes ex:MakeMethodologyChangeInPolicy .
+ex:FACT_methodology_change_overlay_step_edge_kind_10 a ex:step_edge_kind .
+ex:FACT_methodology_change_overlay_step_edge_kind_10 ex:step_edge_kind_arg_0 ex:IdentifyMethodologyChangeNeed .
+ex:FACT_methodology_change_overlay_step_edge_kind_10 ex:step_edge_kind_arg_1 ex:MakeMethodologyChangeInPolicy .
+ex:FACT_methodology_change_overlay_step_edge_kind_10 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_methodology_change_overlay_step_temporal_relation_11 a ex:step_temporal_relation .
+ex:FACT_methodology_change_overlay_step_temporal_relation_11 ex:step_temporal_relation_arg_0 ex:IdentifyMethodologyChangeNeed .
+ex:FACT_methodology_change_overlay_step_temporal_relation_11 ex:step_temporal_relation_arg_1 ex:MakeMethodologyChangeInPolicy .
+ex:FACT_methodology_change_overlay_step_temporal_relation_11 ex:step_temporal_relation_arg_2 ex:Before .
+ex:MakeMethodologyChangeInPolicy ex:step_precedes ex:AnnounceMethodologyChange .
+ex:FACT_methodology_change_overlay_step_edge_kind_13 a ex:step_edge_kind .
+ex:FACT_methodology_change_overlay_step_edge_kind_13 ex:step_edge_kind_arg_0 ex:MakeMethodologyChangeInPolicy .
+ex:FACT_methodology_change_overlay_step_edge_kind_13 ex:step_edge_kind_arg_1 ex:AnnounceMethodologyChange .
+ex:FACT_methodology_change_overlay_step_edge_kind_13 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_methodology_change_overlay_step_temporal_relation_14 a ex:step_temporal_relation .
+ex:FACT_methodology_change_overlay_step_temporal_relation_14 ex:step_temporal_relation_arg_0 ex:MakeMethodologyChangeInPolicy .
+ex:FACT_methodology_change_overlay_step_temporal_relation_14 ex:step_temporal_relation_arg_1 ex:AnnounceMethodologyChange .
+ex:FACT_methodology_change_overlay_step_temporal_relation_14 ex:step_temporal_relation_arg_2 ex:Before .
+ex:MakeMethodologyChangeInPolicy ex:step_precedes ex:UpdateGuidelineAmendmentDate .
+ex:FACT_methodology_change_overlay_step_edge_kind_16 a ex:step_edge_kind .
+ex:FACT_methodology_change_overlay_step_edge_kind_16 ex:step_edge_kind_arg_0 ex:MakeMethodologyChangeInPolicy .
+ex:FACT_methodology_change_overlay_step_edge_kind_16 ex:step_edge_kind_arg_1 ex:UpdateGuidelineAmendmentDate .
+ex:FACT_methodology_change_overlay_step_edge_kind_16 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_methodology_change_overlay_step_temporal_relation_17 a ex:step_temporal_relation .
+ex:FACT_methodology_change_overlay_step_temporal_relation_17 ex:step_temporal_relation_arg_0 ex:MakeMethodologyChangeInPolicy .
+ex:FACT_methodology_change_overlay_step_temporal_relation_17 ex:step_temporal_relation_arg_1 ex:UpdateGuidelineAmendmentDate .
+ex:FACT_methodology_change_overlay_step_temporal_relation_17 ex:step_temporal_relation_arg_2 ex:Before .
+ex:MakeMethodologyChangeInPolicy ex:step_precedes ex:EnsureConsistentCalculationMethodAfterChange .
+ex:FACT_methodology_change_overlay_step_edge_kind_19 a ex:step_edge_kind .
+ex:FACT_methodology_change_overlay_step_edge_kind_19 ex:step_edge_kind_arg_0 ex:MakeMethodologyChangeInPolicy .
+ex:FACT_methodology_change_overlay_step_edge_kind_19 ex:step_edge_kind_arg_1 ex:EnsureConsistentCalculationMethodAfterChange .
+ex:FACT_methodology_change_overlay_step_edge_kind_19 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_methodology_change_overlay_step_temporal_relation_20 a ex:step_temporal_relation .
+ex:FACT_methodology_change_overlay_step_temporal_relation_20 ex:step_temporal_relation_arg_0 ex:MakeMethodologyChangeInPolicy .
+ex:FACT_methodology_change_overlay_step_temporal_relation_20 ex:step_temporal_relation_arg_1 ex:EnsureConsistentCalculationMethodAfterChange .
+ex:FACT_methodology_change_overlay_step_temporal_relation_20 ex:step_temporal_relation_arg_2 ex:Before .
+ex:ReviewMethodologyAtLeastAnnually ex:step_triggered_by ex:MethodologyReviewTrigger .
+ex:MethodologyReviewTrigger ex:trigger_calendar_marker ex:AnnualReviewMarker .
+ex:IdentifyMethodologyChangeNeed ex:step_triggered_by ex:MethodologyChangeNeedTrigger .
+ex:ReviewMethodologyAtLeastAnnually ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:IdentifyMethodologyChangeNeed ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:MakeMethodologyChangeInPolicy ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:AnnounceMethodologyChange ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:UpdateGuidelineAmendmentDate ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:EnsureConsistentCalculationMethodAfterChange ex:step_overlay_behavior ex:ModifyAndContinue .
+ex:ReviewMethodologyAtLeastAnnually ex:step_modality ex:DescriptiveStep .
+ex:IdentifyMethodologyChangeNeed ex:step_modality ex:DescriptiveStep .
+ex:MakeMethodologyChangeInPolicy ex:step_modality ex:ObligatoryStep .
+ex:AnnounceMethodologyChange ex:step_modality ex:ObligatoryStep .
+ex:UpdateGuidelineAmendmentDate ex:step_modality ex:DescriptiveStep .
+ex:EnsureConsistentCalculationMethodAfterChange ex:step_modality ex:ObligatoryStep .
+ex:ReviewMethodologyAtLeastAnnually ex:step_iteration_status ex:NoIteration .
+ex:IdentifyMethodologyChangeNeed ex:step_iteration_status ex:NoIteration .
+ex:MakeMethodologyChangeInPolicy ex:step_iteration_status ex:NoIteration .
+ex:AnnounceMethodologyChange ex:step_iteration_status ex:NoIteration .
+ex:UpdateGuidelineAmendmentDate ex:step_iteration_status ex:NoIteration .
+ex:EnsureConsistentCalculationMethodAfterChange ex:step_iteration_status ex:NoIteration .
+ex:ReviewMethodologyAtLeastAnnually ex:step_requires ex:MethodologyReviewInput .
+ex:MethodologyReviewInput ex:input_kind ex:DomainConceptIO .
+ex:MakeMethodologyChangeInPolicy ex:step_requires ex:MethodologyPolicyInput .
+ex:MethodologyPolicyInput ex:input_kind ex:DomainConceptIO .
+ex:MakeMethodologyChangeInPolicy ex:step_produces ex:MethodologyChangeOutput .
+ex:MethodologyChangeOutput ex:output_kind ex:DomainConceptIO .
+ex:AnnounceMethodologyChange ex:step_produces ex:MethodologyChangeAnnouncementOutput .
+ex:MethodologyChangeAnnouncementOutput ex:output_kind ex:DomainConceptIO .
+ex:UpdateGuidelineAmendmentDate ex:step_produces ex:GuidelineAmendmentDateOutput .
+ex:GuidelineAmendmentDateOutput ex:output_kind ex:DomainConceptIO .
+ex:EnsureConsistentCalculationMethodAfterChange ex:step_produces ex:ConsistentCalculationMethodOutput .
+ex:ConsistentCalculationMethodOutput ex:output_kind ex:DomainConceptIO .
+ex:ReviewMethodologyAtLeastAnnually ex:step_enters_state ex:MethodologyUnderReviewState .
+ex:MethodologyUnderReviewState ex:process_overlay_state_kind ex:MethodologyUnderReview .
+ex:MethodologyUnderReviewState ex:process_state_carrier ex:MethodologyCarrier .
+ex:MakeMethodologyChangeInPolicy ex:step_exits_state ex:MethodologyUnderReviewState .
+ex:MakeMethodologyChangeInPolicy ex:step_enters_state ex:MethodologyChangedState .
+ex:MethodologyChangedState ex:process_overlay_state_kind ex:MethodologyChanged .
+ex:MethodologyChangedState ex:process_state_carrier ex:MethodologyCarrier .
+ex:OversightRuleAmendmentOverlayWorkflow ex:workflow_step ex:ProposeRuleOrGuidelineAmendment .
+ex:OversightRuleAmendmentOverlayWorkflow ex:workflow_step ex:SubmitAmendmentForPriorApproval .
+ex:OversightRuleAmendmentOverlayWorkflow ex:workflow_step ex:OversightCommitteePriorApprovalDecision .
+ex:OversightRuleAmendmentOverlayWorkflow ex:workflow_step ex:MakeApprovedRuleOrGuidelineAmendment .
+ex:ProposeRuleOrGuidelineAmendment ex:step_precedes ex:SubmitAmendmentForPriorApproval .
+ex:FACT_oversight_rule_amendment_overlay_step_edge_kind_5 a ex:step_edge_kind .
+ex:FACT_oversight_rule_amendment_overlay_step_edge_kind_5 ex:step_edge_kind_arg_0 ex:ProposeRuleOrGuidelineAmendment .
+ex:FACT_oversight_rule_amendment_overlay_step_edge_kind_5 ex:step_edge_kind_arg_1 ex:SubmitAmendmentForPriorApproval .
+ex:FACT_oversight_rule_amendment_overlay_step_edge_kind_5 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_oversight_rule_amendment_overlay_step_temporal_relation_6 a ex:step_temporal_relation .
+ex:FACT_oversight_rule_amendment_overlay_step_temporal_relation_6 ex:step_temporal_relation_arg_0 ex:ProposeRuleOrGuidelineAmendment .
+ex:FACT_oversight_rule_amendment_overlay_step_temporal_relation_6 ex:step_temporal_relation_arg_1 ex:SubmitAmendmentForPriorApproval .
+ex:FACT_oversight_rule_amendment_overlay_step_temporal_relation_6 ex:step_temporal_relation_arg_2 ex:Before .
+ex:SubmitAmendmentForPriorApproval ex:step_precedes ex:OversightCommitteePriorApprovalDecision .
+ex:FACT_oversight_rule_amendment_overlay_step_edge_kind_8 a ex:step_edge_kind .
+ex:FACT_oversight_rule_amendment_overlay_step_edge_kind_8 ex:step_edge_kind_arg_0 ex:SubmitAmendmentForPriorApproval .
+ex:FACT_oversight_rule_amendment_overlay_step_edge_kind_8 ex:step_edge_kind_arg_1 ex:OversightCommitteePriorApprovalDecision .
+ex:FACT_oversight_rule_amendment_overlay_step_edge_kind_8 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_oversight_rule_amendment_overlay_step_temporal_relation_9 a ex:step_temporal_relation .
+ex:FACT_oversight_rule_amendment_overlay_step_temporal_relation_9 ex:step_temporal_relation_arg_0 ex:SubmitAmendmentForPriorApproval .
+ex:FACT_oversight_rule_amendment_overlay_step_temporal_relation_9 ex:step_temporal_relation_arg_1 ex:OversightCommitteePriorApprovalDecision .
+ex:FACT_oversight_rule_amendment_overlay_step_temporal_relation_9 ex:step_temporal_relation_arg_2 ex:Before .
+ex:OversightCommitteePriorApprovalDecision ex:step_precedes ex:MakeApprovedRuleOrGuidelineAmendment .
+ex:FACT_oversight_rule_amendment_overlay_step_edge_kind_11 a ex:step_edge_kind .
+ex:FACT_oversight_rule_amendment_overlay_step_edge_kind_11 ex:step_edge_kind_arg_0 ex:OversightCommitteePriorApprovalDecision .
+ex:FACT_oversight_rule_amendment_overlay_step_edge_kind_11 ex:step_edge_kind_arg_1 ex:MakeApprovedRuleOrGuidelineAmendment .
+ex:FACT_oversight_rule_amendment_overlay_step_edge_kind_11 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_oversight_rule_amendment_overlay_step_temporal_relation_12 a ex:step_temporal_relation .
+ex:FACT_oversight_rule_amendment_overlay_step_temporal_relation_12 ex:step_temporal_relation_arg_0 ex:OversightCommitteePriorApprovalDecision .
+ex:FACT_oversight_rule_amendment_overlay_step_temporal_relation_12 ex:step_temporal_relation_arg_1 ex:MakeApprovedRuleOrGuidelineAmendment .
+ex:FACT_oversight_rule_amendment_overlay_step_temporal_relation_12 ex:step_temporal_relation_arg_2 ex:Before .
+ex:ProposeRuleOrGuidelineAmendment ex:step_triggered_by ex:ProposedRuleAmendmentTrigger .
+ex:ProposeRuleOrGuidelineAmendment ex:step_overlay_behavior ex:InterruptAndResume .
+ex:SubmitAmendmentForPriorApproval ex:step_overlay_behavior ex:InterruptAndResume .
+ex:OversightCommitteePriorApprovalDecision ex:step_overlay_behavior ex:InterruptAndResume .
+ex:MakeApprovedRuleOrGuidelineAmendment ex:step_overlay_behavior ex:InterruptAndResume .
+ex:ProposeRuleOrGuidelineAmendment ex:step_modality ex:DescriptiveStep .
+ex:SubmitAmendmentForPriorApproval ex:step_modality ex:ObligatoryStep .
+ex:OversightCommitteePriorApprovalDecision ex:step_modality ex:DescriptiveStep .
+ex:MakeApprovedRuleOrGuidelineAmendment ex:step_modality ex:ObligatoryStep .
+ex:ProposeRuleOrGuidelineAmendment ex:step_iteration_status ex:NoIteration .
+ex:SubmitAmendmentForPriorApproval ex:step_iteration_status ex:NoIteration .
+ex:OversightCommitteePriorApprovalDecision ex:step_iteration_status ex:NoIteration .
+ex:MakeApprovedRuleOrGuidelineAmendment ex:step_iteration_status ex:NoIteration .
+ex:ProposeRuleOrGuidelineAmendment ex:step_requires ex:ProposedAmendmentInput .
+ex:ProposedAmendmentInput ex:input_kind ex:DomainConceptIO .
+ex:SubmitAmendmentForPriorApproval ex:step_requires ex:OversightCommitteeInput .
+ex:OversightCommitteeInput ex:input_kind ex:DomainConceptIO .
+ex:OversightCommitteePriorApprovalDecision ex:step_produces ex:PriorApprovalOutput .
+ex:PriorApprovalOutput ex:output_kind ex:ProcessStateIO .
+ex:MakeApprovedRuleOrGuidelineAmendment ex:step_produces ex:ApprovedRuleAmendmentOutput .
+ex:ApprovedRuleAmendmentOutput ex:output_kind ex:ProcessStateIO .
+ex:SubmitAmendmentForPriorApproval ex:step_enters_state ex:AmendmentPendingApprovalState .
+ex:AmendmentPendingApprovalState ex:process_overlay_state_kind ex:AmendmentPendingApproval .
+ex:AmendmentPendingApprovalState ex:process_state_carrier ex:AmendmentCarrier .
+ex:MakeApprovedRuleOrGuidelineAmendment ex:step_exits_state ex:AmendmentPendingApprovalState .
+ex:MakeApprovedRuleOrGuidelineAmendment ex:step_enters_state ex:AmendmentApprovedState .
+ex:AmendmentApprovedState ex:process_overlay_state_kind ex:AmendmentApproved .
+ex:AmendmentApprovedState ex:process_state_carrier ex:AmendmentCarrier .
+ex:CorporateActionGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:CorporateActionGrounding ex:grounding_document_part ex:Section4_4 .
+ex:CorporateActionGrounding ex:grounding_document_part ex:Section4_5 .
+ex:CorporateActionCalendarGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:CorporateActionCalendarGrounding ex:grounding_document_part ex:Section4_5 .
+ex:AnnouncementBridgeGrounding ex:grounding_kind ex:BridgeDecisionGrounding .
+ex:AnnouncementBridgeGrounding ex:grounding_bridge_family ex:AnnouncementSectionFamily .
+ex:AnnouncementBridgeGrounding ex:grounding_bridge_family ex:NewsAnnouncementsUrlFamily .
+ex:MarketDisruptionGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:MarketDisruptionGrounding ex:grounding_document_part ex:Section4_7 .
+ex:CorrectionGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:CorrectionGrounding ex:grounding_document_part ex:Section4_6 .
+ex:CorrectionCalendarGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:CorrectionCalendarGrounding ex:grounding_document_part ex:Section4_6 .
+ex:TerminationGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:TerminationGrounding ex:grounding_document_part ex:Section4_2 .
+ex:MethodologyChangeGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:MethodologyChangeGrounding ex:grounding_document_part ex:Section5_2 .
+ex:MethodologyChangeGrounding ex:grounding_document_part ex:Section5_3 .
+ex:MethodologyReviewCalendarGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:MethodologyReviewCalendarGrounding ex:grounding_document_part ex:Section5_2 .
+ex:OversightGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:OversightGrounding ex:grounding_document_part ex:Section5_5 .
+ex:OversightGrounding ex:grounding_source_fragment ex:DefinitionN25 .
+ex:DetectCorporateActionEvent ex:step_grounded_in ex:CorporateActionGrounding .
+ex:DetermineCorporateActionAdjustmentNeed ex:step_grounded_in ex:CorporateActionGrounding .
+ex:AccountForCorporateActionInCalculation ex:step_grounded_in ex:CorporateActionGrounding .
+ex:EvaluateCorporateActionProcedureDeviation ex:step_grounded_in ex:CorporateActionGrounding .
+ex:AnnounceCorporateActionAdjustment ex:step_grounded_in ex:CorporateActionGrounding .
+ex:AnnounceCorporateActionAdjustment ex:step_grounded_in ex:AnnouncementBridgeGrounding .
+ex:ImplementCorporateActionAdjustment ex:step_grounded_in ex:CorporateActionGrounding .
+ex:ImplementCorporateActionAdjustment ex:step_grounded_in ex:CorporateActionCalendarGrounding .
+ex:DetectMarketDisruptionCondition ex:step_grounded_in ex:MarketDisruptionGrounding .
+ex:ApplyDisruptionPolicyArrangements ex:step_grounded_in ex:MarketDisruptionGrounding .
+ex:DetermineIndexUnderDisruptedConditions ex:step_grounded_in ex:MarketDisruptionGrounding .
+ex:IdentifyDeterminationError ex:step_grounded_in ex:CorrectionGrounding .
+ex:DetermineCorrectionMeasures ex:step_grounded_in ex:CorrectionGrounding .
+ex:CorrectIdentifiedError ex:step_grounded_in ex:CorrectionGrounding .
+ex:CorrectIdentifiedError ex:step_grounded_in ex:CorrectionCalendarGrounding .
+ex:DetectZeroOrNegativeAdjustedReturnIndexLevel ex:step_grounded_in ex:TerminationGrounding .
+ex:TerminateAffectedIndex ex:step_grounded_in ex:TerminationGrounding .
+ex:AnnounceIndexTermination ex:step_grounded_in ex:TerminationGrounding .
+ex:AnnounceIndexTermination ex:step_grounded_in ex:AnnouncementBridgeGrounding .
+ex:ReviewMethodologyAtLeastAnnually ex:step_grounded_in ex:MethodologyChangeGrounding .
+ex:ReviewMethodologyAtLeastAnnually ex:step_grounded_in ex:MethodologyReviewCalendarGrounding .
+ex:IdentifyMethodologyChangeNeed ex:step_grounded_in ex:MethodologyChangeGrounding .
+ex:MakeMethodologyChangeInPolicy ex:step_grounded_in ex:MethodologyChangeGrounding .
+ex:AnnounceMethodologyChange ex:step_grounded_in ex:MethodologyChangeGrounding .
+ex:AnnounceMethodologyChange ex:step_grounded_in ex:AnnouncementBridgeGrounding .
+ex:UpdateGuidelineAmendmentDate ex:step_grounded_in ex:MethodologyChangeGrounding .
+ex:EnsureConsistentCalculationMethodAfterChange ex:step_grounded_in ex:MethodologyChangeGrounding .
+ex:ProposeRuleOrGuidelineAmendment ex:step_grounded_in ex:OversightGrounding .
+ex:SubmitAmendmentForPriorApproval ex:step_grounded_in ex:OversightGrounding .
+ex:OversightCommitteePriorApprovalDecision ex:step_grounded_in ex:OversightGrounding .
+ex:MakeApprovedRuleOrGuidelineAmendment ex:step_grounded_in ex:OversightGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_0 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_0 ex:edge_grounded_in_arg_0 ex:DetectCorporateActionEvent .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_0 ex:edge_grounded_in_arg_1 ex:DetermineCorporateActionAdjustmentNeed .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_0 ex:edge_grounded_in_arg_2 ex:CorporateActionGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_1 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_1 ex:edge_grounded_in_arg_0 ex:DetermineCorporateActionAdjustmentNeed .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_1 ex:edge_grounded_in_arg_1 ex:AccountForCorporateActionInCalculation .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_1 ex:edge_grounded_in_arg_2 ex:CorporateActionGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_2 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_2 ex:edge_grounded_in_arg_0 ex:DetermineCorporateActionAdjustmentNeed .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_2 ex:edge_grounded_in_arg_1 ex:EvaluateCorporateActionProcedureDeviation .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_2 ex:edge_grounded_in_arg_2 ex:CorporateActionGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_3 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_3 ex:edge_grounded_in_arg_0 ex:EvaluateCorporateActionProcedureDeviation .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_3 ex:edge_grounded_in_arg_1 ex:AnnounceCorporateActionAdjustment .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_3 ex:edge_grounded_in_arg_2 ex:CorporateActionGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_4 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_4 ex:edge_grounded_in_arg_0 ex:AccountForCorporateActionInCalculation .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_4 ex:edge_grounded_in_arg_1 ex:AnnounceCorporateActionAdjustment .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_4 ex:edge_grounded_in_arg_2 ex:CorporateActionGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_5 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_5 ex:edge_grounded_in_arg_0 ex:AnnounceCorporateActionAdjustment .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_5 ex:edge_grounded_in_arg_1 ex:ImplementCorporateActionAdjustment .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_5 ex:edge_grounded_in_arg_2 ex:CorporateActionGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_6 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_6 ex:edge_grounded_in_arg_0 ex:DetectMarketDisruptionCondition .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_6 ex:edge_grounded_in_arg_1 ex:ApplyDisruptionPolicyArrangements .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_6 ex:edge_grounded_in_arg_2 ex:MarketDisruptionGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_7 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_7 ex:edge_grounded_in_arg_0 ex:ApplyDisruptionPolicyArrangements .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_7 ex:edge_grounded_in_arg_1 ex:DetermineIndexUnderDisruptedConditions .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_7 ex:edge_grounded_in_arg_2 ex:MarketDisruptionGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_8 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_8 ex:edge_grounded_in_arg_0 ex:IdentifyDeterminationError .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_8 ex:edge_grounded_in_arg_1 ex:DetermineCorrectionMeasures .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_8 ex:edge_grounded_in_arg_2 ex:CorrectionGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_9 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_9 ex:edge_grounded_in_arg_0 ex:DetermineCorrectionMeasures .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_9 ex:edge_grounded_in_arg_1 ex:CorrectIdentifiedError .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_9 ex:edge_grounded_in_arg_2 ex:CorrectionGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_10 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_10 ex:edge_grounded_in_arg_0 ex:DetectZeroOrNegativeAdjustedReturnIndexLevel .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_10 ex:edge_grounded_in_arg_1 ex:TerminateAffectedIndex .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_10 ex:edge_grounded_in_arg_2 ex:TerminationGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_11 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_11 ex:edge_grounded_in_arg_0 ex:TerminateAffectedIndex .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_11 ex:edge_grounded_in_arg_1 ex:AnnounceIndexTermination .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_11 ex:edge_grounded_in_arg_2 ex:TerminationGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_12 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_12 ex:edge_grounded_in_arg_0 ex:ReviewMethodologyAtLeastAnnually .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_12 ex:edge_grounded_in_arg_1 ex:IdentifyMethodologyChangeNeed .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_12 ex:edge_grounded_in_arg_2 ex:MethodologyChangeGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_13 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_13 ex:edge_grounded_in_arg_0 ex:IdentifyMethodologyChangeNeed .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_13 ex:edge_grounded_in_arg_1 ex:MakeMethodologyChangeInPolicy .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_13 ex:edge_grounded_in_arg_2 ex:MethodologyChangeGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_14 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_14 ex:edge_grounded_in_arg_0 ex:MakeMethodologyChangeInPolicy .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_14 ex:edge_grounded_in_arg_1 ex:AnnounceMethodologyChange .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_14 ex:edge_grounded_in_arg_2 ex:MethodologyChangeGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_15 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_15 ex:edge_grounded_in_arg_0 ex:MakeMethodologyChangeInPolicy .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_15 ex:edge_grounded_in_arg_1 ex:UpdateGuidelineAmendmentDate .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_15 ex:edge_grounded_in_arg_2 ex:MethodologyChangeGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_16 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_16 ex:edge_grounded_in_arg_0 ex:MakeMethodologyChangeInPolicy .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_16 ex:edge_grounded_in_arg_1 ex:EnsureConsistentCalculationMethodAfterChange .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_16 ex:edge_grounded_in_arg_2 ex:MethodologyChangeGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_17 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_17 ex:edge_grounded_in_arg_0 ex:ProposeRuleOrGuidelineAmendment .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_17 ex:edge_grounded_in_arg_1 ex:SubmitAmendmentForPriorApproval .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_17 ex:edge_grounded_in_arg_2 ex:OversightGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_18 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_18 ex:edge_grounded_in_arg_0 ex:SubmitAmendmentForPriorApproval .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_18 ex:edge_grounded_in_arg_1 ex:OversightCommitteePriorApprovalDecision .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_18 ex:edge_grounded_in_arg_2 ex:OversightGrounding .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_19 a ex:edge_grounded_in .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_19 ex:edge_grounded_in_arg_0 ex:OversightCommitteePriorApprovalDecision .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_19 ex:edge_grounded_in_arg_1 ex:MakeApprovedRuleOrGuidelineAmendment .
+ex:FACT_exception_overlay_edge_grounding_edge_grounded_in_19 ex:edge_grounded_in_arg_2 ex:OversightGrounding .

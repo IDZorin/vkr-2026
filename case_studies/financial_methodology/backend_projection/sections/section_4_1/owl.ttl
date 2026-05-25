@@ -1,0 +1,312 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_1 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:IndexComponent a owl:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:CalculationDay a owl:Class .
+ex:CalculationDay rdfs:subClassOf ex:Day .
+ex:IndexType a owl:Class ; owl:oneOf ( ex:PriceReturn ex:NetTotalReturn ex:GrossTotalReturn ex:AdjustedReturnIndex ) .
+ex:PriceReturn a ex:IndexType, owl:NamedIndividual .
+ex:NetTotalReturn a ex:IndexType, owl:NamedIndividual .
+ex:GrossTotalReturn a ex:IndexType, owl:NamedIndividual .
+ex:AdjustedReturnIndex a ex:IndexType, owl:NamedIndividual .
+ex:IndexCalculationFormula a owl:Class .
+ex:FormulaMechanics a owl:Class .
+ex:IndexLevel a owl:Class .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:Price a owl:Class .
+ex:Price rdfs:subClassOf ex:Real .
+ex:PriceChange a owl:Class .
+ex:PriceChange rdfs:subClassOf ex:Real .
+ex:ComponentWeight a owl:Class .
+ex:ComponentWeight rdfs:subClassOf ex:Percent .
+ex:CurrencyConversion a owl:Class .
+ex:Distribution a owl:Class .
+ex:Payment a owl:Class .
+ex:EffectiveDate a owl:Class .
+ex:EffectiveDate rdfs:subClassOf ex:Day .
+ex:ExDate a owl:Class .
+ex:ExDate rdfs:subClassOf ex:EffectiveDate .
+ex:Opening a owl:Class .
+ex:Decrement a owl:Class .
+ex:SyntheticDividend a owl:Class .
+ex:SyntheticDividend rdfs:subClassOf ex:Decrement .
+ex:IndexPointAmount a owl:Class .
+ex:IndexPointAmount rdfs:subClassOf ex:Real .
+ex:CalendarDayCount a owl:Class .
+ex:CalendarDayCount rdfs:subClassOf ex:Nat .
+
+ex:PriceReturnIndexVersion a ex:Index, owl:NamedIndividual .
+ex:NTRIndexVersion a ex:Index, owl:NamedIndividual .
+ex:GTRIndexVersion a ex:Index, owl:NamedIndividual .
+ex:AdjustedReturnVersion a ex:Index, owl:NamedIndividual .
+ex:SOLTCA50 a ex:Index, owl:NamedIndividual .
+ex:EquityIndexMethodology a ex:Document, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:EquityIndexMethodologySection1_2 a ex:DocumentPart, owl:NamedIndividual .
+ex:EquityIndexMethodologySection1_2Locator a ex:DocumentLocator, owl:NamedIndividual .
+ex:StandardIndexFormula a ex:IndexCalculationFormula, owl:NamedIndividual .
+ex:AdjustedReturnFormula a ex:IndexCalculationFormula, owl:NamedIndividual .
+ex:section_4_1_index a owl:Class ; rdfs:subClassOf ex:Index .
+ex:index_component_of a owl:Class, a4:NaryRelationClass .
+ex:index_component_of_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:index_component_of ;
+  rdfs:range ex:Index .
+ex:index_component_of_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:index_component_of ;
+  rdfs:range ex:CalculationDay .
+ex:index_component_of_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:index_component_of ;
+  rdfs:range ex:IndexComponent .
+ex:calculated_according_to a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:Document .
+ex:available_on a owl:ObjectProperty ;
+  rdfs:domain ex:Document ;
+  rdfs:range ex:WebResource .
+ex:incorporated_by_reference a owl:Class ; rdfs:subClassOf ex:Document .
+ex:formula_in_methodology a owl:ObjectProperty ;
+  rdfs:domain ex:IndexCalculationFormula ;
+  rdfs:range ex:Document .
+ex:standard_index_formula a owl:Class ; rdfs:subClassOf ex:IndexCalculationFormula .
+ex:adjusted_return_formula a owl:Class ; rdfs:subClassOf ex:IndexCalculationFormula .
+ex:formula_applies_to_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexCalculationFormula ;
+  rdfs:range ex:Index .
+ex:detailed_description_found_in a owl:ObjectProperty ;
+  rdfs:domain ex:FormulaMechanics ;
+  rdfs:range ex:DocumentPart .
+ex:formula_level_change_based_on_price_change a owl:Class, a4:NaryRelationClass .
+ex:formula_level_change_based_on_price_change_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_based_on_price_change ;
+  rdfs:range ex:IndexCalculationFormula .
+ex:formula_level_change_based_on_price_change_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_based_on_price_change ;
+  rdfs:range ex:Index .
+ex:formula_level_change_based_on_price_change_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_based_on_price_change ;
+  rdfs:range ex:CalculationDay .
+ex:formula_level_change_based_on_price_change_arg_3 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_based_on_price_change ;
+  rdfs:range ex:IndexComponent .
+ex:formula_level_change_based_on_price_change_arg_4 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_based_on_price_change ;
+  rdfs:range ex:PriceChange .
+ex:formula_level_change_takes_weight a owl:Class, a4:NaryRelationClass .
+ex:formula_level_change_takes_weight_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_takes_weight ;
+  rdfs:range ex:IndexCalculationFormula .
+ex:formula_level_change_takes_weight_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_takes_weight ;
+  rdfs:range ex:Index .
+ex:formula_level_change_takes_weight_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_takes_weight ;
+  rdfs:range ex:CalculationDay .
+ex:formula_level_change_takes_weight_arg_3 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_takes_weight ;
+  rdfs:range ex:IndexComponent .
+ex:formula_level_change_takes_weight_arg_4 a owl:DatatypeProperty ;
+  rdfs:domain ex:formula_level_change_takes_weight ;
+  rdfs:range xsd:decimal .
+ex:formula_level_change_takes_currency_conversion a owl:Class, a4:NaryRelationClass .
+ex:formula_level_change_takes_currency_conversion_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_takes_currency_conversion ;
+  rdfs:range ex:IndexCalculationFormula .
+ex:formula_level_change_takes_currency_conversion_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_takes_currency_conversion ;
+  rdfs:range ex:Index .
+ex:formula_level_change_takes_currency_conversion_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_takes_currency_conversion ;
+  rdfs:range ex:CalculationDay .
+ex:formula_level_change_takes_currency_conversion_arg_3 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_takes_currency_conversion ;
+  rdfs:range ex:IndexComponent .
+ex:formula_level_change_takes_currency_conversion_arg_4 a owl:ObjectProperty ;
+  rdfs:domain ex:formula_level_change_takes_currency_conversion ;
+  rdfs:range ex:CurrencyConversion .
+ex:payment_of a owl:ObjectProperty ;
+  rdfs:domain ex:Payment ;
+  rdfs:range ex:Distribution .
+ex:pays_distribution a owl:ObjectProperty ;
+  rdfs:domain ex:IndexComponent ;
+  rdfs:range ex:Distribution .
+ex:reinvested_back_into a owl:Class, a4:NaryRelationClass .
+ex:reinvested_back_into_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:reinvested_back_into ;
+  rdfs:range ex:Distribution .
+ex:reinvested_back_into_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:reinvested_back_into ;
+  rdfs:range ex:IndexComponent .
+ex:reinvested_back_into_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:reinvested_back_into ;
+  rdfs:range ex:Opening .
+ex:previous_calculation_day_of a owl:ObjectProperty ;
+  rdfs:domain ex:CalculationDay ;
+  rdfs:range ex:CalculationDay .
+ex:deducted_from a owl:ObjectProperty ;
+  rdfs:domain ex:Decrement ;
+  rdfs:range ex:Index .
+ex:decrement_applied_on_each_index_calculation_day a owl:Class ; rdfs:subClassOf ex:Decrement .
+ex:applied_in_compliance_with a owl:ObjectProperty ;
+  rdfs:domain ex:Decrement ;
+  rdfs:range ex:Document .
+ex:includes_day a owl:ObjectProperty ;
+  rdfs:domain ex:CalendarDayCount ;
+  rdfs:range ex:CalculationDay .
+ex:excludes_day a owl:ObjectProperty ;
+  rdfs:domain ex:CalendarDayCount ;
+  rdfs:range ex:CalculationDay .
+ex:index_type a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:IndexType .
+ex:index_level a owl:Class, a4:NaryRelationClass .
+ex:index_level_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:index_level ;
+  rdfs:range ex:Index .
+ex:index_level_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:index_level ;
+  rdfs:range ex:CalculationDay .
+ex:index_level_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:index_level ;
+  rdfs:range ex:IndexLevel .
+ex:component_price a owl:Class, a4:NaryRelationClass .
+ex:component_price_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:component_price ;
+  rdfs:range ex:IndexComponent .
+ex:component_price_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:component_price ;
+  rdfs:range ex:CalculationDay .
+ex:component_price_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:component_price ;
+  rdfs:range ex:Price .
+ex:component_price_change a owl:Class, a4:NaryRelationClass .
+ex:component_price_change_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:component_price_change ;
+  rdfs:range ex:IndexComponent .
+ex:component_price_change_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:component_price_change ;
+  rdfs:range ex:CalculationDay .
+ex:component_price_change_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:component_price_change ;
+  rdfs:range ex:PriceChange .
+ex:component_weight a owl:Class, a4:NaryRelationClass .
+ex:component_weight_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:component_weight ;
+  rdfs:range ex:Index .
+ex:component_weight_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:component_weight ;
+  rdfs:range ex:CalculationDay .
+ex:component_weight_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:component_weight ;
+  rdfs:range ex:IndexComponent .
+ex:component_weight_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:component_weight ;
+  rdfs:range ex:ComponentWeight .
+ex:index_currency a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:Currency .
+ex:quoted_currency a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Price ;
+  rdfs:range ex:Currency .
+ex:currency_conversion a owl:Class, a4:NaryRelationClass .
+ex:currency_conversion_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:currency_conversion ;
+  rdfs:range ex:Index .
+ex:currency_conversion_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:currency_conversion ;
+  rdfs:range ex:CalculationDay .
+ex:currency_conversion_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:currency_conversion ;
+  rdfs:range ex:IndexComponent .
+ex:currency_conversion_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:currency_conversion ;
+  rdfs:range ex:CurrencyConversion .
+ex:underlying_index_of a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:Index .
+ex:decrement_of a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:Decrement .
+ex:synthetic_dividend_of a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:SyntheticDividend .
+ex:percent_per_annum a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Decrement ;
+  rdfs:range xsd:decimal .
+ex:index_points_per_annum a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:SyntheticDividend ;
+  rdfs:range ex:IndexPointAmount .
+ex:number_of_calendar_days_between a owl:Class, a4:NaryRelationClass .
+ex:number_of_calendar_days_between_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:number_of_calendar_days_between ;
+  rdfs:range ex:CalculationDay .
+ex:number_of_calendar_days_between_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:number_of_calendar_days_between ;
+  rdfs:range ex:CalculationDay .
+ex:number_of_calendar_days_between_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:number_of_calendar_days_between ;
+  rdfs:range ex:CalendarDayCount .
+ex:effective_date a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Payment ;
+  rdfs:range ex:EffectiveDate .
+ex:ex_date a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Payment ;
+  rdfs:range ex:ExDate .
+ex:opening a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Day ;
+  rdfs:range ex:Opening .
+ex:mechanics a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:IndexCalculationFormula ;
+  rdfs:range ex:FormulaMechanics .
+
+ex:PriceReturnIndexVersion a ex:section_4_1_index .
+ex:NTRIndexVersion a ex:section_4_1_index .
+ex:GTRIndexVersion a ex:section_4_1_index .
+ex:AdjustedReturnVersion a ex:section_4_1_index .
+ex:SOLTCA50 a ex:section_4_1_index .
+ex:PriceReturnIndexVersion ex:index_type ex:PriceReturn .
+ex:NTRIndexVersion ex:index_type ex:NetTotalReturn .
+ex:GTRIndexVersion ex:index_type ex:GrossTotalReturn .
+ex:AdjustedReturnVersion ex:index_type ex:AdjustedReturnIndex .
+ex:SOLTCA50 ex:index_type ex:AdjustedReturnIndex .
+ex:EquityIndexMethodology ex:available_on ex:SolactiveWebsite .
+ex:EquityIndexMethodology a ex:incorporated_by_reference .
+ex:StandardIndexFormula ex:formula_in_methodology ex:EquityIndexMethodology .
+ex:StandardIndexFormula a ex:standard_index_formula .
+ex:AdjustedReturnFormula ex:formula_in_methodology ex:EquityIndexMethodology .
+ex:AdjustedReturnFormula a ex:adjusted_return_formula .
+ex:ASSERT_equity_index_methodology_reference a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(available_on(EquityIndexMethodology, SolactiveWebsite)) and (incorporated_by_reference(EquityIndexMethodology)) and (formula_in_methodology(StandardIndexFormula, EquityIndexMethodology)) and (standard_index_formula(StandardIndexFormula)) and (formula_in_methodology(AdjustedReturnFormula, EquityIndexMethodology)) and (adjusted_return_formula(AdjustedReturnFormula)) and (part_of_document(EquityIndexMethodologySection1_2, EquityIndexMethodology)) and (document_part_locator(EquityIndexMethodologySection1_2, EquityIndexMethodologySection1_2Locator)) and (detailed_description_found_in(mechanics(StandardIndexFormula), EquityIndexMethodologySection1_2))" .
+ex:ASSERT_calculation_performed_according_to_equity_index_methodology a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall i: Index, (section_4_1_index(i)) implies (calculated_according_to(i, EquityIndexMethodology))" .
+ex:ASSERT_standard_index_formula_basis a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall i: Index, forall d: CalculationDay, forall c: IndexComponent, ((section_4_1_index(i)) and (index_component_of(i, d, c))) implies ((formula_applies_to_index(StandardIndexFormula, i)) and (formula_level_change_based_on_price_change(StandardIndexFormula, i, d, c, component_price_change(c, d))) and (formula_level_change_takes_weight(StandardIndexFormula, i, d, c, component_weight(i, d, c))) and ((not ((quoted_currency(component_price(c, d))) = (index_currency(i)))) implies (formula_level_change_takes_currency_conversion(StandardIndexFormula, i, d, c, currency_conversion(i, d, c)))))" .
+ex:ASSERT_distributions_reinvested_back_at_opening_of_effective_ex_date a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall p: Payment, forall dist: Distribution, forall c: IndexComponent, ((payment_of(p, dist)) and (pays_distribution(c, dist))) implies (((ex_date(p)) = (effective_date(p))) and (reinvested_back_into(dist, c, opening(effective_date(p)))))" .
+ex:AdjustedReturnVersion ex:underlying_index_of ex:NTRIndexVersion .
+ex:ASSERT_adjusted_return_version_decrement_from_ntr a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "((underlying_index_of(AdjustedReturnVersion)) = (NTRIndexVersion)) and ((percent_per_annum(decrement_of(AdjustedReturnVersion))) = (5%)) and (deducted_from(decrement_of(AdjustedReturnVersion), NTRIndexVersion)) and (decrement_applied_on_each_index_calculation_day(decrement_of(AdjustedReturnVersion))) and (applied_in_compliance_with(decrement_of(AdjustedReturnVersion), EquityIndexMethodology))" .
+ex:AdjustedReturnFormula ex:formula_applies_to_index ex:SOLTCA50 .
+ex:SOLTCA50 ex:underlying_index_of ex:GTRIndexVersion .
+ex:ASSERT_soltca50_decrement_from_gtr a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(formula_applies_to_index(AdjustedReturnFormula, SOLTCA50)) and ((underlying_index_of(SOLTCA50)) = (GTRIndexVersion)) and ((decrement_of(SOLTCA50)) = (synthetic_dividend_of(SOLTCA50))) and ((index_points_per_annum(synthetic_dividend_of(SOLTCA50))) = (50)) and (deducted_from(decrement_of(SOLTCA50), GTRIndexVersion)) and (decrement_applied_on_each_index_calculation_day(decrement_of(SOLTCA50)))" .
+ex:ASSERT_calendar_day_count_for_adjusted_return_formula a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "forall t: CalculationDay, forall t_prev: CalculationDay, (previous_calculation_day_of(t_prev, t)) implies ((includes_day(number_of_calendar_days_between(t, t_prev), t)) and (excludes_day(number_of_calendar_days_between(t, t_prev), t_prev)))" .
+ex:ASSERT_soltca50_adjusted_return_index_formula a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall t: CalculationDay, forall t_prev: CalculationDay, (previous_calculation_day_of(t_prev, t)) implies ((index_level(SOLTCA50, t)) = ((((index_level(SOLTCA50, t_prev)) * (index_level(underlying_index_of(SOLTCA50), t))) / (index_level(underlying_index_of(SOLTCA50), t_prev))) - (((index_points_per_annum(synthetic_dividend_of(SOLTCA50))) * (number_of_calendar_days_between(t, t_prev))) / (360))))" .

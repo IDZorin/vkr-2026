@@ -1,0 +1,92 @@
+schema: role_annotations_v1
+entry_id: section_2_2
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  free_float_market_capizatlization:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: instrument}
+    returns: {role: same_as_type}
+  gbs_country_assignment:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: instrument}
+    returns: {role: same_as_type}
+  rank:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: subject}
+      3: {role: instrument}
+    returns: {role: same_as_type}
+  region:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: instrument}
+    returns: {role: same_as_type}
+  selection_of_index_components:
+    kind: fun
+    args:
+      1: {role: day}
+    returns: {role: same_as_type}
+constraints:
+  americas_country_assignment_classification:
+    frame: americas_country_assignment_classification
+    variables:
+      d: {role: day, quantifier: forall}
+      s: {role: instrument, quantifier: forall}
+  descending_order_by_free_float_market_capizatlization:
+    frame: descending_order_by_free_float_market_capizatlization
+    variables:
+      d: {role: day, quantifier: forall}
+      r: {role: subject, quantifier: forall}
+      s1: {role: instrument, quantifier: forall}
+      s2: {role: instrument, quantifier: forall}
+  eligible_iff_index_universe_for_component_requirements:
+    frame: eligible_iff_index_universe_for_component_requirements
+    variables:
+      d: {role: day, quantifier: forall}
+      s: {role: instrument, quantifier: forall}
+  europe_country_assignment_classification:
+    frame: europe_country_assignment_classification
+    variables:
+      d: {role: day, quantifier: forall}
+      s: {role: instrument, quantifier: forall}
+  index_components_selected_for_index_inclusion:
+    frame: index_components_selected_for_index_inclusion
+    variables:
+      d: {role: day, quantifier: forall}
+      s: {role: instrument, quantifier: forall}
+  initial_composition_determined_by_index_component_requirements:
+    frame: initial_composition_determined_by_index_component_requirements
+    variables:
+      d: {role: day, quantifier: forall}
+      s: {role: instrument, quantifier: forall}
+  less_than_20_per_region_less_than_40_index_components:
+    frame: less_than_20_per_region_less_than_40_index_components
+    variables:
+      d: {role: day, quantifier: forall}
+      r: {role: subject, quantifier: exists}
+  ordinary_rebalance_selection_determined_by_index_component_requirements:
+    frame: ordinary_rebalance_selection_determined_by_index_component_requirements
+    variables:
+      d: {role: day, quantifier: forall}
+      s: {role: instrument, quantifier: forall}
+  security_classified_into_one_of_two_regions:
+    frame: security_classified_into_one_of_two_regions
+    variables:
+      d: {role: day, quantifier: forall}
+      s: {role: instrument, quantifier: forall}
+  selected_top_20_for_each_region:
+    frame: selected_top_20_for_each_region
+    variables:
+      d: {role: day, quantifier: forall}
+      s: {role: instrument, quantifier: forall}
+facts:
+  selection_fully_rule_based:
+    frame: selection_fully_rule_based
+    variables:
+      d: {role: day, quantifier: forall}

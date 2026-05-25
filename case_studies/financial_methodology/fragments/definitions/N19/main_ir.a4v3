@@ -1,0 +1,12 @@
+sort Index
+sort Security extends FinancialInstrument
+
+entity TheIndex : Index
+
+rel index_component : Security, Index
+rel security_reflected_in_index : Security, Index
+
+constraint index_component_definition :
+  forall s: Security,
+    index_component(s, TheIndex)
+    iff security_reflected_in_index(s, TheIndex)

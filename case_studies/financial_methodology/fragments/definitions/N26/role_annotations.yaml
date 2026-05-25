@@ -1,0 +1,39 @@
+schema: role_annotations_v1
+entry_id: N26
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  nth_wednesday_in_month:
+    kind: rel
+    args:
+      1: {role: day}
+      2: {role: time}
+      3: {role: value}
+  immediately_following_eligible_rebalance_day_after:
+    kind: rel
+    args:
+      1: {role: day}
+      2: {role: day}
+  strictly_before:
+    kind: rel
+    args:
+      1: {role: day}
+      2: {role: day}
+constraints:
+  immediately_following_eligible_rebalance_day_definition:
+    frame: immediately_following_eligible_rebalance_day_definition
+    variables:
+      d: {role: day, quantifier: forall}
+      s: {role: day, quantifier: forall}
+      e: {role: day, quantifier: forall}
+  rebalance_day_definition:
+    frame: rebalance_day_definition
+    variables:
+      d: {role: day, quantifier: forall}
+      s: {role: day, quantifier: exists}
+  scheduled_rebalance_day_definition:
+    frame: scheduled_rebalance_day_definition
+    variables:
+      d: {role: day, quantifier: forall}
+facts:
+  first_weekday_ordinal_value:
+    frame: first_weekday_ordinal_value

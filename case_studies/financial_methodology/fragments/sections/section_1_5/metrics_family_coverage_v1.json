@@ -1,0 +1,58 @@
+{
+  "entry_id": "section_1_5",
+  "skipped": false,
+  "ir_innf_families_used": [
+    "AssertDecl",
+    "DeonticDecl",
+    "SymbolDecl",
+    "TypeDecl"
+  ],
+  "ir_fine_families_used": [
+    "AssertDecl.fact",
+    "DeonticDecl.permission",
+    "SymbolDecl.entity",
+    "SymbolDecl.rel",
+    "TypeDecl.sort_enum",
+    "TypeDecl.sort_opaque",
+    "TypeDecl.sort_subtype"
+  ],
+  "ir_family_counts": {
+    "TypeDecl.sort_opaque": 4,
+    "TypeDecl.sort_enum": 2,
+    "TypeDecl.sort_subtype": 2,
+    "SymbolDecl.entity": 4,
+    "SymbolDecl.rel": 6,
+    "AssertDecl.fact": 2,
+    "DeonticDecl.permission": 1
+  },
+  "ir_expr_markers": {
+    "forall": 1
+  },
+  "source_signals": {
+    "modality_permission": {
+      "expected_family": "DeonticDecl",
+      "expectation_mode": "required",
+      "matches": [
+        "may be issued"
+      ]
+    }
+  },
+  "gaps": [],
+  "required_gaps": [],
+  "advisory_gaps": [],
+  "matches": [
+    {
+      "signal": "modality_permission",
+      "expected_family": "DeonticDecl",
+      "expectation_mode": "required",
+      "evidence": [
+        "may be issued"
+      ],
+      "satisfied": true
+    }
+  ],
+  "n_gaps": 0,
+  "n_required_gaps": 0,
+  "n_advisory_gaps": 0,
+  "n_matches": 1
+}

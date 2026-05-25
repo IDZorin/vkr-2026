@@ -1,0 +1,19 @@
+sort EligibleRebalanceDay extends Day
+sort Exchange
+
+entity NewYorkStockExchange : Exchange
+entity LondonStockExchange : Exchange
+entity EUREXExchange : Exchange
+entity TokyoStockExchange : Exchange
+
+rel trading_day_at_exchange : Day, Exchange
+rel eligible_rebalance_day : EligibleRebalanceDay
+
+constraint eligible_rebalance_day_definition :
+  forall d: EligibleRebalanceDay,
+    eligible_rebalance_day(d)
+    iff
+      trading_day_at_exchange(d, NewYorkStockExchange)
+      and trading_day_at_exchange(d, LondonStockExchange)
+      and trading_day_at_exchange(d, EUREXExchange)
+      and trading_day_at_exchange(d, TokyoStockExchange)

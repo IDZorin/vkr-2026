@@ -1,0 +1,100 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N07 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N07/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:Security a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:IndexComponent a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexComponent rdfs:subClassOf ex:Security .
+ex:TradingDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:Exchange a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Price a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Price rdfs:subClassOf ex:MonetaryAmount .
+ex:TradingPrice a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TradingPrice rdfs:subClassOf ex:Price .
+ex:ClosingPrice a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ClosingPrice rdfs:subClassOf ex:TradingPrice .
+ex:AccordanceStandard a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+
+ex:ExchangeRules a ex:AccordanceStandard, owl:NamedIndividual .
+ex:ExchangeRegulations a ex:AccordanceStandard, owl:NamedIndividual .
+ex:closing_price a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:closing_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:closing_price a4:argument ex:closing_price_arg_0 .
+ex:closing_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:closing_price a4:argument ex:closing_price_arg_1 .
+ex:closing_price a4:resultSort ex:ClosingPrice .
+ex:closing_price a4:functionFlag "required" .
+ex:respective_exchange a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:respective_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:respective_exchange a4:argument ex:respective_exchange_arg_0 .
+ex:respective_exchange a4:resultSort ex:Exchange .
+ex:respective_exchange a4:functionFlag "required" .
+ex:final_regular_hours_trading_price a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:final_regular_hours_trading_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:final_regular_hours_trading_price a4:argument ex:final_regular_hours_trading_price_arg_0 .
+ex:final_regular_hours_trading_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:final_regular_hours_trading_price a4:argument ex:final_regular_hours_trading_price_arg_1 .
+ex:final_regular_hours_trading_price a4:resultSort ex:ClosingPrice .
+ex:final_regular_hours_trading_price a4:functionFlag "required" .
+ex:last_trading_price a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:last_trading_price_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:last_trading_price a4:argument ex:last_trading_price_arg_0 .
+ex:last_trading_price_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:last_trading_price a4:argument ex:last_trading_price_arg_1 .
+ex:last_trading_price a4:resultSort ex:TradingPrice .
+ex:last_trading_price a4:functionFlag "required" .
+ex:price_published_by_exchange a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:price_published_by_exchange_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Price .
+ex:price_published_by_exchange a4:argument ex:price_published_by_exchange_arg_0 .
+ex:price_published_by_exchange_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Exchange .
+ex:price_published_by_exchange a4:argument ex:price_published_by_exchange_arg_1 .
+ex:price_determined a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:price_determined_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Price .
+ex:price_determined a4:argument ex:price_determined_arg_0 .
+ex:in_accordance_with a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:in_accordance_with_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Price .
+ex:in_accordance_with a4:argument ex:in_accordance_with_arg_0 .
+ex:in_accordance_with_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:AccordanceStandard .
+ex:in_accordance_with a4:argument ex:in_accordance_with_arg_1 .
+ex:closing_price_available a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:closing_price_available_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:closing_price_available a4:argument ex:closing_price_available_arg_0 .
+ex:closing_price_available_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:closing_price_available a4:argument ex:closing_price_available_arg_1 .
+
+ex:ASSERT_closing_price_definition_when_published a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "23"^^xsd:integer ;
+  a4:exprText "forall c: IndexComponent, forall d: TradingDay, (closing_price_available(c, d)) implies (((closing_price(c, d)) = (final_regular_hours_trading_price(c, d))) and (price_published_by_exchange(closing_price(c, d), respective_exchange(c))) and (price_determined(closing_price(c, d))) and (in_accordance_with(closing_price(c, d), ExchangeRules)) and (in_accordance_with(closing_price(c, d), ExchangeRegulations)))" ;
+  a4:sourceText "constraint closing_price_definition_when_published :\n  forall c: IndexComponent, forall d: TradingDay,\n    closing_price_available(c, d)\n    implies\n      closing_price(c, d) = final_regular_hours_trading_price(c, d)\n      and price_published_by_exchange(closing_price(c, d), respective_exchange(c))\n      and price_determined(closing_price(c, d))\n      and in_accordance_with(closing_price(c, d), ExchangeRules)\n      and in_accordance_with(closing_price(c, d), ExchangeRegulations)" .
+ex:ASSERT_last_trading_price_used_when_closing_price_not_published a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "33"^^xsd:integer ;
+  a4:exprText "forall c: IndexComponent, forall d: TradingDay, (not (closing_price_available(c, d))) implies ((closing_price(c, d)) = (last_trading_price(c, d)))" ;
+  a4:sourceText "constraint last_trading_price_used_when_closing_price_not_published :\n  forall c: IndexComponent, forall d: TradingDay,\n    not closing_price_available(c, d)\n    implies\n      closing_price(c, d) = last_trading_price(c, d)" .

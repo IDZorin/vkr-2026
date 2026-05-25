@@ -1,0 +1,130 @@
+{
+  "entry_id": "section_1_4",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 2017,
+    "completion_tokens": 534,
+    "total_tokens": 2551
+  },
+  "latency_s": 4.017627716064453,
+  "raw_parsed": {
+    "source_facts": [
+      "The Index level is calculated on each Calculation Day.",
+      "The calculation runs from 1:00 a.m. to 10:50 p.m. CET.",
+      "The calculation uses Trading Prices on the Exchanges where Index Components are listed.",
+      "Non-index-currency Trading Prices are converted using the current ICE spot foreign exchange rate.",
+      "If no current Trading Price exists, the later of the most recent Closing Price or last available Trading Price is used.",
+      "A closing Index level is also calculated for each Calculation Day.",
+      "The closing level uses Closing Prices on the relevant Exchanges.",
+      "Non-index-currency Closing Prices are converted using the 4:00 p.m. London WM Fixing quoted by Reuters.",
+      "If no 4:00 p.m. London WM Fixing exists, the last available fixing is used."
+    ],
+    "render_facts": [
+      "Intraday calculations are performed on each calculation day.",
+      "Intraday calculations run from 1:00 a.m. CET to 10:50 p.m. CET.",
+      "The intraday level is calculated for that day and time.",
+      "For each index component in an intraday calculation, the source price is an exchange trading price.",
+      "The exchange must be one where the component is listed.",
+      "If a current trading price is available, it is used as the source price.",
+      "Otherwise, the source price is the later of the most recent closing price and the last available trading price from the preceding trading day.",
+      "If the component is listed in the index currency, the intraday calculation price equals the source price.",
+      "Otherwise, it is converted using the current ICE spot foreign exchange rate.",
+      "The closing level is calculated on each calculation day using closing prices.",
+      "The closing level uses the 4:00 p.m. London WM fixing or the last available such fixing.",
+      "The same currency treatment applies to the closing level."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 0,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 1,
+        "render_idx": 1,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 2,
+        "render_idx": 3,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 3,
+        "render_idx": 8,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 4,
+        "render_idx": 6,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 5,
+        "render_idx": 9,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 6,
+        "render_idx": 9,
+        "match": "weaker"
+      },
+      {
+        "src_idx": 7,
+        "render_idx": 10,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 8,
+        "render_idx": 10,
+        "match": "paraphrase"
+      }
+    ],
+    "render_only": [
+      2,
+      4,
+      7,
+      11
+    ]
+  },
+  "summary": {
+    "n_source_facts": 9,
+    "n_render_facts": 12,
+    "matched_source": 9,
+    "matched_render": 7,
+    "render_only": 4,
+    "missing_source": 0,
+    "weaker_in_render": 1,
+    "stronger_in_render": 0,
+    "recall": 1.0,
+    "precision": 0.583,
+    "f1": 0.737,
+    "missing_source_facts": [],
+    "render_only_facts": [
+      {
+        "idx": 2,
+        "fact": "The intraday level is calculated for that day and time."
+      },
+      {
+        "idx": 4,
+        "fact": "The exchange must be one where the component is listed."
+      },
+      {
+        "idx": 7,
+        "fact": "If the component is listed in the index currency, the intraday calculation price equals the source price."
+      },
+      {
+        "idx": 11,
+        "fact": "The same currency treatment applies to the closing level."
+      }
+    ],
+    "weaker_pairs": [
+      {
+        "src": "The closing level uses Closing Prices on the relevant Exchanges.",
+        "render": "The closing level is calculated on each calculation day using closing prices."
+      }
+    ],
+    "stronger_pairs": []
+  }
+}

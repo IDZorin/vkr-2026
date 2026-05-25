@@ -1,0 +1,62 @@
+section: "N08 Definition: Daily Value Traded"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  daily_value_traded_product_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Daily Value Traded\" means, in respect of an Index Component and a Trading Day, the product of (i) the Closing Price of such Index Component and (ii) the volume traded (measured as a number of shares) of such Index Component on the Exchange during such Trading Day."
+    back_translation: >
+      For every Index Component and Trading Day, the Daily Value Traded is
+      the Closing Price of that Index Component multiplied by the volume
+      traded measured as a number of shares of that Index Component on the
+      Exchange of that Index Component during that Trading Day.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source verb "means" is legal-definition glue and is represented by
+      the definitional equality rather than a separate ontology predicate.
+      "On the Exchange during such Trading Day" is captured by the qualified
+      function `volume_traded_on_exchange_during_trading_day(c, exchange, d)`.
+
+uncovered_source:
+  - quote: "(none -- source formula is covered)"
+
+vocabulary_notes:
+  DailyValueTraded:
+    note: "Numeric monetary sort for the source term \"Daily Value Traded\"."
+    source_phrase: "Daily Value Traded"
+  ClosingPrice:
+    note: "Numeric monetary sort for the source phrase \"Closing Price\"."
+    source_phrase: "Closing Price"
+  VolumeNumberOfShares:
+    note: "Numeric count sort for the source phrase \"volume traded (measured as a number of shares)\"."
+    source_phrase: "volume traded (measured as a number of shares)"
+  IndexComponent:
+    note: "Sort for the source phrase \"Index Component\"."
+    source_phrase: "Index Component"
+  TradingDay:
+    note: "Sort for the source phrase \"Trading Day\"."
+    source_phrase: "Trading Day"
+  Exchange:
+    note: "Sort for the source phrase \"the Exchange\"."
+    source_phrase: "the Exchange"
+  closing_price:
+    note: "Function for the source phrase \"the Closing Price of such Index Component\"."
+    source_phrase: "Closing Price of such Index Component"
+  daily_value_traded:
+    note: "Function for the source term \"Daily Value Traded\"."
+    source_phrase: "Daily Value Traded"
+  volume_traded_on_exchange_during_trading_day:
+    note: "Qualified volume function preserving all source roles: component, Exchange, and Trading Day."
+    source_phrase: "volume traded ... of such Index Component on the Exchange during such Trading Day"
+  respective_exchange:
+    note: "Function for the source phrase \"the Exchange\" of an Index Component."
+    source_phrase: "the Exchange"

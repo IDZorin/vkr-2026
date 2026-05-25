@@ -1,0 +1,92 @@
+section: "N01 Definition: Average Daily Value Traded"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  daily_value_traded_sum_over_period_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Average Daily Value Traded\" means, in respect of an Index Component, the sum of Daily Value Traded over the specified period divided by the number of TRADING DAYS that fall in the specified period."
+    back_translation: >
+      For every Index Component and specified period, the sum of Daily Value
+      Traded over that specified period is the aggregate of Daily Value Traded
+      over Trading Days that fall in that specified period.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This claim captures the numerator of the source formula. The phrase
+      "in respect of" is legal scope glue and is represented by the Index
+      Component parameter.
+
+  trading_day_count_in_period_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Average Daily Value Traded\" means, in respect of an Index Component, the sum of Daily Value Traded over the specified period divided by the number of TRADING DAYS that fall in the specified period."
+    back_translation: >
+      For every specified period, the number of Trading Days in that specified
+      period is the count of Trading Days that fall in that specified period.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This claim captures the denominator phrase "the number of TRADING DAYS
+      that fall in the specified period".
+
+  average_daily_value_traded_divided_by_trading_day_count_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Average Daily Value Traded\" means, in respect of an Index Component, the sum of Daily Value Traded over the specified period divided by the number of TRADING DAYS that fall in the specified period."
+    back_translation: >
+      For every Index Component and specified period, Average Daily Value
+      Traded is the sum of Daily Value Traded over the specified period divided
+      by the number of Trading Days that fall in the specified period.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Pure definitional formula. The source verb "means" is legal-definition
+      glue and is represented by the definitional equality rather than a
+      separate ontology predicate.
+
+uncovered_source:
+  - quote: "(none -- source formula is covered by the three constraints; legal glue is documented in notes/waiver)"
+
+vocabulary_notes:
+  AverageDailyValueTraded:
+    note: "Numeric sort for the source term \"Average Daily Value Traded\"."
+    source_phrase: "Average Daily Value Traded"
+  DailyValueTraded:
+    note: "Numeric sort for the source term \"Daily Value Traded\"."
+    source_phrase: "Daily Value Traded"
+  IndexComponent:
+    note: "Sort for the source phrase \"Index Component\"."
+    source_phrase: "Index Component"
+  SpecifiedPeriod:
+    note: "Sort for the source phrase \"specified period\"."
+    source_phrase: "specified period"
+  TradingDay:
+    note: "Sort for the source phrase \"TRADING DAYS\"."
+    source_phrase: "Trading Days"
+  daily_value_traded:
+    note: "Function for Daily Value Traded of an Index Component on a Trading Day."
+    source_phrase: "Daily Value Traded"
+  average_daily_value_traded:
+    note: "Function for Average Daily Value Traded of an Index Component over a specified period."
+    source_phrase: "Average Daily Value Traded"
+  daily_value_traded_sum_over_period:
+    note: "Function for the source phrase \"sum of Daily Value Traded over the specified period\"."
+    source_phrase: "sum of Daily Value Traded over the specified period"
+  trading_day_count_in_period:
+    note: "Function for the source phrase \"number of Trading Days that fall in the specified period\"."
+    source_phrase: "number of Trading Days that fall in the specified period"
+  trading_day_falls_in_period:
+    note: "Relation for the source phrase \"Trading Days that fall in the specified period\"."
+    source_phrase: "fall in the specified period"

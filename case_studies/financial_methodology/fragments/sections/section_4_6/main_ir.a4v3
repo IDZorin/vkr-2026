@@ -1,0 +1,159 @@
+sort Index
+sort Effort
+sort DeterminationProcess
+sort Error extends Event
+sort ErrorPossibility
+sort Description
+sort IndexEffortGoal =
+  AccurateCalculation
+  | AccurateMaintenance
+sort Reason =
+  Internal
+  | External
+sort Endeavor
+sort Understanding
+sort GeneralMeasure
+sort UnderlyingDependency
+sort PolicySpecification
+sort Underlying
+sort CorrectionPolicy extends Document
+
+entity Solactive : Organization
+entity SolactiveGreatestPossibleEfforts : Effort
+entity SolactiveDeterminationProcess : DeterminationProcess
+entity DeterminationProcessErrorPossibility : ErrorPossibility
+entity DeterminationProcessErrorDescription : Description
+entity ReasonablePeriodOfTime : VagueTerm
+entity ReasonablePeriodOfTimeUnderstanding : Understanding
+entity GeneralMeasuresToBeTaken : GeneralMeasure
+entity FromTimeToTime : VagueTerm
+entity VarietyReasons : VagueTerm
+entity CannotBeCompletelyRuledOut : VagueTerm
+entity PeriodAndMeasureUnderlyingDependency : UnderlyingDependency
+entity CorrectionPolicySpecification : PolicySpecification
+entity ThisGuideline : Document
+entity SolactiveCorrectionPolicy : CorrectionPolicy
+entity SolactiveWebsite : WebResource
+
+rel index_of : Index, Organization
+
+rel makes_effort : Organization, Effort
+rel greatest_possible : Effort
+rel effort_goal : Effort, Index, IndexEffortGoal
+
+rel error_possibility_in_determination_process :
+  ErrorPossibility, DeterminationProcess
+rel description_of_error_possibility : Description, ErrorPossibility
+rel description_occurrence_term : Description, VagueTerm
+rel description_reason_term : Description, VagueTerm
+rel description_polarity_term : Description, VagueTerm
+rel error_possibility_reason : ErrorPossibility, Reason
+rel completely_ruled_out : ErrorPossibility
+
+rel error_in_determination_process : Error, DeterminationProcess
+rel identified : Error
+
+rel endeavor_by : Endeavor, Organization
+rel endeavor_to_correct : Endeavor, Error
+rel endeavor_within : Endeavor, Period
+rel reasonable_period_for_error : Error, Period
+rel period_described_by : Period, VagueTerm
+
+rel understanding_of : Understanding, VagueTerm
+rel general_measure_to_be_taken : GeneralMeasure
+rel dependency_understanding : UnderlyingDependency, Understanding
+rel dependency_general_measure : UnderlyingDependency, GeneralMeasure
+rel dependency_underlying : UnderlyingDependency, Underlying
+rel generally_applies : UnderlyingDependency
+rel specification_understanding : PolicySpecification, Understanding
+rel specification_general_measure : PolicySpecification, GeneralMeasure
+rel specification_policy : PolicySpecification, CorrectionPolicy
+
+rel incorporated_by_reference_into : Document, Document
+rel available_on : Document, WebResource
+rel website_of : WebResource, Organization
+
+fact solactive_greatest_possible_efforts :
+  makes_effort(Solactive, SolactiveGreatestPossibleEfforts)
+  and greatest_possible(SolactiveGreatestPossibleEfforts)
+
+constraint efforts_to_accurately_calculate_and_maintain_indices :
+  forall i: Index,
+    index_of(i, Solactive)
+    implies
+      effort_goal(SolactiveGreatestPossibleEfforts, i, AccurateCalculation)
+      and effort_goal(SolactiveGreatestPossibleEfforts, i, AccurateMaintenance)
+
+fact determination_process_errors_may_occur_not_ruled_out :
+  error_possibility_in_determination_process(
+    DeterminationProcessErrorPossibility,
+    SolactiveDeterminationProcess
+  )
+  and description_of_error_possibility(
+    DeterminationProcessErrorDescription,
+    DeterminationProcessErrorPossibility
+  )
+  and description_occurrence_term(
+    DeterminationProcessErrorDescription,
+    FromTimeToTime
+  )
+  and description_reason_term(
+    DeterminationProcessErrorDescription,
+    VarietyReasons
+  )
+  and description_polarity_term(
+    DeterminationProcessErrorDescription,
+    CannotBeCompletelyRuledOut
+  )
+  and error_possibility_reason(DeterminationProcessErrorPossibility, Internal)
+  and error_possibility_reason(DeterminationProcessErrorPossibility, External)
+  and not completely_ruled_out(DeterminationProcessErrorPossibility)
+
+constraint identified_errors_correction_endeavor :
+  forall e: Error,
+    error_in_determination_process(e, SolactiveDeterminationProcess)
+    and identified(e)
+    implies
+      exists v: Endeavor, exists t: Period,
+        endeavor_by(v, Solactive)
+        and endeavor_to_correct(v, e)
+        and reasonable_period_for_error(e, t)
+        and period_described_by(t, ReasonablePeriodOfTime)
+        and endeavor_within(v, t)
+
+fact period_understanding_and_measures_depend_on_underlying :
+  exists u: Underlying,
+      dependency_understanding(
+        PeriodAndMeasureUnderlyingDependency,
+        ReasonablePeriodOfTimeUnderstanding
+      )
+      and dependency_general_measure(
+        PeriodAndMeasureUnderlyingDependency,
+        GeneralMeasuresToBeTaken
+      )
+      and dependency_underlying(
+        PeriodAndMeasureUnderlyingDependency,
+        u
+      )
+      and generally_applies(PeriodAndMeasureUnderlyingDependency)
+
+fact correction_policy_specifies_period_understanding_and_measures :
+  understanding_of(
+    ReasonablePeriodOfTimeUnderstanding,
+    ReasonablePeriodOfTime
+  )
+  and general_measure_to_be_taken(GeneralMeasuresToBeTaken)
+  and specification_understanding(
+    CorrectionPolicySpecification,
+    ReasonablePeriodOfTimeUnderstanding
+  )
+  and specification_general_measure(
+    CorrectionPolicySpecification,
+    GeneralMeasuresToBeTaken
+  )
+  and specification_policy(CorrectionPolicySpecification, SolactiveCorrectionPolicy)
+
+fact correction_policy_reference :
+  incorporated_by_reference_into(SolactiveCorrectionPolicy, ThisGuideline)
+  and available_on(SolactiveCorrectionPolicy, SolactiveWebsite)
+  and website_of(SolactiveWebsite, Solactive)

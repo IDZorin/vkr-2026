@@ -1,0 +1,38 @@
+schema: role_annotations_v1
+entry_id: section_4_7
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  calculates_index_following_arrangement:
+    kind: rel
+    args:
+      1: {role: agent}
+      2: {role: subject}
+      3: {role: time}
+      4: {role: subject}
+constraints:
+  calculation_during_market_stress_follows_arrangements:
+    frame: calculation_during_market_stress_follows_arrangements
+    variables:
+      i: {role: subject, quantifier: forall}
+      p: {role: time, quantifier: forall}
+      s: {role: event, quantifier: forall}
+  index_determination_may_be_limited_or_impaired:
+    frame: index_determination_may_be_limited_or_impaired
+    variables:
+      p: {role: time, quantifier: forall}
+      s: {role: event, quantifier: exists}
+      m: {role: event, quantifier: exists}
+      f: {role: event, quantifier: exists}
+      possibility: {role: condition, quantifier: exists}
+  market_stress_can_arise_due_to_variety_of_reasons:
+    frame: market_stress_can_arise_due_to_variety_of_reasons
+    variables:
+      p: {role: time, quantifier: forall}
+      s: {role: event, quantifier: forall}
+  market_stress_generally_results_in_price_conditions:
+    frame: market_stress_generally_results_in_price_conditions
+    variables:
+      p: {role: time, quantifier: forall}
+      s: {role: event, quantifier: forall}
+      o: {role: price, quantifier: exists}
+      c: {role: component, quantifier: exists}

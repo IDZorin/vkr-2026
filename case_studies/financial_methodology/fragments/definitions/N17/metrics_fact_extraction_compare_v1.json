@@ -1,0 +1,49 @@
+{
+  "entry_id": "N17",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1602,
+    "completion_tokens": 63,
+    "total_tokens": 1665
+  },
+  "latency_s": 1.2498655319213867,
+  "raw_parsed": {
+    "source_facts": [
+      "Index shall have the meaning defined in Section Introduction."
+    ],
+    "render_facts": [
+      "The term N17 is defined in the Introduction section."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 0,
+        "match": "weaker"
+      }
+    ],
+    "render_only": []
+  },
+  "summary": {
+    "n_source_facts": 1,
+    "n_render_facts": 1,
+    "matched_source": 1,
+    "matched_render": 1,
+    "render_only": 0,
+    "missing_source": 0,
+    "weaker_in_render": 1,
+    "stronger_in_render": 0,
+    "recall": 1.0,
+    "precision": 1.0,
+    "f1": 1.0,
+    "missing_source_facts": [],
+    "render_only_facts": [],
+    "weaker_pairs": [
+      {
+        "src": "Index shall have the meaning defined in Section Introduction.",
+        "render": "The term N17 is defined in the Introduction section."
+      }
+    ],
+    "stronger_pairs": []
+  }
+}

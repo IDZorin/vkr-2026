@@ -1,0 +1,450 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:process_ontology_v1 a a4:ProjectionTarget ;
+  a4:relativePath "process/process_ontology_v1.a4v3" ;
+  a4:targetKind "process" .
+
+ex:Workflow a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessStep a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessTrigger a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessInput a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessOutput a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessState a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessStateCarrier a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessGroundingTarget a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:DocumentPart a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:LocalAssertionName a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:BridgeFamily a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:BridgeDecision a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CanonicalConcept a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CanonicalFrame a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CanonicalFrame rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalRole a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CanonicalRole rdfs:subClassOf ex:CanonicalConcept .
+ex:ProvenanceClaim a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CalendarMarker a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CalendarWindow a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:CalendarWindow rdfs:subClassOf ex:CalendarMarker .
+ex:IndexComponentMembershipState a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:GenericMembership a ex:IndexComponentMembershipState, a4:EnumMember, owl:NamedIndividual .
+ex:IndexComponentMembershipState a4:enumMember ex:GenericMembership .
+ex:SelectedMembership a ex:IndexComponentMembershipState, a4:EnumMember, owl:NamedIndividual .
+ex:IndexComponentMembershipState a4:enumMember ex:SelectedMembership .
+ex:CalculationMembership a ex:IndexComponentMembershipState, a4:EnumMember, owl:NamedIndividual .
+ex:IndexComponentMembershipState a4:enumMember ex:CalculationMembership .
+ex:ImplementedMembership a ex:IndexComponentMembershipState, a4:EnumMember, owl:NamedIndividual .
+ex:IndexComponentMembershipState a4:enumMember ex:ImplementedMembership .
+ex:ProcessStateKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:EligibleUniverseCandidate a ex:ProcessStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessStateKind a4:enumMember ex:EligibleUniverseCandidate .
+ex:EligibleComponentCandidate a ex:ProcessStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessStateKind a4:enumMember ex:EligibleComponentCandidate .
+ex:SelectedComponent a ex:ProcessStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessStateKind a4:enumMember ex:SelectedComponent .
+ex:CalculationDayComponent a ex:ProcessStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessStateKind a4:enumMember ex:CalculationDayComponent .
+ex:ImplementedComponent a ex:ProcessStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessStateKind a4:enumMember ex:ImplementedComponent .
+ex:ProcessOverlayStateKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:CorporateActionAffectedComponent a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:CorporateActionAffectedComponent .
+ex:CorporateActionAdjustedComponent a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:CorporateActionAdjustedComponent .
+ex:DisruptedDetermination a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:DisruptedDetermination .
+ex:CorrectionPending a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:CorrectionPending .
+ex:CorrectionResolved a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:CorrectionResolved .
+ex:ActiveIndex a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:ActiveIndex .
+ex:TerminatedIndex a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:TerminatedIndex .
+ex:MethodologyUnderReview a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:MethodologyUnderReview .
+ex:MethodologyChanged a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:MethodologyChanged .
+ex:AmendmentPendingApproval a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:AmendmentPendingApproval .
+ex:AmendmentApproved a ex:ProcessOverlayStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a4:enumMember ex:AmendmentApproved .
+ex:ProcessEdgeKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:ExplicitSourceEdge a ex:ProcessEdgeKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessEdgeKind a4:enumMember ex:ExplicitSourceEdge .
+ex:StructuralDependencyEdge a ex:ProcessEdgeKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessEdgeKind a4:enumMember ex:StructuralDependencyEdge .
+ex:InferredMergeEdge a ex:ProcessEdgeKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessEdgeKind a4:enumMember ex:InferredMergeEdge .
+ex:OperationalLoweringEdge a ex:ProcessEdgeKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessEdgeKind a4:enumMember ex:OperationalLoweringEdge .
+ex:OverlayBehavior a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:Preempt a ex:OverlayBehavior, a4:EnumMember, owl:NamedIndividual .
+ex:OverlayBehavior a4:enumMember ex:Preempt .
+ex:ModifyAndContinue a ex:OverlayBehavior, a4:EnumMember, owl:NamedIndividual .
+ex:OverlayBehavior a4:enumMember ex:ModifyAndContinue .
+ex:InterruptAndResume a ex:OverlayBehavior, a4:EnumMember, owl:NamedIndividual .
+ex:OverlayBehavior a4:enumMember ex:InterruptAndResume .
+ex:Fallback a ex:OverlayBehavior, a4:EnumMember, owl:NamedIndividual .
+ex:OverlayBehavior a4:enumMember ex:Fallback .
+ex:StepModality a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:ObligatoryStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:ObligatoryStep .
+ex:PermittedStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:PermittedStep .
+ex:ProhibitedStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:ProhibitedStep .
+ex:DiscretionaryStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:DiscretionaryStep .
+ex:DescriptiveStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:DescriptiveStep .
+ex:ProcessTemporalRelation a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:Before a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:Before .
+ex:After a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:After .
+ex:SameTimeAs a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:SameTimeAs .
+ex:During a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:During .
+ex:OnOrBefore a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:OnOrBefore .
+ex:OnOrAfter a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:OnOrAfter .
+ex:IterationSemanticsStatus a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:NoIteration a ex:IterationSemanticsStatus, a4:EnumMember, owl:NamedIndividual .
+ex:IterationSemanticsStatus a4:enumMember ex:NoIteration .
+ex:IterationSemanticsDeferred a ex:IterationSemanticsStatus, a4:EnumMember, owl:NamedIndividual .
+ex:IterationSemanticsStatus a4:enumMember ex:IterationSemanticsDeferred .
+ex:FixedPointIteration a ex:IterationSemanticsStatus, a4:EnumMember, owl:NamedIndividual .
+ex:IterationSemanticsStatus a4:enumMember ex:FixedPointIteration .
+ex:ProcessGroundingKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:DocumentPartGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:DocumentPartGrounding .
+ex:LocalConstraintGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:LocalConstraintGrounding .
+ex:LocalFactGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:LocalFactGrounding .
+ex:BridgeDecisionGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:BridgeDecisionGrounding .
+ex:CanonicalConceptGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:CanonicalConceptGrounding .
+ex:ProvenanceGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:ProvenanceGrounding .
+ex:ProcessIOKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:DomainConceptIO a ex:ProcessIOKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessIOKind a4:enumMember ex:DomainConceptIO .
+ex:ObservationFrameIO a ex:ProcessIOKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessIOKind a4:enumMember ex:ObservationFrameIO .
+ex:CalendarMarkerIO a ex:ProcessIOKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessIOKind a4:enumMember ex:CalendarMarkerIO .
+ex:ProcessStateIO a ex:ProcessIOKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessIOKind a4:enumMember ex:ProcessStateIO .
+
+ex:workflow_step a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:workflow_step_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_step a4:argument ex:workflow_step_arg_0 .
+ex:workflow_step_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:workflow_step a4:argument ex:workflow_step_arg_1 .
+ex:workflow_invokes a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:workflow_invokes_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_invokes a4:argument ex:workflow_invokes_arg_0 .
+ex:workflow_invokes_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_invokes a4:argument ex:workflow_invokes_arg_1 .
+ex:workflow_modifies a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:workflow_modifies_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_modifies a4:argument ex:workflow_modifies_arg_0 .
+ex:workflow_modifies_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_modifies a4:argument ex:workflow_modifies_arg_1 .
+ex:workflow_interrupts a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:workflow_interrupts_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_interrupts a4:argument ex:workflow_interrupts_arg_0 .
+ex:workflow_interrupts_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_interrupts a4:argument ex:workflow_interrupts_arg_1 .
+ex:step_precedes a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_precedes_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_precedes a4:argument ex:step_precedes_arg_0 .
+ex:step_precedes_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_precedes a4:argument ex:step_precedes_arg_1 .
+ex:step_edge_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:step_edge_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_edge_kind a4:argument ex:step_edge_kind_arg_0 .
+ex:step_edge_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_edge_kind a4:argument ex:step_edge_kind_arg_1 .
+ex:step_edge_kind_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessEdgeKind .
+ex:step_edge_kind a4:argument ex:step_edge_kind_arg_2 .
+ex:step_temporal_relation a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:step_temporal_relation_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_temporal_relation a4:argument ex:step_temporal_relation_arg_0 .
+ex:step_temporal_relation_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_temporal_relation a4:argument ex:step_temporal_relation_arg_1 .
+ex:step_temporal_relation_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessTemporalRelation .
+ex:step_temporal_relation a4:argument ex:step_temporal_relation_arg_2 .
+ex:step_overlay_behavior a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_overlay_behavior_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_overlay_behavior a4:argument ex:step_overlay_behavior_arg_0 .
+ex:step_overlay_behavior_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:OverlayBehavior .
+ex:step_overlay_behavior a4:argument ex:step_overlay_behavior_arg_1 .
+ex:step_modality a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_modality_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_modality a4:argument ex:step_modality_arg_0 .
+ex:step_modality_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:StepModality .
+ex:step_modality a4:argument ex:step_modality_arg_1 .
+ex:step_iteration_status a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_iteration_status_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_iteration_status a4:argument ex:step_iteration_status_arg_0 .
+ex:step_iteration_status_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IterationSemanticsStatus .
+ex:step_iteration_status a4:argument ex:step_iteration_status_arg_1 .
+ex:step_triggered_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_triggered_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_triggered_by a4:argument ex:step_triggered_by_arg_0 .
+ex:step_triggered_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:step_triggered_by a4:argument ex:step_triggered_by_arg_1 .
+ex:trigger_calendar_marker a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:trigger_calendar_marker_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_calendar_marker a4:argument ex:trigger_calendar_marker_arg_0 .
+ex:trigger_calendar_marker_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalendarMarker .
+ex:trigger_calendar_marker a4:argument ex:trigger_calendar_marker_arg_1 .
+ex:trigger_precedes a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:trigger_precedes_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_precedes a4:argument ex:trigger_precedes_arg_0 .
+ex:trigger_precedes_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_precedes a4:argument ex:trigger_precedes_arg_1 .
+ex:trigger_temporal_relation a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:trigger_temporal_relation_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_temporal_relation a4:argument ex:trigger_temporal_relation_arg_0 .
+ex:trigger_temporal_relation_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_temporal_relation a4:argument ex:trigger_temporal_relation_arg_1 .
+ex:trigger_temporal_relation_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessTemporalRelation .
+ex:trigger_temporal_relation a4:argument ex:trigger_temporal_relation_arg_2 .
+ex:trigger_relation_grounded_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:trigger_relation_grounded_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_relation_grounded_in a4:argument ex:trigger_relation_grounded_in_arg_0 .
+ex:trigger_relation_grounded_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_relation_grounded_in a4:argument ex:trigger_relation_grounded_in_arg_1 .
+ex:trigger_relation_grounded_in_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:trigger_relation_grounded_in a4:argument ex:trigger_relation_grounded_in_arg_2 .
+ex:calendar_window_start_marker a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:calendar_window_start_marker_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalendarWindow .
+ex:calendar_window_start_marker a4:argument ex:calendar_window_start_marker_arg_0 .
+ex:calendar_window_start_marker_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalendarMarker .
+ex:calendar_window_start_marker a4:argument ex:calendar_window_start_marker_arg_1 .
+ex:calendar_window_end_marker a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:calendar_window_end_marker_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:CalendarWindow .
+ex:calendar_window_end_marker a4:argument ex:calendar_window_end_marker_arg_0 .
+ex:calendar_window_end_marker_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalendarMarker .
+ex:calendar_window_end_marker a4:argument ex:calendar_window_end_marker_arg_1 .
+ex:step_during_calendar_window a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_during_calendar_window_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_during_calendar_window a4:argument ex:step_during_calendar_window_arg_0 .
+ex:step_during_calendar_window_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalendarWindow .
+ex:step_during_calendar_window a4:argument ex:step_during_calendar_window_arg_1 .
+ex:step_requires a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_requires_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_requires a4:argument ex:step_requires_arg_0 .
+ex:step_requires_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessInput .
+ex:step_requires a4:argument ex:step_requires_arg_1 .
+ex:step_produces a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_produces_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_produces a4:argument ex:step_produces_arg_0 .
+ex:step_produces_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessOutput .
+ex:step_produces a4:argument ex:step_produces_arg_1 .
+ex:input_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:input_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessInput .
+ex:input_kind a4:argument ex:input_kind_arg_0 .
+ex:input_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessIOKind .
+ex:input_kind a4:argument ex:input_kind_arg_1 .
+ex:output_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:output_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessOutput .
+ex:output_kind a4:argument ex:output_kind_arg_0 .
+ex:output_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessIOKind .
+ex:output_kind a4:argument ex:output_kind_arg_1 .
+ex:input_observation_frame a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:input_observation_frame_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessInput .
+ex:input_observation_frame a4:argument ex:input_observation_frame_arg_0 .
+ex:input_observation_frame_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CanonicalFrame .
+ex:input_observation_frame a4:argument ex:input_observation_frame_arg_1 .
+ex:output_observation_frame a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:output_observation_frame_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessOutput .
+ex:output_observation_frame a4:argument ex:output_observation_frame_arg_0 .
+ex:output_observation_frame_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CanonicalFrame .
+ex:output_observation_frame a4:argument ex:output_observation_frame_arg_1 .
+ex:input_canonical_concept a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:input_canonical_concept_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessInput .
+ex:input_canonical_concept a4:argument ex:input_canonical_concept_arg_0 .
+ex:input_canonical_concept_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CanonicalConcept .
+ex:input_canonical_concept a4:argument ex:input_canonical_concept_arg_1 .
+ex:output_canonical_concept a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:output_canonical_concept_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessOutput .
+ex:output_canonical_concept a4:argument ex:output_canonical_concept_arg_0 .
+ex:output_canonical_concept_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CanonicalConcept .
+ex:output_canonical_concept a4:argument ex:output_canonical_concept_arg_1 .
+ex:step_enters_state a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_enters_state_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_enters_state a4:argument ex:step_enters_state_arg_0 .
+ex:step_enters_state_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:step_enters_state a4:argument ex:step_enters_state_arg_1 .
+ex:step_exits_state a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_exits_state_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_exits_state a4:argument ex:step_exits_state_arg_0 .
+ex:step_exits_state_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:step_exits_state a4:argument ex:step_exits_state_arg_1 .
+ex:process_state_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:process_state_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:process_state_kind a4:argument ex:process_state_kind_arg_0 .
+ex:process_state_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStateKind .
+ex:process_state_kind a4:argument ex:process_state_kind_arg_1 .
+ex:process_overlay_state_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:process_overlay_state_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:process_overlay_state_kind a4:argument ex:process_overlay_state_kind_arg_0 .
+ex:process_overlay_state_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessOverlayStateKind .
+ex:process_overlay_state_kind a4:argument ex:process_overlay_state_kind_arg_1 .
+ex:process_state_carrier a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:process_state_carrier_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:process_state_carrier a4:argument ex:process_state_carrier_arg_0 .
+ex:process_state_carrier_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStateCarrier .
+ex:process_state_carrier a4:argument ex:process_state_carrier_arg_1 .
+ex:process_state_corresponds_to_membership_state a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:process_state_corresponds_to_membership_state_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:process_state_corresponds_to_membership_state a4:argument ex:process_state_corresponds_to_membership_state_arg_0 .
+ex:process_state_corresponds_to_membership_state_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponentMembershipState .
+ex:process_state_corresponds_to_membership_state a4:argument ex:process_state_corresponds_to_membership_state_arg_1 .
+ex:process_state_kind_corresponds_to_membership_state a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:process_state_kind_corresponds_to_membership_state_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStateKind .
+ex:process_state_kind_corresponds_to_membership_state a4:argument ex:process_state_kind_corresponds_to_membership_state_arg_0 .
+ex:process_state_kind_corresponds_to_membership_state_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponentMembershipState .
+ex:process_state_kind_corresponds_to_membership_state a4:argument ex:process_state_kind_corresponds_to_membership_state_arg_1 .
+ex:step_grounded_in_document_part a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_grounded_in_document_part_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_grounded_in_document_part a4:argument ex:step_grounded_in_document_part_arg_0 .
+ex:step_grounded_in_document_part_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:step_grounded_in_document_part a4:argument ex:step_grounded_in_document_part_arg_1 .
+ex:step_grounded_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_grounded_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_grounded_in a4:argument ex:step_grounded_in_arg_0 .
+ex:step_grounded_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:step_grounded_in a4:argument ex:step_grounded_in_arg_1 .
+ex:edge_grounded_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:edge_grounded_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:edge_grounded_in a4:argument ex:edge_grounded_in_arg_0 .
+ex:edge_grounded_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:edge_grounded_in a4:argument ex:edge_grounded_in_arg_1 .
+ex:edge_grounded_in_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:edge_grounded_in a4:argument ex:edge_grounded_in_arg_2 .
+ex:grounding_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_kind a4:argument ex:grounding_kind_arg_0 .
+ex:grounding_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessGroundingKind .
+ex:grounding_kind a4:argument ex:grounding_kind_arg_1 .
+ex:grounding_document_part a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_document_part_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_document_part a4:argument ex:grounding_document_part_arg_0 .
+ex:grounding_document_part_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:grounding_document_part a4:argument ex:grounding_document_part_arg_1 .
+ex:grounding_local_assertion a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_local_assertion_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_local_assertion a4:argument ex:grounding_local_assertion_arg_0 .
+ex:grounding_local_assertion_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:LocalAssertionName .
+ex:grounding_local_assertion a4:argument ex:grounding_local_assertion_arg_1 .
+ex:grounding_bridge_family a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_bridge_family_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_bridge_family a4:argument ex:grounding_bridge_family_arg_0 .
+ex:grounding_bridge_family_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:BridgeFamily .
+ex:grounding_bridge_family a4:argument ex:grounding_bridge_family_arg_1 .
+ex:grounding_bridge_decision a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_bridge_decision_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_bridge_decision a4:argument ex:grounding_bridge_decision_arg_0 .
+ex:grounding_bridge_decision_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:BridgeDecision .
+ex:grounding_bridge_decision a4:argument ex:grounding_bridge_decision_arg_1 .
+ex:grounding_canonical_concept a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_canonical_concept_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_canonical_concept a4:argument ex:grounding_canonical_concept_arg_0 .
+ex:grounding_canonical_concept_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CanonicalConcept .
+ex:grounding_canonical_concept a4:argument ex:grounding_canonical_concept_arg_1 .
+ex:grounding_provenance_claim a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_provenance_claim_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_provenance_claim a4:argument ex:grounding_provenance_claim_arg_0 .
+ex:grounding_provenance_claim_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProvenanceClaim .
+ex:grounding_provenance_claim a4:argument ex:grounding_provenance_claim_arg_1 .
+
+ex:ASSERT_initial_process_state_membership_mapping a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "146"^^xsd:integer ;
+  a4:exprText "(process_state_kind_corresponds_to_membership_state(SelectedComponent, SelectedMembership)) and (process_state_kind_corresponds_to_membership_state(CalculationDayComponent, CalculationMembership)) and (process_state_kind_corresponds_to_membership_state(ImplementedComponent, ImplementedMembership))" ;
+  a4:sourceText "fact initial_process_state_membership_mapping :\n  process_state_kind_corresponds_to_membership_state(SelectedComponent, SelectedMembership)\n  and process_state_kind_corresponds_to_membership_state(CalculationDayComponent, CalculationMembership)\n  and process_state_kind_corresponds_to_membership_state(ImplementedComponent, ImplementedMembership)" .

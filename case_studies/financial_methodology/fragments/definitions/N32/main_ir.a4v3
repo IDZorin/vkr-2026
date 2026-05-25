@@ -1,0 +1,9 @@
+sort DefinedTerm
+
+entity WMRefinitivRateTerm : DefinedTerm
+entity Section1_4 : DocumentPart
+
+rel term_shall_have_meaning_defined_in_section : DefinedTerm, DocumentPart
+
+fact wm_refinitiv_rate_meaning_defined_in_section_1_4 :
+  term_shall_have_meaning_defined_in_section(WMRefinitivRateTerm, Section1_4)

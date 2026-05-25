@@ -1,0 +1,3570 @@
+{
+  "entry_id": "section_1_3",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 45,
+    "content_token_count": 32,
+    "covered_content_token_count": 32,
+    "uncovered_content_token_count": 0,
+    "ignored_stopword_count": 13,
+    "content_coverage_rate": 1.0
+  },
+  "tokens": [
+    {
+      "token": "initial",
+      "surface_forms": [
+        "Initial",
+        "initial"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 1
+        },
+        {
+          "line": 3,
+          "column": 5
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level",
+          "family": "SymbolDecl.fun",
+          "line": 32,
+          "matched_text": "initial_level"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level_default_on_start_date",
+          "family": "AssertDecl.constraint",
+          "line": 50,
+          "matched_text": "initial_level_default_on_start_date"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level_50_ar_on_start_date",
+          "family": "AssertDecl.fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "line": 50,
+          "matched_text": "initial_level_default_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.left",
+          "matched_text": "initial_level"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left",
+          "matched_text": "initial_level"
+        }
+      ]
+    },
+    {
+      "token": "level",
+      "surface_forms": [
+        "Level",
+        "level",
+        "Levels"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 9
+        },
+        {
+          "line": 3,
+          "column": 13
+        },
+        {
+          "line": 3,
+          "column": 254
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexLevel",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "historical_value",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "recorded_in_accordance_with",
+          "family": "SymbolDecl.rel",
+          "line": 27,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "published_level_for_period",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "published_level_for_period"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "published_level_for_period",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "back_tested",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level",
+          "family": "SymbolDecl.fun",
+          "line": 32,
+          "matched_text": "initial_level"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "initial_level",
+          "family": "SymbolDecl.fun",
+          "line": 32,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level_default_on_start_date",
+          "family": "AssertDecl.constraint",
+          "line": 50,
+          "matched_text": "initial_level_default_on_start_date"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level_50_ar_on_start_date",
+          "family": "AssertDecl.fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "levels_published_prior_to_live_date_back_tested",
+          "family": "AssertDecl.constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "line": 50,
+          "matched_text": "initial_level_default_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.left",
+          "matched_text": "initial_level"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left",
+          "matched_text": "initial_level"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.vars[0].sort",
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.vars[0].sort",
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[1]",
+          "matched_text": "published_level_for_period"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 4,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 15
+        },
+        {
+          "line": 3,
+          "column": 19
+        },
+        {
+          "line": 3,
+          "column": 242
+        },
+        {
+          "line": 3,
+          "column": 261
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Article8OfBMR",
+          "family": "SymbolDecl.entity",
+          "line": 21,
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "article_8_of_bmr",
+          "family": "AssertDecl.fact",
+          "line": 46,
+          "matched_text": "article_8_of_bmr"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "family": "AssertDecl.constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "line": 46,
+          "matched_text": "article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "part_of_document"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].left.args[0]",
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[1]",
+          "matched_text": "Article8OfBMR"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the",
+        "The"
+      ],
+      "count": 10,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 18
+        },
+        {
+          "line": 3,
+          "column": 1
+        },
+        {
+          "line": 3,
+          "column": 22
+        },
+        {
+          "line": 3,
+          "column": 35
+        },
+        {
+          "line": 3,
+          "column": 51
+        },
+        {
+          "line": 3,
+          "column": 165
+        },
+        {
+          "line": 3,
+          "column": 181
+        },
+        {
+          "line": 3,
+          "column": 245
+        },
+        {
+          "line": 3,
+          "column": 264
+        },
+        {
+          "line": 3,
+          "column": 306
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 4,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 22
+        },
+        {
+          "line": 3,
+          "column": 26
+        },
+        {
+          "line": 3,
+          "column": 128
+        },
+        {
+          "line": 3,
+          "column": 268
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Index",
+          "family": "TypeDecl.opaque",
+          "line": 4,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexLevel",
+          "family": "TypeDecl.subtype",
+          "line": 5,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexPR",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexPR",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexNTR",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexNTR",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexTR",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexTR",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex50AR",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex50AR",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR",
+          "family": "SymbolDecl.entity",
+          "line": 12,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR",
+          "family": "SymbolDecl.entity",
+          "line": 12,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "section_1_3_index",
+          "family": "SymbolDecl.rel",
+          "line": 23,
+          "matched_text": "section_1_3_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "section_1_3_index",
+          "family": "SymbolDecl.rel",
+          "line": 23,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "historical_value",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "historical_value",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "recorded_in_accordance_with",
+          "family": "SymbolDecl.rel",
+          "line": 27,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "published_level_for_period",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "published_level_for_period",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "back_tested",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "initial_level",
+          "family": "SymbolDecl.fun",
+          "line": 32,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "initial_level",
+          "family": "SymbolDecl.fun",
+          "line": 32,
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "section_1_3_index_scope",
+          "family": "AssertDecl.fact",
+          "line": 35,
+          "matched_text": "section_1_3_index_scope"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "line": 35,
+          "matched_text": "section_1_3_index_scope"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "section_1_3_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "section_1_3_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2]",
+          "matched_text": "section_1_3_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3]",
+          "matched_text": "section_1_3_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4]",
+          "matched_text": "section_1_3_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[0]",
+          "matched_text": "section_1_3_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].arg.right",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Index"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.vars[0].sort",
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[0]",
+          "matched_text": "section_1_3_index"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Index"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.vars[0].sort",
+          "matched_text": "IndexLevel"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[0]",
+          "matched_text": "section_1_3_index"
+        }
+      ]
+    },
+    {
+      "token": "on",
+      "surface_forms": [
+        "on"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 32
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level_default_on_start_date",
+          "family": "AssertDecl.constraint",
+          "line": 50,
+          "matched_text": "initial_level_default_on_start_date"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level_50_ar_on_start_date",
+          "family": "AssertDecl.fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "line": 50,
+          "matched_text": "initial_level_default_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        }
+      ]
+    },
+    {
+      "token": "05",
+      "surface_forms": [
+        "05"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 39
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "StartDate05_08_2017",
+          "family": "SymbolDecl.entity",
+          "line": 15,
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.left.args[1]",
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[1]",
+          "matched_text": "StartDate05_08_2017"
+        }
+      ]
+    },
+    {
+      "token": "08",
+      "surface_forms": [
+        "08"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 42
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "StartDate05_08_2017",
+          "family": "SymbolDecl.entity",
+          "line": 15,
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.left.args[1]",
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[1]",
+          "matched_text": "StartDate05_08_2017"
+        }
+      ]
+    },
+    {
+      "token": "2017",
+      "surface_forms": [
+        "2017"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 45
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "StartDate05_08_2017",
+          "family": "SymbolDecl.entity",
+          "line": 15,
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.left.args[1]",
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[1]",
+          "matched_text": "StartDate05_08_2017"
+        }
+      ]
+    },
+    {
+      "token": "start",
+      "surface_forms": [
+        "Start"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 55
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "StartDate05_08_2017",
+          "family": "SymbolDecl.entity",
+          "line": 15,
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "start_date",
+          "family": "SymbolDecl.rel",
+          "line": 24,
+          "matched_text": "start_date"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "start_and_live_dates",
+          "family": "AssertDecl.fact",
+          "line": 42,
+          "matched_text": "start_and_live_dates"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level_default_on_start_date",
+          "family": "AssertDecl.constraint",
+          "line": 50,
+          "matched_text": "initial_level_default_on_start_date"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level_50_ar_on_start_date",
+          "family": "AssertDecl.fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "line": 42,
+          "matched_text": "start_and_live_dates"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "start_date"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "line": 50,
+          "matched_text": "initial_level_default_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.left.args[1]",
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[1]",
+          "matched_text": "StartDate05_08_2017"
+        }
+      ]
+    },
+    {
+      "token": "date",
+      "surface_forms": [
+        "Date"
+      ],
+      "count": 3,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 61
+        },
+        {
+          "line": 3,
+          "column": 190
+        },
+        {
+          "line": 3,
+          "column": 315
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "StartDate05_08_2017",
+          "family": "SymbolDecl.entity",
+          "line": 15,
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "LiveDate29_09_2025",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "start_date",
+          "family": "SymbolDecl.rel",
+          "line": 24,
+          "matched_text": "start_date"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "live_date",
+          "family": "SymbolDecl.rel",
+          "line": 25,
+          "matched_text": "live_date"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "start_and_live_dates",
+          "family": "AssertDecl.fact",
+          "line": 42,
+          "matched_text": "start_and_live_dates"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level_default_on_start_date",
+          "family": "AssertDecl.constraint",
+          "line": 50,
+          "matched_text": "initial_level_default_on_start_date"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level_50_ar_on_start_date",
+          "family": "AssertDecl.fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "family": "AssertDecl.constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "levels_published_prior_to_live_date_back_tested",
+          "family": "AssertDecl.constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "line": 42,
+          "matched_text": "start_and_live_dates"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "start_date"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "live_date"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "line": 50,
+          "matched_text": "initial_level_default_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.left.args[1]",
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[1]",
+          "matched_text": "StartDate05_08_2017"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[2].arg.args[1]",
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[2].args[1]",
+          "matched_text": "LiveDate29_09_2025"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 67
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "1000",
+      "surface_forms": [
+        "1000"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 70
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.right",
+          "matched_text": "1000"
+        }
+      ]
+    },
+    {
+      "token": "739.08",
+      "surface_forms": [
+        "739.08"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 76
+        }
+      ],
+      "provenance": [
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.right",
+          "matched_text": "739.08"
+        }
+      ]
+    },
+    {
+      "token": "for",
+      "surface_forms": [
+        "for"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 83
+        },
+        {
+          "line": 3,
+          "column": 284
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "published_level_for_period",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "published_level_for_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[1]",
+          "matched_text": "published_level_for_period"
+        }
+      ]
+    },
+    {
+      "token": "solactive",
+      "surface_forms": [
+        "Solactive"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 87
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexPR",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexNTR",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexTR",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex50AR",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR",
+          "family": "SymbolDecl.entity",
+          "line": 12,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].arg.right",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        }
+      ]
+    },
+    {
+      "token": "transatlantic",
+      "surface_forms": [
+        "Transatlantic"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 97
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexPR",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexNTR",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexTR",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex50AR",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR",
+          "family": "SymbolDecl.entity",
+          "line": 12,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].arg.right",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        }
+      ]
+    },
+    {
+      "token": "clean",
+      "surface_forms": [
+        "Clean"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 111
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexPR",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexNTR",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexTR",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex50AR",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR",
+          "family": "SymbolDecl.entity",
+          "line": 12,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].arg.right",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        }
+      ]
+    },
+    {
+      "token": "energi",
+      "surface_forms": [
+        "Energy"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 117
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexPR",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexNTR",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexTR",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex50AR",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR",
+          "family": "SymbolDecl.entity",
+          "line": 12,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].arg.right",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        }
+      ]
+    },
+    {
+      "token": "e",
+      "surface_forms": [
+        "EUR"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 124
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexPR",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexNTR",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexTR",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex50AR",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR",
+          "family": "SymbolDecl.entity",
+          "line": 12,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].arg.right",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "BMR",
+          "family": "SymbolDecl.entity",
+          "line": 20,
+          "matched_text": "BMR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Article8OfBMR",
+          "family": "SymbolDecl.entity",
+          "line": 21,
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "BMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].left.args[0]",
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[1]",
+          "matched_text": "Article8OfBMR"
+        }
+      ]
+    },
+    {
+      "token": "50",
+      "surface_forms": [
+        "50"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 134
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex50AR",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level_50_ar_on_start_date",
+          "family": "AssertDecl.fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].arg.right",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        }
+      ]
+    },
+    {
+      "token": "a",
+      "surface_forms": [
+        "AR",
+        "a"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 137
+        },
+        {
+          "line": 3,
+          "column": 288
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex50AR",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR",
+          "family": "SymbolDecl.entity",
+          "line": 12,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].arg.right",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "initial_level_50_ar_on_start_date",
+          "family": "AssertDecl.fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "line": 56,
+          "matched_text": "initial_level_50_ar_on_start_date"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexPR",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexNTR",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexTR",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "BMR",
+          "family": "SymbolDecl.entity",
+          "line": 20,
+          "matched_text": "BMR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Article8OfBMR",
+          "family": "SymbolDecl.entity",
+          "line": 21,
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "BMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].left.args[0]",
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[1]",
+          "matched_text": "Article8OfBMR"
+        }
+      ]
+    },
+    {
+      "token": "historical",
+      "surface_forms": [
+        "Historical"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 142
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_value",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "historical_value"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "family": "AssertDecl.constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[1]",
+          "matched_text": "historical_value"
+        }
+      ]
+    },
+    {
+      "token": "valu",
+      "surface_forms": [
+        "values"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 153
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "family": "AssertDecl.constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_value",
+          "family": "SymbolDecl.rel",
+          "line": 26,
+          "matched_text": "historical_value"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[1]",
+          "matched_text": "historical_value"
+        }
+      ]
+    },
+    {
+      "token": "from",
+      "surface_forms": [
+        "from"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 160
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "family": "AssertDecl.constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        }
+      ]
+    },
+    {
+      "token": "29",
+      "surface_forms": [
+        "29"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 169
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "LiveDate29_09_2025",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[2].arg.args[1]",
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[2].args[1]",
+          "matched_text": "LiveDate29_09_2025"
+        }
+      ]
+    },
+    {
+      "token": "09",
+      "surface_forms": [
+        "09"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 172
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "LiveDate29_09_2025",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[2].arg.args[1]",
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[2].args[1]",
+          "matched_text": "LiveDate29_09_2025"
+        }
+      ]
+    },
+    {
+      "token": "2025",
+      "surface_forms": [
+        "2025"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 175
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "LiveDate29_09_2025",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[2].arg.args[1]",
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[2].args[1]",
+          "matched_text": "LiveDate29_09_2025"
+        }
+      ]
+    },
+    {
+      "token": "live",
+      "surface_forms": [
+        "Live"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 185
+        },
+        {
+          "line": 3,
+          "column": 310
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "LiveDate29_09_2025",
+          "family": "SymbolDecl.entity",
+          "line": 18,
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "live_date",
+          "family": "SymbolDecl.rel",
+          "line": 25,
+          "matched_text": "live_date"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "start_and_live_dates",
+          "family": "AssertDecl.fact",
+          "line": 42,
+          "matched_text": "start_and_live_dates"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "family": "AssertDecl.constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "levels_published_prior_to_live_date_back_tested",
+          "family": "AssertDecl.constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "line": 42,
+          "matched_text": "start_and_live_dates"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "live_date"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "start_and_live_dates",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[2].arg.args[1]",
+          "matched_text": "LiveDate29_09_2025"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[2].args[1]",
+          "matched_text": "LiveDate29_09_2025"
+        }
+      ]
+    },
+    {
+      "token": "will",
+      "surface_forms": [
+        "will"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 196
+        }
+      ],
+      "provenance": [
+        {
+          "source": "family_signal",
+          "role": "legal_future_or_procedural_future"
+        }
+      ]
+    },
+    {
+      "token": "be",
+      "surface_forms": [
+        "be"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 201
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "record",
+      "surface_forms": [
+        "recorded"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 204
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "recorded_in_accordance_with",
+          "family": "SymbolDecl.rel",
+          "line": 27,
+          "matched_text": "recorded_in_accordance_with"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "family": "AssertDecl.constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right",
+          "matched_text": "recorded_in_accordance_with"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 213
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "recorded_in_accordance_with",
+          "family": "SymbolDecl.rel",
+          "line": 27,
+          "matched_text": "recorded_in_accordance_with"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "family": "AssertDecl.constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right",
+          "matched_text": "recorded_in_accordance_with"
+        }
+      ]
+    },
+    {
+      "token": "accordance",
+      "surface_forms": [
+        "accordance"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 216
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "recorded_in_accordance_with",
+          "family": "SymbolDecl.rel",
+          "line": 27,
+          "matched_text": "recorded_in_accordance_with"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "family": "AssertDecl.constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right",
+          "matched_text": "recorded_in_accordance_with"
+        }
+      ]
+    },
+    {
+      "token": "with",
+      "surface_forms": [
+        "with"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 227
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "recorded_in_accordance_with",
+          "family": "SymbolDecl.rel",
+          "line": 27,
+          "matched_text": "recorded_in_accordance_with"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "family": "AssertDecl.constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right",
+          "matched_text": "recorded_in_accordance_with"
+        }
+      ]
+    },
+    {
+      "token": "article",
+      "surface_forms": [
+        "Article"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 232
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "ArticleNumber",
+          "family": "TypeDecl.subtype",
+          "line": 6,
+          "matched_text": "ArticleNumber"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Article8OfBMR",
+          "family": "SymbolDecl.entity",
+          "line": 21,
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "article_number",
+          "family": "SymbolDecl.fun",
+          "line": 33,
+          "matched_text": "article_number"
+        },
+        {
+          "source": "declaration",
+          "role": "result_sort",
+          "symbol": "article_number",
+          "family": "SymbolDecl.fun",
+          "line": 33,
+          "matched_text": "ArticleNumber"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "article_8_of_bmr",
+          "family": "AssertDecl.fact",
+          "line": 46,
+          "matched_text": "article_8_of_bmr"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "family": "AssertDecl.constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "line": 46,
+          "matched_text": "article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].left",
+          "matched_text": "article_number"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].left.args[0]",
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[1]",
+          "matched_text": "Article8OfBMR"
+        }
+      ]
+    },
+    {
+      "token": "8",
+      "surface_forms": [
+        "8"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 240
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Article8OfBMR",
+          "family": "SymbolDecl.entity",
+          "line": 21,
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "article_8_of_bmr",
+          "family": "AssertDecl.fact",
+          "line": 46,
+          "matched_text": "article_8_of_bmr"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "family": "AssertDecl.constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "line": 46,
+          "matched_text": "article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].left.args[0]",
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].right",
+          "matched_text": "8"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[1]",
+          "matched_text": "Article8OfBMR"
+        }
+      ]
+    },
+    {
+      "token": "b",
+      "surface_forms": [
+        "BMR"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 249
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "BMR",
+          "family": "SymbolDecl.entity",
+          "line": 20,
+          "matched_text": "BMR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Article8OfBMR",
+          "family": "SymbolDecl.entity",
+          "line": 21,
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "BMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].left.args[0]",
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right.args[1]",
+          "matched_text": "Article8OfBMR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "article_8_of_bmr",
+          "family": "AssertDecl.fact",
+          "line": 46,
+          "matched_text": "article_8_of_bmr"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "family": "AssertDecl.constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "article_8_of_bmr",
+          "assertion_kind": "fact",
+          "line": 46,
+          "matched_text": "article_8_of_bmr"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr",
+          "assertion_kind": "constraint",
+          "line": 59,
+          "matched_text": "historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexPR",
+          "family": "SymbolDecl.entity",
+          "line": 8,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexNTR",
+          "family": "SymbolDecl.entity",
+          "line": 9,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndexTR",
+          "family": "SymbolDecl.entity",
+          "line": 10,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex50AR",
+          "family": "SymbolDecl.entity",
+          "line": 11,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR",
+          "family": "SymbolDecl.entity",
+          "line": 12,
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexPR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexNTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[2].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndexTR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[3].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "section_1_3_index_scope",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[4].args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex5PercentAR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_default_on_start_date",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1].arg.right",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "initial_level_50_ar_on_start_date",
+          "assertion_kind": "fact",
+          "expr_path": "expr.left.args[0]",
+          "matched_text": "SolactiveTransatlanticCleanEnergyEURIndex50AR"
+        }
+      ]
+    },
+    {
+      "token": "publish",
+      "surface_forms": [
+        "published"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 274
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "published_level_for_period",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "published_level_for_period"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "levels_published_prior_to_live_date_back_tested",
+          "family": "AssertDecl.constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[1]",
+          "matched_text": "published_level_for_period"
+        }
+      ]
+    },
+    {
+      "token": "period",
+      "surface_forms": [
+        "period"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 290
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "published_level_for_period",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "published_level_for_period"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "published_level_for_period",
+          "family": "SymbolDecl.rel",
+          "line": 28,
+          "matched_text": "Period"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "period_prior_to",
+          "family": "SymbolDecl.rel",
+          "line": 29,
+          "matched_text": "period_prior_to"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "period_prior_to",
+          "family": "SymbolDecl.rel",
+          "line": 29,
+          "matched_text": "Period"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.vars[0].sort",
+          "matched_text": "Period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[1]",
+          "matched_text": "published_level_for_period"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[2]",
+          "matched_text": "period_prior_to"
+        }
+      ]
+    },
+    {
+      "token": "prior",
+      "surface_forms": [
+        "prior"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 297
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "period_prior_to",
+          "family": "SymbolDecl.rel",
+          "line": 29,
+          "matched_text": "period_prior_to"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "levels_published_prior_to_live_date_back_tested",
+          "family": "AssertDecl.constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[2]",
+          "matched_text": "period_prior_to"
+        }
+      ]
+    },
+    {
+      "token": "to",
+      "surface_forms": [
+        "to"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 303
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "period_prior_to",
+          "family": "SymbolDecl.rel",
+          "line": 29,
+          "matched_text": "period_prior_to"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "levels_published_prior_to_live_date_back_tested",
+          "family": "AssertDecl.constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.left.args[2]",
+          "matched_text": "period_prior_to"
+        }
+      ]
+    },
+    {
+      "token": "have",
+      "surface_forms": [
+        "have"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 320
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "been",
+      "surface_forms": [
+        "been"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 325
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "back",
+      "surface_forms": [
+        "back-tested"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 3,
+          "column": 330
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "back_tested",
+          "family": "SymbolDecl.rel",
+          "line": 30,
+          "matched_text": "back_tested"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "levels_published_prior_to_live_date_back_tested",
+          "family": "AssertDecl.constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "line": 66,
+          "matched_text": "levels_published_prior_to_live_date_back_tested"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "levels_published_prior_to_live_date_back_tested",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.body.body.right",
+          "matched_text": "back_tested"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

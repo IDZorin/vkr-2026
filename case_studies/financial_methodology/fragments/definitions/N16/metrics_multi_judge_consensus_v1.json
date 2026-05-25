@@ -1,0 +1,124 @@
+{
+  "entry_id": "N16",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR states that the defined term \"Guideline\" has its meaning defined in the Introduction section, which matches the source exactly. The added symbol names are a faithful formalization of the quoted term and section reference.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "\"DefinedTerm\" and \"IntroductionSection\" are formalized names for the source phrase \"Guideline\" and Section \"Introduction\".",
+        "The relation name is a paraphrase of the source wording."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1840,
+        "completion_tokens": 125,
+        "total_tokens": 1965
+      },
+      "latency_s": 1.835820198059082
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "corresponds",
+      "relation_type": "same_meaning_poor_wording",
+      "reason_short": "The IR captures the source's core claim: the defined term \"Guideline\" has the meaning given in the Introduction section. The main differences are naming/typing choices such as representing the quoted term as an entity of sort DefinedTerm and the section as a DocumentPart, which do not materially change the meaning.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses GuidelineTerm instead of the literal quoted term \"Guideline\".",
+        "IntroductionSection is modeled as a DocumentPart rather than preserving the exact quoted section title syntax.",
+        "The relation name term_shall_have_meaning_defined_in_section is verbose but semantically aligned with the source."
+      ],
+      "confidence": 0.97,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1840,
+        "completion_tokens": 166,
+        "total_tokens": 2006
+      },
+      "latency_s": 3.717820644378662
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR correctly captures that 'Guideline' is a defined term whose meaning is specified in the Introduction section. However, the IR introduces a new sort `DefinedTerm` and reifies the relationship as a binary predicate `term_shall_have_meaning_defined_in_section`, which adds structural formalism not present in the source. The source is a simple definitional cross-reference; the IR treats it as a general term-definition relationship. The core semantic content (Guideline's meaning is in Introduction) is preserved, but the IR's ontological choices go beyond what the source explicitly states.",
+      "semantic_differences": [
+        "Source makes a specific definitional claim about 'Guideline'; IR generalizes this to a reusable relation `term_shall_have_meaning_defined_in_section` applicable to any DefinedTerm and DocumentPart, which is not entailed by the source.",
+        "IR introduces sort `DefinedTerm` as a new ontological category; source does not explicitly define or reference such a category—it simply states that a term has a meaning defined elsewhere."
+      ],
+      "stylistic_notes": [
+        "IR names the relation `term_shall_have_meaning_defined_in_section`, which is verbose; a simpler name like `defined_in` might be clearer.",
+        "IR uses entity names `GuidelineTerm` and `IntroductionSection` rather than `Guideline` and `Introduction`, adding a suffix convention not present in source.",
+        "The fact name `guideline_meaning_defined_in_introduction` is more readable than the relation name but still adds interpretive structure."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2109,
+        "completion_tokens": 427,
+        "total_tokens": 2536
+      },
+      "latency_s": 5.483614683151245
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR translates the definitional cross-reference directly: GuidelineTerm is a DefinedTerm, IntroductionSection a DocumentPart, and the fact term_shall_have_meaning_defined_in_section(GuidelineTerm, IntroductionSection) asserts exactly that the term's meaning is defined in that section, matching the source's \"shall have the meaning as defined in.\"",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The relation name 'term_shall_have_meaning_defined_in_section' is a literal concatenation of the source phrase, which is verbose but semantically faithful.",
+        "Introducing a DefinedTerm sort is a natural modeling choice not explicit in the source but does not add unintended meaning."
+      ],
+      "confidence": 0.99,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1955,
+        "completion_tokens": 1036,
+        "total_tokens": 2991
+      },
+      "latency_s": 35.52697992324829
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR accurately formalizes the source's cross-reference definition by asserting that the term 'Guideline' derives its meaning from the 'Introduction' section. The introduced sort and relation correctly model this definitional dependency without adding or omitting semantic content.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The relation name 'term_shall_have_meaning_defined_in_section' is highly verbose but semantically precise.",
+        "Introducing a 'DefinedTerm' sort is a valid modeling choice for handling cross-referenced definitions, though a generic 'Term' or 'String' could also suffice."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1967,
+        "completion_tokens": 1584,
+        "total_tokens": 3551
+      },
+      "latency_s": 30.570873975753784
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "corresponds": 4,
+      "partially_corresponds": 1
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 0.8,
+    "unanimous": false,
+    "mean_confidence": 0.932
+  }
+}

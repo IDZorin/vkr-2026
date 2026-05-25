@@ -1,0 +1,175 @@
+﻿{
+  "schema": "corpus_aware_multi_judge_v1",
+  "generated_at": "2026-05-10T20:23:37+02:00",
+  "entry_id": "N03",
+  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N03",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "included_context": {
+    "entry": "N03",
+    "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N03",
+    "global_bridge": false,
+    "related_sections": [],
+    "artifacts": {
+      "source.md": true,
+      "normalized.md": true,
+      "main_ir.a4v3": true,
+      "repair.a4v3": false,
+      "provenance.yaml": true,
+      "translator_notes.md": true,
+      "waivers.yaml": false,
+      "waivers_v1.yaml": false
+    }
+  },
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR faithfully encodes the quoted term, the referenced section, and the definitional cross-reference without inventing substantive meaning or treating the sentence as an obligation. The provenance and translator notes confirm the intended reading and the role of the label bridges, but they are not needed to resolve any mismatch.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses explicit carrier entities and label bridges, which is more formal than the source but semantically aligned.",
+        "'shall have the meaning as defined in Section' is represented as a definitional relation rather than deontic modality, matching the documented drafting convention."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2269,
+        "completion_tokens": 185,
+        "total_tokens": 2454
+      },
+      "latency_s": 2.766726016998291
+    },
+    {
+      "model": "gpt-5.4",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "none"
+      ],
+      "reason_short": "The local IR faithfully captures the single source sentence as a cross-reference definition: it identifies the quoted term \"BMR\", identifies the referenced Section \"Introduction\", and states that the term has the meaning defined in that section. The added label-linking conjuncts make lexical identity explicit and do not change the substantive meaning.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses auxiliary label relations (`defined_term_source_label`, `document_part_source_label`) for traceability; these are review-oriented and not semantic drift.",
+        "`term_shall_have_meaning_defined_in_section` is a slightly formalized rendering of the drafting phrase \"shall have the meaning as defined in Section ...\", but preserves the definitional-reference reading."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2269,
+        "completion_tokens": 203,
+        "total_tokens": 2472
+      },
+      "latency_s": 3.653838872909546
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The source sentence states that 'BMR' shall have the meaning defined in Section 'Introduction'. The IR captures this as a cross-reference definition via three coordinated claims: (1) the term 'BMR' is labeled and identified as BMRTerm, (2) the section 'Introduction' is labeled and identified as IntroductionSection, and (3) a definitional relation links the term to the section. The provenance and translator notes confirm that 'shall' is correctly interpreted as a definitional pointer, not a deontic obligation, and that the label bridges are included for review/merge support. No substantive meaning is invented locally. The IR is faithful to the source.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses formal relation names (defined_term_source_label, document_part_source_label, term_shall_have_meaning_defined_in_section) rather than the source's natural-language phrasing, but this is standard IR abstraction, not drift.",
+        "The IR introduces intermediate sorts (DefinedTerm, DocumentPart, DefinedTermLabel, DocumentPartLabel) to structure the cross-reference; the source does not explicitly name these categories, but they are justified by the prelude methodology and translator decision record."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2649,
+        "completion_tokens": 389,
+        "total_tokens": 3038
+      },
+      "latency_s": 4.939981698989868
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR faithfully represents the cross-reference definition, capturing the defined term, the section, and the relation that the definition is found there. No semantic drift.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR introduces entity-label relations to explicitly tie the formal symbols to the quoted source strings, which is a standard translation practice."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2396,
+        "completion_tokens": 1742,
+        "total_tokens": 4138
+      },
+      "latency_s": 60.762308835983276
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR faithfully captures the source's cross-reference definition by modeling 'BMR' as a DefinedTerm and 'Introduction' as a DocumentPart, explicitly binding their literal labels and asserting the definitional relationship. The corpus context confirms that the structural label bridges and the non-deontic interpretation of 'shall' are intentional modeling choices that preserve the source's legal drafting intent without adding or omitting substantive meaning.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses explicit label-bridge relations (defined_term_source_label, document_part_source_label) to preserve lexical identity, which is a structural normalization choice rather than a semantic divergence."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2423,
+        "completion_tokens": 2039,
+        "total_tokens": 4462
+      },
+      "latency_s": 39.007933378219604
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "local_source_alignment_mode": "corresponds",
+    "local_source_alignment_distribution": {
+      "corresponds": 5
+    },
+    "local_source_alignment_agreement": 1.0,
+    "corpus_alignment_mode": "corresponds",
+    "corpus_alignment_distribution": {
+      "corresponds": 5
+    },
+    "corpus_alignment_agreement": 1.0,
+    "unanimous_corpus_alignment": true,
+    "needs_context_count": 0,
+    "mean_confidence": 0.984
+  }
+}

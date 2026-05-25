@@ -1,0 +1,76 @@
+section: "N23 Definition: Index Universe"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  index_universe_sum_source_phrase:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Index Universe\" is the sum of all financial instruments which fulfill the Index Universe Requirements."
+    back_translation: >
+      The Index Universe is the sum of all financial instruments that
+      fulfill the Index Universe Requirements.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This fact preserves the source phrase "sum of all" as a descriptive
+      collection marker. The actual membership semantics are provided by
+      the biconditional constraint below; "sum" is not interpreted as
+      numeric addition.
+
+  index_universe_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Index Universe\" is the sum of all financial instruments which fulfill the Index Universe Requirements."
+    back_translation: >
+      For every financial instrument, that financial instrument is in the
+      Index Universe if and only if it fulfills the Index Universe
+      Requirements.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Pure definitional claim. The biconditional is used because the source
+      defines the term "Index Universe". The phrase "all financial
+      instruments" is represented by universal quantification over
+      FinancialInstrument. The phrase "which fulfill the Index Universe
+      Requirements" is represented by the requirement-fulfillment predicate.
+
+uncovered_source:
+  - quote: "(none -- the single source sentence maps to the fact and definition constraint)"
+
+vocabulary_notes:
+  TheIndexUniverse:
+    note: >
+      Local entity for the source term "Index Universe". Cross-section
+      identity with Section 2.1 universe objects belongs to bridge/merge
+      work.
+    source_phrase: "Index Universe"
+  TheIndexUniverseRequirements:
+    note: >
+      Local entity for the source term "Index Universe Requirements".
+      N22/Section 2.1 can provide the detailed requirements; this
+      definition only references the term.
+    source_phrase: "Index Universe Requirements"
+  financial_instrument_in_index_universe:
+    note: >
+      Structural membership relation for a financial instrument being in
+      the Index Universe.
+    source_phrase: "financial instruments"
+  fulfills_index_universe_requirements:
+    note: >
+      Structural relation for the source phrase "fulfill the Index Universe
+      Requirements".
+    source_phrase: "fulfill the Index Universe Requirements"
+  index_universe_is_sum_of_financial_instruments_fulfilling_requirements:
+    note: >
+      Source-surface marker for "sum of all financial instruments"; treated
+      as collection/membership language, not arithmetic.
+    source_phrase: "sum of all financial instruments"

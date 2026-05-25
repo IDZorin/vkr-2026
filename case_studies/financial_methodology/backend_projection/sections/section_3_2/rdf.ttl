@@ -1,0 +1,33 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_3_2 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_3_2/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Rebalance a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ExtraordinaryRebalance a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ExtraordinaryRebalance rdfs:subClassOf ex:Rebalance .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:rebalance_of_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:rebalance_of_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Rebalance .
+ex:rebalance_of_index a4:argument ex:rebalance_of_index_arg_0 .
+ex:rebalance_of_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:rebalance_of_index a4:argument ex:rebalance_of_index_arg_1 .
+
+ex:ASSERT_index_not_rebalanced_extraordinarily a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "9"^^xsd:integer ;
+  a4:exprText "forall r: ExtraordinaryRebalance, not (rebalance_of_index(r, TheIndex))" ;
+  a4:sourceText "constraint index_not_rebalanced_extraordinarily :\n  forall r: ExtraordinaryRebalance,\n    not rebalance_of_index(r, TheIndex)" .

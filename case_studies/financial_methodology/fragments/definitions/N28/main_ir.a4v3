@@ -1,0 +1,9 @@
+sort DefinedTerm
+
+entity SolactiveTerm : DefinedTerm
+entity IntroductionSection : DocumentPart
+
+rel term_shall_have_meaning_defined_in_section : DefinedTerm, DocumentPart
+
+fact solactive_meaning_defined_in_introduction :
+  term_shall_have_meaning_defined_in_section(SolactiveTerm, IntroductionSection)

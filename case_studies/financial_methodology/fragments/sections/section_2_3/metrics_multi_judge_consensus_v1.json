@@ -1,0 +1,121 @@
+{
+  "entry_id": "section_2_3",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main weighting rules: weights are based on float market capitalization, each region totals 50%, each component is capped at 5%, and redistribution is iterative and proportional. However, it also introduces extra structure and omits the source’s explicit statement that the weights are assigned on each Selection Day, rather than merely defining functions and processes.",
+      "semantic_differences": [
+        "The source says each Index Component is assigned a weight on each Selection Day; the IR does not explicitly state the assignment event or that the weighting occurs on each Selection Day.",
+        "The source says the weights are redistributed proportionally in an iterative process until both constraints are satisfied; the IR states iterative/proportional properties but does not encode the 'until both constraints are satisfied' termination condition.",
+        "The IR introduces a separate WeightRedistributionProcess sort and related relations that are not explicitly present in the source text."
+      ],
+      "stylistic_notes": [
+        "The source has a typo in 'Float Market Capizatlization'; the IR preserves a close variant in the symbol name.",
+        "The IR uses 'SelectionDay' as a sort name for 'Selection Day', which is a reasonable normalization."
+      ],
+      "confidence": 0.9,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2192,
+        "completion_tokens": 291,
+        "total_tokens": 2483
+      },
+      "latency_s": 4.548201322555542
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main weighting constraints: per-selection-day weights, 50% per region, 5% cap per component, and the existence of an iterative proportional redistribution process. However, it does not encode that redistribution continues until both constraints are satisfied, and its proportional-redistribution relation is underspecified relative to the source’s process description.",
+      "semantic_differences": [
+        "The source says the weights are redistributed proportionally in an iterative process until both constraints are satisfied, but the IR does not represent the 'until both constraints are satisfied' termination/goal condition.",
+        "The source describes redistribution of weights as a process over weights, whereas the IR only states a relation between the process, each component, and that component's weight, without expressing that weights are actually adjusted/reallocated across iterations."
+      ],
+      "stylistic_notes": [
+        "The identifier 'FloatMarketCapizatlization' preserves the source typo; this is a naming issue, not a semantic one.",
+        "Using a dedicated SelectionDay sort extending Day is a reasonable formalization choice.",
+        "The phrase 'based on' is modeled via a basis relation rather than a numeric formula; this is acceptable but somewhat abstract."
+      ],
+      "confidence": 0.91,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2192,
+        "completion_tokens": 292,
+        "total_tokens": 2484
+      },
+      "latency_s": 6.838709592819214
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core constraints (50% per region, 5% cap per component) and the iterative redistribution process correctly. However, it introduces several structural elements not explicitly stated in the source: (1) a `Percent` sort not defined in prelude or source, (2) a `WeightRedistributionProcess` reification that, while reasonable, goes beyond what the source explicitly describes, (3) relations like `weight_has_float_market_capizatlization_basis` and `redistributes_weight_proportionally` that formalize implicit connections but are not directly claimed by the source text. The source describes a process; the IR reifies it into entities and relations that are plausible but add ontological structure not present in the source.",
+      "semantic_differences": [
+        "Source states weights are 'based on' Float Market Capitalization; IR introduces a separate relation `weight_has_float_market_capizatlization_basis` to formalize this dependency, which is an inference rather than an explicit claim.",
+        "Source describes an 'iterative process' as a narrative mechanism; IR reifies this as a first-class entity `WeightRedistributionProcess` with predicates `iterative_process` and `redistributes_weight_proportionally`, adding ontological structure not explicitly in source.",
+        "IR introduces `Percent` as a sort (used in `weight : SelectionDay, IndexComponent -> Percent` and constraints `= 50%`, `<= 5%`), but `Percent` is neither in prelude nor defined in source. The source uses percentage notation informally; IR formalizes it as a sort.",
+        "IR uses `sum(c in IndexComponent where region(c) = r, weight(d, c)) = 50%` which assumes aggregation semantics not explicitly defined in source."
+      ],
+      "stylistic_notes": [
+        "Typo in source: 'Capizatlization' (should be 'Capitalization'). IR preserves this typo in sort name `FloatMarketCapizatlization`, which is faithful to source but perpetuates the error.",
+        "IR introduces `SelectionDay extends Day` as a subsort, which is a reasonable specialization but source only says 'each Selection Day' without explicit subtyping.",
+        "Naming: `weight_has_float_market_capizatlization_basis` is verbose; source simply says 'based on'.",
+        "IR declares `fun[required]` for functions that source treats as implicit properties of the weighting scheme."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2540,
+        "completion_tokens": 633,
+        "total_tokens": 3173
+      },
+      "latency_s": 9.828351974487305
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 70.79212474822998
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures all core declarative elements of the source text: the weight assignment basis, the exact 50% regional allocation constraint, the 5% single-component cap, and the iterative proportional redistribution mechanism. The procedural 'until' clause is appropriately abstracted into the declarative constraints that define the target state, consistent with standard a4v3 lowering practices.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The source typo 'Capizatlization' is preserved in the IR sort and function names for traceability.",
+        "The procedural termination condition ('until both constraints are satisfied') is implicitly covered by the declarative constraints rather than explicitly modeled as a convergence property, which is standard for this formalism."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2339,
+        "completion_tokens": 3109,
+        "total_tokens": 5448
+      },
+      "latency_s": 59.9658362865448
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.87
+  }
+}

@@ -1,0 +1,900 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:appendix_8_1 a owl:Ontology .
+
+ex:Appendix a owl:Class .
+ex:RbicsClassificationSystem a owl:Class .
+ex:RbicsSubindustry a owl:Class .
+ex:RbicsNumberCode a owl:Class .
+ex:RbicsSubindustryName a owl:Class .
+ex:RbicsClassificationLevel a owl:Class ; owl:oneOf ( ex:RbicsClassificationLevel6 ) .
+ex:RbicsClassificationLevel6 a ex:RbicsClassificationLevel, owl:NamedIndividual .
+
+ex:Appendix8 a ex:Appendix, owl:NamedIndividual .
+ex:RBICS a ex:RbicsClassificationSystem, owl:NamedIndividual .
+ex:RbicsSubindustry101025153010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry101025201010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry101025301010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry101025301510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry101025302015 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry101025303010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry101025304010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry201015151015 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry201015151515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry201020101025 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry202010151020 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry202010152015 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry202010152515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry251010351010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry252010101010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015101545 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015151510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201520 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201525 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201530 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201535 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401015201540 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401020101030 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401020151550 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401020152525 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401025101520 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401025101525 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401025102020 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401025102025 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401525103025 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401525151515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry401525152515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451010101520 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451010101530 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451010101540 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451010101545 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451010151510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451010151525 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451510203010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry451510203020 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry551010151515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry551030101530 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351020 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351025 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351030 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351035 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351040 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351045 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351050 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351515 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010351520 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401530 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401535 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401540 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401545 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401550 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401555 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401560 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010401580 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402030 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402035 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402040 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402045 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402050 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402055 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402060 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010402080 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451530 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451535 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451540 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451545 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451550 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451555 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451560 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010451580 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452030 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452035 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452040 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452045 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452050 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452055 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452060 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010452080 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501010 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501030 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501035 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501040 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501045 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501050 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501055 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501060 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501080 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501510 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501530 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501535 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501540 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501545 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501550 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501555 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501560 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsSubindustry651010501580 a ex:RbicsSubindustry, owl:NamedIndividual .
+ex:RbicsNumberCode101025153010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode101025201010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode101025301010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode101025301510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode101025302015 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode101025303010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode101025304010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode201015151015 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode201015151515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode201020101025 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode202010151020 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode202010152015 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode202010152515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode251010351010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode252010101010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015101545 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015151510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201520 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201525 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201530 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201535 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401015201540 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401020101030 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401020151550 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401020152525 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401025101520 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401025101525 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401025102020 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401025102025 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401525103025 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401525151515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode401525152515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451010101520 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451010101530 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451010101540 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451010101545 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451010151510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451010151525 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451510203010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode451510203020 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode551010151515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode551030101530 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351020 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351025 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351030 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351035 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351040 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351045 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351050 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351515 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010351520 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401530 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401535 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401540 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401545 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401550 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401555 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401560 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010401580 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402030 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402035 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402040 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402045 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402050 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402055 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402060 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010402080 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451530 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451535 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451540 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451545 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451550 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451555 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451560 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010451580 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452030 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452035 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452040 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452045 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452050 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452055 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452060 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010452080 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501010 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501030 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501035 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501040 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501045 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501050 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501055 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501060 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501080 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501510 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501530 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501535 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501540 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501545 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501550 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501555 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501560 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNumberCode651010501580 a ex:RbicsNumberCode, owl:NamedIndividual .
+ex:RbicsNameAltEnergyAutonomousHeavyDutyTruckMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAltEnergyAutonomousTransitVehicleProduction a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAltEnergyMotorHomesAndCampersRvsMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAltEnergyRecreationVehicleManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAlternativeEnergyBoatsMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAlternativeEnergyCarManufacturers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAlternativeEnergyHeavyDutyTrucksMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAlternativeEnergyInfrastructureConstruction a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAlternativeEnergyMotorcyclesMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameAlternativeEnergyTransitVehiclesMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaMixedAlternativeWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaResidentialDecentralizedWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCanadaWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCarbonCaptureServicesAndTechnologies a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaMixedAlternativeWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaResidentialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameChinaWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameCommercialAlternativeEnergyContractors a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameDiversifiedIndustrialGasManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameElectricVehicleBatteriesManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEnergyEfficientLightingAndLEDManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEnvironmentalConsulting a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEnvironmentalRestorationServices a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEnvironmentalServices a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeMixedAlternativeWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeResidentialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameEuropeWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameFuelCellEquipmentAndTechnologyProviders a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameGasificationAlternativeFuelManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameGeothermalEnergyEquipmentManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameHydroelectricPowerGenerationEquipmentProviders a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameHydrogenFuelManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameHydrogenGasManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameIntegratedOilAndGasExplorationAndProduction a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaMixedAlternativeWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaResidentialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameLatinAmericaWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAfricaHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAfricaIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAfricaResidentialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAndAfricaBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAndAfricaGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAndAfricaMixedAltWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAndAfricaNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAndAfricaSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMiddleEastAndAfricaWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMinimillsManufacturingFlats a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMinimillsMixedProductManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMixedEnvironmentalControlMachineManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMixedRenewableEnergyGenerationManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameMultiTypeHomeFurnishingsMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameNuclearWasteHandlingAndDisposal a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAlternativeFuelManufacturers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificMixedAltWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificResidentialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherAsiaPacificWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameOtherWasteServices a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNamePhotovoltaicAndSolarCellsAndSystemsProviders a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNamePhotovoltaicPowerModuleSubassemblyComponents a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNamePhotovoltaicProductionEquipmentManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNamePhotovoltaicWafers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameResidentialAlternativeEnergyContractors a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameSmartGridTechnologyAndSmartMeterProducts a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameThermalAndChemicalProcessingMachineryMakers a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUSMixedTraditionalFuelWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesBiomassWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesGeothermalWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesHydroelectricWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesIndustrialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesMixedAlternativeWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesNuclearWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesResidentialDecentralizedPower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesSolarWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUnitedStatesWindWholesalePower a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUraniumFuelManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameUraniumMining a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameWasteToEnergyServices a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:RbicsNameWindEnergyEquipmentManufacturing a ex:RbicsSubindustryName, owl:NamedIndividual .
+ex:appendix_includes_rbics_subindustry a owl:ObjectProperty ;
+  rdfs:domain ex:Appendix ;
+  rdfs:range ex:RbicsSubindustry .
+ex:rbics_classifies_subindustry a owl:ObjectProperty ;
+  rdfs:domain ex:RbicsClassificationSystem ;
+  rdfs:range ex:RbicsSubindustry .
+ex:rbics_number_code a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:RbicsSubindustry ;
+  rdfs:range ex:RbicsNumberCode .
+ex:rbics_subindustry_name a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:RbicsSubindustry ;
+  rdfs:range ex:RbicsSubindustryName .
+ex:rbics_classification_level a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:RbicsSubindustry ;
+  rdfs:range ex:RbicsClassificationLevel .
+
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry101025153010 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry101025153010 .
+ex:RbicsSubindustry101025153010 ex:rbics_number_code ex:RbicsNumberCode101025153010 .
+ex:RbicsSubindustry101025153010 ex:rbics_subindustry_name ex:RbicsNameNuclearWasteHandlingAndDisposal .
+ex:RbicsSubindustry101025153010 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry101025201010 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry101025201010 .
+ex:RbicsSubindustry101025201010 ex:rbics_number_code ex:RbicsNumberCode101025201010 .
+ex:RbicsSubindustry101025201010 ex:rbics_subindustry_name ex:RbicsNameOtherWasteServices .
+ex:RbicsSubindustry101025201010 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry101025301010 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry101025301010 .
+ex:RbicsSubindustry101025301010 ex:rbics_number_code ex:RbicsNumberCode101025301010 .
+ex:RbicsSubindustry101025301010 ex:rbics_subindustry_name ex:RbicsNameEnvironmentalServices .
+ex:RbicsSubindustry101025301010 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry101025301510 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry101025301510 .
+ex:RbicsSubindustry101025301510 ex:rbics_number_code ex:RbicsNumberCode101025301510 .
+ex:RbicsSubindustry101025301510 ex:rbics_subindustry_name ex:RbicsNameEnvironmentalConsulting .
+ex:RbicsSubindustry101025301510 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry101025302015 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry101025302015 .
+ex:RbicsSubindustry101025302015 ex:rbics_number_code ex:RbicsNumberCode101025302015 .
+ex:RbicsSubindustry101025302015 ex:rbics_subindustry_name ex:RbicsNameCarbonCaptureServicesAndTechnologies .
+ex:RbicsSubindustry101025302015 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry101025303010 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry101025303010 .
+ex:RbicsSubindustry101025303010 ex:rbics_number_code ex:RbicsNumberCode101025303010 .
+ex:RbicsSubindustry101025303010 ex:rbics_subindustry_name ex:RbicsNameWasteToEnergyServices .
+ex:RbicsSubindustry101025303010 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry101025304010 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry101025304010 .
+ex:RbicsSubindustry101025304010 ex:rbics_number_code ex:RbicsNumberCode101025304010 .
+ex:RbicsSubindustry101025304010 ex:rbics_subindustry_name ex:RbicsNameEnvironmentalRestorationServices .
+ex:RbicsSubindustry101025304010 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry201015151015 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry201015151015 .
+ex:RbicsSubindustry201015151015 ex:rbics_number_code ex:RbicsNumberCode201015151015 .
+ex:RbicsSubindustry201015151015 ex:rbics_subindustry_name ex:RbicsNameAlternativeEnergyBoatsMakers .
+ex:RbicsSubindustry201015151015 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry201015151515 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry201015151515 .
+ex:RbicsSubindustry201015151515 ex:rbics_number_code ex:RbicsNumberCode201015151515 .
+ex:RbicsSubindustry201015151515 ex:rbics_subindustry_name ex:RbicsNameAltEnergyRecreationVehicleManufacturing .
+ex:RbicsSubindustry201015151515 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry201020101025 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry201020101025 .
+ex:RbicsSubindustry201020101025 ex:rbics_number_code ex:RbicsNumberCode201020101025 .
+ex:RbicsSubindustry201020101025 ex:rbics_subindustry_name ex:RbicsNameMultiTypeHomeFurnishingsMakers .
+ex:RbicsSubindustry201020101025 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry202010151020 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry202010151020 .
+ex:RbicsSubindustry202010151020 ex:rbics_number_code ex:RbicsNumberCode202010151020 .
+ex:RbicsSubindustry202010151020 ex:rbics_subindustry_name ex:RbicsNameAlternativeEnergyCarManufacturers .
+ex:RbicsSubindustry202010151020 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry202010152015 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry202010152015 .
+ex:RbicsSubindustry202010152015 ex:rbics_number_code ex:RbicsNumberCode202010152015 .
+ex:RbicsSubindustry202010152015 ex:rbics_subindustry_name ex:RbicsNameAlternativeEnergyMotorcyclesMakers .
+ex:RbicsSubindustry202010152015 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry202010152515 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry202010152515 .
+ex:RbicsSubindustry202010152515 ex:rbics_number_code ex:RbicsNumberCode202010152515 .
+ex:RbicsSubindustry202010152515 ex:rbics_subindustry_name ex:RbicsNameAltEnergyMotorHomesAndCampersRvsMakers .
+ex:RbicsSubindustry202010152515 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry251010351010 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry251010351010 .
+ex:RbicsSubindustry251010351010 ex:rbics_number_code ex:RbicsNumberCode251010351010 .
+ex:RbicsSubindustry251010351010 ex:rbics_subindustry_name ex:RbicsNameUraniumMining .
+ex:RbicsSubindustry251010351010 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry252010101010 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry252010101010 .
+ex:RbicsSubindustry252010101010 ex:rbics_number_code ex:RbicsNumberCode252010101010 .
+ex:RbicsSubindustry252010101010 ex:rbics_subindustry_name ex:RbicsNameIntegratedOilAndGasExplorationAndProduction .
+ex:RbicsSubindustry252010101010 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401015101545 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401015101545 .
+ex:RbicsSubindustry401015101545 ex:rbics_number_code ex:RbicsNumberCode401015101545 .
+ex:RbicsSubindustry401015101545 ex:rbics_subindustry_name ex:RbicsNameElectricVehicleBatteriesManufacturing .
+ex:RbicsSubindustry401015101545 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401015151510 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401015151510 .
+ex:RbicsSubindustry401015151510 ex:rbics_number_code ex:RbicsNumberCode401015151510 .
+ex:RbicsSubindustry401015151510 ex:rbics_subindustry_name ex:RbicsNameEnergyEfficientLightingAndLEDManufacturing .
+ex:RbicsSubindustry401015151510 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401015201510 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401015201510 .
+ex:RbicsSubindustry401015201510 ex:rbics_number_code ex:RbicsNumberCode401015201510 .
+ex:RbicsSubindustry401015201510 ex:rbics_subindustry_name ex:RbicsNameFuelCellEquipmentAndTechnologyProviders .
+ex:RbicsSubindustry401015201510 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401015201515 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401015201515 .
+ex:RbicsSubindustry401015201515 ex:rbics_number_code ex:RbicsNumberCode401015201515 .
+ex:RbicsSubindustry401015201515 ex:rbics_subindustry_name ex:RbicsNameMixedRenewableEnergyGenerationManufacturing .
+ex:RbicsSubindustry401015201515 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401015201520 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401015201520 .
+ex:RbicsSubindustry401015201520 ex:rbics_number_code ex:RbicsNumberCode401015201520 .
+ex:RbicsSubindustry401015201520 ex:rbics_subindustry_name ex:RbicsNamePhotovoltaicAndSolarCellsAndSystemsProviders .
+ex:RbicsSubindustry401015201520 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401015201525 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401015201525 .
+ex:RbicsSubindustry401015201525 ex:rbics_number_code ex:RbicsNumberCode401015201525 .
+ex:RbicsSubindustry401015201525 ex:rbics_subindustry_name ex:RbicsNameSmartGridTechnologyAndSmartMeterProducts .
+ex:RbicsSubindustry401015201525 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401015201530 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401015201530 .
+ex:RbicsSubindustry401015201530 ex:rbics_number_code ex:RbicsNumberCode401015201530 .
+ex:RbicsSubindustry401015201530 ex:rbics_subindustry_name ex:RbicsNameWindEnergyEquipmentManufacturing .
+ex:RbicsSubindustry401015201530 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401015201535 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401015201535 .
+ex:RbicsSubindustry401015201535 ex:rbics_number_code ex:RbicsNumberCode401015201535 .
+ex:RbicsSubindustry401015201535 ex:rbics_subindustry_name ex:RbicsNameHydroelectricPowerGenerationEquipmentProviders .
+ex:RbicsSubindustry401015201535 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401015201540 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401015201540 .
+ex:RbicsSubindustry401015201540 ex:rbics_number_code ex:RbicsNumberCode401015201540 .
+ex:RbicsSubindustry401015201540 ex:rbics_subindustry_name ex:RbicsNameGeothermalEnergyEquipmentManufacturing .
+ex:RbicsSubindustry401015201540 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401020101030 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401020101030 .
+ex:RbicsSubindustry401020101030 ex:rbics_number_code ex:RbicsNumberCode401020101030 .
+ex:RbicsSubindustry401020101030 ex:rbics_subindustry_name ex:RbicsNameMixedEnvironmentalControlMachineManufacturing .
+ex:RbicsSubindustry401020101030 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401020151550 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401020151550 .
+ex:RbicsSubindustry401020151550 ex:rbics_number_code ex:RbicsNumberCode401020151550 .
+ex:RbicsSubindustry401020151550 ex:rbics_subindustry_name ex:RbicsNamePhotovoltaicProductionEquipmentManufacturing .
+ex:RbicsSubindustry401020151550 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401020152525 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401020152525 .
+ex:RbicsSubindustry401020152525 ex:rbics_number_code ex:RbicsNumberCode401020152525 .
+ex:RbicsSubindustry401020152525 ex:rbics_subindustry_name ex:RbicsNameThermalAndChemicalProcessingMachineryMakers .
+ex:RbicsSubindustry401020152525 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401025101520 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401025101520 .
+ex:RbicsSubindustry401025101520 ex:rbics_number_code ex:RbicsNumberCode401025101520 .
+ex:RbicsSubindustry401025101520 ex:rbics_subindustry_name ex:RbicsNameAlternativeEnergyTransitVehiclesMakers .
+ex:RbicsSubindustry401025101520 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401025101525 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401025101525 .
+ex:RbicsSubindustry401025101525 ex:rbics_number_code ex:RbicsNumberCode401025101525 .
+ex:RbicsSubindustry401025101525 ex:rbics_subindustry_name ex:RbicsNameAltEnergyAutonomousTransitVehicleProduction .
+ex:RbicsSubindustry401025101525 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401025102020 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401025102020 .
+ex:RbicsSubindustry401025102020 ex:rbics_number_code ex:RbicsNumberCode401025102020 .
+ex:RbicsSubindustry401025102020 ex:rbics_subindustry_name ex:RbicsNameAlternativeEnergyHeavyDutyTrucksMakers .
+ex:RbicsSubindustry401025102020 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401025102025 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401025102025 .
+ex:RbicsSubindustry401025102025 ex:rbics_number_code ex:RbicsNumberCode401025102025 .
+ex:RbicsSubindustry401025102025 ex:rbics_subindustry_name ex:RbicsNameAltEnergyAutonomousHeavyDutyTruckMakers .
+ex:RbicsSubindustry401025102025 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401525103025 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401525103025 .
+ex:RbicsSubindustry401525103025 ex:rbics_number_code ex:RbicsNumberCode401525103025 .
+ex:RbicsSubindustry401525103025 ex:rbics_subindustry_name ex:RbicsNameAlternativeEnergyInfrastructureConstruction .
+ex:RbicsSubindustry401525103025 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401525151515 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401525151515 .
+ex:RbicsSubindustry401525151515 ex:rbics_number_code ex:RbicsNumberCode401525151515 .
+ex:RbicsSubindustry401525151515 ex:rbics_subindustry_name ex:RbicsNameCommercialAlternativeEnergyContractors .
+ex:RbicsSubindustry401525151515 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry401525152515 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry401525152515 .
+ex:RbicsSubindustry401525152515 ex:rbics_number_code ex:RbicsNumberCode401525152515 .
+ex:RbicsSubindustry401525152515 ex:rbics_subindustry_name ex:RbicsNameResidentialAlternativeEnergyContractors .
+ex:RbicsSubindustry401525152515 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry451010101520 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry451010101520 .
+ex:RbicsSubindustry451010101520 ex:rbics_number_code ex:RbicsNumberCode451010101520 .
+ex:RbicsSubindustry451010101520 ex:rbics_subindustry_name ex:RbicsNameGasificationAlternativeFuelManufacturing .
+ex:RbicsSubindustry451010101520 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry451010101530 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry451010101530 .
+ex:RbicsSubindustry451010101530 ex:rbics_number_code ex:RbicsNumberCode451010101530 .
+ex:RbicsSubindustry451010101530 ex:rbics_subindustry_name ex:RbicsNameOtherAlternativeFuelManufacturers .
+ex:RbicsSubindustry451010101530 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry451010101540 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry451010101540 .
+ex:RbicsSubindustry451010101540 ex:rbics_number_code ex:RbicsNumberCode451010101540 .
+ex:RbicsSubindustry451010101540 ex:rbics_subindustry_name ex:RbicsNameUraniumFuelManufacturing .
+ex:RbicsSubindustry451010101540 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry451010101545 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry451010101545 .
+ex:RbicsSubindustry451010101545 ex:rbics_number_code ex:RbicsNumberCode451010101545 .
+ex:RbicsSubindustry451010101545 ex:rbics_subindustry_name ex:RbicsNameHydrogenFuelManufacturing .
+ex:RbicsSubindustry451010101545 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry451010151510 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry451010151510 .
+ex:RbicsSubindustry451010151510 ex:rbics_number_code ex:RbicsNumberCode451010151510 .
+ex:RbicsSubindustry451010151510 ex:rbics_subindustry_name ex:RbicsNameDiversifiedIndustrialGasManufacturing .
+ex:RbicsSubindustry451010151510 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry451010151525 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry451010151525 .
+ex:RbicsSubindustry451010151525 ex:rbics_number_code ex:RbicsNumberCode451010151525 .
+ex:RbicsSubindustry451010151525 ex:rbics_subindustry_name ex:RbicsNameHydrogenGasManufacturing .
+ex:RbicsSubindustry451010151525 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry451510203010 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry451510203010 .
+ex:RbicsSubindustry451510203010 ex:rbics_number_code ex:RbicsNumberCode451510203010 .
+ex:RbicsSubindustry451510203010 ex:rbics_subindustry_name ex:RbicsNameMinimillsManufacturingFlats .
+ex:RbicsSubindustry451510203010 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry451510203020 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry451510203020 .
+ex:RbicsSubindustry451510203020 ex:rbics_number_code ex:RbicsNumberCode451510203020 .
+ex:RbicsSubindustry451510203020 ex:rbics_subindustry_name ex:RbicsNameMinimillsMixedProductManufacturing .
+ex:RbicsSubindustry451510203020 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry551010151515 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry551010151515 .
+ex:RbicsSubindustry551010151515 ex:rbics_number_code ex:RbicsNumberCode551010151515 .
+ex:RbicsSubindustry551010151515 ex:rbics_subindustry_name ex:RbicsNamePhotovoltaicPowerModuleSubassemblyComponents .
+ex:RbicsSubindustry551010151515 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry551030101530 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry551030101530 .
+ex:RbicsSubindustry551030101530 ex:rbics_number_code ex:RbicsNumberCode551030101530 .
+ex:RbicsSubindustry551030101530 ex:rbics_subindustry_name ex:RbicsNamePhotovoltaicWafers .
+ex:RbicsSubindustry551030101530 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010351010 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010351010 .
+ex:RbicsSubindustry651010351010 ex:rbics_number_code ex:RbicsNumberCode651010351010 .
+ex:RbicsSubindustry651010351010 ex:rbics_subindustry_name ex:RbicsNameUnitedStatesMixedAlternativeWholesalePower .
+ex:RbicsSubindustry651010351010 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010351020 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010351020 .
+ex:RbicsSubindustry651010351020 ex:rbics_number_code ex:RbicsNumberCode651010351020 .
+ex:RbicsSubindustry651010351020 ex:rbics_subindustry_name ex:RbicsNameUnitedStatesBiomassWholesalePower .
+ex:RbicsSubindustry651010351020 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010351025 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010351025 .
+ex:RbicsSubindustry651010351025 ex:rbics_number_code ex:RbicsNumberCode651010351025 .
+ex:RbicsSubindustry651010351025 ex:rbics_subindustry_name ex:RbicsNameUnitedStatesIndustrialDecentralizedPower .
+ex:RbicsSubindustry651010351025 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010351030 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010351030 .
+ex:RbicsSubindustry651010351030 ex:rbics_number_code ex:RbicsNumberCode651010351030 .
+ex:RbicsSubindustry651010351030 ex:rbics_subindustry_name ex:RbicsNameUnitedStatesGeothermalWholesalePower .
+ex:RbicsSubindustry651010351030 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010351035 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010351035 .
+ex:RbicsSubindustry651010351035 ex:rbics_number_code ex:RbicsNumberCode651010351035 .
+ex:RbicsSubindustry651010351035 ex:rbics_subindustry_name ex:RbicsNameUnitedStatesHydroelectricWholesalePower .
+ex:RbicsSubindustry651010351035 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010351040 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010351040 .
+ex:RbicsSubindustry651010351040 ex:rbics_number_code ex:RbicsNumberCode651010351040 .
+ex:RbicsSubindustry651010351040 ex:rbics_subindustry_name ex:RbicsNameUnitedStatesSolarWholesalePower .
+ex:RbicsSubindustry651010351040 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010351045 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010351045 .
+ex:RbicsSubindustry651010351045 ex:rbics_number_code ex:RbicsNumberCode651010351045 .
+ex:RbicsSubindustry651010351045 ex:rbics_subindustry_name ex:RbicsNameUnitedStatesWindWholesalePower .
+ex:RbicsSubindustry651010351045 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010351050 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010351050 .
+ex:RbicsSubindustry651010351050 ex:rbics_number_code ex:RbicsNumberCode651010351050 .
+ex:RbicsSubindustry651010351050 ex:rbics_subindustry_name ex:RbicsNameUnitedStatesResidentialDecentralizedPower .
+ex:RbicsSubindustry651010351050 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010351515 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010351515 .
+ex:RbicsSubindustry651010351515 ex:rbics_number_code ex:RbicsNumberCode651010351515 .
+ex:RbicsSubindustry651010351515 ex:rbics_subindustry_name ex:RbicsNameUSMixedTraditionalFuelWholesalePower .
+ex:RbicsSubindustry651010351515 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010351520 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010351520 .
+ex:RbicsSubindustry651010351520 ex:rbics_number_code ex:RbicsNumberCode651010351520 .
+ex:RbicsSubindustry651010351520 ex:rbics_subindustry_name ex:RbicsNameUnitedStatesNuclearWholesalePower .
+ex:RbicsSubindustry651010351520 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010401510 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010401510 .
+ex:RbicsSubindustry651010401510 ex:rbics_number_code ex:RbicsNumberCode651010401510 .
+ex:RbicsSubindustry651010401510 ex:rbics_subindustry_name ex:RbicsNameCanadaMixedAlternativeWholesalePower .
+ex:RbicsSubindustry651010401510 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010401530 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010401530 .
+ex:RbicsSubindustry651010401530 ex:rbics_number_code ex:RbicsNumberCode651010401530 .
+ex:RbicsSubindustry651010401530 ex:rbics_subindustry_name ex:RbicsNameCanadaBiomassWholesalePower .
+ex:RbicsSubindustry651010401530 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010401535 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010401535 .
+ex:RbicsSubindustry651010401535 ex:rbics_number_code ex:RbicsNumberCode651010401535 .
+ex:RbicsSubindustry651010401535 ex:rbics_subindustry_name ex:RbicsNameCanadaIndustrialDecentralizedPower .
+ex:RbicsSubindustry651010401535 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010401540 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010401540 .
+ex:RbicsSubindustry651010401540 ex:rbics_number_code ex:RbicsNumberCode651010401540 .
+ex:RbicsSubindustry651010401540 ex:rbics_subindustry_name ex:RbicsNameCanadaGeothermalWholesalePower .
+ex:RbicsSubindustry651010401540 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010401545 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010401545 .
+ex:RbicsSubindustry651010401545 ex:rbics_number_code ex:RbicsNumberCode651010401545 .
+ex:RbicsSubindustry651010401545 ex:rbics_subindustry_name ex:RbicsNameCanadaHydroelectricWholesalePower .
+ex:RbicsSubindustry651010401545 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010401550 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010401550 .
+ex:RbicsSubindustry651010401550 ex:rbics_number_code ex:RbicsNumberCode651010401550 .
+ex:RbicsSubindustry651010401550 ex:rbics_subindustry_name ex:RbicsNameCanadaSolarWholesalePower .
+ex:RbicsSubindustry651010401550 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010401555 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010401555 .
+ex:RbicsSubindustry651010401555 ex:rbics_number_code ex:RbicsNumberCode651010401555 .
+ex:RbicsSubindustry651010401555 ex:rbics_subindustry_name ex:RbicsNameCanadaWindWholesalePower .
+ex:RbicsSubindustry651010401555 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010401560 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010401560 .
+ex:RbicsSubindustry651010401560 ex:rbics_number_code ex:RbicsNumberCode651010401560 .
+ex:RbicsSubindustry651010401560 ex:rbics_subindustry_name ex:RbicsNameCanadaNuclearWholesalePower .
+ex:RbicsSubindustry651010401560 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010401580 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010401580 .
+ex:RbicsSubindustry651010401580 ex:rbics_number_code ex:RbicsNumberCode651010401580 .
+ex:RbicsSubindustry651010401580 ex:rbics_subindustry_name ex:RbicsNameCanadaResidentialDecentralizedWholesalePower .
+ex:RbicsSubindustry651010401580 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010402010 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010402010 .
+ex:RbicsSubindustry651010402010 ex:rbics_number_code ex:RbicsNumberCode651010402010 .
+ex:RbicsSubindustry651010402010 ex:rbics_subindustry_name ex:RbicsNameLatinAmericaMixedAlternativeWholesalePower .
+ex:RbicsSubindustry651010402010 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010402030 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010402030 .
+ex:RbicsSubindustry651010402030 ex:rbics_number_code ex:RbicsNumberCode651010402030 .
+ex:RbicsSubindustry651010402030 ex:rbics_subindustry_name ex:RbicsNameLatinAmericaBiomassWholesalePower .
+ex:RbicsSubindustry651010402030 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010402035 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010402035 .
+ex:RbicsSubindustry651010402035 ex:rbics_number_code ex:RbicsNumberCode651010402035 .
+ex:RbicsSubindustry651010402035 ex:rbics_subindustry_name ex:RbicsNameLatinAmericaIndustrialDecentralizedPower .
+ex:RbicsSubindustry651010402035 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010402040 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010402040 .
+ex:RbicsSubindustry651010402040 ex:rbics_number_code ex:RbicsNumberCode651010402040 .
+ex:RbicsSubindustry651010402040 ex:rbics_subindustry_name ex:RbicsNameLatinAmericaGeothermalWholesalePower .
+ex:RbicsSubindustry651010402040 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010402045 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010402045 .
+ex:RbicsSubindustry651010402045 ex:rbics_number_code ex:RbicsNumberCode651010402045 .
+ex:RbicsSubindustry651010402045 ex:rbics_subindustry_name ex:RbicsNameLatinAmericaHydroelectricWholesalePower .
+ex:RbicsSubindustry651010402045 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010402050 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010402050 .
+ex:RbicsSubindustry651010402050 ex:rbics_number_code ex:RbicsNumberCode651010402050 .
+ex:RbicsSubindustry651010402050 ex:rbics_subindustry_name ex:RbicsNameLatinAmericaSolarWholesalePower .
+ex:RbicsSubindustry651010402050 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010402055 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010402055 .
+ex:RbicsSubindustry651010402055 ex:rbics_number_code ex:RbicsNumberCode651010402055 .
+ex:RbicsSubindustry651010402055 ex:rbics_subindustry_name ex:RbicsNameLatinAmericaWindWholesalePower .
+ex:RbicsSubindustry651010402055 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010402060 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010402060 .
+ex:RbicsSubindustry651010402060 ex:rbics_number_code ex:RbicsNumberCode651010402060 .
+ex:RbicsSubindustry651010402060 ex:rbics_subindustry_name ex:RbicsNameLatinAmericaNuclearWholesalePower .
+ex:RbicsSubindustry651010402060 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010402080 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010402080 .
+ex:RbicsSubindustry651010402080 ex:rbics_number_code ex:RbicsNumberCode651010402080 .
+ex:RbicsSubindustry651010402080 ex:rbics_subindustry_name ex:RbicsNameLatinAmericaResidentialDecentralizedPower .
+ex:RbicsSubindustry651010402080 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010451510 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010451510 .
+ex:RbicsSubindustry651010451510 ex:rbics_number_code ex:RbicsNumberCode651010451510 .
+ex:RbicsSubindustry651010451510 ex:rbics_subindustry_name ex:RbicsNameChinaMixedAlternativeWholesalePower .
+ex:RbicsSubindustry651010451510 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010451530 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010451530 .
+ex:RbicsSubindustry651010451530 ex:rbics_number_code ex:RbicsNumberCode651010451530 .
+ex:RbicsSubindustry651010451530 ex:rbics_subindustry_name ex:RbicsNameChinaBiomassWholesalePower .
+ex:RbicsSubindustry651010451530 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010451535 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010451535 .
+ex:RbicsSubindustry651010451535 ex:rbics_number_code ex:RbicsNumberCode651010451535 .
+ex:RbicsSubindustry651010451535 ex:rbics_subindustry_name ex:RbicsNameChinaIndustrialDecentralizedPower .
+ex:RbicsSubindustry651010451535 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010451540 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010451540 .
+ex:RbicsSubindustry651010451540 ex:rbics_number_code ex:RbicsNumberCode651010451540 .
+ex:RbicsSubindustry651010451540 ex:rbics_subindustry_name ex:RbicsNameChinaGeothermalWholesalePower .
+ex:RbicsSubindustry651010451540 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010451545 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010451545 .
+ex:RbicsSubindustry651010451545 ex:rbics_number_code ex:RbicsNumberCode651010451545 .
+ex:RbicsSubindustry651010451545 ex:rbics_subindustry_name ex:RbicsNameChinaHydroelectricWholesalePower .
+ex:RbicsSubindustry651010451545 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010451550 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010451550 .
+ex:RbicsSubindustry651010451550 ex:rbics_number_code ex:RbicsNumberCode651010451550 .
+ex:RbicsSubindustry651010451550 ex:rbics_subindustry_name ex:RbicsNameChinaSolarWholesalePower .
+ex:RbicsSubindustry651010451550 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010451555 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010451555 .
+ex:RbicsSubindustry651010451555 ex:rbics_number_code ex:RbicsNumberCode651010451555 .
+ex:RbicsSubindustry651010451555 ex:rbics_subindustry_name ex:RbicsNameChinaWindWholesalePower .
+ex:RbicsSubindustry651010451555 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010451560 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010451560 .
+ex:RbicsSubindustry651010451560 ex:rbics_number_code ex:RbicsNumberCode651010451560 .
+ex:RbicsSubindustry651010451560 ex:rbics_subindustry_name ex:RbicsNameChinaNuclearWholesalePower .
+ex:RbicsSubindustry651010451560 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010451580 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010451580 .
+ex:RbicsSubindustry651010451580 ex:rbics_number_code ex:RbicsNumberCode651010451580 .
+ex:RbicsSubindustry651010451580 ex:rbics_subindustry_name ex:RbicsNameChinaResidentialDecentralizedPower .
+ex:RbicsSubindustry651010451580 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010452010 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010452010 .
+ex:RbicsSubindustry651010452010 ex:rbics_number_code ex:RbicsNumberCode651010452010 .
+ex:RbicsSubindustry651010452010 ex:rbics_subindustry_name ex:RbicsNameOtherAsiaPacificMixedAltWholesalePower .
+ex:RbicsSubindustry651010452010 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010452030 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010452030 .
+ex:RbicsSubindustry651010452030 ex:rbics_number_code ex:RbicsNumberCode651010452030 .
+ex:RbicsSubindustry651010452030 ex:rbics_subindustry_name ex:RbicsNameOtherAsiaPacificBiomassWholesalePower .
+ex:RbicsSubindustry651010452030 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010452035 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010452035 .
+ex:RbicsSubindustry651010452035 ex:rbics_number_code ex:RbicsNumberCode651010452035 .
+ex:RbicsSubindustry651010452035 ex:rbics_subindustry_name ex:RbicsNameOtherAsiaPacificIndustrialDecentralizedPower .
+ex:RbicsSubindustry651010452035 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010452040 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010452040 .
+ex:RbicsSubindustry651010452040 ex:rbics_number_code ex:RbicsNumberCode651010452040 .
+ex:RbicsSubindustry651010452040 ex:rbics_subindustry_name ex:RbicsNameOtherAsiaPacificGeothermalWholesalePower .
+ex:RbicsSubindustry651010452040 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010452045 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010452045 .
+ex:RbicsSubindustry651010452045 ex:rbics_number_code ex:RbicsNumberCode651010452045 .
+ex:RbicsSubindustry651010452045 ex:rbics_subindustry_name ex:RbicsNameOtherAsiaPacificHydroelectricWholesalePower .
+ex:RbicsSubindustry651010452045 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010452050 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010452050 .
+ex:RbicsSubindustry651010452050 ex:rbics_number_code ex:RbicsNumberCode651010452050 .
+ex:RbicsSubindustry651010452050 ex:rbics_subindustry_name ex:RbicsNameOtherAsiaPacificSolarWholesalePower .
+ex:RbicsSubindustry651010452050 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010452055 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010452055 .
+ex:RbicsSubindustry651010452055 ex:rbics_number_code ex:RbicsNumberCode651010452055 .
+ex:RbicsSubindustry651010452055 ex:rbics_subindustry_name ex:RbicsNameOtherAsiaPacificWindWholesalePower .
+ex:RbicsSubindustry651010452055 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010452060 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010452060 .
+ex:RbicsSubindustry651010452060 ex:rbics_number_code ex:RbicsNumberCode651010452060 .
+ex:RbicsSubindustry651010452060 ex:rbics_subindustry_name ex:RbicsNameOtherAsiaPacificNuclearWholesalePower .
+ex:RbicsSubindustry651010452060 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010452080 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010452080 .
+ex:RbicsSubindustry651010452080 ex:rbics_number_code ex:RbicsNumberCode651010452080 .
+ex:RbicsSubindustry651010452080 ex:rbics_subindustry_name ex:RbicsNameOtherAsiaPacificResidentialDecentralizedPower .
+ex:RbicsSubindustry651010452080 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501010 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501010 .
+ex:RbicsSubindustry651010501010 ex:rbics_number_code ex:RbicsNumberCode651010501010 .
+ex:RbicsSubindustry651010501010 ex:rbics_subindustry_name ex:RbicsNameEuropeMixedAlternativeWholesalePower .
+ex:RbicsSubindustry651010501010 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501030 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501030 .
+ex:RbicsSubindustry651010501030 ex:rbics_number_code ex:RbicsNumberCode651010501030 .
+ex:RbicsSubindustry651010501030 ex:rbics_subindustry_name ex:RbicsNameEuropeBiomassWholesalePower .
+ex:RbicsSubindustry651010501030 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501035 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501035 .
+ex:RbicsSubindustry651010501035 ex:rbics_number_code ex:RbicsNumberCode651010501035 .
+ex:RbicsSubindustry651010501035 ex:rbics_subindustry_name ex:RbicsNameEuropeIndustrialDecentralizedPower .
+ex:RbicsSubindustry651010501035 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501040 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501040 .
+ex:RbicsSubindustry651010501040 ex:rbics_number_code ex:RbicsNumberCode651010501040 .
+ex:RbicsSubindustry651010501040 ex:rbics_subindustry_name ex:RbicsNameEuropeGeothermalWholesalePower .
+ex:RbicsSubindustry651010501040 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501045 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501045 .
+ex:RbicsSubindustry651010501045 ex:rbics_number_code ex:RbicsNumberCode651010501045 .
+ex:RbicsSubindustry651010501045 ex:rbics_subindustry_name ex:RbicsNameEuropeHydroelectricWholesalePower .
+ex:RbicsSubindustry651010501045 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501050 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501050 .
+ex:RbicsSubindustry651010501050 ex:rbics_number_code ex:RbicsNumberCode651010501050 .
+ex:RbicsSubindustry651010501050 ex:rbics_subindustry_name ex:RbicsNameEuropeSolarWholesalePower .
+ex:RbicsSubindustry651010501050 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501055 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501055 .
+ex:RbicsSubindustry651010501055 ex:rbics_number_code ex:RbicsNumberCode651010501055 .
+ex:RbicsSubindustry651010501055 ex:rbics_subindustry_name ex:RbicsNameEuropeWindWholesalePower .
+ex:RbicsSubindustry651010501055 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501060 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501060 .
+ex:RbicsSubindustry651010501060 ex:rbics_number_code ex:RbicsNumberCode651010501060 .
+ex:RbicsSubindustry651010501060 ex:rbics_subindustry_name ex:RbicsNameEuropeNuclearWholesalePower .
+ex:RbicsSubindustry651010501060 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501080 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501080 .
+ex:RbicsSubindustry651010501080 ex:rbics_number_code ex:RbicsNumberCode651010501080 .
+ex:RbicsSubindustry651010501080 ex:rbics_subindustry_name ex:RbicsNameEuropeResidentialDecentralizedPower .
+ex:RbicsSubindustry651010501080 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501510 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501510 .
+ex:RbicsSubindustry651010501510 ex:rbics_number_code ex:RbicsNumberCode651010501510 .
+ex:RbicsSubindustry651010501510 ex:rbics_subindustry_name ex:RbicsNameMiddleEastAndAfricaMixedAltWholesalePower .
+ex:RbicsSubindustry651010501510 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501530 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501530 .
+ex:RbicsSubindustry651010501530 ex:rbics_number_code ex:RbicsNumberCode651010501530 .
+ex:RbicsSubindustry651010501530 ex:rbics_subindustry_name ex:RbicsNameMiddleEastAndAfricaBiomassWholesalePower .
+ex:RbicsSubindustry651010501530 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501535 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501535 .
+ex:RbicsSubindustry651010501535 ex:rbics_number_code ex:RbicsNumberCode651010501535 .
+ex:RbicsSubindustry651010501535 ex:rbics_subindustry_name ex:RbicsNameMiddleEastAfricaIndustrialDecentralizedPower .
+ex:RbicsSubindustry651010501535 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501540 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501540 .
+ex:RbicsSubindustry651010501540 ex:rbics_number_code ex:RbicsNumberCode651010501540 .
+ex:RbicsSubindustry651010501540 ex:rbics_subindustry_name ex:RbicsNameMiddleEastAndAfricaGeothermalWholesalePower .
+ex:RbicsSubindustry651010501540 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501545 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501545 .
+ex:RbicsSubindustry651010501545 ex:rbics_number_code ex:RbicsNumberCode651010501545 .
+ex:RbicsSubindustry651010501545 ex:rbics_subindustry_name ex:RbicsNameMiddleEastAfricaHydroelectricWholesalePower .
+ex:RbicsSubindustry651010501545 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501550 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501550 .
+ex:RbicsSubindustry651010501550 ex:rbics_number_code ex:RbicsNumberCode651010501550 .
+ex:RbicsSubindustry651010501550 ex:rbics_subindustry_name ex:RbicsNameMiddleEastAndAfricaSolarWholesalePower .
+ex:RbicsSubindustry651010501550 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501555 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501555 .
+ex:RbicsSubindustry651010501555 ex:rbics_number_code ex:RbicsNumberCode651010501555 .
+ex:RbicsSubindustry651010501555 ex:rbics_subindustry_name ex:RbicsNameMiddleEastAndAfricaWindWholesalePower .
+ex:RbicsSubindustry651010501555 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501560 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501560 .
+ex:RbicsSubindustry651010501560 ex:rbics_number_code ex:RbicsNumberCode651010501560 .
+ex:RbicsSubindustry651010501560 ex:rbics_subindustry_name ex:RbicsNameMiddleEastAndAfricaNuclearWholesalePower .
+ex:RbicsSubindustry651010501560 ex:rbics_classification_level ex:RbicsClassificationLevel6 .
+ex:Appendix8 ex:appendix_includes_rbics_subindustry ex:RbicsSubindustry651010501580 .
+ex:RBICS ex:rbics_classifies_subindustry ex:RbicsSubindustry651010501580 .
+ex:RbicsSubindustry651010501580 ex:rbics_number_code ex:RbicsNumberCode651010501580 .
+ex:RbicsSubindustry651010501580 ex:rbics_subindustry_name ex:RbicsNameMiddleEastAfricaResidentialDecentralizedPower .
+ex:RbicsSubindustry651010501580 ex:rbics_classification_level ex:RbicsClassificationLevel6 .

@@ -1,0 +1,41 @@
+﻿{
+  "backend": "owl",
+  "artifact": "case_studies\\financial_methodology\\backend_projection\\definitions\\N01\\owl.ttl",
+  "diagnostic_count": 6,
+  "diagnostics": [
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "daily_value_traded",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "average_daily_value_traded",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "daily_value_traded_sum_over_period",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "daily_value_traded_sum_over_period_definition"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "trading_day_count_in_period_definition"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "average_daily_value_traded_divided_by_trading_day_count_definition"
+    }
+  ],
+  "partial": true
+}

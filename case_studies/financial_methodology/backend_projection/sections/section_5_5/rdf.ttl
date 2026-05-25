@@ -1,0 +1,151 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_5 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_5_5/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexRule a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Amendment a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexRuleAmendment a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexRuleAmendment rdfs:subClassOf ex:Amendment .
+ex:GuidelineAmendment a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:GuidelineAmendment rdfs:subClassOf ex:Amendment .
+ex:Committee a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Committee rdfs:subClassOf ex:Organization .
+ex:Staff a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Subsidiary a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Subsidiary rdfs:subClassOf ex:Organization .
+ex:Approval a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:PriorApproval a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:PriorApproval rdfs:subClassOf ex:Approval .
+ex:Policy a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Policy rdfs:subClassOf ex:Document .
+
+ex:Solactive a ex:Organization, owl:NamedIndividual .
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:Guideline a ex:Document, owl:NamedIndividual .
+ex:MethodologyPolicy a ex:Policy, owl:NamedIndividual .
+ex:OversightCommittee a ex:Committee, owl:NamedIndividual .
+ex:OversightCommitteePriorApproval a ex:PriorApproval, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComDocumentsMethodologyPolicy a ex:Url, owl:NamedIndividual .
+ex:composed_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:composed_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Committee .
+ex:composed_of a4:argument ex:composed_of_arg_0 .
+ex:composed_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Staff .
+ex:composed_of a4:argument ex:composed_of_arg_1 .
+ex:staff_from a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:staff_from_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Staff .
+ex:staff_from a4:argument ex:staff_from_arg_0 .
+ex:staff_from_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:staff_from a4:argument ex:staff_from_arg_1 .
+ex:subsidiary_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:subsidiary_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Subsidiary .
+ex:subsidiary_of a4:argument ex:subsidiary_of_arg_0 .
+ex:subsidiary_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:subsidiary_of a4:argument ex:subsidiary_of_arg_1 .
+ex:rule_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:rule_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexRule .
+ex:rule_of a4:argument ex:rule_of_arg_0 .
+ex:rule_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:rule_of a4:argument ex:rule_of_arg_1 .
+ex:amendment_of_rule a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:amendment_of_rule_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexRuleAmendment .
+ex:amendment_of_rule a4:argument ex:amendment_of_rule_arg_0 .
+ex:amendment_of_rule_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexRule .
+ex:amendment_of_rule a4:argument ex:amendment_of_rule_arg_1 .
+ex:amendment_of_document a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:amendment_of_document_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:GuidelineAmendment .
+ex:amendment_of_document a4:argument ex:amendment_of_document_arg_0 .
+ex:amendment_of_document_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Document .
+ex:amendment_of_document a4:argument ex:amendment_of_document_arg_1 .
+ex:may_result_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:may_result_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexRuleAmendment .
+ex:may_result_in a4:argument ex:may_result_in_arg_0 .
+ex:may_result_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:GuidelineAmendment .
+ex:may_result_in a4:argument ex:may_result_in_arg_1 .
+ex:responsible_for_decisions_regarding a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:responsible_for_decisions_regarding_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Committee .
+ex:responsible_for_decisions_regarding a4:argument ex:responsible_for_decisions_regarding_arg_0 .
+ex:responsible_for_decisions_regarding_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexRuleAmendment .
+ex:responsible_for_decisions_regarding a4:argument ex:responsible_for_decisions_regarding_arg_1 .
+ex:approval_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:approval_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:PriorApproval .
+ex:approval_by a4:argument ex:approval_by_arg_0 .
+ex:approval_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Committee .
+ex:approval_by a4:argument ex:approval_by_arg_1 .
+ex:available_on a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:available_on_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Document .
+ex:available_on a4:argument ex:available_on_arg_0 .
+ex:available_on_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:WebResource .
+ex:available_on a4:argument ex:available_on_arg_1 .
+ex:website_of a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:website_of_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:WebResource .
+ex:website_of a4:argument ex:website_of_arg_0 .
+ex:website_of_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Organization .
+ex:website_of a4:argument ex:website_of_arg_1 .
+
+ex:ASSERT_methodology_policy_location a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "40"^^xsd:integer ;
+  a4:exprText "(document_url(MethodologyPolicy, HttpsWwwSolactiveComDocumentsMethodologyPolicy)) and (available_on(MethodologyPolicy, SolactiveWebsite)) and (website_of(SolactiveWebsite, Solactive))" ;
+  a4:sourceText "fact methodology_policy_location :\n  document_url(MethodologyPolicy, HttpsWwwSolactiveComDocumentsMethodologyPolicy)\n  and available_on(MethodologyPolicy, SolactiveWebsite)\n  and website_of(SolactiveWebsite, Solactive)" .
+ex:ASSERT_oversight_committee_has_staff a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "45"^^xsd:integer ;
+  a4:exprText "exists s: Staff, composed_of(OversightCommittee, s)" ;
+  a4:sourceText "fact oversight_committee_has_staff :\n  exists s: Staff,\n    composed_of(OversightCommittee, s)" .
+ex:ASSERT_oversight_committee_prior_approval a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "49"^^xsd:integer ;
+  a4:exprText "approval_by(OversightCommitteePriorApproval, OversightCommittee)" ;
+  a4:sourceText "fact oversight_committee_prior_approval :\n  approval_by(OversightCommitteePriorApproval, OversightCommittee)" .
+ex:ASSERT_oversight_committee_staff_from_solactive_or_subsidiary a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "52"^^xsd:integer ;
+  a4:exprText "forall s: Staff, (composed_of(OversightCommittee, s)) implies ((staff_from(s, Solactive)) or (exists sub: Subsidiary, (subsidiary_of(sub, Solactive)) and (staff_from(s, sub))))" ;
+  a4:sourceText "constraint oversight_committee_staff_from_solactive_or_subsidiary :\n  forall s: Staff,\n    composed_of(OversightCommittee, s)\n    implies\n      (\n        staff_from(s, Solactive)\n        or\n        exists sub: Subsidiary,\n          subsidiary_of(sub, Solactive)\n          and staff_from(s, sub)\n      )" .
+ex:ASSERT_index_rule_amendment_scope a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "64"^^xsd:integer ;
+  a4:exprText "forall a: IndexRuleAmendment, exists r: IndexRule, (amendment_of_rule(a, r)) and (rule_of(r, TheIndex))" ;
+  a4:sourceText "constraint index_rule_amendment_scope :\n  forall a: IndexRuleAmendment,\n    exists r: IndexRule,\n      amendment_of_rule(a, r)\n      and rule_of(r, TheIndex)" .
+ex:ASSERT_oversight_committee_responsible_for_index_rule_amendment_decisions a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "70"^^xsd:integer ;
+  a4:exprText "forall a: IndexRuleAmendment, forall r: IndexRule, ((amendment_of_rule(a, r)) and (rule_of(r, TheIndex))) implies (responsible_for_decisions_regarding(OversightCommittee, a))" ;
+  a4:sourceText "constraint oversight_committee_responsible_for_index_rule_amendment_decisions :\n  forall a: IndexRuleAmendment, forall r: IndexRule,\n    amendment_of_rule(a, r)\n    and rule_of(r, TheIndex)\n    implies responsible_for_decisions_regarding(OversightCommittee, a)" .
+ex:ASSERT_index_rule_amendments_may_result_in_guideline_amendment a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "76"^^xsd:integer ;
+  a4:exprText "forall a: IndexRuleAmendment, exists g: GuidelineAmendment, (may_result_in(a, g)) and (amendment_of_document(g, Guideline))" ;
+  a4:sourceText "constraint index_rule_amendments_may_result_in_guideline_amendment :\n  forall a: IndexRuleAmendment,\n    exists g: GuidelineAmendment,\n      may_result_in(a, g)\n      and amendment_of_document(g, Guideline)" .

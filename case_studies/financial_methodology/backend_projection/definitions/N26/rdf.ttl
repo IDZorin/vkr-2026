@@ -1,0 +1,82 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N26 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N26/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:RebalanceDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:RebalanceDay rdfs:subClassOf ex:Day .
+ex:ScheduledRebalanceDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ScheduledRebalanceDay rdfs:subClassOf ex:Day .
+ex:WeekdayOrdinal a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:WeekdayOrdinal rdfs:subClassOf ex:Nat .
+ex:Month a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:May a ex:Month, a4:EnumMember, owl:NamedIndividual .
+ex:Month a4:enumMember ex:May .
+ex:November a ex:Month, a4:EnumMember, owl:NamedIndividual .
+ex:Month a4:enumMember ex:November .
+
+ex:FirstWeekdayOrdinal a ex:WeekdayOrdinal, owl:NamedIndividual .
+ex:nth_wednesday_in_month a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:nth_wednesday_in_month_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:nth_wednesday_in_month a4:argument ex:nth_wednesday_in_month_arg_0 .
+ex:nth_wednesday_in_month_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Month .
+ex:nth_wednesday_in_month a4:argument ex:nth_wednesday_in_month_arg_1 .
+ex:nth_wednesday_in_month_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:WeekdayOrdinal .
+ex:nth_wednesday_in_month a4:argument ex:nth_wednesday_in_month_arg_2 .
+ex:scheduled_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:scheduled_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:scheduled_rebalance_day a4:argument ex:scheduled_rebalance_day_arg_0 .
+ex:eligible_rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:eligible_rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:eligible_rebalance_day a4:argument ex:eligible_rebalance_day_arg_0 .
+ex:rebalance_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:rebalance_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:rebalance_day a4:argument ex:rebalance_day_arg_0 .
+ex:immediately_following_eligible_rebalance_day_after a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:immediately_following_eligible_rebalance_day_after_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:immediately_following_eligible_rebalance_day_after a4:argument ex:immediately_following_eligible_rebalance_day_after_arg_0 .
+ex:immediately_following_eligible_rebalance_day_after_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Day .
+ex:immediately_following_eligible_rebalance_day_after a4:argument ex:immediately_following_eligible_rebalance_day_after_arg_1 .
+ex:strictly_before a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:strictly_before_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Day .
+ex:strictly_before a4:argument ex:strictly_before_arg_0 .
+ex:strictly_before_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Day .
+ex:strictly_before a4:argument ex:strictly_before_arg_1 .
+
+ex:ASSERT_first_weekday_ordinal_value a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "10"^^xsd:integer ;
+  a4:exprText "(FirstWeekdayOrdinal) = (1)" ;
+  a4:sourceText "fact first_weekday_ordinal_value :\n  FirstWeekdayOrdinal = 1" .
+ex:ASSERT_scheduled_rebalance_day_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "20"^^xsd:integer ;
+  a4:exprText "forall d: Day, (scheduled_rebalance_day(d)) iff ((nth_wednesday_in_month(d, May, FirstWeekdayOrdinal)) or (nth_wednesday_in_month(d, November, FirstWeekdayOrdinal)))" ;
+  a4:sourceText "constraint scheduled_rebalance_day_definition :\n  forall d: Day,\n    scheduled_rebalance_day(d)\n    iff\n      nth_wednesday_in_month(d, May, FirstWeekdayOrdinal)\n      or nth_wednesday_in_month(d, November, FirstWeekdayOrdinal)" .
+ex:ASSERT_rebalance_day_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "27"^^xsd:integer ;
+  a4:exprText "forall d: Day, (rebalance_day(d)) iff (((scheduled_rebalance_day(d)) and (eligible_rebalance_day(d))) or (exists s: Day, (scheduled_rebalance_day(s)) and (not (eligible_rebalance_day(s))) and (eligible_rebalance_day(d)) and (immediately_following_eligible_rebalance_day_after(d, s))))" ;
+  a4:sourceText "constraint rebalance_day_definition :\n  forall d: Day,\n    rebalance_day(d)\n    iff\n      (\n        scheduled_rebalance_day(d)\n        and eligible_rebalance_day(d)\n      )\n      or\n      (\n        exists s: Day,\n          scheduled_rebalance_day(s)\n          and not eligible_rebalance_day(s)\n          and eligible_rebalance_day(d)\n          and immediately_following_eligible_rebalance_day_after(d, s)\n      )" .
+ex:ASSERT_immediately_following_eligible_rebalance_day_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "44"^^xsd:integer ;
+  a4:exprText "forall d: Day, forall s: Day, (immediately_following_eligible_rebalance_day_after(d, s)) implies ((strictly_before(s, d)) and (eligible_rebalance_day(d)) and (forall e: Day, ((strictly_before(s, e)) and (strictly_before(e, d))) implies (not (eligible_rebalance_day(e)))))" ;
+  a4:sourceText "constraint immediately_following_eligible_rebalance_day_definition :\n  forall d: Day, forall s: Day,\n    immediately_following_eligible_rebalance_day_after(d, s)\n    implies\n      strictly_before(s, d)\n      and eligible_rebalance_day(d)\n      and forall e: Day,\n        strictly_before(s, e)\n        and strictly_before(e, d)\n        implies not eligible_rebalance_day(e)" .

@@ -1,0 +1,133 @@
+﻿schema: merge_preparation_provenance_v1
+artifact: merge_preparation
+claims:
+  canonical_ontology_v1_created:
+    source: corpus-wide local IR, bridge layer, and provenance files
+    back_translation: >
+      A canonical ontology draft was created for the seed methodology methodology without
+      replacing the source-local gold IR files.
+    evidence:
+      - canonical_ontology_v1.a4v3
+      - canonical_bridge_decisions_v1.yaml
+      - merge_preparation_notes_v1.md
+    status: human_review_ready
+
+  index_family_variant_model_created:
+    source: sections 1.2, 1.3, 4.1 and cross-section bridge mappings
+    back_translation: >
+      The methodology has one canonical index family with five published
+      variants; generic methodology rules apply to the family and are propagated
+      to variants unless a section gives variant-specific facts.
+    evidence:
+      - canonical_ontology_v1.a4v3: canonical_index_variants
+      - canonical_ontology_v1.a4v3: generic_methodology_rules_apply_to_published_variants
+      - canonical_bridge_decisions_v1.yaml: published_index_variants
+    status: human_review_ready
+
+  merge_readiness_audit_added:
+    source: deterministic corpus checks
+    back_translation: >
+      A merge-readiness audit now checks whether repeated declarations,
+      rule-bearing core symbols, bridge families, variant propagation, and
+      possible type-gap risks are safe enough for a merge attempt.
+    evidence:
+      - ../../../src/merge_readiness_audit_v1.py
+      - merge_readiness_audit_v1.json
+      - merge_readiness_audit_v1.md
+    status: implemented
+
+  resolved_methodology_view_v1_added:
+    source: local IR files, bridge/main_bridge.a4v3, and canonical_ontology_v1.a4v3
+    back_translation: >
+      A resolved methodology view was generated as an inspection layer showing
+      how local declarations resolve through bridge families, pair groups,
+      standalone bridge symbols, or remain local-only. It does not replace or
+      rewrite the source-local IR files.
+    evidence:
+      - ../../../src/resolved_methodology_view_v1.py
+      - resolved_methodology_view_v1.json
+      - resolved_methodology_view_v1.md
+    status: implemented
+
+  observation_frame_projection_layer_added:
+    source: bridge projection mappings and canonical observation frames
+    back_translation: >
+      The canonical merge ontology now includes observation frames and roles for
+      selected value-bearing concepts, and the bridge records how local
+      functions or relations project their arguments and return values into
+      those frames. Projection does not mean exact aliasing.
+    evidence:
+      - canonical_ontology_v1.a4v3: canonical_observation_frames
+      - ../bridge/main_bridge.a4v3: value_observation_projection_bridge
+      - resolved_methodology_view_v1.md: Projection Frames
+    status: implemented
+
+  second_observation_projection_batch_added:
+    source: sections 2.2, 2.3, 4.1 and bridge projection mappings
+    back_translation: >
+      A second observation projection batch maps local weight, region,
+      component price, price-change, and float market capitalization functions
+      into role-explicit canonical frames. Local typo-preserving function names
+      remain unchanged.
+    evidence:
+      - ../bridge/main_bridge.a4v3: second_value_observation_projection_bridge
+      - canonical_ontology_v1.a4v3: canonical_observation_frames
+      - methodology_architecture_v1.md: Canonical Frames And Bridge Frames
+    status: implemented
+
+  index_component_membership_projection_layer_added:
+    source: definitions N19 and sections 1.4, 2.2, 4.1, 4.7
+    back_translation: >
+      Repeated local index_component and index_component_of relations are
+      represented as role-explicit component-membership states rather than
+      being forced into one exact predicate. The canonical ontology now has
+      generic, selection-day, and calculation-day membership frames, and the
+      bridge records how each local relation projects into those frames.
+    evidence:
+      - canonical_ontology_v1.a4v3: canonical_index_component_membership_frames
+      - ../bridge/main_bridge.a4v3: index_component_membership_projection_bridge
+      - merge_preparation_notes_v1.md: Membership State Projection
+    status: implemented
+
+  process_bridge_readiness_notes_added:
+    source: bridge candidate audit, merge readiness audit, and process-critical calendar bridge
+    back_translation: >
+      A process bridge readiness note was added to identify the remaining
+      review tails before drafting the workflow layer. The bridge now explicitly
+      links Business Day, Close of Business, and Fixing Day source recurrences
+      through process-calendar families without treating them as exact aliases.
+    evidence:
+      - process_bridge_readiness_notes_v1.md
+      - ../bridge/main_bridge.a4v3: process_calendar_bridge
+      - ../bridge/translator_notes.md: process-critical calendar bridge
+    status: implemented
+
+validation_snapshot:
+  bridge_lint_v1:
+    status: passed
+    hard_findings: 0
+    soft_findings: 0
+  bridge_candidate_audit_v1:
+    parse_warning_count: 0
+    unbridged_repeated_exact_count: 0
+    assertion_external_identifier_count: 0
+    same_name_different_signature_count: 27
+    lexical_candidate_count: 53
+    source_phrase_candidate_count: 28
+  merge_readiness_audit_v1:
+    status: passed_with_review_items
+    hard_findings: 0
+    soft_findings: 1
+    advisory_findings: 1
+  resolved_methodology_view_v1:
+    status: generated
+    entry_count: 55
+    local_declaration_count: 1531
+    resolved_declaration_count: 423
+    local_only_declaration_count: 1108
+    bridge_projection_count: 40
+
+open_review_items:
+  - Same-name declarations with different signatures remain intentionally visible and must keep explicit bridge decisions.
+  - Lexical and repeated-source-phrase candidates remain review prompts, not automatic same-concept links.
+  - The next actual merge step should consume canonical_ontology_v1.a4v3 and canonical_bridge_decisions_v1.yaml rather than relying on syntactic dedup alone.

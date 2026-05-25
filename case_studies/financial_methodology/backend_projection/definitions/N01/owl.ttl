@@ -1,0 +1,69 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N01 a owl:Ontology .
+
+ex:IndexComponent a owl:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:TradingDay a owl:Class .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:SpecifiedPeriod a owl:Class .
+ex:SpecifiedPeriod rdfs:subClassOf ex:Period .
+ex:DailyValueTraded a owl:Class .
+ex:DailyValueTraded rdfs:subClassOf ex:Real .
+ex:AverageDailyValueTraded a owl:Class .
+ex:AverageDailyValueTraded rdfs:subClassOf ex:Real .
+ex:TradingDayCount a owl:Class .
+ex:TradingDayCount rdfs:subClassOf ex:Nat .
+
+ex:daily_value_traded a owl:Class, a4:NaryRelationClass .
+ex:daily_value_traded_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:daily_value_traded ;
+  rdfs:range ex:IndexComponent .
+ex:daily_value_traded_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:daily_value_traded ;
+  rdfs:range ex:TradingDay .
+ex:daily_value_traded_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:daily_value_traded ;
+  rdfs:range ex:DailyValueTraded .
+ex:average_daily_value_traded a owl:Class, a4:NaryRelationClass .
+ex:average_daily_value_traded_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:average_daily_value_traded ;
+  rdfs:range ex:IndexComponent .
+ex:average_daily_value_traded_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:average_daily_value_traded ;
+  rdfs:range ex:SpecifiedPeriod .
+ex:average_daily_value_traded_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:average_daily_value_traded ;
+  rdfs:range ex:AverageDailyValueTraded .
+ex:daily_value_traded_sum_over_period a owl:Class, a4:NaryRelationClass .
+ex:daily_value_traded_sum_over_period_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:daily_value_traded_sum_over_period ;
+  rdfs:range ex:IndexComponent .
+ex:daily_value_traded_sum_over_period_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:daily_value_traded_sum_over_period ;
+  rdfs:range ex:SpecifiedPeriod .
+ex:daily_value_traded_sum_over_period_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:daily_value_traded_sum_over_period ;
+  rdfs:range ex:DailyValueTraded .
+ex:trading_day_count_in_period a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:SpecifiedPeriod ;
+  rdfs:range ex:TradingDayCount .
+ex:trading_day_falls_in_period a owl:ObjectProperty ;
+  rdfs:domain ex:TradingDay ;
+  rdfs:range ex:SpecifiedPeriod .
+
+ex:ASSERT_daily_value_traded_sum_over_period_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall c: IndexComponent, forall p: SpecifiedPeriod, (daily_value_traded_sum_over_period(c, p)) = (sum(<set_comp>, daily_value_traded(c, d)))" .
+ex:ASSERT_trading_day_count_in_period_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall p: SpecifiedPeriod, (trading_day_count_in_period(p)) = (<count>)" .
+ex:ASSERT_average_daily_value_traded_divided_by_trading_day_count_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall c: IndexComponent, forall p: SpecifiedPeriod, (average_daily_value_traded(c, p)) = ((daily_value_traded_sum_over_period(c, p)) / (trading_day_count_in_period(p)))" .

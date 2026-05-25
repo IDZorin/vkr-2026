@@ -1,4 +1,4 @@
-"""Deterministic lint for DZ bridge/main_bridge.a4v3.
+﻿"""Deterministic lint for financial methodology bridge/main_bridge.a4v3.
 
 The bridge layer is not a source-local IR entry, so the normal entry checks do
 not catch bridge-specific mistakes such as a same_relation without argument

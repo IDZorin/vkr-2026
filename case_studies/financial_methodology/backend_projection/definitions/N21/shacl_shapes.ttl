@@ -1,0 +1,39 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N21 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:Table a rdfs:Class .
+ex:TableShape a sh:NodeShape ; sh:targetClass ex:Table .
+ex:TableColumn a rdfs:Class .
+ex:TableColumnShape a sh:NodeShape ; sh:targetClass ex:TableColumn .
+ex:IndexCurrencySpecification a rdfs:Class .
+ex:IndexCurrencySpecificationShape a sh:NodeShape ; sh:targetClass ex:IndexCurrencySpecification .
+
+ex:Section1_2 a ex:DocumentPart .
+ex:Section1_2IndexTable a ex:Table .
+ex:CurrencyColumn a ex:TableColumn .
+ex:index_currency a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_currency ; sh:class ex:Currency ] .
+ex:specification_for_index a rdf:Property .
+ex:IndexCurrencySpecificationShape sh:property [ sh:path ex:specification_for_index ; sh:class ex:Index ] .
+ex:specification_currency a rdf:Property .
+ex:IndexCurrencySpecificationShape sh:property [ sh:path ex:specification_currency ; sh:class ex:Currency ] .
+ex:specification_column a rdf:Property .
+ex:IndexCurrencySpecificationShape sh:property [ sh:path ex:specification_column ; sh:class ex:TableColumn ] .
+ex:specification_table a rdf:Property .
+ex:IndexCurrencySpecificationShape sh:property [ sh:path ex:specification_table ; sh:class ex:Table ] .
+ex:table_in_section a rdf:Property .
+ex:TableShape sh:property [ sh:path ex:table_in_section ; sh:class ex:DocumentPart ] .
+ex:column_of_table a rdf:Property .
+ex:TableColumnShape sh:property [ sh:path ex:column_of_table ; sh:class ex:Table ] .
+
+ex:Section1_2IndexTable ex:table_in_section ex:Section1_2 .
+ex:CurrencyColumn ex:column_of_table ex:Section1_2IndexTable .

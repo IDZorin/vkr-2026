@@ -1,0 +1,1064 @@
+{
+  "entry_id": "N23",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 12,
+    "content_token_count": 8,
+    "covered_content_token_count": 8,
+    "uncovered_content_token_count": 0,
+    "ignored_stopword_count": 4,
+    "content_coverage_rate": 1.0
+  },
+  "tokens": [
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        },
+        {
+          "line": 1,
+          "column": 76
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexUniverse",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "IndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexUniverseRequirements",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "IndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "TheIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "IndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndexUniverseRequirements",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "TheIndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndexUniverseRequirements",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "IndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "financial_instrument_in_index_universe",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "financial_instrument_in_index_universe"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "financial_instrument_in_index_universe",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "IndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fulfills_index_universe_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "fulfills_index_universe_requirements"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "fulfills_index_universe_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "IndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "IndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "IndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_sum_source_phrase",
+          "family": "AssertDecl.fact",
+          "line": 11,
+          "matched_text": "index_universe_sum_source_phrase"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_definition",
+          "family": "AssertDecl.constraint",
+          "line": 14,
+          "matched_text": "index_universe_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "line": 11,
+          "matched_text": "index_universe_sum_source_phrase"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "TheIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "TheIndexUniverseRequirements"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "line": 14,
+          "matched_text": "index_universe_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "financial_instrument_in_index_universe"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1]",
+          "matched_text": "TheIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "fulfills_index_universe_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1]",
+          "matched_text": "TheIndexUniverseRequirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndexUniverse",
+          "matched_text": "Index Universe"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndexUniverseRequirements",
+          "matched_text": "Index Universe Requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_universe_requirements",
+          "matched_text": "fulfill the Index Universe Requirements"
+        }
+      ]
+    },
+    {
+      "token": "universe",
+      "surface_forms": [
+        "Universe"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 8
+        },
+        {
+          "line": 1,
+          "column": 82
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexUniverse",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "IndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexUniverseRequirements",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "IndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "TheIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "IndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndexUniverseRequirements",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "TheIndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndexUniverseRequirements",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "IndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "financial_instrument_in_index_universe",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "financial_instrument_in_index_universe"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "financial_instrument_in_index_universe",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "IndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fulfills_index_universe_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "fulfills_index_universe_requirements"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "fulfills_index_universe_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "IndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "IndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "IndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_sum_source_phrase",
+          "family": "AssertDecl.fact",
+          "line": 11,
+          "matched_text": "index_universe_sum_source_phrase"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_definition",
+          "family": "AssertDecl.constraint",
+          "line": 14,
+          "matched_text": "index_universe_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "line": 11,
+          "matched_text": "index_universe_sum_source_phrase"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "TheIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "TheIndexUniverseRequirements"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "line": 14,
+          "matched_text": "index_universe_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "financial_instrument_in_index_universe"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1]",
+          "matched_text": "TheIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "fulfills_index_universe_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1]",
+          "matched_text": "TheIndexUniverseRequirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndexUniverse",
+          "matched_text": "Index Universe"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndexUniverseRequirements",
+          "matched_text": "Index Universe Requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_universe_requirements",
+          "matched_text": "fulfill the Index Universe Requirements"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 18
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 2,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 21
+        },
+        {
+          "line": 1,
+          "column": 72
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndexUniverse",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "TheIndexUniverse"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndexUniverseRequirements",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "TheIndexUniverseRequirements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "TheIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "TheIndexUniverseRequirements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left.args[1]",
+          "matched_text": "TheIndexUniverse"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1]",
+          "matched_text": "TheIndexUniverseRequirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_universe_requirements",
+          "matched_text": "fulfill the Index Universe Requirements"
+        }
+      ]
+    },
+    {
+      "token": "sum",
+      "surface_forms": [
+        "sum"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 25
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_sum_source_phrase",
+          "family": "AssertDecl.fact",
+          "line": 11,
+          "matched_text": "index_universe_sum_source_phrase"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "line": 11,
+          "matched_text": "index_universe_sum_source_phrase"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "matched_text": "sum of all financial instruments"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 29
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "matched_text": "sum of all financial instruments"
+        }
+      ]
+    },
+    {
+      "token": "all",
+      "surface_forms": [
+        "all"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 32
+        }
+      ],
+      "provenance": [
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "matched_text": "sum of all financial instruments"
+        },
+        {
+          "source": "family_signal",
+          "role": "universal_quantifier",
+          "marker": "forall"
+        }
+      ]
+    },
+    {
+      "token": "financial",
+      "surface_forms": [
+        "financial"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 36
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "financial_instrument_in_index_universe",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "financial_instrument_in_index_universe"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "financial_instrument_in_index_universe",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "FinancialInstrument"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "fulfills_index_universe_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "FinancialInstrument"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "FinancialInstrument"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "financial_instrument_in_index_universe"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "financial_instrument_in_index_universe",
+          "matched_text": "financial instruments"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "matched_text": "sum of all financial instruments"
+        }
+      ]
+    },
+    {
+      "token": "instrument",
+      "surface_forms": [
+        "instruments"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 46
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "financial_instrument_in_index_universe",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "financial_instrument_in_index_universe"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "financial_instrument_in_index_universe",
+          "family": "SymbolDecl.rel",
+          "line": 7,
+          "matched_text": "FinancialInstrument"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "fulfills_index_universe_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "FinancialInstrument"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "FinancialInstrument"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "financial_instrument_in_index_universe"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "financial_instrument_in_index_universe",
+          "matched_text": "financial instruments"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "matched_text": "sum of all financial instruments"
+        }
+      ]
+    },
+    {
+      "token": "which",
+      "surface_forms": [
+        "which"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 58
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "fulfill",
+      "surface_forms": [
+        "fulfill"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 64
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fulfills_index_universe_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "fulfills_index_universe_requirements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "fulfills_index_universe_requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_universe_requirements",
+          "matched_text": "fulfill the Index Universe Requirements"
+        }
+      ]
+    },
+    {
+      "token": "requirement",
+      "surface_forms": [
+        "Requirements"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 91
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "IndexUniverseRequirements",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "IndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndexUniverseRequirements",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "TheIndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndexUniverseRequirements",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "IndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fulfills_index_universe_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "fulfills_index_universe_requirements"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "fulfills_index_universe_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "IndexUniverseRequirements"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "IndexUniverseRequirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "index_universe_is_sum_of_financial_instruments_fulfilling_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_sum_source_phrase",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "TheIndexUniverseRequirements"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "fulfills_index_universe_requirements"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "index_universe_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right.args[1]",
+          "matched_text": "TheIndexUniverseRequirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndexUniverseRequirements",
+          "matched_text": "Index Universe Requirements"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "fulfills_index_universe_requirements",
+          "matched_text": "fulfill the Index Universe Requirements"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

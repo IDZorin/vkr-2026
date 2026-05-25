@@ -1,0 +1,13 @@
+sort Index
+sort CalculationTime
+
+entity TheIndex : Index
+entity CloseOfBusiness : CalculationTime
+entity Section1_4 : DocumentPart
+
+rel calculation_time_of_closing_level_of_index : CalculationTime, Index
+rel outlined_in_section : CalculationTime, DocumentPart
+
+fact close_of_business_definition :
+  calculation_time_of_closing_level_of_index(CloseOfBusiness, TheIndex)
+  and outlined_in_section(CloseOfBusiness, Section1_4)

@@ -1,0 +1,118 @@
+{
+  "entry_id": "N19",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The source says that an Index Component is each security reflected in the Index. The IR captures this by defining index_component for Security and TheIndex exactly when security_reflected_in_index holds for the same Security and TheIndex.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces a named index entity TheIndex and a separate predicate security_reflected_in_index, which is a formalization choice rather than a semantic change.",
+        "The source uses quoted terminology \"Index Component\"; the IR uses the lowercase relation name index_component."
+      ],
+      "confidence": 0.97,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1840,
+        "completion_tokens": 161,
+        "total_tokens": 2001
+      },
+      "latency_s": 2.9014370441436768
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "corresponds",
+      "relation_type": "same_meaning_poor_wording",
+      "reason_short": "The source defines an Index Component as each security reflected in the Index, and the IR captures that by making index_component(s, TheIndex) equivalent to security_reflected_in_index(s, TheIndex) for every Security. The use of a named index entity and separate relation names is a modeling choice rather than a semantic change.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces both index_component and security_reflected_in_index as separate relations, which is a more explicit formalization of the definitional wording.",
+        "Using the specific entity name TheIndex is a naming choice not present literally in the source.",
+        "The relation_type is marked as same_meaning_poor_wording because the IR is semantically aligned but uses somewhat redundant predicate naming."
+      ],
+      "confidence": 0.96,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1840,
+        "completion_tokens": 211,
+        "total_tokens": 2051
+      },
+      "latency_s": 5.3610193729400635
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR correctly formalizes the source definition. The source states that 'Index Component' is each security reflected in the Index. The IR introduces two relations—index_component and security_reflected_in_index—and constrains them to be equivalent via a biconditional. This captures the definitional equivalence: a security is an Index Component if and only if it is reflected in the Index. The use of TheIndex as the canonical instance and Security as a FinancialInstrument subtype are standard prelude-based encodings (design decision 1). The constraint properly expresses the intensional definition without semantic drift.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces two relations (index_component and security_reflected_in_index) where the source uses only one term ('Index Component'). This is a stylistic choice to make the definition explicit via a biconditional constraint rather than a simple naming declaration. Both relations are semantically equivalent by the constraint, so this is a valid formalization strategy.",
+        "The source uses the informal phrase 'each security reflected in the Index'; the IR formalizes this as a universal quantification over Security with a biconditional. This is the standard a4v3 lowering of a definitional statement."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2094,
+        "completion_tokens": 336,
+        "total_tokens": 2430
+      },
+      "latency_s": 5.253084897994995
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR defines Index Component as a security reflected in the Index, using an equivalence constraint which exactly captures the source definition.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The source uses a single noun phrase; the IR introduces two relations with an iff constraint, which is a correct formalization but stylistically creates an equivalence between two predicates rather than defining one directly."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1953,
+        "completion_tokens": 754,
+        "total_tokens": 2707
+      },
+      "latency_s": 27.48404288291931
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR correctly formalizes the source's definitional statement by establishing a bidirectional equivalence (iff) between the index_component relation and the security_reflected_in_index relation for all securities. The universal quantifier accurately captures 'each security', and the concrete entity TheIndex appropriately models the definite reference 'the Index'.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces two distinct relations and equates them via a constraint, which is a valid but slightly verbose encoding of a simple definition; a single relation would suffice.",
+        "Extending Security from the prelude sort FinancialInstrument is a standard infrastructure choice not explicitly stated in the source but fully compliant with prelude rules."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1969,
+        "completion_tokens": 1959,
+        "total_tokens": 3928
+      },
+      "latency_s": 37.65239238739014
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "corresponds": 5
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 1.0,
+    "unanimous": true,
+    "mean_confidence": 0.962
+  }
+}

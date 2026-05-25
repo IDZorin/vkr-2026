@@ -1,0 +1,58 @@
+schema: role_annotations_v1
+entry_id: section_2_3
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  float_market_capizatlization:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: component}
+    returns: {role: same_as_type}
+  redistributes_weight_proportionally:
+    kind: rel
+    args:
+      1: {role: value}
+      2: {role: component}
+      3: {role: value}
+  region:
+    kind: fun
+    args:
+      1: {role: component}
+    returns: {role: same_as_type}
+  weight:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: component}
+    returns: {role: same_as_type}
+  weight_redistribution_process:
+    kind: fun
+    args:
+      1: {role: day}
+    returns: {role: same_as_type}
+constraints:
+  region_represents_exactly_50_percent:
+    frame: region_represents_exactly_50_percent
+    variables:
+      d: {role: day, quantifier: forall}
+      r: {role: subject, quantifier: forall}
+  single_index_component_weight_capped:
+    frame: single_index_component_weight_capped
+    variables:
+      d: {role: day, quantifier: forall}
+      c: {role: component, quantifier: forall}
+facts:
+  weight_based_on_float_market_capizatlization:
+    frame: weight_based_on_float_market_capizatlization
+    variables:
+      d: {role: day, quantifier: forall}
+      c: {role: component, quantifier: forall}
+  weight_redistribution_process_is_iterative:
+    frame: weight_redistribution_process_is_iterative
+    variables:
+      d: {role: day, quantifier: forall}
+  weights_redistributed_proportionally:
+    frame: weights_redistributed_proportionally
+    variables:
+      d: {role: day, quantifier: forall}
+      c: {role: component, quantifier: forall}

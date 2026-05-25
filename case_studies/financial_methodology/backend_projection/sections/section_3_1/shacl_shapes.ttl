@@ -1,0 +1,144 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_3_1 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:SolactiveOrganization a rdfs:Class .
+ex:SolactiveOrganization rdfs:subClassOf ex:Organization .
+ex:SolactiveOrganizationShape a sh:NodeShape ; sh:targetClass ex:SolactiveOrganization .
+ex:IndexComponent a rdfs:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:IndexComponentShape a sh:NodeShape ; sh:targetClass ex:IndexComponent .
+ex:SelectionDay a rdfs:Class .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:SelectionDayShape a sh:NodeShape ; sh:targetClass ex:SelectionDay .
+ex:FixingDay a rdfs:Class .
+ex:FixingDay rdfs:subClassOf ex:Day .
+ex:FixingDayShape a sh:NodeShape ; sh:targetClass ex:FixingDay .
+ex:RebalanceDay a rdfs:Class .
+ex:RebalanceDay rdfs:subClassOf ex:Day .
+ex:RebalanceDayShape a sh:NodeShape ; sh:targetClass ex:RebalanceDay .
+ex:OrdinaryRebalance a rdfs:Class .
+ex:OrdinaryRebalance rdfs:subClassOf ex:Event .
+ex:OrdinaryRebalanceShape a sh:NodeShape ; sh:targetClass ex:OrdinaryRebalance .
+ex:CloseOfBusiness a rdfs:Class .
+ex:CloseOfBusiness rdfs:subClassOf ex:Event .
+ex:CloseOfBusinessShape a sh:NodeShape ; sh:targetClass ex:CloseOfBusiness .
+ex:IndexComponentSelection a rdfs:Class .
+ex:IndexComponentSelectionShape a sh:NodeShape ; sh:targetClass ex:IndexComponentSelection .
+ex:Shares a rdfs:Class .
+ex:SharesShape a sh:NodeShape ; sh:targetClass ex:Shares .
+ex:Weight a rdfs:Class .
+ex:Weight rdfs:subClassOf ex:Percent .
+ex:WeightShape a sh:NodeShape ; sh:targetClass ex:Weight .
+ex:RebalanceProcedure a rdfs:Class .
+ex:RebalanceProcedureShape a sh:NodeShape ; sh:targetClass ex:RebalanceProcedure .
+ex:IndexComponentChange a rdfs:Class .
+ex:IndexComponentChange rdfs:subClassOf ex:Event .
+ex:IndexComponentChangeShape a sh:NodeShape ; sh:targetClass ex:IndexComponentChange .
+ex:Section3_1IndexComponentChange a rdfs:Class .
+ex:Section3_1IndexComponentChange rdfs:subClassOf ex:IndexComponentChange .
+ex:Section3_1IndexComponentChangeShape a sh:NodeShape ; sh:targetClass ex:Section3_1IndexComponentChange .
+ex:Notice a rdfs:Class .
+ex:Notice rdfs:subClassOf ex:Document .
+ex:NoticeShape a sh:NodeShape ; sh:targetClass ex:Notice .
+ex:EquityIndexMethodology a rdfs:Class .
+ex:EquityIndexMethodology rdfs:subClassOf ex:Document .
+ex:EquityIndexMethodologyShape a sh:NodeShape ; sh:targetClass ex:EquityIndexMethodology .
+
+ex:TheIndex a ex:Index .
+ex:Solactive a ex:SolactiveOrganization .
+ex:SolactiveEquityIndexMethodology a ex:EquityIndexMethodology .
+ex:ThisGuideline a ex:Document .
+ex:SolactiveWebsite a ex:WebResource .
+ex:Section2_1 a ex:DocumentPart .
+ex:Section2_2 a ex:DocumentPart .
+ex:AnnouncementSection a ex:DocumentPart .
+ex:OrdinaryRebalanceProcedure a ex:RebalanceProcedure .
+ex:SufficientNoticeBeforeRebalanceDay a ex:VagueTerm .
+ex:HttpsWwwSolactiveComDocumentsEquityIndexMethodology a ex:Url .
+ex:HttpsWwwSolactiveComNewsAnnouncements a ex:Url .
+ex:ordinary_rebalance_day a rdfs:Class ; rdfs:subClassOf ex:RebalanceDay .
+ex:ordinary_rebalance_on_day a rdf:Property .
+ex:OrdinaryRebalanceShape sh:property [ sh:path ex:ordinary_rebalance_on_day ; sh:class ex:RebalanceDay ] .
+ex:selection_day_of_rebalance a rdf:Property .
+ex:RebalanceDayShape sh:property [ sh:path ex:selection_day_of_rebalance ; sh:class ex:SelectionDay ] .
+ex:fixing_day_of_rebalance a rdf:Property .
+ex:RebalanceDayShape sh:property [ sh:path ex:fixing_day_of_rebalance ; sh:class ex:FixingDay ] .
+ex:close_of_business_on_day a rdf:Property .
+ex:CloseOfBusinessShape sh:property [ sh:path ex:close_of_business_on_day ; sh:class ex:RebalanceDay ] .
+ex:new_selection_for_rebalance a rdf:Property .
+ex:RebalanceDayShape sh:property [ sh:path ex:new_selection_for_rebalance ; sh:class ex:IndexComponentSelection ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:shares_on_fixing_day a rdfs:Class .
+ex:shares_on_fixing_dayShape a sh:NodeShape ; sh:targetClass ex:shares_on_fixing_day .
+ex:shares_on_fixing_dayShape sh:property [ sh:path ex:shares_on_fixing_day_arg_0 ; sh:class ex:FixingDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:shares_on_fixing_dayShape sh:property [ sh:path ex:shares_on_fixing_day_arg_1 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:shares_on_fixing_dayShape sh:property [ sh:path ex:shares_on_fixing_day_result ; sh:class ex:Shares ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:weight_on_selection_day a rdfs:Class .
+ex:weight_on_selection_dayShape a sh:NodeShape ; sh:targetClass ex:weight_on_selection_day .
+ex:weight_on_selection_dayShape sh:property [ sh:path ex:weight_on_selection_day_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:weight_on_selection_dayShape sh:property [ sh:path ex:weight_on_selection_day_arg_1 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:weight_on_selection_dayShape sh:property [ sh:path ex:weight_on_selection_day_result ; sh:class ex:Weight ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:rebalance_day_of_change a rdf:Property .
+ex:Section3_1IndexComponentChangeShape sh:property [ sh:path ex:rebalance_day_of_change ; sh:class ex:RebalanceDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:selection_of_index a rdf:Property .
+ex:IndexComponentSelectionShape sh:property [ sh:path ex:selection_of_index ; sh:class ex:Index ] .
+ex:selection_determined_on a rdf:Property .
+ex:IndexComponentSelectionShape sh:property [ sh:path ex:selection_determined_on ; sh:class ex:SelectionDay ] .
+ex:selection_in_accordance_with a rdf:Property .
+ex:IndexComponentSelectionShape sh:property [ sh:path ex:selection_in_accordance_with ; sh:class ex:DocumentPart ] .
+ex:selection_includes_index_component a rdf:Property .
+ex:IndexComponentSelectionShape sh:property [ sh:path ex:selection_includes_index_component ; sh:class ex:IndexComponent ] .
+ex:adjusted_index a rdf:Property .
+ex:OrdinaryRebalanceShape sh:property [ sh:path ex:adjusted_index ; sh:class ex:Index ] .
+ex:following_close_of_business a rdf:Property .
+ex:OrdinaryRebalanceShape sh:property [ sh:path ex:following_close_of_business ; sh:class ex:CloseOfBusiness ] .
+ex:reflects_new_selection a rdf:Property .
+ex:OrdinaryRebalanceShape sh:property [ sh:path ex:reflects_new_selection ; sh:class ex:IndexComponentSelection ] .
+ex:carried_out_by_implementing_shares a rdf:Property .
+ex:OrdinaryRebalanceShape sh:property [ sh:path ex:carried_out_by_implementing_shares ; sh:class ex:Shares ] .
+ex:shares_determined_on a rdf:Property .
+ex:SharesShape sh:property [ sh:path ex:shares_determined_on ; sh:class ex:FixingDay ] .
+ex:shares_based_on_weight a rdf:Property .
+ex:SharesShape sh:property [ sh:path ex:shares_based_on_weight ; sh:class ex:Weight ] .
+ex:weight_calculated_on a rdf:Property .
+ex:WeightShape sh:property [ sh:path ex:weight_calculated_on ; sh:class ex:SelectionDay ] .
+ex:procedure_information_in a rdf:Property .
+ex:RebalanceProcedureShape sh:property [ sh:path ex:procedure_information_in ; sh:class ex:Document ] .
+ex:incorporated_by_reference_into a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:incorporated_by_reference_into ; sh:class ex:Document ] .
+ex:available_on a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:available_on ; sh:class ex:WebResource ] .
+ex:website_of a rdf:Property .
+ex:WebResourceShape sh:property [ sh:path ex:website_of ; sh:class ex:Organization ] .
+ex:section_of_website a rdf:Property .
+ex:DocumentPartShape sh:property [ sh:path ex:section_of_website ; sh:class ex:WebResource ] .
+ex:change_of_index a rdf:Property .
+ex:Section3_1IndexComponentChangeShape sh:property [ sh:path ex:change_of_index ; sh:class ex:Index ] .
+ex:change_made_to_index_component a rdf:Property .
+ex:Section3_1IndexComponentChangeShape sh:property [ sh:path ex:change_made_to_index_component ; sh:class ex:IndexComponent ] .
+ex:notice_for_index_component_change a rdf:Property .
+ex:NoticeShape sh:property [ sh:path ex:notice_for_index_component_change ; sh:class ex:Section3_1IndexComponentChange ] .
+ex:notice_described_by a rdf:Property .
+ex:NoticeShape sh:property [ sh:path ex:notice_described_by ; sh:class ex:VagueTerm ] .
+ex:notice_for_rebalance_day a rdf:Property .
+ex:NoticeShape sh:property [ sh:path ex:notice_for_rebalance_day ; sh:class ex:RebalanceDay ] .
+ex:notice_published_by a rdf:Property .
+ex:NoticeShape sh:property [ sh:path ex:notice_published_by ; sh:class ex:SolactiveOrganization ] .
+ex:notice_published_on a rdf:Property .
+ex:NoticeShape sh:property [ sh:path ex:notice_published_on ; sh:class ex:WebResource ] .
+ex:notice_published_under a rdf:Property .
+ex:NoticeShape sh:property [ sh:path ex:notice_published_under ; sh:class ex:DocumentPart ] .
+
+ex:OrdinaryRebalanceProcedure ex:procedure_information_in ex:SolactiveEquityIndexMethodology .
+ex:SolactiveEquityIndexMethodology ex:incorporated_by_reference_into ex:ThisGuideline .
+ex:SolactiveEquityIndexMethodology ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:AnnouncementSection ex:section_of_website ex:SolactiveWebsite .

@@ -1,0 +1,113 @@
+{
+  "entry_id": "N09",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR captures that an Eligible Rebalance Day is a day that is a trading day at each of the four named exchanges. The added Exchange sort and exchange entities are faithful symbol choices for the source noun phrases.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses a predicate-style definition with an explicit sort and relation names, which is a formalization choice rather than a semantic change.",
+        "\"is each day that is\" is rendered as a universal definition over EligibleRebalanceDay, which is standard a4v3 style."
+      ],
+      "confidence": 0.97,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1937,
+        "completion_tokens": 140,
+        "total_tokens": 2077
+      },
+      "latency_s": 2.2946386337280273
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "one_way_implication",
+      "reason_short": "The IR captures the core condition that an eligible rebalance day must be a trading day at all four named exchanges, but it only states this equivalence for objects already typed as EligibleRebalanceDay. It does not fully encode the source's definitional claim that each and every day satisfying those four trading-day conditions is an Eligible Rebalance Day.",
+      "semantic_differences": [
+        "The source defines Eligible Rebalance Day over each day, but the IR quantifies only over d: EligibleRebalanceDay rather than over all Day values, so it does not fully state that any day meeting the four exchange conditions is an Eligible Rebalance Day.",
+        "Because eligible_rebalance_day is declared on EligibleRebalanceDay and the constraint ranges only over EligibleRebalanceDay, the IR leaves open whether there can be ordinary Day instances that satisfy all four trading-day predicates yet are not classified as Eligible Rebalance Day."
+      ],
+      "stylistic_notes": [
+        "Using both the subtype EligibleRebalanceDay and the predicate eligible_rebalance_day is somewhat redundant but not itself a semantic error.",
+        "The source phrase uses quoted term syntax for a defined label; the IR represents that as a sort plus predicate, which is acceptable formalization style."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1937,
+        "completion_tokens": 301,
+        "total_tokens": 2238
+      },
+      "latency_s": 5.738830804824829
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "does_not_correspond",
+      "relation_type": "partial_overlap",
+      "reason_short": "The source defines an Eligible Rebalance Day as a day that is a Trading Day at ALL FOUR exchanges simultaneously (conjunction). The IR correctly encodes this as a conjunction of four trading_day_at_exchange predicates. However, the IR introduces a sort EligibleRebalanceDay and a relation eligible_rebalance_day(d), then constrains the relation via a biconditional. This creates a semantic divergence: the source treats 'Eligible Rebalance Day' as a descriptive property of days (a day IS an Eligible Rebalance Day if it satisfies the condition), while the IR reifies it as both a sort membership AND a separate relation, with the constraint only defining when the relation holds. The sort membership of d : EligibleRebalanceDay is never constrained to match the relation definition, leaving ambiguity about whether a day can be of sort EligibleRebalanceDay without satisfying the trading_day_at_exchange conditions.",
+      "semantic_differences": [
+        "The IR introduces EligibleRebalanceDay as a sort (a type/class) but does not constrain sort membership to match the definition. A day d could be declared of sort EligibleRebalanceDay without the constraint eligible_rebalance_day_definition applying to it, creating a gap between sort membership and the logical definition.",
+        "The IR uses both a sort (EligibleRebalanceDay extends Day) and a separate relation (eligible_rebalance_day : EligibleRebalanceDay) to represent the same concept. The source uses a single descriptive definition; the IR's dual encoding introduces potential inconsistency if sort membership and relation membership diverge."
+      ],
+      "stylistic_notes": [
+        "The IR names the relation eligible_rebalance_day with the same root as the sort name, which is reasonable but could be clearer (e.g., is_eligible_rebalance_day or eligible_rebalance_day_status).",
+        "The constraint is correctly named eligible_rebalance_day_definition and uses a biconditional (iff), which is appropriate for a definition.",
+        "Exchange entities are correctly introduced as prelude-style infrastructure (not a semantic issue, but a design choice)."
+      ],
+      "confidence": 0.78,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2247,
+        "completion_tokens": 562,
+        "total_tokens": 2809
+      },
+      "latency_s": 7.472990274429321
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 66.18743133544922
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR precisely formalizes the source definition by establishing a biconditional relationship between the 'EligibleRebalanceDay' predicate and the conjunction of trading day conditions across all four specified exchanges. The introduction of an 'Exchange' sort and corresponding entities cleanly models the named institutions without altering the logical meaning.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The constraint quantifies over the subsort 'EligibleRebalanceDay' rather than the base sort 'Day', which is a standard a4v3 pattern for defining predicates on custom sorts and does not change the semantic scope."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2074,
+        "completion_tokens": 1638,
+        "total_tokens": 3712
+      },
+      "latency_s": 31.487006664276123
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "corresponds": 2,
+      "partially_corresponds": 1,
+      "does_not_correspond": 1
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 0.5,
+    "unanimous": false,
+    "mean_confidence": 0.925
+  }
+}

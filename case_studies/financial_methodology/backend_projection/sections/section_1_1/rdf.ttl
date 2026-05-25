@@ -1,0 +1,107 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_1 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_1_1/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Security a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:AssetClass a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:Equity a ex:AssetClass, a4:EnumMember, owl:NamedIndividual .
+ex:AssetClass a4:enumMember ex:Equity .
+ex:IndexStrategy a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:BusinessField a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:CleanEnergy a ex:BusinessField, a4:EnumMember, owl:NamedIndividual .
+ex:BusinessField a4:enumMember ex:CleanEnergy .
+ex:RegionalAllocation a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:DevelopedMarketsEurope a ex:RegionalAllocation, a4:EnumMember, owl:NamedIndividual .
+ex:RegionalAllocation a4:enumMember ex:DevelopedMarketsEurope .
+ex:UnitedStates a ex:RegionalAllocation, a4:EnumMember, owl:NamedIndividual .
+ex:RegionalAllocation a4:enumMember ex:UnitedStates .
+ex:Canada a ex:RegionalAllocation, a4:EnumMember, owl:NamedIndividual .
+ex:RegionalAllocation a4:enumMember ex:Canada .
+ex:RebalancingFeeStatus a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:NoRebalancingFee a ex:RebalancingFeeStatus, a4:EnumMember, owl:NamedIndividual .
+ex:RebalancingFeeStatus a4:enumMember ex:NoRebalancingFee .
+ex:RebalancingFrequency a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:SemiAnnual a ex:RebalancingFrequency, a4:EnumMember, owl:NamedIndividual .
+ex:RebalancingFrequency a4:enumMember ex:SemiAnnual .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:CleanEnergyBusinessOperationsStrategy a ex:IndexStrategy, owl:NamedIndividual .
+ex:asset_class a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:asset_class_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:asset_class a4:argument ex:asset_class_arg_0 .
+ex:asset_class a4:resultSort ex:AssetClass .
+ex:asset_class a4:functionFlag "optional" .
+ex:rebalancing_fee_status a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:rebalancing_fee_status_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:rebalancing_fee_status a4:argument ex:rebalancing_fee_status_arg_0 .
+ex:rebalancing_fee_status a4:resultSort ex:RebalancingFeeStatus .
+ex:rebalancing_fee_status a4:functionFlag "optional" .
+ex:rebalancing_frequency a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:rebalancing_frequency_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:rebalancing_frequency a4:argument ex:rebalancing_frequency_arg_0 .
+ex:rebalancing_frequency a4:resultSort ex:RebalancingFrequency .
+ex:rebalancing_frequency a4:functionFlag "optional" .
+ex:index_strategy a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_strategy_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:index_strategy a4:argument ex:index_strategy_arg_0 .
+ex:index_strategy_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexStrategy .
+ex:index_strategy a4:argument ex:index_strategy_arg_1 .
+ex:regional_allocation a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:regional_allocation_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:regional_allocation a4:argument ex:regional_allocation_arg_0 .
+ex:regional_allocation_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RegionalAllocation .
+ex:regional_allocation a4:argument ex:regional_allocation_arg_1 .
+ex:rebalancing_fee_charged a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:rebalancing_fee_charged_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Index .
+ex:rebalancing_fee_charged a4:argument ex:rebalancing_fee_charged_arg_0 .
+ex:strategy_representation_of_security a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:strategy_representation_of_security_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexStrategy .
+ex:strategy_representation_of_security a4:argument ex:strategy_representation_of_security_arg_0 .
+ex:strategy_representation_of_security_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:strategy_representation_of_security a4:argument ex:strategy_representation_of_security_arg_1 .
+ex:security_has_business_operations_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:security_has_business_operations_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Security .
+ex:security_has_business_operations_in a4:argument ex:security_has_business_operations_in_arg_0 .
+ex:security_has_business_operations_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:BusinessField .
+ex:security_has_business_operations_in a4:argument ex:security_has_business_operations_in_arg_1 .
+
+ex:ASSERT_index_scope_table_attributes a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "37"^^xsd:integer ;
+  a4:exprText "((asset_class(TheIndex)) = (Equity)) and (index_strategy(TheIndex, CleanEnergyBusinessOperationsStrategy)) and (regional_allocation(TheIndex, DevelopedMarketsEurope)) and (regional_allocation(TheIndex, UnitedStates)) and (regional_allocation(TheIndex, Canada)) and ((rebalancing_fee_status(TheIndex)) = (NoRebalancingFee)) and ((rebalancing_frequency(TheIndex)) = (SemiAnnual))" ;
+  a4:sourceText "fact index_scope_table_attributes :\n  asset_class(TheIndex) = Equity\n  and index_strategy(TheIndex, CleanEnergyBusinessOperationsStrategy)\n  and regional_allocation(TheIndex, DevelopedMarketsEurope)\n  and regional_allocation(TheIndex, UnitedStates)\n  and regional_allocation(TheIndex, Canada)\n  and rebalancing_fee_status(TheIndex) = NoRebalancingFee\n  and rebalancing_frequency(TheIndex) = SemiAnnual" .
+ex:ASSERT_clean_energy_strategy_represents_clean_energy_securities a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "46"^^xsd:integer ;
+  a4:exprText "forall s: Security, (strategy_representation_of_security(CleanEnergyBusinessOperationsStrategy, s)) implies (security_has_business_operations_in(s, CleanEnergy))" ;
+  a4:sourceText "constraint clean_energy_strategy_represents_clean_energy_securities :\n  forall s: Security,\n    strategy_representation_of_security(CleanEnergyBusinessOperationsStrategy, s)\n    implies security_has_business_operations_in(s, CleanEnergy)" .
+ex:ASSERT_no_rebalancing_fee_means_rebalancing_fee_not_charged a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "51"^^xsd:integer ;
+  a4:exprText "forall i: Index, ((rebalancing_fee_status(i)) = (NoRebalancingFee)) implies (not (rebalancing_fee_charged(i)))" ;
+  a4:sourceText "constraint no_rebalancing_fee_means_rebalancing_fee_not_charged :\n  forall i: Index,\n    rebalancing_fee_status(i) = NoRebalancingFee\n    implies not rebalancing_fee_charged(i)" .

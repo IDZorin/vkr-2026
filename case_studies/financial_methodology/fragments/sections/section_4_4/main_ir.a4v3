@@ -1,0 +1,171 @@
+sort Index
+sort SolactiveOrganization extends Organization
+sort IndexComponent extends FinancialInstrument
+sort CorporateAction extends Event
+sort IndexAdjustment
+sort RequiredIndexAdjustment extends IndexAdjustment
+sort IndexAdjustmentPossibility
+sort IndexAdjustmentEffect =
+  ComponentRelationEffect
+  | ComponentNumberEffect
+  | ComponentWeightingEffect
+sort RebalanceDay extends Day
+sort RegularRebalanceDay extends RebalanceDay
+sort RebalanceInterval
+sort TradingDay extends Day
+sort EffectiveDay extends Day
+sort Notice extends Document
+sort NoticePeriod
+sort EquityIndexMethodology extends Document
+
+entity TheIndex : Index
+entity Solactive : SolactiveOrganization
+entity SolactiveEquityIndexMethodology : EquityIndexMethodology
+entity ThisGuideline : Document
+entity SolactiveWebsite : WebResource
+entity AnnouncementsSection : DocumentPart
+entity Section4_4Below : DocumentPart
+entity CertainCircumstances : VagueTerm
+entity MayBeNecessary : VagueTerm
+entity MayHaveToBeDone : VagueTerm
+entity CertainIndexComponents : VagueTerm
+
+rel adjustment_possibility_of_index : IndexAdjustmentPossibility, Index
+rel adjustment_possibility_described_by : IndexAdjustmentPossibility, VagueTerm
+rel adjustment_possibility_between_interval :
+  IndexAdjustmentPossibility, RebalanceInterval
+
+rel interval_start_rebalance_day : RebalanceInterval, RegularRebalanceDay
+rel interval_end_rebalance_day : RebalanceInterval, RegularRebalanceDay
+
+rel adjustment_of_index : IndexAdjustment, Index
+rel adjustment_required_due_to_corporate_action : RequiredIndexAdjustment, CorporateAction
+rel adjustment_between_interval : IndexAdjustment, RebalanceInterval
+rel affected_index_component : IndexAdjustment, IndexComponent
+rel specified_in : CorporateAction, DocumentPart
+rel corporate_action_in_relation_to_component : CorporateAction, IndexComponent
+rel possible_adjustment_effect : IndexAdjustment, IndexAdjustmentEffect
+rel adjustment_effect_described_by : IndexAdjustmentEffect, VagueTerm
+rel adjustment_effect_scope_described_by : IndexAdjustment, VagueTerm
+
+rel incorporated_by_reference_into : Document, Document
+rel available_on : Document, WebResource
+rel website_of : WebResource, Organization
+rel section_of_website : DocumentPart, WebResource
+
+rel notice_for_index_adjustment : Notice, RequiredIndexAdjustment
+rel announced_by : Notice, Organization
+rel announced_on : Notice, WebResource
+rel announced_under_section : Notice, DocumentPart
+rel notice_gives_notice_period : Notice, NoticePeriod
+rel notice_period_with_respect_to_component : NoticePeriod, IndexComponent
+rel notice_period_day : NoticePeriod, TradingDay
+rel trading_day_with_respect_to : TradingDay, IndexComponent
+
+fun[required] effective_day_specified_in_respective_notice : Notice -> EffectiveDay
+rel implemented_on : IndexAdjustment, Day
+
+obligation make_required_index_adjustment(
+  agent: SolactiveOrganization,
+  adjustment: RequiredIndexAdjustment
+)
+  action: make
+  target: adjustment
+
+obligation make_index_adjustment_in_compliance_with_equity_index_methodology(
+  agent: SolactiveOrganization,
+  adjustment: RequiredIndexAdjustment
+)
+  action: make_in_compliance_with
+  target: SolactiveEquityIndexMethodology
+  scope: adjustment
+
+obligation announce_index_adjustment(
+  agent: SolactiveOrganization,
+  adjustment: RequiredIndexAdjustment
+)
+  action: announce
+  target: adjustment
+  scope: AnnouncementsSection
+
+fact equity_index_methodology_reference :
+  incorporated_by_reference_into(SolactiveEquityIndexMethodology, ThisGuideline)
+  and available_on(SolactiveEquityIndexMethodology, SolactiveWebsite)
+  and website_of(SolactiveWebsite, Solactive)
+
+fact announcements_section_on_solactive_website :
+  section_of_website(AnnouncementsSection, SolactiveWebsite)
+
+fact component_weighting_effect_qualified_by_certain_components :
+  adjustment_effect_described_by(ComponentWeightingEffect, CertainIndexComponents)
+
+fact index_adjustment_may_be_necessary_between_regular_rebalance_days :
+  exists p: IndexAdjustmentPossibility,
+  exists interval: RebalanceInterval,
+    adjustment_possibility_of_index(p, TheIndex)
+    and adjustment_possibility_described_by(p, CertainCircumstances)
+    and adjustment_possibility_described_by(p, MayBeNecessary)
+    and adjustment_possibility_between_interval(p, interval)
+
+constraint rebalance_interval_order :
+  forall interval: RebalanceInterval,
+  forall r1: RegularRebalanceDay,
+  forall r2: RegularRebalanceDay,
+    interval_start_rebalance_day(interval, r1)
+    and interval_end_rebalance_day(interval, r2)
+    implies day_before(r1, r2)
+
+constraint corporate_action_creates_required_index_adjustment :
+  forall ca: CorporateAction,
+  forall c: IndexComponent,
+  forall d: Day,
+    specified_in(ca, Section4_4Below)
+    and corporate_action_in_relation_to_component(ca, c)
+    and occurs_on(ca, d)
+    implies
+      exists a: RequiredIndexAdjustment,
+      exists interval: RebalanceInterval,
+        adjustment_of_index(a, TheIndex)
+        and adjustment_required_due_to_corporate_action(a, ca)
+        and affected_index_component(a, c)
+        and adjustment_between_interval(a, interval)
+
+constraint required_adjustment_effect_scope :
+  forall a: RequiredIndexAdjustment,
+    adjustment_effect_scope_described_by(a, MayHaveToBeDone)
+    and (
+      possible_adjustment_effect(a, ComponentRelationEffect)
+      or possible_adjustment_effect(a, ComponentNumberEffect)
+      or possible_adjustment_effect(a, ComponentWeightingEffect)
+    )
+
+constraint index_adjustment_notice_publication :
+  forall a: RequiredIndexAdjustment,
+  forall n: Notice,
+    notice_for_index_adjustment(n, a)
+    implies
+      announced_by(n, Solactive)
+      and announced_on(n, SolactiveWebsite)
+      and announced_under_section(n, AnnouncementsSection)
+
+constraint notice_period_at_least_two_trading_days :
+  forall a: RequiredIndexAdjustment,
+  forall n: Notice,
+  forall p: NoticePeriod,
+  forall c: IndexComponent,
+    notice_for_index_adjustment(n, a)
+    and notice_gives_notice_period(n, p)
+    and affected_index_component(a, c)
+    and notice_period_with_respect_to_component(p, c)
+    implies
+      count(t in TradingDay where
+        notice_period_day(p, t)
+        and trading_day_with_respect_to(t, c)
+        and day_before(t, effective_day_specified_in_respective_notice(n))
+      ) >= 2
+
+constraint index_adjustment_implemented_on_notice_effective_day :
+  forall a: RequiredIndexAdjustment,
+  forall n: Notice,
+    notice_for_index_adjustment(n, a)
+    implies implemented_on(a, effective_day_specified_in_respective_notice(n))

@@ -1,0 +1,320 @@
+section: "5.4 Cessation Policy and Methodology Adaptation"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+# For each fact/constraint/obligation/permission/prohibition:
+#   kind             -- IR family
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | plumbing | derived_invariant | verification_probe
+#                       plumbing = pure IR infrastructure (locators, document parts, internal IDs)
+#                       with no semantic methodology content.
+#   source_quotes    -- verbatim spans from source.md that the element formalizes
+#                       (for plumbing entries, this may be the framing source phrase only,
+#                        not a justification of the plumbing fact itself.)
+#   back_translation -- natural-language unfolding of the IR formula
+#   vocabulary_basis -- source_only | mixed | ir_internal_bridge | ir_plumbing
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+#   notes            -- optional clarification
+
+claims:
+
+  section_5_2_methodology_review_reference:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: plumbing
+    source_quotes:
+      - "(see Section 5.2 \"Methodology Review\")"
+    back_translation: >
+      IR plumbing: the cross-section reference to Section 5.2 has an IR
+      locator pointer.
+    vocabulary_basis: ir_plumbing
+    status: derived
+    notes: >
+      Pure IR infrastructure: navigation handle for the "(see Section 5.2)"
+      reference. Source mentions Section 5.2 by name; the locator is IR
+      machinery for cross-document navigation, not a methodology claim.
+
+  termination_policy_location:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Details are specified in the Solactive Termination Policy, which is incorporated by reference and available on the Solactive website: https://www.solactive.com/documents/termination-policy/"
+    back_translation: >
+      The Solactive Termination Policy is at
+      https://www.solactive.com/documents/termination-policy/, is available
+      on the Solactive website, and the website belongs to Solactive.
+    vocabulary_basis: source_only
+    status: covered
+
+  solactive_effort:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive makes the greatest possible efforts ... over time"
+    back_translation: >
+      Solactive makes the greatest possible efforts over time.
+    vocabulary_basis: source_only
+    status: covered
+
+  solactive_efforts_for_resilience_and_integrity:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive makes the greatest possible efforts to ensure the resilience and continued integrity of its indices over time."
+    back_translation: >
+      For every index of Solactive, the greatest possible efforts ensure
+      the resilience and continued integrity of that index.
+    vocabulary_basis: source_only
+    status: covered
+
+  methodology_adaptation_where_necessary:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Where necessary, Solactive follows a clearly defined and transparent procedure to adapt Index methodologies to changing underlying markets (see Section 5.2 \"Methodology Review\") in order to maintain continued reliability and comparability of the indices."
+    back_translation: >
+      For every index of Solactive, every methodology of that index, and
+      every changing underlying market that the methodology must be adapted
+      to, Solactive follows a clearly defined and transparent procedure
+      that adapts the methodology to that market, maintains continued
+      reliability and comparability of the index, and references Section 5.2
+      "Methodology Review".
+    vocabulary_basis: source_only
+    status: covered
+
+  cessation_usual_when_underlying_market_changes:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "This is usually the case when the underlying market ... which an index is set to measure or to reflect, changes substantially and in a way not foreseeable at the time of inception of the index"
+    back_translation: >
+      For every index, if there is some underlying market that the index is
+      set to measure or to reflect, that market changes substantially, and
+      the change was not foreseeable at the time of inception of the index,
+      then the cessation of that index is usually the case.
+    vocabulary_basis: source_only
+    status: covered
+
+  cessation_usual_when_economic_reality_changes:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "This is usually the case when the ... economic reality, which an index is set to measure or to reflect, changes substantially and in a way not foreseeable at the time of inception of the index"
+    back_translation: >
+      For every index, if there is some economic reality that the index is
+      set to measure or to reflect, that reality changes substantially, and
+      the change was not foreseeable at the time of inception of the index,
+      then the cessation of that index is usually the case.
+    vocabulary_basis: source_only
+    status: covered
+
+  cessation_usual_when_rules_not_applied_coherently:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the index rules, and particularly the selection criteria, can no longer be applied coherently"
+    back_translation: >
+      For every index, if there is some index rule of that index that can
+      no longer be applied coherently, then the cessation of that index is
+      usually the case.
+    vocabulary_basis: source_only
+    status: covered
+
+  cessation_usual_when_selection_criteria_not_applied_coherently:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the index rules, and particularly the selection criteria, can no longer be applied coherently"
+    back_translation: >
+      For every index, if there is some selection criterion of that index
+      that can no longer be applied coherently, then the cessation of that
+      index is usually the case.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Logically a special case of cessation_usual_when_rules_not_applied_coherently
+      (since SelectionCriteria extends IndexRule). Kept as a separate constraint
+      to make the source emphasis "and particularly the selection criteria"
+      explicit in the IR. Logically redundant; semantically traceable.
+
+  cessation_usual_when_index_not_used_as_underlying_value:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the index is no longer used as the underlying value for financial instruments, investment funds and financial contracts"
+    back_translation: >
+      For every index, if the index is no longer used as the underlying
+      value for any financial instrument, any investment fund, or any
+      financial contract, then the cessation of that index is usually the case.
+    vocabulary_basis: source_only
+    status: covered
+
+  orderly_cessation_indication_available_if_no_options:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Nevertheless, if no other options are available the orderly cessation of the Index may be indicated."
+      - "This is usually the case when..."
+    back_translation: >
+      For every index of Solactive, if the cessation of the index is
+      usually the case and no other options are available for the index,
+      then the orderly cessation of the index may be indicated.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      Source phrase "may be indicated" is split across two IR mechanisms:
+      this constraint asserts the availability precondition (the IR rel
+      `orderly_cessation_indication_available`), while the separate
+      `permission indicate_orderly_cessation` carries the deontic modality.
+      Mixed because the IR uses "indication available" as the predicate
+      name; back-translation renders it as the source phrase "may be indicated"
+      to keep source vocabulary readable.
+
+  solactive_cessation_guidelines:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive has established and maintains clear guidelines"
+    back_translation: >
+      Solactive has established and maintains clear guidelines.
+    vocabulary_basis: source_only
+    status: covered
+
+  guidelines_identify_unavoidable_cessation_situations:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "clear guidelines on how to identify situations in which the cessation of an index is unavoidable"
+    back_translation: >
+      For every situation that the clear guidelines identify, the cessation
+      of an index in that situation is unavoidable.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      One-directional: if the guidelines identify a situation, it is
+      unavoidable. Source does not assert the converse (that all unavoidable
+      situations are identified by the guidelines), so implies (not iff) is
+      appropriate.
+
+  guidelines_include_stakeholder_information_and_consultation_procedures:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "how stakeholders are to be informed and consulted"
+    back_translation: >
+      The clear guidelines include some procedure on how stakeholders are
+      to be informed, and some procedure on how stakeholders are to be
+      consulted.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Existential about procedures, not universal about all stakeholders.
+      The IR uses the entity Stakeholders (collective referent) as the
+      target of informing/consulting procedures.
+
+  guidelines_include_termination_procedure:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the procedures to be followed for a termination"
+    back_translation: >
+      The clear guidelines include some procedure to be followed for a termination.
+    vocabulary_basis: source_only
+    status: covered
+
+  guidelines_include_transition_procedure:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the procedures to be followed for ... the transition to an alternative index"
+    back_translation: >
+      The clear guidelines include some procedure to be followed for the
+      transition to an alternative index.
+    vocabulary_basis: source_only
+    status: covered
+
+  termination_policy_details:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Details are specified in the Solactive Termination Policy, which is incorporated by reference"
+    back_translation: >
+      The details are specified in the Solactive Termination Policy, which
+      is incorporated by reference.
+    vocabulary_basis: source_only
+    status: covered
+
+  indicate_orderly_cessation:
+    kind: permission
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the orderly cessation of the Index may be indicated"
+    back_translation: >
+      An organization is permitted to indicate the orderly cessation of an index.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Captures the deontic modality "may" from the source phrase. The IR
+      uses agent: Organization (rather than agent: Solactive specifically)
+      because the source uses the passive voice "may be indicated" without
+      specifying who.
+
+uncovered_source:
+  - quote: "(none -- all source sentences map to at least one IR claim)"
+
+vocabulary_notes:
+  Stakeholders:
+    note: >
+      Collective entity (named in plural) of sort Stakeholder, representing
+      the set of stakeholders relevant to the cessation guidelines. Used as
+      the target of `procedure_for_informing` and `procedure_for_consulting`.
+      Naming choice intentional; see translator_notes if any.
+  Substantially:
+    note: >
+      VagueTerm anchor for the source word "substantially" used in the
+      cessation triggers ("changes substantially"). The IR uses
+      `*_change_described_by(*, Substantially)` to mark which changes
+      qualify, without claiming a precise computational meaning.
+  SelectionCriteria:
+    note: >
+      Subtype of IndexRule. Used in the
+      `cessation_usual_when_selection_criteria_not_applied_coherently`
+      constraint to make the source emphasis "and particularly the selection
+      criteria" first-class in the IR.
+  Section5_2MethodologyReview:
+    note: >
+      DocumentPart entity for "Section 5.2 Methodology Review" referenced
+      from the methodology adaptation constraint via `see(p, ...)`. Pure
+      cross-section reference; the locator is IR plumbing.
+  SolactiveTerminationPolicy:
+    note: >
+      Document entity (subtype TerminationPolicy) for the Solactive
+      Termination Policy at the cited URL. Source claim for URL preservation
+      is `termination_policy_location`.
+  SolactiveCessationGuidelines:
+    note: >
+      IR entity name for the source's "clear guidelines [Solactive] has
+      established and maintains" on cessation matters. The name is IR-derived
+      (source has no named "Solactive cessation guidelines" phrase);
+      back-translations refer to it as "the clear guidelines" using the
+      source phrase that introduces it.

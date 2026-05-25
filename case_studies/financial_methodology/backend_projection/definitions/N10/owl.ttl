@@ -1,0 +1,42 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N10 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:IndexComponent a owl:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:Exchange a owl:Class .
+ex:Listing a owl:Class .
+ex:Rules a owl:Class .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:Section2Rules a ex:Rules, owl:NamedIndividual .
+ex:respective_exchange_for_index_component a owl:Class, a4:NaryRelationClass .
+ex:respective_exchange_for_index_component_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:respective_exchange_for_index_component ;
+  rdfs:range ex:Index .
+ex:respective_exchange_for_index_component_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:respective_exchange_for_index_component ;
+  rdfs:range ex:IndexComponent .
+ex:respective_exchange_for_index_component_result a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:respective_exchange_for_index_component ;
+  rdfs:range ex:Exchange .
+ex:listing_component a owl:ObjectProperty ;
+  rdfs:domain ex:Listing ;
+  rdfs:range ex:IndexComponent .
+ex:listing_exchange a owl:ObjectProperty ;
+  rdfs:domain ex:Listing ;
+  rdfs:range ex:Exchange .
+ex:listing_determined_in_accordance_with_rules a owl:ObjectProperty ;
+  rdfs:domain ex:Listing ;
+  rdfs:range ex:Rules .
+
+ex:ASSERT_exchange_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall c: IndexComponent, exists l: Listing, (listing_component(l, c)) and (listing_determined_in_accordance_with_rules(l, Section2Rules)) and ((respective_exchange_for_index_component(TheIndex, c)) = (listing_exchange(l)))" .

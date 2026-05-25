@@ -1,0 +1,31 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_3 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:IndexLevel a rdfs:Class .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:IndexLevelShape a sh:NodeShape ; sh:targetClass ex:IndexLevel .
+ex:RoundingPrecision a rdfs:Class .
+ex:RoundingPrecisionShape a sh:NodeShape ; sh:targetClass ex:RoundingPrecision .
+ex:DecimalPlaceCount a rdfs:Class .
+ex:DecimalPlaceCount rdfs:subClassOf ex:Nat .
+ex:DecimalPlaceCountShape a sh:NodeShape ; sh:targetClass ex:DecimalPlaceCount .
+
+ex:TheIndex a ex:Index .
+ex:TwoDecimalPlaces a ex:RoundingPrecision .
+ex:level_of_index a rdf:Property .
+ex:IndexLevelShape sh:property [ sh:path ex:level_of_index ; sh:class ex:Index ] .
+ex:rounded_to_precision a rdf:Property .
+ex:IndexLevelShape sh:property [ sh:path ex:rounded_to_precision ; sh:class ex:RoundingPrecision ] .
+ex:decimal_place_count a rdf:Property .
+ex:RoundingPrecisionShape sh:property [ sh:path ex:decimal_place_count ; sh:class ex:DecimalPlaceCount ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+ex:TwoDecimalPlaces ex:decimal_place_count "2"^^xsd:integer .

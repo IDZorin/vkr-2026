@@ -1,0 +1,208 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_1_4 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:IndexComponent a rdfs:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:IndexComponentShape a sh:NodeShape ; sh:targetClass ex:IndexComponent .
+ex:CalculationDay a rdfs:Class .
+ex:CalculationDay rdfs:subClassOf ex:Day .
+ex:CalculationDayShape a sh:NodeShape ; sh:targetClass ex:CalculationDay .
+ex:TradingDay a rdfs:Class .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:TradingDayShape a sh:NodeShape ; sh:targetClass ex:TradingDay .
+ex:Exchange a rdfs:Class .
+ex:ExchangeShape a sh:NodeShape ; sh:targetClass ex:Exchange .
+ex:CalculationTime a rdfs:Class .
+ex:CalculationTimeShape a sh:NodeShape ; sh:targetClass ex:CalculationTime .
+ex:CalculationMode a rdfs:Class .
+ex:CalculationModeShape a sh:NodeShape ; sh:targetClass ex:CalculationMode .
+ex:TimeOfDay a rdfs:Class .
+ex:TimeOfDayShape a sh:NodeShape ; sh:targetClass ex:TimeOfDay .
+ex:TimeZone a rdfs:Class .
+ex:TimeZoneShape a sh:NodeShape ; sh:targetClass ex:TimeZone .
+ex:IndexLevel a rdfs:Class .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:IndexLevelShape a sh:NodeShape ; sh:targetClass ex:IndexLevel .
+ex:Price a rdfs:Class .
+ex:Price rdfs:subClassOf ex:MonetaryAmount .
+ex:PriceShape a sh:NodeShape ; sh:targetClass ex:Price .
+ex:TradingPrice a rdfs:Class .
+ex:TradingPrice rdfs:subClassOf ex:Price .
+ex:TradingPriceShape a sh:NodeShape ; sh:targetClass ex:TradingPrice .
+ex:ClosingPrice a rdfs:Class .
+ex:ClosingPrice rdfs:subClassOf ex:Price .
+ex:ClosingPriceShape a sh:NodeShape ; sh:targetClass ex:ClosingPrice .
+ex:ForeignExchangeRate a rdfs:Class .
+ex:ForeignExchangeRateShape a sh:NodeShape ; sh:targetClass ex:ForeignExchangeRate .
+ex:SpotForeignExchangeRate a rdfs:Class .
+ex:SpotForeignExchangeRate rdfs:subClassOf ex:ForeignExchangeRate .
+ex:SpotForeignExchangeRateShape a sh:NodeShape ; sh:targetClass ex:SpotForeignExchangeRate .
+ex:WMFixing a rdfs:Class .
+ex:WMFixing rdfs:subClassOf ex:ForeignExchangeRate .
+ex:WMFixingShape a sh:NodeShape ; sh:targetClass ex:WMFixing .
+
+ex:TheIndex a ex:Index .
+ex:Time1_00AMCET a ex:TimeOfDay .
+ex:Time10_50PMCET a ex:TimeOfDay .
+ex:Time04_00PMLondon a ex:TimeOfDay .
+ex:IntradayCalculation a ex:CalculationMode .
+ex:CET a ex:TimeZone .
+ex:LondonTime a ex:TimeZone .
+ex:IntercontinentalExchange a ex:Organization .
+ex:ICE a ex:Organization .
+ex:Reuters a ex:Organization .
+ex:index_currency a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_currency ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_level a rdfs:Class .
+ex:intraday_levelShape a sh:NodeShape ; sh:targetClass ex:intraday_level .
+ex:intraday_levelShape sh:property [ sh:path ex:intraday_level_arg_0 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_levelShape sh:property [ sh:path ex:intraday_level_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_levelShape sh:property [ sh:path ex:intraday_level_arg_2 ; sh:class ex:CalculationTime ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_levelShape sh:property [ sh:path ex:intraday_level_result ; sh:class ex:IndexLevel ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_level a rdfs:Class .
+ex:closing_levelShape a sh:NodeShape ; sh:targetClass ex:closing_level .
+ex:closing_levelShape sh:property [ sh:path ex:closing_level_arg_0 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_levelShape sh:property [ sh:path ex:closing_level_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_levelShape sh:property [ sh:path ex:closing_level_result ; sh:class ex:IndexLevel ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_source_price a rdfs:Class .
+ex:intraday_source_priceShape a sh:NodeShape ; sh:targetClass ex:intraday_source_price .
+ex:intraday_source_priceShape sh:property [ sh:path ex:intraday_source_price_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_source_priceShape sh:property [ sh:path ex:intraday_source_price_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_source_priceShape sh:property [ sh:path ex:intraday_source_price_arg_2 ; sh:class ex:CalculationTime ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_source_priceShape sh:property [ sh:path ex:intraday_source_price_result ; sh:class ex:Price ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_calculation_price a rdfs:Class .
+ex:intraday_calculation_priceShape a sh:NodeShape ; sh:targetClass ex:intraday_calculation_price .
+ex:intraday_calculation_priceShape sh:property [ sh:path ex:intraday_calculation_price_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_calculation_priceShape sh:property [ sh:path ex:intraday_calculation_price_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_calculation_priceShape sh:property [ sh:path ex:intraday_calculation_price_arg_2 ; sh:class ex:CalculationTime ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_calculation_priceShape sh:property [ sh:path ex:intraday_calculation_price_result ; sh:class ex:Price ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:current_trading_price a rdfs:Class .
+ex:current_trading_priceShape a sh:NodeShape ; sh:targetClass ex:current_trading_price .
+ex:current_trading_priceShape sh:property [ sh:path ex:current_trading_price_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:current_trading_priceShape sh:property [ sh:path ex:current_trading_price_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:current_trading_priceShape sh:property [ sh:path ex:current_trading_price_arg_2 ; sh:class ex:CalculationTime ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:current_trading_priceShape sh:property [ sh:path ex:current_trading_price_result ; sh:class ex:TradingPrice ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:most_recent_closing_price a rdfs:Class .
+ex:most_recent_closing_priceShape a sh:NodeShape ; sh:targetClass ex:most_recent_closing_price .
+ex:most_recent_closing_priceShape sh:property [ sh:path ex:most_recent_closing_price_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:most_recent_closing_priceShape sh:property [ sh:path ex:most_recent_closing_price_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:most_recent_closing_priceShape sh:property [ sh:path ex:most_recent_closing_price_arg_2 ; sh:class ex:CalculationTime ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:most_recent_closing_priceShape sh:property [ sh:path ex:most_recent_closing_price_result ; sh:class ex:ClosingPrice ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:preceding_trading_day a rdf:Property .
+ex:CalculationDayShape sh:property [ sh:path ex:preceding_trading_day ; sh:class ex:TradingDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:last_available_trading_price a rdfs:Class .
+ex:last_available_trading_priceShape a sh:NodeShape ; sh:targetClass ex:last_available_trading_price .
+ex:last_available_trading_priceShape sh:property [ sh:path ex:last_available_trading_price_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:last_available_trading_priceShape sh:property [ sh:path ex:last_available_trading_price_arg_1 ; sh:class ex:TradingDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:last_available_trading_priceShape sh:property [ sh:path ex:last_available_trading_price_result ; sh:class ex:TradingPrice ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:later_of a rdfs:Class .
+ex:later_ofShape a sh:NodeShape ; sh:targetClass ex:later_of .
+ex:later_ofShape sh:property [ sh:path ex:later_of_arg_0 ; sh:class ex:Price ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:later_ofShape sh:property [ sh:path ex:later_of_arg_1 ; sh:class ex:Price ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:later_ofShape sh:property [ sh:path ex:later_of_result ; sh:class ex:Price ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_price a rdfs:Class .
+ex:closing_priceShape a sh:NodeShape ; sh:targetClass ex:closing_price .
+ex:closing_priceShape sh:property [ sh:path ex:closing_price_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_priceShape sh:property [ sh:path ex:closing_price_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_priceShape sh:property [ sh:path ex:closing_price_result ; sh:class ex:ClosingPrice ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_calculation_price a rdfs:Class .
+ex:closing_calculation_priceShape a sh:NodeShape ; sh:targetClass ex:closing_calculation_price .
+ex:closing_calculation_priceShape sh:property [ sh:path ex:closing_calculation_price_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_calculation_priceShape sh:property [ sh:path ex:closing_calculation_price_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_calculation_priceShape sh:property [ sh:path ex:closing_calculation_price_result ; sh:class ex:Price ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:listed_currency a rdfs:Class .
+ex:listed_currencyShape a sh:NodeShape ; sh:targetClass ex:listed_currency .
+ex:listed_currencyShape sh:property [ sh:path ex:listed_currency_arg_0 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:listed_currencyShape sh:property [ sh:path ex:listed_currency_arg_1 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:listed_currencyShape sh:property [ sh:path ex:listed_currency_result ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:current_ice_spot_foreign_exchange_rate a rdfs:Class .
+ex:current_ice_spot_foreign_exchange_rateShape a sh:NodeShape ; sh:targetClass ex:current_ice_spot_foreign_exchange_rate .
+ex:current_ice_spot_foreign_exchange_rateShape sh:property [ sh:path ex:current_ice_spot_foreign_exchange_rate_arg_0 ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:current_ice_spot_foreign_exchange_rateShape sh:property [ sh:path ex:current_ice_spot_foreign_exchange_rate_arg_1 ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:current_ice_spot_foreign_exchange_rateShape sh:property [ sh:path ex:current_ice_spot_foreign_exchange_rate_arg_2 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:current_ice_spot_foreign_exchange_rateShape sh:property [ sh:path ex:current_ice_spot_foreign_exchange_rate_arg_3 ; sh:class ex:CalculationTime ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:current_ice_spot_foreign_exchange_rateShape sh:property [ sh:path ex:current_ice_spot_foreign_exchange_rate_result ; sh:class ex:SpotForeignExchangeRate ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:wm_fixing_4pm_london a rdfs:Class .
+ex:wm_fixing_4pm_londonShape a sh:NodeShape ; sh:targetClass ex:wm_fixing_4pm_london .
+ex:wm_fixing_4pm_londonShape sh:property [ sh:path ex:wm_fixing_4pm_london_arg_0 ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:wm_fixing_4pm_londonShape sh:property [ sh:path ex:wm_fixing_4pm_london_arg_1 ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:wm_fixing_4pm_londonShape sh:property [ sh:path ex:wm_fixing_4pm_london_arg_2 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:wm_fixing_4pm_londonShape sh:property [ sh:path ex:wm_fixing_4pm_london_result ; sh:class ex:WMFixing ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:last_available_wm_fixing_4pm_london a rdfs:Class .
+ex:last_available_wm_fixing_4pm_londonShape a sh:NodeShape ; sh:targetClass ex:last_available_wm_fixing_4pm_london .
+ex:last_available_wm_fixing_4pm_londonShape sh:property [ sh:path ex:last_available_wm_fixing_4pm_london_arg_0 ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:last_available_wm_fixing_4pm_londonShape sh:property [ sh:path ex:last_available_wm_fixing_4pm_london_arg_1 ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:last_available_wm_fixing_4pm_londonShape sh:property [ sh:path ex:last_available_wm_fixing_4pm_london_arg_2 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:last_available_wm_fixing_4pm_londonShape sh:property [ sh:path ex:last_available_wm_fixing_4pm_london_result ; sh:class ex:WMFixing ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:wm_fixing_for_closing_level a rdfs:Class .
+ex:wm_fixing_for_closing_levelShape a sh:NodeShape ; sh:targetClass ex:wm_fixing_for_closing_level .
+ex:wm_fixing_for_closing_levelShape sh:property [ sh:path ex:wm_fixing_for_closing_level_arg_0 ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:wm_fixing_for_closing_levelShape sh:property [ sh:path ex:wm_fixing_for_closing_level_arg_1 ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:wm_fixing_for_closing_levelShape sh:property [ sh:path ex:wm_fixing_for_closing_level_arg_2 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:wm_fixing_for_closing_levelShape sh:property [ sh:path ex:wm_fixing_for_closing_level_result ; sh:class ex:WMFixing ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:index_component a rdf:Property .
+ex:CalculationDayShape sh:property [ sh:path ex:index_component ; sh:class ex:IndexComponent ] .
+ex:intraday_calculation_time a rdf:Property .
+ex:CalculationDayShape sh:property [ sh:path ex:intraday_calculation_time ; sh:class ex:CalculationTime ] .
+ex:calculation_mode a rdf:Property .
+ex:CalculationTimeShape sh:property [ sh:path ex:calculation_mode ; sh:class ex:CalculationMode ] .
+ex:calculation_time_from_to a rdfs:Class .
+ex:calculation_time_from_toShape a sh:NodeShape ; sh:targetClass ex:calculation_time_from_to .
+ex:calculation_time_from_toShape sh:property [ sh:path ex:calculation_time_from_to_arg_0 ; sh:class ex:CalculationTime ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:calculation_time_from_toShape sh:property [ sh:path ex:calculation_time_from_to_arg_1 ; sh:class ex:TimeOfDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:calculation_time_from_toShape sh:property [ sh:path ex:calculation_time_from_to_arg_2 ; sh:class ex:TimeOfDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:calculation_time_from_toShape sh:property [ sh:path ex:calculation_time_from_to_arg_3 ; sh:class ex:TimeZone ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:listed_on_exchanges a rdfs:Class .
+ex:listed_on_exchangesShape a sh:NodeShape ; sh:targetClass ex:listed_on_exchanges .
+ex:listed_on_exchangesShape sh:property [ sh:path ex:listed_on_exchanges_arg_0 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:listed_on_exchangesShape sh:property [ sh:path ex:listed_on_exchanges_arg_1 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:listed_on_exchangesShape sh:property [ sh:path ex:listed_on_exchanges_arg_2 ; sh:class ex:Exchange ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:price_on_exchange a rdf:Property .
+ex:PriceShape sh:property [ sh:path ex:price_on_exchange ; sh:class ex:Exchange ] .
+ex:intraday_level_calculated_on a rdfs:Class .
+ex:intraday_level_calculated_onShape a sh:NodeShape ; sh:targetClass ex:intraday_level_calculated_on .
+ex:intraday_level_calculated_onShape sh:property [ sh:path ex:intraday_level_calculated_on_arg_0 ; sh:class ex:IndexLevel ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_level_calculated_onShape sh:property [ sh:path ex:intraday_level_calculated_on_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:intraday_level_calculated_onShape sh:property [ sh:path ex:intraday_level_calculated_on_arg_2 ; sh:class ex:CalculationTime ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_level_calculated_on a rdf:Property .
+ex:IndexLevelShape sh:property [ sh:path ex:closing_level_calculated_on ; sh:class ex:CalculationDay ] .
+ex:price_used_for_level a rdfs:Class .
+ex:price_used_for_levelShape a sh:NodeShape ; sh:targetClass ex:price_used_for_level .
+ex:price_used_for_levelShape sh:property [ sh:path ex:price_used_for_level_arg_0 ; sh:class ex:IndexLevel ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:price_used_for_levelShape sh:property [ sh:path ex:price_used_for_level_arg_1 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:price_used_for_levelShape sh:property [ sh:path ex:price_used_for_level_arg_2 ; sh:class ex:Price ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:current_trading_price_available a rdfs:Class .
+ex:current_trading_price_availableShape a sh:NodeShape ; sh:targetClass ex:current_trading_price_available .
+ex:current_trading_price_availableShape sh:property [ sh:path ex:current_trading_price_available_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:current_trading_price_availableShape sh:property [ sh:path ex:current_trading_price_available_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:current_trading_price_availableShape sh:property [ sh:path ex:current_trading_price_available_arg_2 ; sh:class ex:CalculationTime ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:price_selection_order a rdf:Property .
+ex:PriceShape sh:property [ sh:path ex:price_selection_order ; sh:class ex:Price ] .
+ex:converted_from_using a rdfs:Class .
+ex:converted_from_usingShape a sh:NodeShape ; sh:targetClass ex:converted_from_using .
+ex:converted_from_usingShape sh:property [ sh:path ex:converted_from_using_arg_0 ; sh:class ex:Price ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:converted_from_usingShape sh:property [ sh:path ex:converted_from_using_arg_1 ; sh:class ex:Price ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:converted_from_usingShape sh:property [ sh:path ex:converted_from_using_arg_2 ; sh:class ex:ForeignExchangeRate ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:foreign_exchange_rate_provider a rdf:Property .
+ex:ForeignExchangeRateShape sh:property [ sh:path ex:foreign_exchange_rate_provider ; sh:class ex:Organization ] .
+ex:wm_fixing_4pm_london_available a rdfs:Class .
+ex:wm_fixing_4pm_london_availableShape a sh:NodeShape ; sh:targetClass ex:wm_fixing_4pm_london_available .
+ex:wm_fixing_4pm_london_availableShape sh:property [ sh:path ex:wm_fixing_4pm_london_available_arg_0 ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:wm_fixing_4pm_london_availableShape sh:property [ sh:path ex:wm_fixing_4pm_london_available_arg_1 ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:wm_fixing_4pm_london_availableShape sh:property [ sh:path ex:wm_fixing_4pm_london_available_arg_2 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:wm_fixing_quoted_by a rdf:Property .
+ex:WMFixingShape sh:property [ sh:path ex:wm_fixing_quoted_by ; sh:class ex:Organization ] .
+ex:fixing_time a rdfs:Class .
+ex:fixing_timeShape a sh:NodeShape ; sh:targetClass ex:fixing_time .
+ex:fixing_timeShape sh:property [ sh:path ex:fixing_time_arg_0 ; sh:class ex:WMFixing ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:fixing_timeShape sh:property [ sh:path ex:fixing_time_arg_1 ; sh:class ex:TimeOfDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:fixing_timeShape sh:property [ sh:path ex:fixing_time_arg_2 ; sh:class ex:TimeZone ; sh:minCount 1 ; sh:maxCount 1 ] .

@@ -1,0 +1,41 @@
+sort SelectionDay extends Day
+sort IndexComponent
+sort Region
+sort FloatMarketCapizatlization
+sort WeightRedistributionProcess
+
+fun[required] region : IndexComponent -> Region
+fun[required] float_market_capizatlization : SelectionDay, IndexComponent -> FloatMarketCapizatlization
+fun[required] weight : SelectionDay, IndexComponent -> Percent
+fun[required] weight_redistribution_process : SelectionDay -> WeightRedistributionProcess
+
+rel weight_has_float_market_capizatlization_basis : Percent, FloatMarketCapizatlization
+rel iterative_process : WeightRedistributionProcess
+rel redistributes_weight_proportionally : WeightRedistributionProcess, IndexComponent, Percent
+
+fact weight_based_on_float_market_capizatlization :
+  forall d: SelectionDay, forall c: IndexComponent,
+    weight_has_float_market_capizatlization_basis(
+      weight(d, c),
+      float_market_capizatlization(d, c)
+    )
+
+constraint region_represents_exactly_50_percent :
+  forall d: SelectionDay, forall r: Region,
+    sum(c in IndexComponent where region(c) = r, weight(d, c)) = 50%
+
+constraint single_index_component_weight_capped :
+  forall d: SelectionDay, forall c: IndexComponent,
+    weight(d, c) <= 5%
+
+fact weight_redistribution_process_is_iterative :
+  forall d: SelectionDay,
+    iterative_process(weight_redistribution_process(d))
+
+fact weights_redistributed_proportionally :
+  forall d: SelectionDay, forall c: IndexComponent,
+    redistributes_weight_proportionally(
+      weight_redistribution_process(d),
+      c,
+      weight(d, c)
+    )

@@ -1,0 +1,25 @@
+﻿{
+  "backend": "owl",
+  "artifact": "case_studies\\financial_methodology\\backend_projection\\definitions\\N12\\owl.ttl",
+  "diagnostic_count": 3,
+  "diagnostics": [
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "share_class",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "free_float",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "free_float_definition"
+    }
+  ],
+  "partial": true
+}

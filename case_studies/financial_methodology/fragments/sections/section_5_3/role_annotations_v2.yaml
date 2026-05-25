@@ -1,0 +1,50 @@
+schema: role_annotations_v2
+entry_id: section_5_3
+annotation_status: migrated_signature_only_v2
+migration_notes:
+- Generated from the legacy role_annotations.yaml v1 experiment.
+- Only rel/fun signatures with arity > 2 or repeated argument sorts are retained.
+- Formula logic remains exclusively in main_ir.a4v3; facts/constraints/deontics are not mirrored here.
+symbols:
+  deemed_by:
+    kind: rel
+    args:
+      1:
+        role: object
+      2:
+        role: subject
+      3:
+        role: value
+    notes:
+    - The administrator is the subject/deemer; the modification or change is the object being deemed.
+  provide_information_on_modification_or_change:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: value
+    notes:
+    - Information is modeled as the value/content provided; recipient is not present in this A4V3 relation.
+  information_withheld_on_modification_or_change:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: value
+    notes:
+    - Information is modeled as the value/content withheld; recipient is not present in this A4V3 relation.
+  step_ensures_consistency_with:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: basis

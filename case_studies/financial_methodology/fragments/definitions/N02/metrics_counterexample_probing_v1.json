@@ -1,0 +1,78 @@
+{
+  "entry_id": "N02",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1043,
+    "completion_tokens": 268,
+    "total_tokens": 1311
+  },
+  "latency_s": 2.2738378047943115,
+  "scenarios": [
+    {
+      "description": "The document states that the term \"Benchmark Regulation\" has the meaning defined in the Introduction section.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document states that \"Benchmark Regulation\" has its meaning defined in the Definitions section instead of the Introduction section.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document says \"Benchmark Regulation\" has a meaning defined in the Introduction section, but it does not say whether that meaning is exclusive or whether other sections also define it.",
+      "category": "scope_edge",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The document says the meaning of \"Benchmark Regulation\" will be defined in the Introduction section later in the document, but at the present point no such definition is yet given.",
+      "category": "modality_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "accept",
+      "agree": false,
+      "drift_explanation": "The IR asserts an existing fact that the term is defined in the Introduction section, but it does not encode timing or future-tense modality."
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 3,
+    "agreement_rate": 0.75,
+    "drifts": [
+      {
+        "description": "The document says the meaning of \"Benchmark Regulation\" will be defined in the Introduction section later in the document, but at the present point no such definition is yet given.",
+        "category": "modality_edge",
+        "source_verdict": "ambiguous",
+        "ir_verdict": "accept",
+        "agree": false,
+        "drift_explanation": "The IR asserts an existing fact that the term is defined in the Introduction section, but it does not encode timing or future-tense modality."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 1
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 0
+      }
+    }
+  }
+}

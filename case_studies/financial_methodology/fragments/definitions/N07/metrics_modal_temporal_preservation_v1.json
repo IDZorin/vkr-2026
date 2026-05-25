@@ -1,0 +1,172 @@
+{
+  "entry_id": "N07",
+  "has_source": true,
+  "has_normalized": true,
+  "has_render": false,
+  "has_ir": true,
+  "source": {
+    "modals": {
+      "will": 1
+    },
+    "negated_modals": {},
+    "temporal": {},
+    "quantifiers": {
+      "no": 1
+    },
+    "numeric_literals": [],
+    "_token_count": 62
+  },
+  "normalized": {
+    "modals": {
+      "will": 1
+    },
+    "negated_modals": {},
+    "temporal": {},
+    "quantifiers": {
+      "no": 1
+    },
+    "numeric_literals": [],
+    "_token_count": 62
+  },
+  "render": {
+    "modals": {},
+    "negated_modals": {},
+    "temporal": {},
+    "quantifiers": {},
+    "numeric_literals": [],
+    "_token_count": 0
+  },
+  "ir_logical": {
+    "implies_count": 2,
+    "iff_count": 0,
+    "forall_count": 4,
+    "exists_count": 0,
+    "not_count": 1,
+    "and_count": 4,
+    "or_count": 0,
+    "numeric_literals": []
+  },
+  "drifts": {
+    "source_to_render": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 1,
+        "added": {},
+        "removed": {
+          "will": 1
+        }
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 0,
+        "removed_count": 1,
+        "added": {},
+        "removed": {
+          "no": 1
+        }
+      },
+      "numeric_literals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      }
+    },
+    "source_to_normalized": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "numeric_literals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      }
+    },
+    "normalized_to_render": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 1,
+        "added": {},
+        "removed": {
+          "will": 1
+        }
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 0,
+        "removed_count": 1,
+        "added": {},
+        "removed": {
+          "no": 1
+        }
+      },
+      "numeric_literals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      }
+    }
+  },
+  "alarms": [
+    {
+      "kind": "modals_lost_in_render",
+      "removed": {
+        "will": 1
+      },
+      "count": 1
+    },
+    {
+      "kind": "quantifiers_lost_in_render",
+      "removed": {
+        "no": 1
+      },
+      "count": 1
+    }
+  ],
+  "alarm_count": 2
+}

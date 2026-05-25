@@ -19,15 +19,15 @@ Status meanings:
 | Thesis artifact name | Public mapping | Status | Notes |
 |---|---|---:|---|
 | `source.md` | `examples/section_2_3_weighting/source.md`; `demos/russian_law/data/source.md`; `demos/draughts_64/data/source.md` | included | Three public examples are provided. |
-| `normalized.md` | `thesis_artifacts/agent_run_example_draughts_64/discovery/*` and public demo source packages | partial | Some public demos do not need a separate normalized file; the mapping preserves the package slot. |
-| `main_ir.a4v3` | `examples/section_2_3_weighting/main_ir.a4v3`; `demos/*/data/main_ir.a4v3` | included | Final local A4V3 IR. |
-| `provenance.yaml` | `examples/section_2_3_weighting/provenance.yaml`; `demos/*/data/provenance.yaml` | included | Claim-level grounding and back-translation. |
-| `translator_notes.md` | `demos/*/data/translator_notes.md` | included | Modeling and ambiguity notes. |
-| `waiver*.json` | `examples/section_2_3_weighting/waiver_token_absorption_v1.json`; `demos/*/data/waiver_token_absorption_v1.json` | included | Human-approved token waivers. |
-| `role_annotations.yaml` | not bundled as a standalone public file | template | Role annotations are represented in agent discovery artifacts and in `IR/index/semantic_frame_schema_v3_1.*`. |
-| `quality_snapshot_v1.*` | `examples/section_2_3_weighting/quality_snapshot_v1.md`; `demos/*/data/quality_snapshot_v1.md` | included | Public snapshot files are kept as compact Markdown. |
+| `normalized.md` | `thesis_artifacts/agent_run_example_draughts_64/discovery/*` and public demo source packages | partial | Some public demos do not need a separate normalized file; the financial methodology package omits normalized source derivatives. |
+| `main_ir.a4v3` | `examples/section_2_3_weighting/main_ir.a4v3`; `demos/*/data/main_ir.a4v3`; `case_studies/financial_methodology/fragments/**/main_ir.a4v3` | included | Final local A4V3 IR. The financial case study includes 55 clean local entries. |
+| `provenance.yaml` | `examples/section_2_3_weighting/provenance.yaml`; `demos/*/data/provenance.yaml`; `case_studies/financial_methodology/fragments/**/provenance.yaml` | included | Claim-level grounding and back-translation. |
+| `translator_notes.md` | `demos/*/data/translator_notes.md`; `case_studies/financial_methodology/fragments/**/translator_notes.md` | included | Modeling and ambiguity notes. |
+| `waiver*.json` | `examples/section_2_3_weighting/waiver_token_absorption_v1.json`; `demos/*/data/waiver_token_absorption_v1.json`; `case_studies/financial_methodology/fragments/**/waiver*.json` | included | Human-approved token waivers. |
+| `role_annotations.yaml` | `case_studies/financial_methodology/fragments/**/role_annotations.yaml` | included | Role annotations for the full financial methodology case study. |
+| `quality_snapshot_v1.*` | `examples/section_2_3_weighting/quality_snapshot_v1.md`; `demos/*/data/quality_snapshot_v1.md`; `case_studies/financial_methodology/fragments/**/quality_snapshot_v1.*` | included | Public snapshot files are kept as compact Markdown/JSON. |
 | `agent_triage.*` | `thesis_artifacts/agent_run_example_draughts_64/agent_triage.*` | included | Sanitized public agent-run example. |
-| `*_v1.json`, `*_v1.md` reports | `IR/rules/**`; `thesis_artifacts/diagnostic_rules/`; public check outputs can be regenerated with `tools/check_entry.py` | included/template | Generated per-entry reports are not all checked in; deterministic tools regenerate them. |
+| `*_v1.json`, `*_v1.md` reports | `IR/rules/**`; `thesis_artifacts/diagnostic_rules/`; `case_studies/financial_methodology/fragments/**/*.json`; `case_studies/financial_methodology/fragments/**/*.md` | included | The financial methodology case study includes generated per-entry reports. Deterministic tools can also regenerate checks. |
 
 ## 2. Agent Run
 
@@ -91,22 +91,22 @@ Status meanings:
 
 | Thesis neutral path | Public mapping | Status | Notes |
 |---|---|---:|---|
-| `IR/outputs/runs/<run_id>/bridge/` | `thesis_artifacts/full_slice_template/README.md` | template | Private methodology bridge layers are not bundled. |
-| `IR/outputs/runs/<run_id>/merge/canonical_ontology_v1.a4v3` | `thesis_artifacts/full_slice_template/README.md` | template | Neutral structure preserved. |
-| `IR/outputs/runs/<run_id>/process/` | `thesis_artifacts/full_slice_template/README.md` | template | Neutral structure preserved. |
-| `IR/outputs/runs/<run_id>/reasoning/` | `thesis_artifacts/full_slice_template/README.md` | template | Public demos provide recorded reasoning outcomes. |
-| `IR/outputs/runs/<run_id>/backend_projection/` | `thesis_artifacts/target_projections_template/README.md` | template | Projection artifact names are mapped below. |
-| `*_owl_union.ttl`, `*_owl_resolved.ttl` | `thesis_artifacts/target_projections_template/README.md` | template | Private projection outputs are not bundled. |
+| `IR/outputs/runs/<run_id>/bridge/` | `case_studies/financial_methodology/bridge/` | included | Full financial methodology bridge layer. |
+| `IR/outputs/runs/<run_id>/merge/canonical_ontology_v1.a4v3` | `case_studies/financial_methodology/merge/canonical_ontology_v1.a4v3` | included | Canonical merged ontology for the financial methodology case study. |
+| `IR/outputs/runs/<run_id>/process/` | `case_studies/financial_methodology/process/` | included | Process-layer artifacts. |
+| `IR/outputs/runs/<run_id>/reasoning/` | `case_studies/financial_methodology/reasoning/` | included | SMT probe specs, generated SMT files, and probe reports. |
+| `IR/outputs/runs/<run_id>/backend_projection/` | `case_studies/financial_methodology/backend_projection/` | included | Projection artifact names are mapped below. |
+| `*_owl_union.ttl`, `*_owl_resolved.ttl` | `case_studies/financial_methodology/backend_projection/all/` | included | Resolved and union OWL projections for the case study. |
 
 ## 7. Target Projections
 
 | Thesis artifact name | Public mapping | Status |
 |---|---|---:|
-| `rdf.ttl`, `rdf.emission.json`, `rdf.check.json` | `thesis_artifacts/target_projections_template/README.md` | template |
-| `owl.ttl`, `owl.emission.json`, `owl.check.json` | `thesis_artifacts/target_projections_template/README.md` | template |
-| `shacl_shapes.ttl`, `shacl.emission.json`, `shacl.check.json` | `thesis_artifacts/target_projections_template/README.md` | template |
-| `*.smt2` | generated by `IR/src/smt_probe_runner_v1.py` / demo query code | template |
-| `smt_probe_results_v1.json`, `smt_probe_results_v1.md` | public demo result summaries: `demos/*/expected_results.json` | included/template |
+| `rdf.ttl`, `rdf.emission.json`, `rdf.check.json` | `case_studies/financial_methodology/backend_projection/**/rdf.*` | included |
+| `owl.ttl`, `owl.emission.json`, `owl.check.json` | `case_studies/financial_methodology/backend_projection/**/owl.*` | included |
+| `shacl_shapes.ttl`, `shacl.emission.json`, `shacl.check.json` | `case_studies/financial_methodology/backend_projection/**/shacl*` | included |
+| `*.smt2` | `case_studies/financial_methodology/reasoning/smt_probes*/**/*.smt2` | included |
+| `smt_probe_results_v1.json`, `smt_probe_results_v1.md` | `case_studies/financial_methodology/reasoning/smt_probe_results_v1.*`; public demo result summaries: `demos/*/expected_results.json` | included |
 
 ## 8. Mutation Benchmark
 
@@ -160,7 +160,9 @@ The thesis should cite the clean statistics appendix and the neutral
 Use this mapping document as the stable appendix pointer:
 
 > The public repository contains a neutral artifact mapping in
-> `docs/thesis_artifact_mapping.md`. Private methodology-corpus workspaces are
-> represented either by sanitized aggregate reports or by neutral templates;
-> public-domain/public-rules demonstrations are included under `demos/`.
-
+> `docs/thesis_artifact_mapping.md`. The curated financial methodology case
+> study is included under `case_studies/financial_methodology/` without
+> redistributing the original source text; other private methodology-corpus
+> workspaces are represented either by sanitized aggregate reports or by neutral
+> templates. Public-domain/public-rules demonstrations are included under
+> `demos/`.

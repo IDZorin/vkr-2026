@@ -1,0 +1,480 @@
+{
+  "entry_id": "N24",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 11,
+    "content_token_count": 7,
+    "covered_content_token_count": 7,
+    "uncovered_content_token_count": 0,
+    "ignored_stopword_count": 4,
+    "content_coverage_rate": 1.0
+  },
+  "tokens": [
+    {
+      "token": "live",
+      "surface_forms": [
+        "Live"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "LiveDateTerm",
+          "family": "SymbolDecl.entity",
+          "line": 3,
+          "matched_text": "LiveDateTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "live_date_meaning_defined_in_section_1_3",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "live_date_meaning_defined_in_section_1_3"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "live_date_meaning_defined_in_section_1_3"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "LiveDateTerm"
+        }
+      ]
+    },
+    {
+      "token": "date",
+      "surface_forms": [
+        "Date"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 7
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "LiveDateTerm",
+          "family": "SymbolDecl.entity",
+          "line": 3,
+          "matched_text": "LiveDateTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "live_date_meaning_defined_in_section_1_3",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "live_date_meaning_defined_in_section_1_3"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "live_date_meaning_defined_in_section_1_3"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "LiveDateTerm"
+        }
+      ]
+    },
+    {
+      "token": "shall",
+      "surface_forms": [
+        "shall"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 13
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "have",
+      "surface_forms": [
+        "have"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 19
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 24
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "mean",
+      "surface_forms": [
+        "meaning"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 28
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "live_date_meaning_defined_in_section_1_3",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "live_date_meaning_defined_in_section_1_3"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "live_date_meaning_defined_in_section_1_3"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "as",
+      "surface_forms": [
+        "as"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 36
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "defin",
+      "surface_forms": [
+        "defined"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 39
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DefinedTerm",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "DefinedTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "LiveDateTerm",
+          "family": "SymbolDecl.entity",
+          "line": 3,
+          "matched_text": "DefinedTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "DefinedTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "live_date_meaning_defined_in_section_1_3",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "live_date_meaning_defined_in_section_1_3"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "live_date_meaning_defined_in_section_1_3"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 47
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "live_date_meaning_defined_in_section_1_3",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "live_date_meaning_defined_in_section_1_3"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "live_date_meaning_defined_in_section_1_3"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "section",
+      "surface_forms": [
+        "Section"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 50
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Section1_3",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "Section1_3"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "live_date_meaning_defined_in_section_1_3",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "live_date_meaning_defined_in_section_1_3"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "live_date_meaning_defined_in_section_1_3"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "Section1_3"
+        }
+      ]
+    },
+    {
+      "token": "1.3",
+      "surface_forms": [
+        "1.3"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 58
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Section1_3",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "Section1_3"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "live_date_meaning_defined_in_section_1_3",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "Section1_3"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

@@ -1,0 +1,528 @@
+{
+  "entry_id": "N32",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 12,
+    "content_token_count": 7,
+    "covered_content_token_count": 7,
+    "uncovered_content_token_count": 0,
+    "ignored_stopword_count": 5,
+    "content_coverage_rate": 1.0
+  },
+  "tokens": [
+    {
+      "token": "m",
+      "surface_forms": [
+        "WM"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "WMRefinitivRateTerm",
+          "family": "SymbolDecl.entity",
+          "line": 3,
+          "matched_text": "WMRefinitivRateTerm"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "WMRefinitivRateTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        }
+      ]
+    },
+    {
+      "token": "refinitiv",
+      "surface_forms": [
+        "Refinitiv"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 7
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "WMRefinitivRateTerm",
+          "family": "SymbolDecl.entity",
+          "line": 3,
+          "matched_text": "WMRefinitivRateTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "WMRefinitivRateTerm"
+        }
+      ]
+    },
+    {
+      "token": "rate",
+      "surface_forms": [
+        "Rate"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 17
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "WMRefinitivRateTerm",
+          "family": "SymbolDecl.entity",
+          "line": 3,
+          "matched_text": "WMRefinitivRateTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "WMRefinitivRateTerm"
+        }
+      ]
+    },
+    {
+      "token": "shall",
+      "surface_forms": [
+        "shall"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 23
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "have",
+      "surface_forms": [
+        "have"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 29
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 34
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "mean",
+      "surface_forms": [
+        "meaning"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 38
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "as",
+      "surface_forms": [
+        "as"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 46
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "defin",
+      "surface_forms": [
+        "defined"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 49
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "DefinedTerm",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "DefinedTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "WMRefinitivRateTerm",
+          "family": "SymbolDecl.entity",
+          "line": 3,
+          "matched_text": "DefinedTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "DefinedTerm"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 57
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        }
+      ]
+    },
+    {
+      "token": "section",
+      "surface_forms": [
+        "Section"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 60
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Section1_4",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "Section1_4"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "term_shall_have_meaning_defined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 6,
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "family": "AssertDecl.fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "line": 8,
+          "matched_text": "wm_refinitiv_rate_meaning_defined_in_section_1_4"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "expr_path": "expr",
+          "matched_text": "term_shall_have_meaning_defined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "Section1_4"
+        }
+      ]
+    },
+    {
+      "token": "1.4",
+      "surface_forms": [
+        "1.4"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 68
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Section1_4",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "Section1_4"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "wm_refinitiv_rate_meaning_defined_in_section_1_4",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "Section1_4"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

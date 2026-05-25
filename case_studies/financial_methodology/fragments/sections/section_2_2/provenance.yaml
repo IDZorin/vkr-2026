@@ -1,0 +1,220 @@
+﻿section: "2.2 Selection of the Index Components"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+  repair: "repair.a4v3"
+
+# For each fact/constraint/obligation/permission/prohibition:
+#   kind             -- IR family
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | derived_invariant | verification_probe
+#   source_quotes    -- verbatim spans from source.md that the element formalizes
+#   back_translation -- natural-language unfolding of the IR formula using only source vocabulary
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+#   notes            -- optional clarification, especially for derived / repair entries
+
+claims:
+
+  eligible_iff_index_universe_for_component_requirements:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Based on the Index Universe, the initial composition of the Index as well as any selection for an ordinary rebalance is determined on the Selection Day"
+    back_translation: >
+      On a Selection Day, a security is eligible for the Index Component
+      Requirements if and only if it is in the Index Universe.
+    status: covered
+    notes: >
+      Section 2.2 is scoped by "Based on the Index Universe" and by the
+      Index Component Requirements. In this local IR, eligible(d, s) is the
+      rule-domain alias for securities in the Index Universe, not an extra
+      eligibility filter.
+
+  security_classified_into_one_of_two_regions:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Each security is classified into one of the two regions"
+    back_translation: >
+      Every eligible security on a Selection Day is classified into one of
+      the two regions: Americas or Europe.
+    status: covered
+    notes: >
+      Since region(d, s) is a required function, each eligible security has a
+      single Region value. This constraint restricts that value to the two
+      source regions, so the phrase "one of the two regions" is represented
+      in the formula body rather than only in entity names.
+
+  americas_country_assignment_classification:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Each security is classified into one of the two regions"
+      - "Americas if the Country Assignment is Canada or United States under the Gbs Index Universe framework"
+    back_translation: >
+      An eligible security on a Selection Day is classified into the Americas
+      region if and only if the Country Assignment is Canada or United States
+      under the GBS Index Universe framework.
+    status: covered
+    notes: >
+      The source bullet is treated as a definition of the Americas branch of
+      the two-region classification scheme, not only as a one-way sufficient
+      condition.
+
+  europe_country_assignment_classification:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Each security is classified into one of the two regions"
+      - "Europe if the Country Assignment is Europe under the Gbs Index Universe framework"
+    back_translation: >
+      An eligible security on a Selection Day is classified into the Europe
+      region if and only if the Country Assignment is Europe under the GBS
+      Index Universe framework.
+    status: covered
+    notes: >
+      The source bullet is treated as a definition of the Europe branch of
+      the two-region classification scheme, not only as a one-way sufficient
+      condition.
+
+  descending_order_by_free_float_market_capizatlization:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Each security is ranked in a descending order by its Free Float Market Capizatlization."
+    back_translation: >
+      Within each region on a Selection Day, eligible securities are ranked
+      in descending order by their Free Float Market Capizatlization
+      (a security with greater Free Float Market Capizatlization has a lower rank).
+    status: covered
+    notes: >
+      Source typo "Capizatlization" preserved verbatim per provenance
+      policy (do not silently correct source spelling).
+
+  selected_top_20_for_each_region:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The top 20 securities for each region are selected for Index inclusion."
+    back_translation: >
+      A security is selected for Index inclusion on a Selection Day
+      if and only if it is eligible and ranked in the top 20 within its region.
+    status: covered
+    notes: >
+      The main IR intentionally keeps the direct source-backed selection condition.
+      The additional cardinality contract needed by some backends is stored as a
+      repair candidate, not as an independent source claim. For package-level
+      semantic adequacy, the repair candidate is evaluated together with the
+      main IR as part of the auditable package semantics.
+
+  at_most_20_selected_per_region:
+    kind: constraint
+    ir_origin_file: "repair.a4v3"
+    claim_origin: derived_invariant
+    contract_class: cardinality_contract
+    derived_from:
+      - selected_top_20_for_each_region
+    source_quotes:
+      - "The top 20 securities for each region are selected for Index inclusion."
+    back_translation: >
+      The number of securities selected for Index inclusion within any region
+      on a Selection Day is at most 20.
+    status: repair_candidate
+    notes: >
+      This is a recommended semantic contract for the top-20 selection pattern.
+      It is not a separate sentence in the source. Without this repair or an
+      explicit rank-uniqueness/tie-break contract, a backend can assign the same
+      rank to many securities and still satisfy rank <= 20.
+
+  index_components_selected_for_index_inclusion:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "any selection for an ordinary rebalance is determined on the Selection Day in accordance with the following rules (the \"Index Component Requirements\")"
+    back_translation: >
+      A security is an Index Component on a Selection Day
+      if and only if it is selected for Index inclusion on that day.
+    status: derived
+    notes: >
+      Bridge: defines the term "Index Component" used by source as equivalent
+      to the "selected for Index inclusion" predicate computed by the requirements.
+
+  initial_composition_determined_by_index_component_requirements:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the initial composition of the Index ... is determined on the Selection Day in accordance with the following rules (the \"Index Component Requirements\")"
+    back_translation: >
+      The initial composition of the Index on a Selection Day consists of
+      exactly the securities selected for Index inclusion on that day.
+    status: covered
+
+  ordinary_rebalance_selection_determined_by_index_component_requirements:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "any selection for an ordinary rebalance is determined on the Selection Day in accordance with the following rules"
+    back_translation: >
+      Any selection for an ordinary rebalance on a Selection Day consists of
+      exactly the securities selected for Index inclusion on that day.
+    status: covered
+
+  less_than_20_per_region_less_than_40_index_components:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "In case less than 20 securities per region are eligible, the Index contains less than 40 Index Components in total."
+    back_translation: >
+      On a Selection Day, if at least one region has fewer than 20 eligible
+      securities, the Index contains less than 40 Index Components in total.
+    status: covered
+    notes: >
+      This is interpreted as an explanatory consequence of the top-20-per-region
+      rule: if any one of the two regional buckets has fewer than 20 eligible
+      securities, that bucket cannot contribute 20 components, so the total
+      number of Index Components is below 40. The existential region condition
+      is intentional and is not a reading that both regions must have fewer
+      than 20 eligible securities.
+
+  selection_fully_rule_based:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The selection of the Index Components is fully rule-based"
+    back_translation: >
+      The selection of the Index Components is fully rule-based on every Selection Day.
+    status: covered
+
+  index_administrator_discretionary_decision:
+    kind: prohibition
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "the Index Administrator cannot make any discretionary decision"
+    back_translation: >
+      The Index Administrator cannot make any discretionary decision
+      in the selection of the Index Components.
+    status: covered
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one main IR element)"
+
+vocabulary_notes:
+  EuropeRegion:
+    note: >
+      The Region entity is named EuropeRegion (not Europe) to disambiguate from
+      the CountryAssignment entity Europe. Source uses the word "Europe" for both;
+      A4V3 entity names must be unique across sorts.

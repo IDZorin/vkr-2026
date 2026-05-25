@@ -1,0 +1,123 @@
+{
+  "entry_id": "section_4_7",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main ideas that Solactive calculates its indices during market stress under predefined, exhaustive arrangements described in the Disruption Policy, and that market stress can lead to inaccurate or delayed prices and limited or impaired determination. However, it also adds stronger and more specific claims than the source, especially by tying the calculation rule to every period of market stress and by introducing illiquid/fragmented market conditions as triggers for the determination limitation, which the source states only as times when determination may be limited or impaired.",
+      "semantic_differences": [
+        "The source says Solactive calculates its indices in periods of market stress; the IR turns this into a universal implication over every period of market stress and an explicit calculation relation, which is a stronger formalization than the text states.",
+        "The source says market stress can arise for a variety of reasons; the IR encodes this as arising due to a specific vague term entity, which is acceptable as a paraphrase but not fully explicit in the source.",
+        "The source says the determination of the Index may be limited or impaired at times of illiquid or fragmented markets and market stress; the IR makes illiquid or fragmented markets separate antecedent conditions that trigger the same possibility, which is a more structured and slightly stronger claim than the source wording."
+      ],
+      "stylistic_notes": [
+        "\"Disruption Policy\" is rendered as a document sort/entity pair, which is a standard formalization.",
+        "\"generally\" and \"may be\" are represented with vague-term qualifiers rather than literal adverbs/modals, which is stylistic.",
+        "\"one or more Index Components\" is encoded via a vague-term scope marker rather than a direct cardinality statement."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2908,
+        "completion_tokens": 363,
+        "total_tokens": 3271
+      },
+      "latency_s": 4.253426551818848
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main ideas that Solactive follows predefined/exhaustive arrangements during market stress, that those arrangements are described in the Disruption Policy and the policy is incorporated by reference and available on Solactive's website, and that market stress generally leads to inaccurate or delayed prices and may limit or impair index determination. However, it narrows and reshapes some source claims, especially by tying price effects and determination effects specifically to a single entity TheIndex and by formalizing 'one or more Index Components' as existence of a single component.",
+      "semantic_differences": [
+        "The source says market stress generally results in inaccurate or delayed prices for one or more Index Components, but the IR encodes existence of a single IndexComponent c linked to TheIndex; this does not capture the explicit 'one or more' plurality/scope except via a vague-term tag.",
+        "The source speaks generally of 'its indices' and 'the determination of the Index'; the IR fixes these claims to a single entity TheIndex, which may be narrower than the source's plural reference to Solactive indices.",
+        "The source says the determination of the Index may be limited or impaired at times of illiquid or fragmented markets and market stress; the IR models this as implication from periods containing market stress, illiquid market, or fragmented market disruptions, but adds a generic 'AtTimesOfMarketDisruption' qualifier not stated for all three conditions in the source."
+      ],
+      "stylistic_notes": [
+        "Use of VagueTerm entities such as Generally, VarietyOfReasons, and MayBeLimitedOrImpaired is a coarse but understandable encoding choice.",
+        "The ontology introduces both MarketDisruption and MarketStress with subtype structure; this is acceptable modeling infrastructure.",
+        "Naming like TheIndex and SolactiveDisruptionArrangements is more specific than the prose but mostly stylistic."
+      ],
+      "confidence": 0.82,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2908,
+        "completion_tokens": 426,
+        "total_tokens": 3334
+      },
+      "latency_s": 9.014916896820068
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main structural claims of the source (market stress triggers predefined arrangements, stress can arise from various reasons, prices may be inaccurate/delayed, determination may be limited/impaired). However, there are semantic divergences: (1) the source does not explicitly state that market stress 'generally results in' price conditions for 'one or more' components—it only says stress 'generally results in' inaccurate/delayed prices without quantifying scope; (2) the source treats illiquid and fragmented markets as separate phenomena that 'may' limit determination, but the IR encodes them as subtypes of MarketDisruption and treats them symmetrically with MarketStress in a disjunctive constraint, which subtly shifts the logical structure; (3) the source's 'at times of' is a temporal qualifier, but the IR reifies it as a VagueTerm qualifier on a possibility object rather than a temporal constraint on the period itself.",
+      "semantic_differences": [
+        "Source says market stress 'generally results in inaccurate or delayed prices for one or more Index Components' — IR interprets this as a constraint that whenever there is market stress, there exists a price outcome for some component with the Generally qualifier. The source's 'generally' is an epistemic hedge on the causal claim, not a property of the outcome object itself.",
+        "Source lists 'illiquid or fragmented markets' and 'market stress' as three separate phenomena that can limit/impair determination. IR encodes IlliquidMarket and FragmentedMarket as subtypes of MarketDisruption (alongside MarketStress), which reorders the ontological hierarchy and suggests they are all instances of the same category, whereas source treats them as distinct causes.",
+        "Source says determination 'may be limited or impaired at times of illiquid or fragmented markets and market stress' — a single temporal/conditional statement. IR splits this into a disjunctive constraint over three separate disruption types (MarketStress OR IlliquidMarket OR FragmentedMarket), losing the source's unified framing of 'at times of' as a temporal boundary condition.",
+        "Source does not explicitly claim that every market stress event results in a price outcome for at least one component; it says stress 'generally results in' such prices. IR's constraint uses existential quantification (exists o, exists c) as if this is a logical entailment, not a general tendency."
+      ],
+      "stylistic_notes": [
+        "IR introduces VagueTerm entities (VarietyOfReasons, Generally, MayBeLimitedOrImpaired, OneOrMoreIndexComponents, AtTimesOfMarketDisruption) to capture hedging language. This is a reasonable encoding strategy, but 'Generally' as an entity qualifier on a price outcome is an indirect way to represent an epistemic hedge on a causal claim.",
+        "IR reifies MarketStressPriceOutcome as a separate sort with multiple relations (price_outcome_component, price_outcome_inaccurate_or_delayed, etc.). Source simply says 'results in inaccurate or delayed prices' — the IR's reification is a design choice to structure the claim formally, not a semantic divergence per se.",
+        "Naming: 'SolactiveDisruptionArrangements' is a reasonable entity name for 'predefined and exhaustive arrangements', though source does not explicitly name this object.",
+        "The constraint 'market_stress_generally_results_in_price_conditions' uses forall + exists structure, which is a standard way to encode 'generally results in', but the source's modal/epistemic force is not fully captured by a logical implication."
+      ],
+      "confidence": 0.68,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3539,
+        "completion_tokens": 889,
+        "total_tokens": 4428
+      },
+      "latency_s": 11.277970552444458
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 66.54922747612
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures all claims in the source text, including the calculation obligation during market stress, the policy reference, the causal link to price inaccuracies/delays, and the possibility of limited/impaired determination during specific market conditions. The use of VagueTerm entities for qualitative modifiers and the reification of conditions into possibility sorts are standard a4v3 canonical lowerings that preserve the source's modality and scope without adding external meaning.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The source phrase 'illiquid or fragmented markets and market stress' is slightly ambiguous regarding conjunction vs disjunction; the IR models it as a disjunction of three conditions, which is a standard and reasonable interpretation for trigger events.",
+        "Qualifiers like 'generally', 'variety of reasons', and 'may be' are reified as VagueTerm entities and linked via qualification relations, which is a deliberate a4v3 design choice to preserve modality without over-formalizing vague language."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3130,
+        "completion_tokens": 3534,
+        "total_tokens": 6664
+      },
+      "latency_s": 66.05745530128479
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.823
+  }
+}

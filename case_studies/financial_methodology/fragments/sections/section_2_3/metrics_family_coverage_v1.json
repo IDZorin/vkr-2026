@@ -1,0 +1,111 @@
+{
+  "entry_id": "section_2_3",
+  "skipped": false,
+  "ir_innf_families_used": [
+    "AssertDecl",
+    "SymbolDecl",
+    "TypeDecl"
+  ],
+  "ir_fine_families_used": [
+    "AssertDecl.constraint",
+    "AssertDecl.fact",
+    "SymbolDecl.fun",
+    "SymbolDecl.rel",
+    "TypeDecl.sort_opaque",
+    "TypeDecl.sort_subtype"
+  ],
+  "ir_family_counts": {
+    "TypeDecl.sort_opaque": 4,
+    "TypeDecl.sort_subtype": 1,
+    "SymbolDecl.rel": 3,
+    "SymbolDecl.fun": 4,
+    "AssertDecl.fact": 3,
+    "AssertDecl.constraint": 2
+  },
+  "ir_expr_markers": {
+    "forall": 9
+  },
+  "source_signals": {
+    "modality_obligation": {
+      "expected_family": "DeonticDecl",
+      "expectation_mode": "advisory",
+      "matches": [
+        "must"
+      ]
+    },
+    "temporal_until": {
+      "expected_family": "TemporalDecl",
+      "expectation_mode": "advisory",
+      "matches": [
+        "until"
+      ]
+    },
+    "quantifier_universal": {
+      "expected_family": "Formula_forall",
+      "expectation_mode": "required",
+      "matches": [
+        "Each",
+        "any single",
+        "each"
+      ]
+    }
+  },
+  "gaps": [
+    {
+      "signal": "modality_obligation",
+      "expected_family": "DeonticDecl",
+      "expectation_mode": "advisory",
+      "evidence": [
+        "must"
+      ],
+      "satisfied": false
+    },
+    {
+      "signal": "temporal_until",
+      "expected_family": "TemporalDecl",
+      "expectation_mode": "advisory",
+      "evidence": [
+        "until"
+      ],
+      "satisfied": false
+    }
+  ],
+  "required_gaps": [],
+  "advisory_gaps": [
+    {
+      "signal": "modality_obligation",
+      "expected_family": "DeonticDecl",
+      "expectation_mode": "advisory",
+      "evidence": [
+        "must"
+      ],
+      "satisfied": false
+    },
+    {
+      "signal": "temporal_until",
+      "expected_family": "TemporalDecl",
+      "expectation_mode": "advisory",
+      "evidence": [
+        "until"
+      ],
+      "satisfied": false
+    }
+  ],
+  "matches": [
+    {
+      "signal": "quantifier_universal",
+      "expected_family": "Formula_forall",
+      "expectation_mode": "required",
+      "evidence": [
+        "Each",
+        "any single",
+        "each"
+      ],
+      "satisfied": true
+    }
+  ],
+  "n_gaps": 2,
+  "n_required_gaps": 0,
+  "n_advisory_gaps": 2,
+  "n_matches": 1
+}

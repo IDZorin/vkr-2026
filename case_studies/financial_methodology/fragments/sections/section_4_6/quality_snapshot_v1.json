@@ -1,0 +1,487 @@
+{
+  "entry_id": "section_4_6",
+  "schema": "quality_snapshot_v1",
+  "generated_at": "2026-05-17T00:17:52",
+  "clean_gate": "accepted",
+  "blocking_conditions": [],
+  "validity": {
+    "ast_valid": 1,
+    "ast_error_count": 0,
+    "rendering_ok": 1,
+    "combined_validation_ok": 1
+  },
+  "grounding": {
+    "raw": {
+      "ungrounded_symbol_count": 9,
+      "ungrounded_sort_count": 24,
+      "ungrounded_ref_count": 0,
+      "ungrounded_callee_count": 0,
+      "origin_error_count": 35
+    },
+    "extended": {
+      "entry": "section_4_6",
+      "ungrounded_sort_count_extended": 0,
+      "ungrounded_symbol_count_extended": 0,
+      "ungrounded_entity_count_extended": 0,
+      "ungrounded_ref_count_extended": 1,
+      "ungrounded_callee_count_extended": 0,
+      "ungrounded": {
+        "sorts": [],
+        "entities": [],
+        "symbols": [],
+        "deontic": [],
+        "temporal": [],
+        "actions": []
+      },
+      "ungrounded_refs": [
+        "AccurateMaintenance"
+      ],
+      "ungrounded_callees": [],
+      "grounded_via_overlay": {
+        "sorts": [],
+        "symbols": []
+      }
+    },
+    "effective_ungrounded_symbol_count": 0,
+    "effective_ungrounded_sort_count": 0,
+    "effective_ungrounded_callee_count": 0
+  },
+  "family_coverage": {
+    "required_gap_count": 0,
+    "advisory_gap_count": 1,
+    "required_gaps": [],
+    "advisory_gaps": [
+      {
+        "signal": "modality_obligation",
+        "expected_family": "DeonticDecl",
+        "expectation_mode": "advisory",
+        "evidence": [
+          "endeavors to"
+        ],
+        "satisfied": false
+      }
+    ]
+  },
+  "source_phrase_coverage": {
+    "phrase_count": 3,
+    "covered_count": 3,
+    "uncovered_count": 0,
+    "coverage_rate": 1.0,
+    "waiver_status": {
+      "uncovered_phrase_count": 0,
+      "waived_uncovered_phrase_count": 0,
+      "unwaived_uncovered_phrase_count": 0,
+      "waived_uncovered_phrases": [],
+      "unwaived_uncovered_phrases": [],
+      "effective_covered_count": 3,
+      "effective_coverage_rate": 1.0,
+      "all_uncovered_phrases_have_token_waiver": true
+    }
+  },
+  "token_provenance": {
+    "summary": {
+      "source_token_count": 67,
+      "content_token_count": 46,
+      "covered_content_token_count": 44,
+      "uncovered_content_token_count": 2,
+      "ignored_stopword_count": 21,
+      "content_coverage_rate": 0.957
+    },
+    "waiver_status": {
+      "waiver_file_present": true,
+      "uncovered_token_count": 2,
+      "human_approved_waiver_count": 2,
+      "approved_uncovered_tokens": [
+        "however",
+        "therefore"
+      ],
+      "unapproved_uncovered_tokens": [],
+      "approved_tokens_not_currently_uncovered": [],
+      "waiver_accounted_content_token_count": 46,
+      "waiver_accounted_content_coverage_rate": 1.0,
+      "all_uncovered_tokens_have_human_waiver": true
+    },
+    "exact_url_status": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null,
+      "missing_urls": [],
+      "all_source_urls_preserved_exactly": true
+    }
+  },
+  "lowering_audit": {
+    "smell_count": 8,
+    "smells": [
+      {
+        "entry_id": "section_4_6",
+        "decl_kind": "sort",
+        "symbol": "Endeavor",
+        "line_no": 13,
+        "matched_token_or_phrase": "endeavor",
+        "candidate_family": "DeonticDecl",
+        "candidate_kind": "obligation",
+        "spec_ref": "#31",
+        "match_kind": "token",
+        "raw_decl": "sort Endeavor"
+      },
+      {
+        "entry_id": "section_4_6",
+        "decl_kind": "entity",
+        "symbol": "CannotBeCompletelyRuledOut",
+        "line_no": 31,
+        "matched_token_or_phrase": "cannot",
+        "candidate_family": "DeonticDecl",
+        "candidate_kind": "prohibition",
+        "spec_ref": "#33",
+        "match_kind": "token",
+        "raw_decl": "entity CannotBeCompletelyRuledOut : VagueTerm"
+      },
+      {
+        "entry_id": "section_4_6",
+        "decl_kind": "rel",
+        "symbol": "endeavor_by",
+        "line_no": 56,
+        "matched_token_or_phrase": "endeavor",
+        "candidate_family": "DeonticDecl",
+        "candidate_kind": "obligation",
+        "spec_ref": "#31",
+        "match_kind": "token",
+        "raw_decl": "rel endeavor_by : Endeavor, Organization"
+      },
+      {
+        "entry_id": "section_4_6",
+        "decl_kind": "rel",
+        "symbol": "endeavor_to_correct",
+        "line_no": 57,
+        "matched_token_or_phrase": "endeavor",
+        "candidate_family": "DeonticDecl",
+        "candidate_kind": "obligation",
+        "spec_ref": "#31",
+        "match_kind": "token",
+        "raw_decl": "rel endeavor_to_correct : Endeavor, Error"
+      },
+      {
+        "entry_id": "section_4_6",
+        "decl_kind": "rel",
+        "symbol": "endeavor_within",
+        "line_no": 58,
+        "matched_token_or_phrase": "endeavor",
+        "candidate_family": "DeonticDecl",
+        "candidate_kind": "obligation",
+        "spec_ref": "#31",
+        "match_kind": "token",
+        "raw_decl": "rel endeavor_within : Endeavor, Period"
+      },
+      {
+        "entry_id": "section_4_6",
+        "decl_kind": "rel",
+        "symbol": "endeavor_within",
+        "line_no": 58,
+        "matched_token_or_phrase": "within",
+        "candidate_family": "TemporalDecl",
+        "candidate_kind": "temporal_marker",
+        "spec_ref": "#29",
+        "match_kind": "token",
+        "raw_decl": "rel endeavor_within : Endeavor, Period"
+      },
+      {
+        "entry_id": "section_4_6",
+        "decl_kind": "fact",
+        "symbol": "determination_process_errors_may_occur_not_ruled_out",
+        "line_no": 87,
+        "matched_token_or_phrase": "may_occur",
+        "candidate_family": "ExpressionGrammar",
+        "candidate_kind": "epistemic_possibility",
+        "spec_ref": "expr#exists/eventually",
+        "match_kind": "phrase",
+        "raw_decl": "fact determination_process_errors_may_occur_not_ruled_out :"
+      },
+      {
+        "entry_id": "section_4_6",
+        "decl_kind": "constraint",
+        "symbol": "identified_errors_correction_endeavor",
+        "line_no": 112,
+        "matched_token_or_phrase": "endeavor",
+        "candidate_family": "DeonticDecl",
+        "candidate_kind": "obligation",
+        "spec_ref": "#31",
+        "match_kind": "token",
+        "raw_decl": "constraint identified_errors_correction_endeavor :"
+      }
+    ]
+  },
+  "a4v3_semantic_lint": {
+    "total_findings": 1,
+    "strong_findings": 0,
+    "soft_findings": 1,
+    "style_findings": 0,
+    "advisory_findings": 0,
+    "unused_declaration_count": 0,
+    "arity_gt_5_count": 0,
+    "arity_gt_2_without_role_explanation_count": 1,
+    "sentence_literal_in_formula_count": 0,
+    "permission_source_asserts_concrete_event_instance_count": 0,
+    "deontic_role_parameter_not_bound_count": 0,
+    "deontic_parameter_type_is_entity_count": 0,
+    "unused_rel_fun_count": 0,
+    "unused_sort_entity_count": 0,
+    "self_referential_scope_count": 0,
+    "past_participle_obligation_name_count": 0,
+    "double_coded_deontic_norm_count": 0,
+    "temporal_rel_in_deontic_context_count": 0,
+    "vacuous_responsibility_implication_count": 0,
+    "bare_universal_predicate_constraint_count": 0,
+    "fact_like_universal_constraint_count": 0,
+    "numeric_operation_on_non_numeric_sort_count": 0,
+    "basis_relation_without_value_link_count": 0,
+    "shared_name_token_without_structural_carrier_count": 0,
+    "semantic_contract_gap_count": 0,
+    "semantic_contract_gap_strong_count": 0,
+    "repair_candidate_present_count": 0,
+    "top_k_contract_gap_count": 0,
+    "by_contract_class": {
+      "role_contract": 1
+    }
+  },
+  "provenance_lint": {
+    "total_findings": 0,
+    "strong_findings": 0,
+    "soft_findings": 0,
+    "advisory_findings": 0,
+    "by_check": {}
+  },
+  "artifact_consistency": {
+    "schema": "artifact_consistency_v1",
+    "status": "ok",
+    "canonical_entry_sha256": "140060c3231d22a4ff3e8f1d4984aeed843548608a0e307ae71700759e4cb3c9",
+    "canonical_files": {
+      "source": {
+        "exists": true,
+        "size": 654,
+        "mtime": "2026-04-28T20:11:49",
+        "sha256": "51db4e9c1186e753009d9922cc2a91f8bf6b3829b262ae9e9bba840baef410d6",
+        "path": "source.md",
+        "required": true
+      },
+      "normalized": {
+        "exists": true,
+        "size": 654,
+        "mtime": "2026-04-28T20:11:49",
+        "sha256": "51db4e9c1186e753009d9922cc2a91f8bf6b3829b262ae9e9bba840baef410d6",
+        "path": "normalized.md",
+        "required": true
+      },
+      "main_ir": {
+        "exists": true,
+        "size": 5699,
+        "mtime": "2026-05-11T10:31:39",
+        "sha256": "35e4c9fd5275a791187433c34cc104bf8fa70bae053da5ccee1c2d1e1712a415",
+        "path": "main_ir.a4v3",
+        "required": true
+      },
+      "repair": {
+        "exists": false,
+        "path": "repair.a4v3",
+        "required": false
+      },
+      "provenance": {
+        "exists": true,
+        "size": 9103,
+        "mtime": "2026-05-11T10:48:41",
+        "sha256": "a12829cc2cdfc9d4b83b3cb0b5c00e72b1c0798d7ba3d2c08cde7f4c011d9399",
+        "path": "provenance.yaml",
+        "required": true
+      },
+      "translator_notes": {
+        "exists": true,
+        "size": 2585,
+        "mtime": "2026-05-11T10:37:54",
+        "sha256": "a60979d02e893841091b8c05173a27c1c595cae9c127da0ea884174ff83cdb5a",
+        "path": "translator_notes.md",
+        "required": false
+      },
+      "token_waiver": {
+        "exists": true,
+        "size": 1255,
+        "mtime": "2026-05-14T22:50:10",
+        "sha256": "d7f493431e2f52d287edb5399bd8830f6cdf81ae4dbd504b9f2a07829f25baf4",
+        "path": "waiver_token_absorption_v1.json",
+        "required": false
+      }
+    },
+    "required_stale_count": 0,
+    "required_missing_count": 0,
+    "required_canonical_missing_count": 0,
+    "advisory_stale_count": 0,
+    "advisory_missing_count": 0,
+    "artifacts": [
+      {
+        "key": "main_metrics",
+        "path": "main_ir_metrics_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T22:50:40",
+        "sha256": "34e35a7ca0e190d0cb286514af9124b5f8da6685d4498b57dba25192b5ebc12d",
+        "max_input_mtime": "2026-05-11T10:31:39"
+      },
+      {
+        "key": "family_coverage",
+        "path": "metrics_family_coverage_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T22:50:11",
+        "sha256": "7e700b069f2af96c57e739ac5f14969ab5052b1a0e974a7d09c8bf1364f385fc",
+        "max_input_mtime": "2026-05-11T10:31:39"
+      },
+      {
+        "key": "source_phrase_coverage",
+        "path": "metrics_source_phrase_coverage_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T22:50:11",
+        "sha256": "d411c30937f8d49da786cfa3b08b0ccfb6058cbf4d09430eeb064c7c7aea4ad9",
+        "max_input_mtime": "2026-05-11T10:31:39"
+      },
+      {
+        "key": "token_provenance",
+        "path": "metrics_token_provenance_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T22:50:10",
+        "sha256": "a22d6dff03ecd09a05f272814c04d81c09d1a415b32dbf44d05d2cf5161b2fc6",
+        "max_input_mtime": "2026-05-11T10:31:39"
+      },
+      {
+        "key": "lowering_audit",
+        "path": "lowering_audit_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T22:50:11",
+        "sha256": "ea957bfc5386b28d973e937cd1a71d1b327f789db8c033c618ec90fed402bece",
+        "max_input_mtime": "2026-05-11T10:31:39"
+      },
+      {
+        "key": "semantic_lint",
+        "path": "a4v3_semantic_lint_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir",
+          "repair",
+          "translator_notes"
+        ],
+        "mtime": "2026-05-14T22:50:06",
+        "sha256": "3d3b30f1332ab2d0d8326e0c49aee9ca2a8c1ac68380a95dc9ede643f09b81fb",
+        "max_input_mtime": "2026-05-11T10:37:54"
+      },
+      {
+        "key": "provenance_lint",
+        "path": "provenance_lint_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "provenance",
+          "main_ir"
+        ],
+        "mtime": "2026-05-14T22:50:10",
+        "sha256": "24d0c78146b9de1fc654d09676262a9e4d43eae7a20816bbd865de84485a970d",
+        "max_input_mtime": "2026-05-11T10:48:41"
+      },
+      {
+        "key": "diagnostic_suite",
+        "path": "diagnostic_suite_v1.json",
+        "required": true,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir",
+          "repair",
+          "token_waiver"
+        ],
+        "mtime": "2026-05-14T22:50:45",
+        "sha256": "76afba6398a8ebb93cbe9de480a75404244c37aa9283b16a01231de1227230c3",
+        "max_input_mtime": "2026-05-14T22:50:10"
+      },
+      {
+        "key": "single_semantic_judge",
+        "path": "section_4_6_manual_section_workspace_artifact_current_v1_llm_semantic_verdict_gpt_5_4_mini.json",
+        "required": false,
+        "status": "current",
+        "inputs": [
+          "source",
+          "normalized",
+          "main_ir"
+        ],
+        "mtime": "2026-05-11T10:39:20",
+        "sha256": "0092705b27f89b31cd9d456b194e9afcd35a3a55daae5d71b0c6d4bcbd3ec4aa",
+        "max_input_mtime": "2026-05-11T10:31:39"
+      },
+      {
+        "key": "multi_judge",
+        "path": "metrics_multi_judge_consensus_v1.json",
+        "required": false,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-11T10:35:01",
+        "sha256": "417b0b22aaab4e61521a00f95bd509c306f911ac73db4ce5fd4dd0dd47ac7c3f",
+        "max_input_mtime": "2026-05-11T10:31:39"
+      },
+      {
+        "key": "counterexample_probing",
+        "path": "metrics_counterexample_probing_v1.json",
+        "required": false,
+        "status": "current",
+        "inputs": [
+          "source",
+          "main_ir"
+        ],
+        "mtime": "2026-05-11T10:37:04",
+        "sha256": "a692b18a8c9ff0ce4e4cb0e9e410da62a6c6ac2f0e8170597c481d6b2ad3deda",
+        "max_input_mtime": "2026-05-11T10:31:39"
+      }
+    ]
+  },
+  "diagnostic_suite_raw": {
+    "raw_gate": "needs_review",
+    "raw_fail_count": 0,
+    "raw_warning_count": 37,
+    "waiver_adjusted_legacy_lexical_fail_count": 0,
+    "render_nli_advisory_fail_count": 0,
+    "source_normalization_nli_advisory_fail_count": 0,
+    "blocking_fail_count": 0,
+    "blocking_fail_rules": []
+  },
+  "notes": [
+    "clean_gate ignores legacy lexical failures when every uncovered token has a human-approved waiver.",
+    "render NLI failures are kept as advisory because they evaluate deterministic render-back text, not A4V3 validity.",
+    "raw diagnostic_suite_v1.json is preserved unchanged for auditability."
+  ]
+}

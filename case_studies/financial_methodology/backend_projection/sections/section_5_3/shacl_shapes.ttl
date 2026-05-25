@@ -1,0 +1,136 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_3 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:Method a rdfs:Class .
+ex:MethodShape a sh:NodeShape ; sh:targetClass ex:Method .
+ex:CalculationMethod a rdfs:Class .
+ex:CalculationMethod rdfs:subClassOf ex:Method .
+ex:CalculationMethodShape a sh:NodeShape ; sh:targetClass ex:CalculationMethod .
+ex:MethodApplication a rdfs:Class .
+ex:MethodApplicationShape a sh:NodeShape ; sh:targetClass ex:MethodApplication .
+ex:MethodPurpose a rdfs:Class .
+ex:MethodPurposeShape a sh:NodeShape ; sh:targetClass ex:MethodPurpose .
+ex:Composition a ex:MethodPurpose .
+ex:Calculation a ex:MethodPurpose .
+ex:TermsAndConditions a rdfs:Class .
+ex:TermsAndConditionsShape a sh:NodeShape ; sh:targetClass ex:TermsAndConditions .
+ex:ModificationOrChange a rdfs:Class .
+ex:ModificationOrChangeShape a sh:NodeShape ; sh:targetClass ex:ModificationOrChange .
+ex:DeemedModificationOrChange a rdfs:Class .
+ex:DeemedModificationOrChange rdfs:subClassOf ex:ModificationOrChange .
+ex:DeemedModificationOrChangeShape a sh:NodeShape ; sh:targetClass ex:DeemedModificationOrChange .
+ex:ChangeReason a rdfs:Class .
+ex:ChangeReasonShape a sh:NodeShape ; sh:targetClass ex:ChangeReason .
+ex:MarketEnvironment a ex:ChangeReason .
+ex:SupervisoryReason a ex:ChangeReason .
+ex:LegalReason a ex:ChangeReason .
+ex:FinancialReason a ex:ChangeReason .
+ex:TaxReason a ex:ChangeReason .
+ex:Error a rdfs:Class .
+ex:ErrorShape a sh:NodeShape ; sh:targetClass ex:Error .
+ex:Step a rdfs:Class .
+ex:StepShape a sh:NodeShape ; sh:targetClass ex:Step .
+ex:Information a rdfs:Class .
+ex:InformationShape a sh:NodeShape ; sh:targetClass ex:Information .
+ex:IndexAdministrator a rdfs:Class .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:IndexAdministratorShape a sh:NodeShape ; sh:targetClass ex:IndexAdministrator .
+
+ex:TheIndex a ex:Index .
+ex:TheIndexAdministrator a ex:IndexAdministrator .
+ex:ThisDocument a ex:Document .
+ex:DescribedMethod a ex:Method .
+ex:DescribedMethodApplication a ex:MethodApplication .
+ex:IndexTermsAndConditions a ex:TermsAndConditions .
+ex:Obvious a ex:VagueTerm .
+ex:Demonstrable a ex:VagueTerm .
+ex:Necessary a ex:VagueTerm .
+ex:Desirable a ex:VagueTerm .
+ex:AppropriateSteps a ex:Step .
+ex:ModificationOrChangeInformation a ex:Information .
+ex:calculation_method_applied a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:calculation_method_applied ; sh:class ex:CalculationMethod ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:index_administrator_of a rdf:Property .
+ex:IndexAdministratorShape sh:property [ sh:path ex:index_administrator_of ; sh:class ex:Index ] .
+ex:method_described_in a rdf:Property .
+ex:MethodShape sh:property [ sh:path ex:method_described_in ; sh:class ex:Document ] .
+ex:described_above a rdfs:Class ; rdfs:subClassOf ex:Method .
+ex:method_for_index a rdf:Property .
+ex:MethodShape sh:property [ sh:path ex:method_for_index ; sh:class ex:Index ] .
+ex:method_for_purpose a rdf:Property .
+ex:MethodShape sh:property [ sh:path ex:method_for_purpose ; sh:class ex:MethodPurpose ] .
+ex:application_by a rdf:Property .
+ex:MethodApplicationShape sh:property [ sh:path ex:application_by ; sh:class ex:IndexAdministrator ] .
+ex:application_of_method a rdf:Property .
+ex:MethodApplicationShape sh:property [ sh:path ex:application_of_method ; sh:class ex:Method ] .
+ex:final a rdfs:Class ; rdfs:subClassOf ex:MethodApplication .
+ex:binding a rdfs:Class ; rdfs:subClassOf ex:MethodApplication .
+ex:terms_and_conditions_of a rdf:Property .
+ex:TermsAndConditionsShape sh:property [ sh:path ex:terms_and_conditions_of ; sh:class ex:Index ] .
+ex:potentially_requires_change_to_method a rdf:Property .
+ex:ChangeReasonShape sh:property [ sh:path ex:potentially_requires_change_to_method ; sh:class ex:Method ] .
+ex:modification_or_change_of_index a rdf:Property .
+ex:ModificationOrChangeShape sh:property [ sh:path ex:modification_or_change_of_index ; sh:class ex:Index ] .
+ex:change_to_terms_and_conditions a rdf:Property .
+ex:ModificationOrChangeShape sh:property [ sh:path ex:change_to_terms_and_conditions ; sh:class ex:TermsAndConditions ] .
+ex:change_to_calculation_method a rdf:Property .
+ex:ModificationOrChangeShape sh:property [ sh:path ex:change_to_calculation_method ; sh:class ex:CalculationMethod ] .
+ex:deemed_by a rdfs:Class .
+ex:deemed_byShape a sh:NodeShape ; sh:targetClass ex:deemed_by .
+ex:deemed_byShape sh:property [ sh:path ex:deemed_by_arg_0 ; sh:class ex:ModificationOrChange ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:deemed_byShape sh:property [ sh:path ex:deemed_by_arg_1 ; sh:class ex:IndexAdministrator ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:deemed_byShape sh:property [ sh:path ex:deemed_by_arg_2 ; sh:class ex:VagueTerm ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:prevents_error a rdf:Property .
+ex:ModificationOrChangeShape sh:property [ sh:path ex:prevents_error ; sh:class ex:Error ] .
+ex:error_described_by a rdf:Property .
+ex:ErrorShape sh:property [ sh:path ex:error_described_by ; sh:class ex:VagueTerm ] .
+ex:incorrect_terms_and_conditions a rdfs:Class ; rdfs:subClassOf ex:TermsAndConditions .
+ex:remedies_terms_and_conditions a rdf:Property .
+ex:ModificationOrChangeShape sh:property [ sh:path ex:remedies_terms_and_conditions ; sh:class ex:TermsAndConditions ] .
+ex:corrects_terms_and_conditions a rdf:Property .
+ex:ModificationOrChangeShape sh:property [ sh:path ex:corrects_terms_and_conditions ; sh:class ex:TermsAndConditions ] .
+ex:supplements_terms_and_conditions a rdf:Property .
+ex:ModificationOrChangeShape sh:property [ sh:path ex:supplements_terms_and_conditions ; sh:class ex:TermsAndConditions ] .
+ex:provide_information_on_modification_or_change a rdfs:Class .
+ex:provide_information_on_modification_or_changeShape a sh:NodeShape ; sh:targetClass ex:provide_information_on_modification_or_change .
+ex:provide_information_on_modification_or_changeShape sh:property [ sh:path ex:provide_information_on_modification_or_change_arg_0 ; sh:class ex:IndexAdministrator ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:provide_information_on_modification_or_changeShape sh:property [ sh:path ex:provide_information_on_modification_or_change_arg_1 ; sh:class ex:ModificationOrChange ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:provide_information_on_modification_or_changeShape sh:property [ sh:path ex:provide_information_on_modification_or_change_arg_2 ; sh:class ex:Information ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:information_withheld_on_modification_or_change a rdfs:Class .
+ex:information_withheld_on_modification_or_changeShape a sh:NodeShape ; sh:targetClass ex:information_withheld_on_modification_or_change .
+ex:information_withheld_on_modification_or_changeShape sh:property [ sh:path ex:information_withheld_on_modification_or_change_arg_0 ; sh:class ex:IndexAdministrator ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:information_withheld_on_modification_or_changeShape sh:property [ sh:path ex:information_withheld_on_modification_or_change_arg_1 ; sh:class ex:ModificationOrChange ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:information_withheld_on_modification_or_changeShape sh:property [ sh:path ex:information_withheld_on_modification_or_change_arg_2 ; sh:class ex:Information ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:appropriate a rdfs:Class ; rdfs:subClassOf ex:Step .
+ex:step_ensures_consistency_with a rdfs:Class .
+ex:step_ensures_consistency_withShape a sh:NodeShape ; sh:targetClass ex:step_ensures_consistency_with .
+ex:step_ensures_consistency_withShape sh:property [ sh:path ex:step_ensures_consistency_with_arg_0 ; sh:class ex:Step ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_ensures_consistency_withShape sh:property [ sh:path ex:step_ensures_consistency_with_arg_1 ; sh:class ex:CalculationMethod ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_ensures_consistency_withShape sh:property [ sh:path ex:step_ensures_consistency_with_arg_2 ; sh:class ex:Method ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+ex:TheIndexAdministrator ex:index_administrator_of ex:TheIndex .
+ex:DescribedMethod ex:method_described_in ex:ThisDocument .
+ex:DescribedMethod a ex:described_above .
+ex:DescribedMethod ex:method_for_index ex:TheIndex .
+ex:DescribedMethod ex:method_for_purpose ex:Composition .
+ex:DescribedMethod ex:method_for_purpose ex:Calculation .
+ex:DescribedMethodApplication ex:application_by ex:TheIndexAdministrator .
+ex:DescribedMethodApplication ex:application_of_method ex:DescribedMethod .
+ex:DescribedMethodApplication a ex:final .
+ex:DescribedMethodApplication a ex:binding .
+ex:IndexTermsAndConditions ex:terms_and_conditions_of ex:TheIndex .
+ex:MarketEnvironment ex:potentially_requires_change_to_method ex:DescribedMethod .
+ex:SupervisoryReason ex:potentially_requires_change_to_method ex:DescribedMethod .
+ex:LegalReason ex:potentially_requires_change_to_method ex:DescribedMethod .
+ex:FinancialReason ex:potentially_requires_change_to_method ex:DescribedMethod .
+ex:TaxReason ex:potentially_requires_change_to_method ex:DescribedMethod .
+ex:AppropriateSteps a ex:appropriate .

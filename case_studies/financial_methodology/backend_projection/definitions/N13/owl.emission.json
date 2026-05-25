@@ -1,0 +1,37 @@
+﻿{
+  "backend": "owl",
+  "artifact": "case_studies\\financial_methodology\\backend_projection\\definitions\\N13\\owl.ttl",
+  "diagnostic_count": 5,
+  "diagnostics": [
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "share_class",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "free_float_market_capitalization",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "shares_outstanding_in_free_float",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "closing_price_of_share_class",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "free_float_market_capitalization_calculated_as_multiplication_definition"
+    }
+  ],
+  "partial": true
+}

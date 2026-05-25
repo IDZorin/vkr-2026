@@ -1,0 +1,71 @@
+-- LOCAL IR for Section 1.3 Initial Level of the Index.
+-- This section uses the canonical index entities introduced in Section 1.2.
+
+sort Index
+sort IndexLevel extends Real
+sort ArticleNumber extends Nat
+
+entity SolactiveTransatlanticCleanEnergyEURIndexPR : Index
+entity SolactiveTransatlanticCleanEnergyEURIndexNTR : Index
+entity SolactiveTransatlanticCleanEnergyEURIndexTR : Index
+entity SolactiveTransatlanticCleanEnergyEURIndex50AR : Index
+entity SolactiveTransatlanticCleanEnergyEURIndex5PercentAR : Index
+
+-- raw_date: 05/08/2017
+entity StartDate05_08_2017 : Day
+
+-- raw_date: 29/09/2025
+entity LiveDate29_09_2025 : Day
+
+entity BMR : Document
+entity Article8OfBMR : DocumentPart
+
+rel section_1_3_index : Index
+rel start_date : Day
+rel live_date : Day
+rel historical_value : IndexLevel, Index, Day
+rel recorded_in_accordance_with : IndexLevel, DocumentPart
+rel published_level_for_period : IndexLevel, Index, Period
+rel period_prior_to : Period, Day
+rel back_tested : IndexLevel
+
+fun[required] initial_level : Index, Day -> IndexLevel
+fun[required] article_number : DocumentPart -> ArticleNumber
+
+fact section_1_3_index_scope :
+  section_1_3_index(SolactiveTransatlanticCleanEnergyEURIndexPR)
+  and section_1_3_index(SolactiveTransatlanticCleanEnergyEURIndexNTR)
+  and section_1_3_index(SolactiveTransatlanticCleanEnergyEURIndexTR)
+  and section_1_3_index(SolactiveTransatlanticCleanEnergyEURIndex50AR)
+  and section_1_3_index(SolactiveTransatlanticCleanEnergyEURIndex5PercentAR)
+
+fact start_and_live_dates :
+  start_date(StartDate05_08_2017)
+  and live_date(LiveDate29_09_2025)
+
+fact article_8_of_bmr :
+  part_of_document(Article8OfBMR, BMR)
+  and article_number(Article8OfBMR) = 8
+
+constraint initial_level_default_on_start_date :
+  forall i: Index,
+    section_1_3_index(i)
+    and i != SolactiveTransatlanticCleanEnergyEURIndex50AR
+    implies initial_level(i, StartDate05_08_2017) = 1000
+
+fact initial_level_50_ar_on_start_date :
+  initial_level(SolactiveTransatlanticCleanEnergyEURIndex50AR, StartDate05_08_2017) = 739.08
+
+constraint historical_values_from_live_date_recorded_in_accordance_with_article_8_of_bmr :
+  forall i: Index, forall d: Day, forall l: IndexLevel,
+    section_1_3_index(i)
+    and historical_value(l, i, d)
+    and not day_before(d, LiveDate29_09_2025)
+    implies recorded_in_accordance_with(l, Article8OfBMR)
+
+constraint levels_published_prior_to_live_date_back_tested :
+  forall i: Index, forall p: Period, forall l: IndexLevel,
+    section_1_3_index(i)
+    and published_level_for_period(l, i, p)
+    and period_prior_to(p, LiveDate29_09_2025)
+    implies back_tested(l)

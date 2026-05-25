@@ -1,0 +1,78 @@
+{
+  "entry_id": "N04",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1047,
+    "completion_tokens": 326,
+    "total_tokens": 1373
+  },
+  "latency_s": 2.6373910903930664,
+  "scenarios": [
+    {
+      "description": "A day that falls on Monday is labeled as a Business Day.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A day that falls on Saturday is labeled as a Business Day.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A calendar contains one day whose weekday is not specified, and it is labeled as a Business Day.",
+      "category": "scope_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "reject",
+      "agree": false,
+      "drift_explanation": "The source only states that Business Day is every weekday from Monday to Friday, so a day with unspecified weekday is outside what is directly constrained. The IR makes Business Day equivalent only to Monday through Friday, so an unspecified weekday is rejected."
+    },
+    {
+      "description": "A manager declares that a day is a Business Day before the weekday of that day is determined.",
+      "category": "modality_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "ambiguous",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 3,
+    "agreement_rate": 0.75,
+    "drifts": [
+      {
+        "description": "A calendar contains one day whose weekday is not specified, and it is labeled as a Business Day.",
+        "category": "scope_edge",
+        "source_verdict": "ambiguous",
+        "ir_verdict": "reject",
+        "agree": false,
+        "drift_explanation": "The source only states that Business Day is every weekday from Monday to Friday, so a day with unspecified weekday is outside what is directly constrained. The IR makes Business Day equivalent only to Monday through Friday, so an unspecified weekday is rejected."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 0
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

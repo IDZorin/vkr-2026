@@ -1,0 +1,37 @@
+section: "N25 Definition: Oversight Committee"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+  oversight_committee_meaning_defined_in_section_5_5:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Oversight Committee\" shall have the meaning as defined in Section 5.5."
+    back_translation: >
+      The term "Oversight Committee" shall have the meaning defined in
+      Section 5.5.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Cross-reference definition. The word "shall" is legal-definition
+      drafting here, not a deontic obligation; the IR records where the
+      meaning of the term is defined.
+
+uncovered_source:
+  - quote: "(none -- the single source sentence is the single IR claim)"
+
+vocabulary_notes:
+  OversightCommitteeTerm:
+    note: IR entity for the quoted source term "Oversight Committee".
+  Section5_5:
+    note: IR entity for the referenced source location Section 5.5.
+  term_shall_have_meaning_defined_in_section:
+    note: >
+      Relation used by cross-reference definitions of the form "shall have
+      the meaning as defined in Section ...". It is a definitional reference,
+      not an obligation.

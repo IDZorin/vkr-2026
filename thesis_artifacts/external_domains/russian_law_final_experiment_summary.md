@@ -1,4 +1,4 @@
-# Russian Law (Русская правда): SMT Experiments — Final Summary
+﻿# Russian Law (Русская правда): SMT Experiments — Final Summary
 
 **Дата:** 2026-05-20
 
@@ -66,7 +66,7 @@ instantiation на 93 constraint × forall × 80 subtypes.
 `W_x_T` — получается ground SMT-LIB без открытых квантификаторов.
 Z3 решает за миллисекунды.
 
-**Это именно та техника, что применяется в dz-корпусе.** Изначальный
+**Это именно та техника, что применяется в financial methodology case study.** Изначальный
 выбор full SmtCompiler был ошибкой инструмента.
 
 ---

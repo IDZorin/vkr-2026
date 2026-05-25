@@ -1,0 +1,25 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N06 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:CalculationTime a rdfs:Class .
+ex:CalculationTimeShape a sh:NodeShape ; sh:targetClass ex:CalculationTime .
+
+ex:TheIndex a ex:Index .
+ex:CloseOfBusiness a ex:CalculationTime .
+ex:Section1_4 a ex:DocumentPart .
+ex:calculation_time_of_closing_level_of_index a rdf:Property .
+ex:CalculationTimeShape sh:property [ sh:path ex:calculation_time_of_closing_level_of_index ; sh:class ex:Index ] .
+ex:outlined_in_section a rdf:Property .
+ex:CalculationTimeShape sh:property [ sh:path ex:outlined_in_section ; sh:class ex:DocumentPart ] .
+
+ex:CloseOfBusiness ex:calculation_time_of_closing_level_of_index ex:TheIndex .
+ex:CloseOfBusiness ex:outlined_in_section ex:Section1_4 .

@@ -1,0 +1,177 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_2_2 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_2_2/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:SelectionDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:Security a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:Region a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CountryAssignment a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:FreeFloatMarketCapizatlization a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:FreeFloatMarketCapizatlization rdfs:subClassOf ex:MonetaryAmount .
+ex:Rank a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Rank rdfs:subClassOf ex:Nat .
+ex:IndexAdministrator a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexAdministrator rdfs:subClassOf ex:Organization .
+ex:SelectionOfIndexComponents a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:DiscretionaryDecision a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+
+ex:Americas a ex:Region, owl:NamedIndividual .
+ex:EuropeRegion a ex:Region, owl:NamedIndividual .
+ex:Canada a ex:CountryAssignment, owl:NamedIndividual .
+ex:UnitedStates a ex:CountryAssignment, owl:NamedIndividual .
+ex:Europe a ex:CountryAssignment, owl:NamedIndividual .
+ex:index_universe a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_universe_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:index_universe a4:argument ex:index_universe_arg_0 .
+ex:index_universe_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:index_universe a4:argument ex:index_universe_arg_1 .
+ex:eligible a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:eligible_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:eligible a4:argument ex:eligible_arg_0 .
+ex:eligible_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:eligible a4:argument ex:eligible_arg_1 .
+ex:selection_of_index_components a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:selection_of_index_components_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:selection_of_index_components a4:argument ex:selection_of_index_components_arg_0 .
+ex:selection_of_index_components a4:resultSort ex:SelectionOfIndexComponents .
+ex:selection_of_index_components a4:functionFlag "required" .
+ex:gbs_country_assignment a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:gbs_country_assignment_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:gbs_country_assignment a4:argument ex:gbs_country_assignment_arg_0 .
+ex:gbs_country_assignment_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:gbs_country_assignment a4:argument ex:gbs_country_assignment_arg_1 .
+ex:gbs_country_assignment a4:resultSort ex:CountryAssignment .
+ex:gbs_country_assignment a4:functionFlag "required" .
+ex:region a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:region_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:region a4:argument ex:region_arg_0 .
+ex:region_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:region a4:argument ex:region_arg_1 .
+ex:region a4:resultSort ex:Region .
+ex:region a4:functionFlag "required" .
+ex:free_float_market_capizatlization a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:free_float_market_capizatlization_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:free_float_market_capizatlization a4:argument ex:free_float_market_capizatlization_arg_0 .
+ex:free_float_market_capizatlization_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:free_float_market_capizatlization a4:argument ex:free_float_market_capizatlization_arg_1 .
+ex:free_float_market_capizatlization a4:resultSort ex:FreeFloatMarketCapizatlization .
+ex:free_float_market_capizatlization a4:functionFlag "required" .
+ex:rank a rdf:Property, a4:FunSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:rank_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:rank a4:argument ex:rank_arg_0 .
+ex:rank_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Region .
+ex:rank a4:argument ex:rank_arg_1 .
+ex:rank_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:Security .
+ex:rank a4:argument ex:rank_arg_2 .
+ex:rank a4:resultSort ex:Rank .
+ex:rank a4:functionFlag "required" .
+ex:selected_for_index_inclusion a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:selected_for_index_inclusion_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:selected_for_index_inclusion a4:argument ex:selected_for_index_inclusion_arg_0 .
+ex:selected_for_index_inclusion_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:selected_for_index_inclusion a4:argument ex:selected_for_index_inclusion_arg_1 .
+ex:index_component a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:index_component_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:index_component a4:argument ex:index_component_arg_0 .
+ex:index_component_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:index_component a4:argument ex:index_component_arg_1 .
+ex:initial_composition a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:initial_composition_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:initial_composition a4:argument ex:initial_composition_arg_0 .
+ex:initial_composition_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:initial_composition a4:argument ex:initial_composition_arg_1 .
+ex:ordinary_rebalance_selection a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:ordinary_rebalance_selection_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:ordinary_rebalance_selection a4:argument ex:ordinary_rebalance_selection_arg_0 .
+ex:ordinary_rebalance_selection_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:ordinary_rebalance_selection a4:argument ex:ordinary_rebalance_selection_arg_1 .
+ex:fully_rule_based a rdf:Property, a4:RelSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:fully_rule_based_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionOfIndexComponents .
+ex:fully_rule_based a4:argument ex:fully_rule_based_arg_0 .
+
+ex:ASSERT_eligible_iff_index_universe_for_component_requirements a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "37"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (eligible(d, s)) iff (index_universe(d, s))" ;
+  a4:sourceText "constraint eligible_iff_index_universe_for_component_requirements :\n  forall d: SelectionDay, forall s: Security,\n    eligible(d, s) iff index_universe(d, s)" .
+ex:ASSERT_security_classified_into_one_of_two_regions a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "41"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (eligible(d, s)) implies (((region(d, s)) = (Americas)) or ((region(d, s)) = (EuropeRegion)))" ;
+  a4:sourceText "constraint security_classified_into_one_of_two_regions :\n  forall d: SelectionDay, forall s: Security,\n    eligible(d, s) implies\n      (region(d, s) = Americas or region(d, s) = EuropeRegion)" .
+ex:ASSERT_americas_country_assignment_classification a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "46"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (eligible(d, s)) implies (((region(d, s)) = (Americas)) iff (((gbs_country_assignment(d, s)) = (Canada)) or ((gbs_country_assignment(d, s)) = (UnitedStates))))" ;
+  a4:sourceText "constraint americas_country_assignment_classification :\n  forall d: SelectionDay, forall s: Security,\n    eligible(d, s) implies\n      (region(d, s) = Americas iff\n        (gbs_country_assignment(d, s) = Canada or gbs_country_assignment(d, s) = UnitedStates))" .
+ex:ASSERT_europe_country_assignment_classification a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "52"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (eligible(d, s)) implies (((region(d, s)) = (EuropeRegion)) iff ((gbs_country_assignment(d, s)) = (Europe)))" ;
+  a4:sourceText "constraint europe_country_assignment_classification :\n  forall d: SelectionDay, forall s: Security,\n    eligible(d, s) implies\n      (region(d, s) = EuropeRegion iff gbs_country_assignment(d, s) = Europe)" .
+ex:ASSERT_descending_order_by_free_float_market_capizatlization a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "57"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall r: Region, forall s1: Security, forall s2: Security, ((eligible(d, s1)) and (eligible(d, s2)) and ((region(d, s1)) = (r)) and ((region(d, s2)) = (r)) and ((free_float_market_capizatlization(d, s1)) > (free_float_market_capizatlization(d, s2)))) implies ((rank(d, r, s1)) < (rank(d, r, s2)))" ;
+  a4:sourceText "constraint descending_order_by_free_float_market_capizatlization :\n  forall d: SelectionDay, forall r: Region, forall s1: Security, forall s2: Security,\n    eligible(d, s1)\n    and eligible(d, s2)\n    and region(d, s1) = r\n    and region(d, s2) = r\n    and free_float_market_capizatlization(d, s1) > free_float_market_capizatlization(d, s2)\n    implies rank(d, r, s1) < rank(d, r, s2)" .
+ex:ASSERT_selected_top_20_for_each_region a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "66"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (selected_for_index_inclusion(d, s)) iff ((eligible(d, s)) and ((rank(d, region(d, s), s)) <= (20)))" ;
+  a4:sourceText "constraint selected_top_20_for_each_region :\n  forall d: SelectionDay, forall s: Security,\n    selected_for_index_inclusion(d, s)\n    iff\n      eligible(d, s)\n      and rank(d, region(d, s), s) <= 20" .
+ex:ASSERT_index_components_selected_for_index_inclusion a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "73"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (index_component(d, s)) iff (selected_for_index_inclusion(d, s))" ;
+  a4:sourceText "constraint index_components_selected_for_index_inclusion :\n  forall d: SelectionDay, forall s: Security,\n    index_component(d, s) iff selected_for_index_inclusion(d, s)" .
+ex:ASSERT_initial_composition_determined_by_index_component_requirements a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "77"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (initial_composition(d, s)) iff (selected_for_index_inclusion(d, s))" ;
+  a4:sourceText "constraint initial_composition_determined_by_index_component_requirements :\n  forall d: SelectionDay, forall s: Security,\n    initial_composition(d, s) iff selected_for_index_inclusion(d, s)" .
+ex:ASSERT_ordinary_rebalance_selection_determined_by_index_component_requirements a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "81"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (ordinary_rebalance_selection(d, s)) iff (selected_for_index_inclusion(d, s))" ;
+  a4:sourceText "constraint ordinary_rebalance_selection_determined_by_index_component_requirements :\n  forall d: SelectionDay, forall s: Security,\n    ordinary_rebalance_selection(d, s) iff selected_for_index_inclusion(d, s)" .
+ex:ASSERT_less_than_20_per_region_less_than_40_index_components a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "85"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, (exists r: Region, (<count>) < (20)) implies ((<count>) < (40))" ;
+  a4:sourceText "constraint less_than_20_per_region_less_than_40_index_components :\n  forall d: SelectionDay,\n    (exists r: Region,\n      count(s in Security where eligible(d, s) and region(d, s) = r) < 20)\n    implies\n      count(s in Security where index_component(d, s)) < 40" .
+ex:ASSERT_selection_fully_rule_based a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "92"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, fully_rule_based(selection_of_index_components(d))" ;
+  a4:sourceText "fact selection_fully_rule_based :\n  forall d: SelectionDay,\n    fully_rule_based(selection_of_index_components(d))" .

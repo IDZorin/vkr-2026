@@ -1,0 +1,170 @@
+﻿{
+  "schema": "corpus_aware_multi_judge_v1",
+  "generated_at": "2026-05-10T19:55:54+02:00",
+  "entry_id": "N18",
+  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N18",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "included_context": {
+    "entry": "N18",
+    "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N18",
+    "global_bridge": false,
+    "related_sections": [],
+    "artifacts": {
+      "source.md": true,
+      "normalized.md": true,
+      "main_ir.a4v3": true,
+      "repair.a4v3": false,
+      "provenance.yaml": true,
+      "translator_notes.md": true,
+      "waivers.yaml": false,
+      "waivers_v1.yaml": false
+    }
+  },
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR captures the quoted defined term and the cross-reference to Section \"Introduction\" without adding substantive meaning or deontic force. The provenance and translator notes explicitly confirm this is a definitional reference, matching the source sentence.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "`DefinedTerm` and `IntroductionSection` are implementation-level names for the quoted term and referenced section; this is a naming choice, not a semantic change."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1995,
+        "completion_tokens": 151,
+        "total_tokens": 2146
+      },
+      "latency_s": 2.1764233112335205
+    },
+    {
+      "model": "gpt-5.4",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "none"
+      ],
+      "reason_short": "The local IR faithfully captures the sole source claim: the defined term \"Index Administrator\" has its meaning defined in the section identified as \"Introduction.\" The IR does not add substantive meaning, and its relation expresses a definitional cross-reference rather than an obligation, which matches the source wording in context.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses the normalized symbol name `IndexAdministratorTerm` for the quoted defined term \"Index Administrator\".",
+        "`IntroductionSection` is a catalog name for the referenced Section \"Introduction\".",
+        "The relation name `term_shall_have_meaning_defined_in_section` is slightly formalized but semantically matches the drafting phrase."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1995,
+        "completion_tokens": 192,
+        "total_tokens": 2187
+      },
+      "latency_s": 3.763681173324585
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The source sentence is a cross-reference definition stating that 'Index Administrator' shall have the meaning defined in Section 'Introduction'. The IR faithfully encodes this as a fact that the term IndexAdministratorTerm has its meaning defined in IntroductionSection via the relation term_shall_have_meaning_defined_in_section. The provenance and translator notes confirm this is the intended reading: the IR records the definitional reference without inventing substantive content, and correctly interprets 'shall' as a definitional pointer rather than a deontic obligation. No semantic divergence exists.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses camelCase entity names (IndexAdministratorTerm, IntroductionSection) while the source uses quoted strings with spaces ('Index Administrator', 'Section \"Introduction\"'). This is standard IR naming convention and not a semantic issue.",
+        "The relation name term_shall_have_meaning_defined_in_section is verbose but semantically precise; it explicitly captures the 'shall have the meaning as defined in' phrasing from the source."
+      ],
+      "confidence": 0.99,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2314,
+        "completion_tokens": 351,
+        "total_tokens": 2665
+      },
+      "latency_s": 4.669320821762085
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "none"
+      ],
+      "reason_short": "The source sentence is a cross-reference definition, and the IR captures exactly that with a fact linking the term entity to the document part via a dedicated relation.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2126,
+        "completion_tokens": 665,
+        "total_tokens": 2791
+      },
+      "latency_s": 24.244343519210815
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR accurately models the source sentence as a definitional cross-reference, mapping the quoted term to a DefinedTerm entity and the referenced section to a DocumentPart entity. The relation term_shall_have_meaning_defined_in_section directly captures the source phrasing without incorrectly treating 'shall' as a deontic obligation, aligning perfectly with both the source text and the documented translator decisions.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2132,
+        "completion_tokens": 2127,
+        "total_tokens": 4259
+      },
+      "latency_s": 41.380638122558594
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "local_source_alignment_mode": "corresponds",
+    "local_source_alignment_distribution": {
+      "corresponds": 5
+    },
+    "local_source_alignment_agreement": 1.0,
+    "corpus_alignment_mode": "corresponds",
+    "corpus_alignment_distribution": {
+      "corresponds": 5
+    },
+    "corpus_alignment_agreement": 1.0,
+    "unanimous_corpus_alignment": true,
+    "needs_context_count": 0,
+    "mean_confidence": 0.99
+  }
+}

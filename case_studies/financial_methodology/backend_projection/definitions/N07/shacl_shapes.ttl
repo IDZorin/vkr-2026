@@ -1,0 +1,59 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N07 a a4:ShaclProjectionTarget .
+
+ex:Security a rdfs:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:SecurityShape a sh:NodeShape ; sh:targetClass ex:Security .
+ex:IndexComponent a rdfs:Class .
+ex:IndexComponent rdfs:subClassOf ex:Security .
+ex:IndexComponentShape a sh:NodeShape ; sh:targetClass ex:IndexComponent .
+ex:TradingDay a rdfs:Class .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:TradingDayShape a sh:NodeShape ; sh:targetClass ex:TradingDay .
+ex:Exchange a rdfs:Class .
+ex:ExchangeShape a sh:NodeShape ; sh:targetClass ex:Exchange .
+ex:Price a rdfs:Class .
+ex:Price rdfs:subClassOf ex:MonetaryAmount .
+ex:PriceShape a sh:NodeShape ; sh:targetClass ex:Price .
+ex:TradingPrice a rdfs:Class .
+ex:TradingPrice rdfs:subClassOf ex:Price .
+ex:TradingPriceShape a sh:NodeShape ; sh:targetClass ex:TradingPrice .
+ex:ClosingPrice a rdfs:Class .
+ex:ClosingPrice rdfs:subClassOf ex:TradingPrice .
+ex:ClosingPriceShape a sh:NodeShape ; sh:targetClass ex:ClosingPrice .
+ex:AccordanceStandard a rdfs:Class .
+ex:AccordanceStandardShape a sh:NodeShape ; sh:targetClass ex:AccordanceStandard .
+
+ex:ExchangeRules a ex:AccordanceStandard .
+ex:ExchangeRegulations a ex:AccordanceStandard .
+ex:closing_price a rdfs:Class .
+ex:closing_priceShape a sh:NodeShape ; sh:targetClass ex:closing_price .
+ex:closing_priceShape sh:property [ sh:path ex:closing_price_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_priceShape sh:property [ sh:path ex:closing_price_arg_1 ; sh:class ex:TradingDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_priceShape sh:property [ sh:path ex:closing_price_result ; sh:class ex:ClosingPrice ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:respective_exchange a rdf:Property .
+ex:IndexComponentShape sh:property [ sh:path ex:respective_exchange ; sh:class ex:Exchange ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:final_regular_hours_trading_price a rdfs:Class .
+ex:final_regular_hours_trading_priceShape a sh:NodeShape ; sh:targetClass ex:final_regular_hours_trading_price .
+ex:final_regular_hours_trading_priceShape sh:property [ sh:path ex:final_regular_hours_trading_price_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:final_regular_hours_trading_priceShape sh:property [ sh:path ex:final_regular_hours_trading_price_arg_1 ; sh:class ex:TradingDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:final_regular_hours_trading_priceShape sh:property [ sh:path ex:final_regular_hours_trading_price_result ; sh:class ex:ClosingPrice ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:last_trading_price a rdfs:Class .
+ex:last_trading_priceShape a sh:NodeShape ; sh:targetClass ex:last_trading_price .
+ex:last_trading_priceShape sh:property [ sh:path ex:last_trading_price_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:last_trading_priceShape sh:property [ sh:path ex:last_trading_price_arg_1 ; sh:class ex:TradingDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:last_trading_priceShape sh:property [ sh:path ex:last_trading_price_result ; sh:class ex:TradingPrice ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:price_published_by_exchange a rdf:Property .
+ex:PriceShape sh:property [ sh:path ex:price_published_by_exchange ; sh:class ex:Exchange ] .
+ex:price_determined a rdfs:Class ; rdfs:subClassOf ex:Price .
+ex:in_accordance_with a rdf:Property .
+ex:PriceShape sh:property [ sh:path ex:in_accordance_with ; sh:class ex:AccordanceStandard ] .
+ex:closing_price_available a rdf:Property .
+ex:IndexComponentShape sh:property [ sh:path ex:closing_price_available ; sh:class ex:TradingDay ] .

@@ -1,0 +1,48 @@
+(set-logic ALL)
+(set-option :produce-unsat-cores true)
+
+(declare-sort AccordanceStandard 0)
+(declare-sort Day 0)
+(declare-sort Exchange 0)
+(declare-sort FinancialInstrument 0)
+(declare-sort MonetaryAmount 0)
+
+(declare-fun ClosingPrice (MonetaryAmount) Bool)
+(declare-fun IndexComponent (FinancialInstrument) Bool)
+(declare-fun Price (MonetaryAmount) Bool)
+(declare-fun Security (FinancialInstrument) Bool)
+(declare-fun TradingDay (Day) Bool)
+(declare-fun TradingPrice (MonetaryAmount) Bool)
+
+(assert (! (forall ((x_ClosingPrice MonetaryAmount)) (=> (ClosingPrice x_ClosingPrice) (TradingPrice x_ClosingPrice))) :named TYPE_ClosingPrice_extends_TradingPrice))
+(assert (! (forall ((x_IndexComponent FinancialInstrument)) (=> (IndexComponent x_IndexComponent) (Security x_IndexComponent))) :named TYPE_IndexComponent_extends_Security))
+(assert (! (forall ((x_TradingPrice MonetaryAmount)) (=> (TradingPrice x_TradingPrice) (Price x_TradingPrice))) :named TYPE_TradingPrice_extends_Price))
+
+(declare-const ExchangeRegulations AccordanceStandard)
+(declare-const ExchangeRules AccordanceStandard)
+
+(declare-fun closing_price (FinancialInstrument Day) MonetaryAmount)
+(declare-fun closing_price_available (FinancialInstrument Day) Bool)
+(declare-fun final_regular_hours_trading_price (FinancialInstrument Day) MonetaryAmount)
+(declare-fun in_accordance_with (MonetaryAmount AccordanceStandard) Bool)
+(declare-fun last_trading_price (FinancialInstrument Day) MonetaryAmount)
+(declare-fun price_determined (MonetaryAmount) Bool)
+(declare-fun price_published_by_exchange (MonetaryAmount Exchange) Bool)
+(declare-fun respective_exchange (FinancialInstrument) Exchange)
+
+(assert (! (forall ((closing_price_arg0 FinancialInstrument) (closing_price_arg1 Day)) (ClosingPrice (closing_price closing_price_arg0 closing_price_arg1))) :named TYPE_symbol_closing_price))
+(assert (! (forall ((closing_price_available_arg0 FinancialInstrument) (closing_price_available_arg1 Day)) (=> (closing_price_available closing_price_available_arg0 closing_price_available_arg1) (and (IndexComponent closing_price_available_arg0) (TradingDay closing_price_available_arg1)))) :named TYPE_symbol_closing_price_available))
+(assert (! (forall ((final_regular_hours_trading_price_arg0 FinancialInstrument) (final_regular_hours_trading_price_arg1 Day)) (ClosingPrice (final_regular_hours_trading_price final_regular_hours_trading_price_arg0 final_regular_hours_trading_price_arg1))) :named TYPE_symbol_final_regular_hours_trading_price))
+(assert (! (forall ((in_accordance_with_arg0 MonetaryAmount) (in_accordance_with_arg1 AccordanceStandard)) (=> (in_accordance_with in_accordance_with_arg0 in_accordance_with_arg1) (Price in_accordance_with_arg0))) :named TYPE_symbol_in_accordance_with))
+(assert (! (forall ((last_trading_price_arg0 FinancialInstrument) (last_trading_price_arg1 Day)) (TradingPrice (last_trading_price last_trading_price_arg0 last_trading_price_arg1))) :named TYPE_symbol_last_trading_price))
+(assert (! (forall ((price_determined_arg0 MonetaryAmount)) (=> (price_determined price_determined_arg0) (Price price_determined_arg0))) :named TYPE_symbol_price_determined))
+(assert (! (forall ((price_published_by_exchange_arg0 MonetaryAmount) (price_published_by_exchange_arg1 Exchange)) (=> (price_published_by_exchange price_published_by_exchange_arg0 price_published_by_exchange_arg1) (Price price_published_by_exchange_arg0))) :named TYPE_symbol_price_published_by_exchange))
+
+(assert (! (forall ((c FinancialInstrument)) (=> (IndexComponent c) (forall ((d Day)) (=> (TradingDay d) (=> (closing_price_available c d) (and (= (closing_price c d) (final_regular_hours_trading_price c d)) (price_published_by_exchange (closing_price c d) (respective_exchange c)) (price_determined (closing_price c d)) (in_accordance_with (closing_price c d) ExchangeRules) (in_accordance_with (closing_price c d) ExchangeRegulations))))))) :named TEXT_closing_price_definition_when_published))
+(assert (! (forall ((c FinancialInstrument)) (=> (IndexComponent c) (forall ((d Day)) (=> (TradingDay d) (=> (not (closing_price_available c d)) (= (closing_price c d) (last_trading_price c d))))))) :named TEXT_last_trading_price_used_when_closing_price_not_published))
+; Probe N07__last_trading_price_used_when_closing_price_not_published__negative_condition_witness__002: negative_condition_witness
+(check-sat)
+(push 1)
+(assert (! (exists ((c FinancialInstrument) (d Day)) (and (IndexComponent c) (TradingDay d) (not (closing_price_available c d)))) :named PROBE_N07__last_trading_price_used_when_closing_price_not_published__negative_condition_witness__002))
+(check-sat)
+(pop 1)

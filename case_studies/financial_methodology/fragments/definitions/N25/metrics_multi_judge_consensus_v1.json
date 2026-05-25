@@ -1,0 +1,123 @@
+{
+  "entry_id": "N25",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR captures that the defined term “Oversight Committee” has its meaning defined in Section 5.5, using a term entity and a section document-part relation. This matches the source statement’s definitional content.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR normalizes the quoted phrase into the entity name OversightCommitteeTerm and represents Section 5.5 as Section5_5, which is a formatting choice."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1855,
+        "completion_tokens": 121,
+        "total_tokens": 1976
+      },
+      "latency_s": 2.2955024242401123
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "corresponds",
+      "relation_type": "same_meaning_poor_wording",
+      "reason_short": "The IR captures the source's core claim: the defined term \"Oversight Committee\" has its meaning defined in Section 5.5. The use of a generic DefinedTerm sort and a relation to a DocumentPart is a faithful formalization of the definitional cross-reference.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR models the quoted phrase \"Oversight Committee\" as an entity named OversightCommitteeTerm rather than preserving the literal quoted term.",
+        "Section 5.5 is represented abstractly as Section5_5 : DocumentPart, which is a reasonable structural encoding.",
+        "The relation name term_shall_have_meaning_defined_in_section is somewhat verbose but semantically clear."
+      ],
+      "confidence": 0.97,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1855,
+        "completion_tokens": 199,
+        "total_tokens": 2054
+      },
+      "latency_s": 4.05982780456543
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR correctly captures that 'Oversight Committee' is a defined term whose meaning is specified in Section 5.5. However, the IR introduces a new sort `DefinedTerm` and a new relation `term_shall_have_meaning_defined_in_section` that are not present in the prelude or source. While the factual content (that OversightCommitteeTerm's meaning is defined in Section 5.5) is accurate, the IR adds ontological structure (the sort and relation) that goes beyond what the source explicitly states or what the prelude provides. The source is a simple definitional cross-reference; the IR reifies this as a formal relation between entities, which is a design choice not justified by the source text alone.",
+      "semantic_differences": [
+        "IR introduces new sort `DefinedTerm` not present in prelude or source; source does not justify creation of a new sort category for defined terms.",
+        "IR introduces new relation `term_shall_have_meaning_defined_in_section` not present in prelude or source; source does not justify creation of a formal relation predicate for this cross-reference pattern.",
+        "IR treats the definitional statement as a fact/constraint about a relation between entities, whereas source is a simple definitional pointer (a meta-linguistic statement about where to find the definition)."
+      ],
+      "stylistic_notes": [
+        "Entity naming `OversightCommitteeTerm` is reasonable but adds '_Term' suffix not in source; source just says '\"Oversight Committee\"'.",
+        "Entity naming `Section5_5` uses underscore; more idiomatic a4v3 would be `Section_5_5` or similar, but this is minor.",
+        "The relation name `term_shall_have_meaning_defined_in_section` is verbose; source uses simpler phrasing 'shall have the meaning as defined in'."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2122,
+        "completion_tokens": 485,
+        "total_tokens": 2607
+      },
+      "latency_s": 6.084928750991821
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures the definitional reference: a named term ('OversightCommitteeTerm') is linked via a relation to the document part (Section 5.5) where its meaning is defined, matching the source text exactly.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The relation name is long and mirrors the source phrasing verbatim, which is stylistic rather than semantic."
+      ],
+      "confidence": 0.99,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1971,
+        "completion_tokens": 652,
+        "total_tokens": 2623
+      },
+      "latency_s": 26.07202124595642
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR accurately formalizes the source's cross-reference definition by asserting that the term 'Oversight Committee' derives its meaning from Section 5.5. The entities and relation directly map to the source components without introducing extraneous claims or omitting required semantic content.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The relation name `term_shall_have_meaning_defined_in_section` is highly verbose but faithfully mirrors the source's legal phrasing.",
+        "Introducing a `DefinedTerm` sort is a valid ontological choice for categorizing cross-referenced terms, consistent with standard a4v3 modeling practices."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1984,
+        "completion_tokens": 1528,
+        "total_tokens": 3512
+      },
+      "latency_s": 29.60781741142273
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "corresponds": 4,
+      "partially_corresponds": 1
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 0.8,
+    "unanimous": false,
+    "mean_confidence": 0.932
+  }
+}

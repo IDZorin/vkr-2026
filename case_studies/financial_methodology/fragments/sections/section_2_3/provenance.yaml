@@ -1,0 +1,148 @@
+section: "2.3 Weighting of the Index Components"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+  repair: "repair.a4v3"
+
+# Top-level sections:
+#   claims        -- assertion-family entries (fact, constraint, obligation, ...)
+#   uncovered_source -- source phrases not directly mapped to any IR claim
+#   vocabulary_notes -- IR-introduced sorts/entities that need explanation
+#   corrections   -- non-claim IR overlays (sort_alias, source-typo fix-ups)
+#                    that live in repair.a4v3
+#
+# For claim entries:
+#   kind             -- IR family (fact | constraint | obligation | permission | prohibition)
+#   ir_origin_file   -- file where the claim lives
+#   claim_origin     -- source_claim | bridge | plumbing | derived_invariant
+#                       | verification_probe
+#   source_quotes    -- verbatim spans from source.md that the element formalizes
+#   back_translation -- natural-language unfolding of the IR formula
+#   vocabulary_basis -- source_only | mixed | ir_internal_bridge | ir_plumbing
+#   status           -- covered | derived | repair_candidate | needs_review | absent_in_source
+#
+# For corrections entries:
+#   kind             -- type of IR object (sort_alias | entity_alias | ...)
+#   claim_origin     -- source_correction
+#   correction_type  -- typo_alias | naming_alias | ...
+#   typo_in_source   -- the source spelling
+#   canonical_form   -- the corrected spelling
+#   vocabulary_basis -- ir_correction_alias
+
+claims:
+
+  weight_based_on_float_market_capizatlization:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "On each Selection Day, each Index Component is assigned a weight based on its Float Market Capizatlization"
+    back_translation: >
+      On every Selection Day and for every Index Component, the weight
+      of that Index Component is based on its Float Market Capizatlization.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Source typo "Capizatlization" preserved verbatim in IR per provenance
+      policy (do not silently correct source).
+
+  region_represents_exactly_50_percent:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Each region must represent exactly 50% of the total Index"
+    back_translation: >
+      On every Selection Day, for every region, the sum of weights of
+      Index Components in that region must equal exactly 50% of the total Index.
+    vocabulary_basis: source_only
+    status: covered
+
+  single_index_component_weight_capped:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The weight of any single Index Component is capped at 5%."
+    back_translation: >
+      On every Selection Day, the weight of any single Index Component
+      is capped at 5%.
+    vocabulary_basis: source_only
+    status: covered
+
+  weight_redistribution_process_is_iterative:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The weights are redistributed proportionally in an iterative process"
+    back_translation: >
+      On every Selection Day, the process by which the weights are
+      redistributed is iterative.
+    vocabulary_basis: source_only
+    status: covered
+
+  weights_redistributed_proportionally:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The weights are redistributed proportionally in an iterative process"
+    back_translation: >
+      On every Selection Day and for every Index Component, that Index
+      Component's weight is redistributed proportionally.
+    vocabulary_basis: source_only
+    status: covered
+
+uncovered_source:
+  - quote: "until both constraints are satisfied"
+    explanation: >
+      The fixed-point condition "until both constraints are satisfied" is
+      implicitly captured by the joint assertion of `region_represents_exactly_50_percent`
+      and `single_index_component_weight_capped`. The IR has no separate
+      "termination predicate" for the iterative process; the two constraints
+      ARE the fixed point that the iteration converges to. This implicit
+      coverage is intentional -- the iterative algorithm itself is procedural
+      content not directly modeled in static A4V3.
+
+vocabulary_notes:
+  FloatMarketCapizatlization:
+    note: >
+      Source typo ("Capizatlization" instead of "Capitalization") preserved
+      verbatim in IR sort name. Provenance policy: do not silently correct
+      source spelling; preserve for traceability and possible source-correction
+      audit downstream.
+    canonical_alias: FloatMarketCapitalization
+    alias_location: repair.a4v3
+    alias_form: "sort FloatMarketCapitalization extends FloatMarketCapizatlization"
+
+  WeightRedistributionProcess:
+    note: >
+      IR sort introduced to make the iterative redistribution process
+      first-class (so that `iterative_process` and `redistributes_weight_proportionally`
+      can be predicates of a process object rather than universal facts on
+      raw (Selection Day, Index Component) pairs). Source has no named
+      "process" entity; this is IR modeling for procedural content.
+
+corrections:
+  float_market_capitalization_typo:
+    kind: sort_alias
+    ir_origin_file: "repair.a4v3"
+    claim_origin: source_correction
+    correction_type: typo_alias
+    typo_in_source: "FloatMarketCapizatlization"
+    canonical_form: "FloatMarketCapitalization"
+    source_quotes:
+      - "On each Selection Day, each Index Component is assigned a weight based on its Float Market Capizatlization"
+    back_translation: >
+      The canonical spelling "FloatMarketCapitalization" is a subtype-alias
+      of the source-faithful "FloatMarketCapizatlization", to allow downstream
+      tooling that prefers correct spelling without modifying the main IR.
+    vocabulary_basis: ir_correction_alias
+    status: covered
+    notes: >
+      Source-correction overlay. Does not add methodology content; purely
+      lexical fix-up. The main IR continues to use the source-faithful typo
+      so that source-coverage metrics remain accurate.

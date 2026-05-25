@@ -1,0 +1,178 @@
+﻿{
+  "schema": "corpus_aware_multi_judge_v1",
+  "generated_at": "2026-05-12T13:16:35+02:00",
+  "entry_id": "N06",
+  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N06",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "included_context": {
+    "entry": "N06",
+    "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N06",
+    "global_bridge": false,
+    "related_sections": [],
+    "artifacts": {
+      "source.md": true,
+      "normalized.md": true,
+      "main_ir.a4v3": true,
+      "repair.a4v3": false,
+      "provenance.yaml": true,
+      "translator_notes.md": true,
+      "waivers.yaml": false,
+      "waivers_v1.yaml": false
+    }
+  },
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR captures the single source sentence as a named CalculationTime entity that is the calculation time of the Index’s closing level and is outlined in Section 1.4. The provenance and translator notes confirm this is intended as a local definitional fact, not a universal rule, and the Section 1.4 reference is only a target, not imported content.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses a structured relation and a named entity rather than the spaced source phrase; this is a modeling choice, not a semantic change."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2373,
+        "completion_tokens": 174,
+        "total_tokens": 2547
+      },
+      "latency_s": 2.168736457824707
+    },
+    {
+      "model": "gpt-5.4",
+      "local_source_alignment": "partially_corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "same_meaning_poor_wording",
+      "needs_context": true,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The local IR captures the core definitional content that Close of Business is the calculation time of the closing level of the Index and links it to Section 1.4, but source-only it is slightly underdetermined because the phrase \"as outlined in Section 1.4\" could modify the closing-level calculation time rather than assert that Close of Business itself is outlined there. The documented provenance and translator notes explicitly state that Section 1.4 is being represented as a reference target without importing its mechanics, which resolves the intended reading and makes the translation acceptable at corpus level.",
+      "semantic_differences": [],
+      "context_resolved_issues": [
+        "Source-only, the attachment of \"as outlined in Section 1.4\" is somewhat ambiguous; corpus documentation clarifies that the IR intentionally models it as a reference from the defined calculation time to Section 1.4.",
+        "Source-only, the IR's use of a named CalculationTime entity rather than a fuller imported Section 1.4 definition could look incomplete; provenance and translator notes explicitly justify that this section is only a local definitional stub and not the place to encode Section 1.4 mechanics."
+      ],
+      "stylistic_notes": [
+        "The relation name `outlined_in_section` is a structural paraphrase rather than a close lexical rendering of the source wording.",
+        "`calculation_time_of_closing_level_of_index` is a compressed ontology label for the source noun phrase and reads less naturally than the source sentence.",
+        "The IR uses `TheIndex` and `Section1_4` as local identifiers, which is naming normalization rather than semantic drift."
+      ],
+      "confidence": 0.89,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2373,
+        "completion_tokens": 378,
+        "total_tokens": 2751
+      },
+      "latency_s": 9.982773065567017
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The source sentence makes a single definitional claim: 'Close of Business' is the calculation time of the closing level of the Index as outlined in Section 1.4. The IR captures this exactly via two relations: calculation_time_of_closing_level_of_index(CloseOfBusiness, TheIndex) and outlined_in_section(CloseOfBusiness, Section1_4). The provenance and translator notes document the deliberate choice to model this as a named CalculationTime entity rather than a universal rule or event, which is faithful to the source's identification of a specific term. No contradiction exists between source and IR.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses camelCase identifiers (CloseOfBusiness, TheIndex, Section1_4) while the source uses spaced phrases and quoted terms; this is standard IR naming convention and does not constitute semantic drift.",
+        "The relation names (calculation_time_of_closing_level_of_index, outlined_in_section) are verbose but directly trace to source phrases; they prioritize traceability over brevity."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2731,
+        "completion_tokens": 351,
+        "total_tokens": 3082
+      },
+      "latency_s": 4.448793888092041
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "none"
+      ],
+      "reason_short": "The IR fact directly captures the source definition: CloseOfBusiness is a calculation time of the closing level of the Index as outlined in Section 1.4. No semantic drift.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2491,
+        "completion_tokens": 906,
+        "total_tokens": 3397
+      },
+      "latency_s": 34.51860189437866
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR directly maps the source definition to a named CalculationTime entity (CloseOfBusiness) linked to TheIndex and Section1_4 via explicit relations. The conjunction of relations accurately captures the source's compound predicate without adding or omitting semantic content. Corpus context confirms the deliberate choice to avoid universal quantification or cross-section imports, aligning perfectly with the source's intent.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "Relation names are verbose but directly trace to source phrases.",
+        "Splitting the definition into two conjunctive relations is a standard structural normalization for compound predicates."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2533,
+        "completion_tokens": 2782,
+        "total_tokens": 5315
+      },
+      "latency_s": 52.01615285873413
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "local_source_alignment_mode": "corresponds",
+    "local_source_alignment_distribution": {
+      "corresponds": 4,
+      "partially_corresponds": 1
+    },
+    "local_source_alignment_agreement": 0.8,
+    "corpus_alignment_mode": "corresponds",
+    "corpus_alignment_distribution": {
+      "corresponds": 5
+    },
+    "corpus_alignment_agreement": 1.0,
+    "unanimous_corpus_alignment": true,
+    "needs_context_count": 1,
+    "mean_confidence": 0.97
+  }
+}

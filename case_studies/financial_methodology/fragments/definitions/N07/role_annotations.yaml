@@ -1,0 +1,38 @@
+schema: role_annotations_v1
+entry_id: N07
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  closing_price:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+    returns: {role: same_as_type}
+  final_regular_hours_trading_price:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+    returns: {role: same_as_type}
+  last_trading_price:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+    returns: {role: same_as_type}
+  respective_exchange:
+    kind: fun
+    args:
+      1: {role: component}
+    returns: {role: same_as_type}
+constraints:
+  closing_price_definition_when_published:
+    frame: closing_price_definition_when_published
+    variables:
+      c: {role: component, quantifier: forall}
+      d: {role: day, quantifier: forall}
+  last_trading_price_used_when_closing_price_not_published:
+    frame: last_trading_price_used_when_closing_price_not_published
+    variables:
+      c: {role: component, quantifier: forall}
+      d: {role: day, quantifier: forall}

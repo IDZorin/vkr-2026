@@ -1,0 +1,107 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_7 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:IndexComponent a rdfs:Class .
+ex:IndexComponentShape a sh:NodeShape ; sh:targetClass ex:IndexComponent .
+ex:MarketDisruption a rdfs:Class .
+ex:MarketDisruption rdfs:subClassOf ex:Event .
+ex:MarketDisruptionShape a sh:NodeShape ; sh:targetClass ex:MarketDisruption .
+ex:MarketStress a rdfs:Class .
+ex:MarketStress rdfs:subClassOf ex:MarketDisruption .
+ex:MarketStressShape a sh:NodeShape ; sh:targetClass ex:MarketStress .
+ex:IlliquidMarket a rdfs:Class .
+ex:IlliquidMarket rdfs:subClassOf ex:MarketDisruption .
+ex:IlliquidMarketShape a sh:NodeShape ; sh:targetClass ex:IlliquidMarket .
+ex:FragmentedMarket a rdfs:Class .
+ex:FragmentedMarket rdfs:subClassOf ex:MarketDisruption .
+ex:FragmentedMarketShape a sh:NodeShape ; sh:targetClass ex:FragmentedMarket .
+ex:Arrangement a rdfs:Class .
+ex:ArrangementShape a sh:NodeShape ; sh:targetClass ex:Arrangement .
+ex:DisruptionPolicy a rdfs:Class .
+ex:DisruptionPolicy rdfs:subClassOf ex:Document .
+ex:DisruptionPolicyShape a sh:NodeShape ; sh:targetClass ex:DisruptionPolicy .
+ex:MarketStressPriceOutcome a rdfs:Class .
+ex:MarketStressPriceOutcomeShape a sh:NodeShape ; sh:targetClass ex:MarketStressPriceOutcome .
+ex:DeterminationConditionPossibility a rdfs:Class .
+ex:DeterminationConditionPossibilityShape a sh:NodeShape ; sh:targetClass ex:DeterminationConditionPossibility .
+ex:PriceCondition a rdfs:Class .
+ex:PriceConditionShape a sh:NodeShape ; sh:targetClass ex:PriceCondition .
+ex:Inaccurate a ex:PriceCondition .
+ex:Delayed a ex:PriceCondition .
+ex:DeterminationCondition a rdfs:Class .
+ex:DeterminationConditionShape a sh:NodeShape ; sh:targetClass ex:DeterminationCondition .
+ex:Limited a ex:DeterminationCondition .
+ex:Impaired a ex:DeterminationCondition .
+
+ex:Solactive a ex:Organization .
+ex:TheIndex a ex:Index .
+ex:SolactiveDisruptionArrangements a ex:Arrangement .
+ex:SolactiveDisruptionPolicy a ex:DisruptionPolicy .
+ex:ThisGuideline a ex:Document .
+ex:SolactiveWebsite a ex:WebResource .
+ex:VarietyOfReasons a ex:VagueTerm .
+ex:Generally a ex:VagueTerm .
+ex:MayBeLimitedOrImpaired a ex:VagueTerm .
+ex:OneOrMoreIndexComponents a ex:VagueTerm .
+ex:AtTimesOfMarketDisruption a ex:VagueTerm .
+ex:index_of a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_of ; sh:class ex:Organization ] .
+ex:index_component_of a rdf:Property .
+ex:IndexComponentShape sh:property [ sh:path ex:index_component_of ; sh:class ex:Index ] .
+ex:period_of_market_stress a rdf:Property .
+ex:PeriodShape sh:property [ sh:path ex:period_of_market_stress ; sh:class ex:MarketStress ] .
+ex:period_of_market_disruption a rdf:Property .
+ex:PeriodShape sh:property [ sh:path ex:period_of_market_disruption ; sh:class ex:MarketDisruption ] .
+ex:calculates_index_following_arrangement a rdfs:Class .
+ex:calculates_index_following_arrangementShape a sh:NodeShape ; sh:targetClass ex:calculates_index_following_arrangement .
+ex:calculates_index_following_arrangementShape sh:property [ sh:path ex:calculates_index_following_arrangement_arg_0 ; sh:class ex:Organization ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:calculates_index_following_arrangementShape sh:property [ sh:path ex:calculates_index_following_arrangement_arg_1 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:calculates_index_following_arrangementShape sh:property [ sh:path ex:calculates_index_following_arrangement_arg_2 ; sh:class ex:Period ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:calculates_index_following_arrangementShape sh:property [ sh:path ex:calculates_index_following_arrangement_arg_3 ; sh:class ex:Arrangement ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:predefined a rdfs:Class ; rdfs:subClassOf ex:Arrangement .
+ex:exhaustive a rdfs:Class ; rdfs:subClassOf ex:Arrangement .
+ex:described_in a rdf:Property .
+ex:ArrangementShape sh:property [ sh:path ex:described_in ; sh:class ex:Document ] .
+ex:incorporated_by_reference_into a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:incorporated_by_reference_into ; sh:class ex:Document ] .
+ex:available_on a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:available_on ; sh:class ex:WebResource ] .
+ex:website_of a rdf:Property .
+ex:WebResourceShape sh:property [ sh:path ex:website_of ; sh:class ex:Organization ] .
+ex:market_stress_arises_due_to a rdf:Property .
+ex:MarketStressShape sh:property [ sh:path ex:market_stress_arises_due_to ; sh:class ex:VagueTerm ] .
+ex:market_stress_price_outcome a rdf:Property .
+ex:MarketStressPriceOutcomeShape sh:property [ sh:path ex:market_stress_price_outcome ; sh:class ex:MarketStress ] .
+ex:price_outcome_component a rdf:Property .
+ex:MarketStressPriceOutcomeShape sh:property [ sh:path ex:price_outcome_component ; sh:class ex:IndexComponent ] .
+ex:price_outcome_inaccurate_or_delayed a rdf:Property .
+ex:MarketStressPriceOutcomeShape sh:property [ sh:path ex:price_outcome_inaccurate_or_delayed ; sh:class ex:PriceCondition ] .
+ex:price_outcome_qualified_by a rdf:Property .
+ex:MarketStressPriceOutcomeShape sh:property [ sh:path ex:price_outcome_qualified_by ; sh:class ex:VagueTerm ] .
+ex:price_outcome_component_scope a rdf:Property .
+ex:MarketStressPriceOutcomeShape sh:property [ sh:path ex:price_outcome_component_scope ; sh:class ex:VagueTerm ] .
+ex:determination_possibility_for_index a rdf:Property .
+ex:DeterminationConditionPossibilityShape sh:property [ sh:path ex:determination_possibility_for_index ; sh:class ex:Index ] .
+ex:determination_possibility_at_period a rdf:Property .
+ex:DeterminationConditionPossibilityShape sh:property [ sh:path ex:determination_possibility_at_period ; sh:class ex:Period ] .
+ex:determination_condition_possible a rdf:Property .
+ex:DeterminationConditionPossibilityShape sh:property [ sh:path ex:determination_condition_possible ; sh:class ex:DeterminationCondition ] .
+ex:determination_possibility_qualified_by a rdf:Property .
+ex:DeterminationConditionPossibilityShape sh:property [ sh:path ex:determination_possibility_qualified_by ; sh:class ex:VagueTerm ] .
+
+ex:TheIndex ex:index_of ex:Solactive .
+ex:SolactiveDisruptionPolicy ex:incorporated_by_reference_into ex:ThisGuideline .
+ex:SolactiveDisruptionPolicy ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:SolactiveDisruptionArrangements a ex:predefined .
+ex:SolactiveDisruptionArrangements a ex:exhaustive .
+ex:SolactiveDisruptionArrangements ex:described_in ex:SolactiveDisruptionPolicy .

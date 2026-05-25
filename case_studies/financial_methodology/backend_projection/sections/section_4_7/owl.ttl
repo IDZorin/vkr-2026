@@ -1,0 +1,132 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_7 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:IndexComponent a owl:Class .
+ex:MarketDisruption a owl:Class .
+ex:MarketDisruption rdfs:subClassOf ex:Event .
+ex:MarketStress a owl:Class .
+ex:MarketStress rdfs:subClassOf ex:MarketDisruption .
+ex:IlliquidMarket a owl:Class .
+ex:IlliquidMarket rdfs:subClassOf ex:MarketDisruption .
+ex:FragmentedMarket a owl:Class .
+ex:FragmentedMarket rdfs:subClassOf ex:MarketDisruption .
+ex:Arrangement a owl:Class .
+ex:DisruptionPolicy a owl:Class .
+ex:DisruptionPolicy rdfs:subClassOf ex:Document .
+ex:MarketStressPriceOutcome a owl:Class .
+ex:DeterminationConditionPossibility a owl:Class .
+ex:PriceCondition a owl:Class ; owl:oneOf ( ex:Inaccurate ex:Delayed ) .
+ex:Inaccurate a ex:PriceCondition, owl:NamedIndividual .
+ex:Delayed a ex:PriceCondition, owl:NamedIndividual .
+ex:DeterminationCondition a owl:Class ; owl:oneOf ( ex:Limited ex:Impaired ) .
+ex:Limited a ex:DeterminationCondition, owl:NamedIndividual .
+ex:Impaired a ex:DeterminationCondition, owl:NamedIndividual .
+
+ex:Solactive a ex:Organization, owl:NamedIndividual .
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:SolactiveDisruptionArrangements a ex:Arrangement, owl:NamedIndividual .
+ex:SolactiveDisruptionPolicy a ex:DisruptionPolicy, owl:NamedIndividual .
+ex:ThisGuideline a ex:Document, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:VarietyOfReasons a ex:VagueTerm, owl:NamedIndividual .
+ex:Generally a ex:VagueTerm, owl:NamedIndividual .
+ex:MayBeLimitedOrImpaired a ex:VagueTerm, owl:NamedIndividual .
+ex:OneOrMoreIndexComponents a ex:VagueTerm, owl:NamedIndividual .
+ex:AtTimesOfMarketDisruption a ex:VagueTerm, owl:NamedIndividual .
+ex:index_of a owl:ObjectProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:Organization .
+ex:index_component_of a owl:ObjectProperty ;
+  rdfs:domain ex:IndexComponent ;
+  rdfs:range ex:Index .
+ex:period_of_market_stress a owl:ObjectProperty ;
+  rdfs:domain ex:Period ;
+  rdfs:range ex:MarketStress .
+ex:period_of_market_disruption a owl:ObjectProperty ;
+  rdfs:domain ex:Period ;
+  rdfs:range ex:MarketDisruption .
+ex:calculates_index_following_arrangement a owl:Class, a4:NaryRelationClass .
+ex:calculates_index_following_arrangement_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:calculates_index_following_arrangement ;
+  rdfs:range ex:Organization .
+ex:calculates_index_following_arrangement_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:calculates_index_following_arrangement ;
+  rdfs:range ex:Index .
+ex:calculates_index_following_arrangement_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:calculates_index_following_arrangement ;
+  rdfs:range ex:Period .
+ex:calculates_index_following_arrangement_arg_3 a owl:ObjectProperty ;
+  rdfs:domain ex:calculates_index_following_arrangement ;
+  rdfs:range ex:Arrangement .
+ex:predefined a owl:Class ; rdfs:subClassOf ex:Arrangement .
+ex:exhaustive a owl:Class ; rdfs:subClassOf ex:Arrangement .
+ex:described_in a owl:ObjectProperty ;
+  rdfs:domain ex:Arrangement ;
+  rdfs:range ex:Document .
+ex:incorporated_by_reference_into a owl:ObjectProperty ;
+  rdfs:domain ex:Document ;
+  rdfs:range ex:Document .
+ex:available_on a owl:ObjectProperty ;
+  rdfs:domain ex:Document ;
+  rdfs:range ex:WebResource .
+ex:website_of a owl:ObjectProperty ;
+  rdfs:domain ex:WebResource ;
+  rdfs:range ex:Organization .
+ex:market_stress_arises_due_to a owl:ObjectProperty ;
+  rdfs:domain ex:MarketStress ;
+  rdfs:range ex:VagueTerm .
+ex:market_stress_price_outcome a owl:ObjectProperty ;
+  rdfs:domain ex:MarketStressPriceOutcome ;
+  rdfs:range ex:MarketStress .
+ex:price_outcome_component a owl:ObjectProperty ;
+  rdfs:domain ex:MarketStressPriceOutcome ;
+  rdfs:range ex:IndexComponent .
+ex:price_outcome_inaccurate_or_delayed a owl:ObjectProperty ;
+  rdfs:domain ex:MarketStressPriceOutcome ;
+  rdfs:range ex:PriceCondition .
+ex:price_outcome_qualified_by a owl:ObjectProperty ;
+  rdfs:domain ex:MarketStressPriceOutcome ;
+  rdfs:range ex:VagueTerm .
+ex:price_outcome_component_scope a owl:ObjectProperty ;
+  rdfs:domain ex:MarketStressPriceOutcome ;
+  rdfs:range ex:VagueTerm .
+ex:determination_possibility_for_index a owl:ObjectProperty ;
+  rdfs:domain ex:DeterminationConditionPossibility ;
+  rdfs:range ex:Index .
+ex:determination_possibility_at_period a owl:ObjectProperty ;
+  rdfs:domain ex:DeterminationConditionPossibility ;
+  rdfs:range ex:Period .
+ex:determination_condition_possible a owl:ObjectProperty ;
+  rdfs:domain ex:DeterminationConditionPossibility ;
+  rdfs:range ex:DeterminationCondition .
+ex:determination_possibility_qualified_by a owl:ObjectProperty ;
+  rdfs:domain ex:DeterminationConditionPossibility ;
+  rdfs:range ex:VagueTerm .
+
+ex:TheIndex ex:index_of ex:Solactive .
+ex:SolactiveDisruptionPolicy ex:incorporated_by_reference_into ex:ThisGuideline .
+ex:SolactiveDisruptionPolicy ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:SolactiveDisruptionArrangements a ex:predefined .
+ex:SolactiveDisruptionArrangements a ex:exhaustive .
+ex:SolactiveDisruptionArrangements ex:described_in ex:SolactiveDisruptionPolicy .
+ex:ASSERT_calculation_during_market_stress_follows_arrangements a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall i: Index, forall p: Period, forall s: MarketStress, ((index_of(i, Solactive)) and (period_of_market_stress(p, s))) implies (calculates_index_following_arrangement(Solactive, i, p, SolactiveDisruptionArrangements))" .
+ex:ASSERT_market_stress_can_arise_due_to_variety_of_reasons a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall p: Period, forall s: MarketStress, (period_of_market_stress(p, s)) implies (market_stress_arises_due_to(s, VarietyOfReasons))" .
+ex:ASSERT_market_stress_generally_results_in_price_conditions a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall p: Period, forall s: MarketStress, (period_of_market_stress(p, s)) implies (exists o: MarketStressPriceOutcome, exists c: IndexComponent, (market_stress_price_outcome(o, s)) and (price_outcome_component(o, c)) and (price_outcome_component_scope(o, OneOrMoreIndexComponents)) and (index_component_of(c, TheIndex)) and (price_outcome_qualified_by(o, Generally)) and ((price_outcome_inaccurate_or_delayed(o, Inaccurate)) or (price_outcome_inaccurate_or_delayed(o, Delayed))))" .
+ex:ASSERT_index_determination_may_be_limited_or_impaired a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall p: Period, ((exists s: MarketStress, period_of_market_stress(p, s)) or (exists m: IlliquidMarket, period_of_market_disruption(p, m)) or (exists f: FragmentedMarket, period_of_market_disruption(p, f))) implies (exists possibility: DeterminationConditionPossibility, (determination_possibility_for_index(possibility, TheIndex)) and (determination_possibility_at_period(possibility, p)) and (determination_possibility_qualified_by(possibility, MayBeLimitedOrImpaired)) and (determination_possibility_qualified_by(possibility, AtTimesOfMarketDisruption)) and ((determination_condition_possible(possibility, Limited)) or (determination_condition_possible(possibility, Impaired))))" .

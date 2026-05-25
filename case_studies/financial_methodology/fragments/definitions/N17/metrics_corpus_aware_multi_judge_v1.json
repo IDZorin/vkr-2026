@@ -1,0 +1,172 @@
+﻿{
+  "schema": "corpus_aware_multi_judge_v1",
+  "generated_at": "2026-05-10T20:26:55+02:00",
+  "entry_id": "N17",
+  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N17",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "included_context": {
+    "entry": "N17",
+    "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N17",
+    "global_bridge": false,
+    "related_sections": [],
+    "artifacts": {
+      "source.md": true,
+      "normalized.md": true,
+      "main_ir.a4v3": true,
+      "repair.a4v3": false,
+      "provenance.yaml": true,
+      "translator_notes.md": true,
+      "waivers.yaml": false,
+      "waivers_v1.yaml": false
+    }
+  },
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR faithfully encodes the source as a cross-reference definition: the term carrier is linked to the quoted label \"Index\" and the referenced document part is linked to \"Introduction\", with the meaning-defining relation asserted and no substantive local meaning invented. The provenance and translator notes confirm this is intended as definitional reference rather than obligation.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses explicit label-bridge symbols and carrier entities, which is more formal than the source but semantically aligned."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2248,
+        "completion_tokens": 165,
+        "total_tokens": 2413
+      },
+      "latency_s": 2.982564926147461
+    },
+    {
+      "model": "gpt-5.4",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "none"
+      ],
+      "reason_short": "The local IR faithfully captures the single source sentence by introducing a carrier for the defined term \"Index,\" a carrier for the referenced Section \"Introduction,\" explicit source-label links for both, and a relation stating that the term has its meaning defined in that section. Nothing in the IR contradicts the source, and it does not improperly invent the substantive definition.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses carrier entities (`IndexTerm`, `IntroductionSection`) plus label relations instead of quoting the source text directly; this is a modeling choice, not semantic drift.",
+        "The relation name `term_shall_have_meaning_defined_in_section` appropriately encodes the definitional cross-reference, though it is more formalized than the source wording."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2248,
+        "completion_tokens": 207,
+        "total_tokens": 2455
+      },
+      "latency_s": 4.217403411865234
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The source sentence states that 'Index' shall have the meaning defined in Section 'Introduction'. The IR captures this as a cross-reference definition via three coordinated claims: (1) the term 'Index' is a DefinedTerm with source label 'Index', (2) the referenced location is a DocumentPart with source label 'Introduction', and (3) a relation asserting that the term's meaning is defined in that section. The provenance and translator notes confirm this representation is intentional and correct: the 'shall' is not deontic but definitional, and the label bridges are explicit for review/merge support. No substantive meaning is invented locally. The IR faithfully encodes the source's cross-reference structure.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses three separate facts (two label bindings and one relation) to express what the source states in a single sentence. This is a deliberate design choice to make lexical identity and document structure explicit for downstream merge operations, not a semantic divergence."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2628,
+        "completion_tokens": 333,
+        "total_tokens": 2961
+      },
+      "latency_s": 5.550783395767212
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "none"
+      ],
+      "reason_short": "The IR faithfully captures the source statement that the term 'Index' is defined in Section 'Introduction' through an entity-relation structure that records the cross-reference without adding substantive meaning.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR introduces explicit label entities (DefinedTermLabel, DocumentPartLabel) to attach the source strings, which is a design choice for clarity in review and merge contexts."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2377,
+        "completion_tokens": 1341,
+        "total_tokens": 3718
+      },
+      "latency_s": 46.93937635421753
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR accurately models the source sentence as a cross-reference definition. It introduces entities for the term and section, explicitly binds them to their quoted lexical labels, and asserts a definitional relationship. The corpus context confirms that 'shall' is treated as definitional rather than deontic and that no substantive meaning is invented, which aligns perfectly with the source's intent.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses explicit label-binding relations to preserve lexical identity, which is a robust modeling choice for cross-references but adds structural overhead compared to a direct string reference."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2402,
+        "completion_tokens": 2707,
+        "total_tokens": 5109
+      },
+      "latency_s": 51.018866777420044
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "local_source_alignment_mode": "corresponds",
+    "local_source_alignment_distribution": {
+      "corresponds": 5
+    },
+    "local_source_alignment_agreement": 1.0,
+    "corpus_alignment_mode": "corresponds",
+    "corpus_alignment_distribution": {
+      "corresponds": 5
+    },
+    "corpus_alignment_agreement": 1.0,
+    "unanimous_corpus_alignment": true,
+    "needs_context_count": 0,
+    "mean_confidence": 0.988
+  }
+}

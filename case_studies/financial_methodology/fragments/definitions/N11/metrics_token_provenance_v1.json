@@ -1,0 +1,213 @@
+{
+  "entry_id": "N11",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 4,
+    "content_token_count": 3,
+    "covered_content_token_count": 3,
+    "uncovered_content_token_count": 0,
+    "ignored_stopword_count": 1,
+    "content_coverage_rate": 1.0
+  },
+  "tokens": [
+    {
+      "token": "fix",
+      "surface_forms": [
+        "Fixing"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fixing_day",
+          "family": "SymbolDecl.rel",
+          "line": 1,
+          "matched_text": "fixing_day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fixing_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 4,
+          "matched_text": "fixing_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "fixing_day_definition",
+          "assertion_kind": "constraint",
+          "line": 4,
+          "matched_text": "fixing_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "fixing_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "fixing_day"
+        }
+      ]
+    },
+    {
+      "token": "day",
+      "surface_forms": [
+        "Day"
+      ],
+      "count": 2,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 9
+        },
+        {
+          "line": 1,
+          "column": 27
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fixing_day",
+          "family": "SymbolDecl.rel",
+          "line": 1,
+          "matched_text": "fixing_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "fixing_day",
+          "family": "SymbolDecl.rel",
+          "line": 1,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 2,
+          "matched_text": "selection_day"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 2,
+          "matched_text": "Day"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "fixing_day_definition",
+          "family": "AssertDecl.constraint",
+          "line": 4,
+          "matched_text": "fixing_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "fixing_day_definition",
+          "assertion_kind": "constraint",
+          "line": 4,
+          "matched_text": "fixing_day_definition"
+        },
+        {
+          "source": "formula",
+          "role": "literal",
+          "assertion": "fixing_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.vars[0].sort",
+          "matched_text": "Day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "fixing_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.left",
+          "matched_text": "fixing_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "fixing_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "selection_day"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 14
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "selection",
+      "surface_forms": [
+        "Selection"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 17
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "selection_day",
+          "family": "SymbolDecl.rel",
+          "line": 2,
+          "matched_text": "selection_day"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "fixing_day_definition",
+          "assertion_kind": "constraint",
+          "expr_path": "expr.body.right",
+          "matched_text": "selection_day"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

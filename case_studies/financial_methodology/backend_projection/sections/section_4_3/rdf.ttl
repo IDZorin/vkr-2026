@@ -1,0 +1,54 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_3 a a4:ProjectionTarget ;
+  a4:relativePath "sections/section_4_3/main_ir.a4v3" ;
+  a4:targetKind "section" .
+
+ex:Index a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:IndexLevel a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:RoundingPrecision a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:DecimalPlaceCount a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:DecimalPlaceCount rdfs:subClassOf ex:Nat .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:TwoDecimalPlaces a ex:RoundingPrecision, owl:NamedIndividual .
+ex:level_of_index a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:level_of_index_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexLevel .
+ex:level_of_index a4:argument ex:level_of_index_arg_0 .
+ex:level_of_index_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Index .
+ex:level_of_index a4:argument ex:level_of_index_arg_1 .
+ex:rounded_to_precision a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:rounded_to_precision_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexLevel .
+ex:rounded_to_precision a4:argument ex:rounded_to_precision_arg_0 .
+ex:rounded_to_precision_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:RoundingPrecision .
+ex:rounded_to_precision a4:argument ex:rounded_to_precision_arg_1 .
+ex:decimal_place_count a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:decimal_place_count_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:RoundingPrecision .
+ex:decimal_place_count a4:argument ex:decimal_place_count_arg_0 .
+ex:decimal_place_count a4:resultSort ex:DecimalPlaceCount .
+ex:decimal_place_count a4:functionFlag "required" .
+
+ex:ASSERT_two_decimal_places_precision a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "14"^^xsd:integer ;
+  a4:exprText "(decimal_place_count(TwoDecimalPlaces)) = (2)" ;
+  a4:sourceText "fact two_decimal_places_precision :\n  decimal_place_count(TwoDecimalPlaces) = 2" .
+ex:ASSERT_index_level_rounded_to_two_decimal_places a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "17"^^xsd:integer ;
+  a4:exprText "forall l: IndexLevel, (level_of_index(l, TheIndex)) implies (rounded_to_precision(l, TwoDecimalPlaces))" ;
+  a4:sourceText "constraint index_level_rounded_to_two_decimal_places :\n  forall l: IndexLevel,\n    level_of_index(l, TheIndex)\n    implies rounded_to_precision(l, TwoDecimalPlaces)" .

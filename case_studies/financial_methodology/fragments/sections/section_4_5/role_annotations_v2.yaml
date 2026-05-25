@@ -1,0 +1,104 @@
+schema: role_annotations_v2
+entry_id: section_4_5
+annotation_status: migrated_signature_only_v2
+migration_notes:
+- Generated from the legacy role_annotations.yaml v1 experiment.
+- Only rel/fun signatures with arity > 2 or repeated argument sorts are retained.
+- Formula logic remains exclusively in main_ir.a4v3; facts/constraints/deontics are not mirrored here.
+symbols:
+  considers_for_index_maintenance:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: object
+    notes:
+    - The third argument is a maintenance context; v2 uses neutral object rather than a broad context
+      role.
+  adjustment_between_regular_rebalance_days:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: time
+        direction: from
+      3:
+        role: time
+        direction: to
+  material_impact_on:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: object
+    notes:
+    - The third argument is an affected attribute/dimension; v2 keeps it as object to avoid expanding
+      the role vocabulary.
+  implemented_from_to:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: time
+        direction: from
+      3:
+        role: time
+        direction: to
+  methodology_contains_definition:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: value
+  methodology_specifies_relevant_adjustment_to_index_variable:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: value
+  methodology_quality_described_by:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: value
+      3:
+        role: object
+    notes:
+    - VagueTerm is treated as an object descriptor rather than a separate qualifier role.
+  deviation_preserves_index_quality_over_time:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: value
+  considers_relevant_for_index_maintenance:
+    kind: rel
+    args:
+      1:
+        role: subject
+      2:
+        role: object
+      3:
+        role: object
+    notes:
+    - The third argument is a maintenance context; v2 uses neutral object rather than a broad context
+      role.

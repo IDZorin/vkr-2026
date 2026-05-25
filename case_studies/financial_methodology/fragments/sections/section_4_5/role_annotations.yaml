@@ -1,0 +1,110 @@
+schema: role_annotations_v1
+entry_id: section_4_5
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  adjustment_between_regular_rebalance_days:
+    kind: rel
+    args:
+      1: {role: event}
+      2: {role: day}
+      3: {role: day}
+  considers_for_index_maintenance:
+    kind: rel
+    args:
+      1: {role: agent}
+      2: {role: event}
+      3: {role: subject}
+  considers_relevant_for_index_maintenance:
+    kind: rel
+    args:
+      1: {role: agent}
+      2: {role: kind}
+      3: {role: subject}
+  cum_day:
+    kind: fun
+    args:
+      1: {role: event}
+    returns: {role: same_as_type}
+  deviation_preserves_index_quality_over_time:
+    kind: rel
+    args:
+      1: {role: event}
+      2: {role: subject}
+      3: {role: quality}
+  ex_day:
+    kind: fun
+    args:
+      1: {role: event}
+    returns: {role: same_as_type}
+  implemented_from_to:
+    kind: rel
+    args:
+      1: {role: event}
+      2: {role: day}
+      3: {role: day}
+  index_adjustment:
+    kind: fun
+    args:
+      1: {role: event}
+    returns: {role: same_as_type}
+  material_impact_on:
+    kind: rel
+    args:
+      1: {role: event}
+      2: {role: component}
+      3: {role: attribute}
+  methodology_contains_definition:
+    kind: rel
+    args:
+      1: {role: reference}
+      2: {role: kind}
+      3: {role: definition}
+  methodology_quality_described_by:
+    kind: rel
+    args:
+      1: {role: reference}
+      2: {role: quality}
+      3: {role: qualifier}
+  methodology_specifies_relevant_adjustment_to_index_variable:
+    kind: rel
+    args:
+      1: {role: reference}
+      2: {role: kind}
+      3: {role: index_variable}
+  price_effect:
+    kind: fun
+    args:
+      1: {role: event}
+    returns: {role: same_as_type}
+constraints:
+  considered_corporate_actions_have_material_impact:
+    frame: considered_corporate_actions_have_material_impact
+    variables:
+      ca: {role: event, quantifier: forall}
+      c: {role: component, quantifier: exists}
+      attr: {role: attribute, quantifier: exists}
+  considered_corporate_actions_result_in_index_adjustment:
+    frame: considered_corporate_actions_result_in_index_adjustment
+    variables:
+      ca: {role: event, quantifier: forall}
+      r1: {role: day, quantifier: exists}
+      r2: {role: day, quantifier: exists}
+  corporate_action_deviation_conditions:
+    frame: corporate_action_deviation_conditions
+    variables:
+      d: {role: event, quantifier: forall}
+      ca: {role: event, quantifier: exists}
+  corporate_action_implementation_period_and_price_effect:
+    frame: corporate_action_implementation_period_and_price_effect
+    variables:
+      ca: {role: event, quantifier: forall}
+  equity_index_methodology_material_for_covered_corporate_actions:
+    frame: equity_index_methodology_material_for_covered_corporate_actions
+    variables:
+      k: {role: kind, quantifier: forall}
+      d: {role: definition, quantifier: exists}
+      v: {role: index_variable, quantifier: exists}
+  non_conclusive_means_not_conclusive:
+    frame: non_conclusive_means_not_conclusive
+    variables:
+      l: {role: container, quantifier: forall}

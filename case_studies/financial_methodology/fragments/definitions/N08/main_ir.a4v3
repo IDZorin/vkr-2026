@@ -1,0 +1,19 @@
+sort IndexComponent extends FinancialInstrument
+sort TradingDay extends Day
+sort Exchange
+sort ClosingPrice extends MonetaryAmount
+sort DailyValueTraded extends MonetaryAmount
+sort VolumeNumberOfShares extends Nat
+
+fun[required] closing_price : IndexComponent, TradingDay -> ClosingPrice
+fun[required] daily_value_traded : IndexComponent, TradingDay -> DailyValueTraded
+fun[required] volume_traded_on_exchange_during_trading_day : IndexComponent, Exchange, TradingDay -> VolumeNumberOfShares
+fun[required] respective_exchange : IndexComponent -> Exchange
+
+constraint daily_value_traded_product_definition :
+  forall c: IndexComponent, forall d: TradingDay,
+    daily_value_traded(c, d)
+    =
+    closing_price(c, d)
+    *
+    volume_traded_on_exchange_during_trading_day(c, respective_exchange(c), d)

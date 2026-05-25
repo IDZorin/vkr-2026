@@ -1,0 +1,78 @@
+{
+  "entry_id": "section_4_4",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 2534,
+    "completion_tokens": 366,
+    "total_tokens": 2900
+  },
+  "latency_s": 3.8046798706054688,
+  "scenarios": [
+    {
+      "description": "A corporate action specified in Section 4.4 occurs on an Index Component during the interval between two regular Rebalance Days. Solactive makes the required Index adjustment, announces it on the Solactive website under Announcements with at least two Trading Days' notice for the affected component, and implements it on the effective day stated in the notice.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A corporate action specified in Section 4.4 occurs in relation to an Index Component, but Solactive does not make any Index adjustment and does not announce anything.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "ambiguous",
+      "agree": false,
+      "drift_explanation": "The source clearly requires an adjustment under these circumstances, but the IR only states what must happen if a RequiredIndexAdjustment and Notice exist; it does not explicitly say that every such corporate action always yields a RequiredIndexAdjustment."
+    },
+    {
+      "description": "A corporate action specified in Section 4.4 occurs in relation to an Index Component, and Solactive makes a required adjustment affecting only the weighting of certain Index Components, with the adjustment otherwise compliant and announced properly.",
+      "category": "scope_edge",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "Solactive announces an Index adjustment on the Solactive website under Announcements, but the notice gives only one Trading Day of notice for the affected Index Component, and the adjustment is implemented on a different day than the notice's effective day.",
+      "category": "modality_edge",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 3,
+    "agreement_rate": 0.75,
+    "drifts": [
+      {
+        "description": "A corporate action specified in Section 4.4 occurs in relation to an Index Component, but Solactive does not make any Index adjustment and does not announce anything.",
+        "category": "negative",
+        "source_verdict": "reject",
+        "ir_verdict": "ambiguous",
+        "agree": false,
+        "drift_explanation": "The source clearly requires an adjustment under these circumstances, but the IR only states what must happen if a RequiredIndexAdjustment and Notice exist; it does not explicitly say that every such corporate action always yields a RequiredIndexAdjustment."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 0
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 1
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

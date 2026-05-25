@@ -1,0 +1,126 @@
+{
+  "entry_id": "section_3_1",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main rebalance timing, selection, fixing-day shares, reference to the methodology, and publication of changes with notice. However, it also adds several stronger or extra commitments not stated in the source, and it omits some source-specific phrasing such as the explicit “after Close of Business” timing being tied to the rebalance day in a direct way.",
+      "semantic_differences": [
+        "The source says the Index is adjusted on the Rebalance Day after Close of Business; the IR encodes this via an event occurring on the day and following a CloseOfBusiness event, which is close but not a direct statement of the adjustment timing as written.",
+        "The source says the shares are implemented as determined on the Fixing Day based on the weights calculated on the Selection Day; the IR adds a more formalized structure with explicit functions and relations for shares and weights that is stronger than the plain prose.",
+        "The source says Solactive will publish any changes made to the Index Components with sufficient notice before the Rebalance Day on the website under the section 'Announcement'; the IR turns this into an obligation on Solactive to publish an indexed change event, which is a narrower and more formalized claim than the source’s general statement.",
+        "The IR introduces a specific 'Section3_1IndexComponentChange' event type and ties notices to it, while the source only speaks generally about changes made to the Index Components.",
+        "The IR asserts incorporation by reference into 'ThisGuideline' and availability on 'SolactiveWebsite' with explicit URL entities; the source mentions the methodology is incorporated by reference and available on the Solactive website, but does not explicitly identify the guideline/document object in the same way."
+      ],
+      "stylistic_notes": [
+        "'CloseOfBusiness' is a canonicalized event-style encoding of the source phrase 'Close of Business'.",
+        "'AnnouncementSection' is a naming choice for the website section 'Announcement'.",
+        "The IR uses formalized symbols like 'SelectionDay', 'FixingDay', and 'RebalanceDay' to mirror source capitalized terms."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3423,
+        "completion_tokens": 443,
+        "total_tokens": 3866
+      },
+      "latency_s": 5.991001605987549
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main rebalance mechanics, the reference to the Equity Index Methodology, and Solactive's publication of changes before the Rebalance Day. However, it adds stronger commitments than the source in several places, especially by universally requiring notices for all modeled changes and by asserting existence/scope conditions for index-component changes that the source does not itself state in this section.",
+      "semantic_differences": [
+        "The source says Solactive will publish any changes made to the Index Components with sufficient notice before the Rebalance Day, but the IR strengthens this into a universal existence claim that every Section3_1IndexComponentChange has an associated Notice with specific structured attributes; this is more formal and stronger than the source wording.",
+        "The IR introduces and constrains a special class Section3_1IndexComponentChange and asserts that every such change is a change of TheIndex and involves at least one IndexComponent. The source mentions changes made to the Index Components, but it does not separately define this event class or state this as an independent universal constraint.",
+        "The obligation publish_index_component_change targets the change itself with scope AnnouncementSection, whereas the source more specifically speaks of publishing the changes on the Solactive website under the Announcement section with sufficient notice before the Rebalance Day; the deontic declaration does not itself encode the timing/notice condition and publication location, which are only captured separately in another constraint."
+      ],
+      "stylistic_notes": [
+        "Using event reification such as OrdinaryRebalance and CloseOfBusiness is a standard formalization choice.",
+        "The IR uses helper symbols like new_selection_for_rebalance, shares_on_fixing_day, and weight_on_selection_day to unpack the prose; this is wording/structuring rather than a semantic problem.",
+        "The sort Weight extends Percent relies on infrastructure not listed in the provided prelude block, but this is more of a typing/catalog issue than a mismatch with the source meaning."
+      ],
+      "confidence": 0.82,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3423,
+        "completion_tokens": 442,
+        "total_tokens": 3865
+      },
+      "latency_s": 10.675781965255737
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core rebalancing process (selection → fixing → rebalancing on specified days, with notice publication) and correctly encodes the reference to external methodology. However, there are semantic gaps: (1) the IR does not formally encode that shares are 'determined on the Fixing Day' as a constraint—it only relates them via a function and relation, leaving open whether they could be determined elsewhere; (2) the IR introduces 'Section3_1IndexComponentChange' as a distinct event type with its own rebalance_day function, but the source describes changes to Index Components as a consequence of the ordinary rebalance process, not as a separate event with its own temporal anchor; (3) the obligation to publish changes lacks a temporal constraint linking publication to 'before the Rebalance Day', reducing the semantic fidelity of 'sufficient notice before the Rebalance Day'.",
+      "semantic_differences": [
+        "Shares determination: IR uses function shares_on_fixing_day(FixingDay, IndexComponent) → Shares and relation shares_determined_on(Shares, FixingDay), but does not formally constrain that shares MUST be determined on the Fixing Day (no constraint asserting uniqueness or necessity of this temporal anchor).",
+        "Index Component Changes as separate event: IR reifies Section3_1IndexComponentChange as an independent Event with its own rebalance_day_of_change function, but source describes changes as a direct consequence of the ordinary rebalance ('Solactive will publish any changes made to the Index Components'), not as a temporally independent event. This introduces an extra degree of freedom in the temporal model.",
+        "Notice timing constraint: IR encodes notice_for_rebalance_day(Notice, RebalanceDay) and notice_published_by/on/under relations, but does not formally constrain that the notice must be published BEFORE the Rebalance Day. The source explicitly states 'sufficient notice before the Rebalance Day'; the IR's obligation and constraint do not enforce this temporal ordering.",
+        "Weights as intermediate calculation: IR treats Weight as a sort and weight_on_selection_day as a function, but does not formally assert that weights are calculated (computed) on the Selection Day—only that they are related to it. The source says 'weights calculated on the Selection Day', implying a computational event or constraint."
+      ],
+      "stylistic_notes": [
+        "Naming: 'Section3_1IndexComponentChange' is verbose; 'IndexComponentChange' alone might suffice, or the section reference could be encoded via a relation rather than a sort name.",
+        "Entity naming: 'HttpsWwwSolactiveComDocumentsEquityIndexMethodology' and 'HttpsWwwSolactiveComNewsAnnouncements' are raw URL strings as entity names, which is unconventional; a more abstract entity name (e.g., 'EquityIndexMethodologyUrl', 'AnnouncementSectionUrl') with a separate document_url relation would be clearer.",
+        "Relation proliferation: The IR introduces many fine-grained relations (e.g., selection_in_accordance_with, shares_based_on_weight, weight_calculated_on) that are semantically correct but create a dense graph; this is not an error, but reflects a design choice to be explicit about every dependency.",
+        "VagueTerm usage: 'SufficientNoticeBeforeRebalanceDay' is encoded as a VagueTerm entity, which is appropriate for vague source language, but the IR does not formally define what 'sufficient' means or enforce the 'before' temporal constraint."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4234,
+        "completion_tokens": 878,
+        "total_tokens": 5112
+      },
+      "latency_s": 10.815820455551147
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 68.08420062065125
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully decomposes the source text into modular constraints, facts, and an obligation that precisely capture the procedural adjustments, temporal references, document incorporations, and publishing requirements. All formal elements trace directly to source noun phrases or canonical prelude infrastructure, and the lowering of agent modalities ('will publish' to obligation) and procedural vagueness ('sufficient notice' to VagueTerm) adheres to standard a4v3 conventions without introducing external semantics.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The temporal requirement 'before the Rebalance Day' is encoded via a VagueTerm entity and a relational link rather than a strict temporal logic operator, which is a standard and acceptable a4v3 convention for procedural notice requirements.",
+        "The addition of `occurs_on` in the rebalance constraint provides standard event-day grounding infrastructure implied by the source phrasing 'on the Rebalance Day'.",
+        "Decomposition of the single source paragraph into multiple distinct constraints and facts improves formal modularity without altering the underlying meaning."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3609,
+        "completion_tokens": 3101,
+        "total_tokens": 6710
+      },
+      "latency_s": 58.806188106536865
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.833
+  }
+}

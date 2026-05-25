@@ -1,0 +1,104 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N12 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N12/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:SelectionDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:Security a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:ShareClass a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:Share a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ShareCount a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:ShareCount rdfs:subClassOf ex:Nat .
+ex:Fraction a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:Fraction rdfs:subClassOf ex:Real .
+ex:FreeFloat a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:FreeFloat rdfs:subClassOf ex:Fraction .
+ex:DataVendor a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+
+ex:share_class a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:share_class_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:share_class a4:argument ex:share_class_arg_0 .
+ex:share_class_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:share_class a4:argument ex:share_class_arg_1 .
+ex:share_class a4:resultSort ex:ShareClass .
+ex:share_class a4:functionFlag "required" .
+ex:free_float a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:free_float_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:free_float a4:argument ex:free_float_arg_0 .
+ex:free_float_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:free_float a4:argument ex:free_float_arg_1 .
+ex:free_float a4:resultSort ex:FreeFloat .
+ex:free_float a4:functionFlag "required" .
+ex:free_float_numerator a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:free_float_numerator_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:FreeFloat .
+ex:free_float_numerator a4:argument ex:free_float_numerator_arg_0 .
+ex:free_float_numerator a4:resultSort ex:ShareCount .
+ex:free_float_numerator a4:functionFlag "required" .
+ex:free_float_denominator a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:free_float_denominator_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:FreeFloat .
+ex:free_float_denominator a4:argument ex:free_float_denominator_arg_0 .
+ex:free_float_denominator a4:resultSort ex:ShareCount .
+ex:free_float_denominator a4:functionFlag "required" .
+ex:fulfills_index_component_requirements a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:fulfills_index_component_requirements_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:fulfills_index_component_requirements a4:argument ex:fulfills_index_component_requirements_arg_0 .
+ex:fulfills_index_component_requirements_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Security .
+ex:fulfills_index_component_requirements a4:argument ex:fulfills_index_component_requirements_arg_1 .
+ex:share_of_share_class a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:share_of_share_class_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Share .
+ex:share_of_share_class a4:argument ex:share_of_share_class_arg_0 .
+ex:share_of_share_class_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ShareClass .
+ex:share_of_share_class a4:argument ex:share_of_share_class_arg_1 .
+ex:issued_share_on_selection_day a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:issued_share_on_selection_day_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:issued_share_on_selection_day a4:argument ex:issued_share_on_selection_day_arg_0 .
+ex:issued_share_on_selection_day_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Share .
+ex:issued_share_on_selection_day a4:argument ex:issued_share_on_selection_day_arg_1 .
+ex:available_for_trading_by_market_participants a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:available_for_trading_by_market_participants_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:available_for_trading_by_market_participants a4:argument ex:available_for_trading_by_market_participants_arg_0 .
+ex:available_for_trading_by_market_participants_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Share .
+ex:available_for_trading_by_market_participants a4:argument ex:available_for_trading_by_market_participants_arg_1 .
+ex:locked_in_by_long_term_holders a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:locked_in_by_long_term_holders_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SelectionDay .
+ex:locked_in_by_long_term_holders a4:argument ex:locked_in_by_long_term_holders_arg_0 .
+ex:locked_in_by_long_term_holders_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:Share .
+ex:locked_in_by_long_term_holders a4:argument ex:locked_in_by_long_term_holders_arg_1 .
+ex:sourced_from_data_vendor a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:sourced_from_data_vendor_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:FreeFloat .
+ex:sourced_from_data_vendor a4:argument ex:sourced_from_data_vendor_arg_0 .
+ex:sourced_from_data_vendor_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DataVendor .
+ex:sourced_from_data_vendor a4:argument ex:sourced_from_data_vendor_arg_1 .
+
+ex:ASSERT_free_float_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "22"^^xsd:integer ;
+  a4:exprText "forall d: SelectionDay, forall s: Security, (fulfills_index_component_requirements(d, s)) implies (((free_float_numerator(free_float(d, s))) = (<count>)) and ((free_float_denominator(free_float(d, s))) = (<count>)) and ((free_float(d, s)) = ((free_float_numerator(free_float(d, s))) / (free_float_denominator(free_float(d, s))))) and (exists vendor: DataVendor, sourced_from_data_vendor(free_float(d, s), vendor)))" ;
+  a4:sourceText "constraint free_float_definition :\n  forall d: SelectionDay, forall s: Security,\n    fulfills_index_component_requirements(d, s)\n    implies\n      free_float_numerator(free_float(d, s))\n      =\n      count(sh in Share where\n        share_of_share_class(sh, share_class(d, s))\n        and issued_share_on_selection_day(d, sh)\n        and available_for_trading_by_market_participants(d, sh)\n        and not locked_in_by_long_term_holders(d, sh))\n      and free_float_denominator(free_float(d, s))\n      =\n      count(sh in Share where\n        share_of_share_class(sh, share_class(d, s))\n        and issued_share_on_selection_day(d, sh))\n      and free_float(d, s)\n      =\n      free_float_numerator(free_float(d, s)) / free_float_denominator(free_float(d, s))\n      and exists vendor: DataVendor,\n        sourced_from_data_vendor(free_float(d, s), vendor)" .

@@ -1,0 +1,58 @@
+schema: role_annotations_v1
+entry_id: N31
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  respective_exchange:
+    kind: fun
+    args:
+      1: {role: component}
+    returns: {role: same_as_type}
+  trade_price:
+    kind: fun
+    args:
+      1: {role: event}
+    returns: {role: same_as_type}
+  trade_time:
+    kind: fun
+    args:
+      1: {role: event}
+    returns: {role: same_as_type}
+  trading_price:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+    returns: {role: same_as_type}
+  most_recent_published_trade_for:
+    kind: rel
+    args:
+      1: {role: event}
+      2: {role: component}
+      3: {role: day}
+constraints:
+  most_recent_published_trade_scope:
+    frame: most_recent_published_trade_scope
+    variables:
+      t: {role: event, quantifier: forall}
+      c: {role: component, quantifier: forall}
+      d: {role: day, quantifier: forall}
+  most_recent_published_trade_temporal_ordering:
+    frame: most_recent_published_trade_temporal_ordering
+    variables:
+      t: {role: event, quantifier: forall}
+      other: {role: event, quantifier: forall}
+      c: {role: component, quantifier: forall}
+      d: {role: day, quantifier: forall}
+  most_recent_published_trade_uniqueness:
+    frame: most_recent_published_trade_uniqueness
+    variables:
+      t1: {role: event, quantifier: forall}
+      t2: {role: event, quantifier: forall}
+      c: {role: component, quantifier: forall}
+      d: {role: day, quantifier: forall}
+  trading_price_definition:
+    frame: trading_price_definition
+    variables:
+      c: {role: component, quantifier: forall}
+      d: {role: day, quantifier: forall}
+      t: {role: event, quantifier: exists}

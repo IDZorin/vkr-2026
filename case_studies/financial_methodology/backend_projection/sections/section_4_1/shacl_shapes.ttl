@@ -1,0 +1,213 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_4_1 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:IndexComponent a rdfs:Class .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:IndexComponentShape a sh:NodeShape ; sh:targetClass ex:IndexComponent .
+ex:CalculationDay a rdfs:Class .
+ex:CalculationDay rdfs:subClassOf ex:Day .
+ex:CalculationDayShape a sh:NodeShape ; sh:targetClass ex:CalculationDay .
+ex:IndexType a rdfs:Class .
+ex:IndexTypeShape a sh:NodeShape ; sh:targetClass ex:IndexType .
+ex:PriceReturn a ex:IndexType .
+ex:NetTotalReturn a ex:IndexType .
+ex:GrossTotalReturn a ex:IndexType .
+ex:AdjustedReturnIndex a ex:IndexType .
+ex:IndexCalculationFormula a rdfs:Class .
+ex:IndexCalculationFormulaShape a sh:NodeShape ; sh:targetClass ex:IndexCalculationFormula .
+ex:FormulaMechanics a rdfs:Class .
+ex:FormulaMechanicsShape a sh:NodeShape ; sh:targetClass ex:FormulaMechanics .
+ex:IndexLevel a rdfs:Class .
+ex:IndexLevel rdfs:subClassOf ex:Real .
+ex:IndexLevelShape a sh:NodeShape ; sh:targetClass ex:IndexLevel .
+ex:Price a rdfs:Class .
+ex:Price rdfs:subClassOf ex:Real .
+ex:PriceShape a sh:NodeShape ; sh:targetClass ex:Price .
+ex:PriceChange a rdfs:Class .
+ex:PriceChange rdfs:subClassOf ex:Real .
+ex:PriceChangeShape a sh:NodeShape ; sh:targetClass ex:PriceChange .
+ex:ComponentWeight a rdfs:Class .
+ex:ComponentWeight rdfs:subClassOf ex:Percent .
+ex:ComponentWeightShape a sh:NodeShape ; sh:targetClass ex:ComponentWeight .
+ex:CurrencyConversion a rdfs:Class .
+ex:CurrencyConversionShape a sh:NodeShape ; sh:targetClass ex:CurrencyConversion .
+ex:Distribution a rdfs:Class .
+ex:DistributionShape a sh:NodeShape ; sh:targetClass ex:Distribution .
+ex:Payment a rdfs:Class .
+ex:PaymentShape a sh:NodeShape ; sh:targetClass ex:Payment .
+ex:EffectiveDate a rdfs:Class .
+ex:EffectiveDate rdfs:subClassOf ex:Day .
+ex:EffectiveDateShape a sh:NodeShape ; sh:targetClass ex:EffectiveDate .
+ex:ExDate a rdfs:Class .
+ex:ExDate rdfs:subClassOf ex:EffectiveDate .
+ex:ExDateShape a sh:NodeShape ; sh:targetClass ex:ExDate .
+ex:Opening a rdfs:Class .
+ex:OpeningShape a sh:NodeShape ; sh:targetClass ex:Opening .
+ex:Decrement a rdfs:Class .
+ex:DecrementShape a sh:NodeShape ; sh:targetClass ex:Decrement .
+ex:SyntheticDividend a rdfs:Class .
+ex:SyntheticDividend rdfs:subClassOf ex:Decrement .
+ex:SyntheticDividendShape a sh:NodeShape ; sh:targetClass ex:SyntheticDividend .
+ex:IndexPointAmount a rdfs:Class .
+ex:IndexPointAmount rdfs:subClassOf ex:Real .
+ex:IndexPointAmountShape a sh:NodeShape ; sh:targetClass ex:IndexPointAmount .
+ex:CalendarDayCount a rdfs:Class .
+ex:CalendarDayCount rdfs:subClassOf ex:Nat .
+ex:CalendarDayCountShape a sh:NodeShape ; sh:targetClass ex:CalendarDayCount .
+
+ex:PriceReturnIndexVersion a ex:Index .
+ex:NTRIndexVersion a ex:Index .
+ex:GTRIndexVersion a ex:Index .
+ex:AdjustedReturnVersion a ex:Index .
+ex:SOLTCA50 a ex:Index .
+ex:EquityIndexMethodology a ex:Document .
+ex:SolactiveWebsite a ex:WebResource .
+ex:EquityIndexMethodologySection1_2 a ex:DocumentPart .
+ex:EquityIndexMethodologySection1_2Locator a ex:DocumentLocator .
+ex:StandardIndexFormula a ex:IndexCalculationFormula .
+ex:AdjustedReturnFormula a ex:IndexCalculationFormula .
+ex:section_4_1_index a rdfs:Class ; rdfs:subClassOf ex:Index .
+ex:index_component_of a rdfs:Class .
+ex:index_component_ofShape a sh:NodeShape ; sh:targetClass ex:index_component_of .
+ex:index_component_ofShape sh:property [ sh:path ex:index_component_of_arg_0 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:index_component_ofShape sh:property [ sh:path ex:index_component_of_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:index_component_ofShape sh:property [ sh:path ex:index_component_of_arg_2 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:calculated_according_to a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:calculated_according_to ; sh:class ex:Document ] .
+ex:available_on a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:available_on ; sh:class ex:WebResource ] .
+ex:incorporated_by_reference a rdfs:Class ; rdfs:subClassOf ex:Document .
+ex:formula_in_methodology a rdf:Property .
+ex:IndexCalculationFormulaShape sh:property [ sh:path ex:formula_in_methodology ; sh:class ex:Document ] .
+ex:standard_index_formula a rdfs:Class ; rdfs:subClassOf ex:IndexCalculationFormula .
+ex:adjusted_return_formula a rdfs:Class ; rdfs:subClassOf ex:IndexCalculationFormula .
+ex:formula_applies_to_index a rdf:Property .
+ex:IndexCalculationFormulaShape sh:property [ sh:path ex:formula_applies_to_index ; sh:class ex:Index ] .
+ex:detailed_description_found_in a rdf:Property .
+ex:FormulaMechanicsShape sh:property [ sh:path ex:detailed_description_found_in ; sh:class ex:DocumentPart ] .
+ex:formula_level_change_based_on_price_change a rdfs:Class .
+ex:formula_level_change_based_on_price_changeShape a sh:NodeShape ; sh:targetClass ex:formula_level_change_based_on_price_change .
+ex:formula_level_change_based_on_price_changeShape sh:property [ sh:path ex:formula_level_change_based_on_price_change_arg_0 ; sh:class ex:IndexCalculationFormula ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_based_on_price_changeShape sh:property [ sh:path ex:formula_level_change_based_on_price_change_arg_1 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_based_on_price_changeShape sh:property [ sh:path ex:formula_level_change_based_on_price_change_arg_2 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_based_on_price_changeShape sh:property [ sh:path ex:formula_level_change_based_on_price_change_arg_3 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_based_on_price_changeShape sh:property [ sh:path ex:formula_level_change_based_on_price_change_arg_4 ; sh:class ex:PriceChange ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_takes_weight a rdfs:Class .
+ex:formula_level_change_takes_weightShape a sh:NodeShape ; sh:targetClass ex:formula_level_change_takes_weight .
+ex:formula_level_change_takes_weightShape sh:property [ sh:path ex:formula_level_change_takes_weight_arg_0 ; sh:class ex:IndexCalculationFormula ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_takes_weightShape sh:property [ sh:path ex:formula_level_change_takes_weight_arg_1 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_takes_weightShape sh:property [ sh:path ex:formula_level_change_takes_weight_arg_2 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_takes_weightShape sh:property [ sh:path ex:formula_level_change_takes_weight_arg_3 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_takes_weightShape sh:property [ sh:path ex:formula_level_change_takes_weight_arg_4 ; sh:datatype xsd:decimal ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_takes_currency_conversion a rdfs:Class .
+ex:formula_level_change_takes_currency_conversionShape a sh:NodeShape ; sh:targetClass ex:formula_level_change_takes_currency_conversion .
+ex:formula_level_change_takes_currency_conversionShape sh:property [ sh:path ex:formula_level_change_takes_currency_conversion_arg_0 ; sh:class ex:IndexCalculationFormula ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_takes_currency_conversionShape sh:property [ sh:path ex:formula_level_change_takes_currency_conversion_arg_1 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_takes_currency_conversionShape sh:property [ sh:path ex:formula_level_change_takes_currency_conversion_arg_2 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_takes_currency_conversionShape sh:property [ sh:path ex:formula_level_change_takes_currency_conversion_arg_3 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:formula_level_change_takes_currency_conversionShape sh:property [ sh:path ex:formula_level_change_takes_currency_conversion_arg_4 ; sh:class ex:CurrencyConversion ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:payment_of a rdf:Property .
+ex:PaymentShape sh:property [ sh:path ex:payment_of ; sh:class ex:Distribution ] .
+ex:pays_distribution a rdf:Property .
+ex:IndexComponentShape sh:property [ sh:path ex:pays_distribution ; sh:class ex:Distribution ] .
+ex:reinvested_back_into a rdfs:Class .
+ex:reinvested_back_intoShape a sh:NodeShape ; sh:targetClass ex:reinvested_back_into .
+ex:reinvested_back_intoShape sh:property [ sh:path ex:reinvested_back_into_arg_0 ; sh:class ex:Distribution ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:reinvested_back_intoShape sh:property [ sh:path ex:reinvested_back_into_arg_1 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:reinvested_back_intoShape sh:property [ sh:path ex:reinvested_back_into_arg_2 ; sh:class ex:Opening ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:previous_calculation_day_of a rdf:Property .
+ex:CalculationDayShape sh:property [ sh:path ex:previous_calculation_day_of ; sh:class ex:CalculationDay ] .
+ex:deducted_from a rdf:Property .
+ex:DecrementShape sh:property [ sh:path ex:deducted_from ; sh:class ex:Index ] .
+ex:decrement_applied_on_each_index_calculation_day a rdfs:Class ; rdfs:subClassOf ex:Decrement .
+ex:applied_in_compliance_with a rdf:Property .
+ex:DecrementShape sh:property [ sh:path ex:applied_in_compliance_with ; sh:class ex:Document ] .
+ex:includes_day a rdf:Property .
+ex:CalendarDayCountShape sh:property [ sh:path ex:includes_day ; sh:class ex:CalculationDay ] .
+ex:excludes_day a rdf:Property .
+ex:CalendarDayCountShape sh:property [ sh:path ex:excludes_day ; sh:class ex:CalculationDay ] .
+ex:index_type a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_type ; sh:class ex:IndexType ; sh:maxCount 1 ] .
+ex:index_level a rdfs:Class .
+ex:index_levelShape a sh:NodeShape ; sh:targetClass ex:index_level .
+ex:index_levelShape sh:property [ sh:path ex:index_level_arg_0 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:index_levelShape sh:property [ sh:path ex:index_level_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:index_levelShape sh:property [ sh:path ex:index_level_result ; sh:class ex:IndexLevel ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:component_price a rdfs:Class .
+ex:component_priceShape a sh:NodeShape ; sh:targetClass ex:component_price .
+ex:component_priceShape sh:property [ sh:path ex:component_price_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:component_priceShape sh:property [ sh:path ex:component_price_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:component_priceShape sh:property [ sh:path ex:component_price_result ; sh:class ex:Price ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:component_price_change a rdfs:Class .
+ex:component_price_changeShape a sh:NodeShape ; sh:targetClass ex:component_price_change .
+ex:component_price_changeShape sh:property [ sh:path ex:component_price_change_arg_0 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:component_price_changeShape sh:property [ sh:path ex:component_price_change_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:component_price_changeShape sh:property [ sh:path ex:component_price_change_result ; sh:class ex:PriceChange ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:component_weight a rdfs:Class .
+ex:component_weightShape a sh:NodeShape ; sh:targetClass ex:component_weight .
+ex:component_weightShape sh:property [ sh:path ex:component_weight_arg_0 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:component_weightShape sh:property [ sh:path ex:component_weight_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:component_weightShape sh:property [ sh:path ex:component_weight_arg_2 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:component_weightShape sh:property [ sh:path ex:component_weight_result ; sh:class ex:ComponentWeight ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:index_currency a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:index_currency ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:quoted_currency a rdf:Property .
+ex:PriceShape sh:property [ sh:path ex:quoted_currency ; sh:class ex:Currency ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:currency_conversion a rdfs:Class .
+ex:currency_conversionShape a sh:NodeShape ; sh:targetClass ex:currency_conversion .
+ex:currency_conversionShape sh:property [ sh:path ex:currency_conversion_arg_0 ; sh:class ex:Index ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:currency_conversionShape sh:property [ sh:path ex:currency_conversion_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:currency_conversionShape sh:property [ sh:path ex:currency_conversion_arg_2 ; sh:class ex:IndexComponent ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:currency_conversionShape sh:property [ sh:path ex:currency_conversion_result ; sh:class ex:CurrencyConversion ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:underlying_index_of a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:underlying_index_of ; sh:class ex:Index ; sh:maxCount 1 ] .
+ex:decrement_of a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:decrement_of ; sh:class ex:Decrement ; sh:maxCount 1 ] .
+ex:synthetic_dividend_of a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:synthetic_dividend_of ; sh:class ex:SyntheticDividend ; sh:maxCount 1 ] .
+ex:percent_per_annum a rdf:Property .
+ex:DecrementShape sh:property [ sh:path ex:percent_per_annum ; sh:datatype xsd:decimal ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:index_points_per_annum a rdf:Property .
+ex:SyntheticDividendShape sh:property [ sh:path ex:index_points_per_annum ; sh:class ex:IndexPointAmount ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:number_of_calendar_days_between a rdfs:Class .
+ex:number_of_calendar_days_betweenShape a sh:NodeShape ; sh:targetClass ex:number_of_calendar_days_between .
+ex:number_of_calendar_days_betweenShape sh:property [ sh:path ex:number_of_calendar_days_between_arg_0 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:number_of_calendar_days_betweenShape sh:property [ sh:path ex:number_of_calendar_days_between_arg_1 ; sh:class ex:CalculationDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:number_of_calendar_days_betweenShape sh:property [ sh:path ex:number_of_calendar_days_between_result ; sh:class ex:CalendarDayCount ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:effective_date a rdf:Property .
+ex:PaymentShape sh:property [ sh:path ex:effective_date ; sh:class ex:EffectiveDate ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:ex_date a rdf:Property .
+ex:PaymentShape sh:property [ sh:path ex:ex_date ; sh:class ex:ExDate ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:opening a rdf:Property .
+ex:DayShape sh:property [ sh:path ex:opening ; sh:class ex:Opening ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:mechanics a rdf:Property .
+ex:IndexCalculationFormulaShape sh:property [ sh:path ex:mechanics ; sh:class ex:FormulaMechanics ; sh:minCount 1 ; sh:maxCount 1 ] .
+
+ex:PriceReturnIndexVersion a ex:section_4_1_index .
+ex:NTRIndexVersion a ex:section_4_1_index .
+ex:GTRIndexVersion a ex:section_4_1_index .
+ex:AdjustedReturnVersion a ex:section_4_1_index .
+ex:SOLTCA50 a ex:section_4_1_index .
+ex:PriceReturnIndexVersion ex:index_type ex:PriceReturn .
+ex:NTRIndexVersion ex:index_type ex:NetTotalReturn .
+ex:GTRIndexVersion ex:index_type ex:GrossTotalReturn .
+ex:AdjustedReturnVersion ex:index_type ex:AdjustedReturnIndex .
+ex:SOLTCA50 ex:index_type ex:AdjustedReturnIndex .
+ex:EquityIndexMethodology ex:available_on ex:SolactiveWebsite .
+ex:EquityIndexMethodology a ex:incorporated_by_reference .
+ex:StandardIndexFormula ex:formula_in_methodology ex:EquityIndexMethodology .
+ex:StandardIndexFormula a ex:standard_index_formula .
+ex:AdjustedReturnFormula ex:formula_in_methodology ex:EquityIndexMethodology .
+ex:AdjustedReturnFormula a ex:adjusted_return_formula .
+ex:AdjustedReturnVersion ex:underlying_index_of ex:NTRIndexVersion .
+ex:AdjustedReturnFormula ex:formula_applies_to_index ex:SOLTCA50 .
+ex:SOLTCA50 ex:underlying_index_of ex:GTRIndexVersion .

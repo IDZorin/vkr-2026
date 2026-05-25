@@ -1,0 +1,121 @@
+{
+  "entry_id": "N14",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR captures that the GBS Index Universe is the index universe defined in the Solactive Global Benchmark Series guideline and that this applies to the GBS Index specified in Section 2.1. The URL linkage and section reference are faithful encodings of the source wording.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses explicit entities and relations to represent the guideline, section, and index universe, which is a standard formalization rather than a wording change.",
+        "The source’s duplicated phrase \"for the for the\" is normalized in the IR."
+      ],
+      "confidence": 0.97,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2123,
+        "completion_tokens": 144,
+        "total_tokens": 2267
+      },
+      "latency_s": 4.567930698394775
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "corresponds",
+      "relation_type": "same_meaning_poor_wording",
+      "reason_short": "The IR captures the core meaning of the source: there is a GBS Index Universe, it is the index universe defined in the Solactive GBS Benchmark Series guideline, that guideline is identified by the given URL, and the universe is for the GBS Index specified in Section 2.1. The main mismatch is wording/typing precision around naming and the phrase \"for the GBS Index,\" but these do not materially change the asserted meaning.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The source presents \"Gbs Index Universe\" as a named term, while the IR models it as a sort plus a distinguished entity `TheGbsIndexUniverse`.",
+        "The relation name `index_universe_as_defined_in_guideline` is slightly awkward because the source says the universe is defined in the guideline of the series, not merely associated with a guideline.",
+        "The source says \"guideline of the Solactive Global Benchmark Series,\" while the IR names the document `SolactiveGBSBenchmarkSeriesGuideline`; this is a naming normalization rather than a semantic change.",
+        "There is a duplicated \"for the for the\" typo in the source; the IR sensibly ignores it."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2123,
+        "completion_tokens": 299,
+        "total_tokens": 2422
+      },
+      "latency_s": 7.4202752113342285
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully encodes the source statement that 'Gbs Index Universe' is defined in the Solactive GBS Benchmark Series guideline for the GBS Index specified in Section 2.1. The IR introduces canonical sorts (GbsIndexUniverse, GbsIndex) and entities (TheGbsIndexUniverse, GbsIndexSpecifiedInSection2_1, SolactiveGBSBenchmarkSeriesGuideline, Section2_1) with relations (index_universe_as_defined_in_guideline, index_universe_for_gbs_index, gbs_index_specified_in_section) that directly correspond to the source's three core claims: (1) the universe is defined in the guideline, (2) it applies to the GBS Index in Section 2.1, and (3) the URL reference. All terms trace to source noun-phrases or prelude infrastructure.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "Entity naming uses snake_case (TheGbsIndexUniverse, GbsIndexSpecifiedInSection2_1) rather than source's quoted phrase 'Gbs Index Universe'; this is standard a4v3 naming convention.",
+        "The URL is encoded as both a raw_url comment and a Url entity; this dual representation is standard a4v3 practice for document references.",
+        "Relation names (index_universe_as_defined_in_guideline, index_universe_for_gbs_index) are descriptive paraphrases of source's implicit relationships; source does not explicitly name these relations but the IR's naming is transparent and justified."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2498,
+        "completion_tokens": 431,
+        "total_tokens": 2929
+      },
+      "latency_s": 7.270673990249634
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR decomposes the definition into two relations: one linking the Universe to the defining guideline document, and one linking it to the specific GBS Index from Section 2.1. Both aspects are exactly conveyed, with a separate URL assertion for the guideline. All entities are appropriately typed and named.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR uses long entity names (e.g., 'GbsIndexSpecifiedInSection2_1') which mirror the source phrasing; this is a stylistic choice but preserves fidelity.",
+        "The source contains a typographic duplication ('for the for the') which the IR naturally resolves."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2263,
+        "completion_tokens": 1989,
+        "total_tokens": 4252
+      },
+      "latency_s": 68.54936742782593
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR accurately captures all semantic components of the source text: the definition of the 'Gbs Index Universe', its association with the Solactive GBS Benchmark Series guideline (including the URL), and its specific application to the GBS Index referenced in Section 2.1. The relational structure correctly models the 'defined in', 'for', and 'specified in' dependencies without adding or omitting meaning.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR explicitly reifies the URL and Section 2.1 as entities and links them via relations, which is a standard and faithful a4v3 encoding of the source's parenthetical and prepositional phrases.",
+        "The source contains a minor typo ('for the for the') which is correctly normalized in the IR."
+      ],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2266,
+        "completion_tokens": 2006,
+        "total_tokens": 4272
+      },
+      "latency_s": 40.75868344306946
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "corresponds": 5
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 1.0,
+    "unanimous": true,
+    "mean_confidence": 0.976
+  }
+}

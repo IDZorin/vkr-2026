@@ -1,0 +1,115 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_2 a a4:ShaclProjectionTarget .
+
+ex:Index a rdfs:Class .
+ex:IndexShape a sh:NodeShape ; sh:targetClass ex:Index .
+ex:IndexMethodology a rdfs:Class .
+ex:IndexMethodologyShape a sh:NodeShape ; sh:targetClass ex:IndexMethodology .
+ex:MethodologyReview a rdfs:Class .
+ex:MethodologyReviewShape a sh:NodeShape ; sh:targetClass ex:MethodologyReview .
+ex:MethodologyChangeNeed a rdfs:Class .
+ex:MethodologyChangeNeedShape a sh:NodeShape ; sh:targetClass ex:MethodologyChangeNeed .
+ex:MethodologyChange a rdfs:Class .
+ex:MethodologyChangeShape a sh:NodeShape ; sh:targetClass ex:MethodologyChange .
+ex:ReviewIdentifiedMethodologyChange a rdfs:Class .
+ex:ReviewIdentifiedMethodologyChange rdfs:subClassOf ex:MethodologyChange .
+ex:ReviewIdentifiedMethodologyChangeShape a sh:NodeShape ; sh:targetClass ex:ReviewIdentifiedMethodologyChange .
+ex:MethodologyPolicy a rdfs:Class .
+ex:MethodologyPolicy rdfs:subClassOf ex:Document .
+ex:MethodologyPolicyShape a sh:NodeShape ; sh:targetClass ex:MethodologyPolicy .
+ex:IndexAmendment a rdfs:Class .
+ex:IndexAmendmentShape a sh:NodeShape ; sh:targetClass ex:IndexAmendment .
+ex:MethodologyChangeNeedExampleCondition a rdfs:Class .
+ex:MethodologyChangeNeedExampleConditionShape a sh:NodeShape ; sh:targetClass ex:MethodologyChangeNeedExampleCondition .
+ex:UnderlyingMarketChange a ex:MethodologyChangeNeedExampleCondition .
+ex:EconomicRealityChange a ex:MethodologyChangeNeedExampleCondition .
+ex:ObsoleteAssumption a ex:MethodologyChangeNeedExampleCondition .
+ex:ObsoleteFactor a ex:MethodologyChangeNeedExampleCondition .
+ex:NoLongerReflectsReality a ex:MethodologyChangeNeedExampleCondition .
+ex:ReflectionQuality a rdfs:Class .
+ex:ReflectionQualityShape a sh:NodeShape ; sh:targetClass ex:ReflectionQuality .
+ex:Accuracy a ex:ReflectionQuality .
+ex:Reliability a ex:ReflectionQuality .
+ex:Appropriateness a ex:ReflectionQuality .
+
+ex:TheIndex a ex:Index .
+ex:TheIndexMethodology a ex:IndexMethodology .
+ex:Solactive a ex:Organization .
+ex:Guideline a ex:Document .
+ex:SolactiveMethodologyPolicy a ex:MethodologyPolicy .
+ex:SolactiveWebsite a ex:WebResource .
+ex:AnnouncementSection a ex:DocumentPart .
+ex:HttpsWwwSolactiveComDocumentsMethodologyPolicy a ex:Url .
+ex:HttpsWwwSolactiveComNewsAnnouncements a ex:Url .
+ex:methodology_of_index a rdf:Property .
+ex:IndexMethodologyShape sh:property [ sh:path ex:methodology_of_index ; sh:class ex:Index ] .
+ex:review_of_methodology a rdf:Property .
+ex:MethodologyReviewShape sh:property [ sh:path ex:review_of_methodology ; sh:class ex:IndexMethodology ] .
+ex:regular a rdfs:Class ; rdfs:subClassOf ex:MethodologyReview .
+ex:at_least_annually a rdfs:Class ; rdfs:subClassOf ex:MethodologyReview .
+ex:change_need_of_methodology a rdf:Property .
+ex:MethodologyChangeNeedShape sh:property [ sh:path ex:change_need_of_methodology ; sh:class ex:IndexMethodology ] .
+ex:need_identified_within_review a rdf:Property .
+ex:MethodologyChangeNeedShape sh:property [ sh:path ex:need_identified_within_review ; sh:class ex:MethodologyReview ] .
+ex:change_for_need a rdf:Property .
+ex:ReviewIdentifiedMethodologyChangeShape sh:property [ sh:path ex:change_for_need ; sh:class ex:MethodologyChangeNeed ] .
+ex:change_of_methodology a rdf:Property .
+ex:MethodologyChangeShape sh:property [ sh:path ex:change_of_methodology ; sh:class ex:IndexMethodology ] .
+ex:need_has_example_condition a rdf:Property .
+ex:MethodologyChangeNeedShape sh:property [ sh:path ex:need_has_example_condition ; sh:class ex:MethodologyChangeNeedExampleCondition ] .
+ex:example_condition_for_methodology_change_need a rdfs:Class ; rdfs:subClassOf ex:MethodologyChangeNeedExampleCondition .
+ex:example_condition_changed_since_launch_of_index a rdf:Property .
+ex:MethodologyChangeNeedExampleConditionShape sh:property [ sh:path ex:example_condition_changed_since_launch_of_index ; sh:class ex:Index ] .
+ex:example_condition_obsolete_assumption_for_methodology a rdf:Property .
+ex:MethodologyChangeNeedExampleConditionShape sh:property [ sh:path ex:example_condition_obsolete_assumption_for_methodology ; sh:class ex:IndexMethodology ] .
+ex:example_condition_obsolete_factor_for_methodology a rdf:Property .
+ex:MethodologyChangeNeedExampleConditionShape sh:property [ sh:path ex:example_condition_obsolete_factor_for_methodology ; sh:class ex:IndexMethodology ] .
+ex:methodology_has_obsolete_basis a rdf:Property .
+ex:IndexMethodologyShape sh:property [ sh:path ex:methodology_has_obsolete_basis ; sh:class ex:MethodologyChangeNeedExampleCondition ] .
+ex:example_condition_reflection_quality a rdf:Property .
+ex:MethodologyChangeNeedExampleConditionShape sh:property [ sh:path ex:example_condition_reflection_quality ; sh:class ex:ReflectionQuality ] .
+ex:reflects_reality_as_before a rdf:Property .
+ex:IndexMethodologyShape sh:property [ sh:path ex:reflects_reality_as_before ; sh:class ex:ReflectionQuality ] .
+ex:incorporated_by_reference_into a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:incorporated_by_reference_into ; sh:class ex:Document ] .
+ex:available_on a rdf:Property .
+ex:DocumentShape sh:property [ sh:path ex:available_on ; sh:class ex:WebResource ] .
+ex:website_of a rdf:Property .
+ex:WebResourceShape sh:property [ sh:path ex:website_of ; sh:class ex:Organization ] .
+ex:section_of_website a rdf:Property .
+ex:DocumentPartShape sh:property [ sh:path ex:section_of_website ; sh:class ex:WebResource ] .
+ex:last_amendment a rdf:Property .
+ex:IndexShape sh:property [ sh:path ex:last_amendment ; sh:class ex:IndexAmendment ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:amendment_date a rdf:Property .
+ex:IndexAmendmentShape sh:property [ sh:path ex:amendment_date ; sh:class ex:Day ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:amendment_of_index a rdf:Property .
+ex:IndexAmendmentShape sh:property [ sh:path ex:amendment_of_index ; sh:class ex:Index ] .
+ex:contained_in a rdf:Property .
+ex:DayShape sh:property [ sh:path ex:contained_in ; sh:class ex:Document ] .
+
+ex:TheIndexMethodology ex:methodology_of_index ex:TheIndex .
+ex:UnderlyingMarketChange a ex:example_condition_for_methodology_change_need .
+ex:EconomicRealityChange a ex:example_condition_for_methodology_change_need .
+ex:ObsoleteAssumption a ex:example_condition_for_methodology_change_need .
+ex:ObsoleteFactor a ex:example_condition_for_methodology_change_need .
+ex:NoLongerReflectsReality a ex:example_condition_for_methodology_change_need .
+ex:UnderlyingMarketChange ex:example_condition_changed_since_launch_of_index ex:TheIndex .
+ex:EconomicRealityChange ex:example_condition_changed_since_launch_of_index ex:TheIndex .
+ex:ObsoleteAssumption ex:example_condition_obsolete_assumption_for_methodology ex:TheIndexMethodology .
+ex:TheIndexMethodology ex:methodology_has_obsolete_basis ex:ObsoleteAssumption .
+ex:ObsoleteFactor ex:example_condition_obsolete_factor_for_methodology ex:TheIndexMethodology .
+ex:TheIndexMethodology ex:methodology_has_obsolete_basis ex:ObsoleteFactor .
+ex:NoLongerReflectsReality ex:example_condition_reflection_quality ex:Accuracy .
+ex:NoLongerReflectsReality ex:example_condition_reflection_quality ex:Reliability .
+ex:NoLongerReflectsReality ex:example_condition_reflection_quality ex:Appropriateness .
+ex:SolactiveMethodologyPolicy ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:SolactiveMethodologyPolicy ex:incorporated_by_reference_into ex:Guideline .
+ex:AnnouncementSection ex:section_of_website ex:SolactiveWebsite .

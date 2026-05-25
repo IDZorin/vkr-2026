@@ -1,0 +1,58 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N12 a a4:ShaclProjectionTarget .
+
+ex:SelectionDay a rdfs:Class .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:SelectionDayShape a sh:NodeShape ; sh:targetClass ex:SelectionDay .
+ex:Security a rdfs:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:SecurityShape a sh:NodeShape ; sh:targetClass ex:Security .
+ex:ShareClass a rdfs:Class .
+ex:ShareClassShape a sh:NodeShape ; sh:targetClass ex:ShareClass .
+ex:Share a rdfs:Class .
+ex:ShareShape a sh:NodeShape ; sh:targetClass ex:Share .
+ex:ShareCount a rdfs:Class .
+ex:ShareCount rdfs:subClassOf ex:Nat .
+ex:ShareCountShape a sh:NodeShape ; sh:targetClass ex:ShareCount .
+ex:Fraction a rdfs:Class .
+ex:Fraction rdfs:subClassOf ex:Real .
+ex:FractionShape a sh:NodeShape ; sh:targetClass ex:Fraction .
+ex:FreeFloat a rdfs:Class .
+ex:FreeFloat rdfs:subClassOf ex:Fraction .
+ex:FreeFloatShape a sh:NodeShape ; sh:targetClass ex:FreeFloat .
+ex:DataVendor a rdfs:Class .
+ex:DataVendorShape a sh:NodeShape ; sh:targetClass ex:DataVendor .
+
+ex:share_class a rdfs:Class .
+ex:share_classShape a sh:NodeShape ; sh:targetClass ex:share_class .
+ex:share_classShape sh:property [ sh:path ex:share_class_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:share_classShape sh:property [ sh:path ex:share_class_arg_1 ; sh:class ex:Security ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:share_classShape sh:property [ sh:path ex:share_class_result ; sh:class ex:ShareClass ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float a rdfs:Class .
+ex:free_floatShape a sh:NodeShape ; sh:targetClass ex:free_float .
+ex:free_floatShape sh:property [ sh:path ex:free_float_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_floatShape sh:property [ sh:path ex:free_float_arg_1 ; sh:class ex:Security ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_floatShape sh:property [ sh:path ex:free_float_result ; sh:class ex:FreeFloat ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float_numerator a rdf:Property .
+ex:FreeFloatShape sh:property [ sh:path ex:free_float_numerator ; sh:class ex:ShareCount ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float_denominator a rdf:Property .
+ex:FreeFloatShape sh:property [ sh:path ex:free_float_denominator ; sh:class ex:ShareCount ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:fulfills_index_component_requirements a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:fulfills_index_component_requirements ; sh:class ex:Security ] .
+ex:share_of_share_class a rdf:Property .
+ex:ShareShape sh:property [ sh:path ex:share_of_share_class ; sh:class ex:ShareClass ] .
+ex:issued_share_on_selection_day a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:issued_share_on_selection_day ; sh:class ex:Share ] .
+ex:available_for_trading_by_market_participants a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:available_for_trading_by_market_participants ; sh:class ex:Share ] .
+ex:locked_in_by_long_term_holders a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:locked_in_by_long_term_holders ; sh:class ex:Share ] .
+ex:sourced_from_data_vendor a rdf:Property .
+ex:FreeFloatShape sh:property [ sh:path ex:sourced_from_data_vendor ; sh:class ex:DataVendor ] .

@@ -1,0 +1,21 @@
+{
+  "schema": "metrics_role_annotation_judge_v1",
+  "entry_id": "section_1_3",
+  "generated_at": "2026-05-14T21:45:28",
+  "status": "ok",
+  "model": "gpt-5.4-mini",
+  "verdict": "consistent",
+  "frame_alignment": "correct",
+  "reason_short": "The role annotations preserve the IR’s argument directions and semantic roles: initial_level is correctly treated as subject/time, historical_value and published_level_for_period keep value-scope-time order, period_prior_to correctly orders earlier_time before later_time, and recorded_in_accordance_with uses subject/basis as intended. The fact and constraint frames match the source’s default-with-exception initial level, the Live Date recording rule, and the pre-Live-Date back-testing rule without introducing incompatible claims.",
+  "issues": [],
+  "suggestions": [
+    "No changes needed; the current role tags and frame labels are semantically aligned with the source and IR."
+  ],
+  "confidence": 0.97,
+  "usage": {
+    "prompt_tokens": 6036,
+    "completion_tokens": 151,
+    "total_tokens": 6187
+  },
+  "latency_s": 2.6132609844207764
+}

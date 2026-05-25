@@ -1,0 +1,116 @@
+{
+  "entry_id": "section_3_2",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The source says the Index is not rebalanced extraordinarily, and the IR encodes this as a universal negation over extraordinary rebalances for TheIndex. This matches the stated prohibition on extraordinary rebalancing.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces explicit sorts and a relation name not present in the source, but these are standard formalization choices.",
+        "\"TheIndex\" is a naming choice for \"The Index\"."
+      ],
+      "confidence": 0.96,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1840,
+        "completion_tokens": 121,
+        "total_tokens": 1961
+      },
+      "latency_s": 2.7249081134796143
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The source states that the Index does not undergo extraordinary rebalancing, and the IR encodes exactly that by forbidding any extraordinary rebalance from being a rebalance of TheIndex. The added sort structure is representational and does not change the meaning.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR models 'extraordinarily' via a subtype ExtraordinaryRebalance rather than an adverbial modifier on a rebalance event; this is a standard representational choice.",
+        "Using the explicit entity name TheIndex is a straightforward formalization of 'The Index'."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1840,
+        "completion_tokens": 170,
+        "total_tokens": 2010
+      },
+      "latency_s": 6.546802520751953
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The source states 'The Index is not rebalanced extraordinarily,' which asserts that no extraordinary rebalance occurs for the Index. The IR formalizes this as a constraint that for all ExtraordinaryRebalance instances r, the relation rebalance_of_index(r, TheIndex) does not hold. This is a direct and faithful encoding: the negation of the existence of any extraordinary rebalance event linked to TheIndex. The use of sorts (Index, Rebalance, ExtraordinaryRebalance) and the entity TheIndex are standard a4v3 infrastructure for reifying domain concepts, and the universal quantification with negation correctly captures the source's categorical assertion.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces three sorts (Index, Rebalance, ExtraordinaryRebalance) and one entity (TheIndex) to formalize what the source expresses in natural language. This is standard a4v3 reification and does not constitute semantic drift.",
+        "The relation rebalance_of_index is introduced to encode the connection between a rebalance event and an index. This is a canonical way to express the 'rebalanced' relationship in formal logic.",
+        "The constraint uses universal quantification over ExtraordinaryRebalance instances with negation, which is the standard logical encoding of 'no extraordinary rebalance occurs.'"
+      ],
+      "confidence": 0.99,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2107,
+        "completion_tokens": 368,
+        "total_tokens": 2475
+      },
+      "latency_s": 5.163923025131226
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The source states the Index does not undergo extraordinary rebalancing. The IR captures this by declaring a sort for ExtraordinaryRebalance and a constraint that no instance of that sort is linked to TheIndex via rebalance_of_index, which is logically equivalent to the source assertion.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR constraint name 'index_not_rebalanced_extraordinarily' is verbose but matches the source phrasing.",
+        "Modeling ExtraordinaryRebalance as a subtype of Rebalance is a design choice consistent with the adverbial phrase 'rebalanced extraordinarily'."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1953,
+        "completion_tokens": 1089,
+        "total_tokens": 3042
+      },
+      "latency_s": 44.31314539909363
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR directly formalizes the source statement by asserting that no instance of the ExtraordinaryRebalance sort is linked to TheIndex via the rebalance_of_index relation, which is logically equivalent to 'The Index is not rebalanced extraordinarily.'",
+      "semantic_differences": [],
+      "stylistic_notes": [],
+      "confidence": 1.0,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 1972,
+        "completion_tokens": 1340,
+        "total_tokens": 3312
+      },
+      "latency_s": 27.329383850097656
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "verdict_distribution": {
+      "corresponds": 5
+    },
+    "mode_verdict": "corresponds",
+    "agreement_rate": 1.0,
+    "unanimous": true,
+    "mean_confidence": 0.976
+  }
+}

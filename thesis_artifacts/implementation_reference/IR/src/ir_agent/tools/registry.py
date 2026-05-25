@@ -1,4 +1,4 @@
-"""TOOL_REGISTRY and tool_schemas() — single source of truth for the
+﻿"""TOOL_REGISTRY and tool_schemas() — single source of truth for the
 29 tool names + their OpenAI JSON-schema signatures."""
 from __future__ import annotations
 
@@ -69,14 +69,14 @@ def tool_schemas() -> list[dict[str, Any]]:
     return [
         {"type": "function", "function": {
             "name": "read_section",
-            "description": "Read a DZ section's artifacts (source/ir/provenance/notes/waivers). Use this to study how a similar section was translated.",
+            "description": "Read a seed methodology section's artifacts (source/ir/provenance/notes/waivers). Use this to study how a similar section was translated.",
             "parameters": {"type": "object", "properties": {
                 "section_id": {"type": "string", "description": "e.g. 'section_5_4', 'definitions/N11', 'N11'"},
                 "include": {"type": "array", "items": {"type": "string", "enum": ["source", "ir", "provenance", "notes", "waivers"]}, "default": ["source"]},
             }, "required": ["section_id"]}}},
         {"type": "function", "function": {
             "name": "list_sections",
-            "description": "List available DZ section IDs and definitions, plus which sections already have a translated IR.",
+            "description": "List available seed methodology section IDs and definitions, plus which sections already have a translated IR.",
             "parameters": {"type": "object", "properties": {}}}},
         {"type": "function", "function": {
             "name": "search_corpus",

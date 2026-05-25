@@ -1,0 +1,76 @@
+sort Index
+sort AdjustedReturnIndex extends Index
+sort IndexCalculation extends Event
+sort IndexTermination extends Event
+sort TerminationAnnouncement extends Event
+sort IndexLevel extends Real
+sort SolactiveOrganization extends Organization
+sort Policy extends Document
+
+entity Solactive : SolactiveOrganization
+entity SolactiveWebsite : WebResource
+entity NewsSection : DocumentPart
+entity SolactivePolicies : Policy
+entity OtherReasons : VagueTerm
+entity AsSoonAsReasonablyPossible : VagueTerm
+
+-- raw_url: https://www.solactive.com/news/announcements
+entity HttpsWwwSolactiveComNewsAnnouncements : Url
+
+rel calculated_index : IndexCalculation, AdjustedReturnIndex
+fun[required] calculated_level : IndexCalculation -> IndexLevel
+
+rel terminates_index : IndexTermination, Index
+rel termination_calculation : IndexTermination, IndexCalculation
+rel termination_reason_qualified_by : IndexTermination, VagueTerm
+rel termination_in_accordance_with_policy : IndexTermination, Policy
+
+rel announces_termination : TerminationAnnouncement, IndexTermination
+rel announcement_by : TerminationAnnouncement, Organization
+rel announced_on : TerminationAnnouncement, WebResource
+rel announcement_under_section : TerminationAnnouncement, DocumentPart
+rel announcement_timing_described_by : TerminationAnnouncement, VagueTerm
+rel after : Event, Event
+
+rel section_of_website : DocumentPart, WebResource
+rel website_of : WebResource, Organization
+rel policy_of : Policy, Organization
+
+fact news_section_location :
+  document_part_url(NewsSection, HttpsWwwSolactiveComNewsAnnouncements)
+  and section_of_website(NewsSection, SolactiveWebsite)
+  and website_of(SolactiveWebsite, Solactive)
+
+fact solactive_policies :
+  policy_of(SolactivePolicies, Solactive)
+
+constraint termination_and_announcement_at_zero_or_below :
+  forall c: IndexCalculation, forall i: AdjustedReturnIndex,
+    calculated_index(c, i)
+    and calculated_level(c) <= 0
+    implies
+      exists t: IndexTermination, exists a: TerminationAnnouncement,
+        terminates_index(t, i)
+        and termination_calculation(t, c)
+        and announces_termination(a, t)
+        and announcement_by(a, Solactive)
+        and announced_on(a, SolactiveWebsite)
+        and announcement_under_section(a, NewsSection)
+        and after(a, c)
+        and announcement_timing_described_by(a, AsSoonAsReasonablyPossible)
+
+permission solactive_terminate_index_for_other_reason(
+  agent: SolactiveOrganization,
+  index: Index,
+  reason_qualifier: VagueTerm
+)
+  action: terminate
+  target: index
+  scope: SolactivePolicies
+
+constraint other_reason_termination_in_accordance_with_solactive_policies :
+  forall t: IndexTermination, forall i: Index,
+    terminates_index(t, i)
+    and termination_reason_qualified_by(t, OtherReasons)
+    implies
+      termination_in_accordance_with_policy(t, SolactivePolicies)

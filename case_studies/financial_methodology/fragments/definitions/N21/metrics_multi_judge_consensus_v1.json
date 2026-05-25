@@ -1,0 +1,118 @@
+{
+  "entry_id": "N21",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core idea that Index Currency is tied to the Currency column in the Section 1.2 table, but it adds a stronger biconditional definition and extra structural machinery not stated in the source. The source only says Index Currency is the currency specified in that column, not that every such currency/index pair is exactly and only those satisfying the formal specification relation.",
+      "semantic_differences": [
+        "The IR makes the definition biconditional (`iff`), asserting both that Index Currency holds when the specification conditions hold and that any `index_currency(i,c)` must arise from such a specification; the source only states a one-way definitional relation.",
+        "The IR introduces an explicit `IndexCurrencySpecification` entity and associated relations (`specification_for_index`, `specification_currency`, `specification_column`, `specification_table`) that are not present in the source text.",
+        "The IR fixes the relevant column as `CurrencyColumn` and the relevant table as `Section1_2IndexTable`, whereas the source only says 'the column \"Currency\" in the table in Section 1.2' without formalizing those identifiers."
+      ],
+      "stylistic_notes": [
+        "Using `Section1_2` as a `DocumentPart` is a reasonable naming choice for the cited section.",
+        "The capitalization and symbol names are implementation-style choices rather than semantic issues."
+      ],
+      "confidence": 0.93,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2014,
+        "completion_tokens": 301,
+        "total_tokens": 2315
+      },
+      "latency_s": 4.359369993209839
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "one_way_implication",
+      "reason_short": "The IR captures that an index currency is tied to a currency specification associated with the Currency column of the Section 1.2 table, but it adds extra structure not stated in the source and omits the source’s direct notion that the index currency is simply the currency specified in that column. In particular, the biconditional defines index currency via existence of a separate specification object, without stating that this object is the specification appearing in the table.",
+      "semantic_differences": [
+        "The source directly defines Index Currency as the currency specified in the column \"Currency\" in the table in Section 1.2, whereas the IR defines it indirectly through existence of an IndexCurrencySpecification object linked to the index, currency, column, and table.",
+        "The IR introduces an index-specific specification structure (IndexCurrencySpecification and specification_for_index) that is not stated in the source text; this makes the formal meaning stronger/more specific than the source.",
+        "The source says the relevant table is 'the table in Section 1.2', but the IR names a specific table entity Section1_2IndexTable without expressing uniqueness or that it is the table referred to by the source."
+      ],
+      "stylistic_notes": [
+        "Using Section1_2, Section1_2IndexTable, and CurrencyColumn as named entities is a reasonable formalization choice.",
+        "The IR uses Currency without declaring it locally; if Currency is intended as external/prelude infrastructure, that is a catalog issue rather than a semantic mismatch in the definition itself."
+      ],
+      "confidence": 0.82,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2014,
+        "completion_tokens": 332,
+        "total_tokens": 2346
+      },
+      "latency_s": 8.220433712005615
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR correctly captures that Index Currency is defined by a specification mechanism tied to the Currency column in Section 1.2's table. However, the source makes a simpler claim: Index Currency IS (directly) the currency value specified in that column, not that it exists iff a specification entity mediates the relationship. The IR introduces an IndexCurrencySpecification entity and reifies the definition as a biconditional constraint, which adds ontological structure (a specification object) not explicitly present in the source. The source treats Index Currency as a direct attribute lookup, whereas the IR treats it as a derived property mediated by a specification entity.",
+      "semantic_differences": [
+        "Source states Index Currency is the currency value in the column (direct attribute); IR requires an IndexCurrencySpecification entity to exist and mediate the relationship (indirect, entity-mediated definition).",
+        "Source uses simple definitional language ('is the currency specified'); IR encodes this as a biconditional constraint with existential quantification over a specification entity, implying Index Currency exists iff such a specification exists."
+      ],
+      "stylistic_notes": [
+        "IR introduces sorts (Table, TableColumn, IndexCurrencySpecification) and entities (Section1_2, Section1_2IndexTable, CurrencyColumn) not named in source; these are reasonable reifications of 'table in Section 1.2' and 'Currency column', but add naming/structure.",
+        "IR uses relation names (specification_for_index, specification_currency, etc.) that are more verbose than necessary for a simple column-lookup definition.",
+        "The fact currency_column_in_section_1_2_table establishes the column's location; this is reasonable infrastructure but not explicitly stated in source."
+      ],
+      "confidence": 0.72,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2319,
+        "completion_tokens": 443,
+        "total_tokens": 2762
+      },
+      "latency_s": 6.50045371055603
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 69.0046329498291
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR accurately formalizes the source definition by reifying the table lookup into a specification entity constrained to the exact table and column referenced. The biconditional constraint correctly captures the definitional 'is', and the explicit entities for the table and column align with the source's definite references.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR introduces an intermediate IndexCurrencySpecification sort to reify the lookup process, which is a standard a4v3 pattern for table-based definitions and does not alter semantic meaning.",
+        "The use of explicit named entities for the table and column accurately reflects the source's definite descriptions."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2146,
+        "completion_tokens": 2718,
+        "total_tokens": 4864
+      },
+      "latency_s": 50.99564337730408
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.855
+  }
+}

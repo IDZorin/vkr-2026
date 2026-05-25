@@ -1,0 +1,239 @@
+﻿schema: canonical_bridge_decisions_v1
+status: draft_for_merge_preparation
+created_for: financial_methodology
+principle:
+  - Local main_ir.a4v3 files remain source-faithful gold translations.
+  - Canonical concepts are merge targets, not replacements for local provenance.
+  - A local symbol may map as exact_same, subtype_of, instance_of, variant_of, related_only, local_placeholder, or do_not_merge.
+  - If a contradiction depends on a missing type or membership edge, the merge must report a possible type-gap instead of silently accepting consistency.
+
+canonical_targets:
+  index_family:
+    canonical: SolactiveTransatlanticCleanEnergyEURIndexFamily
+    decision: accepted
+    maps:
+      - family: TheIndexLocalPlaceholderFamily
+        relation: local_placeholder
+        note: Generic "the Index" rules apply to the index family unless a section explicitly restricts a variant.
+      - family: Section4_1 concrete index versions
+        relation: variant_of
+        note: Section 4.1 local versions map to published variants from Section 1.2.
+
+  published_index_variants:
+    decision: accepted
+    variants:
+      - canonical: SolactiveTransatlanticCleanEnergyEURIndexPR
+        local_symbols: [Section1_2_SolactiveTransatlanticCleanEnergyEURIndexPR, Section4_1_PriceReturnIndexVersion]
+        return_treatment: PriceReturn
+        decrement_treatment: NoDecrement
+      - canonical: SolactiveTransatlanticCleanEnergyEURIndexNTR
+        local_symbols: [Section1_2_SolactiveTransatlanticCleanEnergyEURIndexNTR, Section4_1_NTRIndexVersion]
+        return_treatment: NetTotalReturn
+        decrement_treatment: NoDecrement
+      - canonical: SolactiveTransatlanticCleanEnergyEURIndexTR
+        local_symbols: [Section1_2_SolactiveTransatlanticCleanEnergyEURIndexTR, Section4_1_GTRIndexVersion]
+        return_treatment: GrossTotalReturn
+        decrement_treatment: NoDecrement
+      - canonical: SolactiveTransatlanticCleanEnergyEURIndex5PercentAR
+        local_symbols: [Section1_2_SolactiveTransatlanticCleanEnergyEURIndex5PercentAR, Section4_1_AdjustedReturnVersion]
+        return_treatment: AdjustedReturn
+        decrement_treatment: FivePercentAnnualDecrement
+      - canonical: SolactiveTransatlanticCleanEnergyEURIndex50AR
+        local_symbols: [Section1_2_SolactiveTransatlanticCleanEnergyEURIndex50AR, Section4_1_SOLTCA50]
+        return_treatment: AdjustedReturn
+        decrement_treatment: NoDecrement
+        note: Initial level is variant-specific and must not be inherited from the 1000 default.
+
+  core_security_model:
+    decision: accepted
+    sort_families:
+      - CoreSecuritySortFamily
+      - CoreIndexComponentSortFamily
+      - ShareClass
+    canonical_shape:
+      - Security extends FinancialInstrument
+      - ShareClass extends Security
+      - IndexComponent is a role-assignment sort, not a Security subtype.
+      - index_component_security(IndexComponent, Security) gives the underlying instrument.
+      - index_component_index(IndexComponent, Index) gives the index for which the role is held.
+    note: >
+      Definition N19 bridges "reflected in the Index" with Index Component
+      membership. The canonical model does not collapse Security and
+      IndexComponent by subtype: a security can bear an Index Component role
+      for a particular index and lifecycle state.
+
+  index_component_membership_model:
+    decision: accepted_initial_pass
+    canonical_frames:
+      - GenericIndexComponentMembershipFrame
+      - SelectionDayIndexComponentMembershipFrame
+      - CalculationDayIndexComponentMembershipFrame
+    bridge_projection_principle: >
+      Local index_component and index_component_of relations are projected to
+      membership frames rather than merged by name. Their signatures encode
+      different lifecycle states: generic component membership, selection-day
+      inclusion, and calculation-day component scope. Security-typed arguments
+      fill MembershipSecurityRole; IndexComponent-typed arguments fill
+      MembershipComponentAssignmentRole.
+    projected_relations:
+      generic_membership:
+        - N19_index_component
+        - Section4_7_index_component_of
+      selection_day_membership:
+        - Section2_2_index_component
+      calculation_day_membership:
+        - Section1_4_index_component
+        - Section4_1_index_component_of
+    review:
+      - Section2_2 and Section1_4 omit an explicit Index argument; the index is recovered from the local section context and therefore uses Medium projection confidence.
+      - Projection to a membership frame is compatible-state evidence, not an exact alias claim.
+      - The old generic MembershipComponentRole was removed after the role-assignment split; projections must choose MembershipSecurityRole or MembershipComponentAssignmentRole.
+
+  calendar_model:
+    decision: accepted_with_review_items
+    sort_families:
+      - TradingDay
+      - CalculationDay
+      - SelectionDay
+      - RebalanceDay
+      - EligibleRebalanceDay
+    process_calendar_families:
+      - BusinessDayProcessFamily
+      - CloseOfBusinessProcessFamily
+      - FixingDayProcessFamily
+    canonical_shape:
+      - Day subtypes remain separate.
+      - EligibleRebalanceDay is an IndexDay eligibility state, not a subtype of RebalanceDay; N26 turns an eligible day into the actual Rebalance Day when the schedule rule selects it.
+      - N30 TradingDay uses context reification; merge should project context-based facts to trading_day_for_component when safe.
+    review:
+      - N30 context objects are not themselves days; do not merge TradingDayContext with TradingDay.
+      - Close of Business is bridged as a related calculation-time/workflow-marker concept, not an exact alias.
+      - Fixing Day is bridged to Section 3.1 workflow usage through a process-calendar family.
+
+  price_model:
+    decision: accepted_with_review_items
+    families:
+      - ClosingPrice
+      - TradingPrice
+      - DailyValueTradedFamily
+      - AverageDailyValueTradedFamily
+    canonical_shape:
+      - Price extends MonetaryAmount.
+      - TradingPrice and ClosingPrice are price subtypes.
+      - DVT and ADVT are monetary values, not generic Real values after canonicalization.
+    review:
+      - N31 most_recent_published_trade needs temporal-ordering if contradiction/reasoning uses "most recent".
+      - last_trading_price and last_available_trading_price are related concepts, not automatically exact aliases.
+    frame_projection_model:
+      decision: accepted_initial_pass
+      canonical_frames:
+        - TradingPriceObservationFrame
+        - ClosingPriceObservationFrame
+        - DailyValueTradedObservationFrame
+        - AverageDailyValueTradedObservationFrame
+        - IndexLevelObservationFrame
+        - InitialIndexLevelObservationFrame
+        - FreeFloatObservationFrame
+        - ShareCountObservationFrame
+        - FreeFloatMarketCapitalizationObservationFrame
+        - IndexCurrencyObservationFrame
+        - ExchangeObservationFrame
+      bridge_projection_principle: >
+        Local function/relation signatures are not force-merged solely because
+        they look like "instrument plus day". Instead, each bridge relation can
+        project to an OWL-friendly observation frame with explicit roles for
+        subject, index, day/context, period/context, time/context, and observed
+        value. Exact local aliases remain separate from projection compatibility.
+      initial_scope:
+        - closing_price / current_trading_price / last_available_trading_price
+        - daily_value_traded / average_daily_value_traded
+        - initial_level / index_level / calculated_level
+        - free_float / share_count / free_float_market_capitalization
+        - index_currency
+        - respective_exchange
+      second_batch_scope:
+        - component weight
+        - component price
+        - component price change
+        - free-float market capitalization
+        - float market capitalization as FFMC shorthand in section 2.3
+        - region classification
+      review:
+        - Section 2.2 free_float_market_capizatlization is projected to FreeFloatMarketCapitalizationObservationFrame because its source phrase includes "Free Float".
+        - Section 2.3 float_market_capizatlization is projected to FreeFloatMarketCapitalizationObservationFrame with High confidence because the document has no separate Float Market Capitalization definition and N13 defines the FFMC value used by sections 2.2 and 2.3.
+      frame_name_policy: >
+        BridgeFrame names intentionally mirror CanonicalFrame names. The bridge
+        declaration is a local projection target handle; the canonical
+        declaration is the shared ontology concept. Name coordination is
+        documented and should be checked by tooling, but it is not a local
+        source claim.
+
+  methodology_documents:
+    decision: accepted
+    families:
+      - EquityIndexMethodologyFamily
+      - GenericDocumentAvailabilityRelationFamily
+      - MethodologyPolicyUrlFamily
+      - EquityIndexMethodologyUrlFamily
+      - NewsAnnouncementsUrlFamily
+    canonical_shape:
+      - SolactiveEquityIndexMethodology and EquityIndexMethodology map to CanonicalEquityIndexMethodology.
+      - incorporated_by_reference_into is the canonical direction for document incorporation.
+
+  rbics_appendix:
+    decision: accepted
+    families:
+      - RBICS appendix bridge from Section 2.1 to Appendix 8.1
+    canonical_shape:
+      - RBICS level-6 subindustry classifications are appendix members.
+      - RBICS numeric codes are identifiers, not arithmetic quantities.
+
+  corporate_actions:
+    decision: accepted_with_review_items
+    families:
+      - CorporateActionSortFamily
+      - IndexCalculationSortFamily
+    canonical_shape:
+      - CorporateAction extends Event.
+      - CorporateActionAdjustment extends Event.
+    review:
+      - Section 4.4 adjustment mechanics and Section 4.5 corporate action treatment should be merged through event roles, not through name-only aliases.
+
+  lexical_candidate_review_closure:
+    decision: accepted
+    exact_aliases:
+      - Section2_1_SolactiveGBSBenchmarkSeriesPdf = N14_SolactiveGBSBenchmarkSeriesGuideline
+      - Section2_1_HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf = N14_HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf
+      - N13_FreeFloatMarketCapitalization = Section2_2_FreeFloatMarketCapizatlization
+      - N13_free_float_market_capitalization = Section2_2_free_float_market_capizatlization
+      - Section2_2_FreeFloatMarketCapizatlization = Section2_3_FloatMarketCapizatlization
+      - Section4_2_announcement_by = Section4_4_announced_by
+      - Section4_2_announcement_under_section = Section4_4_announced_under_section
+      - Section4_4_AnnouncementsSection belongs to AnnouncementSectionFamily
+      - Section4_6_VarietyReasons = Section4_7_VarietyOfReasons
+    related_only:
+      - Section1_3_section_1_3_index ~ Section4_1_section_4_1_index
+      - Section4_4_adjustment_of_index ~ Section4_5_adjustment_to_index
+      - N15_security_reflected_in_gbs_index ~ N19_security_reflected_in_index
+    policy: >
+      The exact aliases are supported by matching source phrases or same PDF
+      paths. Related-only pairs are intentionally not exact-merged because
+      their local types or scopes differ.
+    rejected_aliases:
+      - Section4_1_EffectiveDate != Section4_4_EffectiveDay
+      - N12_Share != Section3_1_Shares
+      - Index != GbsIndex
+      - Section1_4_CalculationMode != Section5_3_CalculationMethod
+      - N06_CalculationTime != Section1_4_CalculationMode
+
+hard_merge_requirements:
+  - Every repeated exact declaration must be bridged or explicitly marked do_not_merge.
+  - Every same-name different-signature declaration must have an explicit decision.
+  - Every local TheIndex placeholder must map to the index family or a specific variant.
+  - Every rule-bearing entity used in a fact or constraint must either belong to a canonical family or be marked local-only.
+  - Positive and negative carriers must be explicit predicates or bridgeable deontic actions, not only words inside names.
+
+known_review_items:
+  - generic_index_rules_apply_to_variant is accepted for family-level methodology rules, but variant-specific initial levels and decrement rules override generic inheritance.
+  - Exact merge of price availability predicates remains intentionally conservative.
+  - Some source phrase recurrences are document infrastructure and should not create domain-level concept aliases.

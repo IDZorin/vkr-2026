@@ -1,0 +1,52 @@
+{
+  "entry_id": "N21",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1630,
+    "completion_tokens": 93,
+    "total_tokens": 1723
+  },
+  "latency_s": 1.6579673290252686,
+  "raw_parsed": {
+    "source_facts": [
+      "Index Currency is the currency specified in the Section 1.2 table's Currency column."
+    ],
+    "render_facts": [
+      "The currency column is the column of the Section 1.2 index table.",
+      "An index’s currency is defined as the currency specified in the currency column."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 1,
+        "match": "paraphrase"
+      }
+    ],
+    "render_only": [
+      0
+    ]
+  },
+  "summary": {
+    "n_source_facts": 1,
+    "n_render_facts": 2,
+    "matched_source": 1,
+    "matched_render": 1,
+    "render_only": 1,
+    "missing_source": 0,
+    "weaker_in_render": 0,
+    "stronger_in_render": 0,
+    "recall": 1.0,
+    "precision": 0.5,
+    "f1": 0.667,
+    "missing_source_facts": [],
+    "render_only_facts": [
+      {
+        "idx": 0,
+        "fact": "The currency column is the column of the Section 1.2 index table."
+      }
+    ],
+    "weaker_pairs": [],
+    "stronger_pairs": []
+  }
+}

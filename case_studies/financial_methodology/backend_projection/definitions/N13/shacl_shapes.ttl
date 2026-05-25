@@ -1,0 +1,54 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N13 a a4:ShaclProjectionTarget .
+
+ex:SelectionDay a rdfs:Class .
+ex:SelectionDay rdfs:subClassOf ex:Day .
+ex:SelectionDayShape a sh:NodeShape ; sh:targetClass ex:SelectionDay .
+ex:Security a rdfs:Class .
+ex:Security rdfs:subClassOf ex:FinancialInstrument .
+ex:SecurityShape a sh:NodeShape ; sh:targetClass ex:Security .
+ex:ShareClass a rdfs:Class .
+ex:ShareClassShape a sh:NodeShape ; sh:targetClass ex:ShareClass .
+ex:ShareCount a rdfs:Class .
+ex:ShareCount rdfs:subClassOf ex:Nat .
+ex:ShareCountShape a sh:NodeShape ; sh:targetClass ex:ShareCount .
+ex:ClosingPrice a rdfs:Class .
+ex:ClosingPrice rdfs:subClassOf ex:MonetaryAmount .
+ex:ClosingPriceShape a sh:NodeShape ; sh:targetClass ex:ClosingPrice .
+ex:FreeFloatMarketCapitalization a rdfs:Class .
+ex:FreeFloatMarketCapitalization rdfs:subClassOf ex:MonetaryAmount .
+ex:FreeFloatMarketCapitalizationShape a sh:NodeShape ; sh:targetClass ex:FreeFloatMarketCapitalization .
+ex:DataVendor a rdfs:Class .
+ex:DataVendorShape a sh:NodeShape ; sh:targetClass ex:DataVendor .
+
+ex:share_class a rdfs:Class .
+ex:share_classShape a sh:NodeShape ; sh:targetClass ex:share_class .
+ex:share_classShape sh:property [ sh:path ex:share_class_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:share_classShape sh:property [ sh:path ex:share_class_arg_1 ; sh:class ex:Security ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:share_classShape sh:property [ sh:path ex:share_class_result ; sh:class ex:ShareClass ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float_market_capitalization a rdfs:Class .
+ex:free_float_market_capitalizationShape a sh:NodeShape ; sh:targetClass ex:free_float_market_capitalization .
+ex:free_float_market_capitalizationShape sh:property [ sh:path ex:free_float_market_capitalization_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float_market_capitalizationShape sh:property [ sh:path ex:free_float_market_capitalization_arg_1 ; sh:class ex:Security ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:free_float_market_capitalizationShape sh:property [ sh:path ex:free_float_market_capitalization_result ; sh:class ex:FreeFloatMarketCapitalization ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:shares_outstanding_in_free_float a rdfs:Class .
+ex:shares_outstanding_in_free_floatShape a sh:NodeShape ; sh:targetClass ex:shares_outstanding_in_free_float .
+ex:shares_outstanding_in_free_floatShape sh:property [ sh:path ex:shares_outstanding_in_free_float_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:shares_outstanding_in_free_floatShape sh:property [ sh:path ex:shares_outstanding_in_free_float_arg_1 ; sh:class ex:ShareClass ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:shares_outstanding_in_free_floatShape sh:property [ sh:path ex:shares_outstanding_in_free_float_result ; sh:class ex:ShareCount ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_price_of_share_class a rdfs:Class .
+ex:closing_price_of_share_classShape a sh:NodeShape ; sh:targetClass ex:closing_price_of_share_class .
+ex:closing_price_of_share_classShape sh:property [ sh:path ex:closing_price_of_share_class_arg_0 ; sh:class ex:SelectionDay ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_price_of_share_classShape sh:property [ sh:path ex:closing_price_of_share_class_arg_1 ; sh:class ex:ShareClass ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:closing_price_of_share_classShape sh:property [ sh:path ex:closing_price_of_share_class_result ; sh:class ex:ClosingPrice ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:fulfills_index_component_requirements a rdf:Property .
+ex:SelectionDayShape sh:property [ sh:path ex:fulfills_index_component_requirements ; sh:class ex:Security ] .
+ex:sourced_from_data_vendor a rdf:Property .
+ex:ShareCountShape sh:property [ sh:path ex:sourced_from_data_vendor ; sh:class ex:DataVendor ] .

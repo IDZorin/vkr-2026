@@ -1,0 +1,166 @@
+schema: role_annotations_v1
+entry_id: section_4_1
+annotation_status: compact_pre_merge_roles_v1
+symbols:
+  component_price:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+    returns: {role: same_as_type}
+  component_price_change:
+    kind: fun
+    args:
+      1: {role: component}
+      2: {role: day}
+    returns: {role: same_as_type}
+  component_weight:
+    kind: fun
+    args:
+      1: {role: subject}
+      2: {role: day}
+      3: {role: component}
+    returns: {role: same_as_type}
+  currency_conversion:
+    kind: fun
+    args:
+      1: {role: subject}
+      2: {role: day}
+      3: {role: component}
+    returns: {role: same_as_type}
+  decrement_of:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  effective_date:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  ex_date:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  formula_level_change_based_on_price_change:
+    kind: rel
+    args:
+      1: {role: event}
+      2: {role: subject}
+      3: {role: day}
+      4: {role: component}
+      5: {role: price}
+  formula_level_change_takes_currency_conversion:
+    kind: rel
+    args:
+      1: {role: event}
+      2: {role: subject}
+      3: {role: day}
+      4: {role: component}
+      5: {role: currency}
+  formula_level_change_takes_weight:
+    kind: rel
+    args:
+      1: {role: event}
+      2: {role: subject}
+      3: {role: day}
+      4: {role: component}
+      5: {role: value}
+  index_component_of:
+    kind: rel
+    args:
+      1: {role: subject}
+      2: {role: day}
+      3: {role: component}
+  index_currency:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  index_level:
+    kind: fun
+    args:
+      1: {role: subject}
+      2: {role: day}
+    returns: {role: same_as_type}
+  index_points_per_annum:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  index_type:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  mechanics:
+    kind: fun
+    args:
+      1: {role: event}
+    returns: {role: same_as_type}
+  number_of_calendar_days_between:
+    kind: fun
+    args:
+      1: {role: day}
+      2: {role: day}
+    returns: {role: same_as_type}
+  opening:
+    kind: fun
+    args:
+      1: {role: day}
+    returns: {role: same_as_type}
+  percent_per_annum:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  quoted_currency:
+    kind: fun
+    args:
+      1: {role: price}
+    returns: {role: same_as_type}
+  reinvested_back_into:
+    kind: rel
+    args:
+      1: {role: subject}
+      2: {role: component}
+      3: {role: subject}
+  synthetic_dividend_of:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+  underlying_index_of:
+    kind: fun
+    args:
+      1: {role: subject}
+    returns: {role: same_as_type}
+constraints:
+  distributions_reinvested_back_at_opening_of_effective_ex_date:
+    frame: distributions_reinvested_back_at_opening_of_effective_ex_date
+    variables:
+      p: {role: subject, quantifier: forall}
+      dist: {role: subject, quantifier: forall}
+      c: {role: component, quantifier: forall}
+  soltca50_adjusted_return_index_formula:
+    frame: soltca50_adjusted_return_index_formula
+    variables:
+      t: {role: day, quantifier: forall}
+      t_prev: {role: day, quantifier: forall}
+facts:
+  calculation_performed_according_to_equity_index_methodology:
+    frame: calculation_performed_according_to_equity_index_methodology
+    variables:
+      i: {role: subject, quantifier: forall}
+  calendar_day_count_for_adjusted_return_formula:
+    frame: calendar_day_count_for_adjusted_return_formula
+    variables:
+      t: {role: day, quantifier: forall}
+      t_prev: {role: day, quantifier: forall}
+  standard_index_formula_basis:
+    frame: standard_index_formula_basis
+    variables:
+      i: {role: subject, quantifier: forall}
+      d: {role: day, quantifier: forall}
+      c: {role: component, quantifier: forall}

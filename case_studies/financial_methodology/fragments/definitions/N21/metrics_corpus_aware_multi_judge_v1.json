@@ -1,0 +1,187 @@
+﻿{
+  "schema": "corpus_aware_multi_judge_v1",
+  "generated_at": "2026-05-12T14:46:41+02:00",
+  "entry_id": "N21",
+  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N21",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "included_context": {
+    "entry": "N21",
+    "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\definitions\\N21",
+    "global_bridge": false,
+    "related_sections": [],
+    "artifacts": {
+      "source.md": true,
+      "normalized.md": true,
+      "main_ir.a4v3": true,
+      "repair.a4v3": false,
+      "provenance.yaml": true,
+      "translator_notes.md": true,
+      "waivers.yaml": false,
+      "waivers_v1.yaml": false
+    }
+  },
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR directly encodes the source definition as a biconditional: Index Currency holds exactly when a currency is specified for an Index in the Currency column of the table in Section 1.2. The provenance and translator notes confirm this reified-table reading and the intended low-arity representation, with no contradiction to the source sentence.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses reified specification relations and local entities for the table and column, which is a structural choice rather than a semantic change."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2876,
+        "completion_tokens": 168,
+        "total_tokens": 3044
+      },
+      "latency_s": 2.5928475856781006
+    },
+    {
+      "model": "gpt-5.4",
+      "local_source_alignment": "partially_corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "same_meaning_poor_wording",
+      "needs_context": true,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The local IR captures the intended definition of Index Currency via a biconditional tied to the Currency column and the Section 1.2 table, but source-only it is somewhat underanchored because the reified specification and the role linking it to an Index row are not explicit in the sentence itself. The documented provenance and translator notes make clear that this reification is an intentional encoding of the cross-reference definition rather than added substantive content, so with corpus context the translation corresponds.",
+      "semantic_differences": [],
+      "context_resolved_issues": [
+        "The reified sort IndexCurrencySpecification and its role relations look like extra ontology in source-only review, but provenance and notes explicitly document them as an encoding device for 'currency specified in the column \"Currency\" in the table in Section 1.2'.",
+        "The biconditional could look stronger than the sentence on a narrow reading, but translator notes explicitly record that the sentence is being treated as a definitional clause for the term 'Index Currency'.",
+        "The IR introduces a per-index reading through specification_for_index; translator notes explicitly justify rejecting a singleton-currency reading and explain that the Section 1.2 table is understood as specifying currency for each Index."
+      ],
+      "stylistic_notes": [
+        "The IR uses technical reification and role names instead of the source's simpler noun phrase.",
+        "Section1_2IndexTable and CurrencyColumn are implementation-oriented names but trace cleanly to the source phrases.",
+        "The fact naming 'currency_column_in_section_1_2_table' is descriptive metadata rather than source wording."
+      ],
+      "confidence": 0.88,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 2876,
+        "completion_tokens": 369,
+        "total_tokens": 3245
+      },
+      "latency_s": 10.161807775497437
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The source sentence defines 'Index Currency' as the currency specified in the Currency column of the Section 1.2 table. The IR captures this through a biconditional constraint that ties index_currency(i, c) to the existence of an IndexCurrencySpecification with the correct roles (index, currency, column, table). The reification of the specification object is a sound design choice documented in provenance and translator notes; it preserves the source's table-column reference while avoiding high-arity relations. The fact establishes that the Currency column exists in the Section 1.2 table. No contradiction between source and IR exists; the IR is a faithful formal rendering of the source definition.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "The IR uses 'IndexCurrencySpecification' as a reified intermediate object rather than a direct high-arity relation; this is a deliberate design choice (documented in translator notes) to keep arity low while making the table-column link explicit.",
+        "The IR introduces sorts (Index, Table, TableColumn, Currency, IndexCurrencySpecification) and entities (Section1_2, Section1_2IndexTable, CurrencyColumn) that are not explicitly named in the source but are justified by the source's noun phrases and cross-references."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3316,
+        "completion_tokens": 391,
+        "total_tokens": 3707
+      },
+      "latency_s": 5.3060078620910645
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": false,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR translates the source definition into a universal biconditional that for every index, its index currency is the currency found in the Currency column of the Section 1.2 table for that index. The reified specification object and supporting table/column entities capture the cross-reference structure without importing the actual table data, preserving the intended meaning exactly.",
+      "semantic_differences": [],
+      "context_resolved_issues": [],
+      "stylistic_notes": [
+        "IR introduces a reified IndexCurrencySpecification and binary role relations to keep arity low, which the source does not explicitly mention; this is a formalization choice, not a semantic drift.",
+        "Entity names like Section1_2IndexTable and CurrencyColumn are structural placeholders derived from the source phrases."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3036,
+        "completion_tokens": 1804,
+        "total_tokens": 4840
+      },
+      "latency_s": 63.29874229431152
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "local_source_alignment": "corresponds",
+      "corpus_alignment": "corresponds",
+      "relation_type": "exact_equivalence",
+      "needs_context": true,
+      "context_used": [
+        "provenance",
+        "translator_notes"
+      ],
+      "reason_short": "The IR accurately formalizes the source definition by using a biconditional constraint for `index_currency`, quantifying over `Index`, and reifying the table-column reference into an `IndexCurrencySpecification` object. The explicit entities for the table and column, along with the fact linking them to Section 1.2, correctly capture the cross-reference. Corpus context confirms that the reification, per-index quantification, and exclusion of actual table data are intentional modeling decisions that preserve the source's definitional intent without introducing semantic drift.",
+      "semantic_differences": [],
+      "context_resolved_issues": [
+        "Introduction of the `Index` sort and universal quantification over it, which is implied by the financial domain but not explicitly stated in the source sentence.",
+        "Reification of the 'currency specified in the column... in the table' phrase into `IndexCurrencySpecification` with binary role relations, a structural choice to avoid high-arity relations while keeping table/column links explicit.",
+        "Explicit declaration of `Section1_2IndexTable` and `CurrencyColumn` as standalone entities rather than inline references, justified by the translator's design to keep structural pointers visible in the formula."
+      ],
+      "stylistic_notes": [
+        "The sort `Currency` is used in the IR but is not listed in the provided prelude; it is assumed to be part of a domain-specific overlay.",
+        "Entity names `Section1_2IndexTable` and `CurrencyColumn` are highly descriptive and directly trace to source noun phrases, improving readability."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3057,
+        "completion_tokens": 2870,
+        "total_tokens": 5927
+      },
+      "latency_s": 53.48780369758606
+    }
+  ],
+  "summary": {
+    "n_responding": 5,
+    "local_source_alignment_mode": "corresponds",
+    "local_source_alignment_distribution": {
+      "corresponds": 4,
+      "partially_corresponds": 1
+    },
+    "local_source_alignment_agreement": 0.8,
+    "corpus_alignment_mode": "corresponds",
+    "corpus_alignment_distribution": {
+      "corresponds": 5
+    },
+    "corpus_alignment_agreement": 1.0,
+    "unanimous_corpus_alignment": true,
+    "needs_context_count": 2,
+    "mean_confidence": 0.948
+  }
+}

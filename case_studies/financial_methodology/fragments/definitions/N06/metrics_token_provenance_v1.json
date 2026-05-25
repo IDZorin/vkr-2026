@@ -1,0 +1,816 @@
+{
+  "entry_id": "N06",
+  "schema": "metrics_token_provenance_v1",
+  "parse_error": null,
+  "summary": {
+    "source_token_count": 15,
+    "content_token_count": 10,
+    "covered_content_token_count": 10,
+    "uncovered_content_token_count": 0,
+    "ignored_stopword_count": 5,
+    "content_coverage_rate": 1.0
+  },
+  "tokens": [
+    {
+      "token": "close",
+      "surface_forms": [
+        "Close"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 2
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "CloseOfBusiness",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "CloseOfBusiness"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "close_of_business_definition",
+          "family": "AssertDecl.fact",
+          "line": 11,
+          "matched_text": "close_of_business_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "line": 11,
+          "matched_text": "close_of_business_definition"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "CloseOfBusiness"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "CloseOfBusiness"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "CloseOfBusiness",
+          "matched_text": "Close of Business"
+        }
+      ]
+    },
+    {
+      "token": "of",
+      "surface_forms": [
+        "of"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 8
+        },
+        {
+          "line": 1,
+          "column": 45
+        },
+        {
+          "line": 1,
+          "column": 66
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "CloseOfBusiness",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "CloseOfBusiness"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "calculation_time_of_closing_level_of_index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "close_of_business_definition",
+          "family": "AssertDecl.fact",
+          "line": 11,
+          "matched_text": "close_of_business_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "line": 11,
+          "matched_text": "close_of_business_definition"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "calculation_time_of_closing_level_of_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "CloseOfBusiness"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "CloseOfBusiness"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "CloseOfBusiness",
+          "matched_text": "Close of Business"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "matched_text": "calculation time of the closing level of the Index"
+        }
+      ]
+    },
+    {
+      "token": "busin",
+      "surface_forms": [
+        "Business"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 11
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "CloseOfBusiness",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "CloseOfBusiness"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "close_of_business_definition",
+          "family": "AssertDecl.fact",
+          "line": 11,
+          "matched_text": "close_of_business_definition"
+        },
+        {
+          "source": "formula",
+          "role": "assertion_name",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "line": 11,
+          "matched_text": "close_of_business_definition"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[0]",
+          "matched_text": "CloseOfBusiness"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[0]",
+          "matched_text": "CloseOfBusiness"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "CloseOfBusiness",
+          "matched_text": "Close of Business"
+        }
+      ]
+    },
+    {
+      "token": "is",
+      "surface_forms": [
+        "is"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 21
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "the",
+      "surface_forms": [
+        "the"
+      ],
+      "count": 3,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 24
+        },
+        {
+          "line": 1,
+          "column": 48
+        },
+        {
+          "line": 1,
+          "column": 69
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "matched_text": "calculation time of the closing level of the Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndex",
+          "matched_text": "the Index"
+        }
+      ]
+    },
+    {
+      "token": "calculate",
+      "surface_forms": [
+        "calculation"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 28
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "CalculationTime",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "CalculationTime"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "CloseOfBusiness",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "CalculationTime"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "calculation_time_of_closing_level_of_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "CalculationTime"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "outlined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "CalculationTime"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "calculation_time_of_closing_level_of_index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "CalculationTime",
+          "matched_text": "calculation time"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "matched_text": "calculation time of the closing level of the Index"
+        }
+      ]
+    },
+    {
+      "token": "time",
+      "surface_forms": [
+        "time"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 40
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "CalculationTime",
+          "family": "TypeDecl.opaque",
+          "line": 2,
+          "matched_text": "CalculationTime"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "CloseOfBusiness",
+          "family": "SymbolDecl.entity",
+          "line": 5,
+          "matched_text": "CalculationTime"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "calculation_time_of_closing_level_of_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "CalculationTime"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "outlined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "CalculationTime"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "calculation_time_of_closing_level_of_index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "CalculationTime",
+          "matched_text": "calculation time"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "matched_text": "calculation time of the closing level of the Index"
+        }
+      ]
+    },
+    {
+      "token": "clo",
+      "surface_forms": [
+        "closing"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 52
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "calculation_time_of_closing_level_of_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "calculation_time_of_closing_level_of_index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "matched_text": "calculation time of the closing level of the Index"
+        }
+      ]
+    },
+    {
+      "token": "level",
+      "surface_forms": [
+        "level"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 60
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "calculation_time_of_closing_level_of_index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "calculation_time_of_closing_level_of_index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "matched_text": "calculation time of the closing level of the Index"
+        }
+      ]
+    },
+    {
+      "token": "index",
+      "surface_forms": [
+        "Index"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 73
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Index",
+          "family": "TypeDecl.opaque",
+          "line": 1,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "declaration",
+          "role": "sort",
+          "symbol": "TheIndex",
+          "family": "SymbolDecl.entity",
+          "line": 4,
+          "matched_text": "Index"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "calculation_time_of_closing_level_of_index"
+        },
+        {
+          "source": "declaration",
+          "role": "args",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "family": "SymbolDecl.rel",
+          "line": 8,
+          "matched_text": "Index"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0]",
+          "matched_text": "calculation_time_of_closing_level_of_index"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[0].args[1]",
+          "matched_text": "TheIndex"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "calculation_time_of_closing_level_of_index",
+          "matched_text": "calculation time of the closing level of the Index"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "TheIndex",
+          "matched_text": "the Index"
+        }
+      ]
+    },
+    {
+      "token": "as",
+      "surface_forms": [
+        "as"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 79
+        }
+      ],
+      "provenance": []
+    },
+    {
+      "token": "outlin",
+      "surface_forms": [
+        "outlined"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 82
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "outlined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "outlined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "outlined_in_section"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "outlined_in_section",
+          "matched_text": "outlined in Section 1.4"
+        }
+      ]
+    },
+    {
+      "token": "in",
+      "surface_forms": [
+        "in"
+      ],
+      "count": 1,
+      "status": "ignored_stopword",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 91
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "outlined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "outlined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "outlined_in_section"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "outlined_in_section",
+          "matched_text": "outlined in Section 1.4"
+        }
+      ]
+    },
+    {
+      "token": "section",
+      "surface_forms": [
+        "Section"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 94
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Section1_4",
+          "family": "SymbolDecl.entity",
+          "line": 6,
+          "matched_text": "Section1_4"
+        },
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "outlined_in_section",
+          "family": "SymbolDecl.rel",
+          "line": 9,
+          "matched_text": "outlined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "callee",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1]",
+          "matched_text": "outlined_in_section"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "Section1_4"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Section1_4",
+          "matched_text": "Section 1.4"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "outlined_in_section",
+          "matched_text": "outlined in Section 1.4"
+        }
+      ]
+    },
+    {
+      "token": "1.4",
+      "surface_forms": [
+        "1.4"
+      ],
+      "count": 1,
+      "status": "covered",
+      "source_locations": [
+        {
+          "line": 1,
+          "column": 102
+        }
+      ],
+      "provenance": [
+        {
+          "source": "declaration",
+          "role": "declaration_name",
+          "symbol": "Section1_4",
+          "family": "SymbolDecl.entity",
+          "line": 6,
+          "matched_text": "Section1_4"
+        },
+        {
+          "source": "formula",
+          "role": "ref",
+          "assertion": "close_of_business_definition",
+          "assertion_kind": "fact",
+          "expr_path": "expr.args[1].args[1]",
+          "matched_text": "Section1_4"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "Section1_4",
+          "matched_text": "Section 1.4"
+        },
+        {
+          "source": "provenance_vocabulary_notes",
+          "role": "source_phrase",
+          "symbol": "outlined_in_section",
+          "matched_text": "outlined in Section 1.4"
+        }
+      ]
+    }
+  ],
+  "uncovered_tokens": [],
+  "url_provenance": {
+    "summary": {
+      "source_url_count": 0,
+      "covered_url_count": 0,
+      "missing_url_count": 0,
+      "url_coverage_rate": null
+    },
+    "urls": [],
+    "missing_urls": []
+  }
+}

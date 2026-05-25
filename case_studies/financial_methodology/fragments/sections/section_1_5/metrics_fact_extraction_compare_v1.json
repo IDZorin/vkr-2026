@@ -1,0 +1,89 @@
+{
+  "entry_id": "section_1_5",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1699,
+    "completion_tokens": 329,
+    "total_tokens": 2028
+  },
+  "latency_s": 2.7893166542053223,
+  "raw_parsed": {
+    "source_facts": [
+      "Licenses may be issued by Solactive.",
+      "Licenses are for using the Index as underlying value.",
+      "Licenses are for financial instruments, investment funds, and financial contracts.",
+      "Licenses may be issued to stock exchanges, banks, financial services providers, and investment houses."
+    ],
+    "render_facts": [
+      "The license class applies to TheIndex.",
+      "The license class is for financial instrument use, investment fund use, and financial contract use.",
+      "The corresponding license issuance is for that license class.",
+      "The corresponding license issuance is addressed to stock exchanges, banks, financial services providers, and investment houses.",
+      "The corresponding license issuance is issued by Solactive.",
+      "Solactive may issue an IndexUnderlyingValueLicense under that issuance scope."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 4,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 1,
+        "render_idx": 0,
+        "match": "stronger"
+      },
+      {
+        "src_idx": 2,
+        "render_idx": 1,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 3,
+        "render_idx": 3,
+        "match": "paraphrase"
+      }
+    ],
+    "render_only": [
+      0,
+      2,
+      5
+    ]
+  },
+  "summary": {
+    "n_source_facts": 4,
+    "n_render_facts": 6,
+    "matched_source": 4,
+    "matched_render": 4,
+    "render_only": 3,
+    "missing_source": 0,
+    "weaker_in_render": 0,
+    "stronger_in_render": 1,
+    "recall": 1.0,
+    "precision": 0.667,
+    "f1": 0.8,
+    "missing_source_facts": [],
+    "render_only_facts": [
+      {
+        "idx": 0,
+        "fact": "The license class applies to TheIndex."
+      },
+      {
+        "idx": 2,
+        "fact": "The corresponding license issuance is for that license class."
+      },
+      {
+        "idx": 5,
+        "fact": "Solactive may issue an IndexUnderlyingValueLicense under that issuance scope."
+      }
+    ],
+    "weaker_pairs": [],
+    "stronger_pairs": [
+      {
+        "src": "Licenses are for using the Index as underlying value.",
+        "render": "The license class applies to TheIndex."
+      }
+    ]
+  }
+}

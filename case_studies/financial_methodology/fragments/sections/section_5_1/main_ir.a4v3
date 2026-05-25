@@ -1,0 +1,60 @@
+sort Index
+sort Discretion
+sort IndexDeterminationDiscretion extends Discretion
+sort StrictRule
+
+sort IndexDeterminationMatter =
+  DeterminationOfIndex
+| DeterminationOfIndexUniverse
+| SelectionOfIndexComponents
+| OtherRelevantDecisionInRelationToIndex
+
+sort ExerciseBasis =
+  ExerciseOfDiscretion
+| ExerciseOfExpertJudgement
+
+entity TheIndex : Index
+entity StrictRulesForDiscretionAndExpertJudgement : StrictRule
+
+rel potential_need_to_exercise : IndexDeterminationDiscretion
+rel discretion_in_relation_to_index :
+  IndexDeterminationDiscretion, Index
+rel discretion_in_relation_to_matter :
+  IndexDeterminationDiscretion, IndexDeterminationMatter
+rel if_applicable : IndexDeterminationMatter
+
+rel other_relevant_decision_in_relation_to_index : IndexDeterminationMatter
+rel strict_rules : StrictRule
+rel rules_regarding_exercise : StrictRule, ExerciseBasis
+
+constraint index_determination_discretion_scope :
+  forall d: IndexDeterminationDiscretion,
+    potential_need_to_exercise(d)
+    and discretion_in_relation_to_index(d, TheIndex)
+    and exists m: IndexDeterminationMatter,
+      discretion_in_relation_to_matter(d, m)
+
+fact applicable_example_matters :
+  if_applicable(DeterminationOfIndexUniverse)
+  and if_applicable(SelectionOfIndexComponents)
+  and other_relevant_decision_in_relation_to_index(
+    OtherRelevantDecisionInRelationToIndex
+  )
+
+fact strict_rules_for_discretion_or_expert_judgement :
+  strict_rules(StrictRulesForDiscretionAndExpertJudgement)
+  and rules_regarding_exercise(
+    StrictRulesForDiscretionAndExpertJudgement,
+    ExerciseOfDiscretion
+  )
+  and rules_regarding_exercise(
+    StrictRulesForDiscretionAndExpertJudgement,
+    ExerciseOfExpertJudgement
+  )
+
+obligation make_index_determination_discretion_in_accordance_with_strict_rules(
+  discretion: IndexDeterminationDiscretion
+)
+  action: make_in_accordance_with
+  target: StrictRulesForDiscretionAndExpertJudgement
+  scope: discretion

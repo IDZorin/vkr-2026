@@ -1,6 +1,6 @@
-"""role_annotation_lint_v1.py
+﻿"""role_annotation_lint_v1.py
 
-Deterministic lint for optional DZ role/frame annotations.
+Deterministic lint for optional financial methodology role/frame annotations.
 
 This checker is intentionally dormant unless an entry contains
 ``role_annotations.yaml``. When the file exists, it validates that the
@@ -35,7 +35,7 @@ import yaml
 ROLE_ANNOTATION_FILE = "role_annotations.yaml"
 
 # Deliberately broad v1 role vocabulary. It is still finite and machine
-# checkable, but permissive enough for current DZ relation/function patterns.
+# checkable, but permissive enough for current financial methodology relation/function patterns.
 APPROVED_ROLES = {
     "actor",
     "affected",
@@ -842,7 +842,7 @@ def write_report(entry_dir: pathlib.Path, report: dict[str, Any]) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("target", help="DZ entry dir or run root")
+    ap.add_argument("target", help="seed methodology entry dir or run root")
     args = ap.parse_args()
     target = pathlib.Path(args.target)
     entries = _entry_dirs(target)

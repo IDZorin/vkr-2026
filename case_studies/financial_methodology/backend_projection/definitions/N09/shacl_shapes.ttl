@@ -1,0 +1,23 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N09 a a4:ShaclProjectionTarget .
+
+ex:EligibleRebalanceDay a rdfs:Class .
+ex:EligibleRebalanceDay rdfs:subClassOf ex:Day .
+ex:EligibleRebalanceDayShape a sh:NodeShape ; sh:targetClass ex:EligibleRebalanceDay .
+ex:Exchange a rdfs:Class .
+ex:ExchangeShape a sh:NodeShape ; sh:targetClass ex:Exchange .
+
+ex:NewYorkStockExchange a ex:Exchange .
+ex:LondonStockExchange a ex:Exchange .
+ex:EUREXExchange a ex:Exchange .
+ex:TokyoStockExchange a ex:Exchange .
+ex:trading_day_at_exchange a rdf:Property .
+ex:DayShape sh:property [ sh:path ex:trading_day_at_exchange ; sh:class ex:Exchange ] .
+ex:eligible_rebalance_day a rdfs:Class ; rdfs:subClassOf ex:EligibleRebalanceDay .

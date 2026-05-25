@@ -1,0 +1,264 @@
+sort SelectionDay extends Day
+sort Security extends FinancialInstrument
+sort ShareClass extends Security
+sort Company
+
+sort GbsIndex
+sort GbsIndexUniverse
+sort ISIN
+
+entity SolactiveGBSGlobalMarketsAllCapUSDIndexPR : GbsIndex
+entity DE000SLA78E2 : ISIN
+
+fun[required] isin : GbsIndex -> ISIN
+fun[required] gbs_index_universe : GbsIndex -> GbsIndexUniverse
+
+fact gbs_index_isin :
+isin(SolactiveGBSGlobalMarketsAllCapUSDIndexPR) = DE000SLA78E2
+
+entity SolactiveGBSBenchmarkSeriesPdf : Document
+-- raw_url: https://www.solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf
+entity HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf : Url
+entity GbsIndexUniverseFrameworkDocumentPart : DocumentPart
+entity GbsIndexUniverseFrameworkDocumentLocator : DocumentLocator
+
+fact solactive_gbs_benchmark_series_pdf_url :
+document_url(SolactiveGBSBenchmarkSeriesPdf, HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)
+
+fact gbs_index_universe_framework_document_part :
+part_of_document(GbsIndexUniverseFrameworkDocumentPart, SolactiveGBSBenchmarkSeriesPdf)
+
+fact gbs_index_universe_framework_document_part_locator :
+document_part_locator(GbsIndexUniverseFrameworkDocumentPart, GbsIndexUniverseFrameworkDocumentLocator)
+
+fact gbs_index_universe_framework_document_part_url :
+document_part_url(GbsIndexUniverseFrameworkDocumentPart, HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf)
+
+sort GbsIndexUniverseClassification
+
+entity DevelopedMarketsEurope : GbsIndexUniverseClassification
+entity Canada : GbsIndexUniverseClassification
+entity UnitedStates : GbsIndexUniverseClassification
+
+sort AverageDailyValueTraded extends MonetaryAmount
+
+entity USD : Currency
+entity Million : MonetaryAmountScale
+entity IndexUniverseMinimumAverageDailyValueTradedThreshold : MonetaryAmount
+
+fact index_universe_minimum_average_daily_value_traded_threshold_currency :
+currency(IndexUniverseMinimumAverageDailyValueTradedThreshold) = USD
+
+fact index_universe_minimum_average_daily_value_traded_threshold_value :
+monetary_amount_value(IndexUniverseMinimumAverageDailyValueTradedThreshold) = 5
+
+fact index_universe_minimum_average_daily_value_traded_threshold_scale :
+monetary_amount_scale(IndexUniverseMinimumAverageDailyValueTradedThreshold) = Million
+
+sort MonthCount extends Nat
+
+entity OneMonth : MonthCount
+entity SixMonths : MonthCount
+
+fact lookback_month_count_values :
+OneMonth = 1
+and SixMonths = 6
+
+fun[required] months_prior_including_selection_day : MonthCount, SelectionDay -> LookbackWindow
+
+fun[required] months_over : LookbackWindow -> MonthCount
+rel lookback_window_anchor_day : LookbackWindow, SelectionDay
+rel lookback_window_includes_anchor_day : LookbackWindow, SelectionDay
+
+constraint declared_lookback_windows :
+forall d: SelectionDay,
+months_over(months_prior_including_selection_day(OneMonth, d)) = OneMonth
+and lookback_window_anchor_day(months_prior_including_selection_day(OneMonth, d), d)
+and lookback_window_includes_anchor_day(months_prior_including_selection_day(OneMonth, d), d)
+and months_over(months_prior_including_selection_day(SixMonths, d)) = SixMonths
+and lookback_window_anchor_day(months_prior_including_selection_day(SixMonths, d), d)
+and lookback_window_includes_anchor_day(months_prior_including_selection_day(SixMonths, d), d)
+
+fun[required] average_daily_value_traded : SelectionDay, Security, LookbackWindow -> AverageDailyValueTraded
+fun[required] minimum_average_daily_value_traded : SelectionDay, Security -> AverageDailyValueTraded
+
+constraint minimum_average_daily_value_traded_over_declared_lookback_windows :
+forall d: SelectionDay, forall s: Security,
+minimum_average_daily_value_traded(d, s)
+<= average_daily_value_traded(d, s, months_prior_including_selection_day(OneMonth, d))
+and minimum_average_daily_value_traded(d, s)
+<= average_daily_value_traded(d, s, months_prior_including_selection_day(SixMonths, d))
+and (
+minimum_average_daily_value_traded(d, s)
+= average_daily_value_traded(d, s, months_prior_including_selection_day(OneMonth, d))
+or
+minimum_average_daily_value_traded(d, s)
+= average_daily_value_traded(d, s, months_prior_including_selection_day(SixMonths, d))
+)
+
+sort BusinessIndustryClassificationSystem
+sort RBICSSubindustryClassification
+sort Appendix
+
+entity FactSetRevereBusinessIndustryClassificationSystem : BusinessIndustryClassificationSystem
+entity IndexGuidelineAppendix : Appendix
+
+rel rbics_subindustry_classification_of_system :
+RBICSSubindustryClassification, BusinessIndustryClassificationSystem
+
+rel rbics_subindustry_classification_in_appendix :
+RBICSSubindustryClassification, Appendix
+
+rel appendix_rbics_subindustry_classification : RBICSSubindustryClassification
+
+constraint appendix_rbics_subindustry_classification_definition :
+forall cls: RBICSSubindustryClassification,
+appendix_rbics_subindustry_classification(cls)
+iff
+rbics_subindustry_classification_of_system(
+cls,
+FactSetRevereBusinessIndustryClassificationSystem
+)
+and rbics_subindustry_classification_in_appendix(
+cls,
+IndexGuidelineAppendix
+)
+
+sort IndexAdministrator extends Organization
+sort DeterminationOfIndexUniverse
+sort DiscretionaryDecision
+
+rel index_universe : SelectionDay, ShareClass
+rel eligible_for_index_universe : SelectionDay, ShareClass
+
+rel part_component_of_gbs_index_universe : SelectionDay, Security, GbsIndexUniverse
+
+fun[required] gbs_index_universe_classification :
+SelectionDay, Security -> GbsIndexUniverseClassification
+
+fun[required] company : ShareClass -> Company
+
+rel company_currently_included_in_index : SelectionDay, Company
+rel share_class_currently_included_in_index : SelectionDay, ShareClass
+
+constraint company_currently_included_in_index_definition :
+forall d: SelectionDay, forall co: Company,
+company_currently_included_in_index(d, co)
+iff
+exists sc: ShareClass,
+company(sc) = co
+and share_class_currently_included_in_index(d, sc)
+
+rel eligible_by_current_company_buffer_rule : SelectionDay, ShareClass
+rel eligible_by_not_current_company_buffer_rule : SelectionDay, ShareClass
+rel share_class_satisfies_buffer_rule : SelectionDay, ShareClass
+
+entity CurrentCompanyBufferRule : IndexBufferRule
+entity NotCurrentCompanyBufferRule : IndexBufferRule
+entity AvoidFrequentChangesBetweenTwoShareClasses : VagueTerm
+
+fun[required] share_class_with_highest_minimum_average_daily_value_traded :
+SelectionDay, Company -> ShareClass
+
+rel highest_minimum_average_daily_value_traded : SelectionDay, ShareClass
+
+constraint highest_minimum_average_daily_value_traded_share_class_company :
+forall d: SelectionDay, forall co: Company,
+company(share_class_with_highest_minimum_average_daily_value_traded(d, co)) = co
+
+constraint highest_minimum_average_daily_value_traded_definition :
+forall d: SelectionDay, forall co: Company, forall other: ShareClass,
+company(other) = co
+and other != share_class_with_highest_minimum_average_daily_value_traded(d, co)
+implies
+minimum_average_daily_value_traded(
+d,
+share_class_with_highest_minimum_average_daily_value_traded(d, co)
+)
+>= minimum_average_daily_value_traded(d, other)
+
+constraint highest_minimum_average_daily_value_traded_predicate :
+forall d: SelectionDay, forall sc: ShareClass,
+highest_minimum_average_daily_value_traded(d, sc)
+iff
+sc = share_class_with_highest_minimum_average_daily_value_traded(
+d,
+company(sc)
+)
+
+constraint current_company_buffer_rule [realizes: CurrentCompanyBufferRule] :
+forall d: SelectionDay, forall sc: ShareClass,
+eligible_by_current_company_buffer_rule(d, sc)
+iff
+company_currently_included_in_index(d, company(sc))
+and share_class_currently_included_in_index(d, sc)
+and forall other: ShareClass,
+company(other) = company(sc)
+and other != sc
+implies
+minimum_average_daily_value_traded(d, sc)
+>= 60% * minimum_average_daily_value_traded(d, other)
+
+constraint not_current_company_buffer_rule [realizes: NotCurrentCompanyBufferRule] :
+forall d: SelectionDay, forall sc: ShareClass,
+eligible_by_not_current_company_buffer_rule(d, sc)
+iff
+not company_currently_included_in_index(d, company(sc))
+and highest_minimum_average_daily_value_traded(d, sc)
+
+constraint share_class_satisfies_buffer_rule_definition :
+forall d: SelectionDay, forall sc: ShareClass,
+share_class_satisfies_buffer_rule(d, sc)
+iff
+eligible_by_current_company_buffer_rule(d, sc)
+or eligible_by_not_current_company_buffer_rule(d, sc)
+
+fun[required] rbics_subindustry_classification :
+SelectionDay, Security -> RBICSSubindustryClassification
+
+fun[required] determination_of_index_universe :
+SelectionDay -> DeterminationOfIndexUniverse
+
+rel fully_rule_based : DeterminationOfIndexUniverse
+
+constraint index_universe_bridge :
+forall d: SelectionDay, forall sc: ShareClass,
+index_universe(d, sc) iff eligible_for_index_universe(d, sc)
+
+constraint eligible_for_index_universe_requirements :
+forall d: SelectionDay, forall sc: ShareClass,
+eligible_for_index_universe(d, sc)
+iff
+part_component_of_gbs_index_universe(
+d,
+sc,
+gbs_index_universe(SolactiveGBSGlobalMarketsAllCapUSDIndexPR)
+)
+and (
+gbs_index_universe_classification(d, sc) = DevelopedMarketsEurope
+or gbs_index_universe_classification(d, sc) = Canada
+or gbs_index_universe_classification(d, sc) = UnitedStates
+)
+and minimum_average_daily_value_traded(d, sc)
+>= IndexUniverseMinimumAverageDailyValueTradedThreshold
+and share_class_satisfies_buffer_rule(d, sc)
+and appendix_rbics_subindustry_classification(
+rbics_subindustry_classification(d, sc)
+)
+
+constraint only_one_share_class_of_each_company :
+forall d: SelectionDay, forall co: Company,
+count(sc in ShareClass where eligible_for_index_universe(d, sc) and company(sc) = co) <= 1
+
+fact determination_of_index_universe_fully_rule_based :
+forall d: SelectionDay,
+fully_rule_based(determination_of_index_universe(d))
+
+prohibition index_administrator_discretionary_decision(
+agent: IndexAdministrator,
+determination: DeterminationOfIndexUniverse,
+decision: DiscretionaryDecision
+)
+action: make_discretionary_decision
+target: decision
+scope: determination

@@ -1,0 +1,172 @@
+﻿-- LOCAL IR for Section 4.1 Index calculation.
+-- Source-local policy: cross-section identity links to Section 1.2 live in
+-- case_studies/financial_methodology/bridge/main_bridge.a4v3, not in this local translation.
+
+sort Index
+sort IndexComponent extends FinancialInstrument
+sort CalculationDay extends Day
+
+sort IndexType = PriceReturn | NetTotalReturn | GrossTotalReturn | AdjustedReturnIndex
+
+sort IndexCalculationFormula
+sort FormulaMechanics
+sort IndexLevel extends Real
+sort Price extends Real
+sort PriceChange extends Real
+sort ComponentWeight extends Percent
+sort CurrencyConversion
+sort Distribution
+sort Payment
+sort EffectiveDate extends Day
+sort ExDate extends EffectiveDate
+sort Opening
+sort Decrement
+sort SyntheticDividend extends Decrement
+sort IndexPointAmount extends Real
+sort CalendarDayCount extends Nat
+
+entity PriceReturnIndexVersion : Index
+entity NTRIndexVersion : Index
+entity GTRIndexVersion : Index
+entity AdjustedReturnVersion : Index
+entity SOLTCA50 : Index
+
+entity EquityIndexMethodology : Document
+entity SolactiveWebsite : WebResource
+entity EquityIndexMethodologySection1_2 : DocumentPart
+entity EquityIndexMethodologySection1_2Locator : DocumentLocator
+
+entity StandardIndexFormula : IndexCalculationFormula
+entity AdjustedReturnFormula : IndexCalculationFormula
+
+rel section_4_1_index : Index
+rel index_component_of : Index, CalculationDay, IndexComponent
+
+rel calculated_according_to : Index, Document
+rel available_on : Document, WebResource
+rel incorporated_by_reference : Document
+rel formula_in_methodology : IndexCalculationFormula, Document
+rel standard_index_formula : IndexCalculationFormula
+rel adjusted_return_formula : IndexCalculationFormula
+rel formula_applies_to_index : IndexCalculationFormula, Index
+rel detailed_description_found_in : FormulaMechanics, DocumentPart
+
+rel formula_level_change_based_on_price_change : IndexCalculationFormula, Index, CalculationDay, IndexComponent, PriceChange
+rel formula_level_change_takes_weight : IndexCalculationFormula, Index, CalculationDay, IndexComponent, Percent
+rel formula_level_change_takes_currency_conversion : IndexCalculationFormula, Index, CalculationDay, IndexComponent, CurrencyConversion
+
+rel payment_of : Payment, Distribution
+rel pays_distribution : IndexComponent, Distribution
+rel reinvested_back_into : Distribution, IndexComponent, Opening
+
+rel previous_calculation_day_of : CalculationDay, CalculationDay
+rel deducted_from : Decrement, Index
+rel decrement_applied_on_each_index_calculation_day : Decrement
+rel applied_in_compliance_with : Decrement, Document
+rel includes_day : CalendarDayCount, CalculationDay
+rel excludes_day : CalendarDayCount, CalculationDay
+
+fun[optional] index_type : Index -> IndexType
+fun[required] index_level : Index, CalculationDay -> IndexLevel
+fun[required] component_price : IndexComponent, CalculationDay -> Price
+fun[required] component_price_change : IndexComponent, CalculationDay -> PriceChange
+fun[required] component_weight : Index, CalculationDay, IndexComponent -> ComponentWeight
+fun[required] index_currency : Index -> Currency
+fun[required] quoted_currency : Price -> Currency
+fun[optional] currency_conversion : Index, CalculationDay, IndexComponent -> CurrencyConversion
+fun[optional] underlying_index_of : Index -> Index
+fun[optional] decrement_of : Index -> Decrement
+fun[optional] synthetic_dividend_of : Index -> SyntheticDividend
+fun[required] percent_per_annum : Decrement -> Percent
+fun[required] index_points_per_annum : SyntheticDividend -> IndexPointAmount
+fun[required] number_of_calendar_days_between : CalculationDay, CalculationDay -> CalendarDayCount
+fun[required] effective_date : Payment -> EffectiveDate
+fun[required] ex_date : Payment -> ExDate
+fun[required] opening : Day -> Opening
+fun[required] mechanics : IndexCalculationFormula -> FormulaMechanics
+
+fact section_4_1_index_scope :
+  section_4_1_index(PriceReturnIndexVersion)
+  and section_4_1_index(NTRIndexVersion)
+  and section_4_1_index(GTRIndexVersion)
+  and section_4_1_index(AdjustedReturnVersion)
+  and section_4_1_index(SOLTCA50)
+
+fact index_calculated_as_return_forms :
+  index_type(PriceReturnIndexVersion) = PriceReturn
+  and index_type(NTRIndexVersion) = NetTotalReturn
+  and index_type(GTRIndexVersion) = GrossTotalReturn
+  and index_type(AdjustedReturnVersion) = AdjustedReturnIndex
+  and index_type(SOLTCA50) = AdjustedReturnIndex
+
+fact equity_index_methodology_reference :
+  available_on(EquityIndexMethodology, SolactiveWebsite)
+  and incorporated_by_reference(EquityIndexMethodology)
+  and formula_in_methodology(StandardIndexFormula, EquityIndexMethodology)
+  and standard_index_formula(StandardIndexFormula)
+  and formula_in_methodology(AdjustedReturnFormula, EquityIndexMethodology)
+  and adjusted_return_formula(AdjustedReturnFormula)
+  and part_of_document(EquityIndexMethodologySection1_2, EquityIndexMethodology)
+  and document_part_locator(EquityIndexMethodologySection1_2, EquityIndexMethodologySection1_2Locator)
+  and detailed_description_found_in(mechanics(StandardIndexFormula), EquityIndexMethodologySection1_2)
+
+fact calculation_performed_according_to_equity_index_methodology :
+  forall i: Index,
+    section_4_1_index(i)
+    implies calculated_according_to(i, EquityIndexMethodology)
+
+fact standard_index_formula_basis :
+  forall i: Index, forall d: CalculationDay, forall c: IndexComponent,
+    section_4_1_index(i)
+    and index_component_of(i, d, c)
+    implies
+      formula_applies_to_index(StandardIndexFormula, i)
+      and formula_level_change_based_on_price_change(StandardIndexFormula, i, d, c, component_price_change(c, d))
+      and formula_level_change_takes_weight(StandardIndexFormula, i, d, c, component_weight(i, d, c))
+      and (
+        not (quoted_currency(component_price(c, d)) = index_currency(i))
+        implies formula_level_change_takes_currency_conversion(StandardIndexFormula, i, d, c, currency_conversion(i, d, c))
+      )
+
+constraint distributions_reinvested_back_at_opening_of_effective_ex_date :
+  forall p: Payment, forall dist: Distribution, forall c: IndexComponent,
+    payment_of(p, dist)
+    and pays_distribution(c, dist)
+    implies
+      ex_date(p) = effective_date(p)
+      and reinvested_back_into(dist, c, opening(effective_date(p)))
+
+fact adjusted_return_version_decrement_from_ntr :
+  underlying_index_of(AdjustedReturnVersion) = NTRIndexVersion
+  and percent_per_annum(decrement_of(AdjustedReturnVersion)) = 5%
+  and deducted_from(decrement_of(AdjustedReturnVersion), NTRIndexVersion)
+  and decrement_applied_on_each_index_calculation_day(decrement_of(AdjustedReturnVersion))
+  and applied_in_compliance_with(decrement_of(AdjustedReturnVersion), EquityIndexMethodology)
+
+fact soltca50_decrement_from_gtr :
+  formula_applies_to_index(AdjustedReturnFormula, SOLTCA50)
+  and underlying_index_of(SOLTCA50) = GTRIndexVersion
+  and decrement_of(SOLTCA50) = synthetic_dividend_of(SOLTCA50)
+  and index_points_per_annum(synthetic_dividend_of(SOLTCA50)) = 50
+  and deducted_from(decrement_of(SOLTCA50), GTRIndexVersion)
+  and decrement_applied_on_each_index_calculation_day(decrement_of(SOLTCA50))
+
+fact calendar_day_count_for_adjusted_return_formula :
+  forall t: CalculationDay, forall t_prev: CalculationDay,
+    previous_calculation_day_of(t_prev, t)
+    implies
+      includes_day(number_of_calendar_days_between(t, t_prev), t)
+      and excludes_day(number_of_calendar_days_between(t, t_prev), t_prev)
+
+constraint soltca50_adjusted_return_index_formula :
+  forall t: CalculationDay, forall t_prev: CalculationDay,
+    previous_calculation_day_of(t_prev, t)
+    implies
+      index_level(SOLTCA50, t)
+      =
+      index_level(SOLTCA50, t_prev)
+      * index_level(underlying_index_of(SOLTCA50), t)
+      / index_level(underlying_index_of(SOLTCA50), t_prev)
+      - index_points_per_annum(synthetic_dividend_of(SOLTCA50))
+        * number_of_calendar_days_between(t, t_prev)
+        / 360

@@ -1,0 +1,84 @@
+{
+  "schema": "provenance_backtranslation_metrics_v1",
+  "entry_id": "N14",
+  "generated_at": "2026-05-16T21:14:53",
+  "status": "ok",
+  "semantic_requested": false,
+  "summary": {
+    "claim_count": 3,
+    "source_claim_count": 3,
+    "claims_with_warnings": 1,
+    "source_claims_with_warnings": 1,
+    "mean_deterministic_meaningfulness_score": 0.89,
+    "mean_source_claim_deterministic_meaningfulness_score": 0.89,
+    "mean_source_token_recall": 0.952,
+    "mean_back_translation_token_precision": 0.831,
+    "warning_counts": {
+      "url_not_preserved": 1
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "solactive_gbs_benchmark_series_guideline_url",
+      "kind": "fact",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 135,
+      "back_translation_char_len": 147,
+      "source_token_count": 7,
+      "back_translation_token_count": 9,
+      "source_token_recall": 1.0,
+      "back_translation_token_precision": 0.778,
+      "token_jaccard": 0.778,
+      "number_preservation": null,
+      "url_preservation": 1.0,
+      "modal_family_preservation": null,
+      "negation_preservation": null,
+      "deterministic_meaningfulness_score": 0.937,
+      "warnings": []
+    },
+    {
+      "claim_id": "gbs_index_specified_in_section_2_1",
+      "kind": "fact",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 38,
+      "back_translation_char_len": 72,
+      "source_token_count": 5,
+      "back_translation_token_count": 7,
+      "source_token_recall": 1.0,
+      "back_translation_token_precision": 0.714,
+      "token_jaccard": 0.714,
+      "number_preservation": 1.0,
+      "url_preservation": null,
+      "modal_family_preservation": null,
+      "negation_preservation": null,
+      "deterministic_meaningfulness_score": 0.918,
+      "warnings": []
+    },
+    {
+      "claim_id": "gbs_index_universe_definition",
+      "kind": "fact",
+      "claim_origin": "source_claim",
+      "status": "covered",
+      "source_quote_count": 1,
+      "source_char_len": 244,
+      "back_translation_char_len": 150,
+      "source_token_count": 14,
+      "back_translation_token_count": 12,
+      "source_token_recall": 0.857,
+      "back_translation_token_precision": 1.0,
+      "token_jaccard": 0.857,
+      "number_preservation": 1.0,
+      "url_preservation": 0.0,
+      "modal_family_preservation": null,
+      "negation_preservation": null,
+      "deterministic_meaningfulness_score": 0.816,
+      "warnings": [
+        "url_not_preserved"
+      ]
+    }
+  ]
+}

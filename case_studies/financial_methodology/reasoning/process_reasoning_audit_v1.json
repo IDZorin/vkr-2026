@@ -1,0 +1,359 @@
+﻿{
+  "schema": "process_reasoning_audit_v1",
+  "run_root": "case_studies\\financial_methodology",
+  "process_files": [
+    "process_ontology_v1.a4v3",
+    "ordinary_rebalance_workflow_v1.a4v3",
+    "exception_overlays_v1.a4v3"
+  ],
+  "process_step_count": 32,
+  "workflow_count": 7,
+  "step_edge_count": 26,
+  "grounding_target_count": 18,
+  "findings": [
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input CorporateActionPriceEffectInput required by AccountForCorporateActionInCalculation is accepted as external/source-backed.",
+      "data": {
+        "step": "AccountForCorporateActionInCalculation",
+        "input": "CorporateActionPriceEffectInput",
+        "input_kinds": [
+          "ObservationFrameIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input EquityIndexMethodologyInput required by AccountForCorporateActionInCalculation is accepted as external/source-backed.",
+      "data": {
+        "step": "AccountForCorporateActionInCalculation",
+        "input": "EquityIndexMethodologyInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input DisruptionPolicyInput required by ApplyDisruptionPolicyArrangements is accepted as external/source-backed.",
+      "data": {
+        "step": "ApplyDisruptionPolicyArrangements",
+        "input": "DisruptionPolicyInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input FreeFloatMarketCapitalizationInput required by CalculateSelectionDayWeights is accepted as external/source-backed.",
+      "data": {
+        "step": "CalculateSelectionDayWeights",
+        "input": "FreeFloatMarketCapitalizationInput",
+        "input_kinds": [
+          "ObservationFrameIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input SelectedComponentsInput required by CalculateSelectionDayWeights is accepted as external/source-backed.",
+      "data": {
+        "step": "CalculateSelectionDayWeights",
+        "input": "SelectedComponentsInput",
+        "input_kinds": [
+          "ProcessStateIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input CorporateActionEventInput required by DetectCorporateActionEvent is accepted as external/source-backed.",
+      "data": {
+        "step": "DetectCorporateActionEvent",
+        "input": "CorporateActionEventInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input AdjustedReturnIndexCalculationInput required by DetectZeroOrNegativeAdjustedReturnIndexLevel is accepted as external/source-backed.",
+      "data": {
+        "step": "DetectZeroOrNegativeAdjustedReturnIndexLevel",
+        "input": "AdjustedReturnIndexCalculationInput",
+        "input_kinds": [
+          "ObservationFrameIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input AffectedIndexComponentInput required by DetermineCorporateActionAdjustmentNeed is accepted as external/source-backed.",
+      "data": {
+        "step": "DetermineCorporateActionAdjustmentNeed",
+        "input": "AffectedIndexComponentInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input CorporateActionKindInput required by DetermineCorporateActionAdjustmentNeed is accepted as external/source-backed.",
+      "data": {
+        "step": "DetermineCorporateActionAdjustmentNeed",
+        "input": "CorporateActionKindInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input CorrectionPolicyInput required by DetermineCorrectionMeasures is accepted as external/source-backed.",
+      "data": {
+        "step": "DetermineCorrectionMeasures",
+        "input": "CorrectionPolicyInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input ComponentWeightsInput required by DetermineFixingDayShares is accepted as external/source-backed.",
+      "data": {
+        "step": "DetermineFixingDayShares",
+        "input": "ComponentWeightsInput",
+        "input_kinds": [
+          "ObservationFrameIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input AffectedPriceInput required by DetermineIndexUnderDisruptedConditions is accepted as external/source-backed.",
+      "data": {
+        "step": "DetermineIndexUnderDisruptedConditions",
+        "input": "AffectedPriceInput",
+        "input_kinds": [
+          "ObservationFrameIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input DeterminationErrorInput required by IdentifyDeterminationError is accepted as external/source-backed.",
+      "data": {
+        "step": "IdentifyDeterminationError",
+        "input": "DeterminationErrorInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input CorporateActionNoticeInput required by ImplementCorporateActionAdjustment is accepted as external/source-backed.",
+      "data": {
+        "step": "ImplementCorporateActionAdjustment",
+        "input": "CorporateActionNoticeInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input FixingDaySharesInput required by ImplementOrdinaryRebalance is accepted as external/source-backed.",
+      "data": {
+        "step": "ImplementOrdinaryRebalance",
+        "input": "FixingDaySharesInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input SelectedComponentsInput required by ImplementOrdinaryRebalance is accepted as external/source-backed.",
+      "data": {
+        "step": "ImplementOrdinaryRebalance",
+        "input": "SelectedComponentsInput",
+        "input_kinds": [
+          "ProcessStateIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input MethodologyPolicyInput required by MakeMethodologyChangeInPolicy is accepted as external/source-backed.",
+      "data": {
+        "step": "MakeMethodologyChangeInPolicy",
+        "input": "MethodologyPolicyInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input ProposedAmendmentInput required by ProposeRuleOrGuidelineAmendment is accepted as external/source-backed.",
+      "data": {
+        "step": "ProposeRuleOrGuidelineAmendment",
+        "input": "ProposedAmendmentInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input PlannedComponentChangesInput required by PublishRebalanceComponentChanges is accepted as external/source-backed.",
+      "data": {
+        "step": "PublishRebalanceComponentChanges",
+        "input": "PlannedComponentChangesInput",
+        "input_kinds": [
+          "ProcessStateIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input MethodologyReviewInput required by ReviewMethodologyAtLeastAnnually is accepted as external/source-backed.",
+      "data": {
+        "step": "ReviewMethodologyAtLeastAnnually",
+        "input": "MethodologyReviewInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input IndexUniverseInput required by SelectIndexComponents is accepted as external/source-backed.",
+      "data": {
+        "step": "SelectIndexComponents",
+        "input": "IndexUniverseInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "external_input_accepted",
+      "severity": "advisory",
+      "message": "Input OversightCommitteeInput required by SubmitAmendmentForPriorApproval is accepted as external/source-backed.",
+      "data": {
+        "step": "SubmitAmendmentForPriorApproval",
+        "input": "OversightCommitteeInput",
+        "input_kinds": [
+          "DomainConceptIO"
+        ]
+      }
+    },
+    {
+      "code": "modify_continue_without_adjusted_artifact",
+      "severity": "advisory",
+      "message": "ModifyAndContinue step DetectCorporateActionEvent has no obviously adjusted/changed output or state.",
+      "data": {
+        "step": "DetectCorporateActionEvent",
+        "entered_states": [
+          "CorporateActionAffectedComponentState"
+        ],
+        "outputs": []
+      }
+    },
+    {
+      "code": "modify_continue_without_adjusted_artifact",
+      "severity": "advisory",
+      "message": "ModifyAndContinue step DetectMarketDisruptionCondition has no obviously adjusted/changed output or state.",
+      "data": {
+        "step": "DetectMarketDisruptionCondition",
+        "entered_states": [],
+        "outputs": []
+      }
+    },
+    {
+      "code": "modify_continue_without_adjusted_artifact",
+      "severity": "advisory",
+      "message": "ModifyAndContinue step EvaluateCorporateActionProcedureDeviation has no obviously adjusted/changed output or state.",
+      "data": {
+        "step": "EvaluateCorporateActionProcedureDeviation",
+        "entered_states": [],
+        "outputs": [
+          "CorporateActionDeviationDecisionOutput"
+        ]
+      }
+    },
+    {
+      "code": "modify_continue_without_adjusted_artifact",
+      "severity": "advisory",
+      "message": "ModifyAndContinue step IdentifyMethodologyChangeNeed has no obviously adjusted/changed output or state.",
+      "data": {
+        "step": "IdentifyMethodologyChangeNeed",
+        "entered_states": [],
+        "outputs": []
+      }
+    },
+    {
+      "code": "modify_continue_without_adjusted_artifact",
+      "severity": "advisory",
+      "message": "ModifyAndContinue step ReviewMethodologyAtLeastAnnually has no obviously adjusted/changed output or state.",
+      "data": {
+        "step": "ReviewMethodologyAtLeastAnnually",
+        "entered_states": [
+          "MethodologyUnderReviewState"
+        ],
+        "outputs": []
+      }
+    },
+    {
+      "code": "trigger_temporal_relation_without_grounding",
+      "severity": "advisory",
+      "message": "trigger_temporal_relation(FixingDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger, Before) has no trigger_relation_grounded_in.",
+      "data": {
+        "from": "FixingDayTrigger",
+        "to": "RebalanceDayAfterCloseOfBusinessTrigger",
+        "relation": "Before"
+      }
+    },
+    {
+      "code": "trigger_temporal_relation_without_grounding",
+      "severity": "advisory",
+      "message": "trigger_temporal_relation(SufficientNoticeBeforeRebalanceDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger, Before) has no trigger_relation_grounded_in.",
+      "data": {
+        "from": "SufficientNoticeBeforeRebalanceDayTrigger",
+        "to": "RebalanceDayAfterCloseOfBusinessTrigger",
+        "relation": "Before"
+      }
+    }
+  ],
+  "hard_findings": 0,
+  "soft_findings": 0,
+  "advisory_findings": 29,
+  "status": "passed_with_review_items"
+}

@@ -1,0 +1,129 @@
+{
+  "entry_id": "section_4_4",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core ideas that an index adjustment may be required between regular rebalance days due to a corporate action, that Solactive announces it on the website with at least two trading days’ notice, and that implementation occurs on the notice’s effective day. However, it also adds stronger and more specific claims than the source, especially by turning the adjustment into a mandatory obligation, tying the corporate action to Section 4.4 below, and constraining the adjustment effects more narrowly than the source’s “and/or” wording.",
+      "semantic_differences": [
+        "The source says the adjustment may be necessary under certain circumstances; the IR introduces an obligation for Solactive to make the required adjustment, which is stronger than mere necessity.",
+        "The source says the adjustment may affect the index component, the number of index components, and/or the weighting of certain index components; the IR encodes this as a disjunction over three effect types and does not preserve the source’s explicit cumulative and/or flexibility.",
+        "The source states the corporate action is specified in Section 4.4 below; the IR hardwires this via a constraint linking every relevant corporate action to Section4_4Below, which is more specific than the source’s phrasing in context.",
+        "The source says the notice period is at least two Trading Days with respect to the affected Index Component; the IR formalizes this with a counting constraint over trading days before the effective day, which is a particular interpretation not explicitly stated in the source."
+      ],
+      "stylistic_notes": [
+        "Several source phrases are normalized into canonical IR predicates and entities, such as announcing on the Solactive website under the Announcements section and implementation on the effective day specified in the notice.",
+        "The use of vague-term placeholders like CertainCircumstances and MayBeNecessary reflects the source’s open-ended wording."
+      ],
+      "confidence": 0.89,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3336,
+        "completion_tokens": 393,
+        "total_tokens": 3729
+      },
+      "latency_s": 6.019468784332275
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core ideas that an index adjustment may be needed between regular rebalance days, that a corporate action relating to an index component triggers a required adjustment, that Solactive announces the adjustment on its website under Announcements with at least two trading days' notice, and that implementation occurs on the notice's effective day. However, it overstates some source claims and weakens others, especially around what effects an adjustment may have and the conditionality of the notice obligation.",
+      "semantic_differences": [
+        "The source says an adjustment may affect the relation to an index component and/or the number of index components and/or the weighting of certain index components. The IR's required_adjustment_effect_scope constraint asserts that every required adjustment has at least one of these possible_adjustment_effect relations, rather than expressing that these are possible consequences that may or may not occur for a given adjustment.",
+        "The source states Solactive will announce the Index adjustment, but the IR models this only as an obligation to announce and a conditional publication constraint if a Notice exists; it does not ensure existence of a notice for every required adjustment.",
+        "The source says the notice period is at least two Trading Days with respect to the affected Index Component. The IR counts trading days before the effective day specified in the notice, but does not explicitly tie those days to the announcement date, so it does not fully encode that the notice is given at least two trading days in advance of implementation.",
+        "The source says the adjustment will be made in compliance with the Solactive Equity Index Methodology. The IR applies this compliance obligation only to RequiredIndexAdjustment, whereas the source sentence refers to such adjustment more generally in the discussed context and is not explicitly limited by the IR's narrower sort structure."
+      ],
+      "stylistic_notes": [
+        "Using VagueTerm entities such as CertainCircumstances and MayBeNecessary is a wording-preserving encoding choice rather than a semantic problem.",
+        "Reifying notices, notice periods, website sections, and effective days is standard formalization infrastructure.",
+        "Section4_4Below is modeled as a DocumentPart even though the source phrase is informal and self-referential."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3336,
+        "completion_tokens": 489,
+        "total_tokens": 3825
+      },
+      "latency_s": 10.559221029281616
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the core obligations and constraints from the source (announcement requirement, notice period, compliance with methodology, implementation on effective day), but introduces significant structural complexity and formalization choices that go beyond what the source explicitly states. The IR reifies vague concepts (CertainCircumstances, MayBeNecessary, MayHaveToBeDone) as entities and creates detailed constraint logic for notice-period counting and interval ordering that, while plausible interpretations, are not directly derivable from the source text alone. The source describes a process informally; the IR formalizes it with predicates and constraints that require domain assumptions not present in the source.",
+      "semantic_differences": [
+        "Source states 'at least two Trading Days' as a notice period requirement; IR formalizes this as a count constraint over TradingDay instances with a specific temporal ordering (day_before effective day), which is a reasonable but non-trivial formalization choice not explicitly justified by source wording.",
+        "Source describes adjustment effects as possibilities ('may affect the number... and/or the weighting...'); IR encodes these as a disjunctive constraint (possible_adjustment_effect with three alternatives) and separately as a fact (component_weighting_effect_qualified_by_certain_components), which splits and formalizes the source's looser phrasing.",
+        "Source uses 'certain circumstances' and 'may be necessary' as qualitative descriptors; IR reifies these as distinct VagueTerm entities (CertainCircumstances, MayBeNecessary, MayHaveToBeDone) and links them via adjustment_possibility_described_by relations, which is a formalization choice that goes beyond the source's informal language.",
+        "Source states corporate action 'in relation to an Index Component occurs' and adjustment 'has to be made'; IR creates a constraint (corporate_action_creates_required_index_adjustment) that logically derives the existence of a RequiredIndexAdjustment from a CorporateAction, which is a reasonable inference but not explicitly stated in source.",
+        "Source mentions adjustment 'will be made in compliance with the Solactive Equity Index Methodology'; IR encodes this as a separate obligation (make_index_adjustment_in_compliance_with_equity_index_methodology) with a scope parameter, which is a formalization choice not directly mirrored in source structure.",
+        "IR introduces RebalanceInterval as a first-class sort with start/end rebalance days and a constraint (rebalance_interval_order) enforcing temporal ordering; source mentions 'between two regular Rebalance Days' but does not formalize intervals as entities with ordering constraints.",
+        "IR creates a Notice entity with a required function (effective_day_specified_in_respective_notice) and multiple relations (notice_gives_notice_period, notice_period_day, trading_day_with_respect_to); source describes the notice and effective day more simply without this relational structure."
+      ],
+      "stylistic_notes": [
+        "IR uses camelCase for sort names (IndexComponent, CorporateAction, RequiredIndexAdjustment) while source uses natural language phrases; this is standard a4v3 naming convention.",
+        "IR introduces Section4_4Below as a DocumentPart entity to reference 'Section 4.4 below' in source; this is a reasonable reification of a document reference.",
+        "IR uses obligation declarations for Solactive's duties (make_required_index_adjustment, announce_index_adjustment); source uses 'has to be made' and 'will announce', which are correctly lowered to deontic modality.",
+        "IR names the index entity TheIndex and the organization Solactive, which are reasonable canonical choices for the unique entities described in source.",
+        "IR uses exists quantifiers in facts (e.g., index_adjustment_may_be_necessary_between_regular_rebalance_days) to express possibility; source uses 'may be necessary', which is correctly lowered to existential quantification."
+      ],
+      "confidence": 0.68,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4139,
+        "completion_tokens": 959,
+        "total_tokens": 5098
+      },
+      "latency_s": 13.7221097946167
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 69.64915800094604
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully captures all deontic, temporal, and conditional claims from the source text. Modalities like 'has to be made' and 'will announce' are correctly lowered to obligations, while 'may be necessary' and 'and/or' effects are modeled via possibility sorts and disjunctions. The notice period constraint accurately formalizes 'at least two Trading Days' using a count over trading days preceding the effective day. All entities and relations trace directly to source noun phrases or standard prelude infrastructure.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "Uses VagueTerm entities for non-technical modal phrases ('certain circumstances', 'may be necessary'), which is a standard a4v3 practice.",
+        "Relations like occurs_on and day_before are used in constraints but not explicitly declared in the rel block; assumed to be prelude infrastructure.",
+        "Reifies 'between two regular Rebalance Days' as a RebalanceInterval sort with start/end relations, a deliberate and clear modeling choice."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 3564,
+        "completion_tokens": 3967,
+        "total_tokens": 7531
+      },
+      "latency_s": 75.20300054550171
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 3,
+      "corresponds": 1
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.75,
+    "unanimous": false,
+    "mean_confidence": 0.848
+  }
+}

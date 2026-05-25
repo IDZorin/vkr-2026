@@ -1,0 +1,37 @@
+sort Security extends FinancialInstrument
+sort IndexComponent extends Security
+sort TradingDay extends Day
+sort Exchange
+sort Price extends MonetaryAmount
+sort TradingPrice extends Price
+sort ClosingPrice extends TradingPrice
+sort AccordanceStandard
+
+entity ExchangeRules : AccordanceStandard
+entity ExchangeRegulations : AccordanceStandard
+
+fun[required] closing_price : IndexComponent, TradingDay -> ClosingPrice
+fun[required] respective_exchange : IndexComponent -> Exchange
+fun[required] final_regular_hours_trading_price : IndexComponent, TradingDay -> ClosingPrice
+fun[required] last_trading_price : IndexComponent, TradingDay -> TradingPrice
+
+rel price_published_by_exchange : Price, Exchange
+rel price_determined : Price
+rel in_accordance_with : Price, AccordanceStandard
+rel closing_price_available : IndexComponent, TradingDay
+
+constraint closing_price_definition_when_published :
+  forall c: IndexComponent, forall d: TradingDay,
+    closing_price_available(c, d)
+    implies
+      closing_price(c, d) = final_regular_hours_trading_price(c, d)
+      and price_published_by_exchange(closing_price(c, d), respective_exchange(c))
+      and price_determined(closing_price(c, d))
+      and in_accordance_with(closing_price(c, d), ExchangeRules)
+      and in_accordance_with(closing_price(c, d), ExchangeRegulations)
+
+constraint last_trading_price_used_when_closing_price_not_published :
+  forall c: IndexComponent, forall d: TradingDay,
+    not closing_price_available(c, d)
+    implies
+      closing_price(c, d) = last_trading_price(c, d)

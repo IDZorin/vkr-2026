@@ -1,0 +1,230 @@
+{
+  "entry_id": "section_1_2",
+  "has_source": true,
+  "has_normalized": true,
+  "has_render": true,
+  "has_ir": true,
+  "source": {
+    "modals": {
+      "may": 1,
+      "will": 2
+    },
+    "negated_modals": {},
+    "temporal": {},
+    "quantifiers": {
+      "all": 1,
+      "each": 1,
+      "any": 1
+    },
+    "numeric_literals": [
+      "50",
+      "5",
+      "4"
+    ],
+    "_token_count": 246
+  },
+  "normalized": {
+    "modals": {
+      "may": 1,
+      "will": 2
+    },
+    "negated_modals": {},
+    "temporal": {},
+    "quantifiers": {
+      "all": 1,
+      "each": 1,
+      "any": 1
+    },
+    "numeric_literals": [
+      "50",
+      "5",
+      "4"
+    ],
+    "_token_count": 246
+  },
+  "render": {
+    "modals": {},
+    "negated_modals": {},
+    "temporal": {},
+    "quantifiers": {
+      "each": 2,
+      "any": 1
+    },
+    "numeric_literals": [
+      "4",
+      "4",
+      "50",
+      "5",
+      "5",
+      "50",
+      "4"
+    ],
+    "_token_count": 183
+  },
+  "ir_logical": {
+    "implies_count": 2,
+    "iff_count": 0,
+    "forall_count": 5,
+    "exists_count": 2,
+    "not_count": 0,
+    "and_count": 54,
+    "or_count": 2,
+    "numeric_literals": [
+      "1"
+    ]
+  },
+  "drifts": {
+    "source_to_render": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 3,
+        "added": {},
+        "removed": {
+          "will": 2,
+          "may": 1
+        }
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 1,
+        "removed_count": 1,
+        "added": {
+          "each": 1
+        },
+        "removed": {
+          "all": 1
+        }
+      },
+      "numeric_literals": {
+        "added_count": 4,
+        "removed_count": 0,
+        "added": {
+          "4": 2,
+          "50": 1,
+          "5": 1
+        },
+        "removed": {}
+      }
+    },
+    "source_to_normalized": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "numeric_literals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      }
+    },
+    "normalized_to_render": {
+      "modals": {
+        "added_count": 0,
+        "removed_count": 3,
+        "added": {},
+        "removed": {
+          "will": 2,
+          "may": 1
+        }
+      },
+      "negated_modals": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "temporal": {
+        "added_count": 0,
+        "removed_count": 0,
+        "added": {},
+        "removed": {}
+      },
+      "quantifiers": {
+        "added_count": 1,
+        "removed_count": 1,
+        "added": {
+          "each": 1
+        },
+        "removed": {
+          "all": 1
+        }
+      },
+      "numeric_literals": {
+        "added_count": 4,
+        "removed_count": 0,
+        "added": {
+          "4": 2,
+          "50": 1,
+          "5": 1
+        },
+        "removed": {}
+      }
+    }
+  },
+  "alarms": [
+    {
+      "kind": "modals_lost_in_render",
+      "removed": {
+        "will": 2,
+        "may": 1
+      },
+      "count": 3
+    },
+    {
+      "kind": "quantifiers_lost_in_render",
+      "removed": {
+        "all": 1
+      },
+      "count": 1
+    },
+    {
+      "kind": "quantifiers_added_in_render",
+      "added": {
+        "each": 1
+      },
+      "count": 1
+    },
+    {
+      "kind": "numeric_literals_added_in_render",
+      "added": {
+        "4": 2,
+        "50": 1,
+        "5": 1
+      },
+      "count": 4
+    }
+  ],
+  "alarm_count": 4
+}

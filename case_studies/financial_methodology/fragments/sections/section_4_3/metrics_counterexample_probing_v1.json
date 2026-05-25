@@ -1,0 +1,78 @@
+{
+  "entry_id": "section_4_3",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1112,
+    "completion_tokens": 281,
+    "total_tokens": 1393
+  },
+  "latency_s": 3.1844587326049805,
+  "scenarios": [
+    {
+      "description": "The Index’s level is 3.14159, and it is rounded so that the displayed level has exactly two decimal places.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The Index’s level is shown with three decimal places, such as 3.142.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A different index object, not TheIndex, has a level that is rounded to two decimal places.",
+      "category": "scope_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "ambiguous",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "The Index’s level is not rounded at all until after it is used in a calculation, and only later is it rounded to two decimal places.",
+      "category": "modality_edge",
+      "source_verdict": "accept",
+      "ir_verdict": "ambiguous",
+      "agree": false,
+      "drift_explanation": "The source only states that the level will be rounded to two decimal places, without specifying timing or actor responsibility. The IR only constrains that if a value is the level of TheIndex, it is rounded to TwoDecimalPlaces, but it does not state when rounding occurs."
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 3,
+    "agreement_rate": 0.75,
+    "drifts": [
+      {
+        "description": "The Index’s level is not rounded at all until after it is used in a calculation, and only later is it rounded to two decimal places.",
+        "category": "modality_edge",
+        "source_verdict": "accept",
+        "ir_verdict": "ambiguous",
+        "agree": false,
+        "drift_explanation": "The source only states that the level will be rounded to two decimal places, without specifying timing or actor responsibility. The IR only constrains that if a value is the level of TheIndex, it is rounded to TwoDecimalPlaces, but it does not state when rounding occurs."
+      }
+    ],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 1
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 0
+      }
+    }
+  }
+}

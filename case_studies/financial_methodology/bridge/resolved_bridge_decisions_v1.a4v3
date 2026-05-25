@@ -1,0 +1,144 @@
+﻿-- seed methodology resolved bridge decisions layer.
+-- This file is not a local source-fragment translation. It records final
+-- bridge-resolution policy decisions used by backend resolved OWL lowering.
+
+sort BridgeSymbol
+sort BridgeRelation extends BridgeSymbol
+sort BridgeFamily
+
+sort BridgeResolutionPolicy =
+  EquivalentClassResolution
+| SameAsResolution
+| EquivalentPropertyResolution
+| InverseAdapterResolution
+| ScopedProjectionAdapterResolution
+| PairwiseSignatureEquivalenceResolution
+| ProjectionFamilyResolution
+| FamilySplitResolution
+| DomainSpecializedRelationResolution
+| NonIdentityRelatedConceptResolution
+
+sort BridgeAdapterKind =
+  NoAdapter
+| InversePropertyAdapter
+| ScopedProjectionAdapter
+| SignatureEquivalenceAdapter
+| ProjectionFrameAdapter
+| FamilySplitAdapter
+| DomainSpecializationAdapter
+| RelatedConceptAdapter
+
+entity N07_respective_exchange : BridgeRelation
+entity N10_respective_exchange_for_index_component : BridgeRelation
+entity N27_selection_day_for_rebalance_day : BridgeRelation
+entity Section3_1_selection_day_of_rebalance : BridgeRelation
+entity Section2_1_rbics_subindustry_classification_in_appendix : BridgeRelation
+entity Appendix8_1_appendix_includes_rbics_subindustry : BridgeRelation
+entity Section2_1_rbics_subindustry_classification_of_system : BridgeRelation
+entity Appendix8_1_rbics_classifies_subindustry : BridgeRelation
+
+entity GenericDocumentAvailabilityRelationFamily : BridgeFamily
+entity SectionReferenceEntityFamily : BridgeFamily
+entity AverageDailyValueTradedFamily : BridgeFamily
+entity BusinessDayProcessFamily : BridgeFamily
+entity CloseOfBusinessProcessFamily : BridgeFamily
+entity DailyValueTradedFamily : BridgeFamily
+entity FixingDayProcessFamily : BridgeFamily
+entity CanonicalIndexComponentRelationFamily : BridgeFamily
+entity AnnouncementOnRelationFamily : BridgeFamily
+entity CanadaClassificationFamily : BridgeFamily
+entity CanonicalIndexUniverseRelationFamily : BridgeFamily
+entity FullyRuleBasedRelationFamily : BridgeFamily
+entity GbsIndexSpecifiedInSectionRelationFamily : BridgeFamily
+entity GreatestPossibleRelationFamily : BridgeFamily
+entity IndexAdjustmentRelationReviewFamily : BridgeFamily
+entity IndexComponentRequirementsRelationFamily : BridgeFamily
+entity IndexCurrencyFunctionFamily : BridgeFamily
+entity IndexOfRelationFamily : BridgeFamily
+entity IndexQualitySortFamily : BridgeFamily
+entity IndexTypeFunctionFamily : BridgeFamily
+entity LegacyIncorporatedByReferenceRelationFamily : BridgeFamily
+entity MethodologyOfIndexRelationFamily : BridgeFamily
+entity RegionFunctionFamily : BridgeFamily
+entity SectionLocalIndexScopeRelationReviewFamily : BridgeFamily
+entity SecurityReflectedRelationReviewFamily : BridgeFamily
+entity UnitedStatesClassificationFamily : BridgeFamily
+
+rel bridge_pair_resolved_as : BridgeSymbol, BridgeSymbol, BridgeResolutionPolicy
+rel bridge_pair_adapter_kind : BridgeSymbol, BridgeSymbol, BridgeAdapterKind
+rel bridge_family_resolved_as : BridgeFamily, BridgeResolutionPolicy
+rel bridge_family_adapter_kind : BridgeFamily, BridgeAdapterKind
+
+fact direct_adapter_resolution_decisions :
+  bridge_pair_resolved_as(N07_respective_exchange, N10_respective_exchange_for_index_component, ScopedProjectionAdapterResolution)
+  and bridge_pair_adapter_kind(N07_respective_exchange, N10_respective_exchange_for_index_component, ScopedProjectionAdapter)
+  and bridge_pair_resolved_as(N27_selection_day_for_rebalance_day, Section3_1_selection_day_of_rebalance, InverseAdapterResolution)
+  and bridge_pair_adapter_kind(N27_selection_day_for_rebalance_day, Section3_1_selection_day_of_rebalance, InversePropertyAdapter)
+  and bridge_pair_resolved_as(Section2_1_rbics_subindustry_classification_in_appendix, Appendix8_1_appendix_includes_rbics_subindustry, InverseAdapterResolution)
+  and bridge_pair_adapter_kind(Section2_1_rbics_subindustry_classification_in_appendix, Appendix8_1_appendix_includes_rbics_subindustry, InversePropertyAdapter)
+  and bridge_pair_resolved_as(Section2_1_rbics_subindustry_classification_of_system, Appendix8_1_rbics_classifies_subindustry, InverseAdapterResolution)
+  and bridge_pair_adapter_kind(Section2_1_rbics_subindustry_classification_of_system, Appendix8_1_rbics_classifies_subindustry, InversePropertyAdapter)
+
+fact family_signature_equivalence_resolution_decisions :
+  bridge_family_resolved_as(GenericDocumentAvailabilityRelationFamily, PairwiseSignatureEquivalenceResolution)
+  and bridge_family_adapter_kind(GenericDocumentAvailabilityRelationFamily, SignatureEquivalenceAdapter)
+  and bridge_family_resolved_as(GbsIndexSpecifiedInSectionRelationFamily, PairwiseSignatureEquivalenceResolution)
+  and bridge_family_adapter_kind(GbsIndexSpecifiedInSectionRelationFamily, SignatureEquivalenceAdapter)
+  and bridge_family_resolved_as(GreatestPossibleRelationFamily, PairwiseSignatureEquivalenceResolution)
+  and bridge_family_adapter_kind(GreatestPossibleRelationFamily, SignatureEquivalenceAdapter)
+  and bridge_family_resolved_as(IndexComponentRequirementsRelationFamily, PairwiseSignatureEquivalenceResolution)
+  and bridge_family_adapter_kind(IndexComponentRequirementsRelationFamily, SignatureEquivalenceAdapter)
+  and bridge_family_resolved_as(IndexCurrencyFunctionFamily, PairwiseSignatureEquivalenceResolution)
+  and bridge_family_adapter_kind(IndexCurrencyFunctionFamily, SignatureEquivalenceAdapter)
+  and bridge_family_resolved_as(IndexOfRelationFamily, PairwiseSignatureEquivalenceResolution)
+  and bridge_family_adapter_kind(IndexOfRelationFamily, SignatureEquivalenceAdapter)
+  and bridge_family_resolved_as(IndexTypeFunctionFamily, PairwiseSignatureEquivalenceResolution)
+  and bridge_family_adapter_kind(IndexTypeFunctionFamily, SignatureEquivalenceAdapter)
+  and bridge_family_resolved_as(MethodologyOfIndexRelationFamily, PairwiseSignatureEquivalenceResolution)
+  and bridge_family_adapter_kind(MethodologyOfIndexRelationFamily, SignatureEquivalenceAdapter)
+
+fact family_projection_resolution_decisions :
+  bridge_family_resolved_as(AverageDailyValueTradedFamily, ProjectionFamilyResolution)
+  and bridge_family_adapter_kind(AverageDailyValueTradedFamily, ProjectionFrameAdapter)
+  and bridge_family_resolved_as(CanonicalIndexComponentRelationFamily, ProjectionFamilyResolution)
+  and bridge_family_adapter_kind(CanonicalIndexComponentRelationFamily, ProjectionFrameAdapter)
+  and bridge_family_resolved_as(CanonicalIndexUniverseRelationFamily, ProjectionFamilyResolution)
+  and bridge_family_adapter_kind(CanonicalIndexUniverseRelationFamily, ProjectionFrameAdapter)
+  and bridge_family_resolved_as(IndexAdjustmentRelationReviewFamily, ProjectionFamilyResolution)
+  and bridge_family_adapter_kind(IndexAdjustmentRelationReviewFamily, ProjectionFrameAdapter)
+  and bridge_family_resolved_as(RegionFunctionFamily, ProjectionFamilyResolution)
+  and bridge_family_adapter_kind(RegionFunctionFamily, ProjectionFrameAdapter)
+
+fact family_split_resolution_decisions :
+  bridge_family_resolved_as(GenericDocumentAvailabilityRelationFamily, FamilySplitResolution)
+  and bridge_family_adapter_kind(GenericDocumentAvailabilityRelationFamily, FamilySplitAdapter)
+
+fact domain_specialized_relation_resolution_decisions :
+  bridge_family_resolved_as(AnnouncementOnRelationFamily, DomainSpecializedRelationResolution)
+  and bridge_family_adapter_kind(AnnouncementOnRelationFamily, DomainSpecializationAdapter)
+  and bridge_family_resolved_as(FullyRuleBasedRelationFamily, DomainSpecializedRelationResolution)
+  and bridge_family_adapter_kind(FullyRuleBasedRelationFamily, DomainSpecializationAdapter)
+
+fact non_identity_related_concept_resolution_decisions :
+  bridge_family_resolved_as(SectionReferenceEntityFamily, NonIdentityRelatedConceptResolution)
+  and bridge_family_adapter_kind(SectionReferenceEntityFamily, RelatedConceptAdapter)
+  and bridge_family_resolved_as(BusinessDayProcessFamily, NonIdentityRelatedConceptResolution)
+  and bridge_family_adapter_kind(BusinessDayProcessFamily, RelatedConceptAdapter)
+  and bridge_family_resolved_as(CloseOfBusinessProcessFamily, NonIdentityRelatedConceptResolution)
+  and bridge_family_adapter_kind(CloseOfBusinessProcessFamily, RelatedConceptAdapter)
+  and bridge_family_resolved_as(DailyValueTradedFamily, NonIdentityRelatedConceptResolution)
+  and bridge_family_adapter_kind(DailyValueTradedFamily, RelatedConceptAdapter)
+  and bridge_family_resolved_as(FixingDayProcessFamily, NonIdentityRelatedConceptResolution)
+  and bridge_family_adapter_kind(FixingDayProcessFamily, RelatedConceptAdapter)
+  and bridge_family_resolved_as(CanadaClassificationFamily, NonIdentityRelatedConceptResolution)
+  and bridge_family_adapter_kind(CanadaClassificationFamily, RelatedConceptAdapter)
+  and bridge_family_resolved_as(IndexQualitySortFamily, NonIdentityRelatedConceptResolution)
+  and bridge_family_adapter_kind(IndexQualitySortFamily, RelatedConceptAdapter)
+  and bridge_family_resolved_as(LegacyIncorporatedByReferenceRelationFamily, NonIdentityRelatedConceptResolution)
+  and bridge_family_adapter_kind(LegacyIncorporatedByReferenceRelationFamily, RelatedConceptAdapter)
+  and bridge_family_resolved_as(SectionLocalIndexScopeRelationReviewFamily, NonIdentityRelatedConceptResolution)
+  and bridge_family_adapter_kind(SectionLocalIndexScopeRelationReviewFamily, RelatedConceptAdapter)
+  and bridge_family_resolved_as(SecurityReflectedRelationReviewFamily, NonIdentityRelatedConceptResolution)
+  and bridge_family_adapter_kind(SecurityReflectedRelationReviewFamily, RelatedConceptAdapter)
+  and bridge_family_resolved_as(UnitedStatesClassificationFamily, NonIdentityRelatedConceptResolution)
+  and bridge_family_adapter_kind(UnitedStatesClassificationFamily, RelatedConceptAdapter)

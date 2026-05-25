@@ -1,0 +1,150 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:section_5_2 a owl:Ontology .
+
+ex:Index a owl:Class .
+ex:IndexMethodology a owl:Class .
+ex:MethodologyReview a owl:Class .
+ex:MethodologyChangeNeed a owl:Class .
+ex:MethodologyChange a owl:Class .
+ex:ReviewIdentifiedMethodologyChange a owl:Class .
+ex:ReviewIdentifiedMethodologyChange rdfs:subClassOf ex:MethodologyChange .
+ex:MethodologyPolicy a owl:Class .
+ex:MethodologyPolicy rdfs:subClassOf ex:Document .
+ex:IndexAmendment a owl:Class .
+ex:MethodologyChangeNeedExampleCondition a owl:Class ; owl:oneOf ( ex:UnderlyingMarketChange ex:EconomicRealityChange ex:ObsoleteAssumption ex:ObsoleteFactor ex:NoLongerReflectsReality ) .
+ex:UnderlyingMarketChange a ex:MethodologyChangeNeedExampleCondition, owl:NamedIndividual .
+ex:EconomicRealityChange a ex:MethodologyChangeNeedExampleCondition, owl:NamedIndividual .
+ex:ObsoleteAssumption a ex:MethodologyChangeNeedExampleCondition, owl:NamedIndividual .
+ex:ObsoleteFactor a ex:MethodologyChangeNeedExampleCondition, owl:NamedIndividual .
+ex:NoLongerReflectsReality a ex:MethodologyChangeNeedExampleCondition, owl:NamedIndividual .
+ex:ReflectionQuality a owl:Class ; owl:oneOf ( ex:Accuracy ex:Reliability ex:Appropriateness ) .
+ex:Accuracy a ex:ReflectionQuality, owl:NamedIndividual .
+ex:Reliability a ex:ReflectionQuality, owl:NamedIndividual .
+ex:Appropriateness a ex:ReflectionQuality, owl:NamedIndividual .
+
+ex:TheIndex a ex:Index, owl:NamedIndividual .
+ex:TheIndexMethodology a ex:IndexMethodology, owl:NamedIndividual .
+ex:Solactive a ex:Organization, owl:NamedIndividual .
+ex:Guideline a ex:Document, owl:NamedIndividual .
+ex:SolactiveMethodologyPolicy a ex:MethodologyPolicy, owl:NamedIndividual .
+ex:SolactiveWebsite a ex:WebResource, owl:NamedIndividual .
+ex:AnnouncementSection a ex:DocumentPart, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComDocumentsMethodologyPolicy a ex:Url, owl:NamedIndividual .
+ex:HttpsWwwSolactiveComNewsAnnouncements a ex:Url, owl:NamedIndividual .
+ex:methodology_of_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexMethodology ;
+  rdfs:range ex:Index .
+ex:review_of_methodology a owl:ObjectProperty ;
+  rdfs:domain ex:MethodologyReview ;
+  rdfs:range ex:IndexMethodology .
+ex:regular a owl:Class ; rdfs:subClassOf ex:MethodologyReview .
+ex:at_least_annually a owl:Class ; rdfs:subClassOf ex:MethodologyReview .
+ex:change_need_of_methodology a owl:ObjectProperty ;
+  rdfs:domain ex:MethodologyChangeNeed ;
+  rdfs:range ex:IndexMethodology .
+ex:need_identified_within_review a owl:ObjectProperty ;
+  rdfs:domain ex:MethodologyChangeNeed ;
+  rdfs:range ex:MethodologyReview .
+ex:change_for_need a owl:ObjectProperty ;
+  rdfs:domain ex:ReviewIdentifiedMethodologyChange ;
+  rdfs:range ex:MethodologyChangeNeed .
+ex:change_of_methodology a owl:ObjectProperty ;
+  rdfs:domain ex:MethodologyChange ;
+  rdfs:range ex:IndexMethodology .
+ex:need_has_example_condition a owl:ObjectProperty ;
+  rdfs:domain ex:MethodologyChangeNeed ;
+  rdfs:range ex:MethodologyChangeNeedExampleCondition .
+ex:example_condition_for_methodology_change_need a owl:Class ; rdfs:subClassOf ex:MethodologyChangeNeedExampleCondition .
+ex:example_condition_changed_since_launch_of_index a owl:ObjectProperty ;
+  rdfs:domain ex:MethodologyChangeNeedExampleCondition ;
+  rdfs:range ex:Index .
+ex:example_condition_obsolete_assumption_for_methodology a owl:ObjectProperty ;
+  rdfs:domain ex:MethodologyChangeNeedExampleCondition ;
+  rdfs:range ex:IndexMethodology .
+ex:example_condition_obsolete_factor_for_methodology a owl:ObjectProperty ;
+  rdfs:domain ex:MethodologyChangeNeedExampleCondition ;
+  rdfs:range ex:IndexMethodology .
+ex:methodology_has_obsolete_basis a owl:ObjectProperty ;
+  rdfs:domain ex:IndexMethodology ;
+  rdfs:range ex:MethodologyChangeNeedExampleCondition .
+ex:example_condition_reflection_quality a owl:ObjectProperty ;
+  rdfs:domain ex:MethodologyChangeNeedExampleCondition ;
+  rdfs:range ex:ReflectionQuality .
+ex:reflects_reality_as_before a owl:ObjectProperty ;
+  rdfs:domain ex:IndexMethodology ;
+  rdfs:range ex:ReflectionQuality .
+ex:incorporated_by_reference_into a owl:ObjectProperty ;
+  rdfs:domain ex:Document ;
+  rdfs:range ex:Document .
+ex:available_on a owl:ObjectProperty ;
+  rdfs:domain ex:Document ;
+  rdfs:range ex:WebResource .
+ex:website_of a owl:ObjectProperty ;
+  rdfs:domain ex:WebResource ;
+  rdfs:range ex:Organization .
+ex:section_of_website a owl:ObjectProperty ;
+  rdfs:domain ex:DocumentPart ;
+  rdfs:range ex:WebResource .
+ex:last_amendment a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:Index ;
+  rdfs:range ex:IndexAmendment .
+ex:amendment_date a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain ex:IndexAmendment ;
+  rdfs:range ex:Day .
+ex:amendment_of_index a owl:ObjectProperty ;
+  rdfs:domain ex:IndexAmendment ;
+  rdfs:range ex:Index .
+ex:contained_in a owl:ObjectProperty ;
+  rdfs:domain ex:Day ;
+  rdfs:range ex:Document .
+
+ex:TheIndexMethodology ex:methodology_of_index ex:TheIndex .
+ex:ASSERT_methodology_subject_to_regular_review_at_least_annually a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "exists r: MethodologyReview, (review_of_methodology(r, TheIndexMethodology)) and (regular(r)) and (at_least_annually(r))" .
+ex:ASSERT_methodology_reviews_are_regular_at_least_annually a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall r: MethodologyReview, (review_of_methodology(r, TheIndexMethodology)) implies ((regular(r)) and (at_least_annually(r)))" .
+ex:ASSERT_identified_need_has_review_identified_change a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall n: MethodologyChangeNeed, forall r: MethodologyReview, ((need_identified_within_review(n, r)) and (review_of_methodology(r, TheIndexMethodology))) implies ((change_need_of_methodology(n, TheIndexMethodology)) and (exists c: ReviewIdentifiedMethodologyChange, (change_for_need(c, n)) and (change_of_methodology(c, TheIndexMethodology))))" .
+ex:UnderlyingMarketChange a ex:example_condition_for_methodology_change_need .
+ex:EconomicRealityChange a ex:example_condition_for_methodology_change_need .
+ex:ObsoleteAssumption a ex:example_condition_for_methodology_change_need .
+ex:ObsoleteFactor a ex:example_condition_for_methodology_change_need .
+ex:NoLongerReflectsReality a ex:example_condition_for_methodology_change_need .
+ex:UnderlyingMarketChange ex:example_condition_changed_since_launch_of_index ex:TheIndex .
+ex:EconomicRealityChange ex:example_condition_changed_since_launch_of_index ex:TheIndex .
+ex:ObsoleteAssumption ex:example_condition_obsolete_assumption_for_methodology ex:TheIndexMethodology .
+ex:TheIndexMethodology ex:methodology_has_obsolete_basis ex:ObsoleteAssumption .
+ex:ObsoleteFactor ex:example_condition_obsolete_factor_for_methodology ex:TheIndexMethodology .
+ex:TheIndexMethodology ex:methodology_has_obsolete_basis ex:ObsoleteFactor .
+ex:NoLongerReflectsReality ex:example_condition_reflection_quality ex:Accuracy .
+ex:NoLongerReflectsReality ex:example_condition_reflection_quality ex:Reliability .
+ex:NoLongerReflectsReality ex:example_condition_reflection_quality ex:Appropriateness .
+ex:ASSERT_no_longer_reflects_reality_condition_means_not_reflects_reality_as_before a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall q: ReflectionQuality, (example_condition_reflection_quality(NoLongerReflectsReality, q)) implies (not (reflects_reality_as_before(TheIndexMethodology, q)))" .
+ex:ASSERT_methodology_change_need_example_condition_scope a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall n: MethodologyChangeNeed, forall c: MethodologyChangeNeedExampleCondition, (need_has_example_condition(n, c)) implies ((change_need_of_methodology(n, TheIndexMethodology)) and (example_condition_for_methodology_change_need(c)))" .
+ex:SolactiveMethodologyPolicy ex:available_on ex:SolactiveWebsite .
+ex:SolactiveWebsite ex:website_of ex:Solactive .
+ex:SolactiveMethodologyPolicy ex:incorporated_by_reference_into ex:Guideline .
+ex:ASSERT_methodology_policy_location a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(document_url(SolactiveMethodologyPolicy, HttpsWwwSolactiveComDocumentsMethodologyPolicy)) and (available_on(SolactiveMethodologyPolicy, SolactiveWebsite)) and (website_of(SolactiveWebsite, Solactive)) and (incorporated_by_reference_into(SolactiveMethodologyPolicy, Guideline))" .
+ex:AnnouncementSection ex:section_of_website ex:SolactiveWebsite .
+ex:ASSERT_announcement_section_location a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(section_of_website(AnnouncementSection, SolactiveWebsite)) and (document_part_url(AnnouncementSection, HttpsWwwSolactiveComNewsAnnouncements))" .
+ex:ASSERT_last_amendment_date_contained_in_guideline a a4:AssertionArtifact ;
+  a4:assertionKind "fact" ;
+  a4:exprText "(amendment_of_index(last_amendment(TheIndex), TheIndex)) and (contained_in(amendment_date(last_amendment(TheIndex)), Guideline))" .

@@ -1,0 +1,79 @@
+{
+  "entry_id": "section_3_1",
+  "skipped": false,
+  "ir_innf_families_used": [
+    "AssertDecl",
+    "DeonticDecl",
+    "SymbolDecl",
+    "TypeDecl"
+  ],
+  "ir_fine_families_used": [
+    "AssertDecl.constraint",
+    "AssertDecl.fact",
+    "DeonticDecl.obligation",
+    "SymbolDecl.entity",
+    "SymbolDecl.fun",
+    "SymbolDecl.rel",
+    "TypeDecl.sort_opaque",
+    "TypeDecl.sort_subtype"
+  ],
+  "ir_family_counts": {
+    "TypeDecl.sort_opaque": 4,
+    "TypeDecl.sort_subtype": 12,
+    "SymbolDecl.entity": 12,
+    "SymbolDecl.rel": 29,
+    "SymbolDecl.fun": 4,
+    "AssertDecl.fact": 2,
+    "AssertDecl.constraint": 5,
+    "DeonticDecl.obligation": 1
+  },
+  "ir_expr_markers": {
+    "forall": 9,
+    "exists": 5,
+    "implies": 3
+  },
+  "source_signals": {
+    "temporal_order": {
+      "expected_family": "TemporalDecl",
+      "expectation_mode": "required",
+      "matches": [
+        "before"
+      ]
+    },
+    "quantifier_universal": {
+      "expected_family": "Formula_forall",
+      "expectation_mode": "required",
+      "matches": [
+        "any changes"
+      ]
+    }
+  },
+  "gaps": [],
+  "required_gaps": [],
+  "advisory_gaps": [],
+  "matches": [
+    {
+      "signal": "temporal_order",
+      "expected_family": "TemporalDecl",
+      "expectation_mode": "required",
+      "evidence": [
+        "before"
+      ],
+      "satisfied": true,
+      "satisfied_by": "vague_temporal_translator_note"
+    },
+    {
+      "signal": "quantifier_universal",
+      "expected_family": "Formula_forall",
+      "expectation_mode": "required",
+      "evidence": [
+        "any changes"
+      ],
+      "satisfied": true
+    }
+  ],
+  "n_gaps": 0,
+  "n_required_gaps": 0,
+  "n_advisory_gaps": 0,
+  "n_matches": 2
+}

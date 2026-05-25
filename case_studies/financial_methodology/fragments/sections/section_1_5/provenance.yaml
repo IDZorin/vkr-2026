@@ -1,0 +1,158 @@
+section: "1.5 Licensing"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  index_underlying_value_license_class_scope:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Licenses to use the Index as the underlying value for financial instruments, investment funds and financial contracts may be issued to stock exchanges, banks, financial services providers and investment houses by Solactive."
+    back_translation: >
+      The class of licenses to use the Index as the underlying value uses
+      the Index as the underlying value, and covers use for financial
+      instruments, use for investment funds, and use for financial
+      contracts. The issuance of this license class is to stock exchanges,
+      to banks, to financial services providers, and to investment houses,
+      and is by Solactive.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Class-level encoding. The source lists categories of uses and recipients
+      for licenses. The IR records those lists as properties of the
+      `LicensesToUseIndexAsUnderlyingValue` class, not as an assertion that a
+      concrete issued license already exists or that one license instance must
+      simultaneously be issued to every recipient category. The source's
+      issuance relation is represented by the explicit
+      `IndexUnderlyingValueLicenseIssuance` carrier.
+
+  issue_index_underlying_value_license:
+    kind: permission
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Licenses ... may be issued ... by Solactive."
+    back_translation: >
+      Solactive is permitted to issue any license to use the Index as the
+      underlying value, in the scope of the issuance to stock exchanges,
+      to banks, to financial services providers, and to investment houses.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The modal "may be issued" is represented as a permission rather than as
+      an existential fact. The agent parameter uses the type
+      `SolactiveOrganization`; the entity `Solactive` is the local source
+      witness for that type. This avoids the invalid pattern `agent:
+      Solactive`, where an entity is used as a parameter type. The permission
+      scope is the explicit license issuance carrier.
+
+  index_underlying_value_license_instance_class:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: bridge
+    source_quotes:
+      - "Licenses to use the Index as the underlying value"
+    back_translation: >
+      Every license to use the Index as the underlying value is an instance
+      of the class of licenses to use the Index as the underlying value.
+    vocabulary_basis: mixed
+    status: covered
+    notes: >
+      Internal bridge between the instance-level subtype
+      `IndexUnderlyingValueLicense` used by the permission and the class-level
+      carrier `LicensesToUseIndexAsUnderlyingValue` used to record the listed
+      use and recipient categories. This is not an additional source claim and
+      does not assert that any concrete license has already been issued.
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  TheIndex:
+    note: >
+      Local entity for the source phrase "the Index". Cross-section identity
+      with published index entities belongs to the bridge layer.
+  Solactive:
+    note: >
+      Local entity for the source phrase "Solactive".
+  SolactiveOrganization:
+    note: >
+      Narrow organization subtype used so deontic `agent` parameters have a
+      type rather than using the entity `Solactive` as a type.
+  IndexUnderlyingValueLicense:
+    note: >
+      Subtype of `License` for the source phrase "Licenses to use the Index
+      as the underlying value".
+  IndexUnderlyingValueLicenseClass:
+    note: superseded local name; use `LicensesToUseIndexAsUnderlyingValue`.
+  LicensesToUseIndexAsUnderlyingValue:
+    note: >
+      Class-level carrier for the source phrase "Licenses to use the Index
+      as the underlying value". This is not an issued license instance.
+    source_phrase: "Licenses to use the Index as the underlying value"
+  IndexUnderlyingValueLicenseIssuance:
+    note: >
+      Carrier for the source phrase "may be issued to ... by Solactive".
+      It keeps issuance as structure rather than only as a token in relation
+      names.
+    source_phrase: "may be issued"
+  License:
+    note: >
+      Generic license carrier grounded by the source phrase "Licenses".
+    source_phrase: "Licenses"
+  LicenseClass:
+    note: >
+      Internal class-level carrier used to avoid asserting that a concrete
+      license has already been issued. Grounded by the source's generic
+      plural "Licenses".
+    source_phrase: "Licenses"
+  LicenseIssuance:
+    note: >
+      Internal issuance carrier grounded by the source phrase "may be issued".
+      It is used to keep issuer and recipient categories structurally linked
+      to the issuance event/class instead of only naming them in relations.
+    source_phrase: "may be issued"
+  LicenseUseCategory:
+    note: >
+      Enum for the source-listed use categories: financial instruments,
+      investment funds, and financial contracts.
+    source_phrases:
+      - "financial instruments"
+      - "investment funds"
+      - "financial contracts"
+  LicenseRecipientCategory:
+    note: >
+      Enum for the source-listed recipient categories: stock exchanges, banks,
+      financial services providers, and investment houses.
+    source_phrases:
+      - "stock exchanges"
+      - "banks"
+      - "financial services providers"
+      - "investment houses"
+  issuance_of_license_class:
+    note: >
+      Relation linking the issuance carrier to the license class that may be
+      issued.
+    source_phrase: "Licenses ... may be issued"
+  license_instance_of_class:
+    note: >
+      Internal bridge relation linking a possible concrete license instance to
+      the source-backed class of licenses to use the Index as the underlying
+      value.
+    source_phrase: "Licenses to use the Index as the underlying value"
+  issuance_to_recipient_category:
+    note: >
+      Relation for the source phrase "may be issued to ..."; this records
+      recipient categories on the issuance carrier.
+    source_phrase: "may be issued to"
+  issuance_by:
+    note: >
+      Relation for the source phrase "may be issued ... by Solactive"; this
+      records the source agent without asserting that a concrete license has
+      already been issued.
+    source_phrase: "may be issued by Solactive"

@@ -1,0 +1,29 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N18 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N18/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:DefinedTerm a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+
+ex:IndexAdministratorTerm a ex:DefinedTerm, owl:NamedIndividual .
+ex:IntroductionSection a ex:DocumentPart, owl:NamedIndividual .
+ex:term_shall_have_meaning_defined_in_section a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:term_shall_have_meaning_defined_in_section_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:DefinedTerm .
+ex:term_shall_have_meaning_defined_in_section a4:argument ex:term_shall_have_meaning_defined_in_section_arg_0 .
+ex:term_shall_have_meaning_defined_in_section_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:term_shall_have_meaning_defined_in_section a4:argument ex:term_shall_have_meaning_defined_in_section_arg_1 .
+
+ex:ASSERT_index_administrator_meaning_defined_in_introduction a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "8"^^xsd:integer ;
+  a4:exprText "term_shall_have_meaning_defined_in_section(IndexAdministratorTerm, IntroductionSection)" ;
+  a4:sourceText "fact index_administrator_meaning_defined_in_introduction :\n  term_shall_have_meaning_defined_in_section(IndexAdministratorTerm, IntroductionSection)" .

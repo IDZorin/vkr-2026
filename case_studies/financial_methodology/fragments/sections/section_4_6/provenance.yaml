@@ -1,0 +1,214 @@
+section: "4.6 Correction Policy"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  solactive_greatest_possible_efforts:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive makes the greatest possible efforts"
+    back_translation: >
+      Solactive has a greatest-possible-efforts commitment.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This fact creates the effort carrier. The scoped constraint
+      `efforts_to_accurately_calculate_and_maintain_indices` attaches that
+      effort to accurate calculation and maintenance of Solactive indices.
+
+  efforts_to_accurately_calculate_and_maintain_indices:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "to accurately calculate and maintain its indices"
+    back_translation: >
+      For each index of Solactive, Solactive's greatest possible efforts apply
+      to accurate calculation and accurate maintenance of that index.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The universal is guarded by `index_of(i, Solactive)`, so it does not
+      apply to arbitrary indices outside the section scope. The adverb
+      "accurately" is represented by a separate positive relation rather than
+      hidden in a relation name.
+
+  determination_process_errors_may_occur_not_ruled_out:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "errors in the determination process may occur from time to time for variety reasons (internal or external)"
+      - "cannot be completely ruled out"
+    back_translation: >
+      The possibility of errors in the determination process is described as
+      occurring from time to time, as having varied reasons including internal
+      and external reasons, and as not being completely ruled out.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source says errors may occur; it does not assert that an actual
+      error has already occurred. The IR therefore uses an error-possibility
+      carrier rather than an existential actual error. The negation is explicit
+      in the formula body: `not completely_ruled_out(...)`.
+
+  identified_errors_correction_endeavor:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "Solactive endeavors to correct all errors that have been identified within a reasonable period of time"
+    back_translation: >
+      For every identified error in Solactive's determination process,
+      Solactive has an endeavor to correct that error within a period described
+      as reasonable.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      "Endeavors" is treated as a best-effort/process commitment, not as a
+      strict `obligation`, because the source does not use "shall" or "must".
+      The constraint is scoped to errors in the Solactive determination
+      process, avoiding a global claim about every identified error.
+
+  period_understanding_and_measures_depend_on_underlying:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The understanding of “a reasonable period of time” as well as the general measures to be taken are generally depending on the underlying"
+    back_translation: >
+      The understanding of a reasonable period of time and the general
+      measures to be taken generally depend on an underlying.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source is generic and does not name a particular underlying, so the
+      IR records a source-level dependency on an underlying rather than a
+      universal rule over every Solactive index and every possible underlying.
+
+  correction_policy_specifies_period_understanding_and_measures:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "is specified in the Solactive Correction Policy"
+    back_translation: >
+      The Solactive Correction Policy specifies the understanding of a
+      reasonable period of time and the general measures to be taken.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The policy specifies both the understanding of the reasonable period and
+      the general measures. The measures are modeled as a structural carrier,
+      not as a vague term.
+
+  correction_policy_reference:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "which is incorporated by reference and available on the Solactive website"
+    back_translation: >
+      The Solactive Correction Policy is incorporated by reference into this
+      Guideline, is available on the Solactive website, and the Solactive
+      website is the website of Solactive.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      `incorporated by reference` is represented as a directed relation from
+      the policy into this guideline. No concrete URL is included because the
+      source text in this section names the website but does not print a URL.
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  Index:
+    note: "Generic index sort grounded by the source phrase \"its indices\"."
+    source_phrase: "indices"
+  Solactive:
+    note: "Local entity for the source phrase \"Solactive\"."
+    source_phrase: "Solactive"
+  SolactiveGreatestPossibleEfforts:
+    note: "Carrier for the source phrase \"greatest possible efforts\"."
+    source_phrase: "greatest possible efforts"
+  SolactiveDeterminationProcess:
+    note: "Carrier for the source phrase \"the determination process\"."
+    source_phrase: "determination process"
+  IndexEffortGoal:
+    note: >
+      Enum carrier for the source goals "accurately calculate" and "maintain".
+    source_phrases:
+      - "accurately calculate"
+      - "maintain"
+  DeterminationProcessErrorPossibility:
+    note: >
+      Possibility carrier for the source modal phrase "errors ... may occur";
+      this avoids asserting that an actual error already exists.
+    source_phrase: "errors ... may occur"
+  Description:
+    note: >
+      Carrier sort for source descriptive qualifiers attached to the error
+      possibility: from time to time, variety reasons, and cannot be completely
+      ruled out.
+    source_phrase: "may occur from time to time for variety reasons"
+  DeterminationProcessErrorDescription:
+    note: >
+      Structural description carrier for the error possibility.
+    source_phrase: "may occur from time to time for variety reasons"
+  FromTimeToTime:
+    note: "Vague-term carrier for the source phrase \"from time to time\"."
+    source_phrase: "from time to time"
+  VarietyReasons:
+    note: "Vague-term carrier for the source phrase \"variety reasons\"."
+    source_phrase: "variety reasons"
+  CannotBeCompletelyRuledOut:
+    note: >
+      Vague-term marker for the source phrase "cannot be completely ruled out";
+      the actual polarity is represented by `not completely_ruled_out(...)`.
+    source_phrase: "cannot be completely ruled out"
+  Internal:
+    note: "Enum value for the source parenthetical reason \"internal\"."
+    source_phrase: "internal"
+  External:
+    note: "Enum value for the source parenthetical reason \"external\"."
+    source_phrase: "external"
+  ReasonablePeriodOfTime:
+    note: "Vague-term carrier for the source phrase \"a reasonable period of time\"."
+    source_phrase: "reasonable period of time"
+  ReasonablePeriodOfTimeUnderstanding:
+    note: "Carrier for the source phrase \"understanding of a reasonable period of time\"."
+    source_phrase: "understanding of a reasonable period of time"
+  GeneralMeasuresToBeTaken:
+    note: "Carrier for the source phrase \"general measures to be taken\"."
+    source_phrase: "general measures to be taken"
+  SolactiveCorrectionPolicy:
+    note: "Document carrier for the source phrase \"Solactive Correction Policy\"."
+    source_phrase: "Solactive Correction Policy"
+  ThisGuideline:
+    note: "Local target document for the phrase \"incorporated by reference\"."
+    source_phrase: "incorporated by reference"
+  SolactiveWebsite:
+    note: "Web-resource carrier for the source phrase \"Solactive website\"."
+    source_phrase: "Solactive website"
+  completely_ruled_out:
+    note: >
+      Positive polarity relation used with explicit `not` to represent
+      "cannot be completely ruled out".
+    source_phrase: "completely ruled out"
+  description_occurrence_term:
+    note: >
+      Relation linking the error-possibility description to the phrase "from
+      time to time".
+    source_phrase: "from time to time"
+  description_polarity_term:
+    note: >
+      Relation linking the error-possibility description to the phrase "cannot
+      be completely ruled out"; the formula still contains explicit negation.
+    source_phrase: "cannot be completely ruled out"

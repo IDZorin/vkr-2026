@@ -1,0 +1,16 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N11 a owl:Ontology .
+
+ex:fixing_day a owl:Class ; rdfs:subClassOf ex:Day .
+ex:selection_day a owl:Class ; rdfs:subClassOf ex:Day .
+
+ex:ASSERT_fixing_day_definition a a4:AssertionArtifact ;
+  a4:assertionKind "constraint" ;
+  a4:exprText "forall d: Day, (fixing_day(d)) iff (selection_day(d))" .

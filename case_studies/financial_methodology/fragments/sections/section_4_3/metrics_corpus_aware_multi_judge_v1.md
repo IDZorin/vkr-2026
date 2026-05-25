@@ -1,0 +1,162 @@
+﻿# Corpus-Aware Multi Judge: section_4_3
+
+- generated_at: `2026-05-11T15:32:52+02:00`
+- skipped: `False`
+- local_source_alignment_mode: `corresponds`
+- corpus_alignment_mode: `corresponds`
+- corpus_alignment_agreement: `1.0`
+- needs_context_count: `0`
+- mean_confidence: `0.98`
+
+## Included Context
+
+```json
+{
+  "entry": "section_4_3",
+  "entry_dir": "D:\\OneDrive\\Documents\\Study\\MIPT\\VKR\\research_experiments\\2026-02_pipeline\\case_studies\\financial_methodology\\sections\\section_4_3",
+  "global_bridge": true,
+  "related_sections": [],
+  "artifacts": {
+    "source.md": true,
+    "normalized.md": true,
+    "main_ir.a4v3": true,
+    "repair.a4v3": false,
+    "provenance.yaml": true,
+    "translator_notes.md": true,
+    "waivers.yaml": false,
+    "waivers_v1.yaml": false
+  }
+}
+```
+
+## Judges
+
+### gpt-5.4-mini
+
+- local_source_alignment: `corresponds`
+- corpus_alignment: `corresponds`
+- relation_type: `exact_equivalence`
+- needs_context: `False`
+- context_used: `provenance`
+- confidence: `0.98`
+
+Reason:
+
+The IR states that every level of TheIndex is rounded to TwoDecimalPlaces, and the supporting fact fixes TwoDecimalPlaces to a decimal-place count of 2. This matches the source claim that the level of the Index will be rounded to two decimal places, with no contradiction or extra substantive content.
+
+Semantic differences:
+
+- none
+
+Context-resolved issues:
+
+- none
+
+Stylistic notes:
+
+- The IR uses a calculation-style constraint rather than a deontic obligation, which is consistent with the documented translation decision.
+- The entity and relation names are source-facing but slightly more formal than the source wording.
+
+### gpt-5.4
+
+- local_source_alignment: `corresponds`
+- corpus_alignment: `corresponds`
+- relation_type: `same_meaning_poor_wording`
+- needs_context: `False`
+- context_used: `none`
+- confidence: `0.94`
+
+Reason:
+
+The IR captures the sole source claim that the Index level is rounded to two decimal places. The added carrier `TwoDecimalPlaces` plus `decimal_place_count(...)=2` is a faithful formalization of the phrase "two decimal places," and scoping via `level_of_index(l, TheIndex)` matches "the level of the Index." The only mild issue is wording: the universal form reads as every index level being rounded, whereas the source can also be read generically as the Index level is rounded, but this does not create a substantive mismatch here.
+
+Semantic differences:
+
+- none
+
+Context-resolved issues:
+
+- none
+
+Stylistic notes:
+
+- `rounded_to_precision` is a more formal rendering of "will be rounded to."
+- Using a carrier `TwoDecimalPlaces` plus `decimal_place_count(...)=2` is an implementation-oriented modeling choice, not semantic drift.
+- The universal quantification over `IndexLevel` is slightly more formal/general than the source phrasing but preserves the intended rule.
+
+### claude-haiku-4-5
+
+- local_source_alignment: `corresponds`
+- corpus_alignment: `corresponds`
+- relation_type: `exact_equivalence`
+- needs_context: `False`
+- context_used: `provenance, translator_notes`
+- confidence: `0.98`
+
+Reason:
+
+The source text 'The level of the Index will be rounded to two decimal places' is faithfully translated into the IR through two complementary declarations: (1) a fact establishing that the rounding precision entity TwoDecimalPlaces has a decimal-place count of 2, and (2) a constraint asserting that every level of TheIndex is rounded to that precision. The provenance ledger and translator notes explicitly justify the modeling choices (treating 'will be rounded' as a calculation rule rather than deontic obligation, preserving the source phrase 'two decimal places' via a carrier entity, and recording the numeric value 2 for backend use). All source vocabulary traces directly to source phrases, and no IR content contradicts or exceeds the source claim.
+
+Semantic differences:
+
+- none
+
+Context-resolved issues:
+
+- none
+
+Stylistic notes:
+
+- The IR uses a carrier entity TwoDecimalPlaces to preserve the source phrase 'two decimal places' while also recording the numeric value 2 via decimal_place_count function. This is a deliberate design choice documented in provenance to maintain source-facing auditability.
+- The constraint uses a universal quantifier over IndexLevel with an implication structure, which is the standard a4v3 way to express 'every level of the Index will be rounded to two decimal places'.
+- The relation rounded_to_precision is introduced as a binary relation to connect levels to precision carriers, which is a clean ontological choice for a formatting rule.
+
+### deepseek-v4-pro
+
+- local_source_alignment: `corresponds`
+- corpus_alignment: `corresponds`
+- relation_type: `exact_equivalence`
+- needs_context: `False`
+- context_used: `none`
+- confidence: `1.0`
+
+Reason:
+
+The IR directly encodes the source's claim using formal sorts and a universal constraint. The rounding rule is captured verbatim with a precision carrier and numeric fact for 'two'.
+
+Semantic differences:
+
+- none
+
+Context-resolved issues:
+
+- none
+
+Stylistic notes:
+
+- The IR introduces RoundingPrecision and DecimalPlaceCount sorts, which are technical modeling choices that do not alter the source meaning.
+
+### qwen/qwen3.6-plus
+
+- local_source_alignment: `corresponds`
+- corpus_alignment: `corresponds`
+- relation_type: `exact_equivalence`
+- needs_context: `False`
+- context_used: `provenance, translator_notes`
+- confidence: `1.0`
+
+Reason:
+
+The IR faithfully models the source statement by introducing a constraint that any level of the Index is rounded to a specific precision carrier, which is explicitly defined as having a decimal place count of 2. The interpretation of 'will be rounded' as a deterministic calculation rule rather than a deontic obligation aligns with standard index methodology and is explicitly validated by the provided provenance and translator notes.
+
+Semantic differences:
+
+- none
+
+Context-resolved issues:
+
+- none
+
+Stylistic notes:
+
+- The introduction of a `RoundingPrecision` sort and `TwoDecimalPlaces` entity preserves the exact source phrasing while enabling programmatic validation via the `decimal_place_count` function.

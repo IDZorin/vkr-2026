@@ -2,12 +2,12 @@
 
 ## seed methodology corpus update — 2026-05-19
 
-The DZ methodology corpus has a newer end-to-end state snapshot:
+The financial methodology corpus has a newer end-to-end state snapshot:
 
 - [full_pipeline_architecture_v1.md](full_pipeline_architecture_v1.md)
-- [dz_end_to_end_corpus_state_v1.md](dz_end_to_end_corpus_state_v1.md)
+- [financial_methodology/reports/artifact_summary.md](financial_methodology/reports/artifact_summary.md)
 
-Those documents are the current references for the high-level pipeline architecture and for how the DZ local IR, provenance/audit envelopes, bridge layer, resolved bridge decisions, canonical ontology, process/workflow files, SMT witness/probe sidecars, and RDF/OWL/SHACL backend projections are stored.
+Those documents are the current references for the high-level pipeline architecture and for how the financial methodology local IR, provenance/audit envelopes, bridge layer, resolved bridge decisions, canonical ontology, process/workflow files, SMT witness/probe sidecars, and RDF/OWL/SHACL backend projections are stored.
 
 Short status:
 

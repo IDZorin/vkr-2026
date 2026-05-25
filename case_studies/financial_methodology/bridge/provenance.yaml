@@ -1,0 +1,750 @@
+﻿schema: bridge_provenance_v1
+scope: global_methodology_bridge
+bridge_file: main_bridge.a4v3
+created_at: 2026-05-09T19:55:00+02:00
+
+policy:
+  purpose: >
+    Record cross-section identity and alias decisions separately from
+    source-local section translations.
+  local_ir_rule: >
+    A section-level main_ir.a4v3 should translate only the section source text.
+    Cross-section canonicalization belongs in this bridge layer.
+  not_a_source_claim: >
+    Bridge facts are integration hypotheses/decisions. They should not be
+    counted as local source claims for a single section judge.
+
+claims:
+  - bridge_claim: section_4_1_to_section_1_2_index_identities
+    ir_origin_file: bridge/main_bridge.a4v3
+    claim_origin: cross_section_identity
+    confidence: high
+    local_entry: sections/section_4_1
+    canonical_entry: sections/section_1_2
+    rationale: >
+      Section 4.1 uses generic local names such as Price Return Index Version,
+      NTR Index version, GTR Index version, adjusted return version, and
+      SOLTCA50. Section 1.2 provides the published concrete index entities and
+      identifiers. The bridge links local source names to those canonical
+      entities without polluting the local translation.
+    mappings:
+      - local_symbol: Section4_1_PriceReturnIndexVersion
+        local_source_phrase: price return
+        canonical_symbol: Section1_2_SolactiveTransatlanticCleanEnergyEURIndexPR
+        canonical_source_phrase: Solactive Transatlantic Clean Energy EUR Index PR
+        bridge_relation: same_index
+        bridge_link_type: CrossSectionIdentity
+      - local_symbol: Section4_1_NTRIndexVersion
+        local_source_phrase: NTR Index version
+        canonical_symbol: Section1_2_SolactiveTransatlanticCleanEnergyEURIndexNTR
+        canonical_source_phrase: Solactive Transatlantic Clean Energy EUR Index NTR
+        bridge_relation: same_index
+        bridge_link_type: CrossSectionIdentity
+      - local_symbol: Section4_1_GTRIndexVersion
+        local_source_phrase: GTR Index version
+        canonical_symbol: Section1_2_SolactiveTransatlanticCleanEnergyEURIndexTR
+        canonical_source_phrase: Solactive Transatlantic Clean Energy EUR Index TR
+        bridge_relation: same_index
+        bridge_link_type: CrossSectionIdentity
+      - local_symbol: Section4_1_AdjustedReturnVersion
+        local_source_phrase: adjusted return version
+        canonical_symbol: Section1_2_SolactiveTransatlanticCleanEnergyEURIndex5PercentAR
+        canonical_source_phrase: Solactive Transatlantic Clean Energy EUR Index 5% AR
+        bridge_relation: same_index
+        bridge_link_type: SourceAlias
+      - local_symbol: Section4_1_SOLTCA50
+        local_source_phrase: SOLTCA50
+        canonical_symbol: Section1_2_SolactiveTransatlanticCleanEnergyEURIndex50AR
+        canonical_source_phrase: SOLTCA50 / Solactive Transatlantic Clean Energy EUR Index 50 AR
+        bridge_relation: same_index
+        bridge_link_type: TickerAlias
+
+  - bridge_claim: section_2_1_to_appendix_8_1_rbics_bridge
+    ir_origin_file: bridge/main_bridge.a4v3
+    claim_origin: cross_section_ontology_bridge
+    confidence: high
+    local_entry: sections/section_2_1
+    canonical_entry: appendix/appendix_8_1
+    rationale: >
+      Section 2.1 refers abstractly to FactSet Revere Business Industry
+      Classification System ("RBICS") Subindustry Classification entries
+      listed in the Appendix. Appendix 8.1 enumerates the concrete RBICS
+      subindustry rows. The bridge links the abstract 2.1 vocabulary to the
+      concrete appendix ontology without renaming either source-local IR file.
+    mappings:
+      - local_symbol: Section2_1_RBICSSubindustryClassification
+        local_source_phrase: RBICS Subindustry Classification
+        canonical_symbol: Appendix8_1_RbicsSubindustry
+        canonical_source_phrase: RBICS Subindustry Name row
+        bridge_relation: same_sort
+        bridge_link_type: SortAlias
+      - local_symbol: Section2_1_BusinessIndustryClassificationSystem
+        local_source_phrase: FactSet Revere Business Industry Classification System ("RBICS")
+        canonical_symbol: Appendix8_1_RbicsClassificationSystem
+        canonical_source_phrase: RBICS
+        bridge_relation: same_sort
+        bridge_link_type: SortAlias
+      - local_symbol: Section2_1_Appendix
+        local_source_phrase: Appendix
+        canonical_symbol: Appendix8_1_Appendix
+        canonical_source_phrase: Appendix 8
+        bridge_relation: same_sort
+        bridge_link_type: SortAlias
+      - local_symbol: Section2_1_IndexGuidelineAppendix
+        local_source_phrase: Appendix
+        canonical_symbol: Appendix8_1_Appendix8
+        canonical_source_phrase: Appendix 8
+        bridge_relation: same_entity
+        bridge_link_type: EntityAlias
+      - local_symbol: Section2_1_FactSetRevereBusinessIndustryClassificationSystem
+        local_source_phrase: FactSet Revere Business Industry Classification System ("RBICS")
+        canonical_symbol: Appendix8_1_RBICS
+        canonical_source_phrase: RBICS
+        bridge_relation: same_entity
+        bridge_link_type: EntityAlias
+      - local_symbol: Section2_1_rbics_subindustry_classification_in_appendix
+        local_source_phrase: Subindustry Classification (see Appendix)
+        canonical_symbol: Appendix8_1_appendix_includes_rbics_subindustry
+        canonical_source_phrase: Appendix 8 includes the RBICS subindustry row
+        bridge_relation: same_relation
+        bridge_link_type: RelationAlias
+        bridge_argument_order: ReversedArgumentOrder
+      - local_symbol: Section2_1_rbics_subindustry_classification_of_system
+        local_source_phrase: FactSet Revere Business Industry Classification System ("RBICS") Subindustry Classification
+        canonical_symbol: Appendix8_1_rbics_classifies_subindustry
+        canonical_source_phrase: RBICS classifies the subindustry row
+        bridge_relation: same_relation
+        bridge_link_type: RelationAlias
+        bridge_argument_order: ReversedArgumentOrder
+
+  - bridge_claim: cross_reference_definition_pattern_bridge
+    ir_origin_file: bridge/main_bridge.a4v3
+    claim_origin: cross_section_ontology_bridge
+    confidence: high
+    local_entries:
+      - definitions/N02
+      - definitions/N03
+      - definitions/N16
+      - definitions/N17
+      - definitions/N18
+      - definitions/N20
+      - definitions/N22
+      - definitions/N24
+      - definitions/N25
+      - definitions/N28
+      - definitions/N29
+      - definitions/N32
+    rationale: >
+      The listed definition entries all use the same local source pattern:
+      a quoted term shall have the meaning defined in another section. Each
+      entry remains source-local and self-contained, so it declares its own
+      `DefinedTerm`, referenced `DocumentPart`, and
+      `term_shall_have_meaning_defined_in_section` relation. The bridge records
+      those repeated local carriers as aliases of the same merge-level pattern.
+      This is a pointer bridge only: it does not import the substantive content
+      of the referenced section into the definition entry.
+    mappings:
+      - local_symbol_family: Nxx_DefinedTerm
+        local_source_phrase: quoted defined term carrier in N02/N03/N16/N17/N18/N20/N22/N24/N25/N28/N29/N32
+        canonical_symbol: N02_DefinedTerm
+        bridge_relation: same_sort
+        bridge_link_type: SortAlias
+      - local_symbol_family: Nxx_term_shall_have_meaning_defined_in_section
+        local_source_phrase: shall have the meaning as defined in Section ...
+        canonical_symbol: N02_term_shall_have_meaning_defined_in_section
+        bridge_relation: same_relation
+        bridge_link_type: RelationAlias
+        bridge_argument_order: SameArgumentOrder
+      - local_symbol_family: Nxx_IntroductionSection
+        local_source_phrase: Section "Introduction"
+        canonical_symbol: N02_IntroductionSection
+        bridge_relation: same_entity
+        bridge_link_type: EntityAlias
+      - local_symbol_family: N24_Section1_3 / N29_Section1_3
+        local_source_phrase: Section 1.3
+        canonical_symbol: N24_Section1_3
+        bridge_relation: same_entity
+        bridge_link_type: EntityAlias
+    non_imported_content:
+      note: >
+        The bridge only aligns local cross-reference placeholders and the
+        repeated relation pattern. It does not assert that the actual meaning
+        of "Index", "BMR", "Live Date", or any other term has been imported
+        from the referenced section. A later merge layer may add content links
+        from these placeholders to canonical entities once the referenced
+        section's ontology is selected.
+
+  - bridge_claim: recent_definition_cross_section_bridge
+    ir_origin_file: bridge/main_bridge.a4v3
+    claim_origin: cross_section_ontology_bridge
+    confidence: mixed
+    local_entries:
+      - definitions/N07
+      - definitions/N08
+      - definitions/N09
+      - definitions/N10
+      - definitions/N12
+      - definitions/N13
+      - definitions/N14
+      - definitions/N23
+      - definitions/N26
+      - definitions/N27
+      - definitions/N30
+      - definitions/N31
+      - sections/section_1_4
+      - sections/section_2_1
+      - sections/section_3_1
+      - sections/section_4_1
+      - sections/section_4_4
+      - sections/section_4_5
+      - sections/section_4_7
+    rationale: >
+      The later manually translated definitions introduce reusable methodology
+      concepts that also appear in already translated sections: closing price,
+      trading price, trading day, exchange, selection day, rebalance day,
+      share class, free float, free float market capitalization, GBS Index
+      Universe, and index component membership. The bridge records safe aliases
+      where signatures and source meaning match, and records unresolved drift
+      where similarly named symbols cannot be safely merged without a scoped
+      merge rule.
+    safe_alias_families:
+      - family: closing_price_definition_pair
+        bridge_symbols:
+          - N07_closing_price
+          - N08_closing_price
+        bridge_relation: same_relation
+        bridge_argument_order: SameArgumentOrder
+        confidence: high
+        note: >
+          N07 and N08 both use closing_price(IndexComponent, TradingDay).
+          Section 1.4 closing_price and N13 closing_price_of_share_class are
+          related concepts but have different day/component scopes, so they are
+          not marked as same_relation.
+      - family: respective_exchange
+        bridge_symbols:
+          - N07_respective_exchange
+          - N08_respective_exchange
+          - N31_respective_exchange
+          - N10_respective_exchange_for_index_component
+        bridge_relation: same_relation
+        confidence: mixed
+        note: >
+          N07, N08, and N31 share the same one-argument function. N10 adds an
+          explicit Index argument, so it is marked as ScopedRelationAlias with
+          ScopedExtraIndexArgument rather than a plain same-arity alias.
+      - family: calendar_day_sorts
+        bridge_symbols:
+          - N26_RebalanceDay
+          - N27_RebalanceDay
+          - N30_RebalanceDay
+          - Section3_1_RebalanceDay
+          - Section4_4_RebalanceDay
+          - N12_SelectionDay
+          - N13_SelectionDay
+          - N27_SelectionDay
+          - Section2_1_SelectionDay
+          - Section3_1_SelectionDay
+        bridge_relation: same_sort
+        confidence: high
+        note: >
+          Eligible Rebalance Day is intentionally not included in this same-sort
+          group. N09 defines exchange-wide eligibility; N26 uses eligibility as
+          an input to determine the actual Rebalance Day.
+      - family: selection_day_relation
+        bridge_symbols:
+          - N27_selection_day_for_rebalance_day
+          - Section3_1_selection_day_of_rebalance
+        bridge_relation: same_relation
+        bridge_argument_order: ReversedArgumentOrder
+        confidence: high
+      - family: share_class
+        bridge_symbols:
+          - N12_share_class
+          - N13_share_class
+        bridge_relation: same_relation
+        bridge_argument_order: SameArgumentOrder
+        confidence: high
+      - family: last_trading_price
+        bridge_symbols:
+          - N07_last_trading_price
+          - Section1_4_last_available_trading_price
+        bridge_relation: same_relation
+        bridge_argument_order: SameArgumentOrder
+        confidence: medium
+        note: >
+          Both functions have signature IndexComponent, TradingDay ->
+          TradingPrice. The wording differs ("last Trading Price" versus
+          "last available Trading Price"), so this is a Medium-confidence
+          relation alias rather than a High-confidence identity.
+    related_concepts:
+      - local_symbol: N31_trading_price
+        related_symbol: Section1_4_current_trading_price
+        bridge_link_type: RelatedConcept
+        rationale: >
+          N31 defines the generic Trading Price for an Index Component and
+          Trading Day. Section 1.4 uses current_trading_price in an intraday
+          calculation context with extra CalculationDay and CalculationTime
+          arguments. They are conceptually related but not same_relation.
+      - local_symbol: N07_TradingDay
+        related_symbol: N30_TradingDayContext
+        bridge_link_type: RelatedConcept
+        rationale: >
+          N30 reifies Trading Day as a context object because the definition is
+          relative to rebalance day, candidate day, component, and exchange.
+          It should not be sort-aliased to the simpler TradingDay sorts.
+      - local_symbol: N14_GbsIndexUniverse
+        related_symbol: N23_IndexUniverse
+        bridge_link_type: RelatedConcept
+        rationale: >
+          N14 defines the GBS Index Universe by reference to a GBS benchmark
+          guideline, while N23 defines the generic Index Universe concept.
+      - local_symbol: N12_FreeFloat
+        related_symbol: N13_FreeFloatMarketCapitalization
+        bridge_link_type: RelatedConcept
+        rationale: >
+          Free Float is an input ratio used by the FFMC definition, not the same
+          sort as Free Float Market Capitalization.
+      - local_symbol: N07_closing_price_available
+        related_symbol: Section1_4_current_trading_price_available
+        bridge_link_type: RelatedConcept
+        rationale: >
+          Both are availability predicates in price fallback logic, but N07 is
+          about Closing Price publication/availability while section 1.4 is
+          about current Trading Price availability in intraday calculation.
+          They are intentionally not relation aliases.
+    unresolved_drift:
+      - symbols:
+          - N12_sourced_from_data_vendor
+          - N13_sourced_from_data_vendor
+        reason: >
+          The relation name is shared, but N12 applies it to FreeFloat and N13
+          applies it to ShareCount. This is a source-vocabulary alias with
+          different first-argument type, so it is marked UnresolvedDrift.
+      - symbols:
+          - Section4_1_index_component_of
+          - Section4_7_index_component_of
+        reason: >
+          Section 4.1 uses index_component_of(Index, CalculationDay,
+          IndexComponent), while section 4.7 uses index_component_of(
+          IndexComponent, Index). The bridge records the arity/scope drift with
+          ScopedExtraCalculationDayArgument instead of merging them directly.
+    negative_decision:
+      note: >
+        Do not bridge NewYorkStockExchange, LondonStockExchange, EUREXExchange,
+        or TokyoStockExchange to Reuters or IntercontinentalExchange from
+        section 1.4. The former are trading venues; the latter are rate/fixing
+        sources in that local section.
+
+  - bridge_claim: core_bridge_family_layer
+    ir_origin_file: bridge/main_bridge.a4v3
+    claim_origin: pre_merge_bridge_audit_resolution
+    confidence: mixed
+    rationale: >
+      A pre-merge audit found repeated local symbols and same-name symbols with
+      differing signatures that were not covered by pairwise bridge links. The
+      bridge now uses BridgeFamily entities to record high-cardinality repeated
+      concepts without creating noisy all-to-all links. Each family carries an
+      anchor, link type, and confidence value so merge tooling can distinguish
+      hard aliases from related concepts or known drift.
+    high_confidence_alias_families:
+      - TheIndexLocalPlaceholderFamily
+      - SolactiveWebsiteFamily
+      - ThisGuidelineFamily
+      - EquityIndexMethodologyFamily
+      - TheIndexAdministratorFamily
+      - CoreSecuritySortFamily
+      - CoreIndexComponentSortFamily
+      - IndexLevelSortFamily
+      - SolactiveOrganizationSortFamily
+      - CorporateActionSortFamily
+      - IndexCalculationSortFamily
+      - NoticeSortFamily
+      - RegionSortFamily
+      - CalculationTimeSortFamily
+      - DiscretionaryDecisionSortFamily
+      - IsinSortFamily
+      - IndexRuleSortFamily
+      - PolicySortFamily
+      - IndexCurrencyFunctionFamily
+      - IndexTypeFunctionFamily
+      - IndexComponentRequirementsRelationFamily
+      - GbsIndexSpecifiedInSectionRelationFamily
+      - MethodologyOfIndexRelationFamily
+      - IndexOfRelationFamily
+      - GenericDocumentAvailabilityRelationFamily
+    related_or_drift_families:
+      - family: CanadaClassificationFamily
+        bridge_link_type: RelatedConcept
+        reason: >
+          Section 2.1 treats Canada as a GBS Index Universe classification,
+          while section 2.2 treats it as a country assignment.
+      - family: UnitedStatesClassificationFamily
+        bridge_link_type: RelatedConcept
+        reason: >
+          Section 2.1 treats United States as a GBS Index Universe
+          classification, while section 2.2 treats it as a country assignment.
+      - family: RegionFunctionFamily
+        bridge_link_type: RelatedConcept
+        reason: >
+          Section 2.2 has region(IndexComponent), while section 2.3 has
+          region(SelectionDay, Security). The concepts are related, but the
+          argument structure differs.
+      - family: IndexQualitySortFamily
+        bridge_link_type: RelatedConcept
+        reason: >
+          Section 4.5 and section 5.4 both use IndexQuality, but the enum sets
+          are not identical. Merge should align overlapping values explicitly.
+      - family: DailyValueTradedFamily
+        bridge_link_type: RelatedConcept
+        reason: >
+          The family groups DVT sorts and value functions; it is not a single
+          same_relation assertion.
+      - family: AverageDailyValueTradedFamily
+        bridge_link_type: RelatedConcept
+        reason: >
+          The family groups ADVT sorts and value functions across definition
+          and eligibility contexts; signatures differ.
+    negative_decisions:
+      - symbol_family: index_component
+        reason: >
+          Same surface name appears with different arities and scopes:
+          definition membership, calculation-day membership, and selection-day
+          membership are not automatically the same relation.
+      - symbol_family: index_universe
+        reason: >
+          Section 2.1 uses index_universe(SelectionDay, ShareClass), while
+          section 2.2 uses index_universe(SelectionDay, Security). This needs a
+          scoped merge rule, not a blind alias.
+      - symbol_family: incorporated_by_reference
+        reason: >
+          Older unary incorporated_by_reference declarations remain distinct
+          from the newer binary incorporated_by_reference_into pattern until a
+          normalization bridge is chosen.
+    validation_snapshot:
+      parser_warnings: 0
+      bridge_lint_status: passed
+      unbridged_repeated_exact_count: 0
+      assertion_external_identifier_count: 0
+
+  - bridge_claim: canonical_merge_expansion_family_layer
+    ir_origin_file: bridge/main_bridge.a4v3
+    claim_origin: merge_readiness_audit_v1
+    confidence: mixed
+    rationale: >
+      After creating the canonical ontology draft, merge-readiness audit still
+      identified repeated core symbols that were declared in local IR files but
+      not represented as bridge symbols. The bridge now contains explicit
+      canonical merge-expansion families for these repeated carriers so that
+      the future merge step does not rely on raw name matching.
+    high_confidence_alias_families:
+      - CanonicalIndexSortFamily
+      - CanonicalIndexAdministratorSortFamily
+      - CanonicalSolactiveEntityFamily
+      - CanonicalPriceSortFamily
+      - CanonicalCalculationDaySortFamily
+      - CanonicalSelectionDaySortFamily
+      - CanonicalGbsIndexSortFamily
+      - CanonicalGuidelineEntityFamily
+      - CanonicalIndexTypeSortFamily
+      - CanonicalEffortSortFamily
+      - CanonicalIndexMethodologySortFamily
+    related_or_drift_families:
+      - family: CanonicalIndexComponentRelationFamily
+        bridge_link_type: RelatedConcept
+        reason: >
+          The repeated index_component relation has different local arity and
+          scope across definition, selection, and calculation contexts.
+      - family: CanonicalIndexUniverseRelationFamily
+        bridge_link_type: RelatedConcept
+        reason: >
+          The repeated index_universe relation is selection-day scoped but has
+          different object types across sections.
+      - family: LegacyIncorporatedByReferenceRelationFamily
+        bridge_link_type: RelatedConcept
+        reason: >
+          Older unary incorporated_by_reference facts are related to, but not
+          identical with, the canonical binary incorporated_by_reference_into
+          document relation.
+      - family: SectionReferenceEntityFamily
+        bridge_link_type: RelatedConcept
+        reason: >
+          Section references are document pointers and must not be treated as
+          domain concepts during merge.
+    validation_snapshot:
+      bridge_lint_status: passed
+      bridge_lint_hard_findings: 0
+      bridge_lint_soft_findings: 0
+      merge_readiness_status: passed_with_review_items
+      merge_readiness_hard_findings: 0
+      merge_readiness_soft_findings: 1
+      merge_readiness_advisory_findings: 1
+
+  - bridge_claim: value_observation_projection_layer
+    ir_origin_file: bridge/main_bridge.a4v3
+    claim_origin: merge_backend_alignment
+    confidence: mixed
+    rationale: >
+      Some local functions and relations encode value observations through
+      arity and argument order, which is convenient in local A4V3 but not ideal
+      for OWL/RDF lowering. The bridge now records how selected local
+      price/value symbols project to canonical observation frames and roles.
+      This preserves local source-faithful formulas while giving merge and
+      lowering a role-explicit representation.
+    projected_frames:
+      - TradingPriceObservationFrame
+      - ClosingPriceObservationFrame
+      - DailyValueTradedObservationFrame
+      - AverageDailyValueTradedObservationFrame
+      - IndexLevelObservationFrame
+      - InitialIndexLevelObservationFrame
+      - FreeFloatObservationFrame
+      - ShareCountObservationFrame
+      - FreeFloatMarketCapitalizationObservationFrame
+      - IndexCurrencyObservationFrame
+      - ExchangeObservationFrame
+    projected_relation_count: 27
+    non_equivalence_note: >
+      Projection to the same frame is not the same as exact aliasing. It means
+      the local symbol can be interpreted as a role-filled observation of the
+      same canonical kind. Exact alias decisions still require same_relation or
+      BridgeFamily evidence.
+    validation_snapshot:
+      bridge_lint_status: passed
+      bridge_lint_hard_findings: 0
+      bridge_lint_soft_findings: 0
+
+  - bridge_claim: second_value_observation_projection_batch
+    ir_origin_file: bridge/main_bridge.a4v3
+    claim_origin: merge_backend_alignment
+    confidence: mixed
+    rationale: >
+      The first projection batch covered core price/value/level/currency and
+      exchange observations. The second batch adds weight, region, component
+      price, price-change, and free-float market capitalization observations
+      needed by sections 2.2, 2.3, and 4.1. Local typo-preserving names are
+      left untouched and projected to normalized canonical frames.
+    projected_frames:
+      - ComponentWeightObservationFrame
+      - FreeFloatMarketCapitalizationObservationFrame
+      - RegionClassificationObservationFrame
+      - ComponentPriceObservationFrame
+      - PriceChangeObservationFrame
+    projected_relations:
+      - Section2_3_weight
+      - Section4_1_component_weight
+      - Section2_2_free_float_market_capizatlization
+      - Section2_3_float_market_capizatlization
+      - Section2_2_region
+      - Section2_3_region
+      - Section4_1_component_price
+      - Section4_1_component_price_change
+    layer_note: >
+      BridgeFrame names mirror CanonicalFrame names by documented convention.
+      BridgeFrame entities are bridge-local handles for projection targets.
+      CanonicalFrame entities remain the ontology concepts used by merge and
+      lowering.
+    review_note: >
+      Section 2.2 explicitly uses "Free Float Market Capizatlization" and is
+      projected to FreeFloatMarketCapitalizationObservationFrame. Section 2.3
+      uses "Float Market Capizatlization" without "Free", but the document has
+      no separate Float Market Capitalization definition; N13 defines the Free
+      Float Market Capitalization value used by the selection and weighting
+      steps. Section 2.3 is therefore projected to the same FFMC frame with
+      High confidence. There is intentionally no separate
+      FloatMarketCapitalizationObservationFrame, so the current frame count is
+      18.
+
+  - bridge_claim: index_component_membership_projection_layer
+    ir_origin_file: bridge/main_bridge.a4v3
+    claim_origin: merge_backend_alignment
+    confidence: mixed
+    rationale: >
+      The local corpus uses index_component and index_component_of with
+      different arities and lifecycle scopes. Instead of forcing exact aliases,
+      the bridge projects those local relations into role-explicit membership
+      frames for generic, selection-day, and calculation-day component
+      membership states. Security-typed local arguments are treated as the
+      underlying instrument, while IndexComponent-typed local arguments are
+      treated as component-role assignments.
+    projected_frames:
+      - GenericIndexComponentMembershipFrame
+      - SelectionDayIndexComponentMembershipFrame
+      - CalculationDayIndexComponentMembershipFrame
+    projected_relations:
+      - N19_index_component
+      - Section4_7_index_component_of
+      - Section2_2_index_component
+      - Section1_4_index_component
+      - Section4_1_index_component_of
+    projected_roles:
+      - MembershipSecurityRole
+      - MembershipComponentAssignmentRole
+      - MembershipIndexRole
+      - MembershipSelectionDayRole
+      - MembershipCalculationDayRole
+      - MembershipStateRole
+    non_equivalence_note: >
+      Projection to membership frames does not mean that all local
+      index_component declarations are identical. It records that they are
+      compatible states in the component-membership lifecycle, and it does not
+      make IndexComponent a subtype of Security in the canonical ontology. The
+      old generic MembershipComponentRole was removed because the precise
+      security-vs-role-assignment distinction is now explicit.
+
+  - bridge_claim: process_calendar_bridge_layer
+    ir_origin_file: bridge/main_bridge.a4v3
+    claim_origin: process_bridge_readiness
+    confidence: mixed
+    rationale: >
+      The process layer needs stable calendar links for Business Day, Close of
+      Business, and Fixing Day. These source phrases occur in both definitions
+      and section 3.1 workflow text, but the local IR uses different carriers
+      such as predicates, count functions, term entities, and event/time-marker
+      sorts. The bridge records related process-calendar families without
+      forcing exact aliases.
+    bridge_families:
+      - BusinessDayProcessFamily
+      - CloseOfBusinessProcessFamily
+      - FixingDayProcessFamily
+    non_equivalence_note: >
+      Business Day predicate/counting, Close of Business calculation-time/event
+      marker, and Fixing Day predicate/sort usage are related for process
+      reconstruction, but they are not exact same-symbol identities.
+
+  - bridge_claim: lexical_candidate_review_closure
+    ir_origin_file: bridge/main_bridge.a4v3
+    claim_origin: merge_candidate_review
+    confidence: mixed
+    rationale: >
+      bridge_candidate_audit_v1 found seven lexical candidates whose local
+      bridge-symbol guesses were not present in main_bridge.a4v3. Each was
+      reviewed against source.md and main_ir.a4v3 before adding an explicit
+      bridge decision.
+    exact_aliases:
+      - pair:
+          - Section2_1_SolactiveGBSBenchmarkSeriesPdf
+          - N14_SolactiveGBSBenchmarkSeriesGuideline
+        basis: >
+          Both entries reference the Solactive GBS Benchmark Series PDF path;
+          the source URL differs only by the presence of www.
+      - pair:
+          - Section2_1_HttpsWwwSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf
+          - N14_HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf
+        basis: >
+          Same Solactive GBS Benchmark Series PDF path with www/no-www URL
+          spelling drift.
+      - pair:
+          - Section2_2_FreeFloatMarketCapizatlization
+          - Section2_3_FloatMarketCapizatlization
+        basis: >
+          Section 2.3 uses "Float Market Capizatlization" as shorthand for the
+          Free Float Market Capitalization value defined in N13 and used in
+          section 2.2. The local context changes from eligible Security to
+          selected IndexComponent, but the measured value is the same FFMC
+          basis.
+      - pair:
+          - Section4_6_VarietyReasons
+          - Section4_7_VarietyOfReasons
+        basis: >
+          Same vague phrase family: "variety reasons" / "a variety of
+          reasons".
+    related_only:
+      - pair:
+          - Section1_3_section_1_3_index
+          - Section4_1_section_4_1_index
+        reason: >
+          Both are section-local index-scope predicates. The underlying index
+          entities are bridged separately, so the predicates are related but
+          not exact aliases.
+      - pair:
+          - Section4_4_adjustment_of_index
+          - Section4_5_adjustment_to_index
+        reason: >
+          Section 4.4 models generic index adjustments; section 4.5 models
+          corporate-action adjustments. They share an adjustment-to-index
+          theme but are not the same relation.
+      - pair:
+          - N15_security_reflected_in_gbs_index
+          - N19_security_reflected_in_index
+        reason: >
+          N15 targets the GBS Index specified in Section 2.1; N19 targets the
+          methodology Index. This is a related definitional pattern, not an
+          exact alias.
+
+  - bridge_claim: fuzzy_candidate_semantic_review
+    ir_origin_file: bridge/main_bridge.a4v3
+    claim_origin: manual_fuzzy_bridge_review
+    confidence: mixed
+    accepted_aliases:
+      - pair:
+          - N13_FreeFloatMarketCapitalization
+          - Section2_2_FreeFloatMarketCapizatlization
+        link_type: SortAlias
+        basis: >
+          Same Free Float Market Capitalization concept. Section 2.2 preserves
+          the source typo "Capizatlization" in the local IR name.
+      - pair:
+          - N13_free_float_market_capitalization
+          - Section2_2_free_float_market_capizatlization
+        link_type: RelationAlias
+        basis: >
+          Same SelectionDay/Security-to-FFMC observation function with spelling
+          drift only.
+      - pair:
+          - Section4_2_announcement_by
+          - Section4_4_announced_by
+        link_type: RelationAlias
+        basis: >
+          Same announcement-agent relation under noun-prefix versus
+          past-participle local naming.
+      - pair:
+          - Section4_2_announcement_under_section
+          - Section4_4_announced_under_section
+        link_type: RelationAlias
+        basis: >
+          Same announcement-section relation under noun-prefix versus
+          past-participle local naming.
+      - family_member:
+          family: AnnouncementSectionFamily
+          member: Section4_4_AnnouncementsSection
+        basis: >
+          Source section 4.4 says Section "Announcements"; sections 3.1 and
+          5.2 use Section "Announcement". All point to the Solactive news /
+          announcements website section.
+    rejected_aliases:
+      - pair:
+          - Section4_1_EffectiveDate
+          - Section4_4_EffectiveDay
+        reason: >
+          Both are effective-day-like carriers, but section 4.1's effective
+          date is the ex-date of a dividend/payment, while section 4.4's
+          effective day is the implementation day specified in a notice.
+      - pair:
+          - N12_Share
+          - Section3_1_Shares
+        reason: >
+          N12 models individual shares for free-float counting; section 3.1
+          models implementing shares determined on Fixing Day.
+      - pair:
+          - Index
+          - GbsIndex
+        reason: >
+          Lexical fuzzy matching can produce many Index/GbsIndex pairs, but
+          these are different ontologies. GbsIndex is the Solactive GBS
+          Benchmark Series reference index; Index is the methodology's own
+          index/family/variant concept. Only explicit GBS reference relations
+          are bridged.
+      - pair:
+          - Section1_4_CalculationMode
+          - Section5_3_CalculationMethod
+        reason: >
+          CalculationMode classifies calculation timing/mode in section 1.4;
+          CalculationMethod is the method applied by the Index Administrator in
+          section 5.3.
+      - pair:
+          - N06_CalculationTime
+          - Section1_4_CalculationMode
+        reason: >
+          CalculationTime and CalculationMode are distinct carriers. N06
+          defines a calculation time for Close of Business; section 1.4 uses a
+          mode to classify intraday/closing calculation.

@@ -1,0 +1,32 @@
+sort GbsIndexUniverse
+sort GbsIndex
+
+entity TheGbsIndexUniverse : GbsIndexUniverse
+entity GbsIndexSpecifiedInSection2_1 : GbsIndex
+entity Section2_1 : DocumentPart
+entity SolactiveGBSBenchmarkSeriesGuideline : Document
+-- raw_url: https://solactive.com/downloads/Guideline-Solactive-GBS-Benchmark-Series.pdf
+entity HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf : Url
+
+rel gbs_index_specified_in_section : GbsIndex, DocumentPart
+rel index_universe_as_defined_in_guideline : GbsIndexUniverse, Document
+rel index_universe_for_gbs_index : GbsIndexUniverse, GbsIndex
+
+fact solactive_gbs_benchmark_series_guideline_url :
+  document_url(
+    SolactiveGBSBenchmarkSeriesGuideline,
+    HttpsSolactiveComDownloadsGuidelineSolactiveGBSBenchmarkSeriesPdf
+  )
+
+fact gbs_index_specified_in_section_2_1 :
+  gbs_index_specified_in_section(GbsIndexSpecifiedInSection2_1, Section2_1)
+
+fact gbs_index_universe_definition :
+  index_universe_as_defined_in_guideline(
+    TheGbsIndexUniverse,
+    SolactiveGBSBenchmarkSeriesGuideline
+  )
+  and index_universe_for_gbs_index(
+    TheGbsIndexUniverse,
+    GbsIndexSpecifiedInSection2_1
+  )

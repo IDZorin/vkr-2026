@@ -1,0 +1,109 @@
+{
+  "entry_id": "section_5_4",
+  "schema": "semantic_claim_alignment_review_v1",
+  "allowed_status": [
+    "unreviewed",
+    "approved",
+    "needs_ir_revision",
+    "source_ambiguous",
+    "not_formalized_by_design"
+  ],
+  "items": [
+    {
+      "claim_id": "C01",
+      "claim_hash": "e36ccc4e686e",
+      "claim_text": "Solactive makes the greatest possible efforts to ensure the resilience and continued integrity of its indices over time.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:solactive_efforts_for_resilience_and_integrity",
+        "assertion:fact:solactive_effort",
+        "declaration:entity:SolactiveGreatestPossibleEfforts",
+        "declaration:rel:greatest_possible",
+        "declaration:rel:over_time"
+      ]
+    },
+    {
+      "claim_id": "C02",
+      "claim_hash": "13c3163ca33a",
+      "claim_text": "Where necessary, Solactive follows a clearly defined and transparent procedure to adapt Index methodologies to changing underlying markets (see Section 5.2 вЂњMethodology ReviewвЂќ) in order to maintain continued reliability and comparability of the indices.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:methodology_adaptation_where_necessary",
+        "declaration:rel:necessary_to_adapt_methodology",
+        "declaration:rel:adapts_index_methodology",
+        "declaration:rel:transparent",
+        "declaration:rel:changing_underlying_market"
+      ]
+    },
+    {
+      "claim_id": "C03",
+      "claim_hash": "1f4bebf6f718",
+      "claim_text": "Nevertheless, if no other options are available the orderly cessation of the Index may be indicated.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:orderly_cessation_indicated_if_no_options",
+        "declaration:rel:available_option_for_index",
+        "declaration:rel:orderly",
+        "declaration:rel:indicated",
+        "declaration:permission:indicate_orderly_cessation"
+      ]
+    },
+    {
+      "claim_id": "C04",
+      "claim_hash": "94f3b647e7ee",
+      "claim_text": "This is usually the case when the underlying market or economic reality, which an index is set to measure or to reflect, changes substantially and in a way not foreseeable at the time of inception of the index, the index rules, and particularly the selection criteria, can no longer be applied coherently or the index is no longer used as the underlying value for financial instruments, investment funds and financial contracts.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:cessation_usual_when_underlying_market_changes",
+        "assertion:constraint:cessation_usual_when_economic_reality_changes",
+        "assertion:constraint:cessation_usual_when_index_not_used_as_underlying_value",
+        "declaration:rel:underlying_market_change_foreseeable_at_inception",
+        "declaration:rel:used_as_underlying_value_for_financial_instrument"
+      ]
+    },
+    {
+      "claim_id": "C05",
+      "claim_hash": "0e91a12a509c",
+      "claim_text": "Solactive has established and maintains clear guidelines on how to identify situations in which the cessation of an index is unavoidable, how stakeholders are to be informed and consulted and the procedures to be followed for a termination or the transition to an alternative index.",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:constraint:guidelines_include_transition_procedure",
+        "assertion:constraint:guidelines_inform_and_consult_stakeholders",
+        "assertion:fact:solactive_cessation_guidelines",
+        "assertion:constraint:guidelines_identify_unavoidable_cessation_situations",
+        "declaration:rel:guidelines_inform"
+      ]
+    },
+    {
+      "claim_id": "C06",
+      "claim_hash": "c75cecee21e0",
+      "claim_text": "Details are specified in the Solactive Termination Policy, which is incorporated by reference and available on the Solactive website: [https://www.solactive.com/documents/termination-policy/](https://www.solactive.com/documents/termination-policy/) .",
+      "status": "unreviewed",
+      "reviewer": "",
+      "comment": "",
+      "approved_blocks": [],
+      "candidate_block_ids": [
+        "assertion:fact:termination_policy_location",
+        "declaration:entity:HttpsWwwSolactiveComDocumentsTerminationPolicy",
+        "assertion:fact:termination_policy_details",
+        "declaration:rel:incorporated_by_reference",
+        "declaration:rel:details_specified_in"
+      ]
+    }
+  ]
+}

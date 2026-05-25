@@ -1,0 +1,125 @@
+{
+  "entry_id": "section_4_1",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 2322,
+    "completion_tokens": 882,
+    "total_tokens": 3204
+  },
+  "latency_s": 5.412606477737427,
+  "raw_parsed": {
+    "source_facts": [
+      "The INDEX is calculated as price return, net total return, gross total return, and adjusted return.",
+      "The calculation follows the Equity Index Methodology.",
+      "The standard index formula changes Index level with Index Components' price changes and weights.",
+      "The standard index formula includes currency conversion for non-Index-Currency quotations.",
+      "Dividends and other distributions are reinvested into the paying Index Component at the ex-date opening.",
+      "A 5% per annum decrement is deducted from the NTR Index version on each Index Calculation Day.",
+      "A 50 index points per annum decrement is deducted from the GTR Index version on each Index Calculation Day.",
+      "The adjusted return Index uses the formula Index_t = Index_(t-1) * UI_t / UI_(t-1) - SD * DC_(t,t-1) / 360.",
+      "SD equals the Synthetic Dividend of 50 index points per annum.",
+      "DC_(t,t-1) is the calendar days between Calculation Day t and Calculation Day t-1."
+    ],
+    "render_facts": [
+      "The Solactive Transatlantic Clean Energy EUR Index PR, NTR, TR, 50AR and 5PercentAR are covered by Section 4.1.",
+      "Those indices are calculated according to the Equity Index Methodology.",
+      "The PR index is a Price Return index, the NTR index is a Net Total Return index, the TR index is a Gross Total Return index, and the 50AR and 5PercentAR indices are Adjusted Return indices.",
+      "The SOLTCA50 ticker applies to the 50AR index.",
+      "The standard index formula is set out in the methodology and applies to the PR, NTR and TR indices.",
+      "For each index component on a calculation day, the formula uses the component’s price change and weight.",
+      "Where the component price is quoted in a different currency from the index currency, the formula uses currency conversion.",
+      "Distributions paid by an index component are reinvested back into that component at the opening on the payment effective date, which is the ex-date.",
+      "The 5PercentAR index is based on the NTR index and applies a 5% per annum decrement on each calculation day.",
+      "The 50AR index is based on the TR index and applies a synthetic dividend decrement of 50 index points per annum on each calculation day.",
+      "Its level is calculated from one calculation day to the next by applying the underlying index performance and subtracting the decrement pro rata to the calendar days between the two calculation days."
+    ],
+    "source_to_render": [
+      {
+        "src_idx": 0,
+        "render_idx": 2,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 1,
+        "render_idx": 1,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 2,
+        "render_idx": 5,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 3,
+        "render_idx": 6,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 4,
+        "render_idx": 7,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 5,
+        "render_idx": 8,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 6,
+        "render_idx": 9,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 7,
+        "render_idx": 10,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 8,
+        "render_idx": 10,
+        "match": "paraphrase"
+      },
+      {
+        "src_idx": 9,
+        "render_idx": 10,
+        "match": "paraphrase"
+      }
+    ],
+    "render_only": [
+      0,
+      3,
+      4
+    ]
+  },
+  "summary": {
+    "n_source_facts": 10,
+    "n_render_facts": 11,
+    "matched_source": 10,
+    "matched_render": 8,
+    "render_only": 3,
+    "missing_source": 0,
+    "weaker_in_render": 0,
+    "stronger_in_render": 0,
+    "recall": 1.0,
+    "precision": 0.727,
+    "f1": 0.842,
+    "missing_source_facts": [],
+    "render_only_facts": [
+      {
+        "idx": 0,
+        "fact": "The Solactive Transatlantic Clean Energy EUR Index PR, NTR, TR, 50AR and 5PercentAR are covered by Section 4.1."
+      },
+      {
+        "idx": 3,
+        "fact": "The SOLTCA50 ticker applies to the 50AR index."
+      },
+      {
+        "idx": 4,
+        "fact": "The standard index formula is set out in the methodology and applies to the PR, NTR and TR indices."
+      }
+    ],
+    "weaker_pairs": [],
+    "stronger_pairs": []
+  }
+}

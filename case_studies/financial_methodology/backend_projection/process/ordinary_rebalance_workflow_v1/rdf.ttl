@@ -1,0 +1,402 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:ordinary_rebalance_workflow_v1 a a4:ProjectionTarget ;
+  a4:relativePath "process/ordinary_rebalance_workflow_v1.a4v3" ;
+  a4:targetKind "process" .
+
+ex:Workflow a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessStep a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessTrigger a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessInput a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessOutput a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessState a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessStateCarrier a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessGroundingTarget a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:DocumentPart a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:SourceFragment a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CanonicalFrame a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CanonicalConcept a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:CalendarMarker a rdfs:Class, a4:Sort ;
+  a4:declKind "opaque" .
+ex:ProcessEdgeKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:ExplicitSourceEdge a ex:ProcessEdgeKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessEdgeKind a4:enumMember ex:ExplicitSourceEdge .
+ex:StructuralDependencyEdge a ex:ProcessEdgeKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessEdgeKind a4:enumMember ex:StructuralDependencyEdge .
+ex:InferredMergeEdge a ex:ProcessEdgeKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessEdgeKind a4:enumMember ex:InferredMergeEdge .
+ex:OperationalLoweringEdge a ex:ProcessEdgeKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessEdgeKind a4:enumMember ex:OperationalLoweringEdge .
+ex:StepModality a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:ObligatoryStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:ObligatoryStep .
+ex:PermittedStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:PermittedStep .
+ex:ProhibitedStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:ProhibitedStep .
+ex:DiscretionaryStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:DiscretionaryStep .
+ex:DescriptiveStep a ex:StepModality, a4:EnumMember, owl:NamedIndividual .
+ex:StepModality a4:enumMember ex:DescriptiveStep .
+ex:ProcessTemporalRelation a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:Before a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:Before .
+ex:After a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:After .
+ex:SameTimeAs a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:SameTimeAs .
+ex:During a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:During .
+ex:OnOrBefore a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:OnOrBefore .
+ex:OnOrAfter a ex:ProcessTemporalRelation, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessTemporalRelation a4:enumMember ex:OnOrAfter .
+ex:IterationSemanticsStatus a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:NoIteration a ex:IterationSemanticsStatus, a4:EnumMember, owl:NamedIndividual .
+ex:IterationSemanticsStatus a4:enumMember ex:NoIteration .
+ex:IterationSemanticsDeferred a ex:IterationSemanticsStatus, a4:EnumMember, owl:NamedIndividual .
+ex:IterationSemanticsStatus a4:enumMember ex:IterationSemanticsDeferred .
+ex:FixedPointIteration a ex:IterationSemanticsStatus, a4:EnumMember, owl:NamedIndividual .
+ex:IterationSemanticsStatus a4:enumMember ex:FixedPointIteration .
+ex:ProcessIOKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:DomainConceptIO a ex:ProcessIOKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessIOKind a4:enumMember ex:DomainConceptIO .
+ex:ObservationFrameIO a ex:ProcessIOKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessIOKind a4:enumMember ex:ObservationFrameIO .
+ex:CalendarMarkerIO a ex:ProcessIOKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessIOKind a4:enumMember ex:CalendarMarkerIO .
+ex:ProcessStateIO a ex:ProcessIOKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessIOKind a4:enumMember ex:ProcessStateIO .
+ex:ProcessStateKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:EligibleUniverseCandidate a ex:ProcessStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessStateKind a4:enumMember ex:EligibleUniverseCandidate .
+ex:EligibleComponentCandidate a ex:ProcessStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessStateKind a4:enumMember ex:EligibleComponentCandidate .
+ex:SelectedComponent a ex:ProcessStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessStateKind a4:enumMember ex:SelectedComponent .
+ex:CalculationDayComponent a ex:ProcessStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessStateKind a4:enumMember ex:CalculationDayComponent .
+ex:ImplementedComponent a ex:ProcessStateKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessStateKind a4:enumMember ex:ImplementedComponent .
+ex:IndexComponentMembershipState a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:GenericMembership a ex:IndexComponentMembershipState, a4:EnumMember, owl:NamedIndividual .
+ex:IndexComponentMembershipState a4:enumMember ex:GenericMembership .
+ex:SelectedMembership a ex:IndexComponentMembershipState, a4:EnumMember, owl:NamedIndividual .
+ex:IndexComponentMembershipState a4:enumMember ex:SelectedMembership .
+ex:CalculationMembership a ex:IndexComponentMembershipState, a4:EnumMember, owl:NamedIndividual .
+ex:IndexComponentMembershipState a4:enumMember ex:CalculationMembership .
+ex:ImplementedMembership a ex:IndexComponentMembershipState, a4:EnumMember, owl:NamedIndividual .
+ex:IndexComponentMembershipState a4:enumMember ex:ImplementedMembership .
+ex:ProcessGroundingKind a rdfs:Class, a4:Sort ;
+  a4:declKind "enum" .
+ex:DocumentPartGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:DocumentPartGrounding .
+ex:SourceFragmentGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:SourceFragmentGrounding .
+ex:BridgeDecisionGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:BridgeDecisionGrounding .
+ex:CanonicalConceptGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:CanonicalConceptGrounding .
+ex:ProvenanceGrounding a ex:ProcessGroundingKind, a4:EnumMember, owl:NamedIndividual .
+ex:ProcessGroundingKind a4:enumMember ex:ProvenanceGrounding .
+
+ex:OrdinaryRebalanceWorkflow a ex:Workflow, owl:NamedIndividual .
+ex:DetermineOrdinaryRebalanceCalendar a ex:ProcessStep, owl:NamedIndividual .
+ex:ConstructIndexUniverse a ex:ProcessStep, owl:NamedIndividual .
+ex:SelectIndexComponents a ex:ProcessStep, owl:NamedIndividual .
+ex:CalculateSelectionDayWeights a ex:ProcessStep, owl:NamedIndividual .
+ex:DetermineFixingDayShares a ex:ProcessStep, owl:NamedIndividual .
+ex:PublishRebalanceComponentChanges a ex:ProcessStep, owl:NamedIndividual .
+ex:ImplementOrdinaryRebalance a ex:ProcessStep, owl:NamedIndividual .
+ex:SelectionDayTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:FixingDayTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:RebalanceDayAfterCloseOfBusinessTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:SufficientNoticeBeforeRebalanceDayTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:WorkflowStartTrigger a ex:ProcessTrigger, owl:NamedIndividual .
+ex:SelectionDayMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:FixingDayMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:RebalanceDayMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:CloseOfBusinessMarker a ex:CalendarMarker, owl:NamedIndividual .
+ex:IndexUniverseOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:EligibleUniverseCandidateState a ex:ProcessState, owl:NamedIndividual .
+ex:EligibleComponentCandidateState a ex:ProcessState, owl:NamedIndividual .
+ex:SelectedComponentState a ex:ProcessState, owl:NamedIndividual .
+ex:ComponentWeightsOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:FixingDaySharesOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:RebalanceAnnouncementOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:UpdatedComponentSetOutput a ex:ProcessOutput, owl:NamedIndividual .
+ex:ImplementedComponentState a ex:ProcessState, owl:NamedIndividual .
+ex:IndexUniverseInput a ex:ProcessInput, owl:NamedIndividual .
+ex:SelectedComponentsInput a ex:ProcessInput, owl:NamedIndividual .
+ex:FreeFloatMarketCapitalizationInput a ex:ProcessInput, owl:NamedIndividual .
+ex:ComponentWeightsInput a ex:ProcessInput, owl:NamedIndividual .
+ex:FixingDaySharesInput a ex:ProcessInput, owl:NamedIndividual .
+ex:PlannedComponentChangesInput a ex:ProcessInput, owl:NamedIndividual .
+ex:EligibleSecurityCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:SelectedComponentRoleAssignmentCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:ImplementedComponentRoleAssignmentCarrier a ex:ProcessStateCarrier, owl:NamedIndividual .
+ex:FreeFloatMarketCapitalizationObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:ComponentWeightObservationFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:GenericIndexComponentMembershipFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:SelectionDayIndexComponentMembershipFrame a ex:CanonicalFrame, owl:NamedIndividual .
+ex:Section2_1 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section2_2 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section2_3 a ex:DocumentPart, owl:NamedIndividual .
+ex:Section3_1 a ex:DocumentPart, owl:NamedIndividual .
+ex:DefinitionN06 a ex:SourceFragment, owl:NamedIndividual .
+ex:DefinitionN09 a ex:SourceFragment, owl:NamedIndividual .
+ex:DefinitionN11 a ex:SourceFragment, owl:NamedIndividual .
+ex:DefinitionN26 a ex:SourceFragment, owl:NamedIndividual .
+ex:DefinitionN27 a ex:SourceFragment, owl:NamedIndividual .
+ex:CalendarGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:UniverseGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:ComponentSelectionGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:WeightingGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:FixingSharesGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:RebalanceImplementationGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:RebalancePublicationGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:MembershipCanonicalGrounding a ex:ProcessGroundingTarget, owl:NamedIndividual .
+ex:workflow_step a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:workflow_step_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:Workflow .
+ex:workflow_step a4:argument ex:workflow_step_arg_0 .
+ex:workflow_step_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:workflow_step a4:argument ex:workflow_step_arg_1 .
+ex:step_precedes a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_precedes_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_precedes a4:argument ex:step_precedes_arg_0 .
+ex:step_precedes_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_precedes a4:argument ex:step_precedes_arg_1 .
+ex:step_edge_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:step_edge_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_edge_kind a4:argument ex:step_edge_kind_arg_0 .
+ex:step_edge_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_edge_kind a4:argument ex:step_edge_kind_arg_1 .
+ex:step_edge_kind_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessEdgeKind .
+ex:step_edge_kind a4:argument ex:step_edge_kind_arg_2 .
+ex:step_temporal_relation a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:step_temporal_relation_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_temporal_relation a4:argument ex:step_temporal_relation_arg_0 .
+ex:step_temporal_relation_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_temporal_relation a4:argument ex:step_temporal_relation_arg_1 .
+ex:step_temporal_relation_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessTemporalRelation .
+ex:step_temporal_relation a4:argument ex:step_temporal_relation_arg_2 .
+ex:step_modality a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_modality_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_modality a4:argument ex:step_modality_arg_0 .
+ex:step_modality_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:StepModality .
+ex:step_modality a4:argument ex:step_modality_arg_1 .
+ex:step_iteration_status a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_iteration_status_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_iteration_status a4:argument ex:step_iteration_status_arg_0 .
+ex:step_iteration_status_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IterationSemanticsStatus .
+ex:step_iteration_status a4:argument ex:step_iteration_status_arg_1 .
+ex:step_triggered_by a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_triggered_by_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_triggered_by a4:argument ex:step_triggered_by_arg_0 .
+ex:step_triggered_by_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:step_triggered_by a4:argument ex:step_triggered_by_arg_1 .
+ex:trigger_calendar_marker a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:trigger_calendar_marker_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_calendar_marker a4:argument ex:trigger_calendar_marker_arg_0 .
+ex:trigger_calendar_marker_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CalendarMarker .
+ex:trigger_calendar_marker a4:argument ex:trigger_calendar_marker_arg_1 .
+ex:trigger_precedes a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:trigger_precedes_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_precedes a4:argument ex:trigger_precedes_arg_0 .
+ex:trigger_precedes_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_precedes a4:argument ex:trigger_precedes_arg_1 .
+ex:trigger_temporal_relation a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:trigger_temporal_relation_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_temporal_relation a4:argument ex:trigger_temporal_relation_arg_0 .
+ex:trigger_temporal_relation_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_temporal_relation a4:argument ex:trigger_temporal_relation_arg_1 .
+ex:trigger_temporal_relation_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessTemporalRelation .
+ex:trigger_temporal_relation a4:argument ex:trigger_temporal_relation_arg_2 .
+ex:trigger_relation_grounded_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:trigger_relation_grounded_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_relation_grounded_in a4:argument ex:trigger_relation_grounded_in_arg_0 .
+ex:trigger_relation_grounded_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessTrigger .
+ex:trigger_relation_grounded_in a4:argument ex:trigger_relation_grounded_in_arg_1 .
+ex:trigger_relation_grounded_in_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:trigger_relation_grounded_in a4:argument ex:trigger_relation_grounded_in_arg_2 .
+ex:step_requires a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_requires_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_requires a4:argument ex:step_requires_arg_0 .
+ex:step_requires_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessInput .
+ex:step_requires a4:argument ex:step_requires_arg_1 .
+ex:step_produces a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_produces_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_produces a4:argument ex:step_produces_arg_0 .
+ex:step_produces_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessOutput .
+ex:step_produces a4:argument ex:step_produces_arg_1 .
+ex:input_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:input_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessInput .
+ex:input_kind a4:argument ex:input_kind_arg_0 .
+ex:input_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessIOKind .
+ex:input_kind a4:argument ex:input_kind_arg_1 .
+ex:output_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:output_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessOutput .
+ex:output_kind a4:argument ex:output_kind_arg_0 .
+ex:output_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessIOKind .
+ex:output_kind a4:argument ex:output_kind_arg_1 .
+ex:input_observation_frame a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:input_observation_frame_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessInput .
+ex:input_observation_frame a4:argument ex:input_observation_frame_arg_0 .
+ex:input_observation_frame_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CanonicalFrame .
+ex:input_observation_frame a4:argument ex:input_observation_frame_arg_1 .
+ex:output_observation_frame a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:output_observation_frame_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessOutput .
+ex:output_observation_frame a4:argument ex:output_observation_frame_arg_0 .
+ex:output_observation_frame_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CanonicalFrame .
+ex:output_observation_frame a4:argument ex:output_observation_frame_arg_1 .
+ex:step_enters_state a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_enters_state_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_enters_state a4:argument ex:step_enters_state_arg_0 .
+ex:step_enters_state_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:step_enters_state a4:argument ex:step_enters_state_arg_1 .
+ex:process_state_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:process_state_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:process_state_kind a4:argument ex:process_state_kind_arg_0 .
+ex:process_state_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStateKind .
+ex:process_state_kind a4:argument ex:process_state_kind_arg_1 .
+ex:process_state_carrier a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:process_state_carrier_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:process_state_carrier a4:argument ex:process_state_carrier_arg_0 .
+ex:process_state_carrier_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStateCarrier .
+ex:process_state_carrier a4:argument ex:process_state_carrier_arg_1 .
+ex:process_state_corresponds_to_membership_state a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:process_state_corresponds_to_membership_state_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessState .
+ex:process_state_corresponds_to_membership_state a4:argument ex:process_state_corresponds_to_membership_state_arg_0 .
+ex:process_state_corresponds_to_membership_state_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:IndexComponentMembershipState .
+ex:process_state_corresponds_to_membership_state a4:argument ex:process_state_corresponds_to_membership_state_arg_1 .
+ex:step_grounded_in_document_part a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_grounded_in_document_part_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_grounded_in_document_part a4:argument ex:step_grounded_in_document_part_arg_0 .
+ex:step_grounded_in_document_part_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:step_grounded_in_document_part a4:argument ex:step_grounded_in_document_part_arg_1 .
+ex:step_grounded_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:step_grounded_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:step_grounded_in a4:argument ex:step_grounded_in_arg_0 .
+ex:step_grounded_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:step_grounded_in a4:argument ex:step_grounded_in_arg_1 .
+ex:edge_grounded_in a rdf:Property, a4:RelSymbol ;
+  a4:arity "3"^^xsd:integer .
+ex:edge_grounded_in_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:edge_grounded_in a4:argument ex:edge_grounded_in_arg_0 .
+ex:edge_grounded_in_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessStep .
+ex:edge_grounded_in a4:argument ex:edge_grounded_in_arg_1 .
+ex:edge_grounded_in_arg_2 a a4:Argument ; a4:position "2"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:edge_grounded_in a4:argument ex:edge_grounded_in_arg_2 .
+ex:grounding_kind a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_kind_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_kind a4:argument ex:grounding_kind_arg_0 .
+ex:grounding_kind_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:ProcessGroundingKind .
+ex:grounding_kind a4:argument ex:grounding_kind_arg_1 .
+ex:grounding_document_part a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_document_part_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_document_part a4:argument ex:grounding_document_part_arg_0 .
+ex:grounding_document_part_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:DocumentPart .
+ex:grounding_document_part a4:argument ex:grounding_document_part_arg_1 .
+ex:grounding_source_fragment a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_source_fragment_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_source_fragment a4:argument ex:grounding_source_fragment_arg_0 .
+ex:grounding_source_fragment_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SourceFragment .
+ex:grounding_source_fragment a4:argument ex:grounding_source_fragment_arg_1 .
+ex:grounding_canonical_frame a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:grounding_canonical_frame_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:ProcessGroundingTarget .
+ex:grounding_canonical_frame a4:argument ex:grounding_canonical_frame_arg_0 .
+ex:grounding_canonical_frame_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:CanonicalFrame .
+ex:grounding_canonical_frame a4:argument ex:grounding_canonical_frame_arg_1 .
+
+ex:ASSERT_ordinary_rebalance_workflow_steps a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "170"^^xsd:integer ;
+  a4:exprText "(workflow_step(OrdinaryRebalanceWorkflow, DetermineOrdinaryRebalanceCalendar)) and (workflow_step(OrdinaryRebalanceWorkflow, ConstructIndexUniverse)) and (workflow_step(OrdinaryRebalanceWorkflow, SelectIndexComponents)) and (workflow_step(OrdinaryRebalanceWorkflow, CalculateSelectionDayWeights)) and (workflow_step(OrdinaryRebalanceWorkflow, DetermineFixingDayShares)) and (workflow_step(OrdinaryRebalanceWorkflow, PublishRebalanceComponentChanges)) and (workflow_step(OrdinaryRebalanceWorkflow, ImplementOrdinaryRebalance))" ;
+  a4:sourceText "fact ordinary_rebalance_workflow_steps :\n  workflow_step(OrdinaryRebalanceWorkflow, DetermineOrdinaryRebalanceCalendar)\n  and workflow_step(OrdinaryRebalanceWorkflow, ConstructIndexUniverse)\n  and workflow_step(OrdinaryRebalanceWorkflow, SelectIndexComponents)\n  and workflow_step(OrdinaryRebalanceWorkflow, CalculateSelectionDayWeights)\n  and workflow_step(OrdinaryRebalanceWorkflow, DetermineFixingDayShares)\n  and workflow_step(OrdinaryRebalanceWorkflow, PublishRebalanceComponentChanges)\n  and workflow_step(OrdinaryRebalanceWorkflow, ImplementOrdinaryRebalance)" .
+ex:ASSERT_ordinary_rebalance_happy_path_order a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "179"^^xsd:integer ;
+  a4:exprText "(step_precedes(DetermineOrdinaryRebalanceCalendar, ConstructIndexUniverse)) and (step_edge_kind(DetermineOrdinaryRebalanceCalendar, ConstructIndexUniverse, StructuralDependencyEdge)) and (step_temporal_relation(DetermineOrdinaryRebalanceCalendar, ConstructIndexUniverse, Before)) and (step_precedes(ConstructIndexUniverse, SelectIndexComponents)) and (step_edge_kind(ConstructIndexUniverse, SelectIndexComponents, StructuralDependencyEdge)) and (step_temporal_relation(ConstructIndexUniverse, SelectIndexComponents, Before)) and (step_precedes(SelectIndexComponents, CalculateSelectionDayWeights)) and (step_edge_kind(SelectIndexComponents, CalculateSelectionDayWeights, StructuralDependencyEdge)) and (step_temporal_relation(SelectIndexComponents, CalculateSelectionDayWeights, Before)) and (step_precedes(CalculateSelectionDayWeights, DetermineFixingDayShares)) and (step_edge_kind(CalculateSelectionDayWeights, DetermineFixingDayShares, ExplicitSourceEdge)) and (step_temporal_relation(CalculateSelectionDayWeights, DetermineFixingDayShares, SameTimeAs)) and (step_precedes(DetermineFixingDayShares, PublishRebalanceComponentChanges)) and (step_edge_kind(DetermineFixingDayShares, PublishRebalanceComponentChanges, StructuralDependencyEdge)) and (step_temporal_relation(DetermineFixingDayShares, PublishRebalanceComponentChanges, Before)) and (step_precedes(PublishRebalanceComponentChanges, ImplementOrdinaryRebalance)) and (step_edge_kind(PublishRebalanceComponentChanges, ImplementOrdinaryRebalance, ExplicitSourceEdge)) and (step_temporal_relation(PublishRebalanceComponentChanges, ImplementOrdinaryRebalance, Before))" ;
+  a4:sourceText "fact ordinary_rebalance_happy_path_order :\n  step_precedes(DetermineOrdinaryRebalanceCalendar, ConstructIndexUniverse)\n  and step_edge_kind(DetermineOrdinaryRebalanceCalendar, ConstructIndexUniverse, StructuralDependencyEdge)\n  and step_temporal_relation(DetermineOrdinaryRebalanceCalendar, ConstructIndexUniverse, Before)\n  and step_precedes(ConstructIndexUniverse, SelectIndexComponents)\n  and step_edge_kind(ConstructIndexUniverse, SelectIndexComponents, StructuralDependencyEdge)\n  and step_temporal_relation(ConstructIndexUniverse, SelectIndexComponents, Before)\n  and step_precedes(SelectIndexComponents, CalculateSelectionDayWeights)\n  and step_edge_kind(SelectIndexComponents, CalculateSelectionDayWeights, StructuralDependencyEdge)\n  and step_temporal_relation(SelectIndexComponents, CalculateSelectionDayWeights, Before)\n  and step_precedes(CalculateSelectionDayWeights, DetermineFixingDayShares)\n  and step_edge_kind(CalculateSelectionDayWeights, DetermineFixingDayShares, ExplicitSourceEdge)\n  and step_temporal_relation(CalculateSelectionDayWeights, DetermineFixingDayShares, SameTimeAs)\n  and step_precedes(DetermineFixingDayShares, PublishRebalanceComponentChanges)\n  and step_edge_kind(DetermineFixingDayShares, PublishRebalanceComponentChanges, StructuralDependencyEdge)\n  and step_temporal_relation(DetermineFixingDayShares, PublishRebalanceComponentChanges, Before)\n  and step_precedes(PublishRebalanceComponentChanges, ImplementOrdinaryRebalance)\n  and step_edge_kind(PublishRebalanceComponentChanges, ImplementOrdinaryRebalance, ExplicitSourceEdge)\n  and step_temporal_relation(PublishRebalanceComponentChanges, ImplementOrdinaryRebalance, Before)" .
+ex:ASSERT_ordinary_rebalance_triggers a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "199"^^xsd:integer ;
+  a4:exprText "(step_triggered_by(DetermineOrdinaryRebalanceCalendar, WorkflowStartTrigger)) and (step_triggered_by(ConstructIndexUniverse, SelectionDayTrigger)) and (step_triggered_by(SelectIndexComponents, SelectionDayTrigger)) and (step_triggered_by(CalculateSelectionDayWeights, SelectionDayTrigger)) and (step_triggered_by(DetermineFixingDayShares, FixingDayTrigger)) and (step_triggered_by(PublishRebalanceComponentChanges, SufficientNoticeBeforeRebalanceDayTrigger)) and (step_triggered_by(ImplementOrdinaryRebalance, RebalanceDayAfterCloseOfBusinessTrigger)) and (trigger_calendar_marker(SelectionDayTrigger, SelectionDayMarker)) and (trigger_calendar_marker(FixingDayTrigger, FixingDayMarker)) and (trigger_calendar_marker(SufficientNoticeBeforeRebalanceDayTrigger, RebalanceDayMarker)) and (trigger_calendar_marker(RebalanceDayAfterCloseOfBusinessTrigger, RebalanceDayMarker)) and (trigger_calendar_marker(RebalanceDayAfterCloseOfBusinessTrigger, CloseOfBusinessMarker)) and (trigger_temporal_relation(SelectionDayTrigger, FixingDayTrigger, SameTimeAs)) and (trigger_precedes(FixingDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger)) and (trigger_temporal_relation(FixingDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger, Before)) and (trigger_precedes(SufficientNoticeBeforeRebalanceDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger)) and (trigger_temporal_relation(SufficientNoticeBeforeRebalanceDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger, Before)) and (trigger_relation_grounded_in(SelectionDayTrigger, FixingDayTrigger, CalendarGrounding))" ;
+  a4:sourceText "fact ordinary_rebalance_triggers :\n  step_triggered_by(DetermineOrdinaryRebalanceCalendar, WorkflowStartTrigger)\n  and step_triggered_by(ConstructIndexUniverse, SelectionDayTrigger)\n  and step_triggered_by(SelectIndexComponents, SelectionDayTrigger)\n  and step_triggered_by(CalculateSelectionDayWeights, SelectionDayTrigger)\n  and step_triggered_by(DetermineFixingDayShares, FixingDayTrigger)\n  and step_triggered_by(PublishRebalanceComponentChanges, SufficientNoticeBeforeRebalanceDayTrigger)\n  and step_triggered_by(ImplementOrdinaryRebalance, RebalanceDayAfterCloseOfBusinessTrigger)\n  and trigger_calendar_marker(SelectionDayTrigger, SelectionDayMarker)\n  and trigger_calendar_marker(FixingDayTrigger, FixingDayMarker)\n  and trigger_calendar_marker(SufficientNoticeBeforeRebalanceDayTrigger, RebalanceDayMarker)\n  and trigger_calendar_marker(RebalanceDayAfterCloseOfBusinessTrigger, RebalanceDayMarker)\n  and trigger_calendar_marker(RebalanceDayAfterCloseOfBusinessTrigger, CloseOfBusinessMarker)\n  and trigger_temporal_relation(SelectionDayTrigger, FixingDayTrigger, SameTimeAs)\n  and trigger_precedes(FixingDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger)\n  and trigger_temporal_relation(FixingDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger, Before)\n  and trigger_precedes(SufficientNoticeBeforeRebalanceDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger)\n  and trigger_temporal_relation(SufficientNoticeBeforeRebalanceDayTrigger, RebalanceDayAfterCloseOfBusinessTrigger, Before)\n  and trigger_relation_grounded_in(SelectionDayTrigger, FixingDayTrigger, CalendarGrounding)" .
+ex:ASSERT_ordinary_rebalance_step_modalities_and_iteration a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "219"^^xsd:integer ;
+  a4:exprText "(step_modality(DetermineOrdinaryRebalanceCalendar, DescriptiveStep)) and (step_modality(ConstructIndexUniverse, DescriptiveStep)) and (step_modality(SelectIndexComponents, DescriptiveStep)) and (step_modality(CalculateSelectionDayWeights, DescriptiveStep)) and (step_modality(DetermineFixingDayShares, DescriptiveStep)) and (step_modality(PublishRebalanceComponentChanges, ObligatoryStep)) and (step_modality(ImplementOrdinaryRebalance, DescriptiveStep)) and (step_iteration_status(DetermineOrdinaryRebalanceCalendar, NoIteration)) and (step_iteration_status(ConstructIndexUniverse, NoIteration)) and (step_iteration_status(SelectIndexComponents, NoIteration)) and (step_iteration_status(CalculateSelectionDayWeights, IterationSemanticsDeferred)) and (step_iteration_status(DetermineFixingDayShares, NoIteration)) and (step_iteration_status(PublishRebalanceComponentChanges, NoIteration)) and (step_iteration_status(ImplementOrdinaryRebalance, NoIteration))" ;
+  a4:sourceText "fact ordinary_rebalance_step_modalities_and_iteration :\n  step_modality(DetermineOrdinaryRebalanceCalendar, DescriptiveStep)\n  and step_modality(ConstructIndexUniverse, DescriptiveStep)\n  and step_modality(SelectIndexComponents, DescriptiveStep)\n  and step_modality(CalculateSelectionDayWeights, DescriptiveStep)\n  and step_modality(DetermineFixingDayShares, DescriptiveStep)\n  and step_modality(PublishRebalanceComponentChanges, ObligatoryStep)\n  and step_modality(ImplementOrdinaryRebalance, DescriptiveStep)\n  and step_iteration_status(DetermineOrdinaryRebalanceCalendar, NoIteration)\n  and step_iteration_status(ConstructIndexUniverse, NoIteration)\n  and step_iteration_status(SelectIndexComponents, NoIteration)\n  and step_iteration_status(CalculateSelectionDayWeights, IterationSemanticsDeferred)\n  and step_iteration_status(DetermineFixingDayShares, NoIteration)\n  and step_iteration_status(PublishRebalanceComponentChanges, NoIteration)\n  and step_iteration_status(ImplementOrdinaryRebalance, NoIteration)" .
+ex:ASSERT_ordinary_rebalance_inputs_outputs a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "235"^^xsd:integer ;
+  a4:exprText "(step_produces(ConstructIndexUniverse, IndexUniverseOutput)) and (output_kind(IndexUniverseOutput, DomainConceptIO)) and (step_enters_state(ConstructIndexUniverse, EligibleUniverseCandidateState)) and (process_state_kind(EligibleUniverseCandidateState, EligibleUniverseCandidate)) and (process_state_carrier(EligibleUniverseCandidateState, EligibleSecurityCarrier)) and (step_requires(SelectIndexComponents, IndexUniverseInput)) and (input_kind(IndexUniverseInput, DomainConceptIO)) and (step_enters_state(SelectIndexComponents, EligibleComponentCandidateState)) and (process_state_kind(EligibleComponentCandidateState, EligibleComponentCandidate)) and (process_state_carrier(EligibleComponentCandidateState, EligibleSecurityCarrier)) and (step_enters_state(SelectIndexComponents, SelectedComponentState)) and (process_state_kind(SelectedComponentState, SelectedComponent)) and (process_state_carrier(SelectedComponentState, SelectedComponentRoleAssignmentCarrier)) and (process_state_corresponds_to_membership_state(SelectedComponentState, SelectedMembership)) and (step_requires(CalculateSelectionDayWeights, SelectedComponentsInput)) and (input_kind(SelectedComponentsInput, ProcessStateIO)) and (step_requires(CalculateSelectionDayWeights, FreeFloatMarketCapitalizationInput)) and (input_kind(FreeFloatMarketCapitalizationInput, ObservationFrameIO)) and (input_observation_frame(FreeFloatMarketCapitalizationInput, FreeFloatMarketCapitalizationObservationFrame)) and (step_produces(CalculateSelectionDayWeights, ComponentWeightsOutput)) and (output_kind(ComponentWeightsOutput, ObservationFrameIO)) and (output_observation_frame(ComponentWeightsOutput, ComponentWeightObservationFrame)) and (step_requires(DetermineFixingDayShares, ComponentWeightsInput)) and (input_kind(ComponentWeightsInput, ObservationFrameIO)) and (input_observation_frame(ComponentWeightsInput, ComponentWeightObservationFrame)) and (step_produces(DetermineFixingDayShares, FixingDaySharesOutput)) and (output_kind(FixingDaySharesOutput, DomainConceptIO)) and (step_requires(PublishRebalanceComponentChanges, PlannedComponentChangesInput)) and (input_kind(PlannedComponentChangesInput, ProcessStateIO)) and (step_produces(PublishRebalanceComponentChanges, RebalanceAnnouncementOutput)) and (output_kind(RebalanceAnnouncementOutput, DomainConceptIO)) and (step_requires(ImplementOrdinaryRebalance, FixingDaySharesInput)) and (input_kind(FixingDaySharesInput, DomainConceptIO)) and (step_requires(ImplementOrdinaryRebalance, SelectedComponentsInput)) and (step_produces(ImplementOrdinaryRebalance, UpdatedComponentSetOutput)) and (output_kind(UpdatedComponentSetOutput, ProcessStateIO)) and (step_enters_state(ImplementOrdinaryRebalance, ImplementedComponentState)) and (process_state_kind(ImplementedComponentState, ImplementedComponent)) and (process_state_carrier(ImplementedComponentState, ImplementedComponentRoleAssignmentCarrier)) and (process_state_corresponds_to_membership_state(ImplementedComponentState, ImplementedMembership))" ;
+  a4:sourceText "fact ordinary_rebalance_inputs_outputs :\n  step_produces(ConstructIndexUniverse, IndexUniverseOutput)\n  and output_kind(IndexUniverseOutput, DomainConceptIO)\n  and step_enters_state(ConstructIndexUniverse, EligibleUniverseCandidateState)\n  and process_state_kind(EligibleUniverseCandidateState, EligibleUniverseCandidate)\n  and process_state_carrier(EligibleUniverseCandidateState, EligibleSecurityCarrier)\n  and step_requires(SelectIndexComponents, IndexUniverseInput)\n  and input_kind(IndexUniverseInput, DomainConceptIO)\n  and step_enters_state(SelectIndexComponents, EligibleComponentCandidateState)\n  and process_state_kind(EligibleComponentCandidateState, EligibleComponentCandidate)\n  and process_state_carrier(EligibleComponentCandidateState, EligibleSecurityCarrier)\n  and step_enters_state(SelectIndexComponents, SelectedComponentState)\n  and process_state_kind(SelectedComponentState, SelectedComponent)\n  and process_state_carrier(SelectedComponentState, SelectedComponentRoleAssignmentCarrier)\n  and process_state_corresponds_to_membership_state(SelectedComponentState, SelectedMembership)\n  and step_requires(CalculateSelectionDayWeights, SelectedComponentsInput)\n  and input_kind(SelectedComponentsInput, ProcessStateIO)\n  and step_requires(CalculateSelectionDayWeights, FreeFloatMarketCapitalizationInput)\n  and input_kind(FreeFloatMarketCapitalizationInput, ObservationFrameIO)\n  and input_observation_frame(FreeFloatMarketCapitalizationInput, FreeFloatMarketCapitalizationObservationFrame)\n  and step_produces(CalculateSelectionDayWeights, ComponentWeightsOutput)\n  and output_kind(ComponentWeightsOutput, ObservationFrameIO)\n  and output_observation_frame(ComponentWeightsOutput, ComponentWeightObservationFrame)\n  and step_requires(DetermineFixingDayShares, ComponentWeightsInput)\n  and input_kind(ComponentWeightsInput, ObservationFrameIO)\n  and input_observation_frame(ComponentWeightsInput, ComponentWeightObservationFrame)\n  and step_produces(DetermineFixingDayShares, FixingDaySharesOutput)\n  and output_kind(FixingDaySharesOutput, DomainConceptIO)\n  and step_requires(PublishRebalanceComponentChanges, PlannedComponentChangesInput)\n  and input_kind(PlannedComponentChangesInput, ProcessStateIO)\n  and step_produces(PublishRebalanceComponentChanges, RebalanceAnnouncementOutput)\n  and output_kind(RebalanceAnnouncementOutput, DomainConceptIO)\n  and step_requires(ImplementOrdinaryRebalance, FixingDaySharesInput)\n  and input_kind(FixingDaySharesInput, DomainConceptIO)\n  and step_requires(ImplementOrdinaryRebalance, SelectedComponentsInput)\n  and step_produces(ImplementOrdinaryRebalance, UpdatedComponentSetOutput)\n  and output_kind(UpdatedComponentSetOutput, ProcessStateIO)\n  and step_enters_state(ImplementOrdinaryRebalance, ImplementedComponentState)\n  and process_state_kind(ImplementedComponentState, ImplementedComponent)\n  and process_state_carrier(ImplementedComponentState, ImplementedComponentRoleAssignmentCarrier)\n  and process_state_corresponds_to_membership_state(ImplementedComponentState, ImplementedMembership)" .
+ex:ASSERT_ordinary_rebalance_grounding_targets a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "277"^^xsd:integer ;
+  a4:exprText "(grounding_kind(CalendarGrounding, SourceFragmentGrounding)) and (grounding_source_fragment(CalendarGrounding, DefinitionN06)) and (grounding_source_fragment(CalendarGrounding, DefinitionN09)) and (grounding_source_fragment(CalendarGrounding, DefinitionN11)) and (grounding_source_fragment(CalendarGrounding, DefinitionN26)) and (grounding_source_fragment(CalendarGrounding, DefinitionN27)) and (grounding_kind(UniverseGrounding, DocumentPartGrounding)) and (grounding_document_part(UniverseGrounding, Section2_1)) and (grounding_kind(ComponentSelectionGrounding, DocumentPartGrounding)) and (grounding_document_part(ComponentSelectionGrounding, Section2_2)) and (grounding_kind(WeightingGrounding, DocumentPartGrounding)) and (grounding_document_part(WeightingGrounding, Section2_3)) and (grounding_kind(FixingSharesGrounding, DocumentPartGrounding)) and (grounding_document_part(FixingSharesGrounding, Section3_1)) and (grounding_kind(RebalanceImplementationGrounding, DocumentPartGrounding)) and (grounding_document_part(RebalanceImplementationGrounding, Section3_1)) and (grounding_kind(RebalancePublicationGrounding, DocumentPartGrounding)) and (grounding_document_part(RebalancePublicationGrounding, Section3_1)) and (grounding_kind(MembershipCanonicalGrounding, CanonicalConceptGrounding)) and (grounding_canonical_frame(MembershipCanonicalGrounding, GenericIndexComponentMembershipFrame)) and (grounding_canonical_frame(MembershipCanonicalGrounding, SelectionDayIndexComponentMembershipFrame))" ;
+  a4:sourceText "fact ordinary_rebalance_grounding_targets :\n  grounding_kind(CalendarGrounding, SourceFragmentGrounding)\n  and grounding_source_fragment(CalendarGrounding, DefinitionN06)\n  and grounding_source_fragment(CalendarGrounding, DefinitionN09)\n  and grounding_source_fragment(CalendarGrounding, DefinitionN11)\n  and grounding_source_fragment(CalendarGrounding, DefinitionN26)\n  and grounding_source_fragment(CalendarGrounding, DefinitionN27)\n  and grounding_kind(UniverseGrounding, DocumentPartGrounding)\n  and grounding_document_part(UniverseGrounding, Section2_1)\n  and grounding_kind(ComponentSelectionGrounding, DocumentPartGrounding)\n  and grounding_document_part(ComponentSelectionGrounding, Section2_2)\n  and grounding_kind(WeightingGrounding, DocumentPartGrounding)\n  and grounding_document_part(WeightingGrounding, Section2_3)\n  and grounding_kind(FixingSharesGrounding, DocumentPartGrounding)\n  and grounding_document_part(FixingSharesGrounding, Section3_1)\n  and grounding_kind(RebalanceImplementationGrounding, DocumentPartGrounding)\n  and grounding_document_part(RebalanceImplementationGrounding, Section3_1)\n  and grounding_kind(RebalancePublicationGrounding, DocumentPartGrounding)\n  and grounding_document_part(RebalancePublicationGrounding, Section3_1)\n  and grounding_kind(MembershipCanonicalGrounding, CanonicalConceptGrounding)\n  and grounding_canonical_frame(MembershipCanonicalGrounding, GenericIndexComponentMembershipFrame)\n  and grounding_canonical_frame(MembershipCanonicalGrounding, SelectionDayIndexComponentMembershipFrame)" .
+ex:ASSERT_ordinary_rebalance_step_grounding a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "300"^^xsd:integer ;
+  a4:exprText "(step_grounded_in(DetermineOrdinaryRebalanceCalendar, CalendarGrounding)) and (step_grounded_in(ConstructIndexUniverse, UniverseGrounding)) and (step_grounded_in_document_part(ConstructIndexUniverse, Section2_1)) and (step_grounded_in(SelectIndexComponents, ComponentSelectionGrounding)) and (step_grounded_in_document_part(SelectIndexComponents, Section2_2)) and (step_grounded_in(CalculateSelectionDayWeights, WeightingGrounding)) and (step_grounded_in_document_part(CalculateSelectionDayWeights, Section2_3)) and (step_grounded_in(DetermineFixingDayShares, FixingSharesGrounding)) and (step_grounded_in_document_part(DetermineFixingDayShares, Section3_1)) and (step_grounded_in(PublishRebalanceComponentChanges, RebalancePublicationGrounding)) and (step_grounded_in_document_part(PublishRebalanceComponentChanges, Section3_1)) and (step_grounded_in(ImplementOrdinaryRebalance, RebalanceImplementationGrounding)) and (step_grounded_in_document_part(ImplementOrdinaryRebalance, Section3_1)) and (step_grounded_in(SelectIndexComponents, MembershipCanonicalGrounding)) and (step_grounded_in(ImplementOrdinaryRebalance, MembershipCanonicalGrounding))" ;
+  a4:sourceText "fact ordinary_rebalance_step_grounding :\n  step_grounded_in(DetermineOrdinaryRebalanceCalendar, CalendarGrounding)\n  and step_grounded_in(ConstructIndexUniverse, UniverseGrounding)\n  and step_grounded_in_document_part(ConstructIndexUniverse, Section2_1)\n  and step_grounded_in(SelectIndexComponents, ComponentSelectionGrounding)\n  and step_grounded_in_document_part(SelectIndexComponents, Section2_2)\n  and step_grounded_in(CalculateSelectionDayWeights, WeightingGrounding)\n  and step_grounded_in_document_part(CalculateSelectionDayWeights, Section2_3)\n  and step_grounded_in(DetermineFixingDayShares, FixingSharesGrounding)\n  and step_grounded_in_document_part(DetermineFixingDayShares, Section3_1)\n  and step_grounded_in(PublishRebalanceComponentChanges, RebalancePublicationGrounding)\n  and step_grounded_in_document_part(PublishRebalanceComponentChanges, Section3_1)\n  and step_grounded_in(ImplementOrdinaryRebalance, RebalanceImplementationGrounding)\n  and step_grounded_in_document_part(ImplementOrdinaryRebalance, Section3_1)\n  and step_grounded_in(SelectIndexComponents, MembershipCanonicalGrounding)\n  and step_grounded_in(ImplementOrdinaryRebalance, MembershipCanonicalGrounding)" .
+ex:ASSERT_ordinary_rebalance_edge_grounding a a4:Assertion ;
+  a4:assertionKind "fact" ;
+  a4:lineNo "317"^^xsd:integer ;
+  a4:exprText "(edge_grounded_in(DetermineOrdinaryRebalanceCalendar, ConstructIndexUniverse, CalendarGrounding)) and (edge_grounded_in(ConstructIndexUniverse, SelectIndexComponents, UniverseGrounding)) and (edge_grounded_in(SelectIndexComponents, CalculateSelectionDayWeights, ComponentSelectionGrounding)) and (edge_grounded_in(CalculateSelectionDayWeights, DetermineFixingDayShares, FixingSharesGrounding)) and (edge_grounded_in(DetermineFixingDayShares, PublishRebalanceComponentChanges, RebalancePublicationGrounding)) and (edge_grounded_in(PublishRebalanceComponentChanges, ImplementOrdinaryRebalance, RebalancePublicationGrounding))" ;
+  a4:sourceText "fact ordinary_rebalance_edge_grounding :\n  edge_grounded_in(DetermineOrdinaryRebalanceCalendar, ConstructIndexUniverse, CalendarGrounding)\n  and edge_grounded_in(ConstructIndexUniverse, SelectIndexComponents, UniverseGrounding)\n  and edge_grounded_in(SelectIndexComponents, CalculateSelectionDayWeights, ComponentSelectionGrounding)\n  and edge_grounded_in(CalculateSelectionDayWeights, DetermineFixingDayShares, FixingSharesGrounding)\n  and edge_grounded_in(DetermineFixingDayShares, PublishRebalanceComponentChanges, RebalancePublicationGrounding)\n  and edge_grounded_in(PublishRebalanceComponentChanges, ImplementOrdinaryRebalance, RebalancePublicationGrounding)" .

@@ -1,0 +1,69 @@
+section: "4.3 Rounding"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  two_decimal_places_precision:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "two decimal places"
+    back_translation: >
+      Two decimal places means that the rounding precision has a
+      decimal-place count of 2.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source writes the number as the word "two". The IR keeps a
+      source-facing `TwoDecimalPlaces` carrier and also records the numeric
+      value `2` for backend checks.
+
+  index_level_rounded_to_two_decimal_places:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "The level of the Index will be rounded to two decimal places"
+    back_translation: >
+      Every level of the Index is rounded to the precision of two decimal
+      places.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      "Will be rounded" is modeled as a source-backed calculation rule over
+      index levels, not as a deontic obligation, because the source describes
+      the calculation output rather than assigning an agent a duty.
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  Index:
+    note: "Generic index sort grounded by the source phrase \"the Index\"."
+    source_phrase: "Index"
+  TheIndex:
+    note: "Local entity for the source phrase \"the Index\"."
+    source_phrase: "the Index"
+  IndexLevel:
+    note: "Numeric value sort for the source phrase \"level of the Index\"."
+    source_phrase: "level"
+  RoundingPrecision:
+    note: "Carrier sort for the source phrase \"decimal places\"."
+    source_phrase: "decimal places"
+  TwoDecimalPlaces:
+    note: "Carrier for the source phrase \"two decimal places\"."
+    source_phrase: "two decimal places"
+  DecimalPlaceCount:
+    note: "Numeric count sort for the source word \"two\"."
+    source_phrase: "two"
+  rounded_to_precision:
+    note: "Relation for the source phrase \"rounded to\"."
+    source_phrase: "rounded to"
+  decimal_place_count:
+    note: "Function linking the source-facing precision carrier to numeric value 2."
+    source_phrase: "two"

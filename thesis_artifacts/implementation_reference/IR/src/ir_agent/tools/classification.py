@@ -1,4 +1,4 @@
-"""Text-intent classification tool."""
+﻿"""Text-intent classification tool."""
 from __future__ import annotations
 
 import json
@@ -38,7 +38,7 @@ def tool_classify_text_intent(env: ToolEnv) -> dict[str, Any]:
 
     user = (
         f"## SECTION SOURCE\n\n{source}\n\n"
-        f"## CORPUS PRECEDENTS (similar sections in DZ)\n\n{corpus_block}\n\n"
+        f"## CORPUS PRECEDENTS (similar sections in the seed methodology corpus)\n\n{corpus_block}\n\n"
         f"Classify per the schema. Calibrate to corpus practice; flag any "
         f"conflict between abstract rules and corpus practice in "
         f"corpus_alignment field."

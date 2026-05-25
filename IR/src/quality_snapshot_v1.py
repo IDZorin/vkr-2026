@@ -4,7 +4,7 @@ Build a compact, waiver-aware quality snapshot for one local IR entry.
 
 This does not replace diagnostic_suite_v1.json. The diagnostic suite is a raw
 rule dump and intentionally noisy. This snapshot separates blocking hard checks
-from legacy/advisory signals so manual DZ workspaces can be reviewed cleanly.
+from legacy/advisory signals so manual financial methodology workspaces can be reviewed cleanly.
 """
 from __future__ import annotations
 

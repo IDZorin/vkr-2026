@@ -1,0 +1,422 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:ordinary_rebalance_workflow_v1 a a4:ShaclProjectionTarget .
+
+ex:Workflow a rdfs:Class .
+ex:WorkflowShape a sh:NodeShape ; sh:targetClass ex:Workflow .
+ex:ProcessStep a rdfs:Class .
+ex:ProcessStepShape a sh:NodeShape ; sh:targetClass ex:ProcessStep .
+ex:ProcessTrigger a rdfs:Class .
+ex:ProcessTriggerShape a sh:NodeShape ; sh:targetClass ex:ProcessTrigger .
+ex:ProcessInput a rdfs:Class .
+ex:ProcessInputShape a sh:NodeShape ; sh:targetClass ex:ProcessInput .
+ex:ProcessOutput a rdfs:Class .
+ex:ProcessOutputShape a sh:NodeShape ; sh:targetClass ex:ProcessOutput .
+ex:ProcessState a rdfs:Class .
+ex:ProcessStateShape a sh:NodeShape ; sh:targetClass ex:ProcessState .
+ex:ProcessStateCarrier a rdfs:Class .
+ex:ProcessStateCarrierShape a sh:NodeShape ; sh:targetClass ex:ProcessStateCarrier .
+ex:ProcessGroundingTarget a rdfs:Class .
+ex:ProcessGroundingTargetShape a sh:NodeShape ; sh:targetClass ex:ProcessGroundingTarget .
+ex:DocumentPart a rdfs:Class .
+ex:DocumentPartShape a sh:NodeShape ; sh:targetClass ex:DocumentPart .
+ex:SourceFragment a rdfs:Class .
+ex:SourceFragmentShape a sh:NodeShape ; sh:targetClass ex:SourceFragment .
+ex:CanonicalFrame a rdfs:Class .
+ex:CanonicalFrameShape a sh:NodeShape ; sh:targetClass ex:CanonicalFrame .
+ex:CanonicalConcept a rdfs:Class .
+ex:CanonicalConceptShape a sh:NodeShape ; sh:targetClass ex:CanonicalConcept .
+ex:CalendarMarker a rdfs:Class .
+ex:CalendarMarkerShape a sh:NodeShape ; sh:targetClass ex:CalendarMarker .
+ex:ProcessEdgeKind a rdfs:Class .
+ex:ProcessEdgeKindShape a sh:NodeShape ; sh:targetClass ex:ProcessEdgeKind .
+ex:ExplicitSourceEdge a ex:ProcessEdgeKind .
+ex:StructuralDependencyEdge a ex:ProcessEdgeKind .
+ex:InferredMergeEdge a ex:ProcessEdgeKind .
+ex:OperationalLoweringEdge a ex:ProcessEdgeKind .
+ex:StepModality a rdfs:Class .
+ex:StepModalityShape a sh:NodeShape ; sh:targetClass ex:StepModality .
+ex:ObligatoryStep a ex:StepModality .
+ex:PermittedStep a ex:StepModality .
+ex:ProhibitedStep a ex:StepModality .
+ex:DiscretionaryStep a ex:StepModality .
+ex:DescriptiveStep a ex:StepModality .
+ex:ProcessTemporalRelation a rdfs:Class .
+ex:ProcessTemporalRelationShape a sh:NodeShape ; sh:targetClass ex:ProcessTemporalRelation .
+ex:Before a ex:ProcessTemporalRelation .
+ex:After a ex:ProcessTemporalRelation .
+ex:SameTimeAs a ex:ProcessTemporalRelation .
+ex:During a ex:ProcessTemporalRelation .
+ex:OnOrBefore a ex:ProcessTemporalRelation .
+ex:OnOrAfter a ex:ProcessTemporalRelation .
+ex:IterationSemanticsStatus a rdfs:Class .
+ex:IterationSemanticsStatusShape a sh:NodeShape ; sh:targetClass ex:IterationSemanticsStatus .
+ex:NoIteration a ex:IterationSemanticsStatus .
+ex:IterationSemanticsDeferred a ex:IterationSemanticsStatus .
+ex:FixedPointIteration a ex:IterationSemanticsStatus .
+ex:ProcessIOKind a rdfs:Class .
+ex:ProcessIOKindShape a sh:NodeShape ; sh:targetClass ex:ProcessIOKind .
+ex:DomainConceptIO a ex:ProcessIOKind .
+ex:ObservationFrameIO a ex:ProcessIOKind .
+ex:CalendarMarkerIO a ex:ProcessIOKind .
+ex:ProcessStateIO a ex:ProcessIOKind .
+ex:ProcessStateKind a rdfs:Class .
+ex:ProcessStateKindShape a sh:NodeShape ; sh:targetClass ex:ProcessStateKind .
+ex:EligibleUniverseCandidate a ex:ProcessStateKind .
+ex:EligibleComponentCandidate a ex:ProcessStateKind .
+ex:SelectedComponent a ex:ProcessStateKind .
+ex:CalculationDayComponent a ex:ProcessStateKind .
+ex:ImplementedComponent a ex:ProcessStateKind .
+ex:IndexComponentMembershipState a rdfs:Class .
+ex:IndexComponentMembershipStateShape a sh:NodeShape ; sh:targetClass ex:IndexComponentMembershipState .
+ex:GenericMembership a ex:IndexComponentMembershipState .
+ex:SelectedMembership a ex:IndexComponentMembershipState .
+ex:CalculationMembership a ex:IndexComponentMembershipState .
+ex:ImplementedMembership a ex:IndexComponentMembershipState .
+ex:ProcessGroundingKind a rdfs:Class .
+ex:ProcessGroundingKindShape a sh:NodeShape ; sh:targetClass ex:ProcessGroundingKind .
+ex:DocumentPartGrounding a ex:ProcessGroundingKind .
+ex:SourceFragmentGrounding a ex:ProcessGroundingKind .
+ex:BridgeDecisionGrounding a ex:ProcessGroundingKind .
+ex:CanonicalConceptGrounding a ex:ProcessGroundingKind .
+ex:ProvenanceGrounding a ex:ProcessGroundingKind .
+
+ex:OrdinaryRebalanceWorkflow a ex:Workflow .
+ex:DetermineOrdinaryRebalanceCalendar a ex:ProcessStep .
+ex:ConstructIndexUniverse a ex:ProcessStep .
+ex:SelectIndexComponents a ex:ProcessStep .
+ex:CalculateSelectionDayWeights a ex:ProcessStep .
+ex:DetermineFixingDayShares a ex:ProcessStep .
+ex:PublishRebalanceComponentChanges a ex:ProcessStep .
+ex:ImplementOrdinaryRebalance a ex:ProcessStep .
+ex:SelectionDayTrigger a ex:ProcessTrigger .
+ex:FixingDayTrigger a ex:ProcessTrigger .
+ex:RebalanceDayAfterCloseOfBusinessTrigger a ex:ProcessTrigger .
+ex:SufficientNoticeBeforeRebalanceDayTrigger a ex:ProcessTrigger .
+ex:WorkflowStartTrigger a ex:ProcessTrigger .
+ex:SelectionDayMarker a ex:CalendarMarker .
+ex:FixingDayMarker a ex:CalendarMarker .
+ex:RebalanceDayMarker a ex:CalendarMarker .
+ex:CloseOfBusinessMarker a ex:CalendarMarker .
+ex:IndexUniverseOutput a ex:ProcessOutput .
+ex:EligibleUniverseCandidateState a ex:ProcessState .
+ex:EligibleComponentCandidateState a ex:ProcessState .
+ex:SelectedComponentState a ex:ProcessState .
+ex:ComponentWeightsOutput a ex:ProcessOutput .
+ex:FixingDaySharesOutput a ex:ProcessOutput .
+ex:RebalanceAnnouncementOutput a ex:ProcessOutput .
+ex:UpdatedComponentSetOutput a ex:ProcessOutput .
+ex:ImplementedComponentState a ex:ProcessState .
+ex:IndexUniverseInput a ex:ProcessInput .
+ex:SelectedComponentsInput a ex:ProcessInput .
+ex:FreeFloatMarketCapitalizationInput a ex:ProcessInput .
+ex:ComponentWeightsInput a ex:ProcessInput .
+ex:FixingDaySharesInput a ex:ProcessInput .
+ex:PlannedComponentChangesInput a ex:ProcessInput .
+ex:EligibleSecurityCarrier a ex:ProcessStateCarrier .
+ex:SelectedComponentRoleAssignmentCarrier a ex:ProcessStateCarrier .
+ex:ImplementedComponentRoleAssignmentCarrier a ex:ProcessStateCarrier .
+ex:FreeFloatMarketCapitalizationObservationFrame a ex:CanonicalFrame .
+ex:ComponentWeightObservationFrame a ex:CanonicalFrame .
+ex:GenericIndexComponentMembershipFrame a ex:CanonicalFrame .
+ex:SelectionDayIndexComponentMembershipFrame a ex:CanonicalFrame .
+ex:Section2_1 a ex:DocumentPart .
+ex:Section2_2 a ex:DocumentPart .
+ex:Section2_3 a ex:DocumentPart .
+ex:Section3_1 a ex:DocumentPart .
+ex:DefinitionN06 a ex:SourceFragment .
+ex:DefinitionN09 a ex:SourceFragment .
+ex:DefinitionN11 a ex:SourceFragment .
+ex:DefinitionN26 a ex:SourceFragment .
+ex:DefinitionN27 a ex:SourceFragment .
+ex:CalendarGrounding a ex:ProcessGroundingTarget .
+ex:UniverseGrounding a ex:ProcessGroundingTarget .
+ex:ComponentSelectionGrounding a ex:ProcessGroundingTarget .
+ex:WeightingGrounding a ex:ProcessGroundingTarget .
+ex:FixingSharesGrounding a ex:ProcessGroundingTarget .
+ex:RebalanceImplementationGrounding a ex:ProcessGroundingTarget .
+ex:RebalancePublicationGrounding a ex:ProcessGroundingTarget .
+ex:MembershipCanonicalGrounding a ex:ProcessGroundingTarget .
+ex:workflow_step a rdf:Property .
+ex:WorkflowShape sh:property [ sh:path ex:workflow_step ; sh:class ex:ProcessStep ] .
+ex:step_precedes a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_precedes ; sh:class ex:ProcessStep ] .
+ex:step_edge_kind a rdfs:Class .
+ex:step_edge_kindShape a sh:NodeShape ; sh:targetClass ex:step_edge_kind .
+ex:step_edge_kindShape sh:property [ sh:path ex:step_edge_kind_arg_0 ; sh:class ex:ProcessStep ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_edge_kindShape sh:property [ sh:path ex:step_edge_kind_arg_1 ; sh:class ex:ProcessStep ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_edge_kindShape sh:property [ sh:path ex:step_edge_kind_arg_2 ; sh:class ex:ProcessEdgeKind ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_temporal_relation a rdfs:Class .
+ex:step_temporal_relationShape a sh:NodeShape ; sh:targetClass ex:step_temporal_relation .
+ex:step_temporal_relationShape sh:property [ sh:path ex:step_temporal_relation_arg_0 ; sh:class ex:ProcessStep ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_temporal_relationShape sh:property [ sh:path ex:step_temporal_relation_arg_1 ; sh:class ex:ProcessStep ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_temporal_relationShape sh:property [ sh:path ex:step_temporal_relation_arg_2 ; sh:class ex:ProcessTemporalRelation ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_modality a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_modality ; sh:class ex:StepModality ] .
+ex:step_iteration_status a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_iteration_status ; sh:class ex:IterationSemanticsStatus ] .
+ex:step_triggered_by a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_triggered_by ; sh:class ex:ProcessTrigger ] .
+ex:trigger_calendar_marker a rdf:Property .
+ex:ProcessTriggerShape sh:property [ sh:path ex:trigger_calendar_marker ; sh:class ex:CalendarMarker ] .
+ex:trigger_precedes a rdf:Property .
+ex:ProcessTriggerShape sh:property [ sh:path ex:trigger_precedes ; sh:class ex:ProcessTrigger ] .
+ex:trigger_temporal_relation a rdfs:Class .
+ex:trigger_temporal_relationShape a sh:NodeShape ; sh:targetClass ex:trigger_temporal_relation .
+ex:trigger_temporal_relationShape sh:property [ sh:path ex:trigger_temporal_relation_arg_0 ; sh:class ex:ProcessTrigger ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trigger_temporal_relationShape sh:property [ sh:path ex:trigger_temporal_relation_arg_1 ; sh:class ex:ProcessTrigger ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trigger_temporal_relationShape sh:property [ sh:path ex:trigger_temporal_relation_arg_2 ; sh:class ex:ProcessTemporalRelation ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trigger_relation_grounded_in a rdfs:Class .
+ex:trigger_relation_grounded_inShape a sh:NodeShape ; sh:targetClass ex:trigger_relation_grounded_in .
+ex:trigger_relation_grounded_inShape sh:property [ sh:path ex:trigger_relation_grounded_in_arg_0 ; sh:class ex:ProcessTrigger ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trigger_relation_grounded_inShape sh:property [ sh:path ex:trigger_relation_grounded_in_arg_1 ; sh:class ex:ProcessTrigger ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:trigger_relation_grounded_inShape sh:property [ sh:path ex:trigger_relation_grounded_in_arg_2 ; sh:class ex:ProcessGroundingTarget ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:step_requires a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_requires ; sh:class ex:ProcessInput ] .
+ex:step_produces a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_produces ; sh:class ex:ProcessOutput ] .
+ex:input_kind a rdf:Property .
+ex:ProcessInputShape sh:property [ sh:path ex:input_kind ; sh:class ex:ProcessIOKind ] .
+ex:output_kind a rdf:Property .
+ex:ProcessOutputShape sh:property [ sh:path ex:output_kind ; sh:class ex:ProcessIOKind ] .
+ex:input_observation_frame a rdf:Property .
+ex:ProcessInputShape sh:property [ sh:path ex:input_observation_frame ; sh:class ex:CanonicalFrame ] .
+ex:output_observation_frame a rdf:Property .
+ex:ProcessOutputShape sh:property [ sh:path ex:output_observation_frame ; sh:class ex:CanonicalFrame ] .
+ex:step_enters_state a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_enters_state ; sh:class ex:ProcessState ] .
+ex:process_state_kind a rdf:Property .
+ex:ProcessStateShape sh:property [ sh:path ex:process_state_kind ; sh:class ex:ProcessStateKind ] .
+ex:process_state_carrier a rdf:Property .
+ex:ProcessStateShape sh:property [ sh:path ex:process_state_carrier ; sh:class ex:ProcessStateCarrier ] .
+ex:process_state_corresponds_to_membership_state a rdf:Property .
+ex:ProcessStateShape sh:property [ sh:path ex:process_state_corresponds_to_membership_state ; sh:class ex:IndexComponentMembershipState ] .
+ex:step_grounded_in_document_part a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_grounded_in_document_part ; sh:class ex:DocumentPart ] .
+ex:step_grounded_in a rdf:Property .
+ex:ProcessStepShape sh:property [ sh:path ex:step_grounded_in ; sh:class ex:ProcessGroundingTarget ] .
+ex:edge_grounded_in a rdfs:Class .
+ex:edge_grounded_inShape a sh:NodeShape ; sh:targetClass ex:edge_grounded_in .
+ex:edge_grounded_inShape sh:property [ sh:path ex:edge_grounded_in_arg_0 ; sh:class ex:ProcessStep ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:edge_grounded_inShape sh:property [ sh:path ex:edge_grounded_in_arg_1 ; sh:class ex:ProcessStep ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:edge_grounded_inShape sh:property [ sh:path ex:edge_grounded_in_arg_2 ; sh:class ex:ProcessGroundingTarget ; sh:minCount 1 ; sh:maxCount 1 ] .
+ex:grounding_kind a rdf:Property .
+ex:ProcessGroundingTargetShape sh:property [ sh:path ex:grounding_kind ; sh:class ex:ProcessGroundingKind ] .
+ex:grounding_document_part a rdf:Property .
+ex:ProcessGroundingTargetShape sh:property [ sh:path ex:grounding_document_part ; sh:class ex:DocumentPart ] .
+ex:grounding_source_fragment a rdf:Property .
+ex:ProcessGroundingTargetShape sh:property [ sh:path ex:grounding_source_fragment ; sh:class ex:SourceFragment ] .
+ex:grounding_canonical_frame a rdf:Property .
+ex:ProcessGroundingTargetShape sh:property [ sh:path ex:grounding_canonical_frame ; sh:class ex:CanonicalFrame ] .
+
+ex:OrdinaryRebalanceWorkflow ex:workflow_step ex:DetermineOrdinaryRebalanceCalendar .
+ex:OrdinaryRebalanceWorkflow ex:workflow_step ex:ConstructIndexUniverse .
+ex:OrdinaryRebalanceWorkflow ex:workflow_step ex:SelectIndexComponents .
+ex:OrdinaryRebalanceWorkflow ex:workflow_step ex:CalculateSelectionDayWeights .
+ex:OrdinaryRebalanceWorkflow ex:workflow_step ex:DetermineFixingDayShares .
+ex:OrdinaryRebalanceWorkflow ex:workflow_step ex:PublishRebalanceComponentChanges .
+ex:OrdinaryRebalanceWorkflow ex:workflow_step ex:ImplementOrdinaryRebalance .
+ex:DetermineOrdinaryRebalanceCalendar ex:step_precedes ex:ConstructIndexUniverse .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_1 a ex:step_edge_kind .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_1 ex:step_edge_kind_arg_0 ex:DetermineOrdinaryRebalanceCalendar .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_1 ex:step_edge_kind_arg_1 ex:ConstructIndexUniverse .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_1 ex:step_edge_kind_arg_2 ex:StructuralDependencyEdge .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_2 a ex:step_temporal_relation .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_2 ex:step_temporal_relation_arg_0 ex:DetermineOrdinaryRebalanceCalendar .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_2 ex:step_temporal_relation_arg_1 ex:ConstructIndexUniverse .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_2 ex:step_temporal_relation_arg_2 ex:Before .
+ex:ConstructIndexUniverse ex:step_precedes ex:SelectIndexComponents .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_4 a ex:step_edge_kind .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_4 ex:step_edge_kind_arg_0 ex:ConstructIndexUniverse .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_4 ex:step_edge_kind_arg_1 ex:SelectIndexComponents .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_4 ex:step_edge_kind_arg_2 ex:StructuralDependencyEdge .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_5 a ex:step_temporal_relation .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_5 ex:step_temporal_relation_arg_0 ex:ConstructIndexUniverse .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_5 ex:step_temporal_relation_arg_1 ex:SelectIndexComponents .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_5 ex:step_temporal_relation_arg_2 ex:Before .
+ex:SelectIndexComponents ex:step_precedes ex:CalculateSelectionDayWeights .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_7 a ex:step_edge_kind .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_7 ex:step_edge_kind_arg_0 ex:SelectIndexComponents .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_7 ex:step_edge_kind_arg_1 ex:CalculateSelectionDayWeights .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_7 ex:step_edge_kind_arg_2 ex:StructuralDependencyEdge .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_8 a ex:step_temporal_relation .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_8 ex:step_temporal_relation_arg_0 ex:SelectIndexComponents .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_8 ex:step_temporal_relation_arg_1 ex:CalculateSelectionDayWeights .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_8 ex:step_temporal_relation_arg_2 ex:Before .
+ex:CalculateSelectionDayWeights ex:step_precedes ex:DetermineFixingDayShares .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_10 a ex:step_edge_kind .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_10 ex:step_edge_kind_arg_0 ex:CalculateSelectionDayWeights .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_10 ex:step_edge_kind_arg_1 ex:DetermineFixingDayShares .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_10 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_11 a ex:step_temporal_relation .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_11 ex:step_temporal_relation_arg_0 ex:CalculateSelectionDayWeights .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_11 ex:step_temporal_relation_arg_1 ex:DetermineFixingDayShares .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_11 ex:step_temporal_relation_arg_2 ex:SameTimeAs .
+ex:DetermineFixingDayShares ex:step_precedes ex:PublishRebalanceComponentChanges .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_13 a ex:step_edge_kind .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_13 ex:step_edge_kind_arg_0 ex:DetermineFixingDayShares .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_13 ex:step_edge_kind_arg_1 ex:PublishRebalanceComponentChanges .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_13 ex:step_edge_kind_arg_2 ex:StructuralDependencyEdge .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_14 a ex:step_temporal_relation .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_14 ex:step_temporal_relation_arg_0 ex:DetermineFixingDayShares .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_14 ex:step_temporal_relation_arg_1 ex:PublishRebalanceComponentChanges .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_14 ex:step_temporal_relation_arg_2 ex:Before .
+ex:PublishRebalanceComponentChanges ex:step_precedes ex:ImplementOrdinaryRebalance .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_16 a ex:step_edge_kind .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_16 ex:step_edge_kind_arg_0 ex:PublishRebalanceComponentChanges .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_16 ex:step_edge_kind_arg_1 ex:ImplementOrdinaryRebalance .
+ex:FACT_ordinary_rebalance_happy_path_order_step_edge_kind_16 ex:step_edge_kind_arg_2 ex:ExplicitSourceEdge .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_17 a ex:step_temporal_relation .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_17 ex:step_temporal_relation_arg_0 ex:PublishRebalanceComponentChanges .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_17 ex:step_temporal_relation_arg_1 ex:ImplementOrdinaryRebalance .
+ex:FACT_ordinary_rebalance_happy_path_order_step_temporal_relation_17 ex:step_temporal_relation_arg_2 ex:Before .
+ex:DetermineOrdinaryRebalanceCalendar ex:step_triggered_by ex:WorkflowStartTrigger .
+ex:ConstructIndexUniverse ex:step_triggered_by ex:SelectionDayTrigger .
+ex:SelectIndexComponents ex:step_triggered_by ex:SelectionDayTrigger .
+ex:CalculateSelectionDayWeights ex:step_triggered_by ex:SelectionDayTrigger .
+ex:DetermineFixingDayShares ex:step_triggered_by ex:FixingDayTrigger .
+ex:PublishRebalanceComponentChanges ex:step_triggered_by ex:SufficientNoticeBeforeRebalanceDayTrigger .
+ex:ImplementOrdinaryRebalance ex:step_triggered_by ex:RebalanceDayAfterCloseOfBusinessTrigger .
+ex:SelectionDayTrigger ex:trigger_calendar_marker ex:SelectionDayMarker .
+ex:FixingDayTrigger ex:trigger_calendar_marker ex:FixingDayMarker .
+ex:SufficientNoticeBeforeRebalanceDayTrigger ex:trigger_calendar_marker ex:RebalanceDayMarker .
+ex:RebalanceDayAfterCloseOfBusinessTrigger ex:trigger_calendar_marker ex:RebalanceDayMarker .
+ex:RebalanceDayAfterCloseOfBusinessTrigger ex:trigger_calendar_marker ex:CloseOfBusinessMarker .
+ex:FACT_ordinary_rebalance_triggers_trigger_temporal_relation_12 a ex:trigger_temporal_relation .
+ex:FACT_ordinary_rebalance_triggers_trigger_temporal_relation_12 ex:trigger_temporal_relation_arg_0 ex:SelectionDayTrigger .
+ex:FACT_ordinary_rebalance_triggers_trigger_temporal_relation_12 ex:trigger_temporal_relation_arg_1 ex:FixingDayTrigger .
+ex:FACT_ordinary_rebalance_triggers_trigger_temporal_relation_12 ex:trigger_temporal_relation_arg_2 ex:SameTimeAs .
+ex:FixingDayTrigger ex:trigger_precedes ex:RebalanceDayAfterCloseOfBusinessTrigger .
+ex:FACT_ordinary_rebalance_triggers_trigger_temporal_relation_14 a ex:trigger_temporal_relation .
+ex:FACT_ordinary_rebalance_triggers_trigger_temporal_relation_14 ex:trigger_temporal_relation_arg_0 ex:FixingDayTrigger .
+ex:FACT_ordinary_rebalance_triggers_trigger_temporal_relation_14 ex:trigger_temporal_relation_arg_1 ex:RebalanceDayAfterCloseOfBusinessTrigger .
+ex:FACT_ordinary_rebalance_triggers_trigger_temporal_relation_14 ex:trigger_temporal_relation_arg_2 ex:Before .
+ex:SufficientNoticeBeforeRebalanceDayTrigger ex:trigger_precedes ex:RebalanceDayAfterCloseOfBusinessTrigger .
+ex:FACT_ordinary_rebalance_triggers_trigger_temporal_relation_16 a ex:trigger_temporal_relation .
+ex:FACT_ordinary_rebalance_triggers_trigger_temporal_relation_16 ex:trigger_temporal_relation_arg_0 ex:SufficientNoticeBeforeRebalanceDayTrigger .
+ex:FACT_ordinary_rebalance_triggers_trigger_temporal_relation_16 ex:trigger_temporal_relation_arg_1 ex:RebalanceDayAfterCloseOfBusinessTrigger .
+ex:FACT_ordinary_rebalance_triggers_trigger_temporal_relation_16 ex:trigger_temporal_relation_arg_2 ex:Before .
+ex:FACT_ordinary_rebalance_triggers_trigger_relation_grounded_in_17 a ex:trigger_relation_grounded_in .
+ex:FACT_ordinary_rebalance_triggers_trigger_relation_grounded_in_17 ex:trigger_relation_grounded_in_arg_0 ex:SelectionDayTrigger .
+ex:FACT_ordinary_rebalance_triggers_trigger_relation_grounded_in_17 ex:trigger_relation_grounded_in_arg_1 ex:FixingDayTrigger .
+ex:FACT_ordinary_rebalance_triggers_trigger_relation_grounded_in_17 ex:trigger_relation_grounded_in_arg_2 ex:CalendarGrounding .
+ex:DetermineOrdinaryRebalanceCalendar ex:step_modality ex:DescriptiveStep .
+ex:ConstructIndexUniverse ex:step_modality ex:DescriptiveStep .
+ex:SelectIndexComponents ex:step_modality ex:DescriptiveStep .
+ex:CalculateSelectionDayWeights ex:step_modality ex:DescriptiveStep .
+ex:DetermineFixingDayShares ex:step_modality ex:DescriptiveStep .
+ex:PublishRebalanceComponentChanges ex:step_modality ex:ObligatoryStep .
+ex:ImplementOrdinaryRebalance ex:step_modality ex:DescriptiveStep .
+ex:DetermineOrdinaryRebalanceCalendar ex:step_iteration_status ex:NoIteration .
+ex:ConstructIndexUniverse ex:step_iteration_status ex:NoIteration .
+ex:SelectIndexComponents ex:step_iteration_status ex:NoIteration .
+ex:CalculateSelectionDayWeights ex:step_iteration_status ex:IterationSemanticsDeferred .
+ex:DetermineFixingDayShares ex:step_iteration_status ex:NoIteration .
+ex:PublishRebalanceComponentChanges ex:step_iteration_status ex:NoIteration .
+ex:ImplementOrdinaryRebalance ex:step_iteration_status ex:NoIteration .
+ex:ConstructIndexUniverse ex:step_produces ex:IndexUniverseOutput .
+ex:IndexUniverseOutput ex:output_kind ex:DomainConceptIO .
+ex:ConstructIndexUniverse ex:step_enters_state ex:EligibleUniverseCandidateState .
+ex:EligibleUniverseCandidateState ex:process_state_kind ex:EligibleUniverseCandidate .
+ex:EligibleUniverseCandidateState ex:process_state_carrier ex:EligibleSecurityCarrier .
+ex:SelectIndexComponents ex:step_requires ex:IndexUniverseInput .
+ex:IndexUniverseInput ex:input_kind ex:DomainConceptIO .
+ex:SelectIndexComponents ex:step_enters_state ex:EligibleComponentCandidateState .
+ex:EligibleComponentCandidateState ex:process_state_kind ex:EligibleComponentCandidate .
+ex:EligibleComponentCandidateState ex:process_state_carrier ex:EligibleSecurityCarrier .
+ex:SelectIndexComponents ex:step_enters_state ex:SelectedComponentState .
+ex:SelectedComponentState ex:process_state_kind ex:SelectedComponent .
+ex:SelectedComponentState ex:process_state_carrier ex:SelectedComponentRoleAssignmentCarrier .
+ex:SelectedComponentState ex:process_state_corresponds_to_membership_state ex:SelectedMembership .
+ex:CalculateSelectionDayWeights ex:step_requires ex:SelectedComponentsInput .
+ex:SelectedComponentsInput ex:input_kind ex:ProcessStateIO .
+ex:CalculateSelectionDayWeights ex:step_requires ex:FreeFloatMarketCapitalizationInput .
+ex:FreeFloatMarketCapitalizationInput ex:input_kind ex:ObservationFrameIO .
+ex:FreeFloatMarketCapitalizationInput ex:input_observation_frame ex:FreeFloatMarketCapitalizationObservationFrame .
+ex:CalculateSelectionDayWeights ex:step_produces ex:ComponentWeightsOutput .
+ex:ComponentWeightsOutput ex:output_kind ex:ObservationFrameIO .
+ex:ComponentWeightsOutput ex:output_observation_frame ex:ComponentWeightObservationFrame .
+ex:DetermineFixingDayShares ex:step_requires ex:ComponentWeightsInput .
+ex:ComponentWeightsInput ex:input_kind ex:ObservationFrameIO .
+ex:ComponentWeightsInput ex:input_observation_frame ex:ComponentWeightObservationFrame .
+ex:DetermineFixingDayShares ex:step_produces ex:FixingDaySharesOutput .
+ex:FixingDaySharesOutput ex:output_kind ex:DomainConceptIO .
+ex:PublishRebalanceComponentChanges ex:step_requires ex:PlannedComponentChangesInput .
+ex:PlannedComponentChangesInput ex:input_kind ex:ProcessStateIO .
+ex:PublishRebalanceComponentChanges ex:step_produces ex:RebalanceAnnouncementOutput .
+ex:RebalanceAnnouncementOutput ex:output_kind ex:DomainConceptIO .
+ex:ImplementOrdinaryRebalance ex:step_requires ex:FixingDaySharesInput .
+ex:FixingDaySharesInput ex:input_kind ex:DomainConceptIO .
+ex:ImplementOrdinaryRebalance ex:step_requires ex:SelectedComponentsInput .
+ex:ImplementOrdinaryRebalance ex:step_produces ex:UpdatedComponentSetOutput .
+ex:UpdatedComponentSetOutput ex:output_kind ex:ProcessStateIO .
+ex:ImplementOrdinaryRebalance ex:step_enters_state ex:ImplementedComponentState .
+ex:ImplementedComponentState ex:process_state_kind ex:ImplementedComponent .
+ex:ImplementedComponentState ex:process_state_carrier ex:ImplementedComponentRoleAssignmentCarrier .
+ex:ImplementedComponentState ex:process_state_corresponds_to_membership_state ex:ImplementedMembership .
+ex:CalendarGrounding ex:grounding_kind ex:SourceFragmentGrounding .
+ex:CalendarGrounding ex:grounding_source_fragment ex:DefinitionN06 .
+ex:CalendarGrounding ex:grounding_source_fragment ex:DefinitionN09 .
+ex:CalendarGrounding ex:grounding_source_fragment ex:DefinitionN11 .
+ex:CalendarGrounding ex:grounding_source_fragment ex:DefinitionN26 .
+ex:CalendarGrounding ex:grounding_source_fragment ex:DefinitionN27 .
+ex:UniverseGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:UniverseGrounding ex:grounding_document_part ex:Section2_1 .
+ex:ComponentSelectionGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:ComponentSelectionGrounding ex:grounding_document_part ex:Section2_2 .
+ex:WeightingGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:WeightingGrounding ex:grounding_document_part ex:Section2_3 .
+ex:FixingSharesGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:FixingSharesGrounding ex:grounding_document_part ex:Section3_1 .
+ex:RebalanceImplementationGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:RebalanceImplementationGrounding ex:grounding_document_part ex:Section3_1 .
+ex:RebalancePublicationGrounding ex:grounding_kind ex:DocumentPartGrounding .
+ex:RebalancePublicationGrounding ex:grounding_document_part ex:Section3_1 .
+ex:MembershipCanonicalGrounding ex:grounding_kind ex:CanonicalConceptGrounding .
+ex:MembershipCanonicalGrounding ex:grounding_canonical_frame ex:GenericIndexComponentMembershipFrame .
+ex:MembershipCanonicalGrounding ex:grounding_canonical_frame ex:SelectionDayIndexComponentMembershipFrame .
+ex:DetermineOrdinaryRebalanceCalendar ex:step_grounded_in ex:CalendarGrounding .
+ex:ConstructIndexUniverse ex:step_grounded_in ex:UniverseGrounding .
+ex:ConstructIndexUniverse ex:step_grounded_in_document_part ex:Section2_1 .
+ex:SelectIndexComponents ex:step_grounded_in ex:ComponentSelectionGrounding .
+ex:SelectIndexComponents ex:step_grounded_in_document_part ex:Section2_2 .
+ex:CalculateSelectionDayWeights ex:step_grounded_in ex:WeightingGrounding .
+ex:CalculateSelectionDayWeights ex:step_grounded_in_document_part ex:Section2_3 .
+ex:DetermineFixingDayShares ex:step_grounded_in ex:FixingSharesGrounding .
+ex:DetermineFixingDayShares ex:step_grounded_in_document_part ex:Section3_1 .
+ex:PublishRebalanceComponentChanges ex:step_grounded_in ex:RebalancePublicationGrounding .
+ex:PublishRebalanceComponentChanges ex:step_grounded_in_document_part ex:Section3_1 .
+ex:ImplementOrdinaryRebalance ex:step_grounded_in ex:RebalanceImplementationGrounding .
+ex:ImplementOrdinaryRebalance ex:step_grounded_in_document_part ex:Section3_1 .
+ex:SelectIndexComponents ex:step_grounded_in ex:MembershipCanonicalGrounding .
+ex:ImplementOrdinaryRebalance ex:step_grounded_in ex:MembershipCanonicalGrounding .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_0 a ex:edge_grounded_in .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_0 ex:edge_grounded_in_arg_0 ex:DetermineOrdinaryRebalanceCalendar .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_0 ex:edge_grounded_in_arg_1 ex:ConstructIndexUniverse .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_0 ex:edge_grounded_in_arg_2 ex:CalendarGrounding .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_1 a ex:edge_grounded_in .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_1 ex:edge_grounded_in_arg_0 ex:ConstructIndexUniverse .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_1 ex:edge_grounded_in_arg_1 ex:SelectIndexComponents .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_1 ex:edge_grounded_in_arg_2 ex:UniverseGrounding .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_2 a ex:edge_grounded_in .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_2 ex:edge_grounded_in_arg_0 ex:SelectIndexComponents .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_2 ex:edge_grounded_in_arg_1 ex:CalculateSelectionDayWeights .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_2 ex:edge_grounded_in_arg_2 ex:ComponentSelectionGrounding .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_3 a ex:edge_grounded_in .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_3 ex:edge_grounded_in_arg_0 ex:CalculateSelectionDayWeights .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_3 ex:edge_grounded_in_arg_1 ex:DetermineFixingDayShares .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_3 ex:edge_grounded_in_arg_2 ex:FixingSharesGrounding .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_4 a ex:edge_grounded_in .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_4 ex:edge_grounded_in_arg_0 ex:DetermineFixingDayShares .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_4 ex:edge_grounded_in_arg_1 ex:PublishRebalanceComponentChanges .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_4 ex:edge_grounded_in_arg_2 ex:RebalancePublicationGrounding .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_5 a ex:edge_grounded_in .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_5 ex:edge_grounded_in_arg_0 ex:PublishRebalanceComponentChanges .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_5 ex:edge_grounded_in_arg_1 ex:ImplementOrdinaryRebalance .
+ex:FACT_ordinary_rebalance_edge_grounding_edge_grounded_in_5 ex:edge_grounded_in_arg_2 ex:RebalancePublicationGrounding .

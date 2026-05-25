@@ -19,6 +19,9 @@ language rules into typed, traceable IR artifacts.
   drafting A4V3 entries.
 - `demos/` - public-domain/public-rules demos for Russian historical law and
   Draughts-64, with recorded offline results.
+- `case_studies/financial_methodology/` - a curated 55-fragment financial
+  methodology artifact package with local IR, bridge/merge layers, reasoning,
+  and backend projections; original source text is not redistributed.
 - `docs/thesis_artifact_mapping.md` - thesis-to-repository artifact map.
 - `thesis_artifacts/` - sanitized evidence bundle used by the thesis mapping:
   diagnostic-rule audits, agent-run example, implementation references,
@@ -39,6 +42,7 @@ python -m venv .venv
 .venv/Scripts/python tools/check_entry.py demos/russian_law/data
 .venv/Scripts/python tools/check_entry.py demos/draughts_64/data
 .venv/Scripts/python demos/run_recorded_demo.py
+.venv/Scripts/python -m a4v3_ir_toolkit tools
 ```
 
 On Linux/macOS, replace `.venv/Scripts/python` with `.venv/bin/python`.
@@ -51,6 +55,14 @@ python IR/src/a4v3_semantic_lint_v1.py examples/section_2_3_weighting
 python IR/src/token_provenance_v1.py examples/section_2_3_weighting
 ```
 
+The installed Python package is a lightweight facade over the repository layout:
+
+```python
+import a4v3_ir_toolkit as toolkit
+
+print(toolkit.tool_path("a4v3_parser_v1"))
+```
+
 ## Repository Layout
 
 The repository is structured as a small monorepo:
@@ -58,7 +70,8 @@ The repository is structured as a small monorepo:
 - the reusable toolkit lives in `IR/src/`, `IR/rules/`, `IR/index/`, and
   `tools/`;
 - reproducible public demos live in `demos/`;
-- the compact methodology example lives in `examples/`.
+- the compact methodology example lives in `examples/`;
+- methodology-scale curated artifacts live in `case_studies/`.
 
 The demos use recorded outputs by default. This keeps the public repository
 reproducible without API keys, model availability, or live LLM variance.
@@ -91,6 +104,3 @@ The code, prompts, documentation, and repository-native artifacts are licensed
 under the Apache License 2.0. Third-party source texts and quoted materials in
 the examples and demos remain under their respective original terms. See
 `THIRD_PARTY_NOTICES.md`.
-
-
-Add a repository license if you intend others to reuse the code.

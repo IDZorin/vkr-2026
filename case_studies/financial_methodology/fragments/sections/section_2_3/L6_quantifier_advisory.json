@@ -1,0 +1,13 @@
+{
+  "issues": [
+    {
+      "line": 31,
+      "constraint": "constraint iterative_process_on_each_selection_day",
+      "kind": "single_atomic_use",
+      "severity": "warning",
+      "binder": "exists p: IterativeProcess",
+      "var": "p",
+      "description": "`exists p: IterativeProcess` introduces `p` but it appears only once in the scope. The existential is reducible to a unary predicate; if the source claims something further about `p` (e.g. an equation using `p`), it is missing. If the source does NOT, drop the existential."
+    }
+  ]
+}

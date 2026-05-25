@@ -1,0 +1,185 @@
+section: "4.2 Termination of Adjusted Return Index"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  news_section_location:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "on its website under the section \"News\", which is available at https://www.solactive.com/news/announcements"
+    back_translation: >
+      The News section is located at the URL
+      https://www.solactive.com/news/announcements, is a section of the
+      Solactive website, and the Solactive website is the website of Solactive.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The website + section + URL chain is represented as a single fact so that
+      the announcement constraint can refer to the News section by name and the
+      URL is anchored to the section it identifies.
+
+  solactive_policies:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "SOLACTIVE's policies"
+    back_translation: >
+      Solactive Policies is a policy of Solactive.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Solactive Policies is a single named carrier for the source plural
+      "policies"; the in-accordance constraint references this carrier.
+
+  termination_and_announcement_at_zero_or_below:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "In the event the level of the adjusted return INDEX is calculated as zero or below zero (negative), the respective INDEX will be terminated. SOLACTIVE will announce such termination on its website under the section \"News\", which is available at https://www.solactive.com/news/announcements as soon as reasonably possible after the INDEX is calculated as zero or below zero."
+    back_translation: >
+      For every calculation of an adjusted-return index whose calculated level
+      is zero or below zero, there exists a termination of that index and an
+      announcement of that termination by Solactive, where the announcement is
+      made on the Solactive website under the News section, occurs after the
+      calculation, and its timing is described as as-soon-as-reasonably-possible.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The calculation, termination, and announcement are reified as separate
+      events. The hard universal models the source phrase "will be terminated"
+      as a definite consequence. "As soon as reasonably possible" is preserved
+      as an explicit vague-term carrier rather than reduced to a numeric bound.
+
+  solactive_terminate_index_for_other_reason:
+    kind: permission
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "For clarification, SOLACTIVE may terminate indices for other reasons and in accordance with SOLACTIVE's policies."
+    back_translation: >
+      Solactive is permitted to terminate an index for a vague-qualified other
+      reason, with that termination scoped to Solactive Policies.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The source modal "may terminate" is represented as a permission rather
+      than a universal assertion. The reason qualifier parameter is typed as
+      VagueTerm so the permission can bind to the OtherReasons entity used in
+      the in-accordance constraint.
+
+  other_reason_termination_in_accordance_with_solactive_policies:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "for other reasons and in accordance with SOLACTIVE's policies"
+    back_translation: >
+      Every index termination whose reason is qualified as other-reasons must
+      be in accordance with Solactive Policies.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      The "in accordance with" requirement is represented both as the
+      permission scope (deontic constraint surface) and as an explicit
+      constraint over actual terminations, so the obligation surface is not
+      hidden inside deontic scope alone.
+
+uncovered_source:
+  - quote: "(none -- all source claims map to at least one IR element)"
+
+vocabulary_notes:
+  AdjustedReturnIndex:
+    note: "Subtype carrier for the source phrase \"adjusted return INDEX\"."
+    source_phrase: "adjusted return INDEX"
+  IndexCalculation:
+    note: >
+      Event carrier for the source phrase "calculated as zero or below zero",
+      so the announcement can be temporally anchored to the calculation event.
+    source_phrase: "calculated"
+  IndexTermination:
+    note: "Event carrier for the source phrase \"will be terminated\"."
+    source_phrase: "terminated"
+  TerminationAnnouncement:
+    note: "Event carrier for the source phrase \"announce such termination\"."
+    source_phrase: "announce"
+  IndexLevel:
+    note: >
+      Numeric (Real) carrier for the source phrase "level of the adjusted
+      return INDEX", needed so the comparison "zero or below zero" is
+      well-typed.
+    source_phrase: "level"
+  SolactiveOrganization:
+    note: >
+      Subtype of Organization for the source phrase "SOLACTIVE"; used to
+      narrow the permission agent away from generic Organization.
+    source_phrase: "SOLACTIVE"
+  Solactive:
+    note: "Local entity for the source phrase \"SOLACTIVE\"."
+    source_phrase: "SOLACTIVE"
+  SolactiveWebsite:
+    note: "Web-resource carrier for the source phrase \"its website\"."
+    source_phrase: "its website"
+  NewsSection:
+    note: "Document-part carrier for the source phrase \"the section \"News\"\"."
+    source_phrase: "section \"News\""
+  HttpsWwwSolactiveComNewsAnnouncements:
+    note: >
+      URL entity for the source phrase
+      "https://www.solactive.com/news/announcements".
+    source_phrase: "https://www.solactive.com/news/announcements"
+  Policy:
+    note: "Document subtype for the source phrase \"SOLACTIVE's policies\"."
+    source_phrase: "policies"
+  SolactivePolicies:
+    note: >
+      Local entity for the source plural phrase "SOLACTIVE's policies",
+      treated as a single policy carrier referenced by both permission scope
+      and the in-accordance constraint.
+    source_phrase: "SOLACTIVE's policies"
+  OtherReasons:
+    note: >
+      Vague-term carrier for the source phrase "other reasons"; encoded as
+      VagueTerm rather than as a sort-categorical taxonomy because the source
+      treats "other reasons" as an open-ended qualifier.
+    source_phrase: "other reasons"
+  AsSoonAsReasonablyPossible:
+    note: "Vague-term carrier for the source phrase \"as soon as reasonably possible\"."
+    source_phrase: "as soon as reasonably possible"
+  termination_reason_qualified_by:
+    note: >
+      Vague-qualifier relation matching the 4.6 / 4.7 pattern (e.g.
+      period_described_by, price_outcome_qualified_by) for attaching a
+      VagueTerm to a reified event.
+    source_phrase: "for other reasons"
+  termination_in_accordance_with_policy:
+    note: >
+      Directed relation for "in accordance with SOLACTIVE's policies", kept
+      separate from the permission scope so the accordance requirement is
+      visible on actual termination events.
+    source_phrase: "in accordance with SOLACTIVE's policies"
+  announced_on:
+    note: "Directed relation for \"announce on its website\"."
+    source_phrase: "on its website"
+  announcement_under_section:
+    note: "Directed relation for \"under the section \"News\"\"."
+    source_phrase: "under the section"
+  announcement_timing_described_by:
+    note: >
+      Vague-qualifier relation for the source phrase "as soon as reasonably
+      possible".
+    source_phrase: "as soon as reasonably possible"
+  after:
+    note: >
+      Strict temporal-order relation for the source phrase "after the INDEX is
+      calculated as zero or below zero"; used in addition to the
+      reasonably-possible vague-term carrier so the temporal direction is
+      machine-checkable.
+    source_phrase: "after"

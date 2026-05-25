@@ -1,0 +1,30 @@
+sort Index
+sort Table
+sort TableColumn
+sort IndexCurrencySpecification
+
+entity Section1_2 : DocumentPart
+entity Section1_2IndexTable : Table
+entity CurrencyColumn : TableColumn
+
+rel index_currency : Index, Currency
+rel specification_for_index : IndexCurrencySpecification, Index
+rel specification_currency : IndexCurrencySpecification, Currency
+rel specification_column : IndexCurrencySpecification, TableColumn
+rel specification_table : IndexCurrencySpecification, Table
+rel table_in_section : Table, DocumentPart
+rel column_of_table : TableColumn, Table
+
+fact currency_column_in_section_1_2_table :
+  table_in_section(Section1_2IndexTable, Section1_2)
+  and column_of_table(CurrencyColumn, Section1_2IndexTable)
+
+constraint index_currency_definition :
+  forall i: Index, forall c: Currency,
+    index_currency(i, c)
+    iff
+      exists spec: IndexCurrencySpecification,
+        specification_for_index(spec, i)
+        and specification_currency(spec, c)
+        and specification_column(spec, CurrencyColumn)
+        and specification_table(spec, Section1_2IndexTable)

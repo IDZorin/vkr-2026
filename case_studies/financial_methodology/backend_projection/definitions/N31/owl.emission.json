@@ -1,0 +1,40 @@
+﻿{
+  "backend": "owl",
+  "artifact": "case_studies\\financial_methodology\\backend_projection\\definitions\\N31\\owl.ttl",
+  "diagnostic_count": 6,
+  "diagnostics": [
+    {
+      "severity": "advisory",
+      "code": "nary_function_reified",
+      "symbol": "trading_price",
+      "arity": 2
+    },
+    {
+      "severity": "advisory",
+      "code": "nary_relation_reified",
+      "symbol": "most_recent_published_trade_for",
+      "arity": 3
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "most_recent_published_trade_scope"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "most_recent_published_trade_temporal_ordering"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "most_recent_published_trade_uniqueness"
+    },
+    {
+      "severity": "advisory",
+      "code": "formula_preserved_as_artifact",
+      "assertion": "trading_price_definition"
+    }
+  ],
+  "partial": true
+}

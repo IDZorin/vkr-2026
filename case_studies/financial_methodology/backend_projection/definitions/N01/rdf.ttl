@@ -1,0 +1,83 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:N01 a a4:ProjectionTarget ;
+  a4:relativePath "definitions/N01/main_ir.a4v3" ;
+  a4:targetKind "definition" .
+
+ex:IndexComponent a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:IndexComponent rdfs:subClassOf ex:FinancialInstrument .
+ex:TradingDay a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TradingDay rdfs:subClassOf ex:Day .
+ex:SpecifiedPeriod a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:SpecifiedPeriod rdfs:subClassOf ex:Period .
+ex:DailyValueTraded a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:DailyValueTraded rdfs:subClassOf ex:Real .
+ex:AverageDailyValueTraded a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:AverageDailyValueTraded rdfs:subClassOf ex:Real .
+ex:TradingDayCount a rdfs:Class, a4:Sort ;
+  a4:declKind "subtype" .
+ex:TradingDayCount rdfs:subClassOf ex:Nat .
+
+ex:daily_value_traded a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:daily_value_traded_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:daily_value_traded a4:argument ex:daily_value_traded_arg_0 .
+ex:daily_value_traded_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:daily_value_traded a4:argument ex:daily_value_traded_arg_1 .
+ex:daily_value_traded a4:resultSort ex:DailyValueTraded .
+ex:daily_value_traded a4:functionFlag "required" .
+ex:average_daily_value_traded a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:average_daily_value_traded_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:average_daily_value_traded a4:argument ex:average_daily_value_traded_arg_0 .
+ex:average_daily_value_traded_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SpecifiedPeriod .
+ex:average_daily_value_traded a4:argument ex:average_daily_value_traded_arg_1 .
+ex:average_daily_value_traded a4:resultSort ex:AverageDailyValueTraded .
+ex:average_daily_value_traded a4:functionFlag "required" .
+ex:daily_value_traded_sum_over_period a rdf:Property, a4:FunSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:daily_value_traded_sum_over_period_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:IndexComponent .
+ex:daily_value_traded_sum_over_period a4:argument ex:daily_value_traded_sum_over_period_arg_0 .
+ex:daily_value_traded_sum_over_period_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SpecifiedPeriod .
+ex:daily_value_traded_sum_over_period a4:argument ex:daily_value_traded_sum_over_period_arg_1 .
+ex:daily_value_traded_sum_over_period a4:resultSort ex:DailyValueTraded .
+ex:daily_value_traded_sum_over_period a4:functionFlag "required" .
+ex:trading_day_count_in_period a rdf:Property, a4:FunSymbol ;
+  a4:arity "1"^^xsd:integer .
+ex:trading_day_count_in_period_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:SpecifiedPeriod .
+ex:trading_day_count_in_period a4:argument ex:trading_day_count_in_period_arg_0 .
+ex:trading_day_count_in_period a4:resultSort ex:TradingDayCount .
+ex:trading_day_count_in_period a4:functionFlag "required" .
+ex:trading_day_falls_in_period a rdf:Property, a4:RelSymbol ;
+  a4:arity "2"^^xsd:integer .
+ex:trading_day_falls_in_period_arg_0 a a4:Argument ; a4:position "0"^^xsd:integer ; a4:sort ex:TradingDay .
+ex:trading_day_falls_in_period a4:argument ex:trading_day_falls_in_period_arg_0 .
+ex:trading_day_falls_in_period_arg_1 a a4:Argument ; a4:position "1"^^xsd:integer ; a4:sort ex:SpecifiedPeriod .
+ex:trading_day_falls_in_period a4:argument ex:trading_day_falls_in_period_arg_1 .
+
+ex:ASSERT_daily_value_traded_sum_over_period_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "15"^^xsd:integer ;
+  a4:exprText "forall c: IndexComponent, forall p: SpecifiedPeriod, (daily_value_traded_sum_over_period(c, p)) = (sum(<set_comp>, daily_value_traded(c, d)))" ;
+  a4:sourceText "constraint daily_value_traded_sum_over_period_definition :\n  forall c: IndexComponent, forall p: SpecifiedPeriod,\n    daily_value_traded_sum_over_period(c, p)\n    =\n    sum(d in TradingDay where trading_day_falls_in_period(d, p), daily_value_traded(c, d))" .
+ex:ASSERT_trading_day_count_in_period_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "21"^^xsd:integer ;
+  a4:exprText "forall p: SpecifiedPeriod, (trading_day_count_in_period(p)) = (<count>)" ;
+  a4:sourceText "constraint trading_day_count_in_period_definition :\n  forall p: SpecifiedPeriod,\n    trading_day_count_in_period(p)\n    =\n    count(d in TradingDay where trading_day_falls_in_period(d, p))" .
+ex:ASSERT_average_daily_value_traded_divided_by_trading_day_count_definition a a4:Assertion ;
+  a4:assertionKind "constraint" ;
+  a4:lineNo "27"^^xsd:integer ;
+  a4:exprText "forall c: IndexComponent, forall p: SpecifiedPeriod, (average_daily_value_traded(c, p)) = ((daily_value_traded_sum_over_period(c, p)) / (trading_day_count_in_period(p)))" ;
+  a4:sourceText "constraint average_daily_value_traded_divided_by_trading_day_count_definition :\n  forall c: IndexComponent, forall p: SpecifiedPeriod,\n    average_daily_value_traded(c, p)\n    =\n    daily_value_traded_sum_over_period(c, p) / trading_day_count_in_period(p)" .

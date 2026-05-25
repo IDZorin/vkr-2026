@@ -1,0 +1,10 @@
+schema: role_annotations_v1
+entry_id: N21
+annotation_status: compact_pre_merge_roles_v1
+constraints:
+  index_currency_definition:
+    frame: index_currency_definition
+    variables:
+      i: {role: subject, quantifier: forall}
+      c: {role: currency, quantifier: forall}
+      spec: {role: currency, quantifier: exists}

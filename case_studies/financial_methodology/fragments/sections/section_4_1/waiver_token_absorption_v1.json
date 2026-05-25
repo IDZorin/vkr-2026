@@ -1,0 +1,232 @@
+{
+  "entry_id": "section_4_1",
+  "schema": "waiver_token_absorption_v1",
+  "generated_from": "metrics_token_provenance_v1.json",
+  "items": [
+    {
+      "token": "stipulat",
+      "surface_forms": [
+        "stipulates"
+      ],
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 145
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_statement_verb",
+      "comment": "The source verb 'stipulates' introduces the standard formula rule; the rule content is represented by fact standard_index_formula_basis, so no separate stipulation predicate is needed.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "account",
+      "surface_forms": [
+        "account"
+      ],
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 262
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_formula_modifier",
+      "comment": "The phrase 'taking into account' is represented by formula_level_change_takes_weight and formula_level_change_takes_currency_conversion; the token 'account' itself is not a separate methodology concept.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "case",
+      "surface_forms": [
+        "case"
+      ],
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 327
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "Discourse marker for an exception/branch; the branch condition is represented directly by the relevant implication/count formula.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "other",
+      "surface_forms": [
+        "other"
+      ],
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 388
+        },
+        {
+          "line": 7,
+          "column": 18
+        },
+        {
+          "line": 7,
+          "column": 106
+        },
+        {
+          "line": 7,
+          "column": 221
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_alternative_modifier",
+      "comment": "The token 'other' is part of source phrases such as 'other distributions' and 'other than'; the semantic alternatives are already represented by Distribution and the currency inequality condition.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "than",
+      "surface_forms": [
+        "than"
+      ],
+      "source_locations": [
+        {
+          "line": 5,
+          "column": 394
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_comparison_marker",
+      "comment": "The source phrase 'other than the Index Currency' is represented by not (quoted_currency(component_price(c, d)) = index_currency(i)); 'than' is only the surface comparison marker.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "call",
+      "surface_forms": [
+        "called"
+      ],
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 170
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_alias_marker",
+      "comment": "The source phrase 'the so called ex-date' is represented by ex_date(p) = effective_date(p); 'called' is an alias marker rather than a separate claim.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "such",
+      "surface_forms": [
+        "such"
+      ],
+      "source_locations": [
+        {
+          "line": 7,
+          "column": 204
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_anaphoric_modifier",
+      "comment": "The token 'such' points back to the same dividend/distribution payment already bound by payment_of(p, dist) and pays_distribution(c, dist).",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "more",
+      "surface_forms": [
+        "more"
+      ],
+      "source_locations": [
+        {
+          "line": 9,
+          "column": 3
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_degree_modifier",
+      "comment": "The word 'more' only modifies 'detailed description'; the substantive cross-reference is represented by detailed_description_found_in(..., EquityIndexMethodologySection1_2).",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "can",
+      "surface_forms": [
+        "can"
+      ],
+      "source_locations": [
+        {
+          "line": 9,
+          "column": 79
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_availability_modal",
+      "comment": "The phrase 'can be found' is represented as the cross-reference detailed_description_found_in(..., EquityIndexMethodologySection1_2); 'can' does not add deontic or optional semantics here.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "under",
+      "surface_forms": [
+        "under"
+      ],
+      "source_locations": [
+        {
+          "line": 9,
+          "column": 124
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "Scope preposition: absorbed into the guarded assignment/classification formulas rather than represented as a separate relation.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "construction",
+      "surface_forms": [
+        "construction"
+      ],
+      "source_locations": [
+        {
+          "line": 11,
+          "column": 9
+        },
+        {
+          "line": 13,
+          "column": 9
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_framing_phrase",
+      "comment": "The phrase 'for the construction of' frames the decrement rules; the actual construction semantics are represented by underlying_index_of, decrement_of, deducted_from, and per-annum values.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "follow",
+      "surface_forms": [
+        "following"
+      ],
+      "source_locations": [
+        {
+          "line": 15,
+          "column": 58
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_discourse_or_modifier",
+      "comment": "Discourse/list marker: the following listed rules are represented by the constraints themselves.",
+      "reviewer": "human_approved"
+    },
+    {
+      "token": "where",
+      "surface_forms": [
+        "Where"
+      ],
+      "source_locations": [
+        {
+          "line": 19,
+          "column": 1
+        }
+      ],
+      "status": "waiver_needed",
+      "suggested_category": "absorbed_formula_legend_marker",
+      "comment": "The word 'Where' introduces the formula legend; each listed definition is represented by the formula, underlying-index links, synthetic-dividend value, and day-count fact.",
+      "reviewer": "human_approved"
+    }
+  ],
+  "stale_tokens_from_previous_file": []
+}

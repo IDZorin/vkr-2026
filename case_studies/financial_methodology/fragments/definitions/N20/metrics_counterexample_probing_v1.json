@@ -1,0 +1,69 @@
+{
+  "entry_id": "N20",
+  "skipped": false,
+  "model": "gpt-5.4-mini",
+  "usage": {
+    "prompt_tokens": 1053,
+    "completion_tokens": 262,
+    "total_tokens": 1315
+  },
+  "latency_s": 2.6822705268859863,
+  "scenarios": [
+    {
+      "description": "A contract uses the exact defined term \"Index Component Requirements\" and states that its meaning is the one defined in Section 2.2.",
+      "category": "positive",
+      "source_verdict": "accept",
+      "ir_verdict": "accept",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A contract says \"Index Component Requirements\" shall have the meaning as defined in Section 3.1 instead of Section 2.2.",
+      "category": "negative",
+      "source_verdict": "reject",
+      "ir_verdict": "reject",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A contract defines \"Index Component Requirements\" in Section 2.2, but also says that any plural or singular variant of the phrase is included unless the context requires otherwise.",
+      "category": "scope_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "ambiguous",
+      "agree": true,
+      "drift_explanation": ""
+    },
+    {
+      "description": "A contract states that \"Index Component Requirements\" will have the meaning defined in Section 2.2 only after the agreement is signed, and before signing it has no defined meaning.",
+      "category": "modality_edge",
+      "source_verdict": "ambiguous",
+      "ir_verdict": "ambiguous",
+      "agree": true,
+      "drift_explanation": ""
+    }
+  ],
+  "summary": {
+    "n_scenarios": 4,
+    "agree_count": 4,
+    "agreement_rate": 1.0,
+    "drifts": [],
+    "by_category": {
+      "positive": {
+        "total": 1,
+        "agree": 1
+      },
+      "negative": {
+        "total": 1,
+        "agree": 1
+      },
+      "scope_edge": {
+        "total": 1,
+        "agree": 1
+      },
+      "modality_edge": {
+        "total": 1,
+        "agree": 1
+      }
+    }
+  }
+}

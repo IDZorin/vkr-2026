@@ -1,0 +1,95 @@
+section: "N21 Definition: Index Currency"
+source_file: "source.md"
+schema_version: "v2"
+
+ir_files:
+  main: "main_ir.a4v3"
+
+claims:
+
+  currency_column_in_section_1_2_table:
+    kind: fact
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Index Currency\" is the currency specified in the column \"Currency\" in the table in Section 1.2."
+    back_translation: >
+      The Currency column belongs to the table in Section 1.2.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      This fact captures the cross-reference target in the source phrase
+      "the column \"Currency\" in the table in Section 1.2". The actual
+      rows and concrete currency values from Section 1.2 are not imported
+      into this short definition; cross-section alignment belongs to the
+      bridge/merge layer.
+
+  index_currency_definition:
+    kind: constraint
+    ir_origin_file: "main_ir.a4v3"
+    claim_origin: source_claim
+    source_quotes:
+      - "\"Index Currency\" is the currency specified in the column \"Currency\" in the table in Section 1.2."
+    back_translation: >
+      For every Index and currency, that currency is the Index Currency of
+      the Index if and only if there is a specification for that Index
+      whose currency is that currency, whose column is the Currency column,
+      and whose table is the table in Section 1.2.
+    vocabulary_basis: source_only
+    status: covered
+    notes: >
+      Pure definitional claim. The biconditional is used because the source
+      defines the term "Index Currency". The reified specification object
+      keeps the source table-column link inside the formula body while
+      avoiding a high-arity table-row-column relation.
+
+uncovered_source:
+  - quote: "(none -- the single source sentence maps to the fact and definition constraint)"
+
+vocabulary_notes:
+  index_currency:
+    note: >
+      IR relation for the source term "Index Currency". Back-translation
+      uses the source phrase, not the IR identifier.
+    source_phrase: "Index Currency"
+  Currency:
+    note: >
+      Sort for the source phrase "currency" and the table column named
+      "Currency".
+    source_phrase: "currency"
+  CurrencyColumn:
+    note: >
+      Local table-column entity for the source phrase "column \"Currency\"".
+    source_phrase: "column \"Currency\""
+  Section1_2IndexTable:
+    note: >
+      Local table entity for the source phrase "the table in Section 1.2".
+    source_phrase: "table in Section 1.2"
+  Section1_2:
+    note: >
+      DocumentPart entity for the source phrase "Section 1.2".
+    source_phrase: "Section 1.2"
+  IndexCurrencySpecification:
+    note: >
+      Reified table-cell / row specification used to keep the source phrase
+      "currency specified in the column \"Currency\" in the table in
+      Section 1.2" explicit without using a high-arity relation.
+    source_phrase: "currency specified in the column \"Currency\""
+  specification_for_index:
+    note: >
+      Role relation linking the table specification to the Index row.
+    source_phrase: "Index"
+  specification_currency:
+    note: >
+      Role relation linking the table specification to the specified
+      currency value.
+    source_phrase: "currency specified"
+  specification_column:
+    note: >
+      Role relation linking the table specification to the Currency column.
+    source_phrase: "column \"Currency\""
+  specification_table:
+    note: >
+      Role relation linking the table specification to the table in Section
+      1.2.
+    source_phrase: "table in Section 1.2"

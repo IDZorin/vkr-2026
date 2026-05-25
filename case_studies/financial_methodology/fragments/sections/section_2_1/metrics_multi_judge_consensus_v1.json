@@ -1,0 +1,122 @@
+{
+  "entry_id": "section_2_1",
+  "skipped": false,
+  "panel": [
+    "gpt-5.4-mini",
+    "gpt-5.4",
+    "claude-haiku-4-5",
+    "deepseek-v4-pro",
+    "qwen/qwen3.6-plus"
+  ],
+  "judges": [
+    {
+      "model": "gpt-5.4-mini",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures the main universe requirements: index membership, regional classification, minimum average daily value traded, RBICS subindustry classification, one-share-class-per-company logic, and the rule-based/no-discretionary-decision statement. However, it also introduces a stronger and different formalization of the buffer rules and share-class selection than the source text states, especially by making the current-company rule depend on all other share classes via a universal 60% comparison and by encoding the not-current-company case as a highest-value predicate rather than the source’s simpler inclusion rule.",
+      "semantic_differences": [
+        "The source says the current-company buffer rule makes the currently included share class eligible if its minimum ADV over 1 and 6 months is at least 60% of the minimum ADV of any other share class; the IR formalizes this as a universal comparison against every other share class, which is a stronger and more specific condition than the source’s wording.",
+        "The source says that if the company is currently not included in the index, the share class with the highest minimum ADV is included in the Index Universe; the IR instead defines a predicate for the highest share class and uses it as an eligibility condition, which is not the same as directly stating inclusion of that share class.",
+        "The source states that only one share class of each company is eligible for inclusion in the Index Universe; the IR encodes this as a count constraint over eligible share classes, which is compatible, but the surrounding buffer-rule machinery may allow a different operational interpretation than the prose.",
+        "The source’s statement that the determination is fully rule-based and the administrator cannot make discretionary decisions is represented as a prohibition on discretionary decisions, which is close but not identical in formal scope to the source’s broader claim about the whole determination process."
+      ],
+      "stylistic_notes": [
+        "Several source phrases are normalized into formal symbols, such as the index name, the PDF URL, and the RBICS appendix references.",
+        "The IR uses reified rule entities and predicates like CurrentCompanyBufferRule and NotCurrentCompanyBufferRule to structure the prose requirements.",
+        "The source’s informal phrase 'Part/ Component of the GBS Index Universe' is rendered as a formal relation name."
+      ],
+      "confidence": 0.89,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4397,
+        "completion_tokens": 503,
+        "total_tokens": 4900
+      },
+      "latency_s": 5.617385625839233
+    },
+    {
+      "model": "gpt-5.4",
+      "verdict": "partially_corresponds",
+      "relation_type": "partial_overlap",
+      "reason_short": "The IR captures most of the stated eligibility conditions: GBS universe membership on a selection day, allowed regional classifications, the USD 5 million minimum ADVT over 1 and 6 months via a minimum-over-two-windows construction, the one-share-class buffer logic, RBICS appendix membership, and the rule-based/non-discretionary determination. However, it also narrows and slightly distorts the source by defining the Index Universe itself as exactly the eligible share classes and by requiring the currently included share class itself to be the eligible one under the current-company buffer rule, which is stronger than the source wording.",
+      "semantic_differences": [
+        "The source says the Index Universe is comprised of all financial instruments fulfilling the requirements, while the IR models the Index Universe as exactly the set of eligible share classes (`index_universe iff eligible_for_index_universe`). This narrows the universe from financial instruments in general to share classes specifically.",
+        "In the current-company buffer rule, the source says the share class currently included in the Index will be eligible if its minimum ADVT is at least 60% of any other share class of the company. The IR requires both that the company is currently included and that the candidate share class itself is currently included (`share_class_currently_included_in_index(d, sc)`), which excludes any interpretation where multiple currently included share classes might exist or where company-level inclusion status alone was intended.",
+        "The source says a security must be classified under the GBS Index Universe framework as Developed Markets Europe, Canada, or United States. The IR encodes these as equality to a single-valued `gbs_index_universe_classification` result, which assumes exactly one such classification per security/day; the source does not explicitly state uniqueness."
+      ],
+      "stylistic_notes": [
+        "Using document/url/document-part entities for the cited framework PDF is infrastructure rather than substantive semantics.",
+        "The ADVT threshold is modeled through a monetary amount object with currency/value/scale fields; this is a faithful formalization choice.",
+        "The appendix condition is encoded as membership in the set of RBICS subindustry classifications appearing in the appendix, which is reasonable though the appendix contents are left abstract."
+      ],
+      "confidence": 0.84,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4397,
+        "completion_tokens": 496,
+        "total_tokens": 4893
+      },
+      "latency_s": 10.146385908126831
+    },
+    {
+      "model": "claude-haiku-4-5",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully encodes all five Index Universe Requirements from the source text. Requirement 1 is captured via part_component_of_gbs_index_universe and the GBS Index entity chain. Requirement 2 is encoded as gbs_index_universe_classification with three entities (DevelopedMarketsEurope, Canada, UnitedStates). Requirement 3 is formalized as minimum_average_daily_value_traded >= threshold over declared lookback windows (1 and 6 months). Requirement 4 is split into two buffer rules (current company and not-current company) with the 60% threshold and highest-value selection logic. Requirement 5 is encoded via rbics_subindustry_classification and appendix membership. The final statement that determination is fully rule-based and the Index Administrator cannot make discretionary decisions is captured by the fully_rule_based predicate and the prohibition on discretionary decisions. All encodings trace to prelude infrastructure (Day, Event, Document, Organization, FinancialInstrument, LookbackWindow, Period) and local source definitions.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "IR introduces intermediate sorts (SelectionDay, Security, ShareClass, Company, GbsIndexUniverse, etc.) not explicitly named in source but derived from source noun-phrases and prelude infrastructure—this is standard a4v3 lowering.",
+        "Lookback window logic is reified as LookbackWindow entities with anchor-day and inclusion predicates, rather than inline temporal expressions—canonical a4v3 encoding.",
+        "The 60% threshold in buffer rule 4.1 is encoded as a numeric inequality (>= 60% *), which is the standard formalization of percentage comparisons.",
+        "The 'minimum of two lookback windows' logic (requirement 3) is captured via the constraint minimum_average_daily_value_traded_over_declared_lookback_windows, which asserts that the minimum is the lesser of the two window values—semantically equivalent to source's 'over 1 and 6 months'.",
+        "The prohibition on discretionary decisions uses the deontic prohibition construct, which is the canonical a4v3 encoding for 'cannot make discretionary decisions'.",
+        "Document reference (PDF URL and locator) is reified as Document, Url, DocumentPart, and DocumentLocator entities—prelude-standard infrastructure for external references."
+      ],
+      "confidence": 0.98,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 5642,
+        "completion_tokens": 608,
+        "total_tokens": 6250
+      },
+      "latency_s": 10.250477313995361
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "error": "normalize failed: Unexpected semantic_verdict: ''",
+      "raw_parsed": {},
+      "latency_s": 69.73020529747009
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "verdict": "corresponds",
+      "relation_type": "exact_equivalence",
+      "reason_short": "The IR faithfully formalizes all five index universe requirements and the concluding rule-based determination clause. Each natural language condition is mapped to a corresponding constraint, fact, or prohibition without altering the original meaning. The reification of financial concepts (e.g., lookback windows, buffer rules, classifications) and the mathematical definition of the minimum ADVT threshold follow standard a4v3 canonical practices and precisely capture the source semantics.",
+      "semantic_differences": [],
+      "stylistic_notes": [
+        "The IR explicitly reifies lookback windows and buffer rules as separate sorts and constraints, which is standard a4v3 infrastructure and does not change meaning.",
+        "The phrase 'minimum Average Daily Value Traded over 1 and 6 months' is formally captured as the mathematical minimum of the two period values, which is a precise and faithful interpretation.",
+        "The prohibition on discretionary decisions is correctly lowered to a `prohibition` declaration targeting the IndexAdministrator, aligning with a4v3 deontic lowering rules."
+      ],
+      "confidence": 0.95,
+      "consistency_issues": [],
+      "usage": {
+        "prompt_tokens": 4647,
+        "completion_tokens": 3707,
+        "total_tokens": 8354
+      },
+      "latency_s": 70.67637372016907
+    }
+  ],
+  "summary": {
+    "n_responding": 4,
+    "verdict_distribution": {
+      "partially_corresponds": 2,
+      "corresponds": 2
+    },
+    "mode_verdict": "partially_corresponds",
+    "agreement_rate": 0.5,
+    "unanimous": false,
+    "mean_confidence": 0.915
+  }
+}

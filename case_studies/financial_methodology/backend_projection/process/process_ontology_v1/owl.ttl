@@ -1,0 +1,262 @@
+@prefix ex: <http://example.org/a4v3#> .
+@prefix a4: <http://example.org/a4v3/meta#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:process_ontology_v1 a owl:Ontology .
+
+ex:Workflow a owl:Class .
+ex:ProcessStep a owl:Class .
+ex:ProcessTrigger a owl:Class .
+ex:ProcessInput a owl:Class .
+ex:ProcessOutput a owl:Class .
+ex:ProcessState a owl:Class .
+ex:ProcessStateCarrier a owl:Class .
+ex:ProcessGroundingTarget a owl:Class .
+ex:DocumentPart a owl:Class .
+ex:LocalAssertionName a owl:Class .
+ex:BridgeFamily a owl:Class .
+ex:BridgeDecision a owl:Class .
+ex:CanonicalConcept a owl:Class .
+ex:CanonicalFrame a owl:Class .
+ex:CanonicalFrame rdfs:subClassOf ex:CanonicalConcept .
+ex:CanonicalRole a owl:Class .
+ex:CanonicalRole rdfs:subClassOf ex:CanonicalConcept .
+ex:ProvenanceClaim a owl:Class .
+ex:CalendarMarker a owl:Class .
+ex:CalendarWindow a owl:Class .
+ex:CalendarWindow rdfs:subClassOf ex:CalendarMarker .
+ex:IndexComponentMembershipState a owl:Class ; owl:oneOf ( ex:GenericMembership ex:SelectedMembership ex:CalculationMembership ex:ImplementedMembership ) .
+ex:GenericMembership a ex:IndexComponentMembershipState, owl:NamedIndividual .
+ex:SelectedMembership a ex:IndexComponentMembershipState, owl:NamedIndividual .
+ex:CalculationMembership a ex:IndexComponentMembershipState, owl:NamedIndividual .
+ex:ImplementedMembership a ex:IndexComponentMembershipState, owl:NamedIndividual .
+ex:ProcessStateKind a owl:Class ; owl:oneOf ( ex:EligibleUniverseCandidate ex:EligibleComponentCandidate ex:SelectedComponent ex:CalculationDayComponent ex:ImplementedComponent ) .
+ex:EligibleUniverseCandidate a ex:ProcessStateKind, owl:NamedIndividual .
+ex:EligibleComponentCandidate a ex:ProcessStateKind, owl:NamedIndividual .
+ex:SelectedComponent a ex:ProcessStateKind, owl:NamedIndividual .
+ex:CalculationDayComponent a ex:ProcessStateKind, owl:NamedIndividual .
+ex:ImplementedComponent a ex:ProcessStateKind, owl:NamedIndividual .
+ex:ProcessOverlayStateKind a owl:Class ; owl:oneOf ( ex:CorporateActionAffectedComponent ex:CorporateActionAdjustedComponent ex:DisruptedDetermination ex:CorrectionPending ex:CorrectionResolved ex:ActiveIndex ex:TerminatedIndex ex:MethodologyUnderReview ex:MethodologyChanged ex:AmendmentPendingApproval ex:AmendmentApproved ) .
+ex:CorporateActionAffectedComponent a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:CorporateActionAdjustedComponent a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:DisruptedDetermination a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:CorrectionPending a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:CorrectionResolved a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:ActiveIndex a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:TerminatedIndex a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:MethodologyUnderReview a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:MethodologyChanged a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:AmendmentPendingApproval a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:AmendmentApproved a ex:ProcessOverlayStateKind, owl:NamedIndividual .
+ex:ProcessEdgeKind a owl:Class ; owl:oneOf ( ex:ExplicitSourceEdge ex:StructuralDependencyEdge ex:InferredMergeEdge ex:OperationalLoweringEdge ) .
+ex:ExplicitSourceEdge a ex:ProcessEdgeKind, owl:NamedIndividual .
+ex:StructuralDependencyEdge a ex:ProcessEdgeKind, owl:NamedIndividual .
+ex:InferredMergeEdge a ex:ProcessEdgeKind, owl:NamedIndividual .
+ex:OperationalLoweringEdge a ex:ProcessEdgeKind, owl:NamedIndividual .
+ex:OverlayBehavior a owl:Class ; owl:oneOf ( ex:Preempt ex:ModifyAndContinue ex:InterruptAndResume ex:Fallback ) .
+ex:Preempt a ex:OverlayBehavior, owl:NamedIndividual .
+ex:ModifyAndContinue a ex:OverlayBehavior, owl:NamedIndividual .
+ex:InterruptAndResume a ex:OverlayBehavior, owl:NamedIndividual .
+ex:Fallback a ex:OverlayBehavior, owl:NamedIndividual .
+ex:StepModality a owl:Class ; owl:oneOf ( ex:ObligatoryStep ex:PermittedStep ex:ProhibitedStep ex:DiscretionaryStep ex:DescriptiveStep ) .
+ex:ObligatoryStep a ex:StepModality, owl:NamedIndividual .
+ex:PermittedStep a ex:StepModality, owl:NamedIndividual .
+ex:ProhibitedStep a ex:StepModality, owl:NamedIndividual .
+ex:DiscretionaryStep a ex:StepModality, owl:NamedIndividual .
+ex:DescriptiveStep a ex:StepModality, owl:NamedIndividual .
+ex:ProcessTemporalRelation a owl:Class ; owl:oneOf ( ex:Before ex:After ex:SameTimeAs ex:During ex:OnOrBefore ex:OnOrAfter ) .
+ex:Before a ex:ProcessTemporalRelation, owl:NamedIndividual .
+ex:After a ex:ProcessTemporalRelation, owl:NamedIndividual .
+ex:SameTimeAs a ex:ProcessTemporalRelation, owl:NamedIndividual .
+ex:During a ex:ProcessTemporalRelation, owl:NamedIndividual .
+ex:OnOrBefore a ex:ProcessTemporalRelation, owl:NamedIndividual .
+ex:OnOrAfter a ex:ProcessTemporalRelation, owl:NamedIndividual .
+ex:IterationSemanticsStatus a owl:Class ; owl:oneOf ( ex:NoIteration ex:IterationSemanticsDeferred ex:FixedPointIteration ) .
+ex:NoIteration a ex:IterationSemanticsStatus, owl:NamedIndividual .
+ex:IterationSemanticsDeferred a ex:IterationSemanticsStatus, owl:NamedIndividual .
+ex:FixedPointIteration a ex:IterationSemanticsStatus, owl:NamedIndividual .
+ex:ProcessGroundingKind a owl:Class ; owl:oneOf ( ex:DocumentPartGrounding ex:LocalConstraintGrounding ex:LocalFactGrounding ex:BridgeDecisionGrounding ex:CanonicalConceptGrounding ex:ProvenanceGrounding ) .
+ex:DocumentPartGrounding a ex:ProcessGroundingKind, owl:NamedIndividual .
+ex:LocalConstraintGrounding a ex:ProcessGroundingKind, owl:NamedIndividual .
+ex:LocalFactGrounding a ex:ProcessGroundingKind, owl:NamedIndividual .
+ex:BridgeDecisionGrounding a ex:ProcessGroundingKind, owl:NamedIndividual .
+ex:CanonicalConceptGrounding a ex:ProcessGroundingKind, owl:NamedIndividual .
+ex:ProvenanceGrounding a ex:ProcessGroundingKind, owl:NamedIndividual .
+ex:ProcessIOKind a owl:Class ; owl:oneOf ( ex:DomainConceptIO ex:ObservationFrameIO ex:CalendarMarkerIO ex:ProcessStateIO ) .
+ex:DomainConceptIO a ex:ProcessIOKind, owl:NamedIndividual .
+ex:ObservationFrameIO a ex:ProcessIOKind, owl:NamedIndividual .
+ex:CalendarMarkerIO a ex:ProcessIOKind, owl:NamedIndividual .
+ex:ProcessStateIO a ex:ProcessIOKind, owl:NamedIndividual .
+
+ex:workflow_step a owl:ObjectProperty ;
+  rdfs:domain ex:Workflow ;
+  rdfs:range ex:ProcessStep .
+ex:workflow_invokes a owl:ObjectProperty ;
+  rdfs:domain ex:Workflow ;
+  rdfs:range ex:Workflow .
+ex:workflow_modifies a owl:ObjectProperty ;
+  rdfs:domain ex:Workflow ;
+  rdfs:range ex:Workflow .
+ex:workflow_interrupts a owl:ObjectProperty ;
+  rdfs:domain ex:Workflow ;
+  rdfs:range ex:Workflow .
+ex:step_precedes a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessStep .
+ex:step_edge_kind a owl:Class, a4:NaryRelationClass .
+ex:step_edge_kind_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:step_edge_kind ;
+  rdfs:range ex:ProcessStep .
+ex:step_edge_kind_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:step_edge_kind ;
+  rdfs:range ex:ProcessStep .
+ex:step_edge_kind_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:step_edge_kind ;
+  rdfs:range ex:ProcessEdgeKind .
+ex:step_temporal_relation a owl:Class, a4:NaryRelationClass .
+ex:step_temporal_relation_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:step_temporal_relation ;
+  rdfs:range ex:ProcessStep .
+ex:step_temporal_relation_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:step_temporal_relation ;
+  rdfs:range ex:ProcessStep .
+ex:step_temporal_relation_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:step_temporal_relation ;
+  rdfs:range ex:ProcessTemporalRelation .
+ex:step_overlay_behavior a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:OverlayBehavior .
+ex:step_modality a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:StepModality .
+ex:step_iteration_status a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:IterationSemanticsStatus .
+ex:step_triggered_by a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessTrigger .
+ex:trigger_calendar_marker a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessTrigger ;
+  rdfs:range ex:CalendarMarker .
+ex:trigger_precedes a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessTrigger ;
+  rdfs:range ex:ProcessTrigger .
+ex:trigger_temporal_relation a owl:Class, a4:NaryRelationClass .
+ex:trigger_temporal_relation_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:trigger_temporal_relation ;
+  rdfs:range ex:ProcessTrigger .
+ex:trigger_temporal_relation_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:trigger_temporal_relation ;
+  rdfs:range ex:ProcessTrigger .
+ex:trigger_temporal_relation_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:trigger_temporal_relation ;
+  rdfs:range ex:ProcessTemporalRelation .
+ex:trigger_relation_grounded_in a owl:Class, a4:NaryRelationClass .
+ex:trigger_relation_grounded_in_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:trigger_relation_grounded_in ;
+  rdfs:range ex:ProcessTrigger .
+ex:trigger_relation_grounded_in_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:trigger_relation_grounded_in ;
+  rdfs:range ex:ProcessTrigger .
+ex:trigger_relation_grounded_in_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:trigger_relation_grounded_in ;
+  rdfs:range ex:ProcessGroundingTarget .
+ex:calendar_window_start_marker a owl:ObjectProperty ;
+  rdfs:domain ex:CalendarWindow ;
+  rdfs:range ex:CalendarMarker .
+ex:calendar_window_end_marker a owl:ObjectProperty ;
+  rdfs:domain ex:CalendarWindow ;
+  rdfs:range ex:CalendarMarker .
+ex:step_during_calendar_window a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:CalendarWindow .
+ex:step_requires a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessInput .
+ex:step_produces a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessOutput .
+ex:input_kind a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessInput ;
+  rdfs:range ex:ProcessIOKind .
+ex:output_kind a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessOutput ;
+  rdfs:range ex:ProcessIOKind .
+ex:input_observation_frame a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessInput ;
+  rdfs:range ex:CanonicalFrame .
+ex:output_observation_frame a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessOutput ;
+  rdfs:range ex:CanonicalFrame .
+ex:input_canonical_concept a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessInput ;
+  rdfs:range ex:CanonicalConcept .
+ex:output_canonical_concept a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessOutput ;
+  rdfs:range ex:CanonicalConcept .
+ex:step_enters_state a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessState .
+ex:step_exits_state a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessState .
+ex:process_state_kind a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessState ;
+  rdfs:range ex:ProcessStateKind .
+ex:process_overlay_state_kind a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessState ;
+  rdfs:range ex:ProcessOverlayStateKind .
+ex:process_state_carrier a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessState ;
+  rdfs:range ex:ProcessStateCarrier .
+ex:process_state_corresponds_to_membership_state a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessState ;
+  rdfs:range ex:IndexComponentMembershipState .
+ex:process_state_kind_corresponds_to_membership_state a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStateKind ;
+  rdfs:range ex:IndexComponentMembershipState .
+ex:step_grounded_in_document_part a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:DocumentPart .
+ex:step_grounded_in a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessStep ;
+  rdfs:range ex:ProcessGroundingTarget .
+ex:edge_grounded_in a owl:Class, a4:NaryRelationClass .
+ex:edge_grounded_in_arg_0 a owl:ObjectProperty ;
+  rdfs:domain ex:edge_grounded_in ;
+  rdfs:range ex:ProcessStep .
+ex:edge_grounded_in_arg_1 a owl:ObjectProperty ;
+  rdfs:domain ex:edge_grounded_in ;
+  rdfs:range ex:ProcessStep .
+ex:edge_grounded_in_arg_2 a owl:ObjectProperty ;
+  rdfs:domain ex:edge_grounded_in ;
+  rdfs:range ex:ProcessGroundingTarget .
+ex:grounding_kind a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessGroundingTarget ;
+  rdfs:range ex:ProcessGroundingKind .
+ex:grounding_document_part a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessGroundingTarget ;
+  rdfs:range ex:DocumentPart .
+ex:grounding_local_assertion a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessGroundingTarget ;
+  rdfs:range ex:LocalAssertionName .
+ex:grounding_bridge_family a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessGroundingTarget ;
+  rdfs:range ex:BridgeFamily .
+ex:grounding_bridge_decision a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessGroundingTarget ;
+  rdfs:range ex:BridgeDecision .
+ex:grounding_canonical_concept a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessGroundingTarget ;
+  rdfs:range ex:CanonicalConcept .
+ex:grounding_provenance_claim a owl:ObjectProperty ;
+  rdfs:domain ex:ProcessGroundingTarget ;
+  rdfs:range ex:ProvenanceClaim .
+
+ex:SelectedComponent ex:process_state_kind_corresponds_to_membership_state ex:SelectedMembership .
+ex:CalculationDayComponent ex:process_state_kind_corresponds_to_membership_state ex:CalculationMembership .
+ex:ImplementedComponent ex:process_state_kind_corresponds_to_membership_state ex:ImplementedMembership .
