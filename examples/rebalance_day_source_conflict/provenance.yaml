@@ -1,0 +1,35 @@
+schema: rebalance_day_explicit_v3_provenance
+entry_id: rebalance_day_explicit_v3
+
+source_claims:
+  - id: scheduled_rebalance_day_definition
+    source_phrase: "REBALANCE DAY is the third Friday in March, June, September and December."
+    ir_assertion: scheduled_rebalance_day_definition
+    back_translation: "A scheduled rebalance day is a day that is the third Friday in one of the source-listed rebalance quarter months: March, June, September, or December."
+  - id: fallback_to_following_trading_day
+    source_phrase: "If that day is not a trading day, the REBALANCE DAY will be the immediately following trading day."
+    ir_assertion: fallback_to_following_trading_day
+    back_translation: "If a scheduled rebalance day is not a trading day, then the immediately following trading day is a Rebalance Day."
+  - id: no_postponement_if_scheduled_day_not_trading
+    source_phrase: "For the avoidance of doubt, the REBALANCE DAY is a fixed date and will not be postponed in case such day is not a trading day."
+    ir_assertion: fixed_date_no_postponement_claim
+    back_translation: "In the same scheduled-non-trading scenario, the immediately following trading day is not a Rebalance Day."
+
+translation_notes:
+  - id: source_conflict_preserved
+    kind: source_conflict
+    note: "The fallback clause and the no-postponement clarification are intentionally kept as separate contradictory constraints. This local IR does not resolve the conflict."
+  - id: rebalance_quarter_month_closed_enum
+    kind: compact_source_list
+    note: "RebalanceQuarterMonth is a closed local enum for March, June, September, and December, preventing accidental merge with a full Month enum."
+  - id: nth_friday_ternary_relation
+    kind: arity_explanation
+    note: "The ternary relation keeps the day, month, and ordinal roles explicit without introducing an additional calendar-occurrence carrier."
+
+vocabulary_notes:
+  RebalanceQuarterMonth: "Closed local enum for the four source-listed rebalance months."
+  ThirdWeekdayOrdinal: "Weekday ordinal with numeric value 3."
+  nth_friday_in_month: "Calendar relation linking a candidate day, a source-listed rebalance month, and the weekday ordinal."
+  scheduled_rebalance_day: "The third-Friday scheduled date before applying or rejecting postponement."
+  rebalance_day: "The Rebalance Day claim target; intentionally subject to conflicting source clauses in this fragment."
+  immediately_following_trading_day_after: "The next trading day after a scheduled date, with no intervening trading day."

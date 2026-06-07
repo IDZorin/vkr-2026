@@ -28,6 +28,9 @@ language rules into typed, traceable IR artifacts.
   pilot/mutation reports, and workflow summaries.
 - `examples/section_2_3_weighting/` - a compact checked example showing source,
   A4V3 IR, provenance, and a quality snapshot.
+- `examples/rebalance_day_source_conflict/` - a compact checked example showing
+  source-conflict preservation and an SMT witness for contradictory calendar
+  clauses.
 - `tools/check_entry.py` - a small deterministic check runner for one local IR
   entry.
 
@@ -39,6 +42,7 @@ Requires Python 3.10+.
 python -m venv .venv
 .venv/Scripts/python -m pip install -e .
 .venv/Scripts/python tools/check_entry.py examples/section_2_3_weighting
+.venv/Scripts/python tools/check_entry.py examples/rebalance_day_source_conflict
 .venv/Scripts/python tools/check_entry.py demos/russian_law/data
 .venv/Scripts/python tools/check_entry.py demos/draughts_64/data
 .venv/Scripts/python demos/run_recorded_demo.py

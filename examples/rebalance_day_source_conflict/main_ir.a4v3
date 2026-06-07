@@ -1,0 +1,59 @@
+sort WeekdayOrdinal extends Nat
+sort RebalanceQuarterMonth =
+  March
+  | June
+  | September
+  | December
+
+entity ThirdWeekdayOrdinal : WeekdayOrdinal
+
+fact third_weekday_ordinal_value :
+  ThirdWeekdayOrdinal = 3
+
+rel nth_friday_in_month : Day, RebalanceQuarterMonth, WeekdayOrdinal
+rel scheduled_rebalance_day : Day
+rel trading_day : Day
+rel rebalance_day : Day
+rel immediately_following_trading_day_after : Day, Day
+rel strictly_before : Day, Day
+
+constraint scheduled_rebalance_day_definition :
+  forall d: Day,
+    scheduled_rebalance_day(d)
+    iff
+      exists m: RebalanceQuarterMonth,
+        nth_friday_in_month(d, m, ThirdWeekdayOrdinal)
+
+constraint immediately_following_trading_day_after_definition :
+  forall d: Day, forall s: Day,
+    immediately_following_trading_day_after(d, s)
+    implies
+      strictly_before(s, d)
+      and trading_day(d)
+      and forall e: Day,
+        strictly_before(s, e)
+        and strictly_before(e, d)
+        implies not trading_day(e)
+
+-- Source clause 2: "If that day is not a trading day, the REBALANCE DAY
+--   will be the immediately following trading day."
+--   In the conditional scenario (scheduled-non-trading), the next
+--   trading day IS the Rebalance Day.
+constraint fallback_to_following_trading_day :
+  forall s: Day, forall d: Day,
+    scheduled_rebalance_day(s)
+    and not trading_day(s)
+    and immediately_following_trading_day_after(d, s)
+    implies rebalance_day(d)
+
+-- Source clause 3: "For the avoidance of doubt, the REBALANCE DAY is a
+--   fixed date and will not be postponed in case such day is not a
+--   trading day."
+--   In the same conditional scenario (scheduled-non-trading), the next
+--   trading day is NOT the Rebalance Day (no postponement).
+constraint fixed_date_no_postponement_claim :
+  forall s: Day, forall d: Day,
+    scheduled_rebalance_day(s)
+    and not trading_day(s)
+    and immediately_following_trading_day_after(d, s)
+    implies not rebalance_day(d)
